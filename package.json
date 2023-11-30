@@ -22,6 +22,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/next-js": "^2.1.5",
     "@chakra-ui/react": "^2.8.1",
     "@emotion/react": "^11.11.1",
@@ -43,6 +44,7 @@
     "cross-env": "^7.0.3",
     "eslint": "^8.51.0",
     "eslint-config-next": "^13.5.4",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-config-sznm": "^2.0.2",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",

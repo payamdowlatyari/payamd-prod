@@ -1,26 +1,70 @@
-'use client';
+"use client";
 
-import { Flex } from '@chakra-ui/react';
+import { Flex, Container, TabPanels, TabPanel } from "@chakra-ui/react";
 
-import CTASection from '~/lib/components/samples/CTASection';
-import SomeImage from '~/lib/components/samples/SomeImage';
-import SomeText from '~/lib/components/samples/SomeText';
+import About from "~/lib/components/Sections/About/About";
+import Portfolio from "~/lib/components/Sections/Portfolio/Portfolio";
+import Resume from "~/lib/components/Sections/Resume";
+import Title from "~/lib/components/Sections/Title/Title";
 
 const Home = () => {
   return (
-    <Flex
-      direction="column"
-      alignItems="center"
-      justifyContent="center"
-      minHeight="70vh"
-      gap={4}
-      mb={8}
-      w="full"
-    >
-      <SomeText />
-      <SomeImage />
-      <CTASection />
-    </Flex>
+    <Container size="lg">
+      <TabPanels>
+        <TabPanel>
+          <Flex
+            direction="column"
+            alignItems="flex-start"
+            justifyContent="center"
+            minHeight="70vh"
+            gap={2}
+            mb={8}
+            w="full"
+          >
+            <Title />
+          </Flex>
+        </TabPanel>
+        <TabPanel>
+          <Flex
+            direction="column"
+            alignItems="flex-start"
+            justifyContent="center"
+            minHeight="70vh"
+            gap={2}
+            mb={8}
+            w="full"
+          >
+            <About />
+          </Flex>
+        </TabPanel>
+        <TabPanel>
+          <Flex
+            direction="column"
+            alignItems="flex-start"
+            justifyContent="center"
+            minHeight="70vh"
+            gap={2}
+            mb={8}
+            w="full"
+          >
+            <Resume />
+          </Flex>
+        </TabPanel>
+        <TabPanel>
+          <Flex
+            direction="column"
+            alignItems="flex-start"
+            justifyContent="center"
+            minHeight="70vh"
+            gap={2}
+            mb={8}
+            w="full"
+          >
+            <Portfolio />
+          </Flex>
+        </TabPanel>
+      </TabPanels>
+    </Container>
   );
 };
 
