@@ -10,7 +10,7 @@ import {
   Box,
 } from "@chakra-ui/react";
 
-const SomeImage = () => {
+const Portfolio = () => {
   return (
     <Grid textAlign="left">
       <Heading as="h1" size="4xl" m={2} color="#4299E1">
@@ -58,4 +58,4 @@ const SomeImage = () => {
   );
 };
 
-export default SomeImage;
+export default Portfolio;

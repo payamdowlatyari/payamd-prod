@@ -1,6 +1,6 @@
 import { Grid, Heading, Text } from "@chakra-ui/react";
 
-const SomeText = () => {
+const About = () => {
   return (
     <Grid textAlign="left">
       <Heading as="h1" size="3xl" m={2} color="#F56565">
@@ -23,4 +23,4 @@ const SomeText = () => {
   );
 };
 
-export default SomeText;
+export default About;
