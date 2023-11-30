@@ -1,5 +1,3 @@
-"use client";
-
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { Text, LinkBox, LinkOverlay } from "@chakra-ui/react";
 

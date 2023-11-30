@@ -1,5 +1,3 @@
-"use client";
-
 import { CheckIcon } from "@chakra-ui/icons";
 import {
   Flex,
@@ -12,7 +10,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-const Experience = () => {
+export const Experience = () => {
   return (
     <>
       <Flex>

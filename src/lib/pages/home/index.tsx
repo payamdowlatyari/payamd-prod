@@ -2,10 +2,10 @@
 
 import { Flex, Container, TabPanels, TabPanel } from "@chakra-ui/react";
 
-import About from "../../components/Sections/About/index";
-import Portfolio from "../../components/Sections/Portfolio/index";
-import Resume from "../../components/Sections/Resume/index";
-import Title from "../../components/Sections/Title/index";
+import About from "~/lib/components/Sections/About/index";
+import Portfolio from "~/lib/components/Sections/Portfolio/index";
+import Resume from "~/lib/components/Sections/Resume/index";
+import Title from "~/lib/components/Sections/Title/index";
 
 const Home = () => {
   return (

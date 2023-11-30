@@ -1,5 +1,3 @@
-"use client";
-
 import { ExternalLinkIcon, SmallAddIcon } from "@chakra-ui/icons";
 import {
   List,

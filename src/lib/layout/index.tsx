@@ -19,7 +19,7 @@ const Layout = ({ children }: LayoutProps) => {
             <Tab>Home</Tab>
             <Tab>About</Tab>
             <Tab>Resume</Tab>
-            {/* <Tab>Portfolio</Tab> */}
+            <Tab>Portfolio</Tab>
             <Header />
           </TabList>
           <TabIndicator mt="-1.5px" height="1px" bg="CaptionText" />

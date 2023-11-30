@@ -1,5 +1,3 @@
-"use client";
-
 import { CheckIcon } from "@chakra-ui/icons";
 import {
   Flex,

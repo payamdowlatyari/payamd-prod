@@ -1,5 +1,3 @@
-"use client";
-
 import { Divider, Box, Stack, AbsoluteCenter, Tooltip } from "@chakra-ui/react";
 
 const Skills = () => {
