@@ -1,4 +1,4 @@
-import { CheckIcon } from "@chakra-ui/icons";
+import { CheckIcon } from '@chakra-ui/icons';
 import {
   Flex,
   Spacer,
@@ -8,7 +8,7 @@ import {
   ListIcon,
   Box,
   Text,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
 
 const Education = () => {
   return (
@@ -17,12 +17,12 @@ const Education = () => {
         <Box p={1}>
           <Text p={1}>
             <b>UC Irvine</b>, <i>Software Engineering B.S.</i>
-          </Text>{" "}
+          </Text>{' '}
         </Box>
         <Spacer />
         <Box p={1}>
           <Tag>Class 2020</Tag>
-        </Box>{" "}
+        </Box>{' '}
       </Flex>
       <List>
         <ListItem fontSize="sm">

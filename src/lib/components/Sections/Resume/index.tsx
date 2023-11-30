@@ -8,14 +8,14 @@ import {
   Grid,
   Heading,
   Text,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
 
-import Certificates from "./Certificates";
-import Education from "./Education";
-import Experience from "./Experience";
-import Projects from "./Projects";
-import Publications from "./Publications";
-import Skills from "./Skills";
+import Certificates from './Certificates';
+import Education from './Education';
+import Experience from './Experience';
+import Projects from './Projects';
+import Publications from './Publications';
+import Skills from './Skills';
 
 const Resume = () => {
   return (
@@ -32,7 +32,7 @@ const Resume = () => {
         <Accordion allowToggle>
           <AccordionItem>
             <h2>
-              <AccordionButton _expanded={{ bg: "#319795", color: "white" }}>
+              <AccordionButton _expanded={{ bg: '#319795', color: 'white' }}>
                 <Box as="b" flex="1" textAlign="left">
                   Experience
                 </Box>
@@ -45,7 +45,7 @@ const Resume = () => {
           </AccordionItem>
           <AccordionItem>
             <h2>
-              <AccordionButton _expanded={{ bg: "#319795", color: "white" }}>
+              <AccordionButton _expanded={{ bg: '#319795', color: 'white' }}>
                 <Box as="b" flex="1" textAlign="left">
                   Education
                 </Box>
@@ -58,7 +58,7 @@ const Resume = () => {
           </AccordionItem>
           <AccordionItem>
             <h2>
-              <AccordionButton _expanded={{ bg: "#319795", color: "white" }}>
+              <AccordionButton _expanded={{ bg: '#319795', color: 'white' }}>
                 <Box as="b" flex="1" textAlign="left">
                   Skills
                 </Box>
@@ -72,7 +72,7 @@ const Resume = () => {
 
           <AccordionItem>
             <h2>
-              <AccordionButton _expanded={{ bg: "#319795", color: "white" }}>
+              <AccordionButton _expanded={{ bg: '#319795', color: 'white' }}>
                 <Box as="b" flex="1" textAlign="left">
                   Projects
                 </Box>
@@ -85,7 +85,7 @@ const Resume = () => {
           </AccordionItem>
           <AccordionItem>
             <h2>
-              <AccordionButton _expanded={{ bg: "#319795", color: "white" }}>
+              <AccordionButton _expanded={{ bg: '#319795', color: 'white' }}>
                 <Box as="b" flex="1" textAlign="left">
                   Publications
                 </Box>
@@ -98,7 +98,7 @@ const Resume = () => {
           </AccordionItem>
           <AccordionItem>
             <h2>
-              <AccordionButton _expanded={{ bg: "#319795", color: "white" }}>
+              <AccordionButton _expanded={{ bg: '#319795', color: 'white' }}>
                 <Box as="b" flex="1" textAlign="left">
                   Certificates
                 </Box>

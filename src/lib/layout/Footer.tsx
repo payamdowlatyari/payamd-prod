@@ -1,4 +1,4 @@
-import { Flex, Link, Text } from "@chakra-ui/react";
+import { Flex, Link, Text } from '@chakra-ui/react';
 
 const Footer = () => {
   return (
@@ -11,7 +11,7 @@ const Footer = () => {
         >
           payamd.com
         </Link>
-        {" © "}
+        {' © '}
         {new Date().getFullYear()}
       </Text>
     </Flex>

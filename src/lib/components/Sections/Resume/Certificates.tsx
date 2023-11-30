@@ -1,5 +1,5 @@
-import { ExternalLinkIcon } from "@chakra-ui/icons";
-import { Text, LinkBox, LinkOverlay } from "@chakra-ui/react";
+import { ExternalLinkIcon } from '@chakra-ui/icons';
+import { Text, LinkBox, LinkOverlay } from '@chakra-ui/react';
 
 const Certificates = () => {
   return (

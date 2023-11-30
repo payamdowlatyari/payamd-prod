@@ -8,7 +8,7 @@ import {
   StackDivider,
   Stack,
   Box,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
 
 const Portfolio = () => {
   return (
@@ -18,7 +18,7 @@ const Portfolio = () => {
         Portfolio
       </Heading>
       <Card
-        direction={{ base: "column", sm: "row" }}
+        direction={{ base: 'column', sm: 'row' }}
         overflow="hidden"
         variant="outline"
       >

@@ -1,16 +1,18 @@
-"use client";
+'use client';
 
-import { Flex, Container, TabPanels, TabPanel } from "@chakra-ui/react";
+// import { Flex, Container, TabPanels, TabPanel } from '@chakra-ui/react';
+import { Container } from '@chakra-ui/react';
 
-import About from "~/lib/components/Sections/About/index";
-import Portfolio from "~/lib/components/Sections/Portfolio/index";
-import Resume from "~/lib/components/Sections/Resume/index";
-import Title from "~/lib/components/Sections/Title/index";
+// import About from "~/lib/components/Sections/About/index";
+// import Portfolio from "~/lib/components/Sections/Portfolio/index";
+// import Resume from "~/lib/components/Sections/Resume/index";
+// import Title from "~/lib/components/Sections/Title/index";
 
 const Home = () => {
   return (
     <Container size="lg">
-      <TabPanels>
+      Hello
+      {/* <TabPanels>
         <TabPanel>
           <Flex
             direction="column"
@@ -63,7 +65,7 @@ const Home = () => {
             <Portfolio />
           </Flex>
         </TabPanel>
-      </TabPanels>
+      </TabPanels> */}
     </Container>
   );
 };

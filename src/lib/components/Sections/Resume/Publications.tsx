@@ -1,5 +1,5 @@
-import { ExternalLinkIcon } from "@chakra-ui/icons";
-import { Text, LinkBox, LinkOverlay, Divider, Stack } from "@chakra-ui/react";
+import { ExternalLinkIcon } from '@chakra-ui/icons';
+import { Text, LinkBox, LinkOverlay, Divider, Stack } from '@chakra-ui/react';
 
 const Publications = () => {
   return (
@@ -10,8 +10,8 @@ const Publications = () => {
       <Text fontSize="sm" pb={1}>
         <i>
           Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous
-          Technologies December 2020 Article No.: 126{" "}
-        </i>{" "}
+          Technologies December 2020 Article No.: 126{' '}
+        </i>{' '}
         <ExternalLinkIcon />
       </Text>
       <Stack direction="row" h="220px" p={4}>
@@ -20,7 +20,7 @@ const Publications = () => {
           <b>Abstract:</b> The research community on the study and design of
           systems for personal informatics has grown over the past decade. To
           take stock of what the topics the field has studied and methods the
-          field has used, we map and label 523 publications from ACM's library,
+          field has used, we map and label 523 publications from ACM library,
           IEEE Xplore, and PubMed. We surface that the literature has focused on
           studying and designing for health and wellness domains, an emphasis on
           understanding and overcoming barriers to data collection and

@@ -1,39 +1,39 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
-import Providers from "~/app/providers";
-import Layout from "~/lib/layout";
+import Providers from '~/app/providers';
+import Layout from '~/lib/layout';
 
 type RootLayoutProps = {
   children: React.ReactNode;
 };
 
-const APP_NAME = "Payam Dowlatyari";
+const APP_NAME = 'Payam Dowlatyari';
 
 export const metadata: Metadata = {
-  title: { default: APP_NAME, template: "%s | nextarter-chakra" },
-  description: "Next.js + chakra-ui + TypeScript template",
+  title: { default: APP_NAME, template: '%s | nextarter-chakra' },
+  description: 'Next.js + chakra-ui + TypeScript template',
   viewport: {
-    width: "device-width",
+    width: 'device-width',
     initialScale: 1,
   },
   applicationName: APP_NAME,
   appleWebApp: {
     capable: true,
     title: APP_NAME,
-    statusBarStyle: "default",
+    statusBarStyle: 'default',
   },
   formatDetection: {
     telephone: false,
   },
-  themeColor: "#FFFFFF",
+  themeColor: '#FFFFFF',
   openGraph: {
-    url: "https://nextarter-chakra.sznm.dev",
-    title: "Portfolio",
-    description: "A sample portfolio with Next.js + chakra-ui",
+    url: 'https://nextarter-chakra.sznm.dev',
+    title: 'Portfolio',
+    description: 'A sample portfolio with Next.js + chakra-ui',
   },
   twitter: {
-    creator: "@sozonome",
-    card: "summary_large_image",
+    creator: '@sozonome',
+    card: 'summary_large_image',
   },
 };
 

@@ -1,4 +1,4 @@
-import { CheckIcon } from "@chakra-ui/icons";
+import { CheckIcon } from '@chakra-ui/icons';
 import {
   Flex,
   Spacer,
@@ -8,21 +8,21 @@ import {
   ListIcon,
   Box,
   Text,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
 
-export const Experience = () => {
+const Experience = () => {
   return (
     <>
       <Flex>
         <Box p={1}>
           <Text p={1}>
             <b>Software Engineer</b>, <i>Amplify.ai</i>
-          </Text>{" "}
+          </Text>{' '}
         </Box>
         <Spacer />
         <Box p={1}>
           <Tag>Dec 2020 - Nov 2023</Tag>
-        </Box>{" "}
+        </Box>{' '}
       </Flex>
       <List>
         <ListItem fontSize="sm">
@@ -50,12 +50,12 @@ export const Experience = () => {
         <Box p={1}>
           <Text p={1}>
             <b>Full Stack Web Developer</b>, <i>Freelance</i>
-          </Text>{" "}
+          </Text>{' '}
         </Box>
         <Spacer />
         <Box p={1}>
           <Tag>Sep 2019 - Present</Tag>
-        </Box>{" "}
+        </Box>{' '}
       </Flex>
       <List>
         <ListItem fontSize="sm">

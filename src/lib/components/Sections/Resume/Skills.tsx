@@ -1,4 +1,4 @@
-import { Divider, Box, Stack, AbsoluteCenter, Tooltip } from "@chakra-ui/react";
+import { Divider, Box, Stack, AbsoluteCenter, Tooltip } from '@chakra-ui/react';
 
 const Skills = () => {
   return (
@@ -7,7 +7,7 @@ const Skills = () => {
         <Divider />
         <AbsoluteCenter px="4">Frontend</AbsoluteCenter>
       </Box>
-      <Stack direction={["column", "row"]} spacing="5px" pb={3}>
+      <Stack direction={['column', 'row']} spacing="5px" pb={3}>
         {/* HTML5  */}
         <Tooltip label="HTML5">
           <Box height="50px" width="50px" p="1" m="1" bgColor="#fff">
@@ -106,7 +106,7 @@ const Skills = () => {
         <AbsoluteCenter px="4">Backend</AbsoluteCenter>
       </Box>
 
-      <Stack direction={["column", "row"]} spacing="5px" pb={3}>
+      <Stack direction={['column', 'row']} spacing="5px" pb={3}>
         <Tooltip label="ExpressJS">
           {/* Express  */}
           <Box height="50px" width="50px" p="1" m="1" bgColor="#fff">
@@ -355,7 +355,7 @@ const Skills = () => {
         <AbsoluteCenter px="4">DevOps</AbsoluteCenter>
       </Box>
 
-      <Stack direction={["column", "row"]} spacing="5px">
+      <Stack direction={['column', 'row']} spacing="5px">
         <Tooltip label="git">
           {/* git */}
           <Box height="50px" width="50px" p="1" m="1" bgColor="#fff">
@@ -454,7 +454,7 @@ const Skills = () => {
         <AbsoluteCenter px="4">UI/UX</AbsoluteCenter>
       </Box>
 
-      <Stack direction={["column", "row"]} spacing="5px">
+      <Stack direction={['column', 'row']} spacing="5px">
         <Tooltip label="Figma">
           {/* Figma */}
           <Box height="50px" width="50px" p="1" m="1" bgColor="#fff">
