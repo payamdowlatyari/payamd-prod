@@ -10,13 +10,13 @@ type RootLayoutProps = {
 const APP_NAME = "Payam Dowlatyari";
 
 export const viewport: Viewport = {
-  themeColor: '#e9dfce',
-}
+  themeColor: "#e9dfce",
+};
 
 export const metadata: Metadata = {
   title: { default: APP_NAME, template: "%s | Portfolio" },
   description: "Next.js +  Chakra-ui and Framer Motion",
-  metadataBase: new URL('https://nextjs-starter-lemon-sigma.vercel.app'),
+  metadataBase: new URL("https://nextjs-starter-lemon-sigma.vercel.app"),
   applicationName: APP_NAME,
   appleWebApp: {
     capable: true,
