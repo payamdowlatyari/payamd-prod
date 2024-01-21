@@ -1,20 +1,18 @@
-import { Flex, Link, Text } from '@chakra-ui/react';
-
 const Footer = () => {
   return (
-    <Flex as="footer" width="full" justifyContent="center">
-      <Text fontSize="sm">
-        <Link
+    <div className="footer">
+      <p>
+        <a
+          className="underlined underlinedThick"
           href="https://www.payamd.com"
-          isExternal
-          rel="noopener noreferrer"
+          target="_blanck"
         >
           payamd.com
-        </Link>
-        {' © '}
+        </a>
+        {" © "}
         {new Date().getFullYear()}
-      </Text>
-    </Flex>
+      </p>
+    </div>
   );
 };
 

@@ -1,4 +1,4 @@
-import { ExternalLinkIcon, SmallAddIcon } from '@chakra-ui/icons';
+import { ExternalLinkIcon, SmallAddIcon } from "@chakra-ui/icons";
 import {
   List,
   ListItem,
@@ -6,7 +6,7 @@ import {
   Text,
   LinkBox,
   LinkOverlay,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 
 const Projects = () => {
   return (

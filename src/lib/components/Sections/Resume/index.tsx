@@ -1,117 +1,81 @@
-import {
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-  Box,
-  Grid,
-  Heading,
-  Text,
-} from '@chakra-ui/react';
+import { SimpleGrid, VStack } from "@chakra-ui/react";
 
-import Certificates from './Certificates';
-import Education from './Education';
-import Experience from './Experience';
-import Projects from './Projects';
-import Publications from './Publications';
-import Skills from './Skills';
+import Certificates from "./Certificates";
+import Education from "./Education";
+import Experience from "./Experience";
+import Publications from "./Publications";
+import {
+  AnimatePresence,
+  motion,
+  useInView,
+  useWillChange,
+} from "framer-motion";
+import { useRef } from "react";
+import { ArrowDownIcon } from "@chakra-ui/icons";
 
 const Resume = () => {
+  const resume = useRef(null);
+  const isInView = useInView(resume);
+  const willChange = useWillChange();
+
   return (
-    <Box textAlign="left" width="100%">
-      <Heading as="h1" size="3xl" mb={4} color="#319795">
-        my <br />
-        Resume
-      </Heading>
-      <Text m={4} fontSize="2xl">
-        <b> Full Stack Engineer</b>
-      </Text>
-
-      <Grid>
-        <Accordion allowToggle>
-          <AccordionItem>
-            <h2>
-              <AccordionButton _expanded={{ bg: '#319795', color: 'white' }}>
-                <Box as="b" flex="1" textAlign="left">
-                  Experience
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-            </h2>
-            <AccordionPanel pb={4}>
-              <Experience />
-            </AccordionPanel>
-          </AccordionItem>
-          <AccordionItem>
-            <h2>
-              <AccordionButton _expanded={{ bg: '#319795', color: 'white' }}>
-                <Box as="b" flex="1" textAlign="left">
-                  Education
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-            </h2>
-            <AccordionPanel pb={4}>
-              <Education />
-            </AccordionPanel>
-          </AccordionItem>
-          <AccordionItem>
-            <h2>
-              <AccordionButton _expanded={{ bg: '#319795', color: 'white' }}>
-                <Box as="b" flex="1" textAlign="left">
-                  Skills
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-            </h2>
-            <AccordionPanel pb={4}>
-              <Skills />
-            </AccordionPanel>
-          </AccordionItem>
-
-          <AccordionItem>
-            <h2>
-              <AccordionButton _expanded={{ bg: '#319795', color: 'white' }}>
-                <Box as="b" flex="1" textAlign="left">
-                  Projects
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-            </h2>
-            <AccordionPanel pb={4}>
-              <Projects />
-            </AccordionPanel>
-          </AccordionItem>
-          <AccordionItem>
-            <h2>
-              <AccordionButton _expanded={{ bg: '#319795', color: 'white' }}>
-                <Box as="b" flex="1" textAlign="left">
-                  Publications
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-            </h2>
-            <AccordionPanel pb={4}>
-              <Publications />
-            </AccordionPanel>
-          </AccordionItem>
-          <AccordionItem>
-            <h2>
-              <AccordionButton _expanded={{ bg: '#319795', color: 'white' }}>
-                <Box as="b" flex="1" textAlign="left">
-                  Certificates
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-            </h2>
-            <AccordionPanel pb={4}>
-              <Certificates />
-            </AccordionPanel>
-          </AccordionItem>
-        </Accordion>
-      </Grid>
-    </Box>
+    <motion.section
+      id="resume"
+      ref={resume}
+      layoutScroll
+      style={{ willChange }}
+    >
+      <AnimatePresence initial={false}>
+        {isInView && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 1,
+              delay: 1,
+            }}
+          >
+            <VStack spacing={2} align="initial">
+              <motion.h1>resume</motion.h1>
+              <motion.div
+                style={{
+                  paddingLeft: "1em",
+                }}
+              >
+                <motion.a href="#skills">
+                  my skills <br />
+                  <ArrowDownIcon />
+                </motion.a>
+              </motion.div>
+              <SimpleGrid
+                maxWidth="100vw"
+                minChildWidth="250px"
+                spacing="20px"
+                className="second"
+              >
+                <motion.div
+                  className="third"
+                  style={{
+                    padding: "1em",
+                  }}
+                >
+                  <motion.h3>Experience</motion.h3>
+                  <Experience />
+                </motion.div>
+                <motion.div className="second">
+                  <motion.h3>Education</motion.h3>
+                  <Education />
+                  <motion.h3>Certificates</motion.h3>
+                  <Certificates />
+                  <motion.h3>Publications</motion.h3>
+                  <Publications />
+                </motion.div>
+              </SimpleGrid>
+            </VStack>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.section>
   );
 };
 

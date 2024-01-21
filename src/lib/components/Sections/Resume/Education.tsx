@@ -1,30 +1,29 @@
-import { CheckIcon } from '@chakra-ui/icons';
+import { CheckIcon } from "@chakra-ui/icons";
 import {
   Flex,
   Spacer,
-  Tag,
   List,
   ListItem,
   ListIcon,
   Box,
   Text,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 
 const Education = () => {
   return (
     <>
-      <Flex>
+      <Flex p={1}>
         <Box p={1}>
-          <Text p={1}>
+          <Text>
             <b>UC Irvine</b>, <i>Software Engineering B.S.</i>
-          </Text>{' '}
+          </Text>{" "}
         </Box>
         <Spacer />
-        <Box p={1}>
-          <Tag>Class 2020</Tag>
-        </Box>{' '}
+        <Box p={2}>
+          <Text fontSize="xs">Class 2020</Text>
+        </Box>{" "}
       </Flex>
-      <List>
+      <List pb={4}>
         <ListItem fontSize="sm">
           <ListIcon as={CheckIcon} />
           Capstone: Grid-Level Energy Negotiation for EVSE

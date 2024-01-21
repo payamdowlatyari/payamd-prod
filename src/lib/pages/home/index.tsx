@@ -1,70 +1,41 @@
-'use client';
+"use client";
 
-import { Container, Flex, TabPanels, TabPanel } from '@chakra-ui/react';
-
-import About from '~/lib/components/Sections/About/index';
-import Portfolio from '~/lib/components/Sections/Portfolio/index';
-import Resume from '~/lib/components/Sections/Resume/index';
-import Title from '~/lib/components/Sections/Title/index';
+import "../../styles/globals.css";
+import { motion, useSpring, useScroll } from "framer-motion";
+import About from "~/lib/components/Sections/About";
+import Title from "~/lib/components/Sections/Title";
+import Contact from "~/lib/components/Sections/Contact";
+import Gallery from "~/lib/components/motion/Gallery";
+import Menu from "~/lib/components/motion/Menu/Menu";
+import Footer from "~/lib/layout/Footer";
+import Skills from "~/lib/components/Sections/Resume/Skills";
+import Resume from "~/lib/components/Sections/Resume";
+import Logo from "~/lib/components/Sections/Title/Logo";
+import Header from "~/lib/layout/Header";
 
 const Home = () => {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
   return (
-    <Container size="lg">
-      <TabPanels>
-        <TabPanel>
-          <Flex
-            direction="column"
-            alignItems="flex-start"
-            justifyContent="center"
-            minHeight="70vh"
-            gap={2}
-            mb={8}
-            w="full"
-          >
-            <Title />
-          </Flex>
-        </TabPanel>
-        <TabPanel>
-          <Flex
-            direction="column"
-            alignItems="flex-start"
-            justifyContent="center"
-            minHeight="70vh"
-            gap={2}
-            mb={8}
-            w="full"
-          >
-            <About />
-          </Flex>
-        </TabPanel>
-        <TabPanel>
-          <Flex
-            direction="column"
-            alignItems="flex-start"
-            justifyContent="center"
-            minHeight="70vh"
-            gap={2}
-            mb={8}
-            w="full"
-          >
-            <Resume />
-          </Flex>
-        </TabPanel>
-        <TabPanel>
-          <Flex
-            direction="column"
-            alignItems="flex-start"
-            justifyContent="center"
-            minHeight="70vh"
-            gap={2}
-            mb={8}
-            w="full"
-          >
-            <Portfolio />
-          </Flex>
-        </TabPanel>
-      </TabPanels>
-    </Container>
+    <>
+      <Menu />
+
+      <Title />
+      <Header />
+      <Logo />
+      <About />
+      <Resume />
+      <Skills />
+      <Gallery />
+      <Contact />
+      <motion.div className="progress" style={{ scaleX }} />
+      <Footer />
+    </>
   );
 };
 
