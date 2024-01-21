@@ -10,8 +10,8 @@ type RootLayoutProps = {
 const APP_NAME = "Payam Dowlatyari";
 
 export const metadata: Metadata = {
-  title: { default: APP_NAME, template: "%s | nextarter-chakra" },
-  description: "Next.js + chakra-ui + TypeScript template",
+  title: { default: APP_NAME, template: "%s | Portfolio" },
+  description: "Next.js +  Chakra-ui and Framer Motion",
   viewport: {
     width: "device-width",
     initialScale: 1,
@@ -22,18 +22,9 @@ export const metadata: Metadata = {
     title: APP_NAME,
     statusBarStyle: "default",
   },
+  keywords: ['Next.js', 'React', 'TypeScript'],
   formatDetection: {
     telephone: false,
-  },
-  themeColor: "#FFFFFF",
-  openGraph: {
-    url: "https://nextarter-chakra.sznm.dev",
-    title: "Portfolio",
-    description: "A sample portfolio with Next.js + chakra-ui",
-  },
-  twitter: {
-    creator: "@sozonome",
-    card: "summary_large_image",
   },
 };
 
