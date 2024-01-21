@@ -26,6 +26,11 @@ export const metadata: Metadata = {
   formatDetection: {
     telephone: false,
   },
+  openGraph: {
+    url: "https://nextjs-starter-lemon-sigma.vercel.app",
+    title: "Payam D",
+    description: "Animation with Next.js + Chakra-ui and Framer Motion",
+  },
 };
 
 const RootLayout = ({ children }: RootLayoutProps) => {
