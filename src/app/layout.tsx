@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: APP_NAME,
     statusBarStyle: "default",
   },
-  keywords: ['Next.js', 'React', 'TypeScript'],
+  keywords: ["Next.js", "React", "TypeScript"],
   formatDetection: {
     telephone: false,
   },
