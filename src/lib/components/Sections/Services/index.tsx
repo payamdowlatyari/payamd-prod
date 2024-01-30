@@ -3,15 +3,10 @@ import {
   useScroll,
   useTransform,
   motion,
-  useInView,
-  cubicBezier,
   easeIn,
 } from "framer-motion";
 import { useRef } from "react";
 import { data } from "./data";
-import Link from "next/link";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
-import ParallaxText from "../../motion/ParallaxText";
 
 export default function Services() {
   const ref = useRef(null);

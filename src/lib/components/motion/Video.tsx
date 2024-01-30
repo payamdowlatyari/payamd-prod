@@ -6,7 +6,6 @@ export default function VideoPlay() {
   if (video) {
     video.pause();
 
-    // Scrub through the video on scroll
     scroll((progress) => {
       if (video.readyState) {
         video.currentTime = video.duration * progress;
@@ -18,10 +17,10 @@ export default function VideoPlay() {
     <div className="video-container">
       <video
         muted
-        autoPlay={true}
+        autoPlay
         loop
         src="https://storage.googleapis.com/www.payamd.com/Portfolio/stuff-5575178-1080p.mp4"
-      ></video>
+      />
     </div>
   );
 }

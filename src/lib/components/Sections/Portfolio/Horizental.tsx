@@ -3,20 +3,6 @@ import { motion, useScroll } from "framer-motion";
 import Card from "../../motion/Card";
 import data from "./data";
 
-const getProjects = (projects: any) => {
-  return (
-    <>
-      {projects?.map((project: any) => {
-        return (
-          <li className="card">
-            <Card item={project} />
-          </li>
-        );
-      })}
-    </>
-  );
-};
-
 export default function Horizental() {
   const ref = useRef(null);
   const { scrollXProgress } = useScroll({ container: ref });
@@ -50,7 +36,13 @@ export default function Horizental() {
       </svg>
       {/* <motion.div style={{ width: '100vw', height: '10vh', position: 'fixed', top: '0'}}></motion.div> */}
       <ul ref={ref} className="cards">
-        {getProjects(data)}
+        {data?.map((project: any) => {
+          return (
+            <li className="card">
+              <Card item={project} />
+            </li>
+          );
+        })}
       </ul>
     </motion.section>
   );

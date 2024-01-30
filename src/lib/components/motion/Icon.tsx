@@ -31,20 +31,20 @@ export default function Icon({ id, del }: any) {
         padding: "0.3em",
       }}
     >
-      {/* <AnimatePresence initial={false}>
-        {isInView && ( */}
-      <motion.path
-        d={id}
-        variants={icon}
-        initial="hidden"
-        animate="visible"
-        transition={{
-          default: { delay: del, duration: 2, ease: "easeInOut" },
-          fill: { duration: 1, ease: [0, 0, 0.8, 1] },
-        }}
-      />
-      {/* )}
-      </AnimatePresence>  */}
+      <AnimatePresence initial={false}>
+        {isInView && (
+          <motion.path
+            d={id}
+            variants={icon}
+            initial="hidden"
+            animate="visible"
+            transition={{
+              default: { delay: del, duration: 2, ease: "easeInOut" },
+              fill: { duration: 1, ease: [0, 0, 0.8, 1] },
+            }}
+          />
+        )}
+      </AnimatePresence>
     </motion.svg>
   );
 }

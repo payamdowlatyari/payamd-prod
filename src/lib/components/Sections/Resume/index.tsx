@@ -1,5 +1,4 @@
-import { SimpleGrid, VStack } from "@chakra-ui/react";
-
+import { SimpleGrid } from "@chakra-ui/react";
 import Certificates from "./Certificates";
 import Education from "./Education";
 import Experience from "./Experience";
@@ -11,9 +10,8 @@ import {
   useWillChange,
 } from "framer-motion";
 import { useRef } from "react";
-import { ArrowDownIcon, ArrowForwardIcon } from "@chakra-ui/icons";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 import Link from "next/link";
-import ParallaxText from "../../motion/ParallaxText";
 import Skills from "./Skills";
 
 const Resume = () => {

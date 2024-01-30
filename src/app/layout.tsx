@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import Link from "next/link";
 
 import Providers from "~/app/providers";
 import Layout from "~/lib/layout";

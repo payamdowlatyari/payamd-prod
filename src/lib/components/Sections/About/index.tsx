@@ -10,7 +10,6 @@ import {
 } from "framer-motion";
 import Link from "next/link";
 import { useRef } from "react";
-import ParallaxText from "../../motion/ParallaxText";
 
 export default function About() {
   const ref = useRef(null);

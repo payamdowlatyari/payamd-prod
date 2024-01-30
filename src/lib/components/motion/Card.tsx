@@ -4,11 +4,11 @@ import { Badge } from "@chakra-ui/react";
 
 const getTags = (tags: any) => {
   return (
-    <>
+    <span>
       {tags?.map((tag: any) => {
         return <Badge ml={2}>{tag}</Badge>;
       })}
-    </>
+    </span>
   );
 };
 

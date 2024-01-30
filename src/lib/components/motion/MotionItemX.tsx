@@ -1,11 +1,4 @@
-import {
-  useWillChange,
-  useScroll,
-  useTransform,
-  motion,
-  useInView,
-  AnimatePresence,
-} from "framer-motion";
+import { useWillChange, useScroll, useTransform, motion } from "framer-motion";
 import { useRef } from "react";
 
 export default function MotionItemX({ start, end, title, text }: any) {

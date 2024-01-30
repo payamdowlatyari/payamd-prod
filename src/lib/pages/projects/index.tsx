@@ -4,7 +4,6 @@ import "../../styles/globals.css";
 import { motion, useIsPresent } from "framer-motion";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import Footer from "~/lib/layout/Footer";
-import Logo from "~/lib/components/motion/Menu/Logo";
 import Horizental from "~/lib/components/Sections/Portfolio/Horizental";
 
 const Projects = () => {

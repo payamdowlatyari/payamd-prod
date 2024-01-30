@@ -9,7 +9,7 @@ const Header = () => {
     const animation = animate(count, 100, { duration: 4, delay: 1 });
 
     return animation.stop;
-  }, []);
+  }, [count]);
 
   return (
     <motion.div

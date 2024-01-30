@@ -7,10 +7,8 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { ArrowForwardIcon, ArrowUpIcon } from "@chakra-ui/icons";
-import Social from "../Title/Social";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 import Link from "next/link";
-import ParallaxText from "../../motion/ParallaxText";
 
 export default function Contact() {
   const ref = useRef(null);
@@ -54,38 +52,6 @@ export default function Contact() {
                 <ArrowForwardIcon />
               </Link>
             </motion.div>
-
-            {/* <motion.div 
-                style={{ 
-                  padding: '1em',
-                  }}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.8,
-                    delay: 0.8,
-                  }}
-                  >
-             
-              <motion.div>
-              <motion.h3>Get in Touch</motion.h3>
-              <motion.a 
-                className="underlined underlinedThick"
-                href="mailto:pdowlatyari@gmail.com"
-                target="_blank"
-              >
-                pdowlatyari@gmail.com
-              </motion.a>  
-              
-              </motion.div>
-              <motion.a
-                className="underlined underlinedThick"
-                href="https://payamd-blog.vercel.app/"
-                target="_blank"
-              >
-                Check out my Blog
-              </motion.a> 
-            </motion.div> */}
           </motion.div>
         )}
       </AnimatePresence>

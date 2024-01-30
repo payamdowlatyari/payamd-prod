@@ -4,7 +4,6 @@ import {
   useCycle,
   useScroll,
   useTransform,
-  useViewportScroll,
   useWillChange,
 } from "framer-motion";
 import { useDimensions } from "./use-dimentions";
@@ -59,25 +58,19 @@ const menuVariants = {
 const Navigation = ({ toggle }: any) => (
   <motion.ul layout variants={variants} onClick={toggle}>
     <motion.li variants={menuVariants}>
-      {/* <motion.h4> */}
       <motion.a className="underlinedRise" href="/">
         Home
       </motion.a>
-      {/* </motion.h4> */}
     </motion.li>
     <motion.li variants={menuVariants}>
-      {/* <motion.h4> */}
       <motion.a className="underlinedRise" href="/about">
         About
       </motion.a>
-      {/* </motion.h4> */}
     </motion.li>
     <motion.li variants={menuVariants}>
-      {/* <motion.h4> */}
       <motion.a className="underlinedRise" href="/projects">
         Projects
       </motion.a>
-      {/* </motion.h4> */}
     </motion.li>
   </motion.ul>
 );
@@ -166,7 +159,7 @@ export default function Menu() {
             height: "250px",
           }}
         >
-          <Logo light={true} />
+          <Logo light />
         </motion.div>
         <Navigation toggle={() => toggleOpen()} />
       </motion.div>

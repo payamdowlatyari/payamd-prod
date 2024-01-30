@@ -4,9 +4,7 @@ import "../../styles/globals.css";
 import { motion, useSpring, useScroll, useIsPresent } from "framer-motion";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import Footer from "~/lib/layout/Footer";
-import Skills from "~/lib/components/Sections/Resume/Skills";
 import Resume from "~/lib/components/Sections/Resume";
-import Logo from "~/lib/components/motion/Menu/Logo";
 
 const AboutRoute = () => {
   const { scrollYProgress } = useScroll();
@@ -29,7 +27,6 @@ const AboutRoute = () => {
         className="privacy-screen"
       />
       <Resume />
-      {/* <Skills /> */}
       <motion.div className="progress" style={{ scaleX }} />
       <Footer />
     </>

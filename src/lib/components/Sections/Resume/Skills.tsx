@@ -1,17 +1,12 @@
 import {
   AnimatePresence,
   motion,
-  useAnimationFrame,
   useInView,
-  useMotionValue,
-  useTime,
-  useTransform,
   useWillChange,
 } from "framer-motion";
 import Icon from "../../motion/Icon";
 import { skillIcons } from "../../data/icons";
 import { useRef } from "react";
-import { wrap } from "@motionone/utils";
 
 export default function Skills() {
   const skills = useRef(null);
@@ -31,22 +26,7 @@ export default function Skills() {
   //   baseX.set(baseX.get() + moveBy);
   // });
   return (
-    <motion.div
-      ref={skills}
-      id="skills"
-      // layoutScroll
-      style={
-        {
-          // display: "flex",
-          // flexWrap: "nowrap",
-          // justifyContent: "center",
-          // overflow: 'hidden',
-          // maxWidth: '100vw',
-          // willChange,
-          // x
-        }
-      }
-    >
+    <motion.div ref={skills} id="skills">
       <AnimatePresence initial={false}>
         {isInView && (
           <motion.div

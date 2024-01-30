@@ -2,7 +2,7 @@ import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 function useParallax(value: MotionValue<number>, distance: string) {
-  return useTransform(value, [0, 1], ["-" + distance, distance]);
+  return useTransform(value, [0, 1], [0, distance]);
 }
 
 interface Props {
