@@ -1,44 +1,74 @@
-import { ArrowDownIcon } from "@chakra-ui/icons";
-import { Box, VStack } from "@chakra-ui/react";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { Box } from "@chakra-ui/react";
 import {
   motion,
   useInView,
   AnimatePresence,
   useWillChange,
+  useScroll,
+  useTransform,
 } from "framer-motion";
+import Link from "next/link";
 import { useRef } from "react";
+import ParallaxText from "../../motion/ParallaxText";
 
 export default function About() {
   const ref = useRef(null);
   const isInView = useInView(ref);
   const willChange = useWillChange();
 
+  const ref2 = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref2 });
+  const y = useTransform(scrollYProgress, [0.3, 0.6], [-300, 0]);
+
   return (
     <motion.section
       id="about"
-      className="second"
       ref={ref}
       layoutScroll
-      style={{ willChange }}
+      style={{
+        willChange,
+      }}
     >
       <AnimatePresence initial={false}>
         {isInView && (
           <motion.div
-            className="third"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 1,
-              delay: 1,
+            layout
+            style={{
+              willChange,
+              display: "flex",
+              flexWrap: "wrap",
+              width: "100%",
+              height: "100vh",
             }}
           >
-            <VStack spacing={2} align="initial">
-              <motion.h1>about</motion.h1>
-              <Box m={5} mb={10} p={2}>
-                <motion.h4>
+            <motion.div
+              style={{
+                maxWidth: "750px",
+              }}
+            >
+              <Box p={3} style={{ background: "lightgray" }}>
+                <motion.h1>About</motion.h1>
+                <motion.h4
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{
+                    duration: 1,
+                    delay: 1,
+                    ease: "easeInOut",
+                  }}
+                >
                   My name is <b>Payam Dowlatyari</b>.
                 </motion.h4>
-                <motion.p style={{ maxWidth: "720px" }}>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{
+                    duration: 1,
+                    delay: 1.5,
+                    ease: "easeInOut",
+                  }}
+                >
                   I am a software engineer, UX designer, photographer, and
                   blogger. I studied Software Engineering at UC Irvine and
                   graduated in 2020. I have been working in Silicon Valley as a
@@ -48,12 +78,46 @@ export default function About() {
                   varius topics such as psychology, sociology, philosophy,
                   history, and enjoy cycling and taking photographs.
                 </motion.p>
-                <motion.a href="#resume">
-                  my resume <br />
-                  <ArrowDownIcon />
-                </motion.a>
               </Box>
-            </VStack>
+            </motion.div>
+            <motion.div
+              ref={ref2}
+              style={{
+                willChange,
+                alignSelf: "center",
+                y,
+              }}
+            >
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  duration: 1,
+                  delay: 2.5,
+                  ease: "easeInOut",
+                }}
+              >
+                <motion.h1>More</motion.h1>
+                <Link href="/about" className="underlined underlinedThin">
+                  resume and skills {"  "}
+                  <ArrowForwardIcon />
+                </Link>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  duration: 1,
+                  delay: 3,
+                  ease: "easeInOut",
+                }}
+              >
+                <Link href="/projects" className="underlined underlinedThin">
+                  my recent projects{"  "}
+                  <ArrowForwardIcon />
+                </Link>
+              </motion.div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

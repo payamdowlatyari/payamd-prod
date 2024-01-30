@@ -1,0 +1,51 @@
+export default [
+  {
+    title: "My Dashbaord",
+    description: "A project management user interface",
+    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/MyDash_Projects_1750x1000.png",
+    url: "https://payamd-dashboard.vercel.app/",
+    tags: ["React.js", "Node.js", "Express.js", "MongoDB"],
+  },
+  {
+    title: "My Web Blog",
+    description: "My personal blog about book, film, photography, and comments",
+    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/blog_1750x1000.png",
+    url: "https://payamd-blog.vercel.app/",
+    tags: ["Next.js", "Tailwind", "Redis", "Auth0"],
+  },
+  {
+    title: "Algorithms for Life",
+    description: "A GUI for learning Data Structure and Algorithms",
+    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/algorithms_2100x1200.png",
+    url: "https://algorithms-next.vercel.app/",
+    tags: ["Next.js", "Next UI", "Tailwind"],
+  },
+  {
+    title: "Nextfolio",
+    description: "A portfolio website",
+    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/nextfolio_1925x1100.png",
+    url: "https://nextfolio-theta.vercel.app/",
+    tags: ["Next.js", "DaisyUI", "Tailwind"],
+  },
+  {
+    title: "Paper Browser",
+    description: "A research manegement user intrface",
+    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/paper_browser_1750x1000.png",
+    url: "https://personal-informatics.depstein.net",
+    tags: ["Angular", "Bootstrap"],
+  },
+  {
+    title: "Admin Web Portal",
+    description: "A full-stack admin application",
+    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/CalPlug_2100x1200.png",
+    url: "https://payamdowlatyari.github.io/admin-web-portal/",
+    tags: ["React.js", "Node.js", "Express.js", "MongoDB"],
+  },
+  {
+    title: "M-Studios",
+    description: "A responsive business portfolio",
+    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/m-studios_1260x720.png",
+    url: "https://m-studios.us/",
+    tags: ["JavaScript", "Bootstrap"],
+  },
+];

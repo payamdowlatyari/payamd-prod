@@ -1,6 +1,14 @@
-import { JSX, RefAttributes, useRef } from "react";
-import { SVGMotionProps, motion, useCycle } from "framer-motion";
+import { useRef } from "react";
+import {
+  motion,
+  useCycle,
+  useScroll,
+  useTransform,
+  useViewportScroll,
+  useWillChange,
+} from "framer-motion";
 import { useDimensions } from "./use-dimentions";
+import Logo from "./Logo";
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -22,20 +30,6 @@ const sidebar = {
   },
 };
 
-const Path = (
-  props: JSX.IntrinsicAttributes &
-    SVGMotionProps<SVGPathElement> &
-    RefAttributes<SVGPathElement>
-) => (
-  <motion.path
-    fill="transparent"
-    strokeWidth="2"
-    stroke="#1e2125"
-    strokeLinecap="round"
-    {...props}
-  />
-);
-
 const variants = {
   open: {
     transition: { staggerChildren: 0.07, delayChildren: 0.2 },
@@ -45,14 +39,12 @@ const variants = {
   },
 };
 
-const itemIds = ["home", "about", "resume", "skills", "projects", "contact"];
-
 const menuVariants = {
   open: {
     y: 0,
     opacity: 1,
     transition: {
-      y: { stiffness: 1000, velocity: -100 },
+      y: { stiffness: 1000, velocity: -200 },
     },
   },
   closed: {
@@ -66,45 +58,51 @@ const menuVariants = {
 
 const Navigation = ({ toggle }: any) => (
   <motion.ul layout variants={variants} onClick={toggle}>
-    {itemIds.map((i) => (
-      <motion.li variants={menuVariants} key={i}>
-        <motion.h2>
-          <motion.a className="underlined underlinedThick" href={`#${i}`}>
-            {i}
-          </motion.a>
-        </motion.h2>
-      </motion.li>
-    ))}
+    <motion.li variants={menuVariants}>
+      {/* <motion.h4> */}
+      <motion.a className="underlinedRise" href="/">
+        Home
+      </motion.a>
+      {/* </motion.h4> */}
+    </motion.li>
+    <motion.li variants={menuVariants}>
+      {/* <motion.h4> */}
+      <motion.a className="underlinedRise" href="/about">
+        About
+      </motion.a>
+      {/* </motion.h4> */}
+    </motion.li>
+    <motion.li variants={menuVariants}>
+      {/* <motion.h4> */}
+      <motion.a className="underlinedRise" href="/projects">
+        Projects
+      </motion.a>
+      {/* </motion.h4> */}
+    </motion.li>
   </motion.ul>
 );
 
 const NavToggle = ({ toggle }: any) => {
   return (
     <motion.button onClick={toggle} layout>
-      <motion.svg width="40" height="40" viewBox="0 0 30 30">
-        <Path
-          variants={{
-            closed: { d: "M 2 2.5 L 20 2.5", stroke: "#1e2125" },
-            open: { d: "M 3 16.5 L 17 2.5", stroke: "#e9dfce" },
-          }}
-          transition={{ duration: 0.3 }}
-        />
-        <Path
-          d="M 2 9.423 L 20 9.423"
-          variants={{
-            closed: { opacity: 1 },
-            open: { opacity: 0 },
-          }}
-          transition={{ duration: 0.3 }}
-        />
-        <Path
-          variants={{
-            closed: { d: "M 2 16.346 L 20 16.346", stroke: "#1e2125" },
-            open: { d: "M 3 2.5 L 17 16.346", stroke: "#e9dfce" },
-          }}
-          transition={{ duration: 0.3 }}
-        />
-      </motion.svg>
+      <motion.span
+        variants={{
+          closed: { display: "contents" },
+          open: { display: "none" },
+        }}
+        transition={{ duration: 0.3 }}
+      >
+        MENU
+      </motion.span>
+      <motion.span
+        variants={{
+          closed: { display: "none" },
+          open: { display: "contents" },
+        }}
+        transition={{ duration: 0.3 }}
+      >
+        CLOSE
+      </motion.span>
     </motion.button>
   );
 };
@@ -114,6 +112,13 @@ export default function Menu() {
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
 
+  const { scrollY } = useScroll();
+
+  const opacity = useTransform(scrollY, [0, 500, 800], [0.9, 0.9, 0]);
+  const scale = useTransform(scrollY, [0, 500, 800], [1, 1, 0]);
+
+  const willChange = useWillChange();
+
   return (
     <motion.nav
       initial={false}
@@ -121,18 +126,48 @@ export default function Menu() {
       custom={height}
       ref={containerRef}
       style={{
-        background: isOpen ? "#1e2125" : "transparant",
-        color: isOpen ? "#e9dfce" : "transparent",
-        height: isOpen ? "100vh" : "0",
+        background: isOpen ? "#1e2125" : "#e1e1e1",
+        color: isOpen ? "#e1e1e1" : "transparent",
+        height: isOpen ? "100vh" : "0vh",
       }}
     >
+      <motion.div
+        style={{
+          willChange,
+          zIndex: 100,
+          width: "100px",
+          opacity,
+          scale,
+          display: isOpen ? "none" : "flex",
+        }}
+      >
+        <Logo />
+      </motion.div>
+
       <NavToggle toggle={() => toggleOpen()} />
+
       <motion.div
         variants={sidebar}
         style={{
-          display: isOpen ? "block" : "none",
+          width: "100vw",
+          height: "100vh",
+          justifyContent: "center",
+          alignItems: "center",
+          alignContent: "center",
+          flexWrap: "wrap",
+          display: isOpen ? "flex" : "none",
         }}
       >
+        <motion.div
+          style={{
+            willChange,
+            zIndex: 100,
+            width: "250px",
+            height: "250px",
+          }}
+        >
+          <Logo light={true} />
+        </motion.div>
         <Navigation toggle={() => toggleOpen()} />
       </motion.div>
     </motion.nav>

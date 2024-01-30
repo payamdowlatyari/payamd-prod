@@ -11,7 +11,10 @@ import {
   useWillChange,
 } from "framer-motion";
 import { useRef } from "react";
-import { ArrowDownIcon } from "@chakra-ui/icons";
+import { ArrowDownIcon, ArrowForwardIcon } from "@chakra-ui/icons";
+import Link from "next/link";
+import ParallaxText from "../../motion/ParallaxText";
+import Skills from "./Skills";
 
 const Resume = () => {
   const resume = useRef(null);
@@ -23,11 +26,17 @@ const Resume = () => {
       id="resume"
       ref={resume}
       layoutScroll
-      style={{ willChange }}
+      style={{
+        willChange,
+        alignItems: "flex-start",
+        padding: "1em",
+        paddingTop: "8em",
+      }}
     >
       <AnimatePresence initial={false}>
         {isInView && (
           <motion.div
+            style={{ background: "lightgray", padding: "1em" }}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -35,43 +44,55 @@ const Resume = () => {
               delay: 1,
             }}
           >
-            <VStack spacing={2} align="initial">
-              <motion.h1>resume</motion.h1>
+            <SimpleGrid
+              maxWidth="100vw"
+              minChildWidth="250px"
+              spacing="20px"
+              pb={5}
+            >
               <motion.div
-                style={{
-                  paddingLeft: "1em",
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 1,
+                  delay: 1.3,
                 }}
               >
-                <motion.a href="#skills">
-                  my skills <br />
-                  <ArrowDownIcon />
-                </motion.a>
-              </motion.div>
-              <SimpleGrid
-                maxWidth="100vw"
-                minChildWidth="250px"
-                spacing="20px"
-                className="second"
-              >
+                <motion.h3>Experience</motion.h3>
+                <Experience />
                 <motion.div
-                  className="third"
-                  style={{
-                    padding: "1em",
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{
+                    duration: 1,
+                    delay: 3,
                   }}
                 >
-                  <motion.h3>Experience</motion.h3>
-                  <Experience />
+                  <motion.h3>Projects</motion.h3>
+                  <Link href="/projects" className="underlined underlinedThin">
+                    check out my portfolio
+                    <ArrowForwardIcon />
+                  </Link>
                 </motion.div>
-                <motion.div className="second">
-                  <motion.h3>Education</motion.h3>
-                  <Education />
-                  <motion.h3>Certificates</motion.h3>
-                  <Certificates />
-                  <motion.h3>Publications</motion.h3>
-                  <Publications />
-                </motion.div>
-              </SimpleGrid>
-            </VStack>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 1,
+                  delay: 1.4,
+                }}
+              >
+                <motion.h3>Education</motion.h3>
+                <Education />
+                <motion.h3>Certificates</motion.h3>
+                <Certificates />
+                <motion.h3>Publications</motion.h3>
+                <Publications />
+              </motion.div>
+            </SimpleGrid>
+            <motion.h3>Skills</motion.h3>
+            <Skills />
           </motion.div>
         )}
       </AnimatePresence>

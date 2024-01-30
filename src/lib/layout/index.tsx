@@ -3,7 +3,6 @@
 import { Box } from "@chakra-ui/react";
 import type { ReactNode } from "react";
 import "@fontsource/poppins";
-import "@fontsource-variable/josefin-sans";
 
 type LayoutProps = {
   children: ReactNode;

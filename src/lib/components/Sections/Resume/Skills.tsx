@@ -1,63 +1,72 @@
-import { AnimatePresence, motion, useInView } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useAnimationFrame,
+  useInView,
+  useMotionValue,
+  useTime,
+  useTransform,
+  useWillChange,
+} from "framer-motion";
 import Icon from "../../motion/Icon";
-import icons from "../../data/icons";
+import { skillIcons } from "../../data/icons";
 import { useRef } from "react";
-import { ArrowDownIcon } from "@chakra-ui/icons";
+import { wrap } from "@motionone/utils";
 
 export default function Skills() {
   const skills = useRef(null);
   const isInView = useInView(skills);
+  // const time = useTime()
+  // const baseX = useMotionValue(0)
+  const willChange = useWillChange();
 
+  // const x = useTransform(baseX, (v) => `${wrap(-30, 35, v)}%`);
+  // const directionFactor = useRef<number>(1);
+  // useAnimationFrame((delta) => {
+  //   let moveBy = directionFactor.current * (delta / 10000);
+  //     directionFactor.current = 0.01;
+
+  //   moveBy += directionFactor.current * moveBy;
+
+  //   baseX.set(baseX.get() + moveBy);
+  // });
   return (
-    <motion.section
+    <motion.div
       ref={skills}
       id="skills"
-      className="second"
-      layoutScroll
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
-      }}
+      // layoutScroll
+      style={
+        {
+          // display: "flex",
+          // flexWrap: "nowrap",
+          // justifyContent: "center",
+          // overflow: 'hidden',
+          // maxWidth: '100vw',
+          // willChange,
+          // x
+        }
+      }
     >
       <AnimatePresence initial={false}>
         {isInView && (
-          <motion.div className="first">
-            <motion.h1
-              initial={{ opacity: 0, x: -100 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{
-                duration: 2,
-                delay: 1,
-              }}
-            >
-              skills
-            </motion.h1>
-            <motion.a href="#projects">
-              my projects <br />
-              <ArrowDownIcon />
-            </motion.a>
-            <motion.div className="svg-container">
-              <Icon id={icons[0].CSS3} />
-              <Icon id={icons[0].HTML5} />
-              <Icon id={icons[0].JavaScript} />
-              <Icon id={icons[0].TypeScript} />
-              <Icon id={icons[1].React} />
-              <Icon id={icons[1].Next} />
-              <Icon id={icons[1].Vue} />
-              <Icon id={icons[1].Angular} />
-              <Icon id={icons[2].Node} />
-              <Icon id={icons[2].Express} />
-              <Icon id={icons[2].Java} />
-              <Icon id={icons[2].Spring} />
-              <Icon id={icons[3].Mongo} />
-              <Icon id={icons[3].MySQL} />
-              <Icon id={icons[3].AWS} />
-              <Icon id={icons[3].Git} />
-            </motion.div>
+          <motion.div
+            style={{
+              willChange,
+              display: "flex",
+              flexWrap: "wrap",
+              placeContent: "center",
+              justifyContent: "space-evenly",
+              overflow: "hidden",
+              maxWidth: "100vw",
+              margin: "5px 0",
+            }}
+          >
+            {skillIcons?.map((icon: any) => {
+              return <Icon key={icon.title} id={icon.item} del={1} />;
+            })}
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.section>
+    </motion.div>
   );
 }

@@ -1,18 +1,25 @@
-import { motion } from "framer-motion";
+import { animate, motion, useMotionValue, useTransform } from "framer-motion";
+import { useEffect } from "react";
 
 const Header = () => {
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, Math.round);
+
+  useEffect(() => {
+    const animation = animate(count, 100, { duration: 4, delay: 1 });
+
+    return animation.stop;
+  }, []);
+
   return (
     <motion.div
       layout
-      initial={{ scaleX: "100%", scaleY: "100%", zIndex: "100" }}
-      animate={{ scaleX: "0", scaleY: "0", zIndex: "-100" }}
+      initial={{ opacity: 1, zIndex: "100" }}
+      animate={{ opacity: 0, zIndex: "-100" }}
       transition={{
-        duration: 2,
+        duration: 1,
         delay: 5,
-        ease: "easeOut",
-        transitionEnd: {
-          display: "none",
-        },
+        ease: "circIn",
       }}
       style={{
         background: "#1e2125",
@@ -29,23 +36,12 @@ const Header = () => {
         layout
         style={{
           alignSelf: "center",
-          width: "50px",
-          height: "50px",
-          background: "#e17a47",
+          color: "lightseagreen",
+          fontSize: "10em",
         }}
-        animate={{
-          scale: [1, 2, 2, 1, 1],
-          rotate: [0, 0, 180, 180, 0],
-          borderRadius: ["0%", "0%", "50%", "50%", "0%"],
-        }}
-        transition={{
-          duration: 2,
-          ease: "easeInOut",
-          times: [0, 0.2, 0.5, 0.8, 1],
-          repeat: Infinity,
-          repeatDelay: 1,
-        }}
-      />
+      >
+        {rounded}
+      </motion.div>
     </motion.div>
   );
 };

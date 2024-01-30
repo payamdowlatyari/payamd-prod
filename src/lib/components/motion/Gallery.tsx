@@ -36,7 +36,9 @@ export default function Gallery() {
       id="projects"
       layoutScroll
       style={{
-        height: "auto",
+        height: "200vh",
+        paddingTop: "3em",
+        alignItems: "flex-start",
         willChange,
       }}
     >
