@@ -11,8 +11,8 @@ import { data } from "./data";
 export default function Services() {
   const ref = useRef(null);
   const willChange = useWillChange();
-  const { scrollYProgress } = useScroll({ target: ref });
-  const x = useTransform(scrollYProgress, [0.5, 0.8], [-1500, 1500], {
+  const { scrollY } = useScroll({ target: ref });
+  const x = useTransform(scrollY, [1000, 1500], [1400, -1400], {
     ease: easeIn,
   });
 
@@ -24,14 +24,15 @@ export default function Services() {
         willChange,
         maxWidth: "100vw",
         overflow: "hidden",
+        alignItems: "flex-start",
+        mixBlendMode: "color-burn",
       }}
     >
       <motion.div
         layout
         style={{
           display: "flex",
-          alignSelf: "flex-start",
-          justifyContent: "space-evenly",
+          justifyContent: "center",
           willChange,
         }}
       >
@@ -40,16 +41,12 @@ export default function Services() {
             <motion.div
               ref={ref}
               style={{
-                width: "500px",
+                width: "400px",
                 maxWidth: "100vw",
-                margin: "2em",
-                padding: "2em",
-                background: "lightgray",
+                margin: "1em",
+                padding: "1em",
+                background: "lightslategray",
                 x,
-              }}
-              whileHover={{
-                scale: 1.2,
-                transition: { duration: 1, ease: "easeInOut" },
               }}
             >
               <motion.h3>{service.name}</motion.h3>

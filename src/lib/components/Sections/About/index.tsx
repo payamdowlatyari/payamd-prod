@@ -27,6 +27,7 @@ export default function About() {
       layoutScroll
       style={{
         willChange,
+        mixBlendMode: "color-burn",
       }}
     >
       <AnimatePresence initial={false}>
@@ -49,7 +50,7 @@ export default function About() {
               <Box
                 p={3}
                 style={{
-                  background: "lightgray",
+                  background: "lightsalmon",
                 }}
               >
                 <motion.h1>About</motion.h1>
