@@ -34,7 +34,6 @@ export default function Horizental() {
           style={{ pathLength: scrollXProgress, stroke: "lightgray" }}
         />
       </svg>
-      {/* <motion.div style={{ width: '100vw', height: '10vh', position: 'fixed', top: '0'}}></motion.div> */}
       <ul ref={ref} className="cards">
         {data?.map((project: any) => {
           return (

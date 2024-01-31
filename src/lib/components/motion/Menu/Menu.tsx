@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import { useDimensions } from "./use-dimentions";
 import Logo from "./Logo";
+import Footer from "~/lib/layout/Footer";
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -28,52 +29,6 @@ const sidebar = {
     },
   },
 };
-
-const variants = {
-  open: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.2 },
-  },
-  closed: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 },
-  },
-};
-
-const menuVariants = {
-  open: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      y: { stiffness: 1000, velocity: -200 },
-    },
-  },
-  closed: {
-    y: 50,
-    opacity: 0,
-    transition: {
-      y: { stiffness: 1000 },
-    },
-  },
-};
-
-const Navigation = ({ toggle }: any) => (
-  <motion.ul layout variants={variants} onClick={toggle}>
-    <motion.li variants={menuVariants}>
-      <motion.a className="underlinedRise" href="/">
-        Home
-      </motion.a>
-    </motion.li>
-    <motion.li variants={menuVariants}>
-      <motion.a className="underlinedRise" href="/about">
-        About
-      </motion.a>
-    </motion.li>
-    <motion.li variants={menuVariants}>
-      <motion.a className="underlinedRise" href="/projects">
-        Projects
-      </motion.a>
-    </motion.li>
-  </motion.ul>
-);
 
 const NavToggle = ({ toggle }: any) => {
   return (
@@ -119,8 +74,8 @@ export default function Menu() {
       custom={height}
       ref={containerRef}
       style={{
-        background: isOpen ? "#1e2125" : "#e1e1e1",
-        color: isOpen ? "#e1e1e1" : "transparent",
+        background: isOpen ? "lightgray" : "transparent",
+        color: isOpen ? "#1e2125" : "transparent",
         height: isOpen ? "100vh" : "0vh",
       }}
     >
@@ -155,12 +110,12 @@ export default function Menu() {
           style={{
             willChange,
             zIndex: 100,
-            width: "200px",
+            width: "300px",
           }}
         >
-          <Logo light />
+          <Logo />
         </motion.div>
-        <Navigation toggle={() => toggleOpen()} />
+        <Footer />
       </motion.div>
     </motion.nav>
   );

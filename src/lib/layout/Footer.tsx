@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <motion.div style={{ display: "grid", height: "14em" }}>
+    <motion.div style={{ display: "grid", height: "15em" }}>
       <motion.div
         style={{
           display: "flex",
@@ -12,7 +12,9 @@ const Footer = () => {
           justifyContent: "space-evenly",
         }}
       >
-        <motion.div style={{ display: "grid", height: "fit-content" }}>
+        <motion.div
+          style={{ display: "grid", height: "fit-content", fontSize: "2em" }}
+        >
           <Link href="/" className="underlined underlinedThin">
             Home
           </Link>
@@ -23,21 +25,12 @@ const Footer = () => {
             Projects
           </Link>
         </motion.div>
-        <motion.div>
-          <motion.a
-            className="underlined underlinedThin"
-            href="mailto:pdowlatyari@gmail.com"
-            target="_blank"
-          >
-            Email
+        <motion.div style={{ display: "grid" }}>
+          <motion.a href="mailto:pdowlatyari@gmail.com" target="_blank">
+            pdowlatyari@gmail.com
           </motion.a>
-          {" | "}
-          <motion.a
-            className="underlined underlinedThin"
-            href="https://payamd-blog.vercel.app/"
-            target="_blank"
-          >
-            Blog
+          <motion.a href="https://payamd-blog.vercel.app/" target="_blank">
+            Check out my Blog
           </motion.a>
           <Social />
         </motion.div>

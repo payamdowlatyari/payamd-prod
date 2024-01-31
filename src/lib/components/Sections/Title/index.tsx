@@ -49,9 +49,29 @@ const Title = () => {
           right: "0",
           bottom: "0",
           position: "absolute",
-          mixBlendMode: "lighten",
+          mixBlendMode: "luminosity",
         }}
       />
+      <motion.div
+        style={{
+          position: "absolute",
+          display: "grid",
+          right: "0",
+          top: "35vh",
+          textAlign: "justify",
+          fontSize: "1.1em",
+        }}
+      >
+        <Link href="#about" className="underlined underlinedThin">
+          01 Who I am
+        </Link>
+        <Link href="#services" className="underlined underlinedThin">
+          02 What I do
+        </Link>
+        <Link href="/projects" className="underlined underlinedThin">
+          03 Portfolio
+        </Link>
+      </motion.div>
       <motion.div
         style={{
           height: "80vh",
@@ -63,16 +83,6 @@ const Title = () => {
           mixBlendMode: "color-burn",
           background: "lightseagreen",
           y,
-        }}
-      />
-      <motion.div
-        style={{
-          height: "50vh",
-          width: "50vw",
-          minWidth: "400px",
-          position: "absolute",
-          mixBlendMode: "hue",
-          background: "currentColor",
         }}
       />
       <motion.div
@@ -88,13 +98,14 @@ const Title = () => {
           layout
           style={{
             padding: "1em 1em",
+            fontSize: "1.2em",
             display: "grid",
             transition: "1s ease-in-out",
             x,
             alignContent: "flex-end",
           }}
         >
-          <motion.h4>
+          <motion.h4 style={{ fontWeight: "normal" }}>
             I am <br />
             Payam Dowlatyari <br />
             Software Engineer <br />
@@ -105,30 +116,13 @@ const Title = () => {
           layout
           style={{
             maxWidth: "99vw",
+            mixBlendMode: "exclusion",
+            color: "white",
           }}
         >
           <ParallaxText baseVelocity={-0.1}>
             Sofware Engineer UX Designer Photographer Blogger
           </ParallaxText>
-        </motion.div>
-        <motion.div
-          style={{
-            position: "absolute",
-            display: "grid",
-            left: "1em",
-            top: "15em",
-            fontSize: "1.1em",
-          }}
-        >
-          <Link href="#about" className="underlined underlinedThin">
-            01 Who I am
-          </Link>
-          <Link href="#services" className="underlined underlinedThin">
-            02 What I do
-          </Link>
-          <Link href="/projects" className="underlined underlinedThin">
-            03 Portfolio
-          </Link>
         </motion.div>
       </motion.div>
     </motion.section>

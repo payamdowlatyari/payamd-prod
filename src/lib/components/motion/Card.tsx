@@ -7,7 +7,7 @@ const getTags = (tags: any) => {
     <span>
       {tags?.map((tag: any) => {
         return (
-          <Badge variant="outline" ml={2}>
+          <Badge colorScheme="gray" ml={2}>
             {tag}
           </Badge>
         );
@@ -24,7 +24,8 @@ export default function Card({ item }: any) {
       }}
     >
       <motion.div>
-        <HelperImage src={item.img} />
+        {/* <div style={{ background: 'rgba(0,0,0,0.5)', width: '10em', height: '10em', position: 'fixed'}}/> */}
+        <HelperImage src={item.img} label={item.title} />
       </motion.div>
       <motion.div>
         <motion.a href={item.url}>
