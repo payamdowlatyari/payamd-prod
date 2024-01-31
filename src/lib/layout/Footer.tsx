@@ -23,7 +23,7 @@ const Footer = () => {
             Projects
           </Link>
         </motion.div>
-        <motion.div style={{ textAlign: "center" }}>
+        <motion.div>
           <motion.a
             className="underlined underlinedThin"
             href="mailto:pdowlatyari@gmail.com"

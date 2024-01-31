@@ -144,7 +144,7 @@ export default function Menu() {
         style={{
           width: "100vw",
           height: "100vh",
-          justifyContent: "center",
+          justifyContent: "space-evenly",
           alignItems: "center",
           alignContent: "center",
           flexWrap: "wrap",
@@ -155,8 +155,7 @@ export default function Menu() {
           style={{
             willChange,
             zIndex: 100,
-            width: "250px",
-            height: "250px",
+            width: "200px",
           }}
         >
           <Logo light />

@@ -46,7 +46,12 @@ export default function About() {
                 maxWidth: "750px",
               }}
             >
-              <Box p={3} style={{ background: "lightgray" }}>
+              <Box
+                p={3}
+                style={{
+                  background: "lightgray",
+                }}
+              >
                 <motion.h1>About</motion.h1>
                 <motion.h4
                   initial={{ opacity: 0 }}

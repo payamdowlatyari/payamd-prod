@@ -12,7 +12,7 @@ export default function Services() {
   const ref = useRef(null);
   const willChange = useWillChange();
   const { scrollYProgress } = useScroll({ target: ref });
-  const x = useTransform(scrollYProgress, [0.5, 0.9], [-1000, 1000], {
+  const x = useTransform(scrollYProgress, [0.5, 0.8], [-1500, 1500], {
     ease: easeIn,
   });
 
@@ -42,26 +42,18 @@ export default function Services() {
               style={{
                 width: "500px",
                 maxWidth: "100vw",
-                margin: "1em",
-                padding: "1em",
+                margin: "2em",
+                padding: "2em",
                 background: "lightgray",
                 x,
               }}
+              whileHover={{
+                scale: 1.2,
+                transition: { duration: 1, ease: "easeInOut" },
+              }}
             >
-              <motion.h3
-                style={{
-                  transition: "2s ease-in-out",
-                }}
-              >
-                {service.name}
-              </motion.h3>
-              <motion.p
-                style={{
-                  transition: "2.2s ease-in-out",
-                }}
-              >
-                {service.text}
-              </motion.p>
+              <motion.h3>{service.name}</motion.h3>
+              <motion.p>{service.text}</motion.p>
             </motion.div>
           );
         })}

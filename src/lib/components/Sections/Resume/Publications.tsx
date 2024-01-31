@@ -1,24 +1,24 @@
-import { ExternalLinkIcon } from "@chakra-ui/icons";
-import { Text, LinkBox, LinkOverlay } from "@chakra-ui/react";
+import { Text, Box } from "@chakra-ui/react";
+import { publication } from "./data";
+import Link from "next/link";
 
 const Publications = () => {
   return (
-    <LinkBox as="article" borderWidth="0">
-      <LinkOverlay
-        className="underlined underlinedThin"
-        href="https://dl.acm.org/doi/10.1145/3432231"
-        isExternal
-      >
-        <b>Mapping and Taking Stock of the Personal Informatics Literature</b>
-      </LinkOverlay>{" "}
-      <ExternalLinkIcon />
-      <Text fontSize="sm" pl={1}>
-        <i>
-          Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous
-          Technologies December 2020 Article No.: 126{" "}
-        </i>{" "}
-      </Text>
-    </LinkBox>
+    <div style={{ padding: "1em" }}>
+      <h3>Publications</h3>
+      {publication?.map((item) => {
+        return (
+          <Box pt={2}>
+            <Link href={item.link} className="underlined underlinedThin">
+              <b>{item.title}</b>{" "}
+            </Link>
+            <Text fontSize="sm" pl={2}>
+              {item.description}
+            </Text>
+          </Box>
+        );
+      })}
+    </div>
   );
 };
 

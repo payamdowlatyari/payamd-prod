@@ -5,9 +5,9 @@ export default function Logo({ light }: any) {
   return (
     <motion.a href="/">
       {light ? (
-        <motion.img style={{ top: 0 }} src={logos[1]} />
+        <motion.img src={logos[1]} alt="logo" />
       ) : (
-        <motion.img style={{ top: 0 }} src={logos[0]} />
+        <motion.img src={logos[0]} alt="logo" />
       )}
     </motion.a>
   );

@@ -1,31 +1,33 @@
 import { Flex, Spacer, List, ListItem, Box, Text } from "@chakra-ui/react";
+import { education } from "./data";
 
 const Education = () => {
   return (
-    <>
-      <Flex>
-        <Box p={1}>
-          <Text>
-            <b>UC Irvine</b>, <i>Software Engineering B.S.</i>
-          </Text>{" "}
-        </Box>
-        <Spacer />
-        <Box p={1}>
-          <Text fontSize="xs">Class 2020</Text>
-        </Box>{" "}
-      </Flex>
-      <List pb={4} pl={1}>
-        <ListItem fontSize="sm">
-          Capstone: Grid-Level Energy Negotiation for EVSE
-        </ListItem>
-        <ListItem fontSize="sm">
-          Research Area: Informatics and Human-Computer Interaction
-        </ListItem>
-        <ListItem fontSize="sm">
-          Honor Society: National Society of Leadership and Success (ΣAπ)
-        </ListItem>
-      </List>
-    </>
+    <div style={{ padding: "1em" }}>
+      <h3>Education</h3>
+      {education?.map((item) => {
+        return (
+          <>
+            <Flex pt={4}>
+              <Box>
+                <Text>
+                  <b>{item.school}</b>, <i>{item.major}</i>
+                </Text>{" "}
+              </Box>
+              <Spacer />
+              <Box>
+                <Text fontSize="xs">{item.date}</Text>
+              </Box>{" "}
+            </Flex>
+            <List pl={1}>
+              {item.description?.map((desc) => {
+                return <ListItem fontSize="sm">{desc}</ListItem>;
+              })}
+            </List>
+          </>
+        );
+      })}
+    </div>
   );
 };
 

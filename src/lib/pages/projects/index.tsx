@@ -4,7 +4,7 @@ import "../../styles/globals.css";
 import { motion, useIsPresent } from "framer-motion";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import Footer from "~/lib/layout/Footer";
-import Horizental from "~/lib/components/Sections/Portfolio/Horizental";
+import Portfolio from "~/lib/components/Sections/Portfolio";
 
 const Projects = () => {
   const isPresent = useIsPresent();
@@ -19,7 +19,7 @@ const Projects = () => {
         style={{ originX: isPresent ? 0 : 1 }}
         className="privacy-screen"
       />
-      <Horizental />
+      <Portfolio />
       <Footer />
     </>
   );

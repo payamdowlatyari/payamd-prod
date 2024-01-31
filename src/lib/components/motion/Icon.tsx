@@ -1,3 +1,4 @@
+import { Tooltip } from "@chakra-ui/react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -12,7 +13,7 @@ const icon = {
   },
 };
 
-export default function Icon({ id, del }: any) {
+export default function Icon({ id, title }: any) {
   const ref = useRef(null);
   const isInView = useInView(ref);
 
@@ -33,16 +34,18 @@ export default function Icon({ id, del }: any) {
     >
       <AnimatePresence initial={false}>
         {isInView && (
-          <motion.path
-            d={id}
-            variants={icon}
-            initial="hidden"
-            animate="visible"
-            transition={{
-              default: { delay: del, duration: 2, ease: "easeInOut" },
-              fill: { duration: 1, ease: [0, 0, 0.8, 1] },
-            }}
-          />
+          <Tooltip hasArrow label={title} placement="top" openDelay={1000}>
+            <motion.path
+              d={id}
+              variants={icon}
+              initial="hidden"
+              animate="visible"
+              transition={{
+                default: { delay: 1, duration: 2, ease: "easeInOut" },
+                fill: { duration: 1, ease: [0, 0, 0.8, 1] },
+              }}
+            />
+          </Tooltip>
         )}
       </AnimatePresence>
     </motion.svg>

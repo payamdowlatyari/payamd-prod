@@ -27,6 +27,7 @@ export default function Skills() {
   // });
   return (
     <motion.div ref={skills} id="skills">
+      <h3 style={{ padding: "0.5em" }}>Skills</h3>
       <AnimatePresence initial={false}>
         {isInView && (
           <motion.div
@@ -34,15 +35,14 @@ export default function Skills() {
               willChange,
               display: "flex",
               flexWrap: "wrap",
-              placeContent: "center",
-              justifyContent: "space-evenly",
               overflow: "hidden",
               maxWidth: "100vw",
               margin: "5px 0",
+              padding: "1em",
             }}
           >
             {skillIcons?.map((icon: any) => {
-              return <Icon key={icon.title} id={icon.item} del={1} />;
+              return <Icon id={icon.item} title={icon.title} />;
             })}
           </motion.div>
         )}

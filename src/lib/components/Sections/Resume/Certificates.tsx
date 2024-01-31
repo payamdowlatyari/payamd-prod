@@ -1,21 +1,32 @@
-import { ExternalLinkIcon } from "@chakra-ui/icons";
-import { Text, LinkBox, LinkOverlay } from "@chakra-ui/react";
+import { Text, Flex, Box, Spacer } from "@chakra-ui/react";
+import { certificate } from "./data";
+import Link from "next/link";
 
 const Certificates = () => {
   return (
-    <LinkBox as="article" pt={2} borderWidth="0">
-      <LinkOverlay
-        className="underlined underlinedThin"
-        href="https://success.simplilearn.com/a8ed0cbb-aa08-40b3-b6ce-a5eac2e55dd4#gs.1kwd89"
-        isExternal
-      >
-        <b>Full-Stack Web Development, </b> <i>Caltech </i> <ExternalLinkIcon />
-      </LinkOverlay>
-      <Text fontSize="sm" pl={1}>
-        <b>Capstone:</b> A bank portal application with Angular2+, Java, Spring,
-        MySQL, REST API, and CRUD functionality
-      </Text>
-    </LinkBox>
+    <div style={{ padding: "1em" }}>
+      <h3>Certificates</h3>
+      {certificate?.map((item) => {
+        return (
+          <>
+            <Flex pt={2}>
+              <Box>
+                <Link href={item.link} className="underlined underlinedThin">
+                  <b>{item.major}</b> <b>{item.school}</b>
+                </Link>
+              </Box>
+              <Spacer />
+              <Box>
+                <Text fontSize="xs">{item.date}</Text>
+              </Box>{" "}
+            </Flex>
+            <Text pl={2} fontSize="sm">
+              {item.description}
+            </Text>
+          </>
+        );
+      })}
+    </div>
   );
 };
 

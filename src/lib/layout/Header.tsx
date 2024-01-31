@@ -14,10 +14,11 @@ const Header = () => {
   return (
     <motion.div
       layout
-      initial={{ opacity: 1, zIndex: "100" }}
-      animate={{ opacity: 0, zIndex: "-100" }}
+      initial={{ scale: 1, zIndex: "100" }}
+      animate={{ scale: 0, zIndex: "-100" }}
+      exit={{ scale: 1, transition: { duration: 1, ease: "circOut" } }}
       transition={{
-        duration: 1,
+        duration: 2,
         delay: 5,
         ease: "circIn",
       }}

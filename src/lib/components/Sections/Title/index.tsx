@@ -36,7 +36,6 @@ const Title = () => {
       }}
     >
       <motion.div
-        className="second"
         style={{
           backgroundImage:
             'url("https://storage.googleapis.com/www.payamd.com/Portfolio/anim/me-home-removebg-dotted-color.png")',
@@ -68,8 +67,9 @@ const Title = () => {
       />
       <motion.div
         style={{
-          height: "400px",
-          width: "400px",
+          height: "50vh",
+          width: "50vw",
+          minWidth: "400px",
           position: "absolute",
           mixBlendMode: "hue",
           background: "currentColor",
