@@ -74,8 +74,10 @@ export default function Menu() {
       custom={height}
       ref={containerRef}
       style={{
-        background: isOpen ? "lightgray" : "transparent",
-        color: isOpen ? "#1e2125" : "transparent",
+        backgroundImage: isOpen
+          ? "linear-gradient(60deg, #29323c 0%, #485563 100%)"
+          : "transparent",
+        color: isOpen ? "#e1e1e1" : "transparent",
         height: isOpen ? "100vh" : "0vh",
       }}
     >
@@ -89,7 +91,7 @@ export default function Menu() {
           display: isOpen ? "none" : "flex",
         }}
       >
-        <Logo />
+        <Logo light />
       </motion.div>
 
       <NavToggle toggle={() => toggleOpen()} />
@@ -113,7 +115,7 @@ export default function Menu() {
             width: "300px",
           }}
         >
-          <Logo />
+          <Logo light />
         </motion.div>
         <Footer />
       </motion.div>

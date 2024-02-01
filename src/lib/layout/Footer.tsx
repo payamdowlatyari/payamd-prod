@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import Social from "../components/Sections/Title/Social";
 import Link from "next/link";
+import { FiArrowUpRight } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <motion.div style={{ display: "grid", height: "15em" }}>
+    <motion.div style={{ display: "grid", height: "22em" }}>
       <motion.div
         style={{
           display: "flex",
@@ -12,6 +13,20 @@ const Footer = () => {
           justifyContent: "space-evenly",
         }}
       >
+        <motion.div style={{ display: "grid", padding: "0 1em" }}>
+          <b>EMAIL</b>
+          <motion.a href="mailto:pdowlatyari@gmail.com" target="_blank">
+            pdowlatyari@gmail.com
+          </motion.a>
+
+          <b>FOLLOW ME</b>
+          <Social />
+          <motion.a href="https://payamd-blog.vercel.app/" target="_blank">
+            <b>
+              MY BLOG <FiArrowUpRight style={{ display: "inline" }} />
+            </b>
+          </motion.a>
+        </motion.div>
         <motion.div
           style={{ display: "grid", height: "fit-content", fontSize: "2em" }}
         >
@@ -24,15 +39,6 @@ const Footer = () => {
           <Link href="/projects" className="underlined underlinedThin">
             Projects
           </Link>
-        </motion.div>
-        <motion.div style={{ display: "grid" }}>
-          <motion.a href="mailto:pdowlatyari@gmail.com" target="_blank">
-            pdowlatyari@gmail.com
-          </motion.a>
-          <motion.a href="https://payamd-blog.vercel.app/" target="_blank">
-            Check out my Blog
-          </motion.a>
-          <Social />
         </motion.div>
       </motion.div>
       <motion.div

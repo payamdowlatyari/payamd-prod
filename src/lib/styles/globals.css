@@ -21,13 +21,15 @@ body {
   --dirty-blue: #003049;
   --mid-pink: #ce7777;
 
-  --background: var(--apple);
-  --accent: var(--black);
+  --background: var(--black);
+  --accent: var(--apple);
   --secondary: var(--mid-pink);
 
   margin: 0;
   padding: 0;
   background-color: var(--background);
+
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
   color: var(--accent);
 }
 
@@ -129,12 +131,12 @@ section {
   padding: 20px 0;
   margin: 0 auto;
   margin: 10em 0 15em;
-  height: 80vh;
+  height: 60vh;
   width: 100vw;
 }
 
 .card {
-  height: 70vh;
+  height: 50vh;
   flex: 0 0 45em;
   max-width: 90vw;
   padding: 10px;
@@ -218,7 +220,7 @@ nav li {
     var(--accent) 0,
     var(--accent) 100%
   );
-  background-position: 0 1.3em;
+  background-position: 0 1.4em;
   background-size: 0 100%;
   background-repeat: no-repeat;
   text-transform: uppercase;

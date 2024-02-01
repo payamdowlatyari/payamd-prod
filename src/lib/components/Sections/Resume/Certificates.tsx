@@ -1,6 +1,7 @@
 import { Text, Flex, Box, Spacer } from "@chakra-ui/react";
 import { certificate } from "./data";
 import Link from "next/link";
+import { FiArrowUpRight } from "react-icons/fi";
 
 const Certificates = () => {
   return (
@@ -12,7 +13,8 @@ const Certificates = () => {
             <Flex pt={2}>
               <Box>
                 <Link href={item.link} className="underlined underlinedThin">
-                  <b>{item.major}</b> <b>{item.school}</b>
+                  <b>{item.major}</b> <b>{item.school}</b>{" "}
+                  <FiArrowUpRight style={{ display: "inline" }} />
                 </Link>
               </Box>
               <Spacer />

@@ -116,7 +116,7 @@ const Title = () => {
           layout
           style={{
             maxWidth: "99vw",
-            mixBlendMode: "exclusion",
+            mixBlendMode: "color-dodge",
             color: "white",
           }}
         >

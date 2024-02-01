@@ -17,8 +17,11 @@ export default function About() {
   const willChange = useWillChange();
 
   const ref2 = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref2 });
-  const y = useTransform(scrollYProgress, [0.3, 0.6], [-300, 0]);
+  const { scrollY } = useScroll({ target: ref2 });
+  const y = useTransform(scrollY, [800, 1200], [0, 100]);
+  const x = useTransform(scrollY, [300, 500, 1000, 1200], [-300, 0, 0, -300]);
+  const scale = useTransform(scrollY, [300, 500, 1000, 1200], [0.8, 1, 1, 0.8]);
+  const opacity = useTransform(scrollY, [300, 500, 1000, 1200], [0, 1, 1, 0]);
 
   return (
     <motion.section
@@ -27,7 +30,6 @@ export default function About() {
       layoutScroll
       style={{
         willChange,
-        mixBlendMode: "color-burn",
       }}
     >
       <AnimatePresence initial={false}>
@@ -45,13 +47,18 @@ export default function About() {
             <motion.div
               style={{
                 maxWidth: "750px",
+                x,
+                scale,
+                opacity,
               }}
             >
               <Box
-                p={3}
                 style={{
-                  background: "lightsalmon",
+                  backgroundImage:
+                    "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)",
+                  color: "#222",
                 }}
+                p={3}
               >
                 <motion.h1>About</motion.h1>
                 <motion.h4
@@ -93,6 +100,7 @@ export default function About() {
                 y,
               }}
             >
+              <motion.h1>More</motion.h1>
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -101,22 +109,15 @@ export default function About() {
                   delay: 2.5,
                   ease: "easeInOut",
                 }}
+                style={{
+                  willChange,
+                  display: "grid",
+                }}
               >
-                <motion.h1>More</motion.h1>
                 <Link href="/about" className="underlined underlinedThin">
                   resume and skills {"  "}
                   <ArrowForwardIcon />
                 </Link>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{
-                  duration: 1,
-                  delay: 3,
-                  ease: "easeInOut",
-                }}
-              >
                 <Link href="/projects" className="underlined underlinedThin">
                   my recent projects{"  "}
                   <ArrowForwardIcon />

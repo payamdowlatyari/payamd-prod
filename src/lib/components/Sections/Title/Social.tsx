@@ -5,11 +5,11 @@ import { Tooltip } from "@chakra-ui/react";
 const icon = {
   hidden: {
     pathLength: 0,
-    fill: "#353535",
+    fill: "#e1e1e1",
   },
   visible: {
     pathLength: 1,
-    fill: "#353535",
+    fill: "#e1e1e1",
   },
 };
 
@@ -26,9 +26,9 @@ export default function Social() {
               }}
             >
               <motion.svg
-                style={{ width: "50px" }}
+                style={{ width: "45px" }}
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 100 100"
+                viewBox="0 0 80 80"
                 whileHover={{
                   scale: 1.1,
                   transition: { duration: 0.5 },

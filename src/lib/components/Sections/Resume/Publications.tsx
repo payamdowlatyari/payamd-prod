@@ -1,6 +1,7 @@
 import { Text, Box } from "@chakra-ui/react";
 import { publication } from "./data";
 import Link from "next/link";
+import { FiArrowUpRight } from "react-icons/fi";
 
 const Publications = () => {
   return (
@@ -11,6 +12,7 @@ const Publications = () => {
           <Box pt={2}>
             <Link href={item.link} className="underlined underlinedThin">
               <b>{item.title}</b>{" "}
+              <FiArrowUpRight style={{ display: "inline" }} />
             </Link>
             <Text fontSize="sm" pl={2}>
               {item.description}

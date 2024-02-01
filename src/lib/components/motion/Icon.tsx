@@ -5,11 +5,11 @@ import { useRef } from "react";
 const icon = {
   hidden: {
     pathLength: 0,
-    fill: "#1e2125",
+    fill: "#e1e1e1",
   },
   visible: {
     pathLength: 1,
-    fill: "#1e2125",
+    fill: "#e1e1e1",
   },
 };
 
@@ -25,7 +25,7 @@ export default function Icon({ id, title }: any) {
       style={{
         width: "4em",
         overflow: "visible",
-        stroke: "black",
+        stroke: "#fff",
         strokeWidth: "2",
         strokeLinejoin: "round",
         strokeLinecap: "round",
