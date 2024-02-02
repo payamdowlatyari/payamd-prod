@@ -1,28 +1,10 @@
-import {
-  MotionValue,
-  motion,
-  useScroll,
-  useTransform,
-  useWillChange,
-} from "framer-motion";
+import { motion, useWillChange } from "framer-motion";
 import ParallaxText from "../../motion/ParallaxText";
+import { portfolio } from "./data";
 import Link from "next/link";
-import { useRef } from "react";
-
-function useParallax(value: MotionValue<number>, distance: number) {
-  return useTransform(value, [0, 1], [-distance, distance]);
-}
 
 const Title = () => {
-  const { scrollY } = useScroll();
-
-  const x = useTransform(scrollY, [0, 50, 60, 300], [0, 0, -500, -900]);
-
   const willChange = useWillChange();
-
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref });
-  const y = useParallax(scrollYProgress, 250);
 
   return (
     <motion.section
@@ -37,8 +19,7 @@ const Title = () => {
     >
       <motion.div
         style={{
-          backgroundImage:
-            'url("https://storage.googleapis.com/www.payamd.com/Portfolio/anim/me-home-removebg-dotted-color.png")',
+          backgroundImage: `url(${portfolio.image})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "contain",
           backgroundPosition: "right",
@@ -49,7 +30,7 @@ const Title = () => {
           right: "0",
           bottom: "0",
           position: "absolute",
-          mixBlendMode: "luminosity",
+          mixBlendMode: "exclusion",
         }}
       />
       <motion.div
@@ -58,6 +39,7 @@ const Title = () => {
           display: "grid",
           right: "0",
           top: "35vh",
+          zIndex: "99",
           textAlign: "justify",
           fontSize: "1.1em",
         }}
@@ -73,20 +55,6 @@ const Title = () => {
         </Link>
       </motion.div>
       <motion.div
-        style={{
-          height: "80vh",
-          width: "50vw",
-          minWidth: "400px",
-          right: "0",
-          bottom: "0",
-          position: "absolute",
-          mixBlendMode: "color-burn",
-          background: "lightseagreen",
-          y,
-        }}
-      />
-      <motion.div
-        ref={ref}
         layout
         style={{
           display: "flex",
@@ -101,28 +69,24 @@ const Title = () => {
             fontSize: "1.2em",
             display: "grid",
             transition: "1s ease-in-out",
-            x,
             alignContent: "flex-end",
           }}
         >
-          <motion.h4 style={{ fontWeight: "normal" }}>
-            I am <br />
-            Payam Dowlatyari <br />
-            Software Engineer <br />
-            Based in California
+          <motion.h4 style={{ mixBlendMode: "difference" }}>
+            {portfolio.text[0]} <br />
+            {portfolio.text[1]} <br />
+            {portfolio.text[2]} <br />
+            {portfolio.text[3]}
           </motion.h4>
         </motion.div>
         <motion.div
           layout
           style={{
             maxWidth: "99vw",
-            mixBlendMode: "color-dodge",
-            color: "white",
+            mixBlendMode: "difference",
           }}
         >
-          <ParallaxText baseVelocity={-0.1}>
-            Sofware Engineer UX Designer Photographer Blogger
-          </ParallaxText>
+          <ParallaxText baseVelocity={-0.1}>{portfolio.titles}</ParallaxText>
         </motion.div>
       </motion.div>
     </motion.section>

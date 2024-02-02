@@ -7,7 +7,7 @@ const FadeInItem = ({ service }: any) => {
   const willChange = useWillChange();
 
   const { scrollY } = useScroll({ target: ref });
-  const x = useTransform(scrollY, service.display, [-300, 0, 0, -300]);
+  const x = useTransform(scrollY, service.display, [-300, 0, 0, 300]);
   const y = useTransform(scrollY, service.display, [100, 0, 0, -100]);
   const scale = useTransform(scrollY, service.display, [0.8, 1, 1, 0.8]);
   const opacity = useTransform(scrollY, service.display, [0, 1, 1, 0]);

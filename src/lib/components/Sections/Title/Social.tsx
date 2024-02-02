@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { data } from "./data";
+import { social } from "./data";
 import { Tooltip } from "@chakra-ui/react";
 
 const icon = {
@@ -16,7 +16,7 @@ const icon = {
 export default function Social() {
   return (
     <motion.div style={{ padding: "1em 0 0" }}>
-      {data.map((item) => {
+      {social.map((item) => {
         return (
           <Tooltip hasArrow label={item.name} placement="top" openDelay={1000}>
             <motion.a

@@ -1,34 +1,9 @@
 import { useRef } from "react";
-import {
-  motion,
-  useCycle,
-  useScroll,
-  useTransform,
-  useWillChange,
-} from "framer-motion";
+import { motion, useCycle, useWillChange } from "framer-motion";
 import { useDimensions } from "./use-dimentions";
 import Logo from "./Logo";
-import Footer from "~/lib/layout/Footer";
-
-const sidebar = {
-  open: (height = 1000) => ({
-    clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
-    transition: {
-      type: "spring",
-      stiffness: 20,
-      restDelta: 2,
-    },
-  }),
-  closed: {
-    clipPath: "circle(30px at 40px 40px)",
-    transition: {
-      delay: 0.5,
-      type: "spring",
-      stiffness: 400,
-      damping: 40,
-    },
-  },
-};
+import Nav from "./Nav";
+import Contact from "../../Sections/Contact";
 
 const NavToggle = ({ toggle }: any) => {
   return (
@@ -59,12 +34,6 @@ export default function Menu() {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
-
-  const { scrollY } = useScroll();
-
-  const opacity = useTransform(scrollY, [0, 500, 800], [0.9, 0.9, 0]);
-  const scale = useTransform(scrollY, [0, 500, 800], [1, 1, 0]);
-
   const willChange = useWillChange();
 
   return (
@@ -74,50 +43,43 @@ export default function Menu() {
       custom={height}
       ref={containerRef}
       style={{
-        backgroundImage: isOpen
-          ? "linear-gradient(60deg, #29323c 0%, #485563 100%)"
-          : "transparent",
-        color: isOpen ? "#e1e1e1" : "transparent",
+        background: isOpen ? "rgb(30, 33, 37, 0.9)" : "transparent",
+        color: isOpen ? "rgb(225, 225, 225, 0.8)" : "transparent",
         height: isOpen ? "100vh" : "0vh",
+        padding: "1em",
       }}
     >
+      <NavToggle toggle={() => toggleOpen()} />
       <motion.div
+        layout
         style={{
           willChange,
-          zIndex: 100,
-          width: "100px",
-          opacity,
-          scale,
-          display: isOpen ? "none" : "flex",
-        }}
-      >
-        <Logo light />
-      </motion.div>
-
-      <NavToggle toggle={() => toggleOpen()} />
-
-      <motion.div
-        variants={sidebar}
-        style={{
-          width: "100vw",
           height: "100vh",
-          justifyContent: "space-evenly",
-          alignItems: "center",
-          alignContent: "center",
-          flexWrap: "wrap",
-          display: isOpen ? "flex" : "none",
+          display: isOpen ? "grid" : "none",
         }}
       >
         <motion.div
+          layout
           style={{
             willChange,
-            zIndex: 100,
-            width: "300px",
+            display: "flex",
+            alignItems: "center",
           }}
         >
-          <Logo light />
+          <motion.div
+            layout
+            style={{
+              willChange,
+              zIndex: 100,
+              width: "140px",
+              opacity: "0.9",
+            }}
+          >
+            <Logo light />
+          </motion.div>
+          <Nav />
         </motion.div>
-        <Footer />
+        <Contact />
       </motion.div>
     </motion.nav>
   );

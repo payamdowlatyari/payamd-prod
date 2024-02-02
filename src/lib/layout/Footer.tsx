@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import Social from "../components/Sections/Title/Social";
-import Link from "next/link";
-import { FiArrowUpRight } from "react-icons/fi";
+import Contact from "../components/Sections/Contact";
+import Nav from "../components/motion/Menu/Nav";
+import Logo from "../components/motion/Menu/Logo";
 
 const Footer = () => {
   return (
-    <motion.div style={{ display: "grid", height: "22em" }}>
+    <motion.div style={{ display: "grid", height: "25em" }}>
       <motion.div
         style={{
           display: "flex",
@@ -13,33 +13,16 @@ const Footer = () => {
           justifyContent: "space-evenly",
         }}
       >
-        <motion.div style={{ display: "grid", padding: "0 1em" }}>
-          <b>EMAIL</b>
-          <motion.a href="mailto:pdowlatyari@gmail.com" target="_blank">
-            pdowlatyari@gmail.com
-          </motion.a>
-
-          <b>FOLLOW ME</b>
-          <Social />
-          <motion.a href="https://payamd-blog.vercel.app/" target="_blank">
-            <b>
-              MY BLOG <FiArrowUpRight style={{ display: "inline" }} />
-            </b>
-          </motion.a>
-        </motion.div>
         <motion.div
-          style={{ display: "grid", height: "fit-content", fontSize: "2em" }}
+          style={{
+            width: "140px",
+            opacity: "0.9",
+          }}
         >
-          <Link href="/" className="underlined underlinedThin">
-            Home
-          </Link>
-          <Link href="/about" className="underlined underlinedThin">
-            About
-          </Link>
-          <Link href="/projects" className="underlined underlinedThin">
-            Projects
-          </Link>
+          <Logo light />
         </motion.div>
+        <Nav />
+        <Contact />
       </motion.div>
       <motion.div
         style={{ textAlign: "center", fontSize: "12px", alignSelf: "center" }}

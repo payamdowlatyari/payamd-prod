@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 import Link from "next/link";
 import { useRef } from "react";
+import { data } from "./data";
 
 export default function About() {
   const ref = useRef(null);
@@ -19,7 +20,7 @@ export default function About() {
   const ref2 = useRef(null);
   const { scrollY } = useScroll({ target: ref2 });
   const y = useTransform(scrollY, [800, 1200], [0, 100]);
-  const x = useTransform(scrollY, [300, 500, 1000, 1200], [-300, 0, 0, -300]);
+  const x = useTransform(scrollY, [300, 500, 1000, 1200], [-300, 0, 0, 300]);
   const scale = useTransform(scrollY, [300, 500, 1000, 1200], [0.8, 1, 1, 0.8]);
   const opacity = useTransform(scrollY, [300, 500, 1000, 1200], [0, 1, 1, 0]);
 
@@ -52,14 +53,7 @@ export default function About() {
                 opacity,
               }}
             >
-              <Box
-                style={{
-                  backgroundImage:
-                    "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)",
-                  color: "#222",
-                }}
-                p={3}
-              >
+              <Box p={3}>
                 <motion.h1>About</motion.h1>
                 <motion.h4
                   initial={{ opacity: 0 }}
@@ -70,7 +64,7 @@ export default function About() {
                     ease: "easeInOut",
                   }}
                 >
-                  My name is <b>Payam Dowlatyari</b>.
+                  {data.title}
                 </motion.h4>
                 <motion.p
                   initial={{ opacity: 0 }}
@@ -81,14 +75,7 @@ export default function About() {
                     ease: "easeInOut",
                   }}
                 >
-                  I am a software engineer, UX designer, photographer, and
-                  blogger. I studied Software Engineering at UC Irvine and
-                  graduated in 2020. I have been working in Silicon Valley as a
-                  full-stack web developer since then with focus on the design
-                  and implementation of user interfaces using JavaScript-based
-                  frameworks and libraries. I am interested in reading books on
-                  varius topics such as psychology, sociology, philosophy,
-                  history, and enjoy cycling and taking photographs.
+                  {data.text}
                 </motion.p>
               </Box>
             </motion.div>

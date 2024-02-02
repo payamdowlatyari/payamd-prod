@@ -22,6 +22,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@14islands/r3f-scroll-rig": "^8.12.3",
     "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/next-js": "^2.1.5",
     "@chakra-ui/react": "^2.8.1",
@@ -38,6 +39,7 @@
     "@fontsource/rozha-one": "^5.0.18",
     "@motionone/utils": "^10.17.0",
     "@popmotion/popcorn": "^0.4.4",
+    "@react-three/drei": "^9.97.0",
     "@react-three/fiber": "^8.15.13",
     "framer-motion": "^10.16.4",
     "lodash": "^4.17.21",

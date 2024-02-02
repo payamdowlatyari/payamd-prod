@@ -11,15 +11,14 @@ import { useRef } from "react";
 export default function Skills() {
   const skills = useRef(null);
   const isInView = useInView(skills);
-  // const time = useTime()
-  // const baseX = useMotionValue(0)
   const willChange = useWillChange();
 
-  // const x = useTransform(baseX, (v) => `${wrap(-30, 35, v)}%`);
+  // const baseX = useMotionValue(0);
+  // const x = useTransform(baseX, (v) => `${wrap(-20, 25, v)}%`);
   // const directionFactor = useRef<number>(1);
   // useAnimationFrame((delta) => {
-  //   let moveBy = directionFactor.current * (delta / 10000);
-  //     directionFactor.current = 0.01;
+  //   let moveBy = directionFactor.current * (delta / 20000);
+  //   directionFactor.current = 0.01;
 
   //   moveBy += directionFactor.current * moveBy;
 
@@ -34,11 +33,11 @@ export default function Skills() {
             style={{
               willChange,
               display: "flex",
-              flexWrap: "wrap",
+              // flexWrap: "wrap",
               overflow: "hidden",
-              maxWidth: "100vw",
               margin: "5px 0",
               padding: "1em",
+              // x
             }}
           >
             {skillIcons?.map((icon: any) => {

@@ -1,13 +1,13 @@
 "use client";
 
 import "../../styles/globals.css";
+import { useRef } from "react";
 import { motion, useSpring, useScroll } from "framer-motion";
 import About from "~/lib/components/Sections/About";
 import Title from "~/lib/components/Sections/Title";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import Footer from "~/lib/layout/Footer";
 import Header from "~/lib/layout/Header";
-import { useRef } from "react";
 import Services from "~/lib/components/Sections/Services";
 
 const Home = () => {
@@ -25,10 +25,8 @@ const Home = () => {
       <Menu />
       <Title />
       <Header />
-
       <About />
       <Services />
-
       <motion.div ref={ref} className="progress" style={{ scaleX }} />
       <Footer />
     </>

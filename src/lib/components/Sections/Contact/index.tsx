@@ -1,60 +1,41 @@
-import { useRef } from "react";
-import {
-  motion,
-  AnimatePresence,
-  useInView,
-  useWillChange,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
-import Link from "next/link";
+import { motion, useWillChange } from "framer-motion";
+import { FiArrowUpRight } from "react-icons/fi";
+import Social from "../Title/Social";
 
 export default function Contact() {
-  const ref = useRef(null);
-  const isInView = useInView(ref);
   const willChange = useWillChange();
 
-  const ref2 = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref2 });
-  const y = useTransform(scrollYProgress, [0.7, 1], [-250, 0]);
-
   return (
-    <motion.section
+    <motion.div
       id="contact"
       style={{
-        willChange,
         display: "flex",
-        alignItems: "center",
-        paddingTop: "5em",
+        willChange,
       }}
-      layoutScroll
-      ref={ref}
+      layout
     >
-      <AnimatePresence initial={false}>
-        {isInView && (
-          <motion.div
-            ref={ref2}
-            style={{
-              padding: "1em",
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "space-evenly",
-              alignItems: "baseline",
-              width: "100vw",
-              minHeight: "50vh",
-            }}
-          >
-            <motion.div style={{ y }}>
-              <motion.h2>Portfolio</motion.h2>
-              <Link href="/projects" className="underlined underlinedThick">
-                my recent projects
-                <ArrowForwardIcon />
-              </Link>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.section>
+      <motion.div style={{ display: "grid", padding: "0 1em" }}>
+        <b>COTACT ME</b>
+        <motion.a
+          href="mailto:pdowlatyari@gmail.com"
+          target="_blank"
+          className="underlined underlinedThin"
+        >
+          pdowlatyari@gmail.com
+        </motion.a>
+
+        <b>FOLLOW ME</b>
+        <Social />
+        <motion.a
+          href="https://payamd-blog.vercel.app/"
+          target="_blank"
+          className="underlined underlinedThin"
+        >
+          <b>
+            MY WEB BLOG <FiArrowUpRight style={{ display: "inline" }} />
+          </b>
+        </motion.a>
+      </motion.div>
+    </motion.div>
   );
 }

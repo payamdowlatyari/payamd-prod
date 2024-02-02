@@ -38,11 +38,12 @@ export default function Card({ item }: any) {
         {isInView && (
           <motion.figure
             style={{ position: "relative", willChange }}
-            initial={{ opacity: 0, scale: 0.75 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{
-              duration: 1,
+              duration: 0.8,
               delay: 0.5,
+              ease: "backOut",
             }}
           >
             <motion.img
@@ -68,13 +69,27 @@ export default function Card({ item }: any) {
                 alignContent: "center",
               }}
             >
-              <a href={item.url}>
-                <h3>
-                  {item.title} <FiArrowUpRight style={{ display: "inline" }} />
-                </h3>
-              </a>
-              <motion.p>{item.description}</motion.p>
-              {getTags(item.tags)}
+              <motion.div
+                style={{
+                  willChange,
+                  backdropFilter: "brightness(0.5",
+                  padding: "1em",
+                  maxWidth: "25em",
+                }}
+                whileHover={{
+                  scale: 1.1,
+                  transition: { duration: 0.3, ease: "backInOut" },
+                }}
+              >
+                <a href={item.url}>
+                  <h3>
+                    {item.title}{" "}
+                    <FiArrowUpRight style={{ display: "inline" }} />
+                  </h3>
+                </a>
+                <motion.p>{item.description}</motion.p>
+                {getTags(item.tags)}
+              </motion.div>
             </motion.div>
           </motion.figure>
         )}
