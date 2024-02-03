@@ -8,7 +8,10 @@ export default function Horizental() {
   const { scrollXProgress } = useScroll({ container: ref });
 
   return (
-    <motion.section id="projects">
+    <motion.section
+      id="projects"
+      style={{ minHeight: "auto", padding: "3em 0 0 " }}
+    >
       <ul ref={ref} className="cards">
         {data?.map((project: any) => {
           return (
@@ -22,8 +25,8 @@ export default function Horizental() {
         style={{
           position: "absolute",
           transform: "rotate(-90deg)",
-          top: "10em",
-          left: "1em",
+          top: "6em",
+          right: "1em",
         }}
         width="100"
         height="100"
@@ -34,7 +37,7 @@ export default function Horizental() {
           cx="50"
           cy="50"
           r="30"
-          pathLength="1"
+          pathLength="3"
           style={{ pathLength: scrollXProgress, stroke: "lightgray" }}
         />
       </svg>

@@ -1,10 +1,60 @@
+import { useRef } from "react";
 import { intro } from "./data";
+import { motion, useTransform, useWillChange, useScroll } from "framer-motion";
 
 export default function Intro() {
+  const ref = useRef(null);
+  const willChange = useWillChange();
+
+  const { scrollY } = useScroll({ target: ref });
+  const x = useTransform(scrollY, [0, 800], [0, 50]);
+  const y = useTransform(scrollY, [0, 800], [50, 250]);
+  const scale = useTransform(scrollY, [0, 500, 800], [0.9, 1, 1]);
+
   return (
-    <div style={{ padding: "1em" }}>
-      <h3>Introduction</h3>
-      <p>{intro.text}</p>
-    </div>
+    <motion.div
+      layout
+      style={{
+        padding: "1em",
+        display: "flex",
+        alignItems: "end",
+        justifyContent: "space-between",
+        backgroundImage: "linear-gradient(to right, #434343 0%, black 100%)",
+        willChange,
+        height: "85vh",
+      }}
+      ref={ref}
+    >
+      <motion.div
+        style={{
+          backgroundImage: `url(${intro.image})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "contain",
+          backgroundPositionX: "right",
+          height: "50vh",
+          width: "50vw",
+          minWidth: "250px",
+          right: "0",
+          top: "0",
+          position: "absolute",
+          mixBlendMode: "screen",
+          scale,
+          y,
+        }}
+      />
+      <motion.div
+        layout
+        style={{
+          fontSize: "1em",
+          width: "500px",
+          willChange,
+          x,
+        }}
+      >
+        {" "}
+        <h4>Introduction</h4>
+        <p>{intro.text2}</p>
+      </motion.div>
+    </motion.div>
   );
 }

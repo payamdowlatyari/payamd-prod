@@ -30,7 +30,7 @@ const Title = () => {
           right: "0",
           bottom: "0",
           position: "absolute",
-          mixBlendMode: "exclusion",
+          mixBlendMode: "lighten",
         }}
       />
       <motion.div
@@ -72,7 +72,7 @@ const Title = () => {
             alignContent: "flex-end",
           }}
         >
-          <motion.h4 style={{ mixBlendMode: "difference" }}>
+          <motion.h4>
             {portfolio.text[0]} <br />
             {portfolio.text[1]} <br />
             {portfolio.text[2]} <br />
@@ -83,7 +83,6 @@ const Title = () => {
           layout
           style={{
             maxWidth: "99vw",
-            mixBlendMode: "difference",
           }}
         >
           <ParallaxText baseVelocity={-0.1}>{portfolio.titles}</ParallaxText>

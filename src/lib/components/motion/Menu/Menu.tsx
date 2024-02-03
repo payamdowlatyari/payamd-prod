@@ -64,6 +64,7 @@ export default function Menu() {
             willChange,
             display: "flex",
             alignItems: "center",
+            justifyContent: "space-evenly",
           }}
         >
           <motion.div

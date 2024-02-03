@@ -5,15 +5,13 @@ import { useRef } from "react";
 const icon = {
   hidden: {
     pathLength: 0,
-    fill: "#e1e1e1",
   },
   visible: {
     pathLength: 1,
-    fill: "#e1e1e1",
   },
 };
 
-export default function Icon({ id, title }: any) {
+export default function Icon({ id, title, del }: any) {
   const ref = useRef(null);
   const isInView = useInView(ref);
 
@@ -23,13 +21,12 @@ export default function Icon({ id, title }: any) {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 120 120"
       style={{
-        width: "4em",
+        width: "3em",
         overflow: "visible",
         stroke: "#fff",
-        strokeWidth: "2",
-        strokeLinejoin: "round",
-        strokeLinecap: "round",
-        padding: "0.3em",
+        strokeWidth: "3",
+        padding: "0.2em",
+        background: "transparant",
       }}
     >
       <AnimatePresence initial={false}>
@@ -41,7 +38,7 @@ export default function Icon({ id, title }: any) {
               initial="hidden"
               animate="visible"
               transition={{
-                default: { delay: 1, duration: 2, ease: "easeInOut" },
+                default: { delay: del, duration: 2, ease: "easeInOut" },
                 fill: { duration: 1, ease: [0, 0, 0.8, 1] },
               }}
             />

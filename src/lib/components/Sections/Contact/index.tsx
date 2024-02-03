@@ -7,7 +7,6 @@ export default function Contact() {
 
   return (
     <motion.div
-      id="contact"
       style={{
         display: "flex",
         willChange,

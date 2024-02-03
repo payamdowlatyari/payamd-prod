@@ -5,8 +5,10 @@ import { motion, useSpring, useScroll, useIsPresent } from "framer-motion";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import Footer from "~/lib/layout/Footer";
 import Resume from "~/lib/components/Sections/Resume";
+import { useRef } from "react";
 
 const AboutRoute = () => {
+  const ref = useRef(null);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -27,7 +29,7 @@ const AboutRoute = () => {
         className="privacy-screen"
       />
       <Resume />
-      <motion.div className="progress" style={{ scaleX }} />
+      <motion.div ref={ref} className="progress" style={{ scaleX }} />
       <Footer />
     </>
   );

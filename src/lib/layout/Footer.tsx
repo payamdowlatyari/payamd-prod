@@ -5,12 +5,14 @@ import Logo from "../components/motion/Menu/Logo";
 
 const Footer = () => {
   return (
-    <motion.div style={{ display: "grid", height: "25em" }}>
+    <motion.div layout style={{ display: "grid", height: "25em" }}>
       <motion.div
+        layout
         style={{
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "space-evenly",
+          alignContent: "flex-end",
         }}
       >
         <motion.div

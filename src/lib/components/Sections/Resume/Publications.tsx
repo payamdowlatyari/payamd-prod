@@ -3,17 +3,19 @@ import { publication } from "./data";
 import Link from "next/link";
 import { FiArrowUpRight } from "react-icons/fi";
 import { useRef } from "react";
-import {
-  AnimatePresence,
-  motion,
-  useInView,
-  useWillChange,
-} from "framer-motion";
+import { motion, useScroll, useTransform, useWillChange } from "framer-motion";
 
 const Publications = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref);
   const willChange = useWillChange();
+
+  const { scrollY } = useScroll({ target: ref });
+  const opacity = useTransform(scrollY, [1300, 1400, 1800, 1900], [0, 1, 1, 0]);
+  const scale = useTransform(
+    scrollY,
+    [1300, 1400, 1800, 1900],
+    [0.9, 1, 1, 0.9]
+  );
 
   return (
     <motion.div
@@ -21,39 +23,31 @@ const Publications = () => {
       style={{
         padding: "1em",
         willChange,
+        opacity,
+        scale,
+        backgroundImage: "linear-gradient(45deg, #874da2 0%, #c43a30 100%)",
       }}
       ref={ref}
     >
       <h3>Publications</h3>
       {publication?.map((item) => {
         return (
-          <AnimatePresence initial={false}>
-            {isInView && (
-              <motion.div
-                layout
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 1,
-                  delay: 0.5,
-                  ease: "easeInOut",
-                }}
-                style={{
-                  willChange,
-                }}
-              >
-                <Box pt={2}>
-                  <Link href={item.link} className="underlined underlinedThin">
-                    <b>{item.title}</b>{" "}
-                    <FiArrowUpRight style={{ display: "inline" }} />
-                  </Link>
-                  <Text fontSize="sm" pl={2}>
-                    {item.description}
-                  </Text>
-                </Box>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <motion.div
+            layout
+            style={{
+              willChange,
+            }}
+          >
+            <Box py={1}>
+              <Link href={item.link} className="underlined underlinedThin">
+                <b>{item.title}</b>{" "}
+                <FiArrowUpRight style={{ display: "inline" }} />
+              </Link>
+              <Text fontSize="sm" pl={1}>
+                {item.description}
+              </Text>
+            </Box>
+          </motion.div>
         );
       })}
     </motion.div>

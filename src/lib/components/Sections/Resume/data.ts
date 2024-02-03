@@ -2,6 +2,13 @@ export const intro = {
   text: `Having the opportunity to study at UCI and work in an innovative start-up environment, 
     I've improved my technical and soft skills, uncovered my passion for design, and expanded my mastery in 
     software development in recent years. Now, I look forward to finding a position to grow in my career.`,
+  text2: `After obtaining my B.S. in Software Engineering from UC Irvine in 2020, 
+  I entered the tech industry and worked at Amplify.ai for three years developing AI applications. 
+  Meanwhile, I dedicated time to learning new skills and completed a 9-month postgraduate program in full-stack web development. 
+  Likewise, I gained hands-on experience with different tools, such as JS/TS-based frameworks, including React.js, 
+  server-side technologies such as Node.js, automation and DevOps tools, cloud services, and SQL and NoSQL databases. `,
+  image:
+    "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/me-home-removebg-sketch.png",
 };
 
 export const experience = [

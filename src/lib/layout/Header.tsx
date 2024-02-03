@@ -37,7 +37,6 @@ const Header = () => {
         layout
         style={{
           alignSelf: "center",
-          color: "lightseagreen",
           fontSize: "10em",
         }}
       >

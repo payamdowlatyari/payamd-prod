@@ -33,12 +33,6 @@ const Resume = () => {
       <AnimatePresence initial={false}>
         {isInView && (
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 2,
-              ease: "linear",
-            }}
             style={{
               maxWidth: "800px",
               margin: "auto",
@@ -56,7 +50,7 @@ const Resume = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{
                 duration: 1,
-                delay: 3,
+                delay: 5,
               }}
               style={{ padding: "2em 1em" }}
             >

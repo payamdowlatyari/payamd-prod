@@ -13,36 +13,47 @@ export default function Skills() {
   const isInView = useInView(skills);
   const willChange = useWillChange();
 
-  // const baseX = useMotionValue(0);
-  // const x = useTransform(baseX, (v) => `${wrap(-20, 25, v)}%`);
-  // const directionFactor = useRef<number>(1);
-  // useAnimationFrame((delta) => {
-  //   let moveBy = directionFactor.current * (delta / 20000);
-  //   directionFactor.current = 0.01;
-
-  //   moveBy += directionFactor.current * moveBy;
-
-  //   baseX.set(baseX.get() + moveBy);
-  // });
   return (
-    <motion.div ref={skills} id="skills">
-      <h3 style={{ padding: "0.5em" }}>Skills</h3>
+    <motion.div ref={skills}>
       <AnimatePresence initial={false}>
         {isInView && (
           <motion.div
             style={{
               willChange,
+              backgroundImage:
+                "linear-gradient(to right, #434343 0%, black 100%)",
               display: "flex",
-              // flexWrap: "wrap",
-              overflow: "hidden",
-              margin: "5px 0",
-              padding: "1em",
-              // x
+              flexWrap: "wrap",
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 1,
+              delay: 0.5,
             }}
           >
-            {skillIcons?.map((icon: any) => {
-              return <Icon id={icon.item} title={icon.title} />;
-            })}
+            <h3 style={{ padding: "0.5em" }}>Skills</h3>
+            <motion.div
+              style={{
+                willChange,
+                display: "flex",
+                flexWrap: "wrap",
+                overflow: "hidden",
+                whiteSpace: "nowrap",
+                margin: "5px 0",
+                padding: "1em",
+              }}
+            >
+              {skillIcons?.map((icon: any) => {
+                return (
+                  <Icon
+                    id={icon.item}
+                    title={icon.title}
+                    del={Math.random() * 10}
+                  />
+                );
+              })}
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

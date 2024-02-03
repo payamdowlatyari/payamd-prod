@@ -13,7 +13,7 @@ const getTags = (tags: any) => {
     <span>
       {tags?.map((tag: any) => {
         return (
-          <Badge colorScheme="gray" ml={2}>
+          <Badge colorScheme="gray" m={1} size="sm">
             {tag}
           </Badge>
         );
@@ -38,8 +38,8 @@ export default function Card({ item }: any) {
         {isInView && (
           <motion.figure
             style={{ position: "relative", willChange }}
-            initial={{ opacity: 0, y: -100 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{
               duration: 0.8,
               delay: 0.5,
@@ -72,9 +72,9 @@ export default function Card({ item }: any) {
               <motion.div
                 style={{
                   willChange,
-                  backdropFilter: "brightness(0.5",
                   padding: "1em",
-                  maxWidth: "25em",
+                  maxWidth: "30em",
+                  fontSize: "small",
                 }}
                 whileHover={{
                   scale: 1.1,

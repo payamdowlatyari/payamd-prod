@@ -1,16 +1,15 @@
 import { useWillChange, useScroll, useTransform, motion } from "framer-motion";
 import { useRef } from "react";
 import { data } from "./data";
+import ParallaxText from "../../motion/ParallaxText";
 
 const FadeInItem = ({ service }: any) => {
   const ref = useRef(null);
   const willChange = useWillChange();
 
   const { scrollY } = useScroll({ target: ref });
-  const x = useTransform(scrollY, service.display, [-300, 0, 0, 300]);
-  const y = useTransform(scrollY, service.display, [100, 0, 0, -100]);
-  const scale = useTransform(scrollY, service.display, [0.8, 1, 1, 0.8]);
-  const opacity = useTransform(scrollY, service.display, [0, 1, 1, 0]);
+  const scale = useTransform(scrollY, service.display, [0.8, 1]);
+  const opacity = useTransform(scrollY, service.display, [0, 1]);
 
   return (
     <motion.div
@@ -22,10 +21,6 @@ const FadeInItem = ({ service }: any) => {
         maxWidth: "100vw",
         margin: "10em 1em 10em",
         padding: "2em",
-        color: "black",
-        backgroundImage: "linear-gradient(to top, #dfe9f3 0%, white 100%)",
-        x,
-        y,
         scale,
         opacity,
       }}
@@ -47,14 +42,27 @@ export default function Services() {
         willChange,
         maxWidth: "100vw",
         overflow: "hidden",
-        alignItems: "flex-start",
+        display: "block",
+        padding: "5em 0",
       }}
     >
+      {/* <motion.div 
+         style={{
+            willChange,
+            // maxWidth: "100vw",
+         }}
+        > */}
+      <ParallaxText baseVelocity={0.1}>
+        Professional Services Professional Services
+      </ParallaxText>
+      {/* </motion.div> */}
       <motion.div
         layout
         style={{
+          display: "grid",
           justifyContent: "center",
           willChange,
+          //   padding: '5em 0'
         }}
       >
         {data?.map((service) => {
