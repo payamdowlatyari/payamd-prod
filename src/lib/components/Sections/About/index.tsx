@@ -19,7 +19,7 @@ export default function About() {
 
   const ref2 = useRef(null);
   const { scrollY } = useScroll({ target: ref2 });
-  const y = useTransform(scrollY, [800, 1200], [0, 100]);
+  const y = useTransform(scrollY, [800, 1200], [-100, 100]);
   const x = useTransform(scrollY, [300, 500, 1000, 1200], [-300, 0, 0, 300]);
   const scale = useTransform(scrollY, [300, 500, 1000, 1200], [0.8, 1, 1, 0.8]);
   const opacity = useTransform(scrollY, [300, 500, 1000, 1200], [0, 1, 1, 0]);
@@ -54,7 +54,7 @@ export default function About() {
               }}
             >
               <Box p={3}>
-                <motion.h1>About</motion.h1>
+                {/* <motion.h1>About</motion.h1> */}
                 <motion.h4
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}

@@ -14,16 +14,15 @@ const Header = () => {
   return (
     <motion.div
       layout
-      initial={{ scale: 1, zIndex: "100" }}
-      animate={{ scale: 0, zIndex: "-100" }}
-      exit={{ scale: 1, transition: { duration: 1, ease: "circOut" } }}
+      initial={{ scale: 1, zIndex: "100", background: "#1e2125" }}
+      animate={{ scale: 0, zIndex: "-100", background: "#e1e1e1" }}
+      exit={{ scale: 1, transition: { duration: 2, ease: "circOut" } }}
       transition={{
-        duration: 2,
+        duration: 3,
         delay: 5,
         ease: "circIn",
       }}
       style={{
-        background: "#1e2125",
         position: "fixed",
         justifyContent: "center",
         display: "flex",

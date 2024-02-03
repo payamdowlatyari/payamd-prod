@@ -20,9 +20,8 @@ const Education = () => {
       layout
       style={{
         padding: "1em",
+        backgroundImage: "linear-gradient(to right, #434343 0%, black 100%)",
         willChange,
-        backgroundImage:
-          "linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%)",
         opacity,
         scale,
       }}

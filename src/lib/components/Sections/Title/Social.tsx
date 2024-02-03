@@ -26,7 +26,7 @@ export default function Social() {
               }}
             >
               <motion.svg
-                style={{ width: "45px" }}
+                style={{ width: "40px" }}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 80 80"
                 whileHover={{

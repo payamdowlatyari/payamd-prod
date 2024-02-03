@@ -9,21 +9,26 @@ export default function Contact() {
     <motion.div
       style={{
         display: "flex",
+        flexWrap: "wrap",
+        padding: "0 1em",
         willChange,
       }}
       layout
     >
-      <motion.div style={{ display: "grid", padding: "0 1em" }}>
-        <b>COTACT ME</b>
+      <div style={{ padding: "0 0.5em" }}>
+        <h5>
+          <b>COTACT ME</b>
+        </h5>
         <motion.a
-          href="mailto:pdowlatyari@gmail.com"
+          href="mailto:contact@payamd.com"
           target="_blank"
           className="underlined underlinedThin"
         >
-          pdowlatyari@gmail.com
+          contact@payamd.com
         </motion.a>
-
-        <b>FOLLOW ME</b>
+      </div>
+      <div style={{ padding: "0 0.5em" }}>
+        <h5>FOLLOW ME</h5>
         <Social />
         <motion.a
           href="https://payamd-blog.vercel.app/"
@@ -34,7 +39,7 @@ export default function Contact() {
             MY WEB BLOG <FiArrowUpRight style={{ display: "inline" }} />
           </b>
         </motion.a>
-      </motion.div>
+      </div>
     </motion.div>
   );
 }

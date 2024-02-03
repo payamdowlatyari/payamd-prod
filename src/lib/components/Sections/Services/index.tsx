@@ -46,23 +46,15 @@ export default function Services() {
         padding: "5em 0",
       }}
     >
-      {/* <motion.div 
-         style={{
-            willChange,
-            // maxWidth: "100vw",
-         }}
-        > */}
       <ParallaxText baseVelocity={0.1}>
         Professional Services Professional Services
       </ParallaxText>
-      {/* </motion.div> */}
       <motion.div
         layout
         style={{
           display: "grid",
           justifyContent: "center",
           willChange,
-          //   padding: '5em 0'
         }}
       >
         {data?.map((service) => {

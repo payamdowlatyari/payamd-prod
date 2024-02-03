@@ -48,7 +48,8 @@ body {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5 {
   font-weight: 900;
   margin: 0.1em 0 0.1em 0;
 }
@@ -68,6 +69,10 @@ h3 {
 h4 {
   font-size: 3em;
   line-height: 1.1;
+}
+
+h5 {
+  font-size: 1.5em;
 }
 
 p {
@@ -201,7 +206,6 @@ nav button {
   position: inherit;
   z-index: 101;
   top: 5px;
-  /* right: 5px; */
   height: 75px;
   width: 75px;
   border-radius: 50%;
@@ -231,7 +235,7 @@ nav li {
   height: fit-content;
   background-size: 0 100%;
   background-repeat: no-repeat;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   transition: 0.5s;
 }
 .underlined:hover {
@@ -253,19 +257,6 @@ nav li {
 
 .underlinedReverse {
   background-position: 100% -0.1em;
-}
-
-.underlinedRise {
-  box-shadow: inset 0 -2px 0 var(--background);
-  font-weight: 900;
-  line-height: 0.9;
-  text-transform: uppercase;
-  transition: 0.5s cubic-bezier(0.33, 0.66, 0.66, 1);
-}
-
-.underlinedRise:hover {
-  background-color: var(--background);
-  color: var(--accent);
 }
 
 .video-container {

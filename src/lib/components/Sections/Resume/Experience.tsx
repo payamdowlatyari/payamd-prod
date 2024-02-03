@@ -16,11 +16,10 @@ const Experience = () => {
       layout
       style={{
         padding: "1em",
+        backgroundImage: "linear-gradient(to right, #434343 0%, black 100%)",
         willChange,
         scale,
         opacity,
-        backgroundImage: " linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%)",
-        color: "black",
       }}
       ref={ref}
     >

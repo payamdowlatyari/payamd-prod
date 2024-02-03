@@ -43,8 +43,8 @@ export default function Menu() {
       custom={height}
       ref={containerRef}
       style={{
-        background: isOpen ? "rgb(30, 33, 37, 0.9)" : "transparent",
-        color: isOpen ? "rgb(225, 225, 225, 0.8)" : "transparent",
+        background: isOpen ? "rgb(30, 33, 37, 0.95)" : "transparent",
+        color: isOpen ? "rgb(225, 225, 225, 0.9)" : "transparent",
         height: isOpen ? "100vh" : "0vh",
         padding: "1em",
       }}
@@ -55,6 +55,7 @@ export default function Menu() {
         style={{
           willChange,
           height: "100vh",
+          maxWidth: "300px",
           display: isOpen ? "grid" : "none",
         }}
       >

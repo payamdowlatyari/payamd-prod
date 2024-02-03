@@ -13,6 +13,7 @@ import Skills from "./Skills";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import Link from "next/link";
 import Intro from "./Intro";
+import ParallaxText from "../../motion/ParallaxText";
 
 const Resume = () => {
   const resume = useRef(null);
@@ -39,6 +40,16 @@ const Resume = () => {
             }}
           >
             <Intro />
+            <motion.div
+              layout
+              style={{
+                maxWidth: "99vw",
+              }}
+            >
+              <ParallaxText baseVelocity={-0.1}>
+                My Resume My Resume
+              </ParallaxText>
+            </motion.div>
             <Experience />
             <Education />
             <Certificates />

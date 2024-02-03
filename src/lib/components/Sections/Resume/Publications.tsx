@@ -22,10 +22,10 @@ const Publications = () => {
       layout
       style={{
         padding: "1em",
+        backgroundImage: "linear-gradient(to right, #434343 0%, black 100%)",
         willChange,
         opacity,
         scale,
-        backgroundImage: "linear-gradient(45deg, #874da2 0%, #c43a30 100%)",
       }}
       ref={ref}
     >
