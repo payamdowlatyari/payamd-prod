@@ -7,7 +7,7 @@ export default function Intro() {
   const willChange = useWillChange();
 
   const { scrollY } = useScroll({ target: ref });
-  const x = useTransform(scrollY, [0, 800], [0, 50]);
+  const x = useTransform(scrollY, [0, 800], [-25, 25]);
   const y = useTransform(scrollY, [0, 800], [50, 250]);
   const scale = useTransform(scrollY, [0, 500, 800], [0.9, 1, 1]);
 
@@ -19,7 +19,6 @@ export default function Intro() {
         display: "flex",
         alignItems: "end",
         justifyContent: "space-between",
-        backgroundImage: "linear-gradient(to right, #434343 0%, black 100%)",
         willChange,
         height: "85vh",
       }}
@@ -37,7 +36,6 @@ export default function Intro() {
           right: "0",
           top: "0",
           position: "absolute",
-          mixBlendMode: "screen",
           scale,
           y,
         }}
@@ -51,8 +49,7 @@ export default function Intro() {
           x,
         }}
       >
-        {" "}
-        <h4>Introduction</h4>
+        <h1>Intro</h1>
         <p>{intro.text2}</p>
       </motion.div>
     </motion.div>

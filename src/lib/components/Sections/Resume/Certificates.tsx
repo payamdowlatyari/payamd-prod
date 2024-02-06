@@ -1,20 +1,18 @@
 import { Text, Flex, Box, Spacer } from "@chakra-ui/react";
 import { certificate } from "./data";
-import Link from "next/link";
-import { FiArrowUpRight } from "react-icons/fi";
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useWillChange } from "framer-motion";
+import HoverLink from "../../motion/View/HoverLink";
 
 const Certificates = () => {
   const ref = useRef(null);
   const willChange = useWillChange();
 
   const { scrollY } = useScroll({ target: ref });
-  const opacity = useTransform(scrollY, [1200, 1300, 1600, 1700], [0, 1, 1, 0]);
-  const scale = useTransform(
+  const opacity = useTransform(
     scrollY,
-    [1200, 1300, 1600, 1700],
-    [0.9, 1, 1, 0.9]
+    [1300, 1400, 1800, 1900],
+    [0.5, 1, 1, 1]
   );
 
   return (
@@ -22,14 +20,12 @@ const Certificates = () => {
       layout
       style={{
         padding: "1em",
-        backgroundImage: "linear-gradient(to right, #434343 0%, black 100%)",
         willChange,
         opacity,
-        scale,
       }}
       ref={ref}
     >
-      <h3>Certificates</h3>
+      <h5>Certificates</h5>
       {certificate?.map((item) => {
         return (
           <motion.div
@@ -38,23 +34,20 @@ const Certificates = () => {
               willChange,
             }}
           >
-            <Flex pt={2}>
+            <Flex pt={1}>
               <Box>
-                <Link href={item.link} className="underlined underlinedThin">
-                  <b>{item.major}</b> <b>{item.school}</b>{" "}
-                  <FiArrowUpRight
-                    style={{
-                      display: "inline",
-                    }}
-                  />
-                </Link>
+                <HoverLink
+                  title={item.major + item.school}
+                  url={item.link}
+                  out
+                />
               </Box>
               <Spacer />
               <Box>
                 <Text fontSize="xs">{item.date}</Text>
-              </Box>{" "}
+              </Box>
             </Flex>
-            <Text pl={1} fontSize="sm">
+            <Text pl={1} fontSize="xs">
               {item.description}
             </Text>
           </motion.div>

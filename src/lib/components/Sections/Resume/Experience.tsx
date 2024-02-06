@@ -8,22 +8,19 @@ const Experience = () => {
   const willChange = useWillChange();
 
   const { scrollY } = useScroll({ target: ref });
-  const opacity = useTransform(scrollY, [500, 700, 1200, 1300], [0, 1, 1, 0]);
-  const scale = useTransform(scrollY, [500, 700, 1200, 1300], [0.9, 1, 1, 0.9]);
+  const opacity = useTransform(scrollY, [500, 600, 1300, 1500], [0.5, 1, 1, 1]);
 
   return (
     <motion.div
       layout
       style={{
         padding: "1em",
-        backgroundImage: "linear-gradient(to right, #434343 0%, black 100%)",
         willChange,
-        scale,
         opacity,
       }}
       ref={ref}
     >
-      <h3>Experience</h3>
+      <h5>Experience</h5>
       {experience?.map((item) => {
         return (
           <motion.div
@@ -45,7 +42,7 @@ const Experience = () => {
             </Flex>
             <List pl={1}>
               {item.description?.map((desc) => {
-                return <ListItem fontSize="sm">{desc}</ListItem>;
+                return <ListItem fontSize="xs">{desc}</ListItem>;
               })}
             </List>
           </motion.div>

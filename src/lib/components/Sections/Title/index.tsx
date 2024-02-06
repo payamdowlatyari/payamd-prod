@@ -1,7 +1,7 @@
 import { motion, useWillChange } from "framer-motion";
 import ParallaxText from "../../motion/ParallaxText";
 import { portfolio } from "./data";
-import Link from "next/link";
+import HoverLink from "../../motion/View/HoverLink";
 
 const Title = () => {
   const willChange = useWillChange();
@@ -17,7 +17,7 @@ const Title = () => {
         layout: { duration: 1 },
       }}
     >
-      <motion.div
+      <div
         style={{
           backgroundImage: `url(${portfolio.image})`,
           backgroundRepeat: "no-repeat",
@@ -33,27 +33,7 @@ const Title = () => {
           mixBlendMode: "lighten",
         }}
       />
-      <motion.div
-        style={{
-          position: "absolute",
-          display: "grid",
-          right: "0",
-          top: "35vh",
-          zIndex: "99",
-          textAlign: "justify",
-          fontSize: "1.1em",
-        }}
-      >
-        <Link href="#about" className="underlined underlinedThin">
-          01 Who I am
-        </Link>
-        <Link href="#services" className="underlined underlinedThin">
-          02 What I do
-        </Link>
-        <Link href="/projects" className="underlined underlinedThin">
-          03 Portfolio
-        </Link>
-      </motion.div>
+
       <motion.div
         layout
         style={{
@@ -62,8 +42,7 @@ const Title = () => {
           alignSelf: "flex-end",
         }}
       >
-        <motion.div
-          layout
+        <div
           style={{
             padding: "1em 1em",
             fontSize: "1.2em",
@@ -72,13 +51,25 @@ const Title = () => {
             alignContent: "flex-end",
           }}
         >
-          <motion.h4>
+          <h4>
             {portfolio.text[0]} <br />
             {portfolio.text[1]} <br />
             {portfolio.text[2]} <br />
             {portfolio.text[3]}
-          </motion.h4>
-        </motion.div>
+          </h4>
+          <div
+            style={{
+              alignSelf: "flex-end",
+              left: "0",
+              textAlign: "justify",
+              textTransform: "uppercase",
+              fontSize: "1.1em",
+            }}
+          >
+            <HoverLink title="01 Who I am" url="#about" />
+            <HoverLink title="02 What I do" url="#services" />
+          </div>
+        </div>
         <motion.div
           layout
           style={{

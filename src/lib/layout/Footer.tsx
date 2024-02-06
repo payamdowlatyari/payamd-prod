@@ -2,45 +2,32 @@ import { motion } from "framer-motion";
 import Contact from "../components/Sections/Contact";
 import Nav from "../components/motion/Menu/Nav";
 import Logo from "../components/motion/Menu/Logo";
+import CopyRight from "../components/motion/View/CopyRight";
 
 const Footer = () => {
   return (
-    <motion.div layout style={{ display: "grid", height: "25em" }}>
-      <motion.div
-        layout
+    <motion.div layout style={{ display: "grid", height: "15em" }}>
+      <div
         style={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "space-evenly",
+          justifyContent: "center",
           alignContent: "flex-end",
         }}
       >
-        <motion.div
+        <div
           style={{
-            width: "140px",
+            width: "130px",
             opacity: "0.9",
           }}
         >
           <Logo light />
-        </motion.div>
+        </div>
         <Nav />
         <Contact />
-      </motion.div>
-      <motion.div
-        style={{ textAlign: "center", fontSize: "12px", alignSelf: "center" }}
-      >
-        <motion.a
-          className="underlined underlinedThin"
-          href="https://www.payamd.com"
-          target="_blank"
-        >
-          payamd.com
-        </motion.a>
-        {" © "}
-        {new Date().getFullYear()}
-        {" | "}
-        All Rights Reserved.
-      </motion.div>
+      </div>
+
+      <CopyRight />
     </motion.div>
   );
 };

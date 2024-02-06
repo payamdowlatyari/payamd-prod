@@ -77,8 +77,8 @@ export const education = [
 
 export const certificate = [
   {
-    school: "Caltech",
-    major: "Full-Stack Web Development - Postgraduate",
+    school: ", Postgraduate Certificate",
+    major: "Full-Stack Web Development",
     date: "Mar 2023",
     link: "https://success.simplilearn.com/a8ed0cbb-aa08-40b3-b6ce-a5eac2e55dd4#gs.1kwd89",
     description:

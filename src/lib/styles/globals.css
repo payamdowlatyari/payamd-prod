@@ -1,5 +1,4 @@
 html {
-  /* scroll-snap-type: y mandatory; */
   scroll-behavior: smooth;
 }
 
@@ -27,15 +26,8 @@ body {
 
   margin: 0;
   padding: 0;
-  background: linear-gradient(to bottom, #323232 0%, #3f3f3f 40%, #1c1c1c 150%),
-    linear-gradient(
-      to top,
-      rgba(255, 255, 255, 0.4) 0%,
-      rgba(0, 0, 0, 0.25) 200%
-    );
-  background-blend-mode: multiply;
-  /* background-color: var(--background); */
-  /* background-image: linear-gradient(60deg, #29323c 0%, #485563 100%); */
+
+  background-color: var(--background);
   color: var(--accent);
 }
 
@@ -62,17 +54,19 @@ h2 {
 }
 
 h3 {
-  font-size: 2em;
+  font-size: 3em;
   text-transform: uppercase;
 }
 
 h4 {
-  font-size: 3em;
+  font-size: 2em;
   line-height: 1.1;
 }
 
 h5 {
   font-size: 1.5em;
+  padding: 0 5px;
+  text-transform: uppercase;
 }
 
 p {
@@ -131,33 +125,8 @@ section {
   left: 0;
   right: 0;
   height: 10px;
-  background: var(--gray);
+  background: var(--accent);
   transform-origin: 0%;
-}
-
-.cards {
-  display: flex;
-  list-style: none;
-  overflow-x: scroll;
-  padding: 5px 0;
-  margin: 0 auto;
-  margin: 1em 0 1em;
-  height: 55vh;
-  width: 100vw;
-}
-
-.card {
-  height: 50vh;
-  flex: 0 0 45em;
-  max-width: 90vw;
-  padding: 10px;
-  margin: 0.5em;
-}
-
-circle {
-  stroke-dashoffset: 0;
-  stroke-width: 15%;
-  fill: none;
 }
 
 .parallax {
@@ -173,7 +142,7 @@ circle {
 .parallax .scroller {
   font-weight: 900;
   text-transform: uppercase;
-  font-size: 4em;
+  font-size: 3em;
   display: flex;
   white-space: nowrap;
   flex-wrap: nowrap;
@@ -181,13 +150,13 @@ circle {
 
 .parallax span {
   display: block;
-  margin-right: 30px;
+  margin-right: 20px;
 }
 
-.item {
+/* .item {
   height: 100vh;
   width: 100%;
-}
+} */
 
 nav {
   position: fixed;
@@ -205,23 +174,12 @@ nav button {
   cursor: pointer;
   position: inherit;
   z-index: 101;
-  top: 5px;
+  top: 15px;
   height: 75px;
   width: 75px;
   border-radius: 50%;
-  backdrop-filter: brightness(0.5);
+  backdrop-filter: contrast(0.5);
   color: var(--apple);
-}
-
-nav ul,
-li {
-  margin: 0;
-  padding: 0;
-}
-
-nav li {
-  list-style: none;
-  font-size: 3em;
 }
 
 .underlined {
@@ -235,7 +193,6 @@ nav li {
   height: fit-content;
   background-size: 0 100%;
   background-repeat: no-repeat;
-  /* text-transform: uppercase; */
   transition: 0.5s;
 }
 .underlined:hover {

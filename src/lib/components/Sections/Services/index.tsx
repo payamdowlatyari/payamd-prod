@@ -1,41 +1,77 @@
-import { useWillChange, useScroll, useTransform, motion } from "framer-motion";
+import {
+  useWillChange,
+  motion,
+  AnimatePresence,
+  useInView,
+} from "framer-motion";
 import { useRef } from "react";
 import { data } from "./data";
 import ParallaxText from "../../motion/ParallaxText";
 
 const FadeInItem = ({ service }: any) => {
-  const ref = useRef(null);
   const willChange = useWillChange();
-
-  const { scrollY } = useScroll({ target: ref });
-  const scale = useTransform(scrollY, service.display, [0.8, 1]);
-  const opacity = useTransform(scrollY, service.display, [0, 1]);
 
   return (
     <motion.div
       layout
-      ref={ref}
+      className="second"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 1,
+        ease: "linear",
+        delay: service.display[0],
+      }}
       style={{
         willChange,
+        mixBlendMode: "difference",
         width: "500px",
         maxWidth: "100vw",
-        margin: "10em 1em 10em",
+        margin: "0.5em",
         padding: "2em",
-        scale,
-        opacity,
       }}
     >
-      <motion.h3>{service.name}</motion.h3>
-      <motion.p>{service.text}</motion.p>
+      <motion.h4
+        layout
+        initial={{ opacity: 0, y: 25 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.5,
+          delay: service.display[0],
+          ease: "easeInOut",
+        }}
+        style={{
+          willChange,
+        }}
+      >
+        {service.name}
+      </motion.h4>
+      <motion.p
+        layout
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.75,
+          delay: service.display[1],
+          ease: "easeInOut",
+        }}
+        style={{
+          willChange,
+        }}
+      >
+        {service.text}
+      </motion.p>
     </motion.div>
   );
 };
 
 export default function Services() {
   const willChange = useWillChange();
-
+  const ref = useRef(null);
+  const isInView = useInView(ref);
   return (
     <motion.section
+      ref={ref}
       id="services"
       layoutScroll
       style={{
@@ -43,24 +79,31 @@ export default function Services() {
         maxWidth: "100vw",
         overflow: "hidden",
         display: "block",
-        padding: "5em 0",
+        padding: "1em 0",
       }}
     >
-      <ParallaxText baseVelocity={0.1}>
-        Professional Services Professional Services
+      <ParallaxText baseVelocity={-0.1}>
+        My Professional Services What I do
       </ParallaxText>
-      <motion.div
-        layout
-        style={{
-          display: "grid",
-          justifyContent: "center",
-          willChange,
-        }}
-      >
-        {data?.map((service) => {
-          return <FadeInItem service={service} />;
-        })}
-      </motion.div>
+      <AnimatePresence initial={false}>
+        {isInView && (
+          <motion.div
+            layout
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              padding: "1em 0",
+              margin: "0.25em",
+              justifyContent: "space-evenly",
+              willChange,
+            }}
+          >
+            {data?.map((service) => {
+              return <FadeInItem service={service} />;
+            })}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.section>
   );
 }

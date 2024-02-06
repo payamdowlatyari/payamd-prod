@@ -6,6 +6,8 @@ import Menu from "~/lib/components/motion/Menu/Menu";
 import Footer from "~/lib/layout/Footer";
 import Resume from "~/lib/components/Sections/Resume";
 import { useRef } from "react";
+import BGImage from "~/lib/components/motion/View/BGImage";
+import { bgImages } from "~/lib/components/data/images";
 
 const AboutRoute = () => {
   const ref = useRef(null);
@@ -21,6 +23,8 @@ const AboutRoute = () => {
   return (
     <>
       <Menu />
+      <BGImage url={bgImages[1]} />
+
       <motion.div
         initial={{ scaleX: 1 }}
         animate={{ scaleX: 0, transition: { duration: 1, ease: "circOut" } }}

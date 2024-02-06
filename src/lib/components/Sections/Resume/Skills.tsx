@@ -20,8 +20,6 @@ export default function Skills() {
           <motion.div
             style={{
               willChange,
-              backgroundImage:
-                "linear-gradient(to right, #434343 0%, black 100%)",
               display: "flex",
               flexWrap: "wrap",
             }}
@@ -32,7 +30,6 @@ export default function Skills() {
               delay: 0.5,
             }}
           >
-            <h3 style={{ padding: "0.5em" }}>Skills</h3>
             <motion.div
               style={{
                 willChange,

@@ -1,6 +1,6 @@
 import { motion, useWillChange } from "framer-motion";
-import { FiArrowUpRight } from "react-icons/fi";
 import Social from "../Title/Social";
+import HoverLink from "../../motion/View/HoverLink";
 
 export default function Contact() {
   const willChange = useWillChange();
@@ -19,26 +19,25 @@ export default function Contact() {
         <h5>
           <b>COTACT ME</b>
         </h5>
-        <motion.a
-          href="mailto:contact@payamd.com"
-          target="_blank"
-          className="underlined underlinedThin"
-        >
-          contact@payamd.com
-        </motion.a>
+        <HoverLink
+          title="contact@payamd.com"
+          url="mailto:contact@payamd.com"
+          out
+        />
+      </div>
+      <div style={{ padding: "0 0.5em" }}>
+        <h5>
+          <b>LINKS</b>
+        </h5>
+        <HoverLink
+          title="My Web Blog"
+          url="https://payamd-blog.vercel.app/"
+          out
+        />
       </div>
       <div style={{ padding: "0 0.5em" }}>
         <h5>FOLLOW ME</h5>
         <Social />
-        <motion.a
-          href="https://payamd-blog.vercel.app/"
-          target="_blank"
-          className="underlined underlinedThin"
-        >
-          <b>
-            MY WEB BLOG <FiArrowUpRight style={{ display: "inline" }} />
-          </b>
-        </motion.a>
       </div>
     </motion.div>
   );

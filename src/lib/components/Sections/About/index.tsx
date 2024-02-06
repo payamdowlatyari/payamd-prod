@@ -1,119 +1,106 @@
-import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { Box } from "@chakra-ui/react";
 import {
   motion,
-  useInView,
-  AnimatePresence,
   useWillChange,
-  useScroll,
-  useTransform,
+  AnimatePresence,
+  useInView,
 } from "framer-motion";
-import Link from "next/link";
 import { useRef } from "react";
 import { data } from "./data";
+import HoverLink from "../../motion/View/HoverLink";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
+import ParallaxText from "../../motion/ParallaxText";
 
 export default function About() {
   const ref = useRef(null);
-  const isInView = useInView(ref);
   const willChange = useWillChange();
-
-  const ref2 = useRef(null);
-  const { scrollY } = useScroll({ target: ref2 });
-  const y = useTransform(scrollY, [800, 1200], [-100, 100]);
-  const x = useTransform(scrollY, [300, 500, 1000, 1200], [-300, 0, 0, 300]);
-  const scale = useTransform(scrollY, [300, 500, 1000, 1200], [0.8, 1, 1, 0.8]);
-  const opacity = useTransform(scrollY, [300, 500, 1000, 1200], [0, 1, 1, 0]);
+  const isInView = useInView(ref);
 
   return (
     <motion.section
       id="about"
-      ref={ref}
       layoutScroll
       style={{
         willChange,
       }}
     >
-      <AnimatePresence initial={false}>
-        {isInView && (
-          <motion.div
-            layout
-            style={{
-              willChange,
-              display: "flex",
-              flexWrap: "wrap",
-              width: "100%",
-              height: "100vh",
-            }}
-          >
-            <motion.div
-              style={{
-                maxWidth: "750px",
-                x,
-                scale,
-                opacity,
-              }}
-            >
-              <Box p={3}>
-                {/* <motion.h1>About</motion.h1> */}
-                <motion.h4
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{
-                    duration: 1,
-                    delay: 1,
-                    ease: "easeInOut",
-                  }}
+      <motion.div
+        ref={ref}
+        layout
+        style={{
+          willChange,
+          display: "flex",
+          flexWrap: "wrap",
+          width: "100%",
+        }}
+      >
+        <AnimatePresence initial={false}>
+          {isInView && (
+            <>
+              <motion.div
+                layout
+                style={{
+                  width: "750px",
+                  maxWidth: "100vw",
+                }}
+              >
+                <ParallaxText baseVelocity={0.1}>
+                  About Me Who I am
+                </ParallaxText>
+                <Box
+                  p={3}
+                  m={2}
+                  className="second"
+                  style={{ mixBlendMode: "difference" }}
                 >
-                  {data.title}
-                </motion.h4>
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{
-                    duration: 1,
-                    delay: 1.5,
-                    ease: "easeInOut",
-                  }}
-                >
-                  {data.text}
-                </motion.p>
-              </Box>
-            </motion.div>
-            <motion.div
-              ref={ref2}
-              style={{
-                willChange,
-                alignSelf: "center",
-                y,
-              }}
-            >
-              <motion.h1>More</motion.h1>
+                  <motion.h4
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{
+                      duration: 1,
+                      delay: 1,
+                      ease: "easeIn",
+                    }}
+                  >
+                    {data.title}
+                  </motion.h4>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{
+                      duration: 1,
+                      delay: 1.5,
+                      ease: "easeIn",
+                    }}
+                  >
+                    {data.text}
+                  </motion.p>
+                </Box>
+              </motion.div>
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{
                   duration: 1,
-                  delay: 2.5,
+                  delay: 3,
                   ease: "easeInOut",
                 }}
                 style={{
                   willChange,
-                  display: "grid",
+                  margin: "auto",
                 }}
               >
-                <Link href="/about" className="underlined underlinedThin">
-                  resume and skills {"  "}
-                  <ArrowForwardIcon />
-                </Link>
-                <Link href="/projects" className="underlined underlinedThin">
-                  my recent projects{"  "}
-                  <ArrowForwardIcon />
-                </Link>
+                <h2>More</h2>
+                <HoverLink title="resume and skills" url="/about" />
+                <ArrowForwardIcon />
+                <br />
+                <HoverLink title="my recent projects" url="/projects" />
+                <ArrowForwardIcon />
               </motion.div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </>
+          )}
+        </AnimatePresence>
+      </motion.div>
     </motion.section>
   );
 }

@@ -11,9 +11,9 @@ import {
 } from "framer-motion";
 import Skills from "./Skills";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
-import Link from "next/link";
 import Intro from "./Intro";
 import ParallaxText from "../../motion/ParallaxText";
+import HoverLink from "../../motion/View/HoverLink";
 
 const Resume = () => {
   const resume = useRef(null);
@@ -34,6 +34,7 @@ const Resume = () => {
       <AnimatePresence initial={false}>
         {isInView && (
           <motion.div
+            layout
             style={{
               maxWidth: "800px",
               margin: "auto",
@@ -46,7 +47,7 @@ const Resume = () => {
                 maxWidth: "99vw",
               }}
             >
-              <ParallaxText baseVelocity={-0.1}>
+              <ParallaxText baseVelocity={0.1}>
                 My Resume My Resume
               </ParallaxText>
             </motion.div>
@@ -54,6 +55,7 @@ const Resume = () => {
             <Education />
             <Certificates />
             <Publications />
+            <ParallaxText baseVelocity={-0.1}>My Skills My Skills</ParallaxText>
             <Skills />
 
             <motion.div
@@ -63,13 +65,11 @@ const Resume = () => {
                 duration: 1,
                 delay: 5,
               }}
-              style={{ padding: "2em 1em" }}
+              style={{ padding: "2em 1em", textTransform: "uppercase" }}
             >
-              <motion.h3>Projects</motion.h3>
-              <Link href="/projects" className="underlined underlinedThin">
-                check out my portfolio
-                <ArrowForwardIcon />
-              </Link>
+              <h3>Projects</h3>
+              <HoverLink title="check out my portfolio" url="/projects" />
+              <ArrowForwardIcon />
             </motion.div>
           </motion.div>
         )}

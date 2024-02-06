@@ -15,7 +15,7 @@ const icon = {
 
 export default function Social() {
   return (
-    <motion.div style={{ padding: "1em 0 0" }}>
+    <div style={{ padding: "0.5em 0 0" }}>
       {social.map((item) => {
         return (
           <Tooltip hasArrow label={item.name} placement="top" openDelay={1000}>
@@ -31,7 +31,7 @@ export default function Social() {
                 viewBox="0 0 80 80"
                 whileHover={{
                   scale: 1.1,
-                  transition: { duration: 0.5 },
+                  transition: { duration: 0.5, ease: "easeInOut" },
                 }}
               >
                 <motion.path
@@ -40,8 +40,8 @@ export default function Social() {
                   initial="hidden"
                   animate="visible"
                   transition={{
-                    default: { duration: 2, ease: "easeInOut" },
-                    fill: { duration: 2, ease: [1, 0, 0.8, 1] },
+                    default: { duration: 1, ease: "easeInOut" },
+                    fill: { duration: 1, ease: [1, 0, 0.8, 1] },
                     delay: 1,
                   }}
                 />
@@ -50,6 +50,6 @@ export default function Social() {
           </Tooltip>
         );
       })}
-    </motion.div>
+    </div>
   );
 }

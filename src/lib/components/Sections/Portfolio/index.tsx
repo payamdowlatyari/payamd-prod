@@ -1,26 +1,51 @@
 import { useRef } from "react";
-import { motion, useScroll } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Card from "../../motion/Card";
 import data from "./data";
 
 export default function Horizental() {
   const ref = useRef(null);
-  const { scrollXProgress } = useScroll({ container: ref });
+  const { scrollYProgress } = useScroll({ target: ref });
+
+  const x = useTransform(scrollYProgress, [0, 1], ["5%", "-85%"]);
 
   return (
-    <motion.section
-      id="projects"
-      style={{ minHeight: "auto", padding: "3em 0 0 " }}
-    >
-      <ul ref={ref} className="cards">
-        {data?.map((project: any) => {
-          return (
-            <li className="card">
-              <Card item={project} />
-            </li>
-          );
-        })}
-      </ul>
+    <motion.section ref={ref} id="projects">
+      <div
+        style={{
+          position: "sticky",
+          display: "flex",
+          top: "0",
+          overflow: "hidden",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <motion.ul
+          style={{
+            display: "flex",
+            listStyle: "none",
+            padding: "5px 0",
+            height: "55vh",
+            x,
+          }}
+        >
+          {data?.map((project: any) => {
+            return (
+              <li
+                style={{
+                  width: "45em",
+                  maxWidth: "95vw",
+                  padding: "10px",
+                  margin: "0 5em",
+                }}
+              >
+                <Card item={project} />
+              </li>
+            );
+          })}
+        </motion.ul>
+      </div>
       <svg
         style={{
           position: "absolute",
@@ -32,13 +57,18 @@ export default function Horizental() {
         height="100"
         viewBox="0 0 100 100"
       >
-        <circle cx="50" cy="50" r="30" pathLength="1" />
         <motion.circle
           cx="50"
           cy="50"
           r="30"
           pathLength="3"
-          style={{ pathLength: scrollXProgress, stroke: "lightgray" }}
+          style={{
+            pathLength: scrollYProgress,
+            stroke: "lightgray",
+            strokeDashoffset: "0",
+            strokeWidth: "15%",
+            fill: "none",
+          }}
         />
       </svg>
     </motion.section>

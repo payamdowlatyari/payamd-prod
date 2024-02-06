@@ -13,7 +13,7 @@ const icon = {
 
 export default function Icon({ id, title, del }: any) {
   const ref = useRef(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, { once: true });
 
   return (
     <motion.svg
@@ -21,11 +21,11 @@ export default function Icon({ id, title, del }: any) {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 120 120"
       style={{
-        width: "3em",
+        width: "4em",
         overflow: "visible",
         stroke: "#fff",
-        strokeWidth: "3",
-        padding: "0.2em",
+        strokeWidth: "2",
+        padding: "0.3em",
         background: "transparant",
       }}
     >

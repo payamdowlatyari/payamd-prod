@@ -1,5 +1,6 @@
 import { animate, motion, useMotionValue, useTransform } from "framer-motion";
 import { useEffect } from "react";
+import Logo from "../components/motion/Menu/Logo";
 
 const Header = () => {
   const count = useMotionValue(0);
@@ -14,25 +15,33 @@ const Header = () => {
   return (
     <motion.div
       layout
-      initial={{ scale: 1, zIndex: "100", background: "#1e2125" }}
-      animate={{ scale: 0, zIndex: "-100", background: "#e1e1e1" }}
-      exit={{ scale: 1, transition: { duration: 2, ease: "circOut" } }}
+      initial={{ scale: 1 }}
+      animate={{ scale: 0, background: "#e1e1e1" }}
       transition={{
         duration: 3,
-        delay: 5,
-        ease: "circIn",
+        delay: 12,
+        ease: "circOut",
       }}
       style={{
+        background: "#111",
         position: "fixed",
         justifyContent: "center",
         display: "flex",
         top: "0",
+        zIndex: "100",
         left: "0",
         width: "100%",
         height: "100%",
       }}
     >
       <motion.div
+        initial={{ opacity: 1, zIndex: "100" }}
+        animate={{ opacity: 0, zIndex: "-100" }}
+        transition={{
+          duration: 1,
+          delay: 5,
+          ease: "circIn",
+        }}
         layout
         style={{
           alignSelf: "center",
@@ -40,6 +49,24 @@ const Header = () => {
         }}
       >
         {rounded}
+      </motion.div>
+      <motion.div
+        layout
+        initial={{ opacity: 0, scale: 0.2 }}
+        animate={{ opacity: 1, scale: 1, rotate: 360 }}
+        transition={{
+          duration: 3,
+          delay: 6,
+          ease: "circOut",
+        }}
+        style={{
+          position: "fixed",
+          alignSelf: "center",
+          textAlign: "center",
+          width: "400px",
+        }}
+      >
+        <Logo light />
       </motion.div>
     </motion.div>
   );

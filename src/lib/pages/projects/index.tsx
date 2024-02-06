@@ -3,8 +3,10 @@
 import "../../styles/globals.css";
 import { motion, useIsPresent } from "framer-motion";
 import Menu from "~/lib/components/motion/Menu/Menu";
-import Footer from "~/lib/layout/Footer";
 import Portfolio from "~/lib/components/Sections/Portfolio";
+import BGImage from "~/lib/components/motion/View/BGImage";
+import { bgImages } from "~/lib/components/data/images";
+import CopyRight from "~/lib/components/motion/View/CopyRight";
 
 const Projects = () => {
   const isPresent = useIsPresent();
@@ -12,6 +14,8 @@ const Projects = () => {
   return (
     <>
       <Menu />
+      <BGImage url={bgImages[2]} />
+
       <motion.div
         initial={{ scaleX: 1 }}
         animate={{ scaleX: 0, transition: { duration: 1, ease: "circOut" } }}
@@ -20,7 +24,9 @@ const Projects = () => {
         className="privacy-screen"
       />
       <Portfolio />
-      <Footer />
+      <div style={{ position: "sticky", bottom: "0" }}>
+        <CopyRight />
+      </div>
     </>
   );
 };

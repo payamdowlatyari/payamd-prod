@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import Link from "next/link";
+import HoverLink from "../View/HoverLink";
 
 export default function Nav() {
   return (
@@ -8,18 +8,13 @@ export default function Nav() {
       style={{
         display: "grid",
         height: "fit-content",
-        fontSize: "1.5em",
+        alignSelf: "center",
+        textTransform: "uppercase",
       }}
     >
-      <Link href="/" className="underlined underlinedThin">
-        Home
-      </Link>
-      <Link href="/about" className="underlined underlinedThin">
-        About
-      </Link>
-      <Link href="/projects" className="underlined underlinedThin">
-        Projects
-      </Link>
+      <HoverLink title="Home" url="/" size="1.75em" />
+      <HoverLink title="About" url="/about" size="1.75em" />
+      <HoverLink title="Projects" url="/projects" size="1.75em" />
     </motion.div>
   );
 }

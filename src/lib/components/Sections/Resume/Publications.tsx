@@ -1,20 +1,18 @@
 import { Text, Box } from "@chakra-ui/react";
 import { publication } from "./data";
-import Link from "next/link";
-import { FiArrowUpRight } from "react-icons/fi";
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useWillChange } from "framer-motion";
+import HoverLink from "../../motion/View/HoverLink";
 
 const Publications = () => {
   const ref = useRef(null);
   const willChange = useWillChange();
 
   const { scrollY } = useScroll({ target: ref });
-  const opacity = useTransform(scrollY, [1300, 1400, 1800, 1900], [0, 1, 1, 0]);
-  const scale = useTransform(
+  const opacity = useTransform(
     scrollY,
-    [1300, 1400, 1800, 1900],
-    [0.9, 1, 1, 0.9]
+    [1400, 1500, 2000, 2100],
+    [0.5, 1, 1, 1]
   );
 
   return (
@@ -22,14 +20,12 @@ const Publications = () => {
       layout
       style={{
         padding: "1em",
-        backgroundImage: "linear-gradient(to right, #434343 0%, black 100%)",
         willChange,
         opacity,
-        scale,
       }}
       ref={ref}
     >
-      <h3>Publications</h3>
+      <h5>Publications</h5>
       {publication?.map((item) => {
         return (
           <motion.div
@@ -38,12 +34,9 @@ const Publications = () => {
               willChange,
             }}
           >
-            <Box py={1}>
-              <Link href={item.link} className="underlined underlinedThin">
-                <b>{item.title}</b>{" "}
-                <FiArrowUpRight style={{ display: "inline" }} />
-              </Link>
-              <Text fontSize="sm" pl={1}>
+            <Box>
+              <HoverLink title={item.title} url={item.link} out />
+              <Text fontSize="xs" pl={1}>
                 {item.description}
               </Text>
             </Box>

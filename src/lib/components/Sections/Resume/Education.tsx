@@ -8,11 +8,10 @@ const Education = () => {
   const willChange = useWillChange();
 
   const { scrollY } = useScroll({ target: ref });
-  const opacity = useTransform(scrollY, [1000, 1100, 1400, 1600], [0, 1, 1, 0]);
-  const scale = useTransform(
+  const opacity = useTransform(
     scrollY,
-    [1000, 1100, 1400, 1600],
-    [0.9, 1, 1, 0.9]
+    [1000, 1100, 1700, 1800],
+    [0.5, 1, 1, 1]
   );
 
   return (
@@ -20,14 +19,12 @@ const Education = () => {
       layout
       style={{
         padding: "1em",
-        backgroundImage: "linear-gradient(to right, #434343 0%, black 100%)",
         willChange,
         opacity,
-        scale,
       }}
       ref={ref}
     >
-      <h3>Education</h3>
+      <h5>Education</h5>
       {education?.map((item) => {
         return (
           <motion.div
@@ -56,7 +53,7 @@ const Education = () => {
             </Flex>
             <List pl={1}>
               {item.description?.map((desc) => {
-                return <ListItem fontSize="sm">{desc}</ListItem>;
+                return <ListItem fontSize="xs">{desc}</ListItem>;
               })}
             </List>
           </motion.div>
