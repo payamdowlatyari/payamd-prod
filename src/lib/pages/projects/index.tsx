@@ -7,6 +7,7 @@ import Portfolio from "~/lib/components/Sections/Portfolio";
 import BGImage from "~/lib/components/motion/View/BGImage";
 import { bgImages } from "~/lib/components/data/images";
 import CopyRight from "~/lib/components/motion/View/CopyRight";
+import ParallaxText from "~/lib/components/motion/ParallaxText";
 
 const Projects = () => {
   const isPresent = useIsPresent();
@@ -25,6 +26,9 @@ const Projects = () => {
       />
       <Portfolio />
       <div style={{ position: "sticky", bottom: "0" }}>
+        <ParallaxText baseVelocity={0.1}>
+          My Portfolio Software Development Projects
+        </ParallaxText>
         <CopyRight />
       </div>
     </>

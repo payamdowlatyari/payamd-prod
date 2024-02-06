@@ -7,13 +7,19 @@ export default function Horizental() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["5%", "-85%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["45%", "-45%"]);
 
   return (
-    <motion.section ref={ref} id="projects">
+    <motion.section
+      ref={ref}
+      id="projects"
+      style={{
+        height: "200vh",
+      }}
+    >
       <div
         style={{
-          position: "sticky",
+          position: "fixed",
           display: "flex",
           top: "0",
           overflow: "hidden",
@@ -48,9 +54,9 @@ export default function Horizental() {
       </div>
       <svg
         style={{
-          position: "absolute",
+          position: "fixed",
           transform: "rotate(-90deg)",
-          top: "6em",
+          top: "1em",
           right: "1em",
         }}
         width="100"

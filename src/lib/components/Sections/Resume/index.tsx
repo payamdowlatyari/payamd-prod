@@ -48,14 +48,16 @@ const Resume = () => {
               }}
             >
               <ParallaxText baseVelocity={0.1}>
-                My Resume My Resume
+                Resume Full Stack Engineer
               </ParallaxText>
             </motion.div>
             <Experience />
             <Education />
             <Certificates />
             <Publications />
-            <ParallaxText baseVelocity={-0.1}>My Skills My Skills</ParallaxText>
+            <ParallaxText baseVelocity={-0.1}>
+              Skills Frontend Backend DevOps
+            </ParallaxText>
             <Skills />
 
             <motion.div

@@ -34,6 +34,7 @@ export default function Card({ item }: any) {
           alt={item.title}
           style={{
             objectFit: "cover",
+            borderRadius: "5px",
             width: "100%",
             height: "auto",
           }}
@@ -42,7 +43,7 @@ export default function Card({ item }: any) {
           style={{
             position: "absolute",
             display: "grid",
-            background: "rgba(0, 0, 0, 0.8)",
+            background: "rgba(0, 0, 0, 0.5)",
             left: "0",
             top: "0",
             width: "100%",
@@ -57,16 +58,19 @@ export default function Card({ item }: any) {
               padding: "1em",
               maxWidth: "30em",
               fontSize: "small",
+              background: "rgba(0, 0, 0, 0.6)",
+              boxShadow: "1px 1px 5px 1px #333",
             }}
             whileHover={{
+              boxShadow: "1px 1px 10px 1px #333",
               scale: 1.1,
               transition: { duration: 0.3, ease: "backInOut" },
             }}
           >
             <a href={item.url}>
-              <h3>
+              <h5>
                 {item.title} <FiArrowUpRight style={{ display: "inline" }} />
-              </h3>
+              </h5>
             </a>
             <p>{item.description}</p>
             {getTags(item.tags)}

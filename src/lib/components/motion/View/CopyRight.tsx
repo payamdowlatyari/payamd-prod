@@ -1,6 +1,13 @@
 export default function CopyRight() {
   return (
-    <div style={{ textAlign: "center", fontSize: "12px", alignSelf: "center" }}>
+    <div
+      style={{
+        textAlign: "center",
+        fontSize: "12px",
+        alignSelf: "center",
+        paddingBottom: "10px 0",
+      }}
+    >
       <a
         className="underlined underlinedThin"
         href="https://www.payamd.com"

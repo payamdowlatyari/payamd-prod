@@ -8,8 +8,8 @@ export default function Intro() {
 
   const { scrollY } = useScroll({ target: ref });
   const x = useTransform(scrollY, [0, 800], [-25, 25]);
-  const y = useTransform(scrollY, [0, 800], [50, 250]);
-  const scale = useTransform(scrollY, [0, 500, 800], [0.9, 1, 1]);
+  const y = useTransform(scrollY, [0, 800], [0, 200]);
+  const scale = useTransform(scrollY, [0, 500, 800], [1, 0.9, 0.8]);
 
   return (
     <motion.div
@@ -49,7 +49,7 @@ export default function Intro() {
           x,
         }}
       >
-        <h1>Intro</h1>
+        <h1>About</h1>
         <p>{intro.text2}</p>
       </motion.div>
     </motion.div>

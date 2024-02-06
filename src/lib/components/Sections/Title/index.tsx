@@ -45,9 +45,8 @@ const Title = () => {
         <div
           style={{
             padding: "1em 1em",
-            fontSize: "1.2em",
+            fontSize: "1.75em",
             display: "grid",
-            transition: "1s ease-in-out",
             alignContent: "flex-end",
           }}
         >
@@ -63,7 +62,7 @@ const Title = () => {
               left: "0",
               textAlign: "justify",
               textTransform: "uppercase",
-              fontSize: "1.1em",
+              fontSize: "0.75em",
             }}
           >
             <HoverLink title="01 Who I am" url="#about" />

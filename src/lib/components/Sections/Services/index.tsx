@@ -83,7 +83,7 @@ export default function Services() {
       }}
     >
       <ParallaxText baseVelocity={-0.1}>
-        My Professional Services What I do
+        UI/UX Design Development Database Security
       </ParallaxText>
       <AnimatePresence initial={false}>
         {isInView && (

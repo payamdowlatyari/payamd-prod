@@ -1,11 +1,17 @@
-import { animate, motion, useMotionValue, useTransform } from "framer-motion";
+import {
+  animate,
+  motion,
+  useMotionValue,
+  useTransform,
+  useWillChange,
+} from "framer-motion";
 import { useEffect } from "react";
 import Logo from "../components/motion/Menu/Logo";
 
 const Header = () => {
   const count = useMotionValue(0);
   const rounded = useTransform(count, Math.round);
-
+  const willChange = useWillChange();
   useEffect(() => {
     const animation = animate(count, 100, { duration: 4, delay: 1 });
 
@@ -23,6 +29,7 @@ const Header = () => {
         ease: "circOut",
       }}
       style={{
+        willChange,
         background: "#111",
         position: "fixed",
         justifyContent: "center",
@@ -44,18 +51,40 @@ const Header = () => {
         }}
         layout
         style={{
+          willChange,
           alignSelf: "center",
-          fontSize: "10em",
+          fontSize: "5em",
         }}
       >
         {rounded}
       </motion.div>
+      <motion.span
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 0 }}
+        transition={{
+          duration: 1,
+          delay: 5,
+          ease: "linear",
+        }}
+        layout
+        style={{
+          willChange,
+          height: "20px",
+          width: `1%`,
+          scaleX: rounded,
+          background: "#e1e1e1",
+          transformOrigin: "0%",
+          position: "fixed",
+          left: "0",
+          bottom: "0",
+        }}
+      />
       <motion.div
         layout
         initial={{ opacity: 0, scale: 0.2 }}
         animate={{ opacity: 1, scale: 1, rotate: 360 }}
         transition={{
-          duration: 3,
+          duration: 2,
           delay: 6,
           ease: "circOut",
         }}

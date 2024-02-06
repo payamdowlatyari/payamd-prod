@@ -45,7 +45,7 @@ export default function About() {
                 }}
               >
                 <ParallaxText baseVelocity={0.1}>
-                  About Me Who I am
+                  Intro About Who I am
                 </ParallaxText>
                 <Box
                   p={3}

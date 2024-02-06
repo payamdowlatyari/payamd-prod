@@ -146,17 +146,14 @@ section {
   display: flex;
   white-space: nowrap;
   flex-wrap: nowrap;
+  mix-blend-mode: difference;
+  color: var(--white-smoke);
 }
 
 .parallax span {
   display: block;
   margin-right: 20px;
 }
-
-/* .item {
-  height: 100vh;
-  width: 100%;
-} */
 
 nav {
   position: fixed;
