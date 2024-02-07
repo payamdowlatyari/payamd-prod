@@ -55,8 +55,10 @@ export default function Menu() {
         style={{
           willChange,
           height: "100vh",
-          maxWidth: "300px",
+          width: "100vw",
           display: isOpen ? "grid" : "none",
+          justifyContent: "center",
+          alignContent: "space-evenly",
         }}
       >
         <motion.div
@@ -65,7 +67,7 @@ export default function Menu() {
             willChange,
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-evenly",
+            justifyContent: "center",
           }}
         >
           <motion.div

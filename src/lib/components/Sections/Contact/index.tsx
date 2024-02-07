@@ -11,6 +11,7 @@ export default function Contact() {
         display: "flex",
         flexWrap: "wrap",
         padding: "0 1em",
+        margin: "auto",
         willChange,
       }}
       layout

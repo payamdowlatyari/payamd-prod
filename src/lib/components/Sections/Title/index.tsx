@@ -1,14 +1,21 @@
-import { motion, useWillChange } from "framer-motion";
+import { motion, useScroll, useTransform, useWillChange } from "framer-motion";
 import ParallaxText from "../../motion/ParallaxText";
 import { portfolio } from "./data";
 import HoverLink from "../../motion/View/HoverLink";
+import { useRef } from "react";
 
 const Title = () => {
+  const ref = useRef(null);
   const willChange = useWillChange();
 
+  const { scrollY } = useScroll({ target: ref });
+  const scale = useTransform(scrollY, [0, 200], [0.9, 1]);
+  const x = useTransform(scrollY, [0, 200], [0, 600]);
+  const y = useTransform(scrollY, [0, 200], [0, -200]);
   return (
     <motion.section
       id="home"
+      ref={ref}
       layoutScroll
       style={{
         willChange,
@@ -17,8 +24,10 @@ const Title = () => {
         layout: { duration: 1 },
       }}
     >
-      <div
+      <motion.div
         style={{
+          willChange,
+          scale,
           backgroundImage: `url(${portfolio.image})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "contain",
@@ -30,10 +39,24 @@ const Title = () => {
           right: "0",
           bottom: "0",
           position: "absolute",
-          mixBlendMode: "lighten",
         }}
       />
 
+      <motion.div
+        style={{
+          willChange,
+          x,
+          y,
+          height: "50vh",
+          width: "50vw",
+          minWidth: "400px",
+          left: "0",
+          bottom: "0",
+          position: "absolute",
+          mixBlendMode: "exclusion",
+          background: "white",
+        }}
+      />
       <motion.div
         layout
         style={{

@@ -5,7 +5,7 @@ export default function CopyRight() {
         textAlign: "center",
         fontSize: "12px",
         alignSelf: "center",
-        paddingBottom: "10px 0",
+        padding: "10px 0",
       }}
     >
       <a

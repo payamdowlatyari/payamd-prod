@@ -27,13 +27,10 @@ const Home = () => {
       <Menu />
 
       <BGImage url={bgImages[0]} />
-
       <Title />
       <Header />
       <About />
-
       <Services />
-
       <motion.div ref={ref} className="progress" style={{ scaleX }} />
       <Footer />
     </>

@@ -2,17 +2,6 @@ import { motion } from "framer-motion";
 import { social } from "./data";
 import { Tooltip } from "@chakra-ui/react";
 
-const icon = {
-  hidden: {
-    pathLength: 0,
-    fill: "#e1e1e1",
-  },
-  visible: {
-    pathLength: 1,
-    fill: "#e1e1e1",
-  },
-};
-
 export default function Social() {
   return (
     <div style={{ padding: "0.5em 0 0" }}>
@@ -34,17 +23,7 @@ export default function Social() {
                   transition: { duration: 0.5, ease: "easeInOut" },
                 }}
               >
-                <motion.path
-                  d={item.icon}
-                  variants={icon}
-                  initial="hidden"
-                  animate="visible"
-                  transition={{
-                    default: { duration: 1, ease: "easeInOut" },
-                    fill: { duration: 1, ease: [1, 0, 0.8, 1] },
-                    delay: 1,
-                  }}
-                />
+                <motion.path d={item.icon} fill="#e1e1e1" />
               </motion.svg>
             </motion.a>
           </Tooltip>

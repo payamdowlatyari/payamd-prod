@@ -1,5 +1,5 @@
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 
 body {
@@ -142,7 +142,7 @@ section {
 .parallax .scroller {
   font-weight: 900;
   text-transform: uppercase;
-  font-size: 3em;
+  font-size: 2.5em;
   display: flex;
   white-space: nowrap;
   flex-wrap: nowrap;
