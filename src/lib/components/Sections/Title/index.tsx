@@ -1,24 +1,18 @@
-import { motion, useScroll, useTransform, useWillChange } from "framer-motion";
+import { motion, useWillChange } from "framer-motion";
 import ParallaxText from "../../motion/ParallaxText";
 import { portfolio } from "./data";
 import HoverLink from "../../motion/View/HoverLink";
-import { useRef } from "react";
 
 const Title = () => {
-  const ref = useRef(null);
   const willChange = useWillChange();
 
-  const { scrollY } = useScroll({ target: ref });
-  const scale = useTransform(scrollY, [0, 200], [0.9, 1]);
-  const x = useTransform(scrollY, [0, 200], [0, 600]);
-  const y = useTransform(scrollY, [0, 200], [0, -200]);
   return (
     <motion.section
       id="home"
-      ref={ref}
       layoutScroll
       style={{
         willChange,
+        overflow: "hidden",
       }}
       transition={{
         layout: { duration: 1 },
@@ -27,11 +21,11 @@ const Title = () => {
       <motion.div
         style={{
           willChange,
-          scale,
-          backgroundImage: `url(${portfolio.image})`,
+          backgroundImage: `url(${portfolio.image2})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "contain",
           backgroundPosition: "right",
+          mixBlendMode: "darken",
           zIndex: "-1",
           height: "100vh",
           width: "50vw",
@@ -39,22 +33,6 @@ const Title = () => {
           right: "0",
           bottom: "0",
           position: "absolute",
-        }}
-      />
-
-      <motion.div
-        style={{
-          willChange,
-          x,
-          y,
-          height: "50vh",
-          width: "50vw",
-          minWidth: "400px",
-          left: "0",
-          bottom: "0",
-          position: "absolute",
-          mixBlendMode: "exclusion",
-          background: "white",
         }}
       />
       <motion.div
@@ -68,11 +46,12 @@ const Title = () => {
         <div
           style={{
             padding: "1em 1em",
-            fontSize: "1.75em",
+            fontSize: "1.5em",
             display: "grid",
             alignContent: "flex-end",
           }}
         >
+          <h1>Hello</h1>
           <h4>
             {portfolio.text[0]} <br />
             {portfolio.text[1]} <br />
@@ -82,10 +61,8 @@ const Title = () => {
           <div
             style={{
               alignSelf: "flex-end",
-              left: "0",
-              textAlign: "justify",
-              textTransform: "uppercase",
               fontSize: "0.75em",
+              left: "0",
             }}
           >
             <HoverLink title="01 Who I am" url="#about" />

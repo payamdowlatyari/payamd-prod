@@ -6,7 +6,8 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 import { data } from "./data";
-import ParallaxText from "../../motion/ParallaxText";
+import HoverLink from "../../motion/View/HoverLink";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 
 const FadeInItem = ({ service }: any) => {
   const willChange = useWillChange();
@@ -14,8 +15,7 @@ const FadeInItem = ({ service }: any) => {
   return (
     <motion.div
       layout
-      className="second"
-      initial={{ opacity: 0, scale: 0.5 }}
+      initial={{ opacity: 0, scale: 0.75 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{
         duration: 1,
@@ -24,14 +24,14 @@ const FadeInItem = ({ service }: any) => {
       }}
       style={{
         willChange,
-        mixBlendMode: "difference",
-        width: "500px",
+        width: "300px",
         maxWidth: "100vw",
-        margin: "0.5em",
-        padding: "2em",
+        margin: "0.25em",
+        padding: "0.5em",
+        fontSize: "0.8em",
       }}
     >
-      <motion.h4
+      <motion.h6
         layout
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
@@ -45,7 +45,7 @@ const FadeInItem = ({ service }: any) => {
         }}
       >
         {service.name}
-      </motion.h4>
+      </motion.h6>
       <motion.p
         layout
         initial={{ opacity: 0, y: 50 }}
@@ -78,23 +78,33 @@ export default function Services() {
         willChange,
         maxWidth: "100vw",
         overflow: "hidden",
-        display: "block",
-        padding: "1em 0",
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-between",
       }}
     >
-      <ParallaxText baseVelocity={-0.1}>
-        UI/UX Design Development Database Security
-      </ParallaxText>
+      <motion.div
+        style={{
+          willChange,
+          margin: "auto",
+        }}
+      >
+        <h1>
+          What <br /> I do
+        </h1>
+        <HoverLink title="my recent projects" url="/projects" />
+        <ArrowForwardIcon />
+      </motion.div>
+
       <AnimatePresence initial={false}>
         {isInView && (
           <motion.div
             layout
             style={{
-              display: "flex",
-              flexWrap: "wrap",
-              padding: "1em 0",
-              margin: "0.25em",
-              justifyContent: "space-evenly",
+              display: "grid",
+              padding: "1em",
+              // margin: "0.25em",
+              justifyContent: "flex-end",
               willChange,
             }}
           >

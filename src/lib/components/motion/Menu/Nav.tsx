@@ -9,12 +9,11 @@ export default function Nav() {
         display: "grid",
         height: "fit-content",
         alignSelf: "center",
-        textTransform: "uppercase",
       }}
     >
-      <HoverLink title="Home" url="/" size="1.75em" />
-      <HoverLink title="About" url="/about" size="1.75em" />
-      <HoverLink title="Projects" url="/projects" size="1.75em" />
+      <HoverLink title="Home" url="/" size="1.5em" />
+      <HoverLink title="About" url="/about" size="1.5em" />
+      <HoverLink title="Projects" url="/projects" size="1.5em" />
     </motion.div>
   );
 }

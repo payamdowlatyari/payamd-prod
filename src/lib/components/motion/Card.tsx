@@ -59,6 +59,7 @@ export default function Card({ item }: any) {
               maxWidth: "30em",
               fontSize: "small",
               background: "rgba(0, 0, 0, 0.6)",
+              color: "#e1e1e1",
               boxShadow: "1px 1px 5px 1px #333",
             }}
             whileHover={{

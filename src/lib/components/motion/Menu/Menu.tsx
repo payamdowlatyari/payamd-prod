@@ -75,7 +75,7 @@ export default function Menu() {
             style={{
               willChange,
               zIndex: 100,
-              width: "140px",
+              width: "120px",
               opacity: "0.9",
             }}
           >

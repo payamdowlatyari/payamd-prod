@@ -8,25 +8,26 @@ export default function Intro() {
 
   const { scrollY } = useScroll({ target: ref });
   const x = useTransform(scrollY, [0, 800], [-25, 25]);
-  const y = useTransform(scrollY, [0, 800], [0, 200]);
-  const scale = useTransform(scrollY, [0, 500, 800], [1, 0.9, 0.8]);
+  const scale = useTransform(scrollY, [0, 800], [1, 0.8]);
 
   return (
     <motion.div
       layout
       style={{
-        padding: "1em",
+        padding: "0.5em",
         display: "flex",
         alignItems: "end",
         justifyContent: "space-between",
         willChange,
+        maxWidth: "850px",
+        margin: "auto",
         height: "85vh",
       }}
       ref={ref}
     >
       <motion.div
         style={{
-          backgroundImage: `url(${intro.image})`,
+          backgroundImage: `url(${intro.image2})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "contain",
           backgroundPositionX: "right",
@@ -37,19 +38,21 @@ export default function Intro() {
           top: "0",
           position: "absolute",
           scale,
-          y,
         }}
       />
       <motion.div
         layout
         style={{
-          fontSize: "1em",
-          width: "500px",
+          width: "600px",
+          padding: "10px",
+          background: "#e1e1e1",
+          mixBlendMode: "difference",
+          backgroundImage: "linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)",
           willChange,
           x,
         }}
       >
-        <h1>About</h1>
+        <h2>About</h2>
         <p>{intro.text2}</p>
       </motion.div>
     </motion.div>

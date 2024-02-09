@@ -9,6 +9,8 @@ export const intro = {
   server-side technologies such as Node.js, automation and DevOps tools, cloud services, and SQL and NoSQL databases. `,
   image:
     "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/me-home-removebg-sketch.png",
+  image2:
+    "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/me-home-bw-removebg-EDIT.jpeg",
 };
 
 export const experience = [
@@ -77,7 +79,7 @@ export const education = [
 
 export const certificate = [
   {
-    school: ", Postgraduate Certificate",
+    school: "Postgraduate Certificate, Caltech",
     major: "Full-Stack Web Development",
     date: "Mar 2023",
     link: "https://success.simplilearn.com/a8ed0cbb-aa08-40b3-b6ce-a5eac2e55dd4#gs.1kwd89",
@@ -90,7 +92,8 @@ export const publication = [
   {
     title: "Mapping and Taking Stock of the Personal Informatics Literature",
     link: "https://dl.acm.org/doi/10.1145/3432231",
+    date: "Dec 2020",
     description:
-      "Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies December 2020 Article No.: 126",
+      "Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, Article No.: 126",
   },
 ];

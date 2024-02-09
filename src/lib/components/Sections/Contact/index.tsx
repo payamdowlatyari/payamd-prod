@@ -37,7 +37,9 @@ export default function Contact() {
         />
       </div>
       <div style={{ padding: "0 0.5em" }}>
-        <h5>FOLLOW ME</h5>
+        <h5>
+          <b>FOLLOW ME</b>
+        </h5>
         <Social />
       </div>
     </motion.div>

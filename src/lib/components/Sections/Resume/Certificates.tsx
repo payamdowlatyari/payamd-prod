@@ -9,50 +9,65 @@ const Certificates = () => {
   const willChange = useWillChange();
 
   const { scrollY } = useScroll({ target: ref });
-  const opacity = useTransform(
-    scrollY,
-    [1300, 1400, 1800, 1900],
-    [0.5, 1, 1, 1]
-  );
+  const opacity = useTransform(scrollY, [1200, 1500], [0, 1]);
+  const y = useTransform(scrollY, [1200, 1500], [100, 0]);
+  const scale = useTransform(scrollY, [1100, 1600], [1, 0.6]);
 
   return (
     <motion.div
       layout
       style={{
-        padding: "1em",
+        padding: "0.5em",
+        margin: "2em 0",
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-evenly",
         willChange,
-        opacity,
       }}
       ref={ref}
     >
-      <h5>Certificates</h5>
-      {certificate?.map((item) => {
-        return (
-          <motion.div
-            layout
-            style={{
-              willChange,
-            }}
-          >
-            <Flex pt={1}>
-              <Box>
-                <HoverLink
-                  title={item.major + item.school}
-                  url={item.link}
-                  out
-                />
-              </Box>
-              <Spacer />
-              <Box>
-                <Text fontSize="xs">{item.date}</Text>
-              </Box>
-            </Flex>
-            <Text pl={1} fontSize="xs">
-              {item.description}
-            </Text>
-          </motion.div>
-        );
-      })}
+      <motion.div
+        layout
+        style={{
+          willChange,
+          scale,
+        }}
+      >
+        <h1>Certificates</h1>
+      </motion.div>
+      <motion.div
+        layout
+        style={{
+          width: "500px",
+          minWidth: "300px",
+          backgroundImage: "linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)",
+          willChange,
+          opacity,
+          y,
+        }}
+      >
+        {certificate?.map((item) => {
+          return (
+            <>
+              <Flex p={4}>
+                <Box>
+                  <HoverLink title={item.major} url={item.link} out />
+                  <Text fontSize="sm" pl={2}>
+                    {item.school}
+                  </Text>
+                </Box>
+                <Spacer />
+                <Box>
+                  <Text fontSize="xs">{item.date}</Text>
+                </Box>
+              </Flex>
+              <Text px={4} fontSize="xs">
+                {item.description}
+              </Text>
+            </>
+          );
+        })}
+      </motion.div>
     </motion.div>
   );
 };

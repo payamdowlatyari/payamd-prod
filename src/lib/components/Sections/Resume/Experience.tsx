@@ -8,46 +8,66 @@ const Experience = () => {
   const willChange = useWillChange();
 
   const { scrollY } = useScroll({ target: ref });
-  const opacity = useTransform(scrollY, [500, 600, 1300, 1500], [0.5, 1, 1, 1]);
+  const opacity = useTransform(scrollY, [500, 700], [0, 1]);
+  const x = useTransform(scrollY, [500, 700], [300, 0]);
+  const scale = useTransform(scrollY, [500, 800], [1, 0.6]);
 
   return (
     <motion.div
       layout
       style={{
-        padding: "1em",
+        padding: "0.5em",
+        margin: "2em 0",
         willChange,
-        opacity,
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-evenly",
       }}
       ref={ref}
     >
-      <h5>Experience</h5>
-      {experience?.map((item) => {
-        return (
-          <motion.div
-            layout
-            style={{
-              willChange,
-            }}
-          >
-            <Flex pt={4}>
-              <Box>
-                <Text>
-                  <b>{item.title}</b>, <i>{item.company}</i>
-                </Text>{" "}
-              </Box>
-              <Spacer />
-              <Box>
-                <Text fontSize="xs">{item.date}</Text>
-              </Box>{" "}
-            </Flex>
-            <List pl={1}>
-              {item.description?.map((desc) => {
-                return <ListItem fontSize="xs">{desc}</ListItem>;
-              })}
-            </List>
-          </motion.div>
-        );
-      })}
+      <motion.div
+        layout
+        style={{
+          willChange,
+          scale,
+        }}
+      >
+        <h1>Experience</h1>
+      </motion.div>
+      <motion.div
+        layout
+        style={{
+          willChange,
+          x,
+          opacity,
+          backgroundImage: "linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)",
+          width: "500px",
+          minWidth: "300px",
+        }}
+      >
+        {experience?.map((item) => {
+          return (
+            <>
+              <Flex pt={4} px={4}>
+                <Box>
+                  <Text>
+                    <b>{item.title}</b>, <i>{item.company}</i>
+                  </Text>{" "}
+                </Box>
+                <Spacer />
+                <Box>
+                  <Text fontSize="xs">{item.date}</Text>
+                </Box>{" "}
+              </Flex>
+              <List px={6} pb={4}>
+                {item.description?.map((desc) => {
+                  return <ListItem fontSize="xs">{desc}</ListItem>;
+                })}
+              </List>
+            </>
+          );
+        })}
+      </motion.div>
     </motion.div>
   );
 };

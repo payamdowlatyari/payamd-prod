@@ -70,7 +70,7 @@ export default function Horizental() {
           pathLength="3"
           style={{
             pathLength: scrollYProgress,
-            stroke: "lightgray",
+            stroke: "gray",
             strokeDashoffset: "0",
             strokeWidth: "15%",
             fill: "none",

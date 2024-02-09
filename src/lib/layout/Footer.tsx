@@ -43,11 +43,11 @@ const Footer = () => {
       >
         <div
           style={{
-            width: "130px",
+            width: "120px",
             opacity: "0.9",
           }}
         >
-          <Logo light />
+          <Logo />
         </div>
         <Nav />
         <Contact />

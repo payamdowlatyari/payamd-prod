@@ -9,8 +9,6 @@ import Menu from "~/lib/components/motion/Menu/Menu";
 import Footer from "~/lib/layout/Footer";
 import Header from "~/lib/layout/Header";
 import Services from "~/lib/components/Sections/Services";
-import BGImage from "~/lib/components/motion/View/BGImage";
-import { bgImages } from "~/lib/components/data/images";
 
 const Home = () => {
   const ref = useRef(null);
@@ -25,8 +23,6 @@ const Home = () => {
   return (
     <>
       <Menu />
-
-      <BGImage url={bgImages[0]} />
       <Title />
       <Header />
       <About />
