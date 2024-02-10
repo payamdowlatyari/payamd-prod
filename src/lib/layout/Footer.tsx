@@ -26,16 +26,16 @@ const Footer = () => {
       layout
       style={{
         display: "grid",
-        height: "15em",
-        justifyContent: "space-evenly",
+        height: "30em",
+        alignItems: "flex-end",
       }}
     >
       <motion.div
         style={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "center",
-          alignContent: "flex-end",
+          width: "100vw",
+          justifyContent: "space-around",
           y,
           opacity,
           scale,
@@ -43,13 +43,20 @@ const Footer = () => {
       >
         <div
           style={{
-            width: "120px",
-            opacity: "0.9",
+            display: "flex",
+            alignItems: "center",
           }}
         >
-          <Logo />
+          <div
+            style={{
+              width: "120px",
+              opacity: "0.9",
+            }}
+          >
+            <Logo />
+          </div>
+          <Nav />
         </div>
-        <Nav />
         <Contact />
       </motion.div>
 

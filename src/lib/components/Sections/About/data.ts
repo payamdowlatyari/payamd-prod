@@ -8,4 +8,10 @@ export const data = {
     frameworks and libraries. I am interested in reading books on
     varius topics such as psychology, sociology, philosophy,
     history, and enjoy cycling and taking photographs.`,
+  image:
+    "https://storage.googleapis.com/www.payamd.com/Portfolio/glasses-pen-paper-color.jpeg",
+  image2:
+    "https://storage.googleapis.com/www.payamd.com/Portfolio/isaa-unsplash.jpeg",
+  image3:
+    "https://storage.googleapis.com/www.payamd.com/assets/img/alphabet-computer-conceptual-dark.jpg",
 };

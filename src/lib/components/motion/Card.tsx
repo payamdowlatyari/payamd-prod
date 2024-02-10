@@ -26,6 +26,7 @@ export default function Card({ item }: any) {
       ref={ref}
       style={{
         width: "100%",
+        height: "auto",
       }}
     >
       <figure style={{ position: "relative" }}>
@@ -39,11 +40,13 @@ export default function Card({ item }: any) {
             height: "auto",
           }}
         />
+
         <div
           style={{
             position: "absolute",
             display: "grid",
             background: "rgba(0, 0, 0, 0.5)",
+            borderRadius: "5px",
             left: "0",
             top: "0",
             width: "100%",

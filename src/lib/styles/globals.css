@@ -18,7 +18,7 @@ body {
 
   --background: var(--apple);
   --accent: var(--ash-black);
-  --secondary: var(--mid-pink);
+  --secondary: var(--dirty-orange);
 
   margin: 0;
   padding: 0;
@@ -39,13 +39,14 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0.1em 0 0.1em 0;
+  margin: 1em 0 0.1em 0;
 }
 
 h1,
 h2 {
   letter-spacing: -3px;
   text-transform: uppercase;
+  color: var(--secondary);
   line-height: 1;
   font-size: 5em;
   font-weight: 900;
@@ -64,7 +65,7 @@ h4 {
 }
 
 h5 {
-  font-size: 1.5em;
+  font-size: 1.25em;
   padding: 0 5px;
   text-transform: uppercase;
 }
@@ -155,11 +156,14 @@ section {
   display: flex;
   white-space: nowrap;
   flex-wrap: nowrap;
+  mix-blend-mode: difference;
 }
 
 .parallax span {
   display: block;
   margin-right: 20px;
+  color: var(--secondary);
+  mix-blend-mode: difference;
 }
 
 nav {

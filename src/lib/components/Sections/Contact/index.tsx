@@ -10,13 +10,26 @@ export default function Contact() {
       style={{
         display: "flex",
         flexWrap: "wrap",
-        padding: "0 1em",
-        margin: "auto",
+        padding: "1em",
         willChange,
       }}
       layout
     >
-      <div style={{ padding: "0 0.5em" }}>
+      <div
+        style={{
+          padding: "0 1em",
+        }}
+      >
+        <h5>
+          <b>FOLLOW ME</b>
+        </h5>
+        <Social />
+      </div>
+      <div
+        style={{
+          padding: "0 1em",
+        }}
+      >
         <h5>
           <b>COTACT ME</b>
         </h5>
@@ -25,22 +38,14 @@ export default function Contact() {
           url="mailto:contact@payamd.com"
           out
         />
-      </div>
-      <div style={{ padding: "0 0.5em" }}>
         <h5>
-          <b>LINKS</b>
+          <b>CHECK OUT</b>
         </h5>
         <HoverLink
           title="My Web Blog"
           url="https://payamd-blog.vercel.app/"
           out
         />
-      </div>
-      <div style={{ padding: "0 0.5em" }}>
-        <h5>
-          <b>FOLLOW ME</b>
-        </h5>
-        <Social />
       </div>
     </motion.div>
   );

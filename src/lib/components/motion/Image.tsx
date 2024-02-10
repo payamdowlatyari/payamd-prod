@@ -1,28 +1,36 @@
-import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
-function useParallax(value: MotionValue<number>, distance: string) {
-  return useTransform(value, [0, 1], [0, distance]);
-}
+const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
+const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
 
-interface Props {
-  alt: string;
-  category: string;
-  index: number;
-  aspectRatio: string;
-}
-
-export function Image({ alt, category, index, aspectRatio }: Props) {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref });
-  const y = useParallax(scrollYProgress, "50vh");
+export default function Image({ id, title }: any) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isInView, setIsInView] = useState(false);
 
   return (
-    <section>
-      <div ref={ref} style={{ aspectRatio }}>
-        <img src={`/${category}-${index}.jpg`} alt={alt} />
-      </div>
-      <motion.h2 style={{ y }}>{`#00${index}`}</motion.h2>
-    </section>
+    <motion.span
+      initial={false}
+      animate={
+        isLoaded && isInView
+          ? { WebkitMaskImage: visibleMask, maskImage: visibleMask }
+          : { WebkitMaskImage: hiddenMask, maskImage: hiddenMask }
+      }
+      transition={{ duration: 1, delay: 1 }}
+      viewport={{ once: true }}
+      onViewportEnter={() => setIsInView(true)}
+    >
+      <img
+        style={{
+          objectFit: "cover",
+          borderRadius: "5px",
+          width: "100%",
+          height: "auto",
+        }}
+        src={id}
+        alt={title}
+        onLoad={() => setIsLoaded(true)}
+      />
+    </motion.span>
   );
 }

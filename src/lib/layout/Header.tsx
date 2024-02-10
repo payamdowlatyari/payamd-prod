@@ -21,10 +21,11 @@ const Header = () => {
   return (
     <motion.div
       layout
-      initial={{ scale: 1 }}
-      animate={{ scale: 0, background: "#e1e1e1" }}
+      initial={{ opacity: 1 }}
+      animate={{ opacity: 0 }}
+      exit={{ zIndex: "-100", transition: { duration: 1 } }}
       transition={{
-        duration: 3,
+        duration: 2,
         delay: 12,
         ease: "circOut",
       }}
@@ -54,6 +55,7 @@ const Header = () => {
           willChange,
           alignSelf: "center",
           fontSize: "5em",
+          color: "#e1e1e1",
         }}
       >
         {rounded}
@@ -77,6 +79,44 @@ const Header = () => {
           position: "fixed",
           left: "0",
           bottom: "0",
+        }}
+      />
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{
+          scaleX: 1,
+          transition: { duration: 0.5, ease: "circOut", delay: 10 },
+        }}
+        exit={{ scaleX: 0, transition: { duration: 0.5, ease: "circIn" } }}
+        layout
+        style={{
+          willChange,
+          height: "50vh",
+          width: "100vw",
+          background: "#e1e1e1",
+          transformOrigin: "0%",
+          position: "fixed",
+          left: "0",
+          bottom: "0",
+        }}
+      />
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{
+          scaleX: 1,
+          transition: { duration: 0.5, ease: "circOut", delay: 10.5 },
+        }}
+        exit={{ scaleX: 0, transition: { duration: 0.5, ease: "circIn" } }}
+        layout
+        style={{
+          willChange,
+          height: "50vh",
+          width: "100vw",
+          background: "#e1e1e1",
+          transformOrigin: "0%",
+          position: "fixed",
+          right: "0",
+          top: "0",
         }}
       />
       <motion.div

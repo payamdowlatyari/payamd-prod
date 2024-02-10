@@ -16,7 +16,7 @@ export const FilterByGroup = ({ group }: any) => {
       style={{
         willChange,
         margin: "auto",
-        padding: "1em 0",
+        padding: "1em 0 5em",
         display: "flex",
         flexWrap: "wrap",
         overflow: "hidden",

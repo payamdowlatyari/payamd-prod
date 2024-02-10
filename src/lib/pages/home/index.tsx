@@ -7,8 +7,8 @@ import About from "~/lib/components/Sections/About";
 import Title from "~/lib/components/Sections/Title";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import Footer from "~/lib/layout/Footer";
-import Header from "~/lib/layout/Header";
 import Services from "~/lib/components/Sections/Services";
+import Header from "~/lib/layout/Header";
 
 const Home = () => {
   const ref = useRef(null);

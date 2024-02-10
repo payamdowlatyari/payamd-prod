@@ -25,7 +25,8 @@ const Title = () => {
           backgroundRepeat: "no-repeat",
           backgroundSize: "contain",
           backgroundPosition: "right",
-          mixBlendMode: "darken",
+          mixBlendMode: "screen",
+          backdropFilter: "invert(1)",
           zIndex: "-1",
           height: "100vh",
           width: "50vw",
@@ -47,17 +48,15 @@ const Title = () => {
           style={{
             padding: "1em 1em",
             fontSize: "1.5em",
+            lineHeight: "1.5em",
             display: "grid",
-            alignContent: "flex-end",
           }}
         >
           <h1>Hello</h1>
-          <h4>
+          <h6>
             {portfolio.text[0]} <br />
-            {portfolio.text[1]} <br />
-            {portfolio.text[2]} <br />
-            {portfolio.text[3]}
-          </h4>
+            {portfolio.text[1]}
+          </h6>
           <div
             style={{
               alignSelf: "flex-end",
