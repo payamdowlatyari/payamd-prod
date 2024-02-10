@@ -21,8 +21,8 @@ const Header = () => {
   return (
     <motion.div
       layout
-      initial={{ opacity: 1 }}
-      animate={{ opacity: 0 }}
+      initial={{ opacity: 1, zIndex: "100" }}
+      animate={{ opacity: 0, zIndex: "-100" }}
       exit={{ zIndex: "-100", transition: { duration: 1 } }}
       transition={{
         duration: 2,
@@ -36,7 +36,6 @@ const Header = () => {
         justifyContent: "center",
         display: "flex",
         top: "0",
-        zIndex: "100",
         left: "0",
         width: "100%",
         height: "100%",

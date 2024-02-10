@@ -40,7 +40,6 @@ const Experience = () => {
           willChange,
           x,
           opacity,
-          backgroundImage: "linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)",
           width: "500px",
           minWidth: "300px",
         }}

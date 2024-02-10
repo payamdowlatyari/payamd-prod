@@ -45,9 +45,6 @@ export default function Intro() {
         style={{
           width: "600px",
           padding: "10px",
-          background: "#e1e1e1",
-          mixBlendMode: "difference",
-          backgroundImage: "linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)",
           willChange,
           x,
         }}

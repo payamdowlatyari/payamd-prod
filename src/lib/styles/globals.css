@@ -16,8 +16,8 @@ body {
   --dirty-blue: #003049;
   --mid-pink: #ce7777;
 
-  --background: var(--apple);
-  --accent: var(--ash-black);
+  --background: var(--black);
+  --accent: var(--white);
   --secondary: var(--dirty-orange);
 
   margin: 0;
@@ -214,19 +214,6 @@ nav button {
     var(--accent) 0,
     var(--accent) 100%
   );
-}
-
-nav .underlinedThin {
-  background-image: linear-gradient(
-    to right,
-    var(--background) 0,
-    var(--background) 100%
-  );
-}
-
-nav .underlined:hover {
-  background-size: 100% 100%;
-  color: var(--background);
 }
 
 .underlinedThick {

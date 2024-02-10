@@ -53,7 +53,7 @@ const Footer = () => {
               opacity: "0.9",
             }}
           >
-            <Logo />
+            <Logo light />
           </div>
           <Nav />
         </div>

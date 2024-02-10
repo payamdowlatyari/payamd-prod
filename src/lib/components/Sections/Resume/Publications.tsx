@@ -31,7 +31,6 @@ const Publications = () => {
         style={{
           width: "500px",
           minWidth: "300px",
-          backgroundImage: "linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)",
           willChange,
           opacity,
           y,
