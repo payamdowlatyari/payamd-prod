@@ -15,18 +15,39 @@ export const FilterByGroup = ({ group }: any) => {
       layout
       style={{
         willChange,
-        margin: "auto",
-        padding: "1em 0 5em",
         display: "flex",
         flexWrap: "wrap",
-        overflow: "hidden",
-        whiteSpace: "nowrap",
         justifyContent: "center",
       }}
     >
-      {group?.map((icon: any) => {
-        return displayByGroup(icon);
-      })}
+      <motion.div
+        style={{
+          willChange,
+          alignSelf: "flex-start",
+          fontSize: "0.5em",
+          margin: "auto",
+        }}
+      >
+        <h1>{group[0].group}</h1>
+      </motion.div>
+      <motion.div
+        layout
+        style={{
+          willChange,
+          margin: "auto",
+          padding: "1em 0 5em",
+          display: "flex",
+          flexWrap: "wrap",
+          overflow: "hidden",
+          whiteSpace: "nowrap",
+          justifyContent: "center",
+          maxWidth: "400px",
+        }}
+      >
+        {group?.map((icon: any) => {
+          return displayByGroup(icon);
+        })}
+      </motion.div>
     </motion.div>
   );
 };
@@ -36,72 +57,27 @@ export default function Skills() {
   const willChange = useWillChange();
 
   const { scrollY } = useScroll({ target: ref });
-  const opacity = useTransform(scrollY, [1500, 1800], [0, 1]);
-  const y = useTransform(scrollY, [1500, 1800], [100, 0]);
-  const scale = useTransform(scrollY, [1400, 1900], [1, 0.6]);
+  const opacity = useTransform(scrollY, [1600, 1800], [0, 1]);
+  const scale = useTransform(scrollY, [1500, 1900], [2, 1]);
 
   return (
-    <motion.div
-      layout
-      style={{
-        willChange,
-        display: "flex",
-        flexWrap: "wrap",
-      }}
-    >
+    <motion.div layout ref={ref}>
       <motion.div
         layout
         style={{
           willChange,
-          scale,
-          padding: "1em 0",
-          margin: "auto",
-        }}
-      >
-        <h1>Skills</h1>
-      </motion.div>
-      <motion.div
-        layout
-        style={{
-          willChange,
+          height: "5em",
           opacity,
-          y,
-          padding: "1em 0",
-          overflow: "hidden",
-          textAlign: "center",
-          display: "flex",
-          flexWrap: "wrap",
-          alignItems: "center",
-          justifyContent: "center",
-          maxWidth: "600px",
-          margin: "auto",
+          scale,
         }}
       >
-        <div>
-          <ParallaxText baseVelocity={-0.1}>
-            Frontend Development UI/UX Design Client
-          </ParallaxText>
-        </div>
-        <div>
-          <FilterByGroup group={frontend} />
-        </div>
-        <div>
-          <ParallaxText baseVelocity={0.1}>
-            Backend Development Database API Server
-          </ParallaxText>
-        </div>
-        <div>
-          <FilterByGroup group={backend} />
-        </div>
-        <div>
-          <ParallaxText baseVelocity={-0.1}>
-            DevOps Cloud Services Testing Model
-          </ParallaxText>
-        </div>
-        <div>
-          <FilterByGroup group={devops} />
-        </div>
+        <ParallaxText baseVelocity={-0.1}>
+          Professional Skills Technical Skills
+        </ParallaxText>
       </motion.div>
+      <FilterByGroup group={frontend} />
+      <FilterByGroup group={backend} />
+      <FilterByGroup group={devops} />
     </motion.div>
   );
 }

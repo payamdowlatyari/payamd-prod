@@ -54,7 +54,7 @@ const Header = () => {
           willChange,
           alignSelf: "center",
           fontSize: "5em",
-          color: "#e1e1e1",
+          color: "#c2a76b",
         }}
       >
         {rounded}
@@ -73,7 +73,7 @@ const Header = () => {
           height: "20px",
           width: `1%`,
           scaleX: rounded,
-          background: "#e1e1e1",
+          background: "#c2a76b",
           transformOrigin: "0%",
           position: "fixed",
           left: "0",
@@ -81,25 +81,26 @@ const Header = () => {
         }}
       />
       <motion.div
-        initial={{ scaleX: 0 }}
+        className="third"
+        initial={{ scaleY: 0 }}
         animate={{
-          scaleX: 1,
+          scaleY: 1,
           transition: { duration: 0.5, ease: "circOut", delay: 10 },
         }}
-        exit={{ scaleX: 0, transition: { duration: 0.5, ease: "circIn" } }}
+        exit={{ scaleY: 0, transition: { duration: 0.5, ease: "circIn" } }}
         layout
         style={{
           willChange,
-          height: "50vh",
-          width: "100vw",
-          background: "#e1e1e1",
+          height: "100vh",
+          width: "45vw",
           transformOrigin: "0%",
           position: "fixed",
-          left: "0",
-          bottom: "0",
+          right: "0",
+          top: "0",
         }}
       />
       <motion.div
+        className="third"
         initial={{ scaleX: 0 }}
         animate={{
           scaleX: 1,
@@ -109,12 +110,11 @@ const Header = () => {
         layout
         style={{
           willChange,
-          height: "50vh",
-          width: "100vw",
-          background: "#e1e1e1",
+          height: "100vh",
+          width: "55vw",
           transformOrigin: "0%",
           position: "fixed",
-          right: "0",
+          left: "0",
           top: "0",
         }}
       />
@@ -122,6 +122,7 @@ const Header = () => {
         layout
         initial={{ opacity: 0, scale: 0.2 }}
         animate={{ opacity: 1, scale: 1, rotate: 360 }}
+        exit={{ opacity: 0 }}
         transition={{
           duration: 2,
           delay: 6,

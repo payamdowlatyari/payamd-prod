@@ -61,29 +61,26 @@ export default function Menu() {
           alignContent: "space-evenly",
         }}
       >
-        <motion.div
-          layout
+        <div
           style={{
-            willChange,
             display: "flex",
+            flexWrap: "wrap",
             alignItems: "center",
             justifyContent: "center",
           }}
         >
-          <motion.div
-            layout
+          <div
             style={{
-              willChange,
               zIndex: 100,
               width: "120px",
               opacity: "0.9",
             }}
           >
             <Logo light />
-          </motion.div>
+          </div>
           <Nav />
-        </motion.div>
-        <Contact />
+          <Contact />
+        </div>
       </motion.div>
     </motion.nav>
   );

@@ -7,7 +7,7 @@ export default function Horizental() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["45%", "-45%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["40%", "-40%"]);
 
   return (
     <motion.section
@@ -70,7 +70,7 @@ export default function Horizental() {
           pathLength="3"
           style={{
             pathLength: scrollYProgress,
-            stroke: "gray",
+            stroke: "#c2a76b",
             strokeDashoffset: "0",
             strokeWidth: "15%",
             fill: "none",

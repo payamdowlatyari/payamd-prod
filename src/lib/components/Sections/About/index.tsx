@@ -7,7 +7,7 @@ import {
 import { useRef } from "react";
 import { data } from "./data";
 import HoverLink from "../../motion/View/HoverLink";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { ArrowDownIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 
 export default function About() {
   const ref = useRef(null);
@@ -15,13 +15,7 @@ export default function About() {
   const isInView = useInView(ref);
 
   return (
-    <motion.section
-      id="about"
-      layoutScroll
-      style={{
-        willChange,
-      }}
-    >
+    <motion.section id="about" layoutScroll>
       <motion.div
         ref={ref}
         layout
@@ -29,63 +23,39 @@ export default function About() {
           willChange,
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "space-between",
+          justifyContent: "space-around",
           width: "100%",
         }}
       >
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            duration: 1,
-            delay: 1,
-            ease: "easeInOut",
-          }}
-          style={{
-            willChange,
-            margin: "auto",
-          }}
-        >
+        <div>
           <h1>
             Who <br /> I am
           </h1>
-          <HoverLink title="resume and skills" url="/about" />
-          <ArrowForwardIcon />
-        </motion.div>
+          <HoverLink title="professional services" url="#services" />
+          <ArrowDownIcon />
+        </div>
         <AnimatePresence initial={false}>
           {isInView && (
             <motion.div
               layout
               style={{
-                width: "600px",
+                width: "500px",
                 maxWidth: "100vw",
                 padding: "1em",
-                fontSize: "0.9em",
                 willChange,
               }}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 1,
+                delay: 1,
+                ease: "easeInOut",
+              }}
             >
-              <motion.h6
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{
-                  duration: 1,
-                  delay: 1,
-                  ease: "easeIn",
-                }}
-              >
-                {data.title}
-              </motion.h6>
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{
-                  duration: 1,
-                  delay: 1.5,
-                  ease: "easeIn",
-                }}
-              >
-                {data.text}
-              </motion.p>
+              <h6>{data.title}</h6>
+              <p>{data.text}</p>
+              <HoverLink title="resume and skills" url="/about" />
+              <ArrowForwardIcon />
             </motion.div>
           )}
         </AnimatePresence>

@@ -5,6 +5,7 @@ body {
   --white: #f4f4f2;
   --apple: #e1e1e1;
   --white-smoke: #d8d8d8;
+  --silver: #eaeaea;
   --milky: #e9dfce;
   --gray: #495464;
   --red: #e63946;
@@ -15,10 +16,12 @@ body {
   --dirty-puple: #6d597a;
   --dirty-blue: #003049;
   --mid-pink: #ce7777;
+  --light-blue: #3da5d9;
+  --gold: #c2a76b;
 
   --background: var(--black);
   --accent: var(--white);
-  --secondary: var(--dirty-orange);
+  --secondary: var(--gold);
 
   margin: 0;
   padding: 0;
@@ -92,7 +95,7 @@ section {
   align-items: center;
   position: relative;
   scroll-snap-align: center;
-  padding: 1em 0 1em;
+  padding: 1em;
 }
 
 .first {
@@ -108,10 +111,6 @@ section {
 .third {
   background: var(--secondary);
   color: var(--accent);
-}
-
-.forth {
-  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
 }
 
 ::-webkit-scrollbar {
@@ -187,15 +186,12 @@ nav button {
   width: 75px;
   border-radius: 50%;
   backdrop-filter: contrast(0.5);
-  color: var(--apple);
+  color: var(--gold);
 }
 
 .underlined {
-  background-image: linear-gradient(
-    to right,
-    var(--accent) 0,
-    var(--accent) 100%
-  );
+  color: var(--milky);
+  background-image: linear-gradient(to right, var(--gold) 0, var(--gold) 100%);
   background-position: 0 1.3em;
   line-height: 1.4;
   height: fit-content;
@@ -205,15 +201,11 @@ nav button {
 }
 .underlined:hover {
   background-size: 100% 100%;
-  color: var(--accent);
+  color: var(--gold);
 }
 
 .underlinedThin {
-  background-image: linear-gradient(
-    to right,
-    var(--accent) 0,
-    var(--accent) 100%
-  );
+  background-image: linear-gradient(to right, var(--gold) 0, var(--gold) 100%);
 }
 
 .underlinedThick {

@@ -14,11 +14,9 @@ const Title = () => {
         willChange,
         overflow: "hidden",
       }}
-      transition={{
-        layout: { duration: 1 },
-      }}
     >
       <motion.div
+        className="third"
         style={{
           willChange,
           backgroundImage: `url(${portfolio.image2})`,
@@ -28,7 +26,7 @@ const Title = () => {
           mixBlendMode: "difference",
           zIndex: "-1",
           height: "100vh",
-          width: "50vw",
+          width: "45vw",
           minWidth: "400px",
           right: "0",
           bottom: "0",
@@ -41,32 +39,36 @@ const Title = () => {
           display: "flex",
           flexWrap: "wrap",
           alignSelf: "flex-end",
+          mixBlendMode: "difference",
         }}
       >
         <div
           style={{
-            padding: "1em 1em",
-            fontSize: "1.5em",
-            lineHeight: "1.5em",
+            fontSize: "2em",
+            lineHeight: "1.25em",
+            padding: "0.2em",
             display: "grid",
           }}
         >
-          <h1>Hello</h1>
+          <h1>
+            He <br /> llo
+          </h1>
           <h6>
             {portfolio.text[0]} <br />
             {portfolio.text[1]}
           </h6>
+          <br />
           <div
             style={{
-              alignSelf: "flex-end",
-              fontSize: "0.75em",
-              left: "0",
+              fontSize: "0.65em",
+              // display: "inline-grid"
             }}
           >
             <HoverLink title="01 Who I am" url="#about" />
             <HoverLink title="02 What I do" url="#services" />
           </div>
         </div>
+
         <motion.div
           layout
           style={{

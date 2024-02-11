@@ -32,7 +32,7 @@ const Experience = () => {
           scale,
         }}
       >
-        <h1>Experience</h1>
+        <h1>Experience </h1>
       </motion.div>
       <motion.div
         layout

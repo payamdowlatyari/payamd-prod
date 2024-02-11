@@ -21,16 +21,6 @@ export default function Contact() {
         }}
       >
         <h5>
-          <b>FOLLOW ME</b>
-        </h5>
-        <Social />
-      </div>
-      <div
-        style={{
-          padding: "0 1em",
-        }}
-      >
-        <h5>
           <b>COTACT ME</b>
         </h5>
         <HoverLink
@@ -46,6 +36,16 @@ export default function Contact() {
           url="https://payamd-blog.vercel.app/"
           out
         />
+      </div>
+      <div
+        style={{
+          padding: "0 1em",
+        }}
+      >
+        <h5>
+          <b>FOLLOW ME</b>
+        </h5>
+        <Social />
       </div>
     </motion.div>
   );
