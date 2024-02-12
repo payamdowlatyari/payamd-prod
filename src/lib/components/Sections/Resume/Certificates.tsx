@@ -60,7 +60,7 @@ const Certificates = () => {
                   <Text fontSize="xs">{item.date}</Text>
                 </Box>
               </Flex>
-              <Text px={4} fontSize="xs">
+              <Text px={6} fontSize="xs">
                 {item.description}
               </Text>
             </>

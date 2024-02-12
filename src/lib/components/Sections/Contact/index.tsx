@@ -27,6 +27,7 @@ export default function Contact() {
           title="contact@payamd.com"
           url="mailto:contact@payamd.com"
           out
+          low
         />
         <h5>
           <b>CHECK OUT</b>

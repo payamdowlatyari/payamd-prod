@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Card from "../../motion/Card";
 import data from "./data";
+import Logo from "../../motion/Menu/Logo";
 
 export default function Horizental() {
   const ref = useRef(null);
@@ -52,12 +53,22 @@ export default function Horizental() {
           })}
         </motion.ul>
       </div>
+      <div
+        style={{
+          position: "fixed",
+          width: "100px",
+          top: "-20px",
+          left: "0",
+        }}
+      >
+        <Logo light />
+      </div>
       <svg
         style={{
           position: "fixed",
           transform: "rotate(-90deg)",
-          top: "1em",
-          right: "1em",
+          top: "6em",
+          right: "0",
         }}
         width="100"
         height="100"

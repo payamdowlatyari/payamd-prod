@@ -31,7 +31,7 @@ const Header = () => {
       }}
       style={{
         willChange,
-        background: "#111",
+        background: "#1e2125",
         position: "fixed",
         justifyContent: "center",
         display: "flex",
@@ -54,7 +54,6 @@ const Header = () => {
           willChange,
           alignSelf: "center",
           fontSize: "5em",
-          color: "#c2a76b",
         }}
       >
         {rounded}
@@ -73,7 +72,7 @@ const Header = () => {
           height: "20px",
           width: `1%`,
           scaleX: rounded,
-          background: "#c2a76b",
+          background: "#f4f4f2",
           transformOrigin: "0%",
           position: "fixed",
           left: "0",
@@ -81,7 +80,7 @@ const Header = () => {
         }}
       />
       <motion.div
-        className="third"
+        className="second"
         initial={{ scaleY: 0 }}
         animate={{
           scaleY: 1,
@@ -92,15 +91,15 @@ const Header = () => {
         style={{
           willChange,
           height: "100vh",
-          width: "45vw",
-          transformOrigin: "0%",
+          width: "50vw",
+          transformOrigin: "top center",
           position: "fixed",
           right: "0",
           top: "0",
         }}
       />
       <motion.div
-        className="third"
+        className="second"
         initial={{ scaleX: 0 }}
         animate={{
           scaleX: 1,
@@ -111,11 +110,11 @@ const Header = () => {
         style={{
           willChange,
           height: "100vh",
-          width: "55vw",
-          transformOrigin: "0%",
+          width: "50vw",
+          transformOrigin: "bottom center",
           position: "fixed",
           left: "0",
-          top: "0",
+          bottom: "0",
         }}
       />
       <motion.div
@@ -129,6 +128,7 @@ const Header = () => {
           ease: "circOut",
         }}
         style={{
+          willChange,
           position: "fixed",
           alignSelf: "center",
           textAlign: "center",

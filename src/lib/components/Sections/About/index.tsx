@@ -27,13 +27,18 @@ export default function About() {
           width: "100%",
         }}
       >
-        <div>
+        <motion.div
+          layout
+          style={{
+            willChange,
+          }}
+        >
           <h1>
             Who <br /> I am
           </h1>
           <HoverLink title="professional services" url="#services" />
           <ArrowDownIcon />
-        </div>
+        </motion.div>
         <AnimatePresence initial={false}>
           {isInView && (
             <motion.div

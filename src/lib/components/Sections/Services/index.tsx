@@ -69,6 +69,7 @@ export default function Services() {
   const willChange = useWillChange();
   const ref = useRef(null);
   const isInView = useInView(ref);
+
   return (
     <motion.section
       ref={ref}

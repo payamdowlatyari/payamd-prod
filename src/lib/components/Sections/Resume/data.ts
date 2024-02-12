@@ -11,6 +11,8 @@ export const intro = {
     "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/me-home-removebg-sketch.png",
   image2:
     "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/me-home-bw-removebg-EDIT.jpeg",
+  image3:
+    "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/me-camera-removebg-preview.png",
 };
 
 export const experience = [

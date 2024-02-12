@@ -13,6 +13,7 @@ import Skills from "./Skills";
 import Intro from "./Intro";
 import HoverLink from "../../motion/View/HoverLink";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
+import Logo from "../../motion/Menu/Logo";
 
 const Resume = () => {
   const resume = useRef(null);
@@ -35,6 +36,16 @@ const Resume = () => {
       <AnimatePresence initial={false}>
         {isInView && (
           <>
+            <div
+              style={{
+                position: "absolute",
+                width: "100px",
+                top: "-20px",
+                left: "0",
+              }}
+            >
+              <Logo light />
+            </div>
             <Intro />
             <Experience />
             <Education />
@@ -55,7 +66,7 @@ const Resume = () => {
                 textAlign: "center",
               }}
             >
-              <h3>Projects</h3>
+              <h2>Projects</h2>
               <HoverLink title="check out my portfolio" url="/projects" />
               <ArrowForwardIcon />
             </motion.div>
