@@ -4,7 +4,6 @@ import { portfolio } from "./data";
 import HoverLink from "../../motion/View/HoverLink";
 import Logo from "../../motion/Menu/Logo";
 import { useRef } from "react";
-import { HiOutlineArrowLongDown } from "react-icons/hi2";
 
 const Title = () => {
   const willChange = useWillChange();
@@ -54,39 +53,30 @@ const Title = () => {
         <div
           style={{
             fontSize: "2em",
-            lineHeight: "1.25em",
+            lineHeight: "0.8em",
             padding: "0.2em",
             display: "grid",
           }}
         >
           <h1>
-            He <br /> llo
+            He <br />
+            llo
           </h1>
+        </div>
+        <div
+          style={{
+            lineHeight: "1.3em",
+            padding: "5px",
+            alignSelf: "flex-end",
+          }}
+        >
           <h6>
             {portfolio.text[0]} <br />
             {portfolio.text[1]}
           </h6>
-          <br />
-          <div
-            style={{
-              fontSize: "0.65em",
-            }}
-          >
-            <HoverLink title="01 Who I am" url="#about" />
-            <HoverLink title="02 What I do" url="#services" />
-          </div>
+          <HoverLink title="01 Who I am" url="#about" />
+          <HoverLink title="02 What I do" url="#services" />
         </div>
-        <motion.div
-          style={{
-            position: "absolute",
-            bottom: "3em",
-            margin: "auto",
-            left: "50vw",
-            textAlign: "center",
-          }}
-        >
-          <HiOutlineArrowLongDown />
-        </motion.div>
         <motion.div
           layout
           initial={{ opacity: 0 }}
@@ -111,6 +101,7 @@ const Title = () => {
           layout
           style={{
             maxWidth: "99vw",
+            fontSize: "4em",
           }}
         >
           <ParallaxText baseVelocity={-0.1}>{portfolio.titles}</ParallaxText>

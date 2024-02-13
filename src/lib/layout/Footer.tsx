@@ -28,13 +28,13 @@ const Footer = () => {
         display: "grid",
         height: "30em",
         alignItems: "flex-end",
+        width: "100vw",
       }}
     >
       <motion.div
         style={{
           display: "flex",
           flexWrap: "wrap",
-          width: "100vw",
           justifyContent: "space-around",
           y,
           opacity,

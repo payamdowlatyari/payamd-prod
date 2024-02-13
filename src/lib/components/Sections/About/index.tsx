@@ -27,12 +27,7 @@ export default function About() {
           width: "100%",
         }}
       >
-        <motion.div
-          layout
-          style={{
-            willChange,
-          }}
-        >
+        <motion.div>
           <h1>
             Who <br /> I am
           </h1>

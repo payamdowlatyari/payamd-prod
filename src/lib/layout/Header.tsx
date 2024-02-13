@@ -12,6 +12,7 @@ const Header = () => {
   const count = useMotionValue(0);
   const rounded = useTransform(count, Math.round);
   const willChange = useWillChange();
+
   useEffect(() => {
     const animation = animate(count, 100, { duration: 4, delay: 1 });
 
@@ -80,44 +81,6 @@ const Header = () => {
         }}
       />
       <motion.div
-        className="second"
-        initial={{ scaleY: 0 }}
-        animate={{
-          scaleY: 1,
-          transition: { duration: 0.5, ease: "circOut", delay: 10 },
-        }}
-        exit={{ scaleY: 0, transition: { duration: 0.5, ease: "circIn" } }}
-        layout
-        style={{
-          willChange,
-          height: "100vh",
-          width: "50vw",
-          transformOrigin: "top center",
-          position: "fixed",
-          right: "0",
-          top: "0",
-        }}
-      />
-      <motion.div
-        className="second"
-        initial={{ scaleX: 0 }}
-        animate={{
-          scaleX: 1,
-          transition: { duration: 0.5, ease: "circOut", delay: 10.5 },
-        }}
-        exit={{ scaleX: 0, transition: { duration: 0.5, ease: "circIn" } }}
-        layout
-        style={{
-          willChange,
-          height: "100vh",
-          width: "50vw",
-          transformOrigin: "bottom center",
-          position: "fixed",
-          left: "0",
-          bottom: "0",
-        }}
-      />
-      <motion.div
         layout
         initial={{ opacity: 0, scale: 0.2 }}
         animate={{ opacity: 1, scale: 1, rotate: 360 }}
@@ -137,6 +100,25 @@ const Header = () => {
       >
         <Logo light />
       </motion.div>
+      <motion.div
+        className="first"
+        initial={{ scaleY: 0 }}
+        animate={{
+          scaleY: 1,
+          transition: { duration: 1, ease: "easeOut", delay: 10 },
+        }}
+        exit={{ scaleY: 0, transition: { duration: 1, ease: "easeIn" } }}
+        layout
+        style={{
+          willChange,
+          height: "100vh",
+          width: "100vw",
+          transformOrigin: "top center",
+          position: "fixed",
+          right: "0",
+          top: "0",
+        }}
+      />
     </motion.div>
   );
 };

@@ -15,9 +15,9 @@ export const FilterByGroup = ({ group }: any) => {
       layout
       style={{
         willChange,
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
+        display: "grid",
+        // flexWrap: "wrap",
+        // justifyContent: "center",
       }}
     >
       <motion.div
@@ -41,7 +41,7 @@ export const FilterByGroup = ({ group }: any) => {
           overflow: "hidden",
           whiteSpace: "nowrap",
           justifyContent: "center",
-          maxWidth: "400px",
+          maxWidth: "300px",
         }}
       >
         {group?.map((icon: any) => {
@@ -67,6 +67,7 @@ export default function Skills() {
         style={{
           willChange,
           height: "5em",
+          fontSize: "2em",
           opacity,
           scale,
         }}
@@ -75,9 +76,18 @@ export default function Skills() {
           Professional Skills Technical Skills
         </ParallaxText>
       </motion.div>
-      <FilterByGroup group={frontend} />
-      <FilterByGroup group={backend} />
-      <FilterByGroup group={devops} />
+      <motion.div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          alignItems: "flex-start",
+          justifyContent: "space-evenly",
+        }}
+      >
+        <FilterByGroup group={frontend} />
+        <FilterByGroup group={backend} />
+        <FilterByGroup group={devops} />
+      </motion.div>
     </motion.div>
   );
 }
