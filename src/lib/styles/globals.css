@@ -26,7 +26,8 @@ body {
   margin: 0;
   padding: 0;
 
-  background-color: var(--background);
+  /* background-color: var(--background); */
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
   color: var(--accent);
 }
 
@@ -105,7 +106,7 @@ section {
 }
 
 .second {
-  background: var(--accent);
+  background: var(--apple);
   color: var(--background);
 }
 

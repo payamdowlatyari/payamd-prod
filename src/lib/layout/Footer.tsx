@@ -28,7 +28,7 @@ const Footer = () => {
         display: "grid",
         height: "30em",
         alignItems: "flex-end",
-        width: "100vw",
+        width: "99vw",
       }}
     >
       <motion.div

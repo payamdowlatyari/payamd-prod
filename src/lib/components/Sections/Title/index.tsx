@@ -4,6 +4,7 @@ import { portfolio } from "./data";
 import HoverLink from "../../motion/View/HoverLink";
 import Logo from "../../motion/Menu/Logo";
 import { useRef } from "react";
+import { BsFillMouseFill } from "react-icons/bs";
 
 const Title = () => {
   const willChange = useWillChange();
@@ -31,7 +32,6 @@ const Title = () => {
           backgroundRepeat: "no-repeat",
           backgroundSize: "auto",
           backgroundPosition: "right",
-          mixBlendMode: "difference",
           transformOrigin: "right center",
           zIndex: "-1",
           height: "100vh",
@@ -67,13 +67,14 @@ const Title = () => {
           style={{
             lineHeight: "1.3em",
             padding: "5px",
-            alignSelf: "flex-end",
+            alignSelf: "center",
           }}
         >
           <h6>
             {portfolio.text[0]} <br />
             {portfolio.text[1]}
           </h6>
+          <p>{portfolio.text[2]}</p>
           <HoverLink title="01 Who I am" url="#about" />
           <HoverLink title="02 What I do" url="#services" />
         </div>
@@ -96,7 +97,6 @@ const Title = () => {
         >
           <Logo light />
         </motion.div>
-
         <motion.div
           layout
           style={{
@@ -107,6 +107,18 @@ const Title = () => {
           <ParallaxText baseVelocity={-0.1}>{portfolio.titles}</ParallaxText>
         </motion.div>
       </motion.div>
+      <div
+        style={{
+          mixBlendMode: "exclusion",
+          zIndex: "-1",
+          bottom: "3em",
+          margin: "auto",
+          position: "absolute",
+          fontSize: "3em",
+        }}
+      >
+        <BsFillMouseFill />
+      </div>
     </motion.section>
   );
 };

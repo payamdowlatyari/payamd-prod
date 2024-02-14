@@ -34,8 +34,7 @@ export const portfolio = {
   text: [
     " I am",
     "Payam Dowlatyari",
-    "Software Engineer",
-    "Based in California",
+    "a Software Engineer based in California",
   ],
   titles: "Sofware Engineer UX Designer Photographer Blogger",
 };

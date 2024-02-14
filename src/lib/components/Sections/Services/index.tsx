@@ -84,6 +84,20 @@ export default function Services() {
         justifyContent: "space-between",
       }}
     >
+      <div
+        style={{
+          height: "200px",
+          width: "100%",
+          right: "0",
+          top: "0",
+          position: "absolute",
+          zIndex: "-1",
+          mixBlendMode: "overlay",
+          fontSize: "20em",
+        }}
+      >
+        02
+      </div>
       <motion.div
         style={{
           willChange,

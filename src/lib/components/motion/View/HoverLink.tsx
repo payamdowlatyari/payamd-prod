@@ -8,6 +8,7 @@ export default function HoverLink({ title, url, size, out, low }: any) {
       className="underlined underlinedThin"
       style={{
         fontSize: size,
+        fontWeight: "700",
       }}
       target={out ? "_blank" : ""}
     >

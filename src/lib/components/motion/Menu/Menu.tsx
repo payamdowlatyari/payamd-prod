@@ -57,8 +57,6 @@ export default function Menu() {
           height: "100vh",
           width: "100vw",
           display: isOpen ? "grid" : "none",
-          justifyContent: "center",
-          alignContent: "space-evenly",
         }}
       >
         <div

@@ -27,13 +27,13 @@ export default function About() {
           width: "100%",
         }}
       >
-        <motion.div>
+        <div>
           <h1>
             Who <br /> I am
           </h1>
           <HoverLink title="professional services" url="#services" />
           <ArrowDownIcon />
-        </motion.div>
+        </div>
         <AnimatePresence initial={false}>
           {isInView && (
             <motion.div
@@ -60,6 +60,20 @@ export default function About() {
           )}
         </AnimatePresence>
       </motion.div>
+      <div
+        style={{
+          height: "200px",
+          width: "100%",
+          right: "0",
+          top: "0",
+          position: "absolute",
+          zIndex: "-1",
+          mixBlendMode: "overlay",
+          fontSize: "20em",
+        }}
+      >
+        01
+      </div>
     </motion.section>
   );
 }
