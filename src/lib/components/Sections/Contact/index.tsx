@@ -1,10 +1,8 @@
-import { motion, useWillChange } from "framer-motion";
+import { motion } from "framer-motion";
 import Social from "../Title/Social";
 import HoverLink from "../../motion/View/HoverLink";
 
 export default function Contact() {
-  const willChange = useWillChange();
-
   return (
     <motion.div layout>
       <div
