@@ -3,6 +3,8 @@ import {
   useWillChange,
   AnimatePresence,
   useInView,
+  useScroll,
+  useTransform,
 } from "framer-motion";
 import { useRef } from "react";
 import { data } from "./data";
@@ -13,6 +15,9 @@ export default function About() {
   const ref = useRef(null);
   const willChange = useWillChange();
   const isInView = useInView(ref);
+
+  const { scrollY } = useScroll({ target: ref });
+  const y = useTransform(scrollY, [500, 1200], [0, 400]);
 
   return (
     <motion.section id="about" layoutScroll>
@@ -27,42 +32,43 @@ export default function About() {
           width: "100%",
         }}
       >
-        <div>
-          <h1>
-            Who <br /> I am
-          </h1>
+        <motion.div>
+          <h1>About</h1>
           <HoverLink title="professional services" url="#services" />
           <ArrowDownIcon />
+        </motion.div>
+        <div
+          style={{
+            width: "500px",
+            padding: "1em",
+          }}
+        >
+          <AnimatePresence initial={false}>
+            {isInView && (
+              <motion.div
+                layout
+                style={{
+                  willChange,
+                }}
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 1,
+                  delay: 1,
+                  ease: "easeInOut",
+                }}
+              >
+                <h6>{data.title}</h6>
+                <p>{data.text}</p>
+                <HoverLink title="resume and skills" url="/about" />
+                <ArrowForwardIcon />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-        <AnimatePresence initial={false}>
-          {isInView && (
-            <motion.div
-              layout
-              style={{
-                width: "500px",
-                maxWidth: "100vw",
-                padding: "1em",
-                willChange,
-              }}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 1,
-                delay: 1,
-                ease: "easeInOut",
-              }}
-            >
-              <h6>{data.title}</h6>
-              <p>{data.text}</p>
-              <HoverLink title="resume and skills" url="/about" />
-              <ArrowForwardIcon />
-            </motion.div>
-          )}
-        </AnimatePresence>
       </motion.div>
-      <div
+      <motion.div
         style={{
-          height: "200px",
           width: "100%",
           right: "0",
           top: "0",
@@ -70,10 +76,12 @@ export default function About() {
           zIndex: "-1",
           mixBlendMode: "overlay",
           fontSize: "20em",
+          willChange,
+          y,
         }}
       >
         01
-      </div>
+      </motion.div>
     </motion.section>
   );
 }

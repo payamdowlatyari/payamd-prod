@@ -3,6 +3,8 @@ import {
   motion,
   AnimatePresence,
   useInView,
+  useScroll,
+  useTransform,
 } from "framer-motion";
 import { useRef } from "react";
 import { data } from "./data";
@@ -70,6 +72,9 @@ export default function Services() {
   const ref = useRef(null);
   const isInView = useInView(ref);
 
+  const { scrollY } = useScroll({ target: ref });
+  const y = useTransform(scrollY, [1300, 2000], [0, 600]);
+
   return (
     <motion.section
       ref={ref}
@@ -84,7 +89,7 @@ export default function Services() {
         justifyContent: "space-between",
       }}
     >
-      <div
+      <motion.div
         style={{
           height: "200px",
           width: "100%",
@@ -94,19 +99,18 @@ export default function Services() {
           zIndex: "-1",
           mixBlendMode: "overlay",
           fontSize: "20em",
+          y,
         }}
       >
         02
-      </div>
+      </motion.div>
       <motion.div
         style={{
           willChange,
           margin: "auto",
         }}
       >
-        <h1>
-          What <br /> I do
-        </h1>
+        <h1>Services</h1>
         <HoverLink title="my recent projects" url="/projects" />
         <ArrowForwardIcon />
       </motion.div>
@@ -118,7 +122,6 @@ export default function Services() {
             style={{
               display: "grid",
               padding: "1em",
-              // margin: "0.25em",
               justifyContent: "flex-end",
               willChange,
             }}

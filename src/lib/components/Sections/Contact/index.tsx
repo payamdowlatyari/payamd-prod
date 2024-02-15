@@ -6,41 +6,39 @@ export default function Contact() {
   const willChange = useWillChange();
 
   return (
-    <motion.div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        padding: "1em",
-        willChange,
-      }}
-      layout
-    >
+    <motion.div layout>
       <div
         style={{
-          padding: "0 1em",
+          padding: "0 0.5em",
+          display: "flex",
+          flexWrap: "wrap",
         }}
       >
-        <h5>
-          <b>COTACT ME</b>
-        </h5>
-        <HoverLink
-          title="contact@payamd.com"
-          url="mailto:contact@payamd.com"
-          out
-          low
-        />
-        <h5>
-          <b>CHECK OUT</b>
-        </h5>
-        <HoverLink
-          title="My Web Blog"
-          url="https://payamd-blog.vercel.app/"
-          out
-        />
+        <div>
+          <h5>
+            <b>COTACT ME</b>
+          </h5>
+          <HoverLink
+            title="contact@payamd.com"
+            url="mailto:contact@payamd.com"
+            out
+            low
+          />
+        </div>
+        <div>
+          <h5>
+            <b>CHECK OUT</b>
+          </h5>
+          <HoverLink
+            title="My Web Blog"
+            url="https://payamd-blog.vercel.app/"
+            out
+          />
+        </div>
       </div>
       <div
         style={{
-          padding: "0 1em",
+          padding: "0 0.5em",
         }}
       >
         <h5>

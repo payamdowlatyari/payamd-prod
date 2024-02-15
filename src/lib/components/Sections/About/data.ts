@@ -17,4 +17,6 @@ export const data = {
     "https://storage.googleapis.com/www.payamd.com/Portfolio/tech/bgt2.png",
   image5:
     "https://storage.googleapis.com/www.payamd.com/Portfolio/tech/bg1.jpeg",
+  image6:
+    "https://storage.googleapis.com/www.payamd.com/Portfolio/tech/bg22.jpeg",
 };

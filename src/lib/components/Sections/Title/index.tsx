@@ -5,13 +5,14 @@ import HoverLink from "../../motion/View/HoverLink";
 import Logo from "../../motion/Menu/Logo";
 import { useRef } from "react";
 import { BsFillMouseFill } from "react-icons/bs";
+import Social from "./Social";
 
 const Title = () => {
   const willChange = useWillChange();
   const ref = useRef(null);
 
   const { scrollY } = useScroll({ target: ref });
-  const width = useTransform(scrollY, [0, 200], ["100vw", "45vw"]);
+  const y = useTransform(scrollY, [0, 500], [0, 50]);
 
   return (
     <motion.section
@@ -24,10 +25,9 @@ const Title = () => {
       }}
     >
       <motion.div
-        className="second"
         style={{
           willChange,
-          width,
+          y,
           backgroundImage: `url(${portfolio.image2})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "auto",
@@ -39,8 +39,10 @@ const Title = () => {
           right: "0",
           bottom: "0",
           position: "absolute",
+          mixBlendMode: "difference",
         }}
       />
+
       <motion.div
         layout
         style={{
@@ -75,8 +77,15 @@ const Title = () => {
             {portfolio.text[1]}
           </h6>
           <p>{portfolio.text[2]}</p>
-          <HoverLink title="01 Who I am" url="#about" />
-          <HoverLink title="02 What I do" url="#services" />
+          <Social />
+          <div
+            style={{
+              padding: "10px 0",
+            }}
+          >
+            <HoverLink title="01 Who I am" url="#about" />
+            <HoverLink title="02 What I do" url="#services" />
+          </div>
         </div>
         <motion.div
           layout
@@ -109,12 +118,13 @@ const Title = () => {
       </motion.div>
       <div
         style={{
-          mixBlendMode: "exclusion",
+          mixBlendMode: "difference",
           zIndex: "-1",
           bottom: "3em",
           margin: "auto",
           position: "absolute",
           fontSize: "3em",
+          color: "#c2a76b",
         }}
       >
         <BsFillMouseFill />
