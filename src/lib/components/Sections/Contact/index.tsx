@@ -4,18 +4,16 @@ import HoverLink from "../../motion/View/HoverLink";
 
 export default function Contact() {
   return (
-    <motion.div layout>
-      <div
-        style={{
-          padding: "0 0.5em",
-          display: "flex",
-          flexWrap: "wrap",
-        }}
-      >
+    <motion.div
+      layout
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+      }}
+    >
+      <div>
         <div>
-          <h5>
-            <b>COTACT ME</b>
-          </h5>
+          <h5>Contact</h5>
           <HoverLink
             title="contact@payamd.com"
             url="mailto:contact@payamd.com"
@@ -24,25 +22,26 @@ export default function Contact() {
           />
         </div>
         <div>
-          <h5>
-            <b>CHECK OUT</b>
-          </h5>
+          <h5>Follow</h5>
+          <Social />
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <h5>Links</h5>
           <HoverLink
             title="My Web Blog"
             url="https://payamd-blog.vercel.app/"
             out
           />
+          <br />
+          <HoverLink
+            title="Photography"
+            url="https://payamd-photo.vercel.app/"
+            out
+          />
         </div>
-      </div>
-      <div
-        style={{
-          padding: "0 0.5em",
-        }}
-      >
-        <h5>
-          <b>FOLLOW ME</b>
-        </h5>
-        <Social />
       </div>
     </motion.div>
   );

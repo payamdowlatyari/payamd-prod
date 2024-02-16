@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { motion, useCycle, useWillChange } from "framer-motion";
 import { useDimensions } from "./use-dimentions";
-import Logo from "./Logo";
 import Nav from "./Nav";
 import Contact from "../../Sections/Contact";
 
@@ -46,7 +45,7 @@ export default function Menu() {
         background: isOpen ? "rgb(0, 0, 0, 0.8)" : "transparent",
         color: isOpen ? "rgb(225, 225, 225, 0.9)" : "transparent",
         height: isOpen ? "100vh" : "0vh",
-        padding: "1em",
+        padding: "0.5em",
       }}
     >
       <NavToggle toggle={() => toggleOpen()} />
@@ -57,28 +56,12 @@ export default function Menu() {
           height: "100vh",
           width: "100vw",
           display: isOpen ? "grid" : "none",
+          alignContent: "center",
+          justifyContent: "center",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <div
-            style={{
-              zIndex: 100,
-              width: "120px",
-              opacity: "0.9",
-            }}
-          >
-            <Logo light />
-          </div>
-          <Nav />
-          <Contact />
-        </div>
+        <Nav />
+        <Contact />
       </motion.div>
     </motion.nav>
   );

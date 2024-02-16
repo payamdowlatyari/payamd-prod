@@ -12,7 +12,7 @@ const Title = () => {
   const ref = useRef(null);
 
   const { scrollY } = useScroll({ target: ref });
-  const y = useTransform(scrollY, [0, 500], [0, 50]);
+  const y = useTransform(scrollY, [0, 200], [0, 50]);
 
   return (
     <motion.section
@@ -54,24 +54,21 @@ const Title = () => {
       >
         <div
           style={{
-            fontSize: "2em",
-            lineHeight: "0.8em",
-            padding: "0.2em",
-            display: "grid",
-          }}
-        >
-          <h1>
-            He <br />
-            llo
-          </h1>
-        </div>
-        <div
-          style={{
             lineHeight: "1.3em",
             padding: "5px",
             alignSelf: "center",
           }}
         >
+          <h1
+            style={{
+              fontSize: "10em",
+              lineHeight: "0.75em",
+            }}
+          >
+            He
+            <br />
+            llo
+          </h1>
           <h6>
             {portfolio.text[0]} <br />
             {portfolio.text[1]}
@@ -116,10 +113,12 @@ const Title = () => {
           <ParallaxText baseVelocity={-0.1}>{portfolio.titles}</ParallaxText>
         </motion.div>
       </motion.div>
-      <div
+      <motion.div
         style={{
+          willChange,
+          y,
           mixBlendMode: "difference",
-          zIndex: "-1",
+          zIndex: "0",
           bottom: "3em",
           margin: "auto",
           position: "absolute",
@@ -128,7 +127,7 @@ const Title = () => {
         }}
       >
         <BsFillMouseFill />
-      </div>
+      </motion.div>
     </motion.section>
   );
 };

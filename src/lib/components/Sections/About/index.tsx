@@ -34,6 +34,9 @@ export default function About() {
       >
         <motion.div>
           <h1>About</h1>
+          <HoverLink title="resume and skills" url="/about" />
+          <ArrowForwardIcon />
+          <br />
           <HoverLink title="professional services" url="#services" />
           <ArrowDownIcon />
         </motion.div>
@@ -60,8 +63,6 @@ export default function About() {
               >
                 <h6>{data.title}</h6>
                 <p>{data.text}</p>
-                <HoverLink title="resume and skills" url="/about" />
-                <ArrowForwardIcon />
               </motion.div>
             )}
           </AnimatePresence>

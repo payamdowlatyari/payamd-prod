@@ -93,6 +93,7 @@ export default function Services() {
         style={{
           height: "200px",
           width: "100%",
+          letterSpacing: "-0.1em",
           right: "0",
           top: "0",
           position: "absolute",

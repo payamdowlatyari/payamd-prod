@@ -1,6 +1,5 @@
 import Contact from "../components/Sections/Contact";
 import Nav from "../components/motion/Menu/Nav";
-import Logo from "../components/motion/Menu/Logo";
 import CopyRight from "../components/motion/View/CopyRight";
 import { useRef, useEffect } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
@@ -33,8 +32,7 @@ const Footer = () => {
     >
       <motion.div
         style={{
-          display: "flex",
-          flexWrap: "wrap",
+          display: "grid",
           justifyContent: "space-around",
           y,
           opacity,
@@ -47,14 +45,6 @@ const Footer = () => {
             alignItems: "center",
           }}
         >
-          <div
-            style={{
-              width: "120px",
-              opacity: "0.9",
-            }}
-          >
-            <Logo light />
-          </div>
           <Nav />
         </div>
         <Contact />

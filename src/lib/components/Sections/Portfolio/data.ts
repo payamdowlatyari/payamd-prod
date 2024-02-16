@@ -14,6 +14,13 @@ export default [
     tags: ["Next.js", "Tailwind", "Redis", "Auth0"],
   },
   {
+    title: "Photos",
+    description: "My photography blog for proffesionals",
+    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/payamd-photo_1750x1000.png",
+    url: "https://payamd-photo.vercel.app/",
+    tags: ["Next.js", "Tailwind", "Postgres"],
+  },
+  {
     title: "Algorithms for Life",
     description: "A GUI for learning Data Structure and Algorithms",
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/algorithms_2100x1200.png",

@@ -30,7 +30,7 @@ export default function Card({ item }: any) {
       }}
     >
       <figure style={{ position: "relative" }}>
-        <img
+        <motion.img
           src={item.img}
           alt={item.title}
           style={{
@@ -45,36 +45,35 @@ export default function Card({ item }: any) {
           style={{
             position: "absolute",
             display: "grid",
-            background: "rgba(0, 0, 0, 0.5)",
             borderRadius: "5px",
             left: "0",
             top: "0",
             width: "100%",
             height: "100%",
-            justifyContent: "center",
-            alignContent: "center",
           }}
         >
           <motion.div
             style={{
               willChange,
               padding: "1em",
-              maxWidth: "30em",
+              display: "grid",
+              justifyContent: "center",
+              alignContent: "flex-end",
               fontSize: "small",
-              background: "rgba(0, 0, 0, 0.6)",
+              background: "rgba(0, 0, 0, 0.5)",
               color: "#e1e1e1",
               boxShadow: "1px 1px 5px 1px #333",
             }}
             whileHover={{
               boxShadow: "1px 1px 10px 1px #333",
-              scale: 1.1,
-              transition: { duration: 0.3, ease: "backInOut" },
+              background: "rgba(0, 0, 0, 0.8)",
+              transition: { duration: 0.5, ease: "easeInOut" },
             }}
           >
             <a href={item.url}>
-              <h5>
+              <h6>
                 {item.title} <FiArrowUpRight style={{ display: "inline" }} />
-              </h5>
+              </h6>
             </a>
             <p>{item.description}</p>
             {getTags(item.tags)}

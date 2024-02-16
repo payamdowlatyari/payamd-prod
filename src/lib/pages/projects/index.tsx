@@ -21,7 +21,7 @@ const Projects = () => {
         className="privacy-screen"
       />
       <Portfolio />
-      <div style={{ position: "sticky", bottom: "0" }}>
+      <div style={{ position: "sticky", bottom: "0", fontSize: "3em" }}>
         <ParallaxText baseVelocity={0.1}>
           My Portfolio Software Development Projects
         </ParallaxText>
