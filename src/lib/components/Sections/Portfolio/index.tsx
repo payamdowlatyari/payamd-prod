@@ -33,7 +33,7 @@ export default function Horizental() {
             display: "flex",
             listStyle: "none",
             padding: "5px 0",
-            height: "55vh",
+            height: "70vh",
             x,
           }}
         >
@@ -41,7 +41,7 @@ export default function Horizental() {
             return (
               <li
                 style={{
-                  width: "45em",
+                  width: "40em",
                   maxWidth: "95vw",
                   padding: "10px",
                   margin: "0 5em",

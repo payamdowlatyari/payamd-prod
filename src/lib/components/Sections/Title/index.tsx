@@ -12,7 +12,7 @@ const Title = () => {
   const ref = useRef(null);
 
   const { scrollY } = useScroll({ target: ref });
-  const y = useTransform(scrollY, [0, 200], [0, 50]);
+  const y = useTransform(scrollY, [0, 200], [0, 100]);
 
   return (
     <motion.section
@@ -67,7 +67,7 @@ const Title = () => {
           >
             He
             <br />
-            llo
+            ll
           </h1>
           <h6>
             {portfolio.text[0]} <br />
@@ -90,7 +90,7 @@ const Title = () => {
           animate={{ opacity: 1, zIndex: 200 }}
           transition={{
             duration: 2,
-            delay: 15,
+            delay: 10,
             ease: "easeIn",
           }}
           style={{
@@ -113,13 +113,12 @@ const Title = () => {
           <ParallaxText baseVelocity={-0.1}>{portfolio.titles}</ParallaxText>
         </motion.div>
       </motion.div>
-      <motion.div
+      <div
         style={{
-          willChange,
-          y,
           mixBlendMode: "difference",
           zIndex: "0",
-          bottom: "3em",
+          bottom: "6em",
+          left: "6em",
           margin: "auto",
           position: "absolute",
           fontSize: "3em",
@@ -127,7 +126,7 @@ const Title = () => {
         }}
       >
         <BsFillMouseFill />
-      </motion.div>
+      </div>
     </motion.section>
   );
 };

@@ -26,7 +26,6 @@ body {
   margin: 0;
   padding: 0;
 
-  /* background-color: var(--background); */
   background-image: linear-gradient(to right, #434343 0%, black 100%);
   color: var(--accent);
 }
@@ -52,7 +51,7 @@ h2 {
   text-transform: uppercase;
   color: var(--secondary);
   line-height: 1;
-  font-size: 5em;
+  font-size: 4em;
   font-weight: 900;
 }
 
@@ -247,4 +246,20 @@ nav button {
   bottom: 0;
   background-color: var(--accent);
   z-index: 2;
+}
+
+.circle {
+  position: absolute;
+  z-index: 100;
+  top: 24em;
+  left: 8em;
+  aspect-ratio: 1;
+}
+
+.letter {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  font-family: "Rubik Mono One", sans-serif;
+  color: var(--secondary);
 }

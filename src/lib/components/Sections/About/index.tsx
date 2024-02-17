@@ -32,14 +32,6 @@ export default function About() {
           width: "100%",
         }}
       >
-        <motion.div>
-          <h1>About</h1>
-          <HoverLink title="resume and skills" url="/about" />
-          <ArrowForwardIcon />
-          <br />
-          <HoverLink title="professional services" url="#services" />
-          <ArrowDownIcon />
-        </motion.div>
         <div
           style={{
             width: "500px",
@@ -57,7 +49,7 @@ export default function About() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 1,
-                  delay: 1,
+                  delay: 0.3,
                   ease: "easeInOut",
                 }}
               >
@@ -67,6 +59,14 @@ export default function About() {
             )}
           </AnimatePresence>
         </div>
+        <motion.div>
+          <h1>About</h1>
+          <HoverLink title="resume and skills" url="/about" />
+          <ArrowForwardIcon />
+          <br />
+          <HoverLink title="professional services" url="#services" />
+          <ArrowDownIcon />
+        </motion.div>
       </motion.div>
       <motion.div
         style={{

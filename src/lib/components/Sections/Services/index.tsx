@@ -50,10 +50,10 @@ const FadeInItem = ({ service }: any) => {
       </motion.h6>
       <motion.p
         layout
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
-          duration: 0.75,
+          duration: 0.6,
           delay: service.display[1],
           ease: "easeInOut",
         }}

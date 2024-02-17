@@ -9,6 +9,7 @@ import Menu from "~/lib/components/motion/Menu/Menu";
 import Footer from "~/lib/layout/Footer";
 import Services from "~/lib/components/Sections/Services";
 import Header from "~/lib/layout/Header";
+import TextSpinner from "~/lib/components/motion/TextSpinner";
 
 const Home = () => {
   const ref = useRef(null);
@@ -23,6 +24,7 @@ const Home = () => {
   return (
     <>
       <Menu />
+      <TextSpinner />
       <Title />
       <Header />
       <About />

@@ -14,7 +14,7 @@ const Header = () => {
   const willChange = useWillChange();
 
   useEffect(() => {
-    const animation = animate(count, 100, { duration: 4, delay: 1 });
+    const animation = animate(count, 100, { duration: 4, delay: 0 });
 
     return animation.stop;
   }, [count]);
@@ -24,15 +24,14 @@ const Header = () => {
       layout
       initial={{ opacity: 1, zIndex: "100" }}
       animate={{ opacity: 0, zIndex: "-100" }}
-      exit={{ zIndex: "-100", transition: { duration: 1 } }}
       transition={{
-        duration: 2,
-        delay: 12,
-        ease: "circOut",
+        duration: 1,
+        delay: 10,
+        ease: "easeOut",
       }}
       style={{
         willChange,
-        background: "#1e2125",
+        backgroundImage: "linear-gradient(to right, #434343 0%, black 100%)",
         position: "fixed",
         justifyContent: "center",
         display: "flex",
@@ -86,7 +85,7 @@ const Header = () => {
         animate={{ opacity: 1, scale: 1, rotate: 360 }}
         exit={{ opacity: 0 }}
         transition={{
-          duration: 2,
+          duration: 1.5,
           delay: 6,
           ease: "circOut",
         }}
@@ -101,11 +100,11 @@ const Header = () => {
         <Logo light />
       </motion.div>
       <motion.div
-        className="first"
+        className="second"
         initial={{ scaleY: 0 }}
         animate={{
           scaleY: 1,
-          transition: { duration: 1, ease: "easeOut", delay: 10 },
+          transition: { duration: 1, ease: "easeOut", delay: 8 },
         }}
         exit={{ scaleY: 0, transition: { duration: 1, ease: "easeIn" } }}
         layout
@@ -113,7 +112,7 @@ const Header = () => {
           willChange,
           height: "100vh",
           width: "100vw",
-          transformOrigin: "top center",
+          transformOrigin: "bottom center",
           position: "fixed",
           right: "0",
           top: "0",
