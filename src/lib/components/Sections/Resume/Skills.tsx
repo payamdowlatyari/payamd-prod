@@ -16,8 +16,6 @@ export const FilterByGroup = ({ group }: any) => {
       style={{
         willChange,
         display: "grid",
-        // flexWrap: "wrap",
-        // justifyContent: "center",
       }}
     >
       <motion.div
@@ -28,7 +26,7 @@ export const FilterByGroup = ({ group }: any) => {
           margin: "auto",
         }}
       >
-        <h1>{group[0].group}</h1>
+        <h2>{group[0].group}</h2>
       </motion.div>
       <motion.div
         layout

@@ -1,8 +1,9 @@
 import { motion, useAnimate } from "framer-motion";
 import { useEffect } from "react";
+import { BsFillMouseFill } from "react-icons/bs";
 
 export default function TextSpinner() {
-  const text = "WELCOME! ..SCROLL DOWN..";
+  const text = "..WELCOME!..SCROLL DOWN..";
   const characters = text.split("");
 
   const radius = 75;
@@ -17,7 +18,7 @@ export default function TextSpinner() {
       characters.forEach((_, i) => {
         letterAnimation.push([
           `.letter-${i}`,
-          { opacity: 1 },
+          { opacity: 0 },
           { duration: 0.3, at: i === 0 ? "+0.8" : "-0.28" },
         ]);
       });
@@ -59,6 +60,18 @@ export default function TextSpinner() {
           </motion.span>
         ))}
       </p>
+      <span
+        style={{
+          mixBlendMode: "difference",
+          left: "30px",
+          position: "absolute",
+          rotate: "60deg",
+          fontSize: "2em",
+          color: "#c2a76b",
+        }}
+      >
+        <BsFillMouseFill />
+      </span>
     </motion.div>
   );
 }

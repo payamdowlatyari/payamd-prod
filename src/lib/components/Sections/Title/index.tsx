@@ -4,8 +4,8 @@ import { portfolio } from "./data";
 import HoverLink from "../../motion/View/HoverLink";
 import Logo from "../../motion/Menu/Logo";
 import { useRef } from "react";
-import { BsFillMouseFill } from "react-icons/bs";
 import Social from "./Social";
+import TextSpinner from "../../motion/TextSpinner";
 
 const Title = () => {
   const willChange = useWillChange();
@@ -57,6 +57,7 @@ const Title = () => {
             lineHeight: "1.3em",
             padding: "5px",
             alignSelf: "center",
+            fontWeight: "900",
           }}
         >
           <h1
@@ -67,14 +68,16 @@ const Title = () => {
           >
             He
             <br />
-            ll
+            llo
           </h1>
+
           <h6>
             {portfolio.text[0]} <br />
             {portfolio.text[1]}
           </h6>
           <p>{portfolio.text[2]}</p>
           <Social />
+
           <div
             style={{
               padding: "10px 0",
@@ -83,6 +86,7 @@ const Title = () => {
             <HoverLink title="01 Who I am" url="#about" />
             <HoverLink title="02 What I do" url="#services" />
           </div>
+          <TextSpinner />
         </div>
         <motion.div
           layout
@@ -113,20 +117,6 @@ const Title = () => {
           <ParallaxText baseVelocity={-0.1}>{portfolio.titles}</ParallaxText>
         </motion.div>
       </motion.div>
-      <div
-        style={{
-          mixBlendMode: "difference",
-          zIndex: "0",
-          bottom: "6em",
-          left: "6em",
-          margin: "auto",
-          position: "absolute",
-          fontSize: "3em",
-          color: "#c2a76b",
-        }}
-      >
-        <BsFillMouseFill />
-      </div>
     </motion.section>
   );
 };
