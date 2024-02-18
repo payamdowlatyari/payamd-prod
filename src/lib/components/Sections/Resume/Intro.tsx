@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { intro } from "./data";
 import { motion, useTransform, useWillChange, useScroll } from "framer-motion";
+import TextReveal from "../../motion/TextReveal";
 
 export default function Intro() {
   const ref = useRef(null);
@@ -50,7 +51,9 @@ export default function Intro() {
         }}
       >
         <h2>About</h2>
-        <p>{intro.text2}</p>
+        <p>
+          <TextReveal text={intro.text2} />
+        </p>
       </motion.div>
     </motion.div>
   );

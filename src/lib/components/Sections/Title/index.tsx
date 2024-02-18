@@ -70,9 +70,9 @@ const Title = () => {
             <br />
             llo
           </h1>
-
           <h6>
-            {portfolio.text[0]} <br />
+            {portfolio.text[0]}
+            <br />
             {portfolio.text[1]}
           </h6>
           <p>{portfolio.text[2]}</p>

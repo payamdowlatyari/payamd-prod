@@ -10,6 +10,7 @@ import { useRef } from "react";
 import { data } from "./data";
 import HoverLink from "../../motion/View/HoverLink";
 import { ArrowDownIcon, ArrowForwardIcon } from "@chakra-ui/icons";
+import TextReveal from "../../motion/TextReveal";
 
 export default function About() {
   const ref = useRef(null);
@@ -54,7 +55,7 @@ export default function About() {
                 }}
               >
                 <h6>{data.title}</h6>
-                <p>{data.text}</p>
+                <TextReveal text={data.text} />
               </motion.div>
             )}
           </AnimatePresence>

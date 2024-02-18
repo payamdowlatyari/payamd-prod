@@ -258,6 +258,5 @@ nav button {
   position: absolute;
   top: 0;
   left: 50%;
-  font-family: "Rubik Mono One", sans-serif;
   color: var(--secondary);
 }
