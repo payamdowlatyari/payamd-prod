@@ -8,8 +8,8 @@ export default function Intro() {
   const willChange = useWillChange();
 
   const { scrollY } = useScroll({ target: ref });
-  const x = useTransform(scrollY, [0, 800], [-25, 25]);
-  const scale = useTransform(scrollY, [0, 800], [1, 0.8]);
+  const x = useTransform(scrollY, [0, 800], [-15, 15]);
+  const scale = useTransform(scrollY, [0, 800], [1, 0.7]);
 
   return (
     <motion.div
@@ -22,7 +22,7 @@ export default function Intro() {
         willChange,
         maxWidth: "850px",
         margin: "auto",
-        height: "85vh",
+        height: "90vh",
       }}
       ref={ref}
     >
@@ -32,8 +32,9 @@ export default function Intro() {
           backgroundRepeat: "no-repeat",
           backgroundSize: "contain",
           backgroundPositionX: "right",
+          boxShadow: "0 5px 15px 15px black inset",
           height: "50vh",
-          width: "50vw",
+          width: "45%",
           minWidth: "250px",
           right: "0",
           top: "0",
@@ -44,7 +45,7 @@ export default function Intro() {
       <motion.div
         layout
         style={{
-          width: "600px",
+          width: "500px",
           padding: "10px",
           willChange,
           x,
@@ -52,7 +53,7 @@ export default function Intro() {
       >
         <h2>About</h2>
         <p>
-          <TextReveal text={intro.text2} />
+          <TextReveal text={intro.text} />
         </p>
       </motion.div>
     </motion.div>

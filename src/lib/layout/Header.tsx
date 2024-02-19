@@ -25,13 +25,14 @@ const Header = () => {
       initial={{ opacity: 1, zIndex: "100" }}
       animate={{ opacity: 0, zIndex: "-100" }}
       transition={{
-        duration: 1,
+        duration: 2,
         delay: 10,
         ease: "easeOut",
       }}
       style={{
         willChange,
-        backgroundImage: "linear-gradient(to right, #434343 0%, black 100%)",
+        backgroundImage:
+          "radial-gradient(circle at 24.1% 68.8%, rgb(50, 50, 50) 0%, rgb(0, 0, 0) 99.4%)",
         position: "fixed",
         justifyContent: "center",
         display: "flex",
@@ -101,12 +102,12 @@ const Header = () => {
       </motion.div>
       <motion.div
         className="second"
-        initial={{ scaleY: 0 }}
+        initial={{ opacity: 0 }}
         animate={{
-          scaleY: 1,
-          transition: { duration: 1, ease: "easeOut", delay: 8 },
+          opacity: 1,
+          transition: { duration: 2, ease: "easeOut", delay: 8 },
         }}
-        exit={{ scaleY: 0, transition: { duration: 1, ease: "easeIn" } }}
+        exit={{ opacity: 0, transition: { duration: 1, ease: "easeIn" } }}
         layout
         style={{
           willChange,

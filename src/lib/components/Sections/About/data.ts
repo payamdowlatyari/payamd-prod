@@ -3,7 +3,7 @@ export const data = {
   text: `I am a software engineer, UX designer, photographer, and
     blogger. I studied Software Engineering at UC Irvine and
     graduated in 2020. I have been working in Silicon Valley as a
-    full-stack web developer since then with q focus on the design
+    full-stack web developer since then with a focus on the design
     and implementation of user interfaces using JavaScript-based
     frameworks and libraries. I am a hobbyist photographer and blogger 
     interested in art, philosophy, and social sciences.`,

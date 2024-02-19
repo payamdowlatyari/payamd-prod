@@ -1,12 +1,12 @@
 import Contact from "../components/Sections/Contact";
 import Nav from "../components/motion/Menu/Nav";
 import CopyRight from "../components/motion/View/CopyRight";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, MutableRefObject } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useScrollbar, useTracker } from "@14islands/r3f-scroll-rig";
 
 const Footer = () => {
-  const el: any = useRef();
+  const el: MutableRefObject<any> = useRef();
   const { onScroll } = useScrollbar();
   const { scrollState } = useTracker(el);
   const progress = useMotionValue(0);
@@ -32,7 +32,8 @@ const Footer = () => {
     >
       <motion.div
         style={{
-          display: "grid",
+          display: "flex",
+          flexWrap: "wrap",
           justifyContent: "space-around",
           y,
           opacity,
