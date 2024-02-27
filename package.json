@@ -51,6 +51,8 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.21.3",
+    "react-slot-counter": "^2.2.5",
+    "react-stagger-text": "^1.1.0",
     "three": "^0.160.0"
   },
   "devDependencies": {

@@ -92,6 +92,12 @@ dependencies:
   react-router-dom:
     specifier: ^6.21.3
     version: 6.21.3(react-dom@18.2.0)(react@18.2.0)
+  react-slot-counter:
+    specifier: ^2.2.5
+    version: 2.2.5(react-dom@18.2.0)(react@18.2.0)
+  react-stagger-text:
+    specifier: ^1.1.0
+    version: 1.1.0(react-dom@18.2.0)(react@18.2.0)
   three:
     specifier: ^0.160.0
     version: 0.160.0
@@ -3248,7 +3254,7 @@ packages:
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
       resolve-from: 5.0.0
-      ts-node: 10.9.1(@types/node@20.5.1)(typescript@5.3.2)
+      ts-node: 10.9.1(@types/node@18.19.0)(typescript@5.3.2)
       typescript: 5.3.2
     transitivePeerDependencies:
       - "@swc/core"
@@ -4825,7 +4831,6 @@ packages:
     dependencies:
       undici-types: 5.26.5
     dev: true
-    optional: true
 
   /@types/node@20.10.1:
     resolution:
@@ -6606,7 +6611,7 @@ packages:
     dependencies:
       "@types/node": 20.5.1
       cosmiconfig: 8.3.6(typescript@5.3.2)
-      ts-node: 10.9.1(@types/node@20.5.1)(typescript@5.3.2)
+      ts-node: 10.9.1(@types/node@18.19.0)(typescript@5.3.2)
       typescript: 5.3.2
     dev: true
 
@@ -11046,6 +11051,33 @@ packages:
       react: 18.2.0
     dev: false
 
+  /react-slot-counter@2.2.5(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-0PccUY3lbhgBuKdY1HAJSAsmapPsBb9t8vS3idsvWCXoqerNdkzzr4tiU9Pf0UJe/eicKr7uLLpfVhYqlRZefg==,
+      }
+    engines: { node: ">=16.0.0" }
+    peerDependencies:
+      react: ">=16.8.0"
+      react-dom: ">=16.8.0"
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /react-stagger-text@1.1.0(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-yWTAg8zEwrH62BGymOfyRMkX2FJ4XHAQVKsu7YVlpBqOjvMVW0fYQRr/LLfrZRYy3OU8B5fi7QDGb7aaUZ0fTg==,
+      }
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /react-style-singleton@2.2.1(@types/react@18.2.39)(react@18.2.0):
     resolution:
       {
@@ -12442,7 +12474,7 @@ packages:
       typescript: 5.3.2
     dev: true
 
-  /ts-node@10.9.1(@types/node@20.5.1)(typescript@5.3.2):
+  /ts-node@10.9.1(@types/node@18.19.0)(typescript@5.3.2):
     resolution:
       {
         integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==,
@@ -12464,7 +12496,7 @@ packages:
       "@tsconfig/node12": 1.0.11
       "@tsconfig/node14": 1.0.3
       "@tsconfig/node16": 1.0.4
-      "@types/node": 20.5.1
+      "@types/node": 18.19.0
       acorn: 8.11.2
       acorn-walk: 8.3.0
       arg: 4.1.3

@@ -11,6 +11,7 @@ import { data } from "./data";
 import HoverLink from "../../motion/View/HoverLink";
 import { ArrowDownIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 import TextReveal from "../../motion/TextReveal";
+import StaggerText from "react-stagger-text";
 
 export default function About() {
   const ref = useRef(null);
@@ -61,7 +62,16 @@ export default function About() {
           </AnimatePresence>
         </div>
         <motion.div>
-          <h1>About</h1>
+          <h1>
+            <StaggerText
+              staggerType="letter"
+              staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"
+              staggerDuration={1}
+              startDelay={0.5}
+            >
+              About
+            </StaggerText>
+          </h1>
           <HoverLink title="resume and skills" url="/about" />
           <ArrowForwardIcon />
           <br />

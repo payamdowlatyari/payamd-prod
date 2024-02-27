@@ -15,8 +15,8 @@ export default function Contact() {
         <div>
           <h5>Contact</h5>
           <HoverLink
-            title="contact@payamd.com"
-            url="mailto:contact@payamd.com"
+            title="pdowlatyari@gmail.com"
+            url="mailto:pdowlatyari@gmail.com"
             out
             low
           />

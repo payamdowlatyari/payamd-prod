@@ -10,6 +10,7 @@ import { useRef } from "react";
 import { data } from "./data";
 import HoverLink from "../../motion/View/HoverLink";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
+import StaggerText from "react-stagger-text";
 
 const FadeInItem = ({ service }: any) => {
   const willChange = useWillChange();
@@ -111,7 +112,16 @@ export default function Services() {
           margin: "auto",
         }}
       >
-        <h1>Services</h1>
+        <h1>
+          <StaggerText
+            staggerType="letter"
+            staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"
+            staggerDuration={1}
+            startDelay={0.5}
+          >
+            Services
+          </StaggerText>
+        </h1>
         <HoverLink title="my recent projects" url="/projects" />
         <ArrowForwardIcon />
       </motion.div>

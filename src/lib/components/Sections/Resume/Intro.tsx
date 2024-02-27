@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { intro } from "./data";
 import { motion, useTransform, useWillChange, useScroll } from "framer-motion";
 import TextReveal from "../../motion/TextReveal";
+import StaggerText from "react-stagger-text";
 
 export default function Intro() {
   const ref = useRef(null);
@@ -32,7 +33,6 @@ export default function Intro() {
           backgroundRepeat: "no-repeat",
           backgroundSize: "contain",
           backgroundPositionX: "right",
-          boxShadow: "0 5px 15px 15px black inset",
           height: "50vh",
           width: "45%",
           minWidth: "250px",
@@ -51,7 +51,16 @@ export default function Intro() {
           x,
         }}
       >
-        <h2>About</h2>
+        <h1>
+          <StaggerText
+            staggerType="letter"
+            staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"
+            staggerDuration={1}
+            startDelay={0.5}
+          >
+            About
+          </StaggerText>
+        </h1>
         <p>
           <TextReveal text={intro.text} />
         </p>
