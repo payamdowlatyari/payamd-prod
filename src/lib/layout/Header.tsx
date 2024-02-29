@@ -37,6 +37,7 @@ const Header = () => {
         justifyContent: "center",
         transformOrigin: "top left",
         display: "flex",
+        zIndex: "102",
         top: "0",
         left: "0",
         width: "100%",
@@ -44,7 +45,7 @@ const Header = () => {
       }}
     >
       <motion.div
-        initial={{ opacity: 1, zIndex: "100" }}
+        initial={{ opacity: 1, zIndex: "102" }}
         animate={{ opacity: 0, zIndex: "-100" }}
         transition={{
           duration: 1,
@@ -86,7 +87,7 @@ const Header = () => {
         initial={{ opacity: 0, scale: 3 }}
         animate={{ opacity: 1, scale: 0 }}
         transition={{
-          duration: 2.5,
+          duration: 2,
           delay: 5,
           ease: "easeIn",
         }}

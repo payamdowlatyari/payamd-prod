@@ -99,7 +99,7 @@ const Title = () => {
           }}
           style={{
             willChange,
-            position: "absolute",
+            position: "fixed",
             width: "80px",
             top: "-20px",
             left: "10px",
