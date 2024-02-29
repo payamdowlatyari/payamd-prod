@@ -23,8 +23,8 @@ export default function Icon({ id, title, del }: any) {
       style={{
         width: "4em",
         overflow: "visible",
-        stroke: "#fff",
-        strokeWidth: "2",
+        stroke: "#000",
+        strokeWidth: "3",
         padding: "0.3em",
       }}
     >

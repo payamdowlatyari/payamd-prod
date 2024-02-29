@@ -13,20 +13,22 @@ export const FilterByGroup = ({ group }: any) => {
   return (
     <motion.div
       layout
+      className="second"
       style={{
         willChange,
         display: "grid",
+        borderRadius: "5px",
       }}
     >
       <motion.div
         style={{
           willChange,
           alignSelf: "flex-start",
-          fontSize: "0.5em",
+          fontSize: "0.75em",
           margin: "auto",
         }}
       >
-        <h2>{group[0].group}</h2>
+        <h3>{group[0].group}</h3>
       </motion.div>
       <motion.div
         layout
@@ -78,7 +80,7 @@ export default function Skills() {
         style={{
           display: "flex",
           flexWrap: "wrap",
-          alignItems: "flex-start",
+          alignItems: "center",
           justifyContent: "space-evenly",
         }}
       >

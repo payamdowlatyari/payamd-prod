@@ -8,40 +8,43 @@ const Experience = () => {
   const willChange = useWillChange();
 
   const { scrollY } = useScroll({ target: ref });
-  const opacity = useTransform(scrollY, [500, 700], [0, 1]);
-  const x = useTransform(scrollY, [500, 700], [300, 0]);
-  const scale = useTransform(scrollY, [500, 800], [1, 0.6]);
+  const opacity = useTransform(scrollY, [300, 700], [0, 1]);
+  const y = useTransform(scrollY, [300, 700], [300, 0]);
+  const rotate = useTransform(scrollY, [300, 800], [90, 0]);
 
   return (
     <motion.div
       layout
       style={{
         padding: "0.5em",
-        margin: "2em 0",
+        margin: "1em 0",
         willChange,
         display: "flex",
         flexWrap: "wrap",
-        justifyContent: "space-evenly",
+        justifyContent: "space-around",
       }}
       ref={ref}
     >
-      <motion.div
+      <motion.h3
         layout
         style={{
           willChange,
-          scale,
+          rotate,
+          opacity,
         }}
       >
-        <h1>Experience </h1>
-      </motion.div>
+        Experience
+      </motion.h3>
       <motion.div
+        className="second"
         layout
         style={{
           willChange,
-          x,
+          y,
           opacity,
           width: "500px",
           minWidth: "300px",
+          borderRadius: "5px",
         }}
       >
         {experience?.map((item) => {

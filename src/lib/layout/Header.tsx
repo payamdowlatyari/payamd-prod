@@ -22,12 +22,12 @@ const Header = () => {
   return (
     <motion.div
       layout
-      initial={{ opacity: 1, zIndex: "100" }}
-      animate={{ opacity: 0, zIndex: "-100" }}
+      initial={{ scaleY: 1, scaleX: 1 }}
+      animate={{ scaleY: 0, scaleX: 0 }}
       transition={{
         duration: 2,
-        delay: 10,
-        ease: "easeOut",
+        delay: 9,
+        ease: "anticipate",
       }}
       style={{
         willChange,
@@ -35,6 +35,7 @@ const Header = () => {
           "radial-gradient(circle at 24.1% 68.8%, rgb(50, 50, 50) 0%, rgb(0, 0, 0) 99.4%)",
         position: "fixed",
         justifyContent: "center",
+        transformOrigin: "top left",
         display: "flex",
         top: "0",
         left: "0",
@@ -82,14 +83,30 @@ const Header = () => {
       />
       <motion.div
         layout
-        initial={{ opacity: 0, scale: 0.2 }}
-        animate={{ opacity: 1, scale: 1, rotate: 360 }}
-        exit={{ opacity: 0 }}
+        initial={{ opacity: 0, scale: 3 }}
+        animate={{ opacity: 1, scale: 0 }}
         transition={{
-          duration: 1.5,
-          delay: 6,
-          ease: "circOut",
+          duration: 2.5,
+          delay: 5,
+          ease: "easeIn",
         }}
+        style={{
+          willChange,
+          position: "fixed",
+          alignSelf: "center",
+          textAlign: "center",
+          width: "400px",
+        }}
+      >
+        <Logo />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: 1,
+          transition: { duration: 1, ease: "easeOut", delay: 7 },
+        }}
+        layout
         style={{
           willChange,
           position: "fixed",
@@ -100,25 +117,6 @@ const Header = () => {
       >
         <Logo light />
       </motion.div>
-      <motion.div
-        className="second"
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: 1,
-          transition: { duration: 2, ease: "easeOut", delay: 8 },
-        }}
-        exit={{ opacity: 0, transition: { duration: 1, ease: "easeIn" } }}
-        layout
-        style={{
-          willChange,
-          height: "100vh",
-          width: "100vw",
-          transformOrigin: "bottom center",
-          position: "fixed",
-          right: "0",
-          top: "0",
-        }}
-      />
     </motion.div>
   );
 };

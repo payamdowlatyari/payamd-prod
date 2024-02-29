@@ -18,7 +18,7 @@ const Certificates = () => {
       layout
       style={{
         padding: "0.5em",
-        margin: "2em 0",
+        margin: "1em 0",
         display: "flex",
         flexWrap: "wrap",
         justifyContent: "space-evenly",
@@ -36,10 +36,12 @@ const Certificates = () => {
         <h1>Certificates</h1>
       </motion.div>
       <motion.div
+        className="second"
         layout
         style={{
           width: "500px",
           minWidth: "300px",
+          borderRadius: "5px",
           willChange,
           opacity,
           y,

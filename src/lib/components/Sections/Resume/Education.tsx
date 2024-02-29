@@ -11,26 +11,28 @@ const Education = () => {
   const opacity = useTransform(scrollY, [1100, 1400], [0, 1]);
 
   const x = useTransform(scrollY, [1100, 1400], [-200, 0]);
-  const scale = useTransform(scrollY, [900, 1500], [1, 0.6]);
+  const y = useTransform(scrollY, [900, 1500], [-100, 0]);
 
   return (
     <motion.div
       layout
       style={{
         padding: "0.5em",
-        margin: "2em 0",
+        margin: "1em 0",
         display: "flex",
-        flexWrap: "wrap",
+        flexWrap: "wrap-reverse",
         justifyContent: "space-evenly",
         willChange,
       }}
       ref={ref}
     >
       <motion.div
+        className="second"
         layout
         style={{
           width: "500px",
           minWidth: "300px",
+          borderRadius: "5px",
           willChange,
           opacity,
           x,
@@ -59,15 +61,16 @@ const Education = () => {
           );
         })}
       </motion.div>
-      <motion.div
+      <motion.h3
         layout
         style={{
           willChange,
-          scale,
+          opacity,
+          y,
         }}
       >
-        <h1>Education</h1>
-      </motion.div>
+        Education
+      </motion.h3>
     </motion.div>
   );
 };

@@ -18,6 +18,7 @@ const FadeInItem = ({ service }: any) => {
   return (
     <motion.div
       layout
+      className="second"
       initial={{ opacity: 0, scale: 0.75 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{
@@ -32,6 +33,7 @@ const FadeInItem = ({ service }: any) => {
         margin: "0.25em",
         padding: "0.5em",
         fontSize: "0.8em",
+        borderRadius: "5px",
       }}
     >
       <motion.h6

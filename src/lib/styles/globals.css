@@ -22,7 +22,7 @@ body {
 
   --background: var(--black);
   --accent: var(--white);
-  --secondary: var(--gold);
+  --secondary: var(--dirty-yellow);
 
   margin: 0;
   padding: 0;
@@ -81,6 +81,7 @@ h5 {
 
 h6 {
   font-size: 1.5em;
+  margin: 0.2em 0;
 }
 
 p {
@@ -167,7 +168,7 @@ section {
 .parallax span {
   display: block;
   margin-right: 20px;
-  color: var(--secondary);
+  color: var(--accent);
   mix-blend-mode: difference;
 }
 
@@ -193,7 +194,7 @@ nav button {
   width: 75px;
   border-radius: 50%;
   backdrop-filter: invert(1);
-  color: var(--black);
+  color: var(--ash-black);
 }
 
 .underlined {
@@ -220,6 +221,22 @@ nav button {
     to right,
     var(--silver) 0,
     var(--silver) 100%
+  );
+}
+
+.second .underlined {
+  color: var(--background);
+}
+
+.second .underlined:hover {
+  color: var(--background);
+}
+
+.second .underlinedThin {
+  background-image: linear-gradient(
+    to right,
+    var(--background) 0,
+    var(--background) 100%
   );
 }
 
@@ -262,5 +279,16 @@ nav button {
   position: absolute;
   top: 0;
   left: 50%;
-  color: var(--secondary);
+  color: var(--accent);
+}
+
+.small-title {
+  background-color: var(--accent);
+  color: var(--background);
+  mix-blend-mode: difference;
+  border-radius: 5px;
+  letter-spacing: 0.5em;
+  font-size: 2em;
+  padding: 0 10px;
+  margin: 20px 5px 10px;
 }

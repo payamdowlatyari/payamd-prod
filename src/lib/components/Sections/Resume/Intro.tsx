@@ -33,6 +33,7 @@ export default function Intro() {
           backgroundRepeat: "no-repeat",
           backgroundSize: "contain",
           backgroundPositionX: "right",
+          borderRadius: "5px",
           height: "50vh",
           width: "45%",
           minWidth: "250px",
@@ -44,9 +45,12 @@ export default function Intro() {
       />
       <motion.div
         layout
+        className="second"
         style={{
           width: "500px",
           padding: "10px",
+          borderRadius: "5px",
+          mixBlendMode: "difference",
           willChange,
           x,
         }}

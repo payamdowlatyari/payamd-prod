@@ -39,9 +39,9 @@ const Resume = () => {
             <div
               style={{
                 position: "absolute",
-                width: "100px",
+                width: "80px",
                 top: "-20px",
-                left: "0",
+                left: "10px",
               }}
             >
               <Logo light />

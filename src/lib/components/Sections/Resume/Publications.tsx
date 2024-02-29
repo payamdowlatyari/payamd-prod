@@ -11,7 +11,7 @@ const Publications = () => {
   const { scrollY } = useScroll({ target: ref });
   const opacity = useTransform(scrollY, [1300, 1600], [0, 1]);
   const y = useTransform(scrollY, [1300, 1600], [100, 0]);
-  const scale = useTransform(scrollY, [1200, 1700], [1, 0.6]);
+  const rotate = useTransform(scrollY, [1200, 1800], [-90, 0]);
 
   return (
     <motion.div
@@ -20,17 +20,19 @@ const Publications = () => {
         padding: "0.5em",
         margin: "2em 0",
         display: "flex",
-        flexWrap: "wrap",
+        flexWrap: "wrap-reverse",
         justifyContent: "space-evenly",
         willChange,
       }}
       ref={ref}
     >
       <motion.div
+        className="second"
         layout
         style={{
           width: "500px",
           minWidth: "300px",
+          borderRadius: "5px",
           willChange,
           opacity,
           y,
@@ -54,15 +56,16 @@ const Publications = () => {
           );
         })}
       </motion.div>
-      <motion.div
+      <motion.h3
         layout
         style={{
           willChange,
-          scale,
+          rotate,
+          opacity,
         }}
       >
-        <h1>Publications</h1>
-      </motion.div>
+        Publications
+      </motion.h3>
     </motion.div>
   );
 };

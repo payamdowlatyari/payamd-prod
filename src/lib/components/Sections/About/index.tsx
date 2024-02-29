@@ -37,15 +37,18 @@ export default function About() {
         <div
           style={{
             width: "500px",
-            padding: "1em",
           }}
         >
           <AnimatePresence initial={false}>
             {isInView && (
               <motion.div
+                className="second"
                 layout
                 style={{
                   willChange,
+                  mixBlendMode: "difference",
+                  padding: "10px",
+                  borderRadius: "5px",
                 }}
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}

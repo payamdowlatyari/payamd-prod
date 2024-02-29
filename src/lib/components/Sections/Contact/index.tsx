@@ -13,7 +13,7 @@ export default function Contact() {
     >
       <div>
         <div>
-          <h5>Contact</h5>
+          <h5 className="small-title">Contact</h5>
           <HoverLink
             title="pdowlatyari@gmail.com"
             url="mailto:pdowlatyari@gmail.com"
@@ -22,14 +22,14 @@ export default function Contact() {
           />
         </div>
         <div>
-          <h5>Follow</h5>
+          <h5 className="small-title">Follow</h5>
           <Social />
         </div>
       </div>
 
       <div>
         <div>
-          <h5>Links</h5>
+          <h5 className="small-title">Links</h5>
           <HoverLink
             title="My Web Blog"
             url="https://payamd-blog.vercel.app/"
