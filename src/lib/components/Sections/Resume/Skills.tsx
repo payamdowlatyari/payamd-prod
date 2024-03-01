@@ -13,17 +13,17 @@ export const FilterByGroup = ({ group }: any) => {
   return (
     <motion.div
       layout
-      className="second"
       style={{
         willChange,
         display: "grid",
         borderRadius: "5px",
+        margin: "5px",
       }}
     >
       <motion.div
         style={{
           willChange,
-          alignSelf: "flex-start",
+          alignSelf: "center",
           fontSize: "0.75em",
           margin: "auto",
         }}
@@ -35,13 +35,14 @@ export const FilterByGroup = ({ group }: any) => {
         style={{
           willChange,
           margin: "auto",
-          padding: "1em 0 5em",
+          padding: "2em 0",
           display: "flex",
           flexWrap: "wrap",
           overflow: "hidden",
           whiteSpace: "nowrap",
           justifyContent: "center",
-          maxWidth: "300px",
+          maxWidth: "400px",
+          minHeight: "300px",
         }}
       >
         {group?.map((icon: any) => {
@@ -57,8 +58,9 @@ export default function Skills() {
   const willChange = useWillChange();
 
   const { scrollY } = useScroll({ target: ref });
-  const opacity = useTransform(scrollY, [1600, 1800], [0, 1]);
-  const scale = useTransform(scrollY, [1500, 1900], [2, 1]);
+  const opacity = useTransform(scrollY, [2800, 3200], [0, 1]);
+  const scale = useTransform(scrollY, [2800, 3200], [3, 1]);
+  const y = useTransform(scrollY, [6100, 7600], [0, 1500]);
 
   return (
     <motion.div layout ref={ref}>
@@ -66,8 +68,8 @@ export default function Skills() {
         layout
         style={{
           willChange,
-          height: "5em",
-          fontSize: "2em",
+          fontSize: "3em",
+          marginTop: "120vh",
           opacity,
           scale,
         }}
@@ -77,11 +79,15 @@ export default function Skills() {
         </ParallaxText>
       </motion.div>
       <motion.div
+        className="second"
         style={{
+          willChange,
           display: "flex",
           flexWrap: "wrap",
           alignItems: "center",
           justifyContent: "space-evenly",
+          y,
+          opacity,
         }}
       >
         <FilterByGroup group={frontend} />

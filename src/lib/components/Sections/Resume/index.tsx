@@ -28,9 +28,10 @@ const Resume = () => {
       style={{
         willChange,
         display: "block",
-        padding: "6em 0",
+        padding: "10vh 0",
         maxWidth: "100vw",
         overflow: "hidden",
+        height: "1000vh",
       }}
     >
       <AnimatePresence initial={false}>
@@ -47,12 +48,14 @@ const Resume = () => {
               <Logo light />
             </div>
             <Intro />
+
             <Experience />
             <Education />
             <Certificates />
             <Publications />
 
             <Skills />
+
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -61,8 +64,9 @@ const Resume = () => {
                 delay: 5,
               }}
               style={{
-                padding: "3em 1em",
+                marginTop: "180vh",
                 textTransform: "uppercase",
+
                 textAlign: "center",
               }}
             >

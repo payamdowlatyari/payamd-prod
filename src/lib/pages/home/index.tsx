@@ -27,8 +27,8 @@ const Home = () => {
       <Header />
       <About />
       <Services />
-      <motion.div ref={ref} className="progress" style={{ scaleX }} />
       <Footer />
+      <motion.div ref={ref} className="progress" style={{ scaleX }} />
     </>
   );
 };

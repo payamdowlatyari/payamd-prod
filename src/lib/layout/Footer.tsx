@@ -15,17 +15,17 @@ const Footer = () => {
     return onScroll(() => progress.set(scrollState.visibility));
   }, [onScroll, progress, scrollState]);
 
-  const y = useTransform(progress, [0, 1], ["-100%", "0%"]);
+  const y = useTransform(progress, [0, 1], ["-100%", "1%"]);
   const opacity = useTransform(progress, [0, 1], [0, 1]);
   const scale = useTransform(progress, [0, 1], [0.9, 1]);
 
   return (
-    <motion.div
+    <motion.footer
       ref={el}
       layout
       style={{
         display: "grid",
-        height: "30em",
+        height: "100vh",
         alignItems: "flex-end",
         width: "99vw",
       }}
@@ -52,7 +52,7 @@ const Footer = () => {
       </motion.div>
 
       <CopyRight />
-    </motion.div>
+    </motion.footer>
   );
 };
 

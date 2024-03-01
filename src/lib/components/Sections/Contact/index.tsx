@@ -8,7 +8,7 @@ export default function Contact() {
       layout
       style={{
         display: "flex",
-        flexWrap: "wrap",
+        flexDirection: "column",
       }}
     >
       <div>

@@ -29,8 +29,8 @@ const AboutRoute = () => {
         className="privacy-screen"
       />
       <Resume />
-      <motion.div ref={ref} className="progress" style={{ scaleX }} />
       <Footer />
+      <motion.div ref={ref} className="progress" style={{ scaleX }} />
     </>
   );
 };

@@ -4,8 +4,8 @@ export default function CopyRight() {
       style={{
         textAlign: "center",
         fontSize: "12px",
-        alignSelf: "center",
-        padding: "10px 0",
+        alignSelf: "flex-end",
+        padding: "30px 0",
       }}
     >
       <a

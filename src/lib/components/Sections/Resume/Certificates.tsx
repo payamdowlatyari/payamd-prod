@@ -9,65 +9,71 @@ const Certificates = () => {
   const willChange = useWillChange();
 
   const { scrollY } = useScroll({ target: ref });
-  const opacity = useTransform(scrollY, [1200, 1500], [0, 1]);
-  const y = useTransform(scrollY, [1200, 1500], [100, 0]);
-  const scale = useTransform(scrollY, [1100, 1600], [1, 0.6]);
+  const x = useTransform(scrollY, [2300, 2800], ["-100%", "0%"]);
+  const y = useTransform(scrollY, [2900, 4900], [0, 2000]);
 
   return (
     <motion.div
       layout
       style={{
-        padding: "0.5em",
-        margin: "1em 0",
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "space-evenly",
+        margin: "2em 0",
         willChange,
       }}
       ref={ref}
     >
       <motion.div
-        layout
-        style={{
-          willChange,
-          scale,
-        }}
-      >
-        <h1>Certificates</h1>
-      </motion.div>
-      <motion.div
         className="second"
-        layout
         style={{
-          width: "500px",
-          minWidth: "300px",
-          borderRadius: "5px",
+          padding: "0.5em",
           willChange,
-          opacity,
+          x,
           y,
+          height: "100vh",
+          alignItems: "center",
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "space-around",
         }}
       >
-        {certificate?.map((item) => {
-          return (
-            <>
-              <Flex p={4}>
-                <Box>
-                  <HoverLink title={item.major} url={item.link} out />
-                  <Text fontSize="sm" pl={2}>
-                    {item.school}
-                  </Text>
-                </Box>
-                <Spacer />
-                <Box>
-                  <Text fontSize="xs">{item.date}</Text>
-                </Box>
-              </Flex>
-              <Text px={6} fontSize="xs">
-                {item.description}
-              </Text>
-            </>
-          );
-        })}
+        <motion.div
+          layout
+          style={{
+            willChange,
+          }}
+        >
+          <motion.h3>Certificates</motion.h3>
+        </motion.div>
+        <motion.div
+          layout
+          style={{
+            width: "500px",
+            minWidth: "300px",
+            borderRadius: "5px",
+            willChange,
+          }}
+        >
+          {certificate?.map((item) => {
+            return (
+              <>
+                <Flex p={4}>
+                  <Box>
+                    <HoverLink title={item.major} url={item.link} out />
+                    <Text fontSize="sm" pl={2}>
+                      {item.school}
+                    </Text>
+                  </Box>
+                  <Spacer />
+                  <Box>
+                    <Text fontSize="xs">{item.date}</Text>
+                  </Box>
+                </Flex>
+                <Text px={6} fontSize="xs">
+                  {item.description}
+                </Text>
+              </>
+            );
+          })}
+        </motion.div>
       </motion.div>
     </motion.div>
   );

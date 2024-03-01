@@ -21,14 +21,15 @@ export default function Nav() {
       </div>
       <div
         style={{
-          display: "flex",
+          display: "inline-grid",
           height: "fit-content",
+          width: "fit-content",
           alignSelf: "center",
         }}
       >
-        <HoverLink title="Home" url="/" size="1.2em" />
-        <HoverLink title="About" url="/about" size="1.2em" />
-        <HoverLink title="Projects" url="/projects" size="1.2em" />
+        <HoverLink title="Home" url="/" size="2em" />
+        <HoverLink title="About" url="/about" size="2em" />
+        <HoverLink title="Projects" url="/projects" size="2em" />
       </div>
     </motion.div>
   );
