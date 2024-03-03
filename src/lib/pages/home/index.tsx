@@ -25,7 +25,7 @@ const Home = () => {
     <>
       <Menu />
       <Title />
-      {/* <Header /> */}
+      <Header />
       <About />
       <div style={{ position: "relative", right: "0", fontSize: "6vw" }}>
         <ParallaxText baseVelocity={0.01}>About * Services *</ParallaxText>
