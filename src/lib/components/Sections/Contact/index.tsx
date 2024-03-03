@@ -1,33 +1,23 @@
-import { motion } from "framer-motion";
 import Social from "../Title/Social";
 import HoverLink from "../../motion/View/HoverLink";
 
 export default function Contact() {
   return (
-    <motion.div
-      layout
-      style={{
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
+    <div className="contacts">
       <div>
-        <div>
-          <h5 className="small-title">Contact</h5>
-          <HoverLink
-            title="pdowlatyari@gmail.com"
-            url="mailto:pdowlatyari@gmail.com"
-            out
-            low
-          />
-        </div>
+        <h5 className="small-title">Contact</h5>
+        <HoverLink
+          title="pdowlatyari@gmail.com"
+          url="mailto:pdowlatyari@gmail.com"
+          out
+          low
+        />
+      </div>
+      <div>
         <div>
           <h5 className="small-title">Follow</h5>
           <Social />
         </div>
-      </div>
-
-      <div>
         <div>
           <h5 className="small-title">Links</h5>
           <HoverLink
@@ -43,6 +33,6 @@ export default function Contact() {
           />
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

@@ -11,7 +11,6 @@ import { data } from "./data";
 import HoverLink from "../../motion/View/HoverLink";
 import { ArrowDownIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 import TextReveal from "../../motion/TextReveal";
-import StaggerText from "react-stagger-text";
 
 export default function About() {
   const ref = useRef(null);
@@ -36,17 +35,15 @@ export default function About() {
       >
         <div
           style={{
-            width: "500px",
+            maxWidth: "500px",
           }}
         >
           <AnimatePresence initial={false}>
             {isInView && (
               <motion.div
-                className="second"
                 layout
                 style={{
                   willChange,
-                  mixBlendMode: "difference",
                   padding: "10px",
                   borderRadius: "5px",
                 }}
@@ -64,33 +61,17 @@ export default function About() {
             )}
           </AnimatePresence>
         </div>
-        <motion.div>
-          <h1>
-            <StaggerText
-              staggerType="letter"
-              staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"
-              staggerDuration={1}
-              startDelay={0.5}
-            >
-              About
-            </StaggerText>
-          </h1>
+        <div>
           <HoverLink title="resume and skills" url="/about" />
           <ArrowForwardIcon />
           <br />
           <HoverLink title="professional services" url="#services" />
           <ArrowDownIcon />
-        </motion.div>
+        </div>
       </motion.div>
       <motion.div
+        className="section-number"
         style={{
-          width: "100%",
-          right: "0",
-          top: "0",
-          position: "absolute",
-          zIndex: "-1",
-          mixBlendMode: "overlay",
-          fontSize: "20em",
           willChange,
           y,
         }}

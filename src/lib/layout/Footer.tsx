@@ -21,33 +21,29 @@ const Footer = () => {
 
   return (
     <motion.footer
+      className="second"
       ref={el}
       layout
       style={{
         display: "grid",
         height: "100vh",
         alignItems: "flex-end",
-        width: "99vw",
+        mixBlendMode: "difference",
+        width: "100vw",
       }}
     >
       <motion.div
         style={{
           display: "flex",
           flexWrap: "wrap",
+          alignItems: "center",
           justifyContent: "space-around",
           y,
           opacity,
           scale,
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <Nav />
-        </div>
+        <Nav />
         <Contact />
       </motion.div>
 

@@ -1,15 +1,20 @@
-import { Badge } from "@chakra-ui/react";
 import HoverLink from "./View/HoverLink";
+import Icon from "./Icon";
 
 const getTags = (tags: any) => {
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        color: "#fff",
+        maxWidth: "300px",
+        justifyContent: "center",
+      }}
+    >
       {tags?.map((tag: any) => {
-        return (
-          <Badge colorScheme="gray" m={1} size="sm">
-            {tag}
-          </Badge>
-        );
+        return <Icon id={tag} />;
       })}
     </div>
   );
@@ -17,43 +22,45 @@ const getTags = (tags: any) => {
 
 export default function Card({ item }: any) {
   return (
-    <div
+    <figure
       style={{
-        width: "100%",
-        height: "auto",
+        position: "relative",
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        top: "20vh",
       }}
     >
-      <figure style={{ position: "relative" }}>
-        <img
-          src={item.img}
-          alt={item.title}
-          style={{
-            objectFit: "cover",
-            borderRadius: "5px",
-            width: "100%",
-            height: "auto",
-          }}
-        />
-        <div
-          style={{
-            padding: "10px",
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            minHeight: "10em",
-            justifyContent: "space-evenly",
-            fontSize: "small",
-            background: "rgba(0, 0, 0, 0.2)",
-            boxShadow: "1px 1px 5px 1px #333",
-          }}
-        >
-          <div>
-            <HoverLink url={item.url} title={item.title} out size="1.5em" />
-            <p>{item.description}</p>
-          </div>
-          {getTags(item.tags)}
+      <img
+        src={item.img}
+        alt={item.title}
+        style={{
+          objectFit: "cover",
+          borderRadius: "5px",
+          width: "600px",
+          maxWidth: "100vw",
+          height: "auto",
+        }}
+      />
+      <div
+        style={{
+          padding: "10px",
+          display: "flex",
+          flexWrap: "wrap",
+          alignItems: "center",
+          flexDirection: "column",
+          minHeight: "10em",
+          justifyContent: "space-between",
+          width: "500px",
+          maxWidth: "100vw",
+        }}
+      >
+        <div>
+          <HoverLink url={item.url} title={item.title} out size="1.5em" />
+          <p>{item.description}</p>
         </div>
-      </figure>
-    </div>
+        {getTags(item.tagIcon)}
+      </div>
+    </figure>
   );
 }

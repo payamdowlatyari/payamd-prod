@@ -1,10 +1,8 @@
 import { motion, useScroll, useTransform, useWillChange } from "framer-motion";
 import ParallaxText from "../../motion/ParallaxText";
 import { portfolio } from "./data";
-import HoverLink from "../../motion/View/HoverLink";
 import Logo from "../../motion/Menu/Logo";
 import { useRef } from "react";
-import Social from "./Social";
 import TextSpinner from "../../motion/TextSpinner";
 
 const Title = () => {
@@ -43,52 +41,37 @@ const Title = () => {
         }}
       />
 
-      <motion.div
-        layout
+      <div
         style={{
           display: "flex",
+          flexDirection: "column",
           flexWrap: "wrap",
           alignSelf: "flex-end",
           mixBlendMode: "difference",
         }}
       >
+        <div>
+          <h1>Hello</h1>
+        </div>
         <div
           style={{
-            lineHeight: "1.3em",
-            padding: "5px",
-            alignSelf: "center",
-            fontWeight: "900",
+            position: "relative",
+            bottom: "0",
+            left: "0",
+            lineHeight: "1.25em",
+            fontSize: "2em",
           }}
         >
-          <h1
-            style={{
-              fontSize: "10em",
-              lineHeight: "0.75em",
-            }}
-          >
-            He
-            <br />
-            llo
-          </h1>
           <h6>
             {portfolio.text[0]}
             <br />
             {portfolio.text[1]}
           </h6>
           <p>{portfolio.text[2]}</p>
-          <Social />
-
-          <div
-            style={{
-              padding: "10px 0",
-            }}
-          >
-            <HoverLink title="01 Who I am" url="#about" />
-            <HoverLink title="02 What I do" url="#services" />
-          </div>
-          <TextSpinner />
         </div>
+        <TextSpinner />
         <motion.div
+          className="logo-pd"
           layout
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, zIndex: 200 }}
@@ -97,26 +80,19 @@ const Title = () => {
             delay: 10,
             ease: "easeIn",
           }}
-          style={{
-            willChange,
-            position: "fixed",
-            width: "80px",
-            top: "-20px",
-            left: "10px",
-          }}
         >
           <Logo light />
         </motion.div>
-        <motion.div
-          layout
+        <div
+          className="second"
           style={{
             maxWidth: "99vw",
-            fontSize: "4em",
+            fontSize: "8vw",
           }}
         >
-          <ParallaxText baseVelocity={-0.1}>{portfolio.titles}</ParallaxText>
-        </motion.div>
-      </motion.div>
+          <ParallaxText baseVelocity={-0.05}>{portfolio.titles}</ParallaxText>
+        </div>
+      </div>
     </motion.section>
   );
 };

@@ -3,7 +3,7 @@ import HoverLink from "../../motion/View/HoverLink";
 
 export default function Social() {
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", fontSize: "0.8em" }}>
+    <div style={{ display: "inline-grid" }}>
       {social.map((item) => {
         return <HoverLink title={item.name} url={item.url} out />;
       })}

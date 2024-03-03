@@ -15,7 +15,7 @@ export default function Horizental() {
       ref={ref}
       id="projects"
       style={{
-        height: "200vh",
+        height: "500vh",
       }}
     >
       <div
@@ -33,7 +33,7 @@ export default function Horizental() {
             display: "flex",
             listStyle: "none",
             padding: "5px 0",
-            height: "70vh",
+            height: "100vh",
             x,
           }}
         >
@@ -41,10 +41,8 @@ export default function Horizental() {
             return (
               <li
                 style={{
-                  width: "40em",
-                  maxWidth: "95vw",
-                  padding: "10px",
-                  margin: "0 5em",
+                  width: "100vw",
+                  padding: "1em",
                 }}
               >
                 <Card item={project} />
@@ -53,14 +51,7 @@ export default function Horizental() {
           })}
         </motion.ul>
       </div>
-      <div
-        style={{
-          position: "fixed",
-          width: "80px",
-          top: "-20px",
-          left: "10px",
-        }}
-      >
+      <div className="logo-pd">
         <Logo light />
       </div>
       <svg

@@ -18,25 +18,24 @@ export default function Intro() {
       style={{
         padding: "0.5em",
         display: "flex",
-        alignItems: "end",
         justifyContent: "space-between",
         willChange,
-        maxWidth: "850px",
+        maxWidth: "900px",
         margin: "auto",
-        height: "90vh",
       }}
       ref={ref}
     >
+      {" "}
       <motion.div
         style={{
           backgroundImage: `url(${intro.image2})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "contain",
-          backgroundPositionX: "right",
+          backgroundPosition: "50%",
           borderRadius: "5px",
           height: "50vh",
-          width: "45%",
-          minWidth: "250px",
+          width: "50%",
+          minWidth: "300px",
           right: "0",
           top: "0",
           position: "absolute",
@@ -45,9 +44,8 @@ export default function Intro() {
       />
       <motion.div
         layout
-        className="second"
+        className="medium-title"
         style={{
-          width: "500px",
           padding: "10px",
           borderRadius: "5px",
           mixBlendMode: "difference",

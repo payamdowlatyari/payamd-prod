@@ -2,7 +2,6 @@ import { useRef } from "react";
 import { motion, useCycle, useWillChange } from "framer-motion";
 import { useDimensions } from "./use-dimentions";
 import Nav from "./Nav";
-import Contact from "../../Sections/Contact";
 
 const NavToggle = ({ toggle }: any) => {
   return (
@@ -42,7 +41,7 @@ export default function Menu() {
       custom={height}
       ref={containerRef}
       style={{
-        background: isOpen ? "rgb(0, 0, 0, 0.8)" : "transparent",
+        background: isOpen ? "rgb(0, 0, 0, 0.9)" : "transparent",
         color: isOpen ? "rgb(225, 225, 225, 0.9)" : "transparent",
         height: isOpen ? "100vh" : "0vh",
         padding: "0.5em",
@@ -61,7 +60,6 @@ export default function Menu() {
         }}
       >
         <Nav />
-        <Contact />
       </motion.div>
     </motion.nav>
   );

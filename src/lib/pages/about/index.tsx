@@ -6,6 +6,7 @@ import Menu from "~/lib/components/motion/Menu/Menu";
 import Footer from "~/lib/layout/Footer";
 import Resume from "~/lib/components/Sections/Resume";
 import { useRef } from "react";
+import ParallaxText from "~/lib/components/motion/ParallaxText";
 
 const AboutRoute = () => {
   const ref = useRef(null);
@@ -28,6 +29,17 @@ const AboutRoute = () => {
         style={{ originX: isPresent ? 0 : 1 }}
         className="privacy-screen"
       />
+      <div
+        style={{
+          position: "relative",
+          top: "150vh",
+          right: "0",
+          fontSize: "6vw",
+        }}
+      >
+        <ParallaxText baseVelocity={0.01}>Resume * Resume *</ParallaxText>
+        <ParallaxText baseVelocity={-0.01}>Skills * Skills *</ParallaxText>
+      </div>
       <Resume />
       <Footer />
       <motion.div ref={ref} className="progress" style={{ scaleX }} />
