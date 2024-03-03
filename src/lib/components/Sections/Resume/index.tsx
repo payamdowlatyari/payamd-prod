@@ -9,6 +9,7 @@ import Intro from "./Intro";
 import HoverLink from "../../motion/View/HoverLink";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import Logo from "../../motion/Menu/Logo";
+import ParallaxText from "../../motion/ParallaxText";
 
 const Resume = () => {
   const resume = useRef(null);
@@ -30,10 +31,17 @@ const Resume = () => {
         height: "2000vh",
       }}
     >
-      <div className="logo-pd">
-        <Logo light />
-      </div>
       <Intro />
+      <div
+        style={{
+          position: "relative",
+          right: "0",
+          fontSize: "6vw",
+        }}
+      >
+        <ParallaxText baseVelocity={0.01}>Resume * Resume *</ParallaxText>
+        <ParallaxText baseVelocity={-0.01}>Skills * Skills *</ParallaxText>
+      </div>
       <div
         style={{
           position: "fixed",
@@ -81,6 +89,9 @@ const Resume = () => {
         <h2>Projects</h2>
         <HoverLink title="check out my portfolio" url="/projects" />
         <ArrowForwardIcon />
+      </div>
+      <div className="logo-pd">
+        <Logo light />
       </div>
     </motion.section>
   );

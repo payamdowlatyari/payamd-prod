@@ -22,22 +22,24 @@ export default function Intro() {
         willChange,
         maxWidth: "900px",
         margin: "auto",
+        paddingTop: "20vh",
+        height: "100vh",
       }}
       ref={ref}
     >
-      {" "}
       <motion.div
         style={{
           backgroundImage: `url(${intro.image2})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "contain",
+
           backgroundPosition: "50%",
           borderRadius: "5px",
           height: "50vh",
           width: "50%",
           minWidth: "300px",
           right: "0",
-          top: "0",
+          top: "10vh",
           position: "absolute",
           scale,
         }}
