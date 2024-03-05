@@ -52,7 +52,7 @@ export default function Horizental() {
         </motion.ul>
       </div>
       <div className="logo-pd">
-        <Logo light />
+        <Logo light size="80px" />
       </div>
       <svg
         style={{

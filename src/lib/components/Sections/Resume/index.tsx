@@ -6,8 +6,6 @@ import Publications from "./Publications";
 import { motion, useScroll, useTransform, useWillChange } from "framer-motion";
 import Skills from "./Skills";
 import Intro from "./Intro";
-import HoverLink from "../../motion/View/HoverLink";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
 import Logo from "../../motion/Menu/Logo";
 import ParallaxText from "../../motion/ParallaxText";
 
@@ -15,7 +13,7 @@ const Resume = () => {
   const resume = useRef(null);
   const willChange = useWillChange();
   const { scrollY } = useScroll({ target: resume });
-  const x = useTransform(scrollY, [1000, 28000], ["-100%", "100%"]);
+  const x = useTransform(scrollY, [1000, 28000], ["20%", "-180%"]);
 
   return (
     <motion.section
@@ -28,14 +26,14 @@ const Resume = () => {
         padding: "0",
         maxWidth: "100vw",
         overflow: "hidden",
-        height: "2000vh",
+        height: "2100vh",
       }}
     >
       <Intro />
       <div
         style={{
           position: "relative",
-          right: "0",
+          left: "0",
           fontSize: "6vw",
         }}
       >
@@ -62,36 +60,24 @@ const Resume = () => {
           }}
         >
           <li>
-            <Skills />
-          </li>
-          <li>
-            <Publications />
-          </li>
-          <li>
-            <Certificates />
+            <Experience />
           </li>
           <li>
             <Education />
           </li>
           <li>
-            <Experience />
+            <Certificates />
+          </li>
+          <li>
+            <Publications />
+          </li>
+          <li>
+            <Skills />
           </li>
         </motion.ul>
       </div>
-      <div
-        className="large-title"
-        style={{
-          marginTop: "1800vh",
-          textTransform: "uppercase",
-          textAlign: "center",
-        }}
-      >
-        <h2>Projects</h2>
-        <HoverLink title="check out my portfolio" url="/projects" />
-        <ArrowForwardIcon />
-      </div>
       <div className="logo-pd">
-        <Logo light />
+        <Logo light size="80px" />
       </div>
     </motion.section>
   );

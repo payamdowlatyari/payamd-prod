@@ -19,10 +19,11 @@ body {
   --mid-pink: #ce7777;
   --light-blue: #3da5d9;
   --gold: #c2a76b;
+  --yellow: #ffd500;
 
   --background: var(--black);
   --accent: var(--white);
-  --secondary: var(--dirty-yellow);
+  --secondary: var(--yellow);
 
   margin: 0;
   padding: 0;
@@ -297,7 +298,6 @@ nav button {
   mix-blend-mode: difference;
   top: -20px;
   left: 10px;
-  width: 80px;
 }
 
 .resume-section {
@@ -358,6 +358,24 @@ h2 {
   font-size: 15vw;
 }
 
+.main-title {
+  padding: 1em;
+}
+
+.main-title h1 {
+  font-size: 20vw;
+  line-height: 0.5em;
+}
+
+.main-title h2 {
+  font-size: 5vw;
+  text-transform: none;
+  line-height: 0em;
+}
+
+.main-title p {
+  padding: 3em 0;
+}
 .content {
   display: grid;
   width: 100%;
@@ -377,20 +395,17 @@ h2 {
   height: 100%;
   margin: 0;
   padding: 0;
-  counter-increment: itemcounter;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   position: relative;
 }
 
 .content__item::before {
-  color: var(--color-number);
   position: absolute;
   top: 0;
   left: 0;
-  content: counters(itemcounter, ".", decimal-leading-zero);
 }
 
 .link {
@@ -398,7 +413,6 @@ h2 {
   font-size: 18px;
   position: relative;
   white-space: nowrap;
-  color: var(--color-text);
 }
 
 .link::before,
@@ -414,7 +428,6 @@ h2 {
 
 .link::before {
   content: "";
-  /* show by default */
 }
 
 .link--mneme {
@@ -463,4 +476,15 @@ h2 {
 
 .link--mneme:hover::after {
   opacity: 0;
+}
+
+.ScrollProgress {
+  position: fixed;
+  top: 0vw;
+  /* left: 0vw; */
+  width: 5vw;
+  height: 5vw;
+  /* background: var(--accent); */
+  mix-blend-mode: difference;
+  z-index: -1;
 }

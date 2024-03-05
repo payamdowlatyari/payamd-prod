@@ -3,6 +3,7 @@ import { intro } from "./data";
 import { motion, useTransform, useWillChange, useScroll } from "framer-motion";
 import TextReveal from "../../motion/TextReveal";
 import StaggerText from "react-stagger-text";
+import WebGLImage from "../../motion/WebGLImage";
 
 export default function Intro() {
   const ref = useRef(null);
@@ -10,7 +11,6 @@ export default function Intro() {
 
   const { scrollY } = useScroll({ target: ref });
   const x = useTransform(scrollY, [0, 800], [-15, 15]);
-  const scale = useTransform(scrollY, [0, 800], [1, 0.7]);
 
   return (
     <motion.div
@@ -27,23 +27,14 @@ export default function Intro() {
       }}
       ref={ref}
     >
-      <motion.div
+      <div
         style={{
-          backgroundImage: `url(${intro.image2})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "contain",
-
-          backgroundPosition: "50%",
-          borderRadius: "5px",
-          height: "50vh",
-          width: "50%",
-          minWidth: "300px",
           right: "0",
-          top: "10vh",
           position: "absolute",
-          scale,
         }}
-      />
+      >
+        <WebGLImage id="me-home-bw-removebg.png" />
+      </div>
       <motion.div
         layout
         className="medium-title"

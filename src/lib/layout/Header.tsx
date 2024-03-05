@@ -31,10 +31,9 @@ const Header = () => {
       }}
       style={{
         willChange,
-        backgroundImage:
-          "radial-gradient(circle at 24.1% 68.8%, rgb(50, 50, 50) 0%, rgb(0, 0, 0) 99.4%)",
         position: "fixed",
         justifyContent: "center",
+        background: "#111",
         transformOrigin: "top left",
         display: "flex",
         zIndex: "102",
@@ -57,6 +56,7 @@ const Header = () => {
           willChange,
           alignSelf: "center",
           fontSize: "5em",
+          mixBlendMode: "difference",
         }}
       >
         {rounded}
@@ -72,10 +72,11 @@ const Header = () => {
         layout
         style={{
           willChange,
-          height: "20px",
+          height: "100%",
           width: `1%`,
           scaleX: rounded,
-          background: "#f4f4f2",
+          background: "#fff",
+          mixBlendMode: "difference",
           transformOrigin: "0%",
           position: "fixed",
           left: "0",
@@ -84,22 +85,21 @@ const Header = () => {
       />
       <motion.div
         layout
-        initial={{ opacity: 0, scale: 3 }}
+        initial={{ opacity: 0, scale: 2 }}
         animate={{ opacity: 1, scale: 0 }}
         transition={{
-          duration: 2,
+          duration: 3,
           delay: 5,
-          ease: "easeIn",
+          ease: "easeInOut",
         }}
         style={{
           willChange,
           position: "fixed",
           alignSelf: "center",
           textAlign: "center",
-          width: "400px",
         }}
       >
-        <Logo />
+        <Logo size="400px" />
       </motion.div>
       <motion.div
         initial={{ opacity: 0 }}
@@ -113,10 +113,9 @@ const Header = () => {
           position: "fixed",
           alignSelf: "center",
           textAlign: "center",
-          width: "400px",
         }}
       >
-        <Logo light />
+        <Logo light size="400px" />
       </motion.div>
     </motion.div>
   );
