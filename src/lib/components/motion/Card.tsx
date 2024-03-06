@@ -28,7 +28,7 @@ export default function Card({ item }: any) {
         display: "flex",
         flexDirection: "row",
         flexWrap: "wrap",
-        top: "20vh",
+        top: "10vh",
       }}
     >
       <img

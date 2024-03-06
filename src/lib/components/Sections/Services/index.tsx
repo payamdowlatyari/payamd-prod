@@ -10,61 +10,30 @@ import { useRef } from "react";
 import { data } from "./data";
 import HoverLink from "../../motion/View/HoverLink";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
+import TextReveal from "../../motion/TextReveal";
 
 const FadeInItem = ({ service }: any) => {
+  const ref = useRef(null);
   const willChange = useWillChange();
+  const isInView = useInView(ref);
 
   return (
-    <motion.div
-      layout
-      className="second"
-      initial={{ opacity: 0, scale: 0.75 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{
-        duration: 1,
-        ease: "linear",
-        delay: service.display[0],
-      }}
-      style={{
-        willChange,
-        width: "300px",
-        maxWidth: "100vw",
-        margin: "0.25em",
-        padding: "0.5em",
-        fontSize: "0.8em",
-        borderRadius: "5px",
-      }}
-    >
-      <motion.h6
-        layout
-        initial={{ opacity: 0, y: 25 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.5,
-          delay: service.display[0],
-          ease: "easeInOut",
-        }}
-        style={{
-          willChange,
-        }}
-      >
-        {service.name}
-      </motion.h6>
-      <motion.p
-        layout
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.6,
-          delay: service.display[1],
-          ease: "easeInOut",
-        }}
-        style={{
-          willChange,
-        }}
-      >
-        {service.text}
-      </motion.p>
+    <motion.div layout ref={ref} className="service-section">
+      <h2>{service.name}</h2>
+      <AnimatePresence initial={false}>
+        {isInView && (
+          <motion.div
+            layout
+            style={{
+              willChange,
+            }}
+          >
+            <p>
+              <TextReveal text={service.text} />
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };
@@ -72,10 +41,9 @@ const FadeInItem = ({ service }: any) => {
 export default function Services() {
   const willChange = useWillChange();
   const ref = useRef(null);
-  const isInView = useInView(ref);
 
   const { scrollY } = useScroll({ target: ref });
-  const y = useTransform(scrollY, [1300, 2000], [0, 400]);
+  const y = useTransform(scrollY, [2000, 4500], [0, 2500]);
 
   return (
     <motion.section
@@ -91,9 +59,15 @@ export default function Services() {
         justifyContent: "space-between",
       }}
     >
+      <div className="second sec-blue">
+        <HoverLink title="my recent projects" url="/projects" />
+        <ArrowForwardIcon />
+      </div>
       <motion.div
         className="section-number"
         style={{
+          margin: "auto",
+          willChange,
           y,
         }}
       >
@@ -101,30 +75,15 @@ export default function Services() {
       </motion.div>
       <div
         style={{
-          margin: "auto",
+          display: "grid",
+          padding: "1em",
+          justifyContent: "flex-end",
         }}
       >
-        <HoverLink title="my recent projects" url="/projects" />
-        <ArrowForwardIcon />
+        {data?.map((service) => {
+          return <FadeInItem service={service} />;
+        })}
       </div>
-
-      <AnimatePresence initial={false}>
-        {isInView && (
-          <motion.div
-            layout
-            style={{
-              display: "grid",
-              padding: "1em",
-              justifyContent: "flex-end",
-              willChange,
-            }}
-          >
-            {data?.map((service) => {
-              return <FadeInItem service={service} />;
-            })}
-          </motion.div>
-        )}
-      </AnimatePresence>
     </motion.section>
   );
 }

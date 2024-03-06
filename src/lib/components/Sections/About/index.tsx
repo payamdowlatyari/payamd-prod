@@ -35,17 +35,18 @@ export default function About() {
       >
         <div
           style={{
-            maxWidth: "500px",
+            maxWidth: "800px",
+            borderRadius: "5px",
           }}
         >
           <AnimatePresence initial={false}>
             {isInView && (
               <motion.div
+                className="about-section"
                 layout
                 style={{
                   willChange,
                   padding: "10px",
-                  borderRadius: "5px",
                 }}
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -55,13 +56,13 @@ export default function About() {
                   ease: "easeInOut",
                 }}
               >
-                <h6>{data.title}</h6>
+                <h3>{data.title}</h3>
                 <TextReveal text={data.text} />
               </motion.div>
             )}
           </AnimatePresence>
         </div>
-        <div>
+        <div className="second sec-yellow">
           <HoverLink title="resume and skills" url="/about" />
           <ArrowForwardIcon />
           <br />

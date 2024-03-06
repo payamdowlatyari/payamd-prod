@@ -26,7 +26,7 @@ const Resume = () => {
         padding: "0",
         maxWidth: "100vw",
         overflow: "hidden",
-        height: "2100vh",
+        height: "2200vh",
       }}
     >
       <Intro />

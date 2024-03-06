@@ -118,6 +118,26 @@ section {
   color: var(--background);
 }
 
+.sec-yellow {
+  width: 500px;
+  max-width: 100vw;
+  padding: 10px;
+  height: 80vh;
+  background-color: var(--yellow);
+  color: var(--black);
+  mix-blend-mode: normal;
+}
+
+.sec-blue {
+  width: 500px;
+  max-width: 100vw;
+  padding: 10px;
+  height: 80vh;
+  background-color: var(--light-blue);
+  color: var(--black);
+  mix-blend-mode: normal;
+}
+
 ::-webkit-scrollbar {
   height: 5px;
   width: 5px;
@@ -207,7 +227,7 @@ nav button {
   height: fit-content;
   background-size: 0 100%;
   background-repeat: no-repeat;
-  transition: 0.5s;
+  transition: 0.5s cubic-bezier(1, 0, 0, 1);
 }
 .underlined:hover {
   background-size: 100% 100%;
@@ -220,6 +240,15 @@ nav button {
     var(--silver) 0,
     var(--silver) 100%
   );
+}
+
+.underlinedThin span {
+  padding-right: 1px;
+}
+
+.underlinedThin span:hover {
+  padding-right: 5px;
+  transition: 0.5s ease-in-out;
 }
 
 .second .underlined {
@@ -281,12 +310,9 @@ nav button {
 }
 
 .small-title {
-  background-color: var(--accent);
   color: var(--background);
-  mix-blend-mode: difference;
-  border-radius: 5px;
-  padding: 0 10px;
-  margin: 20px 5px 10px;
+  font-size: 5vw;
+  margin: 10px 0;
 }
 
 #resume li {
@@ -318,6 +344,43 @@ nav button {
   margin-top: 0;
 }
 
+.service-section {
+  padding: 2vw;
+  margin: 1vw 0;
+  width: 700px;
+  min-height: 50vh;
+  max-width: 95vw;
+}
+
+.service-section h2 {
+  font-size: 6vw;
+  letter-spacing: 0.1vw;
+  margin: 0.1em 0;
+  font-weight: 300;
+}
+
+.service-section p {
+  font-size: 1em;
+  font-weight: 100;
+}
+
+.about-section {
+  padding: 1vw;
+  margin: 1vw 0;
+}
+
+.about-section h3 {
+  font-size: 5vw;
+  text-transform: none;
+  letter-spacing: 0.1vw;
+  line-height: 5vw;
+  margin: 0.25em 0;
+}
+
+.about-section p {
+  font-size: 1em;
+  font-weight: 100;
+}
 .navbar-container {
   display: grid;
 }
@@ -345,7 +408,7 @@ nav button {
   position: absolute;
   z-index: -1;
   font-size: 30vw;
-  mix-blend-mode: overlay;
+  opacity: 0.1;
 }
 
 .large-title h1,
@@ -363,18 +426,19 @@ h2 {
 }
 
 .main-title h1 {
-  font-size: 20vw;
-  line-height: 0.5em;
+  font-size: 12vw;
+  line-height: 0.3em;
 }
 
 .main-title h2 {
-  font-size: 5vw;
+  font-size: 8vw;
   text-transform: none;
   line-height: 0em;
 }
 
 .main-title p {
-  padding: 3em 0;
+  padding-top: 6vh;
+  font-size: 1.5em;
 }
 .content {
   display: grid;
@@ -478,13 +542,6 @@ h2 {
   opacity: 0;
 }
 
-.ScrollProgress {
-  position: fixed;
-  top: 0vw;
-  /* left: 0vw; */
-  width: 5vw;
-  height: 5vw;
-  /* background: var(--accent); */
-  mix-blend-mode: difference;
-  z-index: -1;
+[glow] .glowable-text {
+  border: solid 1px var(--gold);
 }

@@ -14,7 +14,7 @@ const Title = () => {
           position: "absolute",
         }}
       >
-        <WebGLImage id="me-effect.png" size="500px" />
+        <WebGLImage id="me-effect.png" size="800px" />
       </div>
       <div
         style={{
