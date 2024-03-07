@@ -29,7 +29,7 @@ export default function About() {
           willChange,
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "space-around",
+          justifyContent: "space-between",
           width: "100%",
         }}
       >
@@ -62,12 +62,28 @@ export default function About() {
             )}
           </AnimatePresence>
         </div>
-        <div className="second sec-yellow">
-          <HoverLink title="resume and skills" url="/about" />
-          <ArrowForwardIcon />
-          <br />
-          <HoverLink title="professional services" url="#services" />
-          <ArrowDownIcon />
+        <div className="second sec-side">
+          <div>
+            <h3>
+              <TextReveal text="About" />
+            </h3>
+            <HoverLink title="resume and skills" url="/about" />
+            <ArrowForwardIcon />
+          </div>
+          <div>
+            <h3>
+              <TextReveal text="Portfolio" />
+            </h3>
+            <HoverLink title="my recent projects" url="/projects" />
+            <ArrowForwardIcon />
+          </div>
+          <div>
+            <h3>
+              <TextReveal text="Work" />
+            </h3>
+            <HoverLink title="professional services" url="#services" />
+            <ArrowDownIcon />
+          </div>
         </div>
       </motion.div>
       <motion.div

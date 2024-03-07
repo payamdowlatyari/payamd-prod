@@ -43,7 +43,7 @@ export default function Services() {
   const ref = useRef(null);
 
   const { scrollY } = useScroll({ target: ref });
-  const y = useTransform(scrollY, [2000, 4500], [0, 2500]);
+  const y = useTransform(scrollY, [2000, 4000], [0, 2000]);
 
   return (
     <motion.section
@@ -59,9 +59,21 @@ export default function Services() {
         justifyContent: "space-between",
       }}
     >
-      <div className="second sec-blue">
-        <HoverLink title="my recent projects" url="/projects" />
-        <ArrowForwardIcon />
+      <div className="second sec-side">
+        <div>
+          <h3>
+            <TextReveal text="About" />
+          </h3>
+          <HoverLink title="resume and skills" url="/about" />
+          <ArrowForwardIcon />
+        </div>
+        <div>
+          <h3>
+            <TextReveal text="Portfolio" />
+          </h3>
+          <HoverLink title="my recent projects" url="/projects" />
+          <ArrowForwardIcon />
+        </div>
       </div>
       <motion.div
         className="section-number"
