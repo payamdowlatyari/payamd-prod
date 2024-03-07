@@ -73,7 +73,6 @@ h5 {
   text-transform: uppercase;
   font-weight: 900;
   padding: 0 5px;
-  mix-blend-mode: difference;
 }
 
 h6 {
@@ -310,7 +309,7 @@ nav button {
 }
 
 .small-title {
-  color: var(--background);
+  color: inherit;
   font-size: 5vw;
   margin: 10px 0;
 }

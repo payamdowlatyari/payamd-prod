@@ -59,7 +59,8 @@ const Header = () => {
           mixBlendMode: "difference",
         }}
       >
-        {rounded}
+        <motion.span>{rounded}</motion.span>
+        <span>%</span>
       </motion.div>
       <motion.span
         initial={{ opacity: 1 }}

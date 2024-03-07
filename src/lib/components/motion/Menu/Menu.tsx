@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { motion, useCycle, useWillChange } from "framer-motion";
 import { useDimensions } from "./use-dimentions";
 import Nav from "./Nav";
+import Contact from "../../Sections/Contact";
 
 const NavToggle = ({ toggle }: any) => {
   return (
@@ -54,12 +55,15 @@ export default function Menu() {
           willChange,
           height: "100vh",
           width: "100vw",
-          display: isOpen ? "grid" : "none",
+          display: isOpen ? "flex" : "none",
           alignContent: "center",
-          justifyContent: "center",
+          alignItems: "center",
+          justifyContent: "space-evenly",
+          flexWrap: "wrap",
         }}
       >
         <Nav />
+        <Contact />
       </motion.div>
     </motion.nav>
   );
