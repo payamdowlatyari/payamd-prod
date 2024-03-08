@@ -62,14 +62,14 @@ export default function Services() {
       <div className="second sec-side">
         <div>
           <h3>
-            <TextReveal text="About" />
+            <TextReveal text="About Me" />
           </h3>
           <HoverLink title="resume and skills" url="/about" />
           <ArrowForwardIcon />
         </div>
         <div>
           <h3>
-            <TextReveal text="Portfolio" />
+            <TextReveal text="My Work" />
           </h3>
           <HoverLink title="my recent projects" url="/projects" />
           <ArrowForwardIcon />

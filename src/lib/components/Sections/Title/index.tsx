@@ -23,10 +23,10 @@ const Title = () => {
         }}
       >
         <div className="main-title">
-          <h1>Hello</h1>
           <h2>{portfolio.text[0]}</h2>
-          <h2>{portfolio.text[1]}</h2>
-          <p>{portfolio.text[2]}</p>
+          <h1>{portfolio.text[1]}</h1>
+          <h1>{portfolio.text[2]}</h1>
+          <p>{portfolio.text[3]}</p>
         </div>
         <TextSpinner />
         <motion.div
@@ -45,7 +45,6 @@ const Title = () => {
         <div
           style={{
             maxWidth: "99vw",
-            fontSize: "8vw",
           }}
         >
           <ParallaxText baseVelocity={-0.05}>{portfolio.titles}</ParallaxText>

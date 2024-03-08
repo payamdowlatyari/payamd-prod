@@ -6,7 +6,7 @@ export default function Nav() {
       <div className="navbar-items">
         <LineOver title="Home" url="/" />
         <LineOver title="About" url="/about" />
-        <LineOver title="Projects" url="/projects" />
+        <LineOver title="Work" url="/projects" />
       </div>
     </div>
   );

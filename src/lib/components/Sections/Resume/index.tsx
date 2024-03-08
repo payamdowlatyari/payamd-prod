@@ -30,16 +30,8 @@ const Resume = () => {
       }}
     >
       <Intro />
-      <div
-        style={{
-          position: "relative",
-          left: "0",
-          fontSize: "6vw",
-        }}
-      >
-        <ParallaxText baseVelocity={0.01}>Resume * Resume *</ParallaxText>
-        <ParallaxText baseVelocity={-0.01}>Skills * Skills *</ParallaxText>
-      </div>
+      <ParallaxText baseVelocity={0.01}>Resume * Resume *</ParallaxText>
+      <ParallaxText baseVelocity={-0.01}>Skills * Skills *</ParallaxText>
       <div
         style={{
           position: "fixed",

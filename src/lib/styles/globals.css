@@ -185,6 +185,7 @@ section {
   display: block;
   margin-right: 20px;
   color: var(--accent);
+  font-size: min(max(10vw, 72px), 96px);
   mix-blend-mode: difference;
 }
 
@@ -310,7 +311,7 @@ nav button {
 
 .small-title {
   color: inherit;
-  font-size: 5vw;
+  font-size: min(max(6vw, 42px), 76px);
   margin: 10px 0;
 }
 
@@ -352,14 +353,14 @@ nav button {
 }
 
 .service-section h2 {
-  font-size: 6vw;
+  font-size: min(max(6vw, 36px), 70px);
   letter-spacing: 0.1vw;
   margin: 0.1em 0;
   font-weight: 300;
 }
 
 .service-section p {
-  font-size: 1em;
+  font-size: min(max(1vw, 20px), 32px);
   font-weight: 100;
 }
 
@@ -369,10 +370,10 @@ nav button {
 }
 
 .about-section h3 {
-  font-size: 5vw;
+  font-size: min(max(10vw, 36px), 72px);
   text-transform: none;
   letter-spacing: 0.1vw;
-  line-height: 5vw;
+  line-height: 1;
   margin: 0.25em 0;
 }
 
@@ -382,6 +383,7 @@ nav button {
 }
 .navbar-container {
   display: grid;
+  min-width: 250px;
 }
 
 .navbar-items {
@@ -393,12 +395,13 @@ nav button {
 }
 
 .navbar-items a {
-  font-size: 10vw;
+  font-size: min(max(8vw, 42px), 96px);
 }
 
 .contacts {
   display: flex;
   flex-direction: column;
+  min-width: 250px;
 }
 
 .section-number {
@@ -413,7 +416,7 @@ nav button {
 
 .large-title h1,
 h2 {
-  font-size: 20vw;
+  font-size: min(max(36px, 20vw), 42px);
 }
 
 .medium-title h1,
@@ -426,19 +429,20 @@ h2 {
 }
 
 .main-title h1 {
-  font-size: 12vw;
-  line-height: 0.3em;
+  line-height: 0em;
+  font-size: min(max(60px, 10vw), 102px);
+  color: var(--silver);
 }
 
 .main-title h2 {
-  font-size: 8vw;
+  font-size: min(max(50px, 8vw), 92px);
   text-transform: none;
   line-height: 0em;
 }
 
 .main-title p {
-  padding-top: 6vh;
-  font-size: 1.5em;
+  padding-top: 5vh;
+  font-size: min(max(30px, 4vw), 42px);
 }
 .content {
   display: grid;
@@ -544,4 +548,19 @@ h2 {
 
 [glow] .glowable-text {
   border: solid 1px var(--gold);
+}
+
+footer {
+  display: grid;
+  height: 100vh;
+  align-items: flex-end;
+  mix-blend-mode: difference;
+  width: 100vw;
+}
+
+footer > div:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
 }

@@ -15,29 +15,14 @@ const Footer = () => {
     return onScroll(() => progress.set(scrollState.visibility));
   }, [onScroll, progress, scrollState]);
 
-  const y = useTransform(progress, [0, 1], ["-100%", "1%"]);
+  const y = useTransform(progress, [0, 1], ["-100%", "0%"]);
   const opacity = useTransform(progress, [0, 1], [0, 1]);
   const scale = useTransform(progress, [0, 1], [0.9, 1]);
 
   return (
-    <motion.footer
-      className="second"
-      ref={el}
-      layout
-      style={{
-        display: "grid",
-        height: "100vh",
-        alignItems: "flex-end",
-        mixBlendMode: "difference",
-        width: "100vw",
-      }}
-    >
+    <motion.footer className="second" ref={el} layout>
       <motion.div
         style={{
-          display: "flex",
-          flexWrap: "wrap",
-          alignItems: "center",
-          justifyContent: "space-around",
           y,
           opacity,
           scale,
@@ -46,7 +31,6 @@ const Footer = () => {
         <Nav />
         <Contact />
       </motion.div>
-
       <CopyRight />
     </motion.footer>
   );
