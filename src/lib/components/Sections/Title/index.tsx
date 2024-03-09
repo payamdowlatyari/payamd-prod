@@ -3,7 +3,7 @@ import ParallaxText from "../../motion/ParallaxText";
 import { portfolio } from "./data";
 import Logo from "../../motion/Menu/Logo";
 import TextSpinner from "../../motion/TextSpinner";
-import WebGLImage from "~/lib/components/motion/WebGLImage";
+import LineOver from "../../motion/View/LineOver";
 
 const Title = () => {
   return (
@@ -12,10 +12,14 @@ const Title = () => {
         style={{
           right: "0",
           position: "absolute",
+          zIndex: "1",
+          margin: "1vw",
         }}
       >
-        <WebGLImage id="me-effect.png" size="800px" />
+        <LineOver title="Who I am" url="#about" />
+        <LineOver title="What I do" url="#services" />
       </div>
+
       <div
         style={{
           alignSelf: "flex-end",
@@ -28,6 +32,7 @@ const Title = () => {
           <h1>{portfolio.text[2]}</h1>
           <p>{portfolio.text[3]}</p>
         </div>
+
         <TextSpinner />
         <motion.div
           className="logo-pd"
@@ -40,8 +45,9 @@ const Title = () => {
             ease: "easeIn",
           }}
         >
-          <Logo light size="80px" />
+          <Logo light size="60px" />
         </motion.div>
+
         <div
           style={{
             maxWidth: "99vw",

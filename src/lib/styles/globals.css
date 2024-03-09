@@ -206,13 +206,15 @@ nav button {
   position: inherit;
   z-index: 101;
   top: 15px;
-  right: 10px;
-  height: 75px;
-  width: 75px;
+  right: 15px;
+  transition: ease-in-out 0.5s;
   border-radius: 50%;
-  background: var(--silver);
-  color: var(--black);
-  mix-blend-mode: color-dodge;
+  color: var(--silver);
+}
+
+nav button svg {
+  font-size: 3em;
+  mix-blend-mode: difference;
 }
 
 .underlined {
@@ -334,13 +336,23 @@ nav button {
   flex-direction: column;
   justify-content: center;
 }
+
+.resume-header {
+  display: flex;
+  font-size: 40vw;
+  position: absolute;
+  opacity: 0.1;
+  z-index: -1;
+  transform: translateX(-30vw) translateY(-5vh);
+}
+
 .resume-content {
   width: 600px;
   max-width: 99vw;
 }
 
 .resume-section h3 {
-  font-size: 10vw;
+  font-size: 8vw;
   margin-top: 0;
 }
 
@@ -395,7 +407,8 @@ nav button {
 }
 
 .navbar-items a {
-  font-size: min(max(8vw, 42px), 96px);
+  font-size: min(max(8vw, 42px), 84px);
+  text-transform: uppercase;
 }
 
 .contacts {
@@ -481,6 +494,7 @@ h2 {
   font-size: 18px;
   position: relative;
   white-space: nowrap;
+  text-transform: uppercase;
 }
 
 .link::before,
@@ -546,6 +560,98 @@ h2 {
   opacity: 0;
 }
 
+.link--elara {
+  font-family: aktiv-grotesk-extended, sans-serif;
+  font-size: 1.375rem;
+}
+
+.link--elara::before {
+  transform-origin: 50% 100%;
+  transition:
+    clip-path 0.3s,
+    transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+  clip-path: polygon(
+    0% 0%,
+    0% 100%,
+    0 100%,
+    0 0,
+    100% 0,
+    100% 100%,
+    0 100%,
+    0 100%,
+    100% 100%,
+    100% 0%
+  );
+}
+
+.link--elara:hover::before {
+  transform: translate3d(0, 2px, 0) scale3d(1.08, 3, 1);
+  clip-path: polygon(
+    0% 0%,
+    0% 100%,
+    50% 100%,
+    50% 0,
+    50% 0,
+    50% 100%,
+    50% 100%,
+    0 100%,
+    100% 100%,
+    100% 0%
+  );
+}
+
+.link--elara span {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+}
+
+.link--elara:hover span {
+  transform: translate3d(0, -2px, 0);
+}
+
+.link--leda {
+  overflow: hidden;
+  line-height: 2;
+  font-family: orpheuspro, serif;
+  font-weight: 700;
+}
+
+.link--leda::before {
+  height: 2px;
+  top: calc(100% - 5px);
+  transform-origin: 100% 50%;
+  transform: scale3d(0, 1, 1);
+  transition: transform 0.3s cubic-bezier(0.5, 0.5, 0.3, 1);
+}
+
+.link--leda:hover::before {
+  transform-origin: 0% 50%;
+  transform: scale3d(1, 1, 1);
+}
+
+.link--leda::after {
+  content: attr(data-text);
+  height: 100%;
+  top: 0;
+  background: none;
+  transform-origin: 100% 50%;
+  transform: translate3d(150%, 0, 0);
+  transition: transform 0.3s cubic-bezier(0.5, 0.5, 0.3, 1);
+}
+
+.link--leda:hover::after {
+  transform: translate3d(0, 0, 0);
+}
+
+.link--leda span {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.5, 0.5, 0.3, 1);
+}
+
+.link--leda:hover span {
+  transform: translate3d(-150%, 0, 0);
+}
+
 [glow] .glowable-text {
   border: solid 1px var(--gold);
 }
@@ -555,7 +661,6 @@ footer {
   height: 100vh;
   align-items: flex-end;
   mix-blend-mode: difference;
-  width: 100vw;
 }
 
 footer > div:first-child {

@@ -3,6 +3,7 @@ import { motion, useCycle, useWillChange } from "framer-motion";
 import { useDimensions } from "./use-dimentions";
 import Nav from "./Nav";
 import Contact from "../../Sections/Contact";
+import { TfiClose, TfiLineDouble } from "react-icons/tfi";
 
 const NavToggle = ({ toggle }: any) => {
   return (
@@ -12,18 +13,18 @@ const NavToggle = ({ toggle }: any) => {
           closed: { display: "contents" },
           open: { display: "none" },
         }}
-        transition={{ duration: 0.3 }}
+        transition={{ ease: "easeIn", duration: 0.5 }}
       >
-        MENU
+        <TfiLineDouble />
       </motion.span>
       <motion.span
         variants={{
           closed: { display: "none" },
           open: { display: "contents" },
         }}
-        transition={{ duration: 0.3 }}
+        transition={{ ease: "easeIn", duration: 0.5 }}
       >
-        CLOSE
+        <TfiClose />
       </motion.span>
     </motion.button>
   );

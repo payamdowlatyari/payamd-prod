@@ -1,9 +1,13 @@
 import { Flex, Spacer, List, ListItem, Box, Text } from "@chakra-ui/react";
 import { education } from "./data";
+import { IoSchoolSharp } from "react-icons/io5";
 
 const Education = () => {
   return (
-    <div className="second resume-section">
+    <div className="resume-section">
+      <div className="resume-header">
+        <IoSchoolSharp />
+      </div>
       <h3>Education</h3>
       <div className="resume-content">
         {education?.map((item) => {

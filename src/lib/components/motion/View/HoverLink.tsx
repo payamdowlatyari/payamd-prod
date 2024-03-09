@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FiArrowUpRight } from "react-icons/fi";
+import { RiArrowRightUpLine } from "react-icons/ri";
 
 export default function HoverLink({ title, url, size, out, low }: any) {
   return (
@@ -18,7 +18,7 @@ export default function HoverLink({ title, url, size, out, low }: any) {
         ) : (
           <span>{title}</span>
         )}
-        {out ? <FiArrowUpRight style={{ display: "inline" }} /> : ""}
+        {out ? <RiArrowRightUpLine style={{ display: "inline" }} /> : ""}
       </>
     </Link>
   );

@@ -9,13 +9,14 @@ export const FilterByGroup = ({ group }: any) => {
   return (
     <div
       style={{
-        display: "grid",
+        display: "flex",
+        flexWrap: "wrap",
         margin: "5px",
       }}
     >
       <div
         style={{
-          alignSelf: "center",
+          alignSelf: "start",
           margin: "auto",
         }}
       >
@@ -30,6 +31,7 @@ export const FilterByGroup = ({ group }: any) => {
           overflow: "hidden",
           whiteSpace: "nowrap",
           justifyContent: "center",
+          maxWidth: "400px",
         }}
       >
         {group?.map((icon: any) => {
@@ -43,13 +45,12 @@ export const FilterByGroup = ({ group }: any) => {
 export default function Skills() {
   return (
     <div
-      className="second"
       style={{
         display: "grid",
         height: "100vh",
         alignItems: "center",
-        alignContent: "space-evenly",
-        justifyContent: "space-evenly",
+        alignContent: "center",
+        justifyContent: "stretch",
       }}
     >
       <FilterByGroup group={frontend} />

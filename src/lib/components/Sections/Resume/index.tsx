@@ -69,7 +69,7 @@ const Resume = () => {
         </motion.ul>
       </div>
       <div className="logo-pd">
-        <Logo light size="80px" />
+        <Logo light size="60px" />
       </div>
     </motion.section>
   );

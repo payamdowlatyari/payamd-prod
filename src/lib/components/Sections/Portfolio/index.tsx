@@ -52,7 +52,7 @@ export default function Horizental() {
         </motion.ul>
       </div>
       <div className="logo-pd">
-        <Logo light size="80px" />
+        <Logo light size="60px" />
       </div>
       <svg
         style={{
@@ -61,8 +61,8 @@ export default function Horizental() {
           top: "6em",
           right: "0",
         }}
-        width="100"
-        height="100"
+        width="50"
+        height="50"
         viewBox="0 0 100 100"
       >
         <motion.circle
@@ -74,7 +74,7 @@ export default function Horizental() {
             pathLength: scrollYProgress,
             stroke: "#e1e1e1",
             strokeDashoffset: "0",
-            strokeWidth: "15%",
+            strokeWidth: "5%",
             fill: "none",
           }}
         />
