@@ -1,12 +1,12 @@
 import { Flex, Spacer, List, ListItem, Box, Text } from "@chakra-ui/react";
 import { education } from "./data";
-import { IoSchoolSharp } from "react-icons/io5";
+import { FcGraduationCap } from "react-icons/fc";
 
 const Education = () => {
   return (
     <div className="resume-section">
       <div className="resume-header">
-        <IoSchoolSharp />
+        <FcGraduationCap />
       </div>
       <h3>Education</h3>
       <div className="resume-content">

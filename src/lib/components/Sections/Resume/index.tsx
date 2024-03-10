@@ -30,8 +30,8 @@ const Resume = () => {
       }}
     >
       <Intro />
-      <ParallaxText baseVelocity={0.01}>Resume * Resume *</ParallaxText>
-      <ParallaxText baseVelocity={-0.01}>Skills * Skills *</ParallaxText>
+      <ParallaxText baseVelocity={0.01}>Resume ✳︎ Resume ✳︎ </ParallaxText>
+      <ParallaxText baseVelocity={-0.01}>Skills ✳︎ Skills ✳︎ </ParallaxText>
       <div
         style={{
           position: "fixed",
@@ -68,6 +68,7 @@ const Resume = () => {
           </li>
         </motion.ul>
       </div>
+
       <div className="logo-pd">
         <Logo light size="60px" />
       </div>

@@ -1,5 +1,6 @@
 import Icon from "../../motion/Icon";
 import { frontend, backend, devops } from "../../data/icons";
+import { FcTodoList } from "react-icons/fc";
 
 const displayByGroup = (icon: any) => {
   return <Icon id={icon.item} title={icon.title} del={Math.random() * 10} />;
@@ -18,6 +19,7 @@ export const FilterByGroup = ({ group }: any) => {
         style={{
           alignSelf: "start",
           margin: "auto",
+          fontSize: "3vw",
         }}
       >
         <h4>{group[0].group}</h4>
@@ -44,18 +46,25 @@ export const FilterByGroup = ({ group }: any) => {
 
 export default function Skills() {
   return (
-    <div
-      style={{
-        display: "grid",
-        height: "100vh",
-        alignItems: "center",
-        alignContent: "center",
-        justifyContent: "stretch",
-      }}
-    >
-      <FilterByGroup group={frontend} />
-      <FilterByGroup group={backend} />
-      <FilterByGroup group={devops} />
+    <div className="resume-section">
+      <div className="resume-header">
+        <FcTodoList />
+      </div>
+      <h3>Skills</h3>
+      <div
+        style={{
+          display: "grid",
+          minHeight: "60vh",
+          minWidth: "80vw",
+          alignItems: "center",
+          alignContent: "center",
+          justifyContent: "stretch",
+        }}
+      >
+        <FilterByGroup group={frontend} />
+        <FilterByGroup group={backend} />
+        <FilterByGroup group={devops} />
+      </div>
     </div>
   );
 }

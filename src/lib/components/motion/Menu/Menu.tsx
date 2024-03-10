@@ -15,7 +15,7 @@ const NavToggle = ({ toggle }: any) => {
         }}
         transition={{ ease: "easeIn", duration: 0.5 }}
       >
-        <TfiLineDouble />
+        MENU <TfiLineDouble />
       </motion.span>
       <motion.span
         variants={{
@@ -24,7 +24,7 @@ const NavToggle = ({ toggle }: any) => {
         }}
         transition={{ ease: "easeIn", duration: 0.5 }}
       >
-        <TfiClose />
+        CLOSE <TfiClose />
       </motion.span>
     </motion.button>
   );

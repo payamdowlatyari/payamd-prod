@@ -1,13 +1,13 @@
 import { Text, Flex, Box, Spacer } from "@chakra-ui/react";
 import { certificate } from "./data";
 import HoverLink from "../../motion/View/HoverLink";
-import { TfiMedall } from "react-icons/tfi";
+import { FcDiploma2 } from "react-icons/fc";
 
 const Certificates = () => {
   return (
     <div className="resume-section">
       <div className="resume-header">
-        <TfiMedall />
+        <FcDiploma2 />
       </div>
       <h3>Certificates</h3>
       <div className="resume-content">

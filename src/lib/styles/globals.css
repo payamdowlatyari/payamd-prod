@@ -174,7 +174,6 @@ section {
 .parallax .scroller {
   font-weight: 900;
   text-transform: uppercase;
-  font-size: 2em;
   display: flex;
   white-space: nowrap;
   flex-wrap: nowrap;
@@ -184,7 +183,7 @@ section {
 .parallax span {
   display: block;
   margin-right: 20px;
-  color: var(--accent);
+  color: var(--red);
   font-size: min(max(10vw, 72px), 96px);
   mix-blend-mode: difference;
 }
@@ -205,15 +204,16 @@ nav button {
   cursor: pointer;
   position: inherit;
   z-index: 101;
-  top: 15px;
+  top: 5px;
   right: 15px;
-  transition: ease-in-out 0.5s;
-  border-radius: 50%;
   color: var(--silver);
+  display: flex;
+  align-items: center;
 }
 
 nav button svg {
-  font-size: 3em;
+  font-size: 60px;
+  padding: 0 10px;
   mix-blend-mode: difference;
 }
 
@@ -277,15 +277,6 @@ nav button svg {
   background-position: 100% -0.1em;
 }
 
-.video-container {
-  --border-width: 40px;
-  margin: auto;
-  position: fixed;
-  top: 1em;
-  width: 50%;
-  backdrop-filter: blur(4px) brightness(150%);
-}
-
 .privacy-screen {
   position: fixed;
   top: 0;
@@ -308,12 +299,12 @@ nav button svg {
   position: absolute;
   top: 0;
   left: 50%;
-  color: var(--accent);
+  color: var(--red);
 }
 
 .small-title {
   color: inherit;
-  font-size: min(max(6vw, 42px), 76px);
+  font-size: min(max(6vw, 50px), 86px);
   margin: 10px 0;
 }
 
@@ -326,6 +317,14 @@ nav button svg {
   mix-blend-mode: difference;
   top: -20px;
   left: 10px;
+}
+
+.top-links {
+  left: 20%;
+  top: 0;
+  position: absolute;
+  margin: 20px;
+  display: inline-flex;
 }
 
 .resume-section {
@@ -352,7 +351,7 @@ nav button svg {
 }
 
 .resume-section h3 {
-  font-size: 8vw;
+  font-size: 10vw;
   margin-top: 0;
 }
 
@@ -366,13 +365,14 @@ nav button svg {
 
 .service-section h2 {
   font-size: min(max(6vw, 36px), 70px);
-  letter-spacing: 0.1vw;
+  text-transform: capitalize;
+  letter-spacing: -0.3vw;
   margin: 0.1em 0;
   font-weight: 300;
 }
 
 .service-section p {
-  font-size: min(max(1vw, 20px), 32px);
+  font-size: min(max(1vw, 18px), 32px);
   font-weight: 100;
 }
 
@@ -407,8 +407,7 @@ nav button svg {
 }
 
 .navbar-items a {
-  font-size: min(max(8vw, 42px), 84px);
-  text-transform: uppercase;
+  font-size: min(max(8vw, 56px), 92px);
 }
 
 .contacts {
@@ -429,12 +428,12 @@ nav button svg {
 
 .large-title h1,
 h2 {
-  font-size: min(max(36px, 20vw), 42px);
+  font-size: min(max(64px, 20vw), 144px);
 }
 
 .medium-title h1,
 h2 {
-  font-size: 15vw;
+  font-size: min(max(42px, 15vw), 120px);
 }
 
 .main-title {
@@ -443,19 +442,19 @@ h2 {
 
 .main-title h1 {
   line-height: 0em;
-  font-size: min(max(60px, 10vw), 102px);
+  font-size: min(max(52px, 12vw), 96px);
   color: var(--silver);
 }
 
 .main-title h2 {
-  font-size: min(max(50px, 8vw), 92px);
+  font-size: min(max(40px, 8vw), 64px);
   text-transform: none;
   line-height: 0em;
 }
 
 .main-title p {
   padding-top: 5vh;
-  font-size: min(max(30px, 4vw), 42px);
+  font-size: min(max(18px, 4vw), 32px);
 }
 .content {
   display: grid;
@@ -565,6 +564,12 @@ h2 {
   font-size: 1.375rem;
 }
 
+.top-links .link--elara {
+  font-size: min(max(12px, 3vw), 16px);
+  padding: 5px;
+  margin: 0 5px;
+}
+
 .link--elara::before {
   transform-origin: 50% 100%;
   transition:
@@ -607,49 +612,6 @@ h2 {
 
 .link--elara:hover span {
   transform: translate3d(0, -2px, 0);
-}
-
-.link--leda {
-  overflow: hidden;
-  line-height: 2;
-  font-family: orpheuspro, serif;
-  font-weight: 700;
-}
-
-.link--leda::before {
-  height: 2px;
-  top: calc(100% - 5px);
-  transform-origin: 100% 50%;
-  transform: scale3d(0, 1, 1);
-  transition: transform 0.3s cubic-bezier(0.5, 0.5, 0.3, 1);
-}
-
-.link--leda:hover::before {
-  transform-origin: 0% 50%;
-  transform: scale3d(1, 1, 1);
-}
-
-.link--leda::after {
-  content: attr(data-text);
-  height: 100%;
-  top: 0;
-  background: none;
-  transform-origin: 100% 50%;
-  transform: translate3d(150%, 0, 0);
-  transition: transform 0.3s cubic-bezier(0.5, 0.5, 0.3, 1);
-}
-
-.link--leda:hover::after {
-  transform: translate3d(0, 0, 0);
-}
-
-.link--leda span {
-  display: inline-block;
-  transition: transform 0.3s cubic-bezier(0.5, 0.5, 0.3, 1);
-}
-
-.link--leda:hover span {
-  transform: translate3d(-150%, 0, 0);
 }
 
 [glow] .glowable-text {

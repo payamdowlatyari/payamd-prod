@@ -58,8 +58,8 @@ export default function Horizental() {
         style={{
           position: "fixed",
           transform: "rotate(-90deg)",
-          top: "6em",
-          right: "0",
+          top: "3em",
+          right: "1em",
         }}
         width="50"
         height="50"

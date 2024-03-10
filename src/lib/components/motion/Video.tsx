@@ -14,12 +14,21 @@ export default function VideoPlay() {
   }
 
   return (
-    <div className="video-container">
+    <div
+      style={{
+        maxWidth: "100vw",
+        width: "400px",
+        margin: "0 auto",
+        position: "absolute",
+      }}
+    >
       <video
-        muted
-        autoPlay
+        playsInline
         loop
-        src="https://storage.googleapis.com/www.payamd.com/Portfolio/stuff-5575178-1080p.mp4"
+        muted
+        controls
+        autoPlay
+        src="https://storage.googleapis.com/www.payamd.com/assets/img/bg74-comp-7m.mp4"
       />
     </div>
   );

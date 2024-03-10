@@ -1,12 +1,12 @@
 import { Flex, Spacer, List, ListItem, Box, Text } from "@chakra-ui/react";
 import { experience } from "./data";
-import { MdWorkHistory } from "react-icons/md";
+import { FcBriefcase } from "react-icons/fc";
 
 const Experience = () => {
   return (
     <div className="resume-section">
       <div className="resume-header">
-        <MdWorkHistory />
+        <FcBriefcase />
       </div>
       <h3>Experience</h3>
       <div className="resume-content">

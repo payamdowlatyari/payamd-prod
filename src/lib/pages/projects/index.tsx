@@ -22,7 +22,10 @@ const Projects = () => {
       />
       <Portfolio />
       <div style={{ position: "sticky", bottom: "0", fontSize: "5em" }}>
-        <ParallaxText baseVelocity={0.01}>* Portfolio * Projects</ParallaxText>
+        <ParallaxText baseVelocity={0.01}>
+          {" "}
+          ✳︎ Portfolio ✳︎ Projects
+        </ParallaxText>
         <CopyRight />
       </div>
     </>

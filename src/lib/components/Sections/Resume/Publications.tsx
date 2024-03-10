@@ -1,13 +1,13 @@
 import { Text, Box, Spacer, Flex } from "@chakra-ui/react";
 import { publication } from "./data";
 import HoverLink from "../../motion/View/HoverLink";
-import { MdArticle } from "react-icons/md";
+import { FcNews } from "react-icons/fc";
 
 const Publications = () => {
   return (
     <div className="resume-section">
       <div className="resume-header">
-        <MdArticle />
+        <FcNews />
       </div>
       <h3>Publications</h3>
       <div className="resume-content">

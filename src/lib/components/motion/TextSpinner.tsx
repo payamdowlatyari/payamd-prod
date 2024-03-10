@@ -67,7 +67,7 @@ export default function TextSpinner() {
           position: "absolute",
           rotate: "60deg",
           fontSize: "2em",
-          color: "#eee",
+          color: "#e63946",
         }}
       >
         <BsFillMouseFill />

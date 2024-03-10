@@ -7,19 +7,7 @@ import LineOver from "../../motion/View/LineOver";
 
 const Title = () => {
   return (
-    <motion.section id="home">
-      <div
-        style={{
-          right: "0",
-          position: "absolute",
-          zIndex: "1",
-          margin: "1vw",
-        }}
-      >
-        <LineOver title="Who I am" url="#about" />
-        <LineOver title="What I do" url="#services" />
-      </div>
-
+    <section id="home">
       <div
         style={{
           alignSelf: "flex-end",
@@ -35,7 +23,6 @@ const Title = () => {
 
         <TextSpinner />
         <motion.div
-          className="logo-pd"
           layout
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, zIndex: 200 }}
@@ -45,18 +32,23 @@ const Title = () => {
             ease: "easeIn",
           }}
         >
-          <Logo light size="60px" />
+          <div className="logo-pd">
+            <Logo light size="60px" />
+          </div>
+          <div className="top-links">
+            <LineOver title="Who I am" url="#about" />
+            <LineOver title="What I do" url="#services" />
+          </div>
         </motion.div>
-
         <div
           style={{
-            maxWidth: "99vw",
+            maxWidth: "100vw",
           }}
         >
           <ParallaxText baseVelocity={-0.05}>{portfolio.titles}</ParallaxText>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
