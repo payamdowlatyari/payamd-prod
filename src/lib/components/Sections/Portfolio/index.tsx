@@ -18,33 +18,15 @@ export default function Horizental() {
         height: "500vh",
       }}
     >
-      <div
-        style={{
-          position: "fixed",
-          display: "flex",
-          top: "0",
-          overflow: "hidden",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      >
+      <div className="portfolio-container">
         <motion.ul
           style={{
-            display: "flex",
-            listStyle: "none",
-            padding: "5px 0",
-            height: "100vh",
             x,
           }}
         >
           {data?.map((project: any) => {
             return (
-              <li
-                style={{
-                  width: "100vw",
-                  padding: "1em",
-                }}
-              >
+              <li>
                 <Card item={project} />
               </li>
             );
@@ -58,8 +40,7 @@ export default function Horizental() {
         style={{
           position: "fixed",
           transform: "rotate(-90deg)",
-          top: "3em",
-          right: "1em",
+          top: "5vh",
         }}
         width="50"
         height="50"

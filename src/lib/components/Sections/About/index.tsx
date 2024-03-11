@@ -8,9 +8,8 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 import { data } from "./data";
-import HoverLink from "../../motion/View/HoverLink";
-import { ArrowDownIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 import TextReveal from "../../motion/TextReveal";
+import ImageEffect from "../../motion/ImageEffect";
 
 export default function About() {
   const ref = useRef(null);
@@ -29,14 +28,14 @@ export default function About() {
           willChange,
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "space-between",
+          justifyContent: "center",
           width: "100%",
         }}
       >
         <div
           style={{
-            maxWidth: "800px",
-            borderRadius: "5px",
+            maxWidth: "750px",
+            margin: "auto",
           }}
         >
           <AnimatePresence initial={false}>
@@ -62,28 +61,15 @@ export default function About() {
             )}
           </AnimatePresence>
         </div>
-        <div className="second sec-side">
-          <div>
-            <h3>
-              <TextReveal text="About Me" />
-            </h3>
-            <HoverLink title="resume and skills" url="/about" />
-            <ArrowForwardIcon />
-          </div>
-          <div>
-            <h3>
-              <TextReveal text="My Work" />
-            </h3>
-            <HoverLink title="my recent projects" url="/projects" />
-            <ArrowForwardIcon />
-          </div>
-          <div>
-            <h3>
-              <TextReveal text="More" />
-            </h3>
-            <HoverLink title="professional services" url="#services" />
-            <ArrowDownIcon />
-          </div>
+        <div
+          style={{
+            height: "400px",
+            width: "400px",
+            position: "static",
+            right: "0",
+          }}
+        >
+          <ImageEffect item1="/me-sea2.jpeg" item2="/me-sea3.jpeg" />
         </div>
       </motion.div>
       <motion.div

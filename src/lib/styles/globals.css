@@ -23,7 +23,7 @@ body {
 
   --background: var(--black);
   --accent: var(--white);
-  --secondary: var(--yellow);
+  --secondary: var(--dark-green);
 
   margin: 0;
   padding: 0;
@@ -43,27 +43,26 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 1em 0 0.1em;
+  margin: 0.5em 0 0.1em;
+  font-weight: 400;
 }
 
 h1,
 h2 {
   letter-spacing: -2px;
-  text-transform: uppercase;
   line-height: 1;
   font-size: 4em;
-  font-weight: 900;
 }
 
 h3 {
   font-size: 3em;
-  text-transform: uppercase;
-  font-weight: 900;
+  letter-spacing: -0.4vw;
 }
 
 h4 {
-  font-size: 2em;
+  font-size: 2.5em;
   line-height: 1.1;
+  letter-spacing: -0.1vw;
   font-weight: 900;
 }
 
@@ -82,6 +81,7 @@ h6 {
 
 p {
   margin: 0 0 10px;
+  font-weight: 100;
 }
 
 a {
@@ -132,8 +132,8 @@ section {
   margin: 5px;
 }
 
-.sec-side h3 {
-  margin: auto;
+.sec-side h4 {
+  font-size: 3em;
 }
 
 ::-webkit-scrollbar {
@@ -172,7 +172,8 @@ section {
 }
 
 .parallax .scroller {
-  font-weight: 900;
+  font-weight: 400;
+  letter-spacing: -0.4vw;
   text-transform: uppercase;
   display: flex;
   white-space: nowrap;
@@ -183,7 +184,7 @@ section {
 .parallax span {
   display: block;
   margin-right: 20px;
-  color: var(--red);
+  color: var(--secondary);
   font-size: min(max(10vw, 72px), 96px);
   mix-blend-mode: difference;
 }
@@ -214,7 +215,6 @@ nav button {
 nav button svg {
   font-size: 60px;
   padding: 0 10px;
-  mix-blend-mode: difference;
 }
 
 .underlined {
@@ -299,7 +299,15 @@ nav button svg {
   position: absolute;
   top: 0;
   left: 50%;
-  color: var(--red);
+  color: var(--secondary);
+}
+
+.spinner-icon {
+  left: 30px;
+  position: absolute;
+  rotate: 60deg;
+  font-size: 2em;
+  color: var(--secondary);
 }
 
 .small-title {
@@ -355,6 +363,52 @@ nav button svg {
   margin-top: 0;
 }
 
+.resume-skills-content {
+  display: grid;
+  min-height: 60vh;
+  min-width: 80vw;
+  align-items: center;
+  align-content: center;
+  justify-content: stretch;
+}
+
+.resume-skills-content .skills-content svg {
+  width: 4em;
+  overflow: visible;
+  stroke: var(--silver);
+  stroke-width: 2;
+  padding: 0.3em;
+}
+
+.resume-skills-content .skill-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+
+.resume-skills-content .skills-header {
+  align-self: start;
+  margin: auto;
+  font-size: 2vw;
+  height: 6em;
+}
+
+.resume-skills-content .skills-header h4 {
+  font-weight: 300;
+  letter-spacing: -0.3vw;
+}
+
+.resume-skills-content .skills-content {
+  display: flex;
+  margin: auto;
+  padding: 1em 0;
+  flex-wrap: wrap;
+  overflow: hidden;
+  white-space: nowrap;
+  justify-content: center;
+  max-width: 400px;
+}
+
 .service-section {
   padding: 2vw;
   margin: 1vw 0;
@@ -382,10 +436,11 @@ nav button svg {
 }
 
 .about-section h3 {
-  font-size: min(max(10vw, 36px), 72px);
+  font-size: min(max(10vw, 32px), 64px);
   text-transform: none;
-  letter-spacing: 0.1vw;
+  letter-spacing: -0.2vw;
   line-height: 1;
+  font-weight: 300;
   margin: 0.25em 0;
 }
 
@@ -441,15 +496,16 @@ h2 {
 }
 
 .main-title h1 {
-  line-height: 0em;
-  font-size: min(max(52px, 12vw), 96px);
+  line-height: 0.4em;
+  font-weight: 300;
+  font-size: min(max(68px, 15vw), 120px);
   color: var(--silver);
 }
 
 .main-title h2 {
-  font-size: min(max(40px, 8vw), 64px);
-  text-transform: none;
-  line-height: 0em;
+  font-size: min(max(48px, 10vw), 64px);
+  font-weight: 300;
+  line-height: 0.2em;
 }
 
 .main-title p {
@@ -493,7 +549,6 @@ h2 {
   font-size: 18px;
   position: relative;
   white-space: nowrap;
-  text-transform: uppercase;
 }
 
 .link::before,
@@ -566,6 +621,7 @@ h2 {
 
 .top-links .link--elara {
   font-size: min(max(12px, 3vw), 16px);
+  text-transform: uppercase;
   padding: 5px;
   margin: 0 5px;
 }
@@ -630,4 +686,70 @@ footer > div:first-child {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
+}
+
+.portfolio-container {
+  position: fixed;
+  display: flex;
+  top: 0;
+  overflow: hidden;
+  align-items: center;
+  height: 100vh;
+}
+
+.portfolio-container ul {
+  display: flex;
+  list-style: none;
+  padding: 5px 0;
+  height: 75vh;
+}
+
+.portfolio-container ul li {
+  width: 100vw;
+  padding: 1vw;
+}
+
+.portfolio-card {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  top: 10vh;
+}
+
+.portfolio-card img {
+  object-fit: cover;
+  border-radius: 5px;
+  width: 600px;
+  max-width: 100vw;
+  height: auto;
+}
+
+.portfolio-card .portfolio-content {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  min-height: 25vh;
+  justify-content: space-evenly;
+  width: 500px;
+  max-width: 100vw;
+}
+
+.portfolio-card .portfolio-tag {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: var(--accent);
+  max-width: 300px;
+  justify-content: center;
+}
+
+.portfolio-tag svg {
+  width: 3em;
+  overflow: visible;
+  stroke: var(--silver);
+  stroke-width: 4;
+  padding: 0.3em;
 }

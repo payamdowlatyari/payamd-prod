@@ -43,8 +43,8 @@ export default function Menu() {
       custom={height}
       ref={containerRef}
       style={{
-        background: isOpen ? "#e63946" : "transparent",
-        color: isOpen ? "rgb(225, 225, 225, 0.9)" : "transparent",
+        background: isOpen ? "#3c6e71" : "transparent",
+        color: isOpen ? "rgb(225, 225, 225, 1)" : "transparent",
         height: isOpen ? "100vh" : "0vh",
         padding: "0.5em",
       }}

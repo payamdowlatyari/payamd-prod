@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { BsFillMouseFill } from "react-icons/bs";
 
 export default function TextSpinner() {
-  const text = "..WELCOME!..SCROLL DOWN..";
+  const text = "WELCOME ✳︎SCROLL DOWN ✳︎";
   const characters = text.split("");
 
   const radius = 75;
@@ -60,16 +60,7 @@ export default function TextSpinner() {
           </motion.span>
         ))}
       </p>
-      <span
-        style={{
-          mixBlendMode: "difference",
-          left: "30px",
-          position: "absolute",
-          rotate: "60deg",
-          fontSize: "2em",
-          color: "#e63946",
-        }}
-      >
+      <span className="spinner-icon">
         <BsFillMouseFill />
       </span>
     </motion.div>

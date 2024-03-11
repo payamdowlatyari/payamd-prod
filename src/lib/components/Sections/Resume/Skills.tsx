@@ -8,34 +8,11 @@ const displayByGroup = (icon: any) => {
 
 export const FilterByGroup = ({ group }: any) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        margin: "5px",
-      }}
-    >
-      <div
-        style={{
-          alignSelf: "start",
-          margin: "auto",
-          fontSize: "3vw",
-        }}
-      >
+    <div className="skill-group">
+      <div className="skills-header">
         <h4>{group[0].group}</h4>
       </div>
-      <div
-        style={{
-          margin: "auto",
-          padding: "1em 0",
-          display: "flex",
-          flexWrap: "wrap",
-          overflow: "hidden",
-          whiteSpace: "nowrap",
-          justifyContent: "center",
-          maxWidth: "400px",
-        }}
-      >
+      <div className="skills-content">
         {group?.map((icon: any) => {
           return displayByGroup(icon);
         })}
@@ -51,16 +28,7 @@ export default function Skills() {
         <FcTodoList />
       </div>
       <h3>Skills</h3>
-      <div
-        style={{
-          display: "grid",
-          minHeight: "60vh",
-          minWidth: "80vw",
-          alignItems: "center",
-          alignContent: "center",
-          justifyContent: "stretch",
-        }}
-      >
+      <div className="resume-skills-content">
         <FilterByGroup group={frontend} />
         <FilterByGroup group={backend} />
         <FilterByGroup group={devops} />

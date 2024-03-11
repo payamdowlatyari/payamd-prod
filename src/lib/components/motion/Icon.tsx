@@ -20,13 +20,13 @@ export default function Icon({ id, title, del }: any) {
       ref={ref}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 120 120"
-      style={{
-        width: "4em",
-        overflow: "visible",
-        stroke: "#aaa",
-        strokeWidth: "3",
-        padding: "0.3em",
-      }}
+      // style={{
+      //   width: "4em",
+      //   overflow: "visible",
+      //   stroke: "#eee",
+      //   strokeWidth: "3",
+      //   padding: "0.3em",
+      // }}
     >
       <AnimatePresence initial={false}>
         {isInView && (

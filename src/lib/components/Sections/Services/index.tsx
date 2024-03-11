@@ -59,18 +59,18 @@ export default function Services() {
         justifyContent: "space-between",
       }}
     >
-      <div className="second sec-side">
+      <div className="sec-side">
         <div>
-          <h3>
-            <TextReveal text="About Me" />
-          </h3>
+          <h4>
+            <TextReveal text="About" />
+          </h4>
           <HoverLink title="resume and skills" url="/about" />
           <ArrowForwardIcon />
         </div>
         <div>
-          <h3>
-            <TextReveal text="My Work" />
-          </h3>
+          <h4>
+            <TextReveal text="Portfolio" />
+          </h4>
           <HoverLink title="my recent projects" url="/projects" />
           <ArrowForwardIcon />
         </div>
