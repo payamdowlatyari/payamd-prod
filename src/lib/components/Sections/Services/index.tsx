@@ -11,6 +11,7 @@ import { data } from "./data";
 import HoverLink from "../../motion/View/HoverLink";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import TextReveal from "../../motion/TextReveal";
+import StaggerText from "react-stagger-text";
 
 const FadeInItem = ({ service }: any) => {
   const ref = useRef(null);
@@ -19,7 +20,6 @@ const FadeInItem = ({ service }: any) => {
 
   return (
     <motion.div layout ref={ref} className="service-section">
-      <h2>{service.name}</h2>
       <AnimatePresence initial={false}>
         {isInView && (
           <motion.div
@@ -28,8 +28,25 @@ const FadeInItem = ({ service }: any) => {
               willChange,
             }}
           >
+            <h2>
+              <StaggerText
+                staggerType="letter"
+                staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"
+                staggerDuration={1}
+                startDelay={0.5}
+              >
+                {service.name}
+              </StaggerText>
+            </h2>
             <p>
-              <TextReveal text={service.text} />
+              <StaggerText
+                staggerType="word"
+                staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"
+                staggerDuration={0.5}
+                startDelay={0.1}
+              >
+                {service.text}
+              </StaggerText>
             </p>
           </motion.div>
         )}
@@ -43,21 +60,14 @@ export default function Services() {
   const ref = useRef(null);
 
   const { scrollY } = useScroll({ target: ref });
-  const y = useTransform(scrollY, [2000, 4000], [0, 2000]);
+  const y = useTransform(scrollY, [2000, 4200], [0, 2500]);
 
   return (
     <motion.section
       ref={ref}
       id="services"
+      className="service-wrapper"
       layoutScroll
-      style={{
-        willChange,
-        maxWidth: "100vw",
-        overflow: "hidden",
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "space-between",
-      }}
     >
       <div className="sec-side">
         <div>
@@ -83,15 +93,10 @@ export default function Services() {
           y,
         }}
       >
-        02
+        <span>02</span>
+        <span className="section-title-bg">What I do</span>
       </motion.div>
-      <div
-        style={{
-          display: "grid",
-          padding: "1em",
-          justifyContent: "flex-end",
-        }}
-      >
+      <div className="service-container">
         {data?.map((service) => {
           return <FadeInItem service={service} />;
         })}

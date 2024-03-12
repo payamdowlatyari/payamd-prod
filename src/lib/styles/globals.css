@@ -47,37 +47,42 @@ h6 {
   font-weight: 400;
 }
 
-h1,
-h2 {
-  letter-spacing: -2px;
+h1 {
+  letter-spacing: -0.5vw;
   line-height: 1;
-  font-size: 4em;
+  font-size: 5vw;
+}
+
+h2 {
+  letter-spacing: -0.3vw;
+  line-height: 1;
+  font-size: 4vw;
 }
 
 h3 {
-  font-size: 3em;
-  letter-spacing: -0.4vw;
+  font-size: 3vw;
+  letter-spacing: -0.5vw;
 }
 
 h4 {
-  font-size: 2.5em;
+  font-size: 2.5vw;
   line-height: 1.1;
   letter-spacing: -0.1vw;
   font-weight: 900;
 }
 
 h5 {
-  font-size: 1em;
+  font-size: 1vw;
   color: var(--secondary);
   text-transform: uppercase;
   font-weight: 900;
   padding: 0 5px;
 }
 
-h6 {
+/* h6 {
   font-size: 1.5em;
   margin: 0.2em 0;
-}
+} */
 
 p {
   margin: 0 0 10px;
@@ -134,6 +139,14 @@ section {
 
 .sec-side h4 {
   font-size: 3em;
+}
+
+.max-width-screen {
+  max-width: 100vw;
+}
+
+.max-hight-screen {
+  max-height: 100vh;
 }
 
 ::-webkit-scrollbar {
@@ -290,8 +303,8 @@ nav button svg {
 .circle {
   position: absolute;
   z-index: 100;
-  top: 24em;
-  left: 30%;
+  top: 50vh;
+  right: 10vw;
   aspect-ratio: 1;
 }
 
@@ -316,12 +329,8 @@ nav button svg {
   margin: 10px 0;
 }
 
-#resume li {
-  width: 100vw;
-}
-
 .logo-pd {
-  position: fixed;
+  position: absolute;
   mix-blend-mode: difference;
   top: -20px;
   left: 10px;
@@ -331,8 +340,42 @@ nav button svg {
   left: 20%;
   top: 0;
   position: absolute;
-  margin: 20px;
+  margin: 20px 10px;
+  letter-spacing: 0.05vw;
   display: inline-flex;
+}
+
+.resume-main {
+  display: block;
+  padding: 0;
+  max-width: 100vw;
+  overflow: hidden;
+  height: 2300vh;
+}
+
+.resume-main .horizental-text {
+  position: relative;
+  top: 40vh;
+}
+
+.resume-wrapper {
+  position: fixed;
+  display: flex;
+  top: 0;
+  overflow: hidden;
+  align-items: center;
+  height: 100vh;
+}
+
+.resume-wrapper > ul {
+  position: fixed;
+  display: flex;
+  list-style: none;
+  height: 100vh;
+}
+
+.resume-wrapper > ul li {
+  width: 100vw;
 }
 
 .resume-section {
@@ -354,8 +397,9 @@ nav button svg {
 }
 
 .resume-content {
-  width: 600px;
-  max-width: 99vw;
+  width: 750px;
+  max-width: 95vw;
+  overflow: hidden;
 }
 
 .resume-section h3 {
@@ -409,6 +453,26 @@ nav button svg {
   max-width: 400px;
 }
 
+.resume-intro {
+  padding: 0.5em;
+  max-width: 800px;
+  margin: auto;
+  padding-top: 40vh;
+  height: 100vh;
+}
+
+.intro-image {
+  top: 20vh;
+  right: 10vw;
+  position: absolute;
+  width: 500px;
+  max-width: 90vw;
+}
+
+.intro-text {
+  mix-blend-mode: difference;
+}
+
 .service-section {
   padding: 2vw;
   margin: 1vw 0;
@@ -417,11 +481,22 @@ nav button svg {
   max-width: 95vw;
 }
 
+.service-wrapper {
+  display: flex;
+  flex-wrap: wrap-reverse;
+}
+
+.service-container {
+  display: grid;
+  padding: 1vw;
+  justify-content: flex-end;
+}
+
 .service-section h2 {
   font-size: min(max(6vw, 36px), 70px);
   text-transform: capitalize;
   letter-spacing: -0.3vw;
-  margin: 0.1em 0;
+  margin: 0.3em 0;
   font-weight: 300;
 }
 
@@ -431,8 +506,22 @@ nav button svg {
 }
 
 .about-section {
-  padding: 1vw;
-  margin: 1vw 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.about-wrapper {
+  max-width: 750px;
+  margin: auto 1vw;
+}
+
+.about-image {
+  height: 400px;
+  width: 400px;
+  position: static;
+  right: 0;
 }
 
 .about-section h3 {
@@ -478,7 +567,13 @@ nav button svg {
   position: absolute;
   z-index: -1;
   font-size: 30vw;
+  letter-spacing: -1vw;
   opacity: 0.1;
+}
+
+.section-number .section-title-bg {
+  font-size: 10vw;
+  text-transform: uppercase;
 }
 
 .large-title h1,
@@ -489,6 +584,14 @@ h2 {
 .medium-title h1,
 h2 {
   font-size: min(max(42px, 15vw), 120px);
+}
+
+.title-content {
+  align-self: flex-end;
+}
+
+.blend-difference {
+  mix-blend-mode: difference;
 }
 
 .main-title {
@@ -504,7 +607,7 @@ h2 {
 
 .main-title h2 {
   font-size: min(max(48px, 10vw), 64px);
-  font-weight: 300;
+  font-weight: 100;
   line-height: 0.2em;
 }
 
@@ -686,6 +789,22 @@ footer > div:first-child {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
+}
+.portfolio-wrapper {
+  height: 500vh;
+}
+
+.portfolio-wrapper > svg {
+  position: fixed;
+  transform: rotate(-90deg);
+  top: 5vh;
+}
+
+.portfolio-wrapper circle {
+  stroke: var(--accent);
+  stroke-dashoffset: 0;
+  stroke-width: 5%;
+  fill: none;
 }
 
 .portfolio-container {

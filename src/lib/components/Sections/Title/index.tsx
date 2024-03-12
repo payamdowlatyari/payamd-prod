@@ -8,12 +8,7 @@ import LineOver from "../../motion/View/LineOver";
 const Title = () => {
   return (
     <section id="home">
-      <div
-        style={{
-          alignSelf: "flex-end",
-          mixBlendMode: "difference",
-        }}
-      >
+      <div className="title-content blend-difference">
         <div className="main-title">
           <h2>{portfolio.text[0]}</h2>
           <h1>{portfolio.text[1]}</h1>
@@ -25,7 +20,7 @@ const Title = () => {
         <motion.div
           layout
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1, zIndex: 200 }}
+          animate={{ opacity: 1 }}
           transition={{
             duration: 2,
             delay: 10,
@@ -36,15 +31,11 @@ const Title = () => {
             <Logo light size="60px" />
           </div>
           <div className="top-links">
-            <LineOver title="Who I am" url="#about" />
-            <LineOver title="What I do" url="#services" />
+            <LineOver title="01 Who I am" url="#about" />
+            <LineOver title="02 What I do" url="#services" />
           </div>
         </motion.div>
-        <div
-          style={{
-            maxWidth: "100vw",
-          }}
-        >
+        <div className="max-width-screen">
           <ParallaxText baseVelocity={-0.05}>{portfolio.titles}</ParallaxText>
         </div>
       </div>

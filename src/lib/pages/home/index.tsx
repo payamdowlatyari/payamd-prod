@@ -24,8 +24,8 @@ const Home = () => {
   return (
     <>
       <Menu />
-      <Title />
       <Header />
+      <Title />
       <About />
       <ParallaxText baseVelocity={0.01}>About ✳︎ Services ✳︎ </ParallaxText>
       <Services />

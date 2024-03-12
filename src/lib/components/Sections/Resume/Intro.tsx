@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { intro } from "./data";
 import { motion, useTransform, useWillChange, useScroll } from "framer-motion";
-import TextReveal from "../../motion/TextReveal";
 import StaggerText from "react-stagger-text";
 import WebGLImage from "../../motion/WebGLImage";
 
@@ -10,40 +9,19 @@ export default function Intro() {
   const willChange = useWillChange();
 
   const { scrollY } = useScroll({ target: ref });
-  const x = useTransform(scrollY, [0, 800], [-15, 15]);
+  const y = useTransform(scrollY, [0, 500], [0, 300]);
 
   return (
-    <motion.div
-      layout
-      style={{
-        padding: "0.5em",
-        display: "flex",
-        justifyContent: "space-between",
-        willChange,
-        maxWidth: "900px",
-        margin: "auto",
-        paddingTop: "20vh",
-        height: "100vh",
-      }}
-      ref={ref}
-    >
-      <div
-        style={{
-          right: "0",
-          position: "absolute",
-        }}
-      >
-        <WebGLImage id="me-home-bw-removebg.png" />
+    <motion.div layout className="resume-intro" ref={ref}>
+      <div className="intro-image">
+        <WebGLImage id="me-home-bw-removebg-EDIT.jpeg" />
       </div>
       <motion.div
         layout
-        className="medium-title"
+        className="medium-title intro-text"
         style={{
-          padding: "10px",
-          borderRadius: "5px",
-          mixBlendMode: "difference",
           willChange,
-          x,
+          y,
         }}
       >
         <h1>
@@ -57,7 +35,14 @@ export default function Intro() {
           </StaggerText>
         </h1>
         <p>
-          <TextReveal text={intro.text} />
+          <StaggerText
+            staggerType="word"
+            staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"
+            staggerDuration={0.5}
+            startDelay={0.1}
+          >
+            {intro.text}
+          </StaggerText>
         </p>
       </motion.div>
     </motion.div>

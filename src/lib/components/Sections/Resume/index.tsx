@@ -18,36 +18,19 @@ const Resume = () => {
   return (
     <motion.section
       id="resume"
+      className="resume-main"
       ref={resume}
       layoutScroll
-      style={{
-        willChange,
-        display: "block",
-        padding: "0",
-        maxWidth: "100vw",
-        overflow: "hidden",
-        height: "2200vh",
-      }}
     >
       <Intro />
-      <ParallaxText baseVelocity={0.01}>Resume ✳︎ Resume ✳︎ </ParallaxText>
-      <ParallaxText baseVelocity={-0.01}>Skills ✳︎ Skills ✳︎ </ParallaxText>
-      <div
-        style={{
-          position: "fixed",
-          display: "flex",
-          top: "0",
-          overflow: "hidden",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      >
+      <div className="horizental-text">
+        <ParallaxText baseVelocity={0.01}>Resume ✳︎ Resume ✳︎ </ParallaxText>
+        <ParallaxText baseVelocity={-0.01}>Skills ✳︎ Skills ✳︎ </ParallaxText>
+      </div>
+      <div className="resume-wrapper">
         <motion.ul
           style={{
-            position: "fixed",
-            display: "flex",
-            listStyle: "none",
-            height: "100vh",
+            willChange,
             x,
           }}
         >
@@ -68,7 +51,6 @@ const Resume = () => {
           </li>
         </motion.ul>
       </div>
-
       <div className="logo-pd">
         <Logo light size="60px" />
       </div>

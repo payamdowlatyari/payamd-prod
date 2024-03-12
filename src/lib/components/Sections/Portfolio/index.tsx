@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useWillChange } from "framer-motion";
 import Card from "../../motion/Card";
 import data from "./data";
 import Logo from "../../motion/Menu/Logo";
@@ -7,20 +7,21 @@ import Logo from "../../motion/Menu/Logo";
 export default function Horizental() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
+  const willChange = useWillChange();
 
   const x = useTransform(scrollYProgress, [0, 1], ["45%", "-45%"]);
 
   return (
     <motion.section
       ref={ref}
+      layoutScroll
       id="projects"
-      style={{
-        height: "500vh",
-      }}
+      className="portfolio-wrapper"
     >
       <div className="portfolio-container">
         <motion.ul
           style={{
+            willChange,
             x,
           }}
         >
@@ -37,11 +38,11 @@ export default function Horizental() {
         <Logo light size="60px" />
       </div>
       <svg
-        style={{
-          position: "fixed",
-          transform: "rotate(-90deg)",
-          top: "5vh",
-        }}
+        // style={{
+        //   position: "fixed",
+        //   transform: "rotate(-90deg)",
+        //   top: "5vh",
+        // }}
         width="50"
         height="50"
         viewBox="0 0 100 100"
@@ -53,10 +54,11 @@ export default function Horizental() {
           pathLength="3"
           style={{
             pathLength: scrollYProgress,
-            stroke: "#e1e1e1",
-            strokeDashoffset: "0",
-            strokeWidth: "5%",
-            fill: "none",
+            willChange,
+            // stroke: "#e1e1e1",
+            // strokeDashoffset: "0",
+            // strokeWidth: "5%",
+            // fill: "none",
           }}
         />
       </svg>

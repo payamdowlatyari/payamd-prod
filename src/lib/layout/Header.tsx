@@ -55,7 +55,6 @@ const Header = () => {
         style={{
           willChange,
           alignSelf: "center",
-          fontSize: "5em",
           mixBlendMode: "difference",
         }}
       >

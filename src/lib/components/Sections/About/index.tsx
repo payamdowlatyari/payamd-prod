@@ -8,8 +8,8 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 import { data } from "./data";
-import TextReveal from "../../motion/TextReveal";
 import ImageEffect from "../../motion/ImageEffect";
+import StaggerText from "react-stagger-text";
 
 export default function About() {
   const ref = useRef(null);
@@ -17,31 +17,22 @@ export default function About() {
   const isInView = useInView(ref);
 
   const { scrollY } = useScroll({ target: ref });
-  const y = useTransform(scrollY, [500, 1200], [0, 400]);
+  const y = useTransform(scrollY, [500, 1200], [-100, 400]);
 
   return (
     <motion.section id="about" layoutScroll>
       <motion.div
         ref={ref}
         layout
+        className="about-section"
         style={{
           willChange,
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          width: "100%",
         }}
       >
-        <div
-          style={{
-            maxWidth: "750px",
-            margin: "auto",
-          }}
-        >
+        <div className="about-wrapper">
           <AnimatePresence initial={false}>
             {isInView && (
               <motion.div
-                className="about-section"
                 layout
                 style={{
                   willChange,
@@ -55,20 +46,31 @@ export default function About() {
                   ease: "easeInOut",
                 }}
               >
-                <h3>{data.title}</h3>
-                <TextReveal text={data.text} />
+                <h3>
+                  <StaggerText
+                    staggerType="letter"
+                    staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"
+                    staggerDuration={1}
+                    startDelay={0.5}
+                  >
+                    {data.title}
+                  </StaggerText>
+                </h3>
+                <p>
+                  <StaggerText
+                    staggerType="word"
+                    staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"
+                    staggerDuration={0.5}
+                    startDelay={0.5}
+                  >
+                    {data.text}
+                  </StaggerText>
+                </p>
               </motion.div>
             )}
           </AnimatePresence>
         </div>
-        <div
-          style={{
-            height: "400px",
-            width: "400px",
-            position: "static",
-            right: "0",
-          }}
-        >
+        <div className="about-image">
           <ImageEffect item1="/me-sea2.jpeg" item2="/me-sea3.jpeg" />
         </div>
       </motion.div>
@@ -79,7 +81,8 @@ export default function About() {
           y,
         }}
       >
-        01
+        <span>01</span>
+        <span className="section-title-bg">Who I am</span>
       </motion.div>
     </motion.section>
   );
