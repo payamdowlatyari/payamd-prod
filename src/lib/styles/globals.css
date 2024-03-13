@@ -400,10 +400,12 @@ nav button svg {
   width: 750px;
   max-width: 95vw;
   overflow: hidden;
+  backdrop-filter: invert(0.1);
+  border-radius: 5px;
 }
 
 .resume-section h3 {
-  font-size: 10vw;
+  font-size: min(max(10vw, 50px), 96px);
   margin-top: 0;
 }
 
@@ -417,10 +419,12 @@ nav button svg {
 }
 
 .resume-skills-content .skills-content svg {
-  width: 4em;
+  width: 5vw;
+  min-width: 3em;
+  max-width: 4em;
   overflow: visible;
   stroke: var(--silver);
-  stroke-width: 2;
+  stroke-width: 3;
   padding: 0.3em;
 }
 
@@ -428,18 +432,18 @@ nav button svg {
   display: flex;
   flex-wrap: wrap;
   margin: 5px;
+  backdrop-filter: invert(0.1);
+  border-radius: 5px;
 }
 
 .resume-skills-content .skills-header {
-  align-self: start;
   margin: auto;
-  font-size: 2vw;
-  height: 6em;
 }
 
 .resume-skills-content .skills-header h4 {
   font-weight: 300;
-  letter-spacing: -0.3vw;
+  letter-spacing: -0.2vw;
+  font-size: min(max(5vw, 34px), 64px);
 }
 
 .resume-skills-content .skills-content {

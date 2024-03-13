@@ -3,8 +3,8 @@ import HoverLink from "../../motion/View/HoverLink";
 export default function Email() {
   return (
     <HoverLink
-      title="pdowlatyari@gmail.com"
-      url="mailto:pdowlatyari@gmail.com"
+      title="contact@payamd.com"
+      url="mailto:contact@payamd.com"
       out
       low
     />

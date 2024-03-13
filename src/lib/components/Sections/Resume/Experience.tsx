@@ -13,7 +13,7 @@ const Experience = () => {
         {experience?.map((item) => {
           return (
             <>
-              <Flex pt={4} px={4}>
+              <Flex px={4} pt={4}>
                 <Box>
                   <Text>
                     <b>{item.title}</b>, <i>{item.company}</i>
@@ -24,7 +24,7 @@ const Experience = () => {
                   <Text fontSize="xs">{item.date}</Text>
                 </Box>{" "}
               </Flex>
-              <List px={6} pb={4}>
+              <List px={4} pb={4}>
                 {item.description?.map((desc) => {
                   return <ListItem fontSize="xs">{desc}</ListItem>;
                 })}

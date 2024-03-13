@@ -22,8 +22,8 @@ const Publications = () => {
                 <Text fontSize="xs">{item.date}</Text>
               </Flex>
 
-              <Box px={2}>
-                <Text fontSize="sm">{item.description}</Text>
+              <Box px={4}>
+                <Text fontSize="xs">{item.description}</Text>
               </Box>
             </>
           );

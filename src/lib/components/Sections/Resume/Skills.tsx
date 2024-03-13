@@ -3,7 +3,7 @@ import { frontend, backend, devops } from "../../data/icons";
 import { FcTodoList } from "react-icons/fc";
 
 const displayByGroup = (icon: any) => {
-  return <Icon id={icon.item} title={icon.title} del={Math.random() * 10} />;
+  return <Icon id={icon.item} title={icon.title} del={Math.random() * 3} />;
 };
 
 export const FilterByGroup = ({ group }: any) => {

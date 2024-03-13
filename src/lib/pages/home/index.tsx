@@ -27,7 +27,7 @@ const Home = () => {
       <Header />
       <Title />
       <About />
-      <ParallaxText baseVelocity={0.01}>About ✳︎ Services ✳︎ </ParallaxText>
+      <ParallaxText baseVelocity={0.01}>About ✳︎ Services ✳︎</ParallaxText>
       <Services />
       <Footer />
       <motion.div ref={ref} className="progress" style={{ scaleX }} />
