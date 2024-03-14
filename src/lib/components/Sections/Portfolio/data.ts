@@ -33,6 +33,15 @@ const css =
 
 export default [
   {
+    index: 0,
+    title: "Canvasfolio",
+    description: "A portfolio project build with Three.js and Canvas",
+    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/canvas-folio.jpeg",
+    img2: "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/canvas-folio2.jpeg",
+    url: "https://dice-app-two.vercel.app/",
+    tagIcon: [typescript, next, npm, git],
+  },
+  {
     index: 1,
     title: "My Dashbaord",
     description: "A project management user interface",
@@ -71,7 +80,7 @@ export default [
   {
     index: 5,
     title: "Nextfolio",
-    description: "A portfolio website",
+    description: "A portfolio website build for professionals",
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/nextfolio_1925x1100.png",
     img2: "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/nextfolio1925x1100.jpeg",
     url: "https://nextfolio-theta.vercel.app/",

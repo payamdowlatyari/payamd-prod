@@ -14,7 +14,9 @@ const getTags = (tags: any) => {
 export default function Card({ item }: any) {
   return (
     <figure className="portfolio-card">
-      <img src={item.img} alt={item.title} />
+      <div className="portfolio-img-wrapper">
+        <img src={item.img} alt={item.title} />
+      </div>
       <div className="portfolio-content">
         <div>
           <HoverLink url={item.url} title={item.title} out size="1.5em" />

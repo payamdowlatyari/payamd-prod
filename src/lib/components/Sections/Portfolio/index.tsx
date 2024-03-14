@@ -37,16 +37,7 @@ export default function Horizental() {
       <div className="logo-pd">
         <Logo light size="60px" />
       </div>
-      <svg
-        // style={{
-        //   position: "fixed",
-        //   transform: "rotate(-90deg)",
-        //   top: "5vh",
-        // }}
-        width="50"
-        height="50"
-        viewBox="0 0 100 100"
-      >
+      <svg width="50" height="50" viewBox="0 0 100 100">
         <motion.circle
           cx="50"
           cy="50"
@@ -55,10 +46,6 @@ export default function Horizental() {
           style={{
             pathLength: scrollYProgress,
             willChange,
-            // stroke: "#e1e1e1",
-            // strokeDashoffset: "0",
-            // strokeWidth: "5%",
-            // fill: "none",
           }}
         />
       </svg>

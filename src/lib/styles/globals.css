@@ -777,7 +777,7 @@ h2 {
   transform: translate3d(0, -2px, 0);
 }
 
-[glow] .glowable-text {
+[glow] .glowable-border {
   border: solid 1px var(--gold);
 }
 
@@ -828,7 +828,7 @@ footer > div:first-child {
 }
 
 .portfolio-container ul li {
-  width: 100vw;
+  max-width: 100vw;
   padding: 1vw;
 }
 
@@ -836,8 +836,17 @@ footer > div:first-child {
   position: relative;
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+  border-radius: 5px;
   flex-wrap: wrap;
-  top: 10vh;
+  border: none;
+  box-shadow: 0px 0px 1px 0px var(--accent);
+  transition: 0.3s ease-in-out;
+}
+
+.portfolio-card:hover {
+  transition: 0.3s ease-in-out;
+  transform: scale(1.025);
 }
 
 .portfolio-card img {
@@ -846,6 +855,21 @@ footer > div:first-child {
   width: 600px;
   max-width: 100vw;
   height: auto;
+}
+
+.portfolio-img-wrapper {
+  position: relative;
+}
+
+.portfolio-img-wrapper:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
 
 .portfolio-card .portfolio-content {
