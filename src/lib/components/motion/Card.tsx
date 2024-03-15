@@ -19,7 +19,7 @@ export default function Card({ item }: any) {
       </div>
       <div className="portfolio-content">
         <div>
-          <HoverLink url={item.url} title={item.title} out size="1.5em" />
+          <HoverLink url={item.url} title={item.title} out size="1.25em" />
           <p>{item.description}</p>
         </div>
         {getTags(item.tagIcon)}

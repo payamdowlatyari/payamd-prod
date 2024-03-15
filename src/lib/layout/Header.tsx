@@ -90,7 +90,7 @@ const Header = () => {
         transition={{
           duration: 3,
           delay: 5,
-          ease: "easeInOut",
+          ease: "circInOut",
         }}
         style={{
           willChange,
@@ -105,7 +105,7 @@ const Header = () => {
         initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
-          transition: { duration: 1, ease: "easeOut", delay: 7 },
+          transition: { duration: 1, ease: "easeOut", delay: 7.5 },
         }}
         layout
         style={{
