@@ -79,11 +79,6 @@ h5 {
   padding: 0 5px;
 }
 
-/* h6 {
-  font-size: 1.5em;
-  margin: 0.2em 0;
-} */
-
 p {
   margin: 0 0 10px;
   font-weight: 100;
@@ -325,8 +320,8 @@ nav button svg {
 
 .small-title {
   color: inherit;
-  font-size: min(max(6vw, 50px), 86px);
-  margin: 10px 0;
+  font-size: min(max(3vw, 36px), 72px);
+  margin: 5px 0;
 }
 
 .logo-pd {
@@ -559,6 +554,7 @@ nav button svg {
 .navbar-container {
   display: grid;
   min-width: 250px;
+  justify-content: center;
 }
 
 .navbar-items {
@@ -570,13 +566,17 @@ nav button svg {
 }
 
 .navbar-items a {
-  font-size: min(max(8vw, 56px), 92px);
+  font-size: min(max(8vw, 56px), 96px);
 }
 
 .contacts {
   display: flex;
   flex-direction: column;
   min-width: 250px;
+}
+
+.contacts a {
+  margin: 3px 0;
 }
 
 .section-number {
@@ -807,7 +807,7 @@ footer > div:first-child {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 .portfolio-wrapper {
   height: 500vh;

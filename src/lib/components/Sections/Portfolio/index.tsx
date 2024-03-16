@@ -9,7 +9,7 @@ export default function Horizental() {
   const { scrollYProgress } = useScroll({ target: ref });
   const willChange = useWillChange();
 
-  const x = useTransform(scrollYProgress, [0, 1], ["45%", "-45%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["40%", "-40%"]);
 
   return (
     <motion.section

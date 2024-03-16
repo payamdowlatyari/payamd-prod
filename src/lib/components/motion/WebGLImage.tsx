@@ -31,6 +31,7 @@ export default function WebGLImage({ id, size }: any) {
         src={id}
         alt="test"
         width={size}
+        loading="lazy"
       />
       <UseCanvas>
         <ScrollScene track={el}>
