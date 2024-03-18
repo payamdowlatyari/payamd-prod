@@ -71,7 +71,7 @@ export default function About() {
           </AnimatePresence>
         </div>
         <div className="about-image">
-          <ImageEffect item1="/me-sea2.jpeg" item2="/me-sea3.jpeg" />
+          <ImageEffect item1="/me-sea2.webp" item2="/me-sea3.webp" />
         </div>
       </motion.div>
       <motion.div
@@ -82,7 +82,6 @@ export default function About() {
         }}
       >
         <span>01</span>
-        <span className="section-title-bg">Who I am</span>
       </motion.div>
     </motion.section>
   );

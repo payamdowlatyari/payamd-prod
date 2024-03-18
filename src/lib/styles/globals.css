@@ -1,11 +1,11 @@
 body {
-  --black: #111;
-  --deep-gray: rgba(35, 35, 35, 0.8);
-  --ash-black: #353535;
+  --black: #141414;
+  --ash-black: #222424;
   --white: #f4f4f2;
   --apple: #e1e1e1;
   --white-smoke: #d8d8d8;
-  --light-gray: #c0c0c0;
+  --light-gray: #7c7c7c;
+  --ultra-light-gray: #9e9e9e;
   --silver: #d2d4d6;
   --milky: #e9dfce;
   --gray: #495464;
@@ -14,6 +14,7 @@ body {
   --dirty-green: #708d81;
   --dirty-yellow: #efc958;
   --dark-green: #3c6e71;
+  --light-green: #53db4c;
   --dirty-puple: #6d597a;
   --dirty-blue: #003049;
   --mid-pink: #ce7777;
@@ -21,9 +22,9 @@ body {
   --gold: #c2a76b;
   --yellow: #ffd500;
 
-  --background: var(--black);
+  --background: var(--ash-black);
   --accent: var(--white);
-  --secondary: var(--dark-green);
+  --secondary: var(--ultra-light-gray);
 
   margin: 0;
   padding: 0;
@@ -108,32 +109,25 @@ section {
 
 .second {
   background: var(--apple);
-  color: var(--background);
+  color: var(--ash-black);
   mix-blend-mode: difference;
 }
 
 .third {
-  background: var(--secondary);
+  background: var(--yellow);
   color: var(--background);
 }
 
 .sec-side {
-  width: 500px;
+  width: 300px;
   max-width: 100vw;
-  height: 100%;
-  mix-blend-mode: normal;
-  border-radius: 5px;
-  align-self: center;
+  height: 300px;
   display: grid;
 }
 
-.sec-side div {
-  padding: 10px;
-  margin: 5px;
-}
-
 .sec-side h4 {
-  font-size: 3em;
+  font-size: min(max(5vw, 48px), 64px);
+  font-weight: 400;
 }
 
 .max-width-screen {
@@ -225,6 +219,16 @@ nav button svg {
   padding: 0 10px;
 }
 
+.main-nav {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+}
+
 .underlined {
   color: var(--silver);
   background-image: linear-gradient(
@@ -298,8 +302,8 @@ nav button svg {
 .circle {
   position: absolute;
   z-index: 100;
-  top: 50vh;
-  right: 10vw;
+  top: 40vh;
+  right: 30vw;
   aspect-ratio: 1;
 }
 
@@ -320,25 +324,25 @@ nav button svg {
 
 .small-title {
   color: inherit;
-  font-size: min(max(3vw, 36px), 72px);
+  font-size: min(max(3vw, 24px), 36px);
   margin: 5px 0;
+  color: var(--light-gray);
 }
 
 .logo-pd {
   position: fixed;
-  /* mix-blend-mode: difference; */
-  z-index: 999;
+  z-index: 998;
   top: -20px;
   left: 10px;
 }
 
 .top-links {
-  left: 20%;
-  top: 0;
+  right: 0;
+  top: 30vh;
   position: absolute;
-  margin: 20px 10px;
+  margin: 10px;
   letter-spacing: 0.05vw;
-  display: inline-flex;
+  display: inline-grid;
 }
 
 .resume-main {
@@ -490,7 +494,7 @@ nav button svg {
 .service-section {
   padding: 2vw;
   margin: 1vw 0;
-  width: 700px;
+  width: 500px;
   min-height: 50vh;
   max-width: 95vw;
 }
@@ -498,6 +502,7 @@ nav button svg {
 .service-wrapper {
   display: flex;
   flex-wrap: wrap-reverse;
+  justify-content: space-around;
 }
 
 .service-container {
@@ -565,6 +570,10 @@ nav button svg {
   padding: 1em 0;
 }
 
+.navbar-items li {
+  list-style: none;
+}
+
 .navbar-items a {
   font-size: min(max(8vw, 56px), 96px);
 }
@@ -573,6 +582,10 @@ nav button svg {
   display: flex;
   flex-direction: column;
   min-width: 250px;
+}
+
+.contact-list {
+  display: inline-grid;
 }
 
 .contacts a {
@@ -588,11 +601,6 @@ nav button svg {
   font-size: 30vw;
   letter-spacing: -1vw;
   opacity: 0.1;
-}
-
-.section-number .section-title-bg {
-  font-size: 10vw;
-  text-transform: uppercase;
 }
 
 .large-title h1,
@@ -621,18 +629,19 @@ h2 {
   line-height: 0.4em;
   font-weight: 300;
   font-size: min(max(68px, 15vw), 120px);
-  color: var(--silver);
 }
 
 .main-title h2 {
   font-size: min(max(48px, 10vw), 64px);
   font-weight: 100;
   line-height: 0.2em;
+  color: var(--secondary);
 }
 
 .main-title p {
   padding-top: 5vh;
   font-size: min(max(18px, 4vw), 32px);
+  color: var(--secondary);
 }
 .content {
   display: grid;
@@ -742,7 +751,7 @@ h2 {
 }
 
 .top-links .link--elara {
-  font-size: min(max(12px, 3vw), 16px);
+  font-size: 16px;
   text-transform: uppercase;
   padding: 5px;
   margin: 0 5px;
@@ -800,7 +809,6 @@ footer {
   display: grid;
   height: 100vh;
   align-items: flex-end;
-  mix-blend-mode: difference;
 }
 
 footer > div:first-child {

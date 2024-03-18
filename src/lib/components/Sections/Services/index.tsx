@@ -94,7 +94,6 @@ export default function Services() {
         }}
       >
         <span>02</span>
-        <span className="section-title-bg">What I do</span>
       </motion.div>
       <div className="service-container">
         {data?.map((service) => {

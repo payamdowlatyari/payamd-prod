@@ -10,6 +10,8 @@ import Footer from "~/lib/layout/Footer";
 import Services from "~/lib/components/Sections/Services";
 import Header from "~/lib/layout/Header";
 import ParallaxText from "~/lib/components/motion/ParallaxText";
+import Logo from "~/lib/components/motion/Menu/Logo";
+import LineOver from "~/lib/components/motion/View/LineOver";
 
 const Home = () => {
   const ref = useRef(null);
@@ -29,6 +31,24 @@ const Home = () => {
       <About />
       <ParallaxText baseVelocity={0.01}>About ✳︎ Services ✳︎</ParallaxText>
       <Services />
+      <motion.div
+        layout
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          duration: 2,
+          delay: 10,
+          ease: "easeIn",
+        }}
+      >
+        <div className="top-links">
+          <LineOver title="01 Who I am" url="#about" />
+          <LineOver title="02 What I do" url="#services" />
+        </div>
+        <div className="logo-pd">
+          <Logo light size="60px" />
+        </div>
+      </motion.div>
       <Footer />
       <motion.div ref={ref} className="progress" style={{ scaleX }} />
     </>

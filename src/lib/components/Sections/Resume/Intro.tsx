@@ -14,7 +14,7 @@ export default function Intro() {
   return (
     <motion.div layout className="resume-intro" ref={ref}>
       <div className="intro-image">
-        <WebGLImage id="me-home-bw-removebg-EDIT.jpeg" />
+        <WebGLImage id="me-home-bw.webp" />
       </div>
       <motion.div
         layout

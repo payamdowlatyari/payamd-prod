@@ -1,6 +1,13 @@
-import { useRef } from "react";
-import { motion, useCycle, useWillChange } from "framer-motion";
-import { useDimensions } from "./use-dimentions";
+import { useEffect, useRef } from "react";
+import {
+  easeIn,
+  easeOut,
+  motion,
+  stagger,
+  useAnimate,
+  useCycle,
+  useWillChange,
+} from "framer-motion";
 import Nav from "./Nav";
 import Contact from "../../Sections/Contact";
 import { TfiClose, TfiLineDouble } from "react-icons/tfi";
@@ -13,7 +20,6 @@ const NavToggle = ({ toggle }: any) => {
           closed: { display: "contents" },
           open: { display: "none" },
         }}
-        transition={{ ease: "easeIn", duration: 0.5 }}
       >
         MENU <TfiLineDouble />
       </motion.span>
@@ -22,7 +28,6 @@ const NavToggle = ({ toggle }: any) => {
           closed: { display: "none" },
           open: { display: "contents" },
         }}
-        transition={{ ease: "easeIn", duration: 0.5 }}
       >
         CLOSE <TfiClose />
       </motion.span>
@@ -30,23 +35,62 @@ const NavToggle = ({ toggle }: any) => {
   );
 };
 
+function useMenuAnimation(isOpen: boolean) {
+  const [scope, animate] = useAnimate();
+
+  useEffect(() => {
+    const menuAnimations: any = isOpen
+      ? [
+          [
+            "ul",
+            { transform: "translateX(0%)" },
+            { ease: [0.08, 0.65, 0.53, 0.96], duration: 0.6 },
+          ],
+          [
+            "li",
+            { transform: "scale(1)", opacity: 1, filter: "blur(0px)" },
+            { delay: stagger(0.05), at: "-0.1" },
+          ],
+          [
+            ".contacts",
+            { opacity: 1, filter: "blur(0px)" },
+            { ease: easeIn, duration: 1 },
+          ],
+        ]
+      : [
+          [
+            ".contacts",
+            { opacity: 0, filter: "blur(10px)" },
+            { ease: easeOut, duration: 1 },
+          ],
+          [
+            "li",
+            { transform: "scale(0.5)", opacity: 0, filter: "blur(10px)" },
+            { delay: stagger(0.05, { from: "last" }), at: "<" },
+          ],
+          ["ul", { transform: "translateX(-100%)" }, { at: "-0.1" }],
+        ];
+
+    animate([...menuAnimations]);
+  }, [isOpen, animate]);
+
+  return scope;
+}
+
 export default function Menu() {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
-  const { height } = useDimensions(containerRef);
   const willChange = useWillChange();
+  const scope = useMenuAnimation(isOpen);
 
   return (
     <motion.nav
       initial={false}
       animate={isOpen ? "open" : "closed"}
-      custom={height}
       ref={containerRef}
       style={{
-        background: isOpen ? "#3c6e71" : "transparent",
-        color: isOpen ? "rgb(225, 225, 225, 1)" : "transparent",
-        height: isOpen ? "100vh" : "0vh",
-        padding: "0.5em",
+        willChange,
+        background: isOpen ? "#222424" : "transparent",
       }}
     >
       <NavToggle toggle={() => toggleOpen()} />
@@ -54,14 +98,10 @@ export default function Menu() {
         layout
         style={{
           willChange,
-          height: "100vh",
-          width: "100vw",
           display: isOpen ? "flex" : "none",
-          alignContent: "center",
-          alignItems: "center",
-          justifyContent: "space-evenly",
-          flexWrap: "wrap",
         }}
+        className="main-nav"
+        ref={scope}
       >
         <Nav />
         <Contact />

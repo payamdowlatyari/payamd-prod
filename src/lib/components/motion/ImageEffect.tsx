@@ -52,7 +52,7 @@ extend({ ImageFadeMaterial });
 
 export function FadingImage({ i1, i2 }: any) {
   const ref: any = useRef();
-  const [texture1, texture2, dispTexture] = useTexture([i1, i2, "/10.jpg"]);
+  const [texture1, texture2, dispTexture] = useTexture([i1, i2, "/13.jpg"]);
   const [hovered, setHover] = useState(false);
   useFrame(() => {
     ref.current.dispFactor = THREE.MathUtils.lerp(

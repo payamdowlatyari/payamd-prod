@@ -33,7 +33,7 @@ const Header = () => {
         willChange,
         position: "fixed",
         justifyContent: "center",
-        background: "#111",
+        background: "#222424",
         transformOrigin: "top left",
         display: "flex",
         zIndex: "102",
