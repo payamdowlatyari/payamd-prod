@@ -14,7 +14,7 @@ export default function Contact() {
         <Social />
       </div>
       <div>
-        <h5 className="small-title">Links</h5>
+        <h5 className="small-title">More</h5>
         <External />
       </div>
     </div>

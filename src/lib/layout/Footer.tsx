@@ -20,7 +20,7 @@ const Footer = () => {
   const scale = useTransform(progress, [0, 1], [0.9, 1]);
 
   return (
-    <motion.footer className="second" ref={el} layout>
+    <motion.footer ref={el} layout>
       <motion.div
         style={{
           y,

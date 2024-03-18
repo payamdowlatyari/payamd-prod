@@ -9,7 +9,6 @@ import {
   useWillChange,
 } from "framer-motion";
 import Nav from "./Nav";
-import Contact from "../../Sections/Contact";
 import { TfiClose, TfiLineDouble } from "react-icons/tfi";
 
 const NavToggle = ({ toggle }: any) => {
@@ -104,7 +103,6 @@ export default function Menu() {
         ref={scope}
       >
         <Nav />
-        <Contact />
       </motion.div>
     </motion.nav>
   );
