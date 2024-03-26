@@ -11,7 +11,6 @@ import Services from "~/lib/components/Sections/Services";
 import Header from "~/lib/layout/Header";
 import ParallaxText from "~/lib/components/motion/ParallaxText";
 import Logo from "~/lib/components/motion/Menu/Logo";
-import LineOver from "~/lib/components/motion/View/LineOver";
 
 const Home = () => {
   const ref = useRef(null);
@@ -41,10 +40,6 @@ const Home = () => {
           ease: "easeIn",
         }}
       >
-        <div className="top-links">
-          <LineOver title="01 Who I am" url="#about" />
-          <LineOver title="02 What I do" url="#services" />
-        </div>
         <div className="logo-pd">
           <Logo light size="60px" />
         </div>

@@ -11,7 +11,7 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <Box margin="0 auto" width="100%" transition="0.1s ease-out">
+    <Box margin="0 auto" width="100%">
       <GlobalCanvas style={{ pointerEvents: "none" }}>
         <ambientLight />
       </GlobalCanvas>

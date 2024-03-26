@@ -302,8 +302,8 @@ nav button svg {
 .circle {
   position: absolute;
   z-index: 100;
-  top: 40vh;
-  right: 30vw;
+  top: 70vh;
+  right: 10vw;
   aspect-ratio: 1;
 }
 
@@ -324,7 +324,7 @@ nav button svg {
 
 .small-title {
   color: inherit;
-  font-size: min(max(3vw, 24px), 36px);
+  font-size: min(max(3vw, 24px), 42px);
   margin: 5px 0;
   color: var(--light-gray);
 }
@@ -337,12 +337,10 @@ nav button svg {
 }
 
 .top-links {
-  right: 0;
-  top: 30vh;
-  position: absolute;
-  margin: 10px;
+  text-transform: uppercase;
+  margin: 20px;
   letter-spacing: 0.05vw;
-  display: inline-grid;
+  display: flex;
 }
 
 .resume-main {
@@ -575,13 +573,25 @@ nav button svg {
 }
 
 .navbar-items a {
-  font-size: min(max(8vw, 56px), 96px);
+  font-size: min(max(5vw, 52px), 84px);
+}
+
+.contact-title-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .contacts {
   display: flex;
   flex-direction: column;
   min-width: 250px;
+  min-height: 250px;
+  justify-content: flex-end;
+}
+
+.contacts > div {
+  display: flex;
+  flex-direction: row;
 }
 
 .contact-list {
@@ -615,6 +625,10 @@ h2 {
 
 .title-content {
   align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+  justify-content: space-between;
 }
 
 .blend-difference {
@@ -626,9 +640,8 @@ h2 {
 }
 
 .main-title h1 {
-  line-height: 0.4em;
   font-weight: 300;
-  font-size: min(max(68px, 15vw), 120px);
+  font-size: min(max(68px, 15vw), 102px);
 }
 
 .main-title h2 {
@@ -639,7 +652,6 @@ h2 {
 }
 
 .main-title p {
-  padding-top: 5vh;
   font-size: min(max(18px, 4vw), 32px);
   color: var(--secondary);
 }
@@ -807,7 +819,7 @@ h2 {
 
 footer {
   display: grid;
-  height: 100vh;
+  height: 80vh;
   align-items: flex-end;
 }
 
@@ -817,6 +829,13 @@ footer > div:first-child {
   align-items: center;
   justify-content: space-evenly;
 }
+
+.portfolio-title-wrapper {
+  display: flex;
+  position: fixed;
+  top: 20%;
+}
+
 .portfolio-wrapper {
   height: 500vh;
 }
@@ -929,4 +948,23 @@ footer > div:first-child {
   stroke: var(--silver);
   stroke-width: 4;
   padding: 0.3em;
+}
+
+.hover {
+  --c: linear-gradient(var(--accent) 0 0); /* update the color here */
+
+  padding-bottom: 0.1em;
+  background: var(--c), var(--c);
+  background-size: 0.5em 0.05em;
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  transition:
+    0.3s linear,
+    background-size 0.3s 0.2s linear;
+}
+.hover:hover {
+  background-size: 40% 0.05em;
+  background-position:
+    10% 100%,
+    90% 100%;
 }

@@ -1,36 +1,36 @@
-import type { Metadata, Viewport } from "next";
-
+import type { Metadata } from "next";
 import Providers from "~/app/providers";
 import Layout from "~/lib/layout";
+
+const APP_NAME = "Payam Dowlatyari";
 
 type RootLayoutProps = {
   children: React.ReactNode;
 };
 
-const APP_NAME = "Payam Dowlatyari";
-
-export const viewport: Viewport = {
-  themeColor: "#e9dfce",
-};
-
 export const metadata: Metadata = {
-  title: { default: APP_NAME, template: "%s | Portfolio" },
-  description: "Next.js +  Chakra-ui and Framer Motion",
-  metadataBase: new URL("https://nextjs-starter-lemon-sigma.vercel.app"),
+  title: {
+    default: "Home | Payam Dowlatyari",
+    template: "%s | Payam Dowlatyari",
+  },
+  description: "Payam Dowlatyari's personal website ",
+  metadataBase: new URL("https://www.payamd.com"),
   applicationName: APP_NAME,
   appleWebApp: {
     capable: true,
     title: APP_NAME,
     statusBarStyle: "default",
   },
-  keywords: ["Next.js", "React", "TypeScript"],
+  keywords: [
+    "Next.js",
+    "React",
+    "Framer Motion",
+    "Portfolio",
+    "Software Engineer",
+    "Frontend Developer",
+  ],
   formatDetection: {
     telephone: false,
-  },
-  openGraph: {
-    url: "https://nextjs-starter-lemon-sigma.vercel.app",
-    title: "Payam D",
-    description: "Animation with Next.js + Chakra-ui and Framer Motion",
   },
 };
 

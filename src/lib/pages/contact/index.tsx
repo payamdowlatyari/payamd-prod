@@ -3,11 +3,10 @@
 import "../../styles/globals.css";
 import { motion, useIsPresent } from "framer-motion";
 import Menu from "~/lib/components/motion/Menu/Menu";
-import Portfolio from "~/lib/components/Sections/Portfolio";
-import CopyRight from "~/lib/components/motion/View/CopyRight";
-import ParallaxText from "~/lib/components/motion/ParallaxText";
+import Footer from "~/lib/layout/Footer";
+import Logo from "~/lib/components/motion/Menu/Logo";
 
-const Projects = () => {
+const Contact = () => {
   const isPresent = useIsPresent();
 
   return (
@@ -20,21 +19,15 @@ const Projects = () => {
         style={{ originX: isPresent ? 0 : 1 }}
         className="privacy-screen"
       />
-
-      <div className="main-title portfolio-title-wrapper">
-        <h1>Works</h1>
+      <div className="main-title contact-title-wrapper">
+        <h1>Contact</h1>
       </div>
-      <Portfolio />
-
-      <div style={{ position: "sticky", bottom: "0", fontSize: "5em" }}>
-        <ParallaxText baseVelocity={0.01}>
-          {" "}
-          ✳︎ Portfolio ✳︎ Projects
-        </ParallaxText>
-        <CopyRight />
+      <div className="logo-pd">
+        <Logo light size="60px" />
       </div>
+      <Footer />
     </>
   );
 };
 
-export default Projects;
+export default Contact;

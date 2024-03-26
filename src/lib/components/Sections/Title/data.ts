@@ -31,6 +31,6 @@ export const portfolio = {
     "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/me-home-removebg-dotted-color.png",
   image2:
     "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/me-home-removebg-sketch.png",
-  text: [" I am", "Payam", "Dowlatyari", "a Software Engineer in California"],
+  text: [" I am", "Payam Dowlatyari", "a Software Engineer in California"],
   titles: "Sofware Engineer ✳︎ UX Designer ✳︎ Photographer Blogger ✳︎ ",
 };
