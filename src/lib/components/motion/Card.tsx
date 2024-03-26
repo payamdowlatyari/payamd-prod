@@ -1,6 +1,5 @@
 import HoverLink from "./View/HoverLink";
 import Icon from "./Icon";
-import Image from "next/image";
 
 const getTags = (tags: any) => {
   return (
@@ -16,12 +15,7 @@ export default function Card({ item }: any) {
   return (
     <figure className="portfolio-card">
       <div className="portfolio-img-wrapper">
-        <Image
-          src={item.img}
-          alt={item.title}
-          loading="lazy"
-          layout="responsive"
-        />
+        <img src={item.img} alt={item.title} />
       </div>
       <div className="portfolio-content">
         <div>

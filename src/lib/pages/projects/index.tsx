@@ -22,7 +22,7 @@ const Projects = () => {
       />
 
       <div className="main-title portfolio-title-wrapper">
-        <h1>Works</h1>
+        <h1>Projects</h1>
       </div>
       <Portfolio />
 

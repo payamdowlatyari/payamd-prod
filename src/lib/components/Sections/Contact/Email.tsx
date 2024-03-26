@@ -9,7 +9,6 @@ export default function Email() {
         out
         low
       />
-      <HoverLink title="+1 916 547 8918" url="tel:+19165478918" out low />
     </div>
   );
 }

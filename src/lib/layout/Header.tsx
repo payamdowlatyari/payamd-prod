@@ -84,28 +84,10 @@ const Header = () => {
         }}
       />
       <motion.div
-        layout
-        initial={{ opacity: 0, scale: 2 }}
-        animate={{ opacity: 1, scale: 0 }}
-        transition={{
-          duration: 3,
-          delay: 5,
-          ease: "circInOut",
-        }}
-        style={{
-          willChange,
-          position: "fixed",
-          alignSelf: "center",
-          textAlign: "center",
-        }}
-      >
-        <Logo size="400px" />
-      </motion.div>
-      <motion.div
         initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
-          transition: { duration: 1, ease: "easeOut", delay: 7.5 },
+          transition: { duration: 2, ease: "easeInOut", delay: 6 },
         }}
         layout
         style={{

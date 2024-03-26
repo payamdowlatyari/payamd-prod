@@ -556,7 +556,7 @@ nav button svg {
 }
 .navbar-container {
   display: grid;
-  min-width: 250px;
+  min-width: 200px;
   justify-content: center;
 }
 
@@ -573,7 +573,7 @@ nav button svg {
 }
 
 .navbar-items a {
-  font-size: min(max(5vw, 52px), 84px);
+  font-size: min(max(4vw, 48px), 84px);
 }
 
 .contact-title-wrapper {
@@ -581,17 +581,16 @@ nav button svg {
   justify-content: center;
 }
 
+.contact-title-wrapper h1 {
+  padding-top: 5vh;
+}
+
 .contacts {
   display: flex;
   flex-direction: column;
-  min-width: 250px;
-  min-height: 250px;
-  justify-content: flex-end;
-}
-
-.contacts > div {
-  display: flex;
-  flex-direction: row;
+  min-width: 200px;
+  max-width: 90vw;
+  justify-content: space-evenly;
 }
 
 .contact-list {
@@ -600,6 +599,7 @@ nav button svg {
 
 .contacts a {
   margin: 3px 0;
+  font-size: min(max(14px, 1vw), 16px);
 }
 
 .section-number {
@@ -641,7 +641,7 @@ h2 {
 
 .main-title h1 {
   font-weight: 300;
-  font-size: min(max(68px, 15vw), 102px);
+  font-size: min(max(58px, 12vw), 92px);
 }
 
 .main-title h2 {
@@ -827,7 +827,7 @@ footer > div:first-child {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .portfolio-title-wrapper {

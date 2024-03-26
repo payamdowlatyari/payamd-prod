@@ -1,4 +1,4 @@
-import { social } from "./data";
+import { social } from "../Title/data";
 import HoverLink from "../../motion/View/HoverLink";
 
 export default function Social() {
