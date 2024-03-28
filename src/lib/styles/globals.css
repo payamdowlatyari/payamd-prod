@@ -588,7 +588,7 @@ nav button svg {
 .contacts {
   display: flex;
   flex-direction: column;
-  min-width: 200px;
+  min-width: 225px;
   max-width: 90vw;
   justify-content: space-evenly;
 }

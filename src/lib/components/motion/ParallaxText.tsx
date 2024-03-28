@@ -8,7 +8,7 @@ import {
   useVelocity,
   useAnimationFrame,
 } from "framer-motion";
-import { wrap } from "@motionone/utils";
+import { wrap } from "./utils/wrap";
 
 interface ParallaxProps {
   children: any;
