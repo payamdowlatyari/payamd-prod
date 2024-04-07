@@ -16,8 +16,8 @@ const Footer = () => {
   }, [onScroll, progress, scrollState]);
 
   const y = useTransform(progress, [0, 1], ["-100%", "0%"]);
-  const opacity = useTransform(progress, [0, 1], [0, 1]);
-  const scale = useTransform(progress, [0, 1], [0.9, 1]);
+  const opacity = useTransform(progress, [0.75, 1], [0, 1]);
+  const scale = useTransform(progress, [0.5, 1], [0.75, 1]);
 
   return (
     <motion.footer ref={el} layout>

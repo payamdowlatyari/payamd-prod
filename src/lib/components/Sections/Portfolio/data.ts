@@ -34,6 +34,14 @@ const css =
 export default [
   {
     index: 0,
+    title: "FindADoc",
+    description: "A demo web application for finding healthcare providers",
+    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/find-a-doc1750x1000.webp",
+    url: "https://find-a-doc-app.vercel.app/",
+    tagIcon: [typescript, next, tailwind, npm, git],
+  },
+  {
+    index: 1,
     title: "Canvasfolio",
     description: "A portfolio project build with Three.js and Canvas",
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/canvasfolio1750x1000.webp",
@@ -41,7 +49,7 @@ export default [
     tagIcon: [typescript, next, npm, git],
   },
   {
-    index: 1,
+    index: 2,
     title: "My Dashbaord",
     description: "A project management user interface",
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/MyDash_Projects_1750x1000.webp",
@@ -49,7 +57,7 @@ export default [
     tagIcon: [react, redux, node, express, mongo, npm, git],
   },
   {
-    index: 2,
+    index: 3,
     title: "My Web Blog",
     description: "My personal blog about book, film, photography, and comments",
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/blog_1750x1000.webp",
@@ -57,7 +65,7 @@ export default [
     tagIcon: [typescript, next, tailwind, redis, npm, git],
   },
   {
-    index: 3,
+    index: 4,
     title: "Photos",
     description: "My photography blog for proffesionals",
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/Portfolio_anim_Photography1750x1000.webp",
@@ -65,7 +73,7 @@ export default [
     tagIcon: [typescript, next, tailwind, npm, git],
   },
   {
-    index: 4,
+    index: 5,
     title: "Algorithms for Life",
     description: "A GUI for learning Data Structure and Algorithms",
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/algorithms_2100x1200.webp",
@@ -73,7 +81,7 @@ export default [
     tagIcon: [typescript, next, tailwind, npm, git],
   },
   {
-    index: 5,
+    index: 6,
     title: "Nextfolio",
     description: "A portfolio website build for professionals",
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/nextfolio_1925x1100.webp",
@@ -81,7 +89,7 @@ export default [
     tagIcon: [typescript, next, tailwind, npm, git],
   },
   {
-    index: 6,
+    index: 7,
     title: "Paper Browser",
     description: "A research manegement user intrface",
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/paper_browser_1750x1000.webp",
@@ -89,7 +97,7 @@ export default [
     tagIcon: [typescript, angular, bootstrap, npm, git],
   },
   {
-    index: 7,
+    index: 8,
     title: "Admin Web Portal",
     description: "A full-stack admin application",
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/CalPlug_2100x1200.webp",
@@ -97,7 +105,7 @@ export default [
     tagIcon: [react, redux, node, express, mongo, npm, git],
   },
   {
-    index: 8,
+    index: 9,
     title: "M-Studios",
     description: "A responsive business portfolio",
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/m-studios_1260x720.webp",
