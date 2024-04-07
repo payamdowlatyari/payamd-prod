@@ -5,6 +5,7 @@ import { motion, useIsPresent } from "framer-motion";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import Footer from "~/lib/layout/Footer";
 import Logo from "~/lib/components/motion/Menu/Logo";
+import { SendMail } from "~/lib/components/Sections/Contact/SendMail";
 
 const Contact = () => {
   const isPresent = useIsPresent();
@@ -22,9 +23,12 @@ const Contact = () => {
       <div className="main-title contact-title-wrapper">
         <h1>Contact</h1>
       </div>
+
       <div className="logo-pd">
         <Logo light size="60px" />
       </div>
+
+      <SendMail />
       <Footer />
     </>
   );

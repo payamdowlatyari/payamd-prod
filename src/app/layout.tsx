@@ -13,7 +13,8 @@ export const metadata: Metadata = {
     default: "Home | Payam Dowlatyari",
     template: "%s | Payam Dowlatyari",
   },
-  description: "Payam Dowlatyari's personal website ",
+  description:
+    "Payam Dowlatyari's personal website. The first page includes a short description about Payam, and a list of services and skills he offers.",
   metadataBase: new URL("https://www.payamd.com"),
   applicationName: APP_NAME,
   appleWebApp: {

@@ -6,20 +6,20 @@ import Phone from "./Phone";
 export default function Contacts() {
   return (
     <div className="contacts">
-      <div>
+      <div className="contacts-section">
         <h5 className="small-title">Email</h5>
         <Email />
       </div>
-      <div>
+      <div className="contacts-section">
         <h5 className="small-title">Phone</h5>
         <Phone />
       </div>
-      <div>
+      <div className="contacts-section">
         <h5 className="small-title">Social</h5>
         <Social />
       </div>
-      <div>
-        <h5 className="small-title">More</h5>
+      <div className="contacts-section">
+        <h5 className="small-title">Links</h5>
         <External />
       </div>
     </div>

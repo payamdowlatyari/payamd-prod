@@ -29,6 +29,7 @@
     "@chakra-ui/next-js": "^2.2.0",
     "@chakra-ui/react": "^2.8.2",
     "@codaworks/react-glow": "^1.0.6",
+    "@emailjs/browser": "^4.3.3",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@fontsource/poppins": "^5.0.12",
@@ -37,6 +38,8 @@
     "@react-three/drei": "^9.102.6",
     "@react-three/fiber": "^8.16.0",
     "framer-motion": "^10.18.0",
+    "html2canvas": "^1.4.1",
+    "leva": "^0.9.35",
     "lodash": "^4.17.21",
     "motion": "^10.17.0",
     "next": "14.1.1-canary.43",
@@ -46,6 +49,7 @@
     "react-icons": "^4.12.0",
     "react-stagger-text": "^1.1.0",
     "three": "^0.160.1",
+    "three-custom-shader-material": "^5.4.0",
     "use-scramble": "^2.2.15"
   },
   "devDependencies": {
@@ -80,7 +84,8 @@
     "prettier": "^3.2.5",
     "standard-version": "^9.5.0",
     "storybook": "^8.0.5",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.3",
+    "webpack-glsl-loader": "^1.0.1"
   },
   "engines": {
     "node": ">=16.x.x",

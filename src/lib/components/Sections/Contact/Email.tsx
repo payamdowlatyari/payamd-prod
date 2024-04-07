@@ -4,8 +4,8 @@ export default function Email() {
   return (
     <div className="contact-list">
       <HoverLink
-        title="contact@payamd.com"
-        url="mailto:contact@payamd.com"
+        title="pdowlatyari@gmail.com"
+        url="mailto:pdowlatyari@gmail.com"
         out
         low
       />
