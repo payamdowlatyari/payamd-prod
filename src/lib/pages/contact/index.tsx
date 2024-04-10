@@ -22,6 +22,7 @@ const Contact = () => {
       />
       <div className="main-title contact-title-wrapper">
         <h1>Contact</h1>
+        <p>Get in touch with me</p>
       </div>
 
       <div className="logo-pd">

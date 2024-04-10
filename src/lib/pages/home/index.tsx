@@ -8,9 +8,9 @@ import Title from "~/lib/components/Sections/Title";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import Footer from "~/lib/layout/Footer";
 import Services from "~/lib/components/Sections/Services";
-import Header from "~/lib/layout/Header";
 import ParallaxText from "~/lib/components/motion/ParallaxText";
 import Logo from "~/lib/components/motion/Menu/Logo";
+import Header from "~/lib/layout/Header";
 
 const Home = () => {
   const ref = useRef(null);

@@ -1,20 +1,20 @@
-import LineBelow from "../View/LineBelow";
+import HoverLink from "../View/HoverLink";
 
 export default function Nav() {
   return (
     <div className="navbar-container">
       <ul className="navbar-items">
         <li>
-          <LineBelow title="Home" url="/" />
+          <HoverLink title="Home" url="/" />
         </li>
         <li>
-          <LineBelow title="About" url="/about" />
+          <HoverLink title="About" url="/about" />
         </li>
         <li>
-          <LineBelow title="Projects" url="/projects" />
+          <HoverLink title="Projects" url="/projects" />
         </li>
         <li>
-          <LineBelow title="Contact" url="/contact" />
+          <HoverLink title="Contact" url="/contact" />
         </li>
       </ul>
     </div>

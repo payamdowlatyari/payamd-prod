@@ -133,7 +133,7 @@
 //         </div>
 //       </Html>
 //       <mesh>
-//         {/* <planeGeometry args={[width, height, 254, 254]} /> */}
+//         <planeGeometry args={[width, height, 254, 254]} />
 //         <CustomShaderMaterial
 //           ref={materialRef}
 //           baseMaterial={THREE.MeshStandardMaterial}

@@ -1,7 +1,7 @@
 import ParallaxText from "../../motion/ParallaxText";
 import { portfolio } from "./data";
 import TextSpinner from "../../motion/TextSpinner";
-import LineBelow from "../../motion/View/LineBelow";
+import HoverLink from "../../motion/View/HoverLink";
 
 const Title = () => {
   return (
@@ -14,8 +14,12 @@ const Title = () => {
             <p>{portfolio.text[2]}</p>
           </div>
           <div className="top-links">
-            <LineBelow title="01 Who I am" url="#about" />
-            <LineBelow title="02 What I do" url="#services" />
+            <div>
+              <HoverLink title="01 Who I am" url="#about" />
+            </div>
+            <div>
+              <HoverLink title="02 What I do" url="#services" />
+            </div>
           </div>
         </div>
         <TextSpinner />

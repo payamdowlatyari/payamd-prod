@@ -8,8 +8,8 @@ import {
   useCycle,
   useWillChange,
 } from "framer-motion";
-import Nav from "./Nav";
 import { TfiClose, TfiLineDouble } from "react-icons/tfi";
+import TopNav from "./TopNav";
 
 const NavToggle = ({ toggle }: any) => {
   return (
@@ -102,7 +102,7 @@ export default function Menu() {
         className="main-nav"
         ref={scope}
       >
-        <Nav />
+        <TopNav />
       </motion.div>
     </motion.nav>
   );

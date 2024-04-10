@@ -1,5 +1,5 @@
 import Icon from "../../motion/Icon";
-import { frontend, backend, devops } from "../../data/icons";
+import { uxui, frontend, backend, devops } from "../../data/icons";
 import { FcTodoList } from "react-icons/fc";
 
 const displayByGroup = (icon: any) => {
@@ -29,6 +29,7 @@ export default function Skills() {
       </div>
       <h3>Skills</h3>
       <div className="resume-skills-content">
+        <FilterByGroup group={uxui} />
         <FilterByGroup group={frontend} />
         <FilterByGroup group={backend} />
         <FilterByGroup group={devops} />
