@@ -8,10 +8,31 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 import { data } from "./data";
-import HoverLink from "../../motion/View/HoverLink";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
-import TextReveal from "../../motion/TextReveal";
-import StaggerText from "react-stagger-text";
+import { GrSecure } from "react-icons/gr";
+import { BsDatabaseCheck } from "react-icons/bs";
+import { MdOutlineDevicesOther } from "react-icons/md";
+import { TbDeviceDesktopCode } from "react-icons/tb";
+import { HiOutlineCommandLine } from "react-icons/hi2";
+import { IoMdSwitch } from "react-icons/io";
+
+const serviceIcon = (id: number) => {
+  switch (id) {
+    case 1:
+      return <IoMdSwitch />;
+    case 2:
+      return <MdOutlineDevicesOther />;
+    case 3:
+      return <TbDeviceDesktopCode />;
+    case 4:
+      return <HiOutlineCommandLine />;
+    case 5:
+      return <BsDatabaseCheck />;
+    case 6:
+      return <GrSecure />;
+    default:
+      return <GrSecure />;
+  }
+};
 
 const FadeInItem = ({ service }: any) => {
   const ref = useRef(null);
@@ -26,28 +47,27 @@ const FadeInItem = ({ service }: any) => {
             layout
             style={{
               willChange,
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              flexDirection: service.id % 2 > 0 ? "row-reverse" : "row",
             }}
           >
-            <h2>
-              <StaggerText
-                staggerType="letter"
-                staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"
-                staggerDuration={1}
-                startDelay={0.5}
-              >
-                {service.name}
-              </StaggerText>
-            </h2>
-            <p>
-              <StaggerText
-                staggerType="word"
-                staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"
-                staggerDuration={0.5}
-                startDelay={0.1}
-              >
-                {service.text}
-              </StaggerText>
-            </p>
+            <motion.div
+              className="service-icon"
+              initial={{ x: service.id % 2 > 0 ? 50 : -50 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.75, ease: "easeOut" }}
+              style={{
+                willChange,
+              }}
+            >
+              {serviceIcon(service.id)}
+            </motion.div>
+            <div>
+              <h2>{service.name}</h2>
+              <p>{service.text}</p>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -69,22 +89,6 @@ export default function Services() {
       className="service-wrapper"
       layoutScroll
     >
-      <div className="sec-side">
-        <div>
-          <h4>
-            <TextReveal text="About" />
-          </h4>
-          <HoverLink title="resume and skills" url="/about" />
-          <ArrowForwardIcon />
-        </div>
-        <div>
-          <h4>
-            <TextReveal text="Portfolio" />
-          </h4>
-          <HoverLink title="my recent projects" url="/projects" />
-          <ArrowForwardIcon />
-        </div>
-      </div>
       <motion.div
         className="section-number"
         style={{

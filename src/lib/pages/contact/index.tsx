@@ -20,16 +20,17 @@ const Contact = () => {
         style={{ originX: isPresent ? 0 : 1 }}
         className="privacy-screen"
       />
-      <div className="main-title contact-title-wrapper">
-        <h1>Contact</h1>
-        <p>Get in touch with me</p>
+      <div className="contact-wrapper">
+        <div className="main-title contact-title-wrapper">
+          <h1>Contact</h1>
+          <p>Get in touch with me</p>
+          <SendMail />
+        </div>
       </div>
 
       <div className="logo-pd">
         <Logo light size="60px" />
       </div>
-
-      <SendMail />
       <Footer />
     </>
   );

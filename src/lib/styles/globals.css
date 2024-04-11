@@ -501,9 +501,12 @@ nav button svg {
 .service-section {
   padding: 2vw;
   margin: 1vw 0;
-  width: 500px;
   min-height: 50vh;
   max-width: 95vw;
+}
+
+.service-section > div > div {
+  width: 500px;
 }
 
 .service-wrapper {
@@ -529,6 +532,13 @@ nav button svg {
 .service-section p {
   font-size: min(max(1vw, 18px), 32px);
   font-weight: 100;
+}
+
+.service-icon {
+  font-size: min(max(15vw, 96px), 120px);
+  padding: 1vw;
+  display: flex;
+  flex-direction: inherit;
 }
 
 .about-section {
@@ -605,7 +615,11 @@ nav button svg {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 10vh;
+}
+
+.contact-wrapper {
+  top: 20vh;
+  position: relative;
 }
 
 .contacts {
@@ -972,8 +986,8 @@ footer > div:last-child {
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
-  align-content: space-around;
+  align-items: center;
+  align-content: center;
   flex-direction: column;
   min-height: 25vh;
   justify-content: space-evenly;
