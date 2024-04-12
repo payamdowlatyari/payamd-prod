@@ -17,7 +17,7 @@ export default function TopNav() {
         <li>
           <LinkReveal
             title="Projects"
-            sub="Check out some of my recent projects"
+            sub="My work portfolio and recent projects"
             url="/projects"
           />
         </li>
