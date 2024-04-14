@@ -40,7 +40,7 @@ const FadeInItem = ({ service }: any) => {
   const isInView = useInView(ref);
 
   return (
-    <motion.div layout ref={ref} className="service-section">
+    <motion.div layout ref={ref} className="service-section second">
       <AnimatePresence initial={false}>
         {isInView && (
           <motion.div
@@ -55,7 +55,7 @@ const FadeInItem = ({ service }: any) => {
           >
             <motion.div
               className="service-icon"
-              initial={{ x: service.id % 2 > 0 ? 50 : -50 }}
+              initial={{ x: service.id % 2 > 0 ? 100 : -100 }}
               animate={{ x: 0 }}
               transition={{ duration: 0.75, ease: "easeOut" }}
               style={{

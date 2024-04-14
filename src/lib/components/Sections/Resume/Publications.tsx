@@ -10,7 +10,7 @@ const Publications = () => {
         <FcNews />
       </div>
       <h3>Publications</h3>
-      <div className="resume-content">
+      <div className="resume-content second">
         {publication?.map((item) => {
           return (
             <>

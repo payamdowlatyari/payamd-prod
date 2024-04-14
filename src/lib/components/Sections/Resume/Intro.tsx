@@ -18,7 +18,6 @@ export default function Intro() {
       </div>
       <motion.div
         layout
-        className="medium-title intro-text"
         style={{
           willChange,
           y,

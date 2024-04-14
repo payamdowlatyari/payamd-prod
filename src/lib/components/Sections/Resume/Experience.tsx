@@ -9,7 +9,7 @@ const Experience = () => {
         <FcBriefcase />
       </div>
       <h3>Experience</h3>
-      <div className="resume-content">
+      <div className="resume-content second">
         {experience?.map((item) => {
           return (
             <>

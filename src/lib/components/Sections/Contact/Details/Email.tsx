@@ -1,8 +1,8 @@
-import HoverLink from "../../motion/View/HoverLink";
+import HoverLink from "../../../motion/View/HoverLink";
 
 export default function Email() {
   return (
-    <div className="contact-list">
+    <div>
       <HoverLink
         title="pdyari@gmail.com"
         url="mailto:pdyari@gmail.com"

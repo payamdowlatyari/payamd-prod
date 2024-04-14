@@ -8,7 +8,7 @@ const displayByGroup = (icon: any) => {
 
 export const FilterByGroup = ({ group }: any) => {
   return (
-    <div className="skill-group">
+    <div className="skill-group second">
       <div className="skills-header">
         <h4>{group[0].group}</h4>
       </div>

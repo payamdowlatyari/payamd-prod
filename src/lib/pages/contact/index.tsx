@@ -5,7 +5,7 @@ import { motion, useIsPresent } from "framer-motion";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import Footer from "~/lib/layout/Footer";
 import Logo from "~/lib/components/motion/Menu/Logo";
-import { SendMail } from "~/lib/components/Sections/Contact/SendMail";
+import ContactPage from "~/lib/components/Sections/Contact";
 
 const Contact = () => {
   const isPresent = useIsPresent();
@@ -20,14 +20,8 @@ const Contact = () => {
         style={{ originX: isPresent ? 0 : 1 }}
         className="privacy-screen"
       />
-      <div className="contact-wrapper">
-        <div className="main-title contact-title-wrapper">
-          <h1>Contact</h1>
-          <p>Get in touch with me</p>
-          <SendMail />
-        </div>
-      </div>
 
+      <ContactPage />
       <div className="logo-pd">
         <Logo light size="60px" />
       </div>

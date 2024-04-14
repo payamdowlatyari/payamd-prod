@@ -1,4 +1,4 @@
-import Contact from "../components/Sections/Contact";
+import Contact from "../components/Sections/Contact/Details";
 import Nav from "../components/motion/Menu/Nav";
 import CopyRight from "../components/motion/View/CopyRight";
 import { useRef, useEffect, MutableRefObject } from "react";

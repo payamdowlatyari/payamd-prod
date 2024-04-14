@@ -9,7 +9,7 @@ const Education = () => {
         <FcGraduationCap />
       </div>
       <h3>Education</h3>
-      <div className="resume-content">
+      <div className="resume-content second">
         {education?.map((item) => {
           return (
             <>

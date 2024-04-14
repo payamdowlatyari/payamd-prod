@@ -21,7 +21,7 @@ const Projects = () => {
         className="privacy-screen"
       />
 
-      <div className="main-title portfolio-title-wrapper">
+      <div className="portfolio-title-wrapper">
         <h1>Projects</h1>
       </div>
       <Portfolio />

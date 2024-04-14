@@ -1,16 +1,16 @@
 import { Text, Flex, Box, Spacer } from "@chakra-ui/react";
 import { certificate } from "./data";
 import HoverLink from "../../motion/View/HoverLink";
-import { FcDiploma2 } from "react-icons/fc";
+import { FcDiploma1 } from "react-icons/fc";
 
 const Certificates = () => {
   return (
     <div className="resume-section">
       <div className="resume-header">
-        <FcDiploma2 />
+        <FcDiploma1 />
       </div>
       <h3>Certificates</h3>
-      <div className="resume-content">
+      <div className="resume-content second">
         {certificate?.map((item) => {
           return (
             <>

@@ -24,7 +24,7 @@ export default function About() {
       <motion.div
         ref={ref}
         layout
-        className="about-section"
+        className="about-section second"
         style={{
           willChange,
         }}

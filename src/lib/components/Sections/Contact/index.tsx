@@ -1,27 +1,15 @@
-import Social from "./Social";
-import Email from "./Email";
-import External from "./External";
-import Phone from "./Phone";
+import { SendMail } from "./SendMail";
 
-export default function Contacts() {
+export default function ContactPage() {
   return (
-    <div className="contacts">
-      <div className="contacts-section">
-        <h5 className="small-title">Email</h5>
-        <Email />
+    <section>
+      <div className="contact-form-wrapper">
+        <div>
+          <h1>Contact</h1>
+          <p>Get in touch with me</p>
+          <SendMail />
+        </div>
       </div>
-      <div className="contacts-section">
-        <h5 className="small-title">Phone</h5>
-        <Phone />
-      </div>
-      <div className="contacts-section">
-        <h5 className="small-title">Social</h5>
-        <Social />
-      </div>
-      <div className="contacts-section">
-        <h5 className="small-title">Links</h5>
-        <External />
-      </div>
-    </div>
+    </section>
   );
 }
