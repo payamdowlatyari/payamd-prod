@@ -24,12 +24,12 @@ export default function About() {
       <motion.div
         ref={ref}
         layout
-        className="about-section second"
+        className="about-section"
         style={{
           willChange,
         }}
       >
-        <div className="about-wrapper">
+        <div className="about-wrapper second">
           <AnimatePresence initial={false}>
             {isInView && (
               <motion.div
@@ -37,13 +37,6 @@ export default function About() {
                 style={{
                   willChange,
                   padding: "10px",
-                }}
-                initial={{ opacity: 0, y: 25 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 1,
-                  delay: 0.3,
-                  ease: "easeInOut",
                 }}
               >
                 <h3>

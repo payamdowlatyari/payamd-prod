@@ -435,10 +435,12 @@ section {
 /* service  */
 
 .service-section {
-  padding: 2vw;
+  padding: 1vw 2vw;
   margin: 1vw 0;
-  min-height: 50vh;
+  min-height: 40vh;
   max-width: 95vw;
+  border-radius: 5px;
+  mix-blend-mode: difference;
 }
 
 .service-section > div > div {
@@ -489,7 +491,8 @@ section {
 
 .about-wrapper {
   max-width: 750px;
-  margin: auto 1vw;
+  border-radius: 5px;
+  mix-blend-mode: difference;
 }
 
 .about-image {
