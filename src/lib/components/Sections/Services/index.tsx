@@ -34,10 +34,10 @@ const serviceIcon = (id: number) => {
   }
 };
 
-const FadeInItem = ({ service }: any) => {
+const ServiceItem = ({ service }: any) => {
   const ref = useRef(null);
   const willChange = useWillChange();
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, { once: true });
 
   return (
     <motion.div layout ref={ref} className="service-section second">
@@ -45,6 +45,9 @@ const FadeInItem = ({ service }: any) => {
         {isInView && (
           <motion.div
             layout
+            initial={{ y: 200 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.5, ease: "easeIn" }}
             style={{
               willChange,
               display: "flex",
@@ -57,7 +60,7 @@ const FadeInItem = ({ service }: any) => {
               className="service-icon"
               initial={{ x: service.id % 2 > 0 ? 100 : -100 }}
               animate={{ x: 0 }}
-              transition={{ duration: 0.75, ease: "easeOut" }}
+              transition={{ delay: 0.5, duration: 0.75, ease: "easeOut" }}
               style={{
                 willChange,
               }}
@@ -101,7 +104,7 @@ export default function Services() {
       </motion.div>
       <div className="service-container">
         {data?.map((service) => {
-          return <FadeInItem service={service} />;
+          return <ServiceItem service={service} />;
         })}
       </div>
     </motion.section>

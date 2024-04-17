@@ -14,19 +14,18 @@ const Header = () => {
   const willChange = useWillChange();
 
   useEffect(() => {
-    const animation = animate(count, 100, { duration: 4, delay: 0 });
-
+    const animation = animate(count, 100, { duration: 3, delay: 0 });
     return animation.stop;
   }, [count]);
 
   return (
     <motion.div
       layout
-      initial={{ scaleY: 1, scaleX: 1 }}
-      animate={{ scaleY: 0, scaleX: 0 }}
+      initial={{ y: "0%" }}
+      animate={{ y: "-100%" }}
       transition={{
         duration: 2,
-        delay: 9,
+        delay: 7,
         ease: "anticipate",
       }}
       style={{
@@ -34,7 +33,7 @@ const Header = () => {
         position: "fixed",
         justifyContent: "center",
         background: "#222424",
-        transformOrigin: "top left",
+        transformOrigin: "top",
         display: "flex",
         zIndex: "102",
         top: "0",
@@ -48,7 +47,7 @@ const Header = () => {
         animate={{ opacity: 0, zIndex: "-100" }}
         transition={{
           duration: 1,
-          delay: 5,
+          delay: 3,
           ease: "circIn",
         }}
         layout
@@ -61,33 +60,11 @@ const Header = () => {
         <motion.span>{rounded}</motion.span>
         <span>%</span>
       </motion.div>
-      <motion.span
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 0 }}
-        transition={{
-          duration: 1,
-          delay: 5,
-          ease: "linear",
-        }}
-        layout
-        style={{
-          willChange,
-          height: "100%",
-          width: `1%`,
-          scaleX: rounded,
-          background: "#fff",
-          mixBlendMode: "difference",
-          transformOrigin: "0%",
-          position: "fixed",
-          left: "0",
-          bottom: "0",
-        }}
-      />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
-          transition: { duration: 2, ease: "easeInOut", delay: 6 },
+          transition: { duration: 2, ease: "easeIn", delay: 4 },
         }}
         layout
         style={{

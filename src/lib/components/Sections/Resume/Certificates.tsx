@@ -9,29 +9,31 @@ const Certificates = () => {
       <div className="resume-header">
         <FcDiploma1 />
       </div>
-      <h3>Certificates</h3>
-      <div className="resume-content second">
-        {certificate?.map((item) => {
-          return (
-            <>
-              <Flex p={4}>
-                <Box>
-                  <HoverLink title={item.major} url={item.link} out />
-                  <Text fontSize="sm" pl={2}>
-                    {item.school}
-                  </Text>
-                </Box>
-                <Spacer />
-                <Box>
-                  <Text fontSize="xs">{item.date}</Text>
-                </Box>
-              </Flex>
-              <Text px={6} fontSize="xs">
-                {item.description}
-              </Text>
-            </>
-          );
-        })}
+      <div className="resume-body">
+        <h3>Certificates</h3>
+        <div className="resume-content second">
+          {certificate?.map((item) => {
+            return (
+              <>
+                <Flex p={4}>
+                  <Box>
+                    <HoverLink title={item.major} url={item.link} out />
+                    <Text fontSize="sm" pl={2}>
+                      {item.school}
+                    </Text>
+                  </Box>
+                  <Spacer />
+                  <Box>
+                    <Text fontSize="xs">{item.date}</Text>
+                  </Box>
+                </Flex>
+                <Text px={6} fontSize="xs">
+                  {item.description}
+                </Text>
+              </>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

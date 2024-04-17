@@ -27,12 +27,14 @@ export default function Skills() {
       <div className="resume-header">
         <FcTodoList />
       </div>
-      <h3>Skills</h3>
-      <div className="resume-skills-content">
-        <FilterByGroup group={uxui} />
-        <FilterByGroup group={frontend} />
-        <FilterByGroup group={backend} />
-        <FilterByGroup group={devops} />
+      <div className="resume-body">
+        <h3>Skills</h3>
+        <div className="resume-skills-content">
+          <FilterByGroup group={uxui} />
+          <FilterByGroup group={frontend} />
+          <FilterByGroup group={backend} />
+          <FilterByGroup group={devops} />
+        </div>
       </div>
     </div>
   );

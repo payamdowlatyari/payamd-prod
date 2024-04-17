@@ -14,7 +14,7 @@ import StaggerText from "react-stagger-text";
 export default function About() {
   const ref = useRef(null);
   const willChange = useWillChange();
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, { once: true });
 
   const { scrollY } = useScroll({ target: ref });
   const y = useTransform(scrollY, [500, 1200], [-100, 400]);
@@ -36,7 +36,7 @@ export default function About() {
                 layout
                 style={{
                   willChange,
-                  padding: "10px",
+                  padding: "20px",
                 }}
               >
                 <h3>

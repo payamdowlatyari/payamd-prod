@@ -9,25 +9,27 @@ const Publications = () => {
       <div className="resume-header">
         <FcNews />
       </div>
-      <h3>Publications</h3>
-      <div className="resume-content second">
-        {publication?.map((item) => {
-          return (
-            <>
-              <Flex p={2}>
-                <Box>
-                  <HoverLink title={item.title} url={item.link} out />
-                </Box>
-                <Spacer />
-                <Text fontSize="xs">{item.date}</Text>
-              </Flex>
+      <div className="resume-body">
+        <h3>Publications</h3>
+        <div className="resume-content second">
+          {publication?.map((item) => {
+            return (
+              <>
+                <Flex p={2}>
+                  <Box>
+                    <HoverLink title={item.title} url={item.link} out />
+                  </Box>
+                  <Spacer />
+                  <Text fontSize="xs">{item.date}</Text>
+                </Flex>
 
-              <Box px={4}>
-                <Text fontSize="xs">{item.description}</Text>
-              </Box>
-            </>
-          );
-        })}
+                <Box px={4}>
+                  <Text fontSize="xs">{item.description}</Text>
+                </Box>
+              </>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

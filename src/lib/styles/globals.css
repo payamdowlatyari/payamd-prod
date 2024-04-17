@@ -327,17 +327,21 @@ section {
   height: 100vh;
   align-items: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
 }
 
 .resume-header {
   display: flex;
-  font-size: 40vw;
+  font-size: 75vw;
   position: absolute;
   opacity: 0.5;
   z-index: -1;
-  transform: translateX(-30vw) translateY(-5vh);
+}
+
+.resume-body {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .resume-content {
@@ -357,13 +361,14 @@ section {
 .resume-section h3 {
   font-size: min(max(10vw, 50px), 96px);
   margin-top: 0;
+  padding: 1vw;
 }
 
 .resume-skills-content {
   display: flex;
   flex-wrap: wrap;
-  min-height: 50vh;
-  min-width: 80vw;
+  width: 800px;
+  max-width: 95vw;
   justify-content: center;
 }
 
@@ -385,7 +390,8 @@ section {
   border-radius: 5px;
   transform: scale(1);
   transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  width: 300px;
+  width: 350px;
+  padding: 1em;
 }
 
 .resume-skills-content .skill-group:hover {
@@ -485,6 +491,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  border-radius: 5px;
   width: 100%;
   padding: 1vw;
 }
@@ -536,7 +543,7 @@ nav button {
   z-index: 101;
   top: 5px;
   right: 15px;
-  color: var(--secondary);
+  color: var(--accent);
   display: flex;
   align-items: center;
 }
@@ -612,6 +619,7 @@ nav button svg {
   margin: auto;
   width: 500px;
   max-width: 95vw;
+  margin: 1vh;
 }
 
 .contact-form input,
@@ -647,6 +655,7 @@ textarea {
   max-width: 90vw;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   margin: auto;
 }
 
@@ -690,7 +699,7 @@ textarea {
 
 .main-title p {
   font-size: min(max(24px, 3vw), 48px);
-  /* color: var(--secondary); */
+  margin: 0 10px;
 }
 
 /* footer  */

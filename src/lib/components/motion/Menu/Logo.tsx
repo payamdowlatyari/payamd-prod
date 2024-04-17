@@ -9,7 +9,7 @@ export default function Logo({ light, size }: any) {
           height={size}
         />
       ) : (
-        <img src="newlogo-light2-removebg.webp" alt="logo" />
+        <img src="newlogo-dark1-removebg.webp" alt="logo" />
       )}
     </a>
   );
