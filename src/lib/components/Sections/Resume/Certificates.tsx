@@ -1,7 +1,7 @@
 import { Text, Flex, Box, Spacer } from "@chakra-ui/react";
 import { certificate } from "./data";
-import HoverLink from "../../motion/View/HoverLink";
 import { FcDiploma1 } from "react-icons/fc";
+import LinkOut from "../../motion/View/LinkOut";
 
 const Certificates = () => {
   return (
@@ -17,7 +17,7 @@ const Certificates = () => {
               <>
                 <Flex p={4}>
                   <Box>
-                    <HoverLink title={item.major} url={item.link} out />
+                    <LinkOut title={item.major} url={item.link} out />
                     <Text fontSize="sm" pl={2}>
                       {item.school}
                     </Text>

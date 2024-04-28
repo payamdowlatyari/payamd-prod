@@ -1,11 +1,11 @@
 import { social } from "../../Title/data";
-import HoverLink from "../../../motion/View/HoverLink";
+import LinkOut from "~/lib/components/motion/View/LinkOut";
 
 export default function Social() {
   return (
     <div>
       {social.map((item) => {
-        return <HoverLink title={item.name} url={item.url} out />;
+        return <LinkOut title={item.name} url={item.url} out />;
       })}
     </div>
   );

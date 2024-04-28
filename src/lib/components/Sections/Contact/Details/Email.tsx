@@ -1,14 +1,9 @@
-import HoverLink from "../../../motion/View/HoverLink";
+import LinkOut from "~/lib/components/motion/View/LinkOut";
 
 export default function Email() {
   return (
     <div>
-      <HoverLink
-        title="pdyari@gmail.com"
-        url="mailto:pdyari@gmail.com"
-        out
-        low
-      />
+      <LinkOut title="pdyari@gmail.com" url="mailto:pdyari@gmail.com" out low />
     </div>
   );
 }

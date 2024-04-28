@@ -1,7 +1,7 @@
 import { Text, Box, Spacer, Flex } from "@chakra-ui/react";
 import { publication } from "./data";
-import HoverLink from "../../motion/View/HoverLink";
 import { FcNews } from "react-icons/fc";
+import LinkOut from "../../motion/View/LinkOut";
 
 const Publications = () => {
   return (
@@ -17,7 +17,7 @@ const Publications = () => {
               <>
                 <Flex p={2}>
                   <Box>
-                    <HoverLink title={item.title} url={item.link} out />
+                    <LinkOut title={item.title} url={item.link} out />
                   </Box>
                   <Spacer />
                   <Text fontSize="xs">{item.date}</Text>

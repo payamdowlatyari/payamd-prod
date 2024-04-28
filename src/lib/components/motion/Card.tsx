@@ -1,5 +1,5 @@
-import HoverLink from "./View/HoverLink";
 import Icon from "./Icon";
+import LinkOut from "./View/LinkOut";
 
 const getTags = (tags: any) => {
   return (
@@ -19,7 +19,7 @@ export default function Card({ item }: any) {
       </div>
       <div className="portfolio-content">
         <div>
-          <HoverLink url={item.url} title={item.title} out size="1.25em" />
+          <LinkOut url={item.url} title={item.title} out size="1.25em" />
           <p>{item.description}</p>
         </div>
         {getTags(item.tagIcon)}

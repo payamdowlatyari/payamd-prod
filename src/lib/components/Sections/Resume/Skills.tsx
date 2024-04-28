@@ -29,7 +29,7 @@ export default function Skills() {
       </div>
       <div className="resume-body">
         <h3>Skills</h3>
-        <div className="resume-skills-content">
+        <div className="resume-skills-content second">
           <FilterByGroup group={uxui} />
           <FilterByGroup group={frontend} />
           <FilterByGroup group={backend} />
