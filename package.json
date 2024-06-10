@@ -21,7 +21,8 @@
     "push-release": "git push --follow-tags origin main",
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "@14islands/r3f-scroll-rig": "^8.13.1",
