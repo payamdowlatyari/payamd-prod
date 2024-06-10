@@ -19,4 +19,15 @@ module.exports = withPWA({
   images: {
     domains: ["storage.googleapis.com"],
   },
+  ransformer: {
+    getTransformOptions: async () => ({
+      transform: {
+        experimentalImportSupport: false,
+        inlineRequires: false,
+      },
+    }),
+  },
+  resolver: {
+    sourceExts: ['jsx', 'js', 'ts', 'tsx', 'cjs', 'json'] //add here
+  },
 });
