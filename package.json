@@ -55,6 +55,7 @@
     "tailwind-merge": "^2.3.0",
     "three": "^0.160.1",
     "three-custom-shader-material": "^5.4.0",
+    "turbo": "^2.0.3",
     "use-scramble": "^2.2.15"
   },
   "devDependencies": {
