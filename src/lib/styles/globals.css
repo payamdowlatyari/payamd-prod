@@ -350,7 +350,7 @@ section {
 
 .resume-header {
   display: flex;
-  font-size: 75vw;
+  font-size: 50vw;
   position: absolute;
   opacity: 0.5;
   z-index: -1;
@@ -359,6 +359,8 @@ section {
 .resume-body {
   display: flex;
   flex-wrap: wrap;
+  max-width: 90vw;
+  justify-content: center;
 }
 
 .resume-content {
@@ -375,7 +377,7 @@ section {
   transition: 0.35s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.resume-section h3 {
+.resume-title h3 {
   font-size: min(max(10vw, 50px), 96px);
   margin-top: 0;
   padding: 1vw;

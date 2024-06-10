@@ -2,41 +2,40 @@ import { Text, Flex, Box, Spacer } from "@chakra-ui/react";
 import { certificate } from "./data";
 import { FcDiploma1 } from "react-icons/fc";
 import LinkOut from "../../motion/View/LinkOut";
+import React from "react";
 
-const Certificates = () => {
-  return (
-    <div className="resume-section">
-      <div className="resume-header">
-        <FcDiploma1 />
-      </div>
-      <div className="resume-body">
+const Certificates = () => (
+  <div className="resume-section">
+    <div className="resume-header">
+      <FcDiploma1 />
+    </div>
+    <div className="resume-body">
+      <div className="resume-title">
         <h3>Certificates</h3>
-        <div className="resume-content second">
-          {certificate?.map((item) => {
-            return (
-              <>
-                <Flex p={4}>
-                  <Box>
-                    <LinkOut title={item.major} url={item.link} out />
-                    <Text fontSize="sm" pl={2}>
-                      {item.school}
-                    </Text>
-                  </Box>
-                  <Spacer />
-                  <Box>
-                    <Text fontSize="xs">{item.date}</Text>
-                  </Box>
-                </Flex>
-                <Text px={6} fontSize="xs">
-                  {item.description}
+      </div>
+      <div className="resume-content second">
+        {certificate?.map(({ major, link, date, description, school }) => (
+          <React.Fragment key={link}>
+            <Flex p={4}>
+              <Box>
+                <LinkOut title={major} url={link} out />
+                <Text fontSize="sm" pl={2}>
+                  {school}
                 </Text>
-              </>
-            );
-          })}
-        </div>
+              </Box>
+              <Spacer />
+              <Box>
+                <Text fontSize="xs">{date}</Text>
+              </Box>
+            </Flex>
+            <Text px={6} fontSize="xs">
+              {description}
+            </Text>
+          </React.Fragment>
+        ))}
       </div>
     </div>
-  );
-};
+  </div>
+);
 
 export default Certificates;

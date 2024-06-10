@@ -9,13 +9,27 @@ type LayoutProps = {
   children: ReactNode;
 };
 
+/**
+ * Layout component that wraps the entire application.
+ * It sets up the global canvas for rendering and smooth scrollbar for scrolling.
+ *
+ * @param {LayoutProps} props - The layout properties.
+ * @param {ReactNode} props.children - The children to be rendered inside the layout.
+ * @returns {JSX.Element} The layout component.
+ */
 const Layout = ({ children }: LayoutProps) => {
+  // Render the layout component
   return (
+    // Apply a margin of 0 auto and width of 100% to center the content
     <Box margin="0 auto" width="100%">
+      {/* Set up the global canvas for rendering */}
       <GlobalCanvas style={{ pointerEvents: "none" }}>
+        {/* Add ambient light for global illumination */}
         <ambientLight />
       </GlobalCanvas>
+      {/* Set up smooth scrollbar for scrolling */}
       <SmoothScrollbar>
+        {/* Bind the scroll events and render the children */}
         {(bind) => <article {...bind}>{children}</article>}
       </SmoothScrollbar>
     </Box>

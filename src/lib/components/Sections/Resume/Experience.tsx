@@ -9,7 +9,9 @@ const Experience = () => {
         <FcBriefcase />
       </div>
       <div className="resume-body">
-        <h3>Experience</h3>
+        <div className="resume-title">
+          <h3>Experience</h3>
+        </div>
         <div className="resume-content second">
           {experience?.map((item) => {
             return (
