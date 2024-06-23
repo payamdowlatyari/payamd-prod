@@ -21,7 +21,6 @@ export const FilterByGroup = ({ group }: any) => {
 export default function Skills() {
   return (
     <div className="resume-section">
-      <div className="resume-header"></div>
       <div className="resume-body">
         <div className="resume-title">
           <h3>Skills</h3>

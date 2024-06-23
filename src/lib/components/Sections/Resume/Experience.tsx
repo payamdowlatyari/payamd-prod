@@ -4,7 +4,6 @@ import { experience } from "./data";
 const Experience = () => {
   return (
     <div className="resume-section">
-      <div className="resume-header"></div>
       <div className="resume-body">
         <div className="resume-title">
           <h3>Experience</h3>

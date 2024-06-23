@@ -11,7 +11,6 @@ import React from "react";
 const Publications = () => (
   // Outer container for the Publications section
   <div className="resume-section">
-    <div className="resume-header"></div>
     <div className="resume-body">
       <div className="resume-title">
         {/* Title for the Publications section */}

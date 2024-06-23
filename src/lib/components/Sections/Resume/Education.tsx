@@ -4,7 +4,6 @@ import React from "react";
 
 const Education = () => (
   <div className="resume-section">
-    <div className="resume-header"></div>
     <div className="resume-body">
       <div className="resume-title">
         <h3>Education</h3>
