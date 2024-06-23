@@ -41,13 +41,6 @@ const serviceIcon = (id: number) => {
           alt="wired-gradient-57-server"
         />
       );
-    case 6:
-      return (
-        <img
-          src="wired-gradient-966-privacy-policy.gif"
-          alt="wired-gradient-966-privacy-policy"
-        />
-      );
     default:
       return (
         <img
