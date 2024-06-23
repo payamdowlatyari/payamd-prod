@@ -27,10 +27,7 @@ export const social = [
 ];
 
 export const portfolio = {
-  image:
-    "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/me-home-removebg-dotted-color.png",
-  image2:
-    "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/me-home-removebg-sketch.png",
+  name: "Payam Dowlatyari",
   text: [" I am", "Payam Dowlatyari", "a Software Engineer in California"],
   titles: "Sofware Engineer ✳︎ UX Designer ✳︎ Photographer Blogger ✳︎ ",
 };

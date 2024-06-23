@@ -7,7 +7,7 @@ const Title = () => {
   return (
     <section id="home">
       <div className="title-content">
-        <div>
+        <div className="title-wrapper">
           <div className="main-title gradiant-area">
             <p>{portfolio.text[0]}</p>
             <h1>{portfolio.text[1]}</h1>
@@ -15,12 +15,16 @@ const Title = () => {
           </div>
           <div className="top-links">
             <div>
-              <HoverLink title="01 Who I am" url="#about" />
+              <HoverLink title="Who I am" url="#about" />
             </div>
             <div>
-              <HoverLink title="02 What I do" url="#services" />
+              <HoverLink title="What I do" url="#services" />
             </div>
           </div>
+          <img
+            src="wired-gradient-680-it-developer.gif"
+            alt="wired-gradient-680-it-developer"
+          />
         </div>
         <TextSpinner />
         <div className="max-width-screen">

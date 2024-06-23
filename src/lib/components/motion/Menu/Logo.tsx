@@ -3,13 +3,13 @@ export default function Logo({ light, size }: any) {
     <a href="/">
       {light ? (
         <img
-          src="newlogo-light1-removebg.webp"
+          src="pd-logo1-removebg-preview.png"
           alt="logo"
           width={size}
           height={size}
         />
       ) : (
-        <img src="newlogo-dark1-removebg.webp" alt="logo" />
+        <img src="pd-logo1-removebg-preview.png" alt="logo" />
       )}
     </a>
   );

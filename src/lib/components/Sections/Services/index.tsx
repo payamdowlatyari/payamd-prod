@@ -3,34 +3,58 @@ import {
   motion,
   AnimatePresence,
   useInView,
-  useScroll,
-  useTransform,
 } from "framer-motion";
 import { useRef } from "react";
 import { data } from "./data";
-import { GrSecure } from "react-icons/gr";
-import { BsDatabaseCheck } from "react-icons/bs";
-import { MdOutlineDevicesOther } from "react-icons/md";
-import { TbDeviceDesktopCode } from "react-icons/tb";
-import { HiOutlineCommandLine } from "react-icons/hi2";
-import { IoMdSwitch } from "react-icons/io";
 
 const serviceIcon = (id: number) => {
   switch (id) {
     case 1:
-      return <IoMdSwitch />;
+      return (
+        <img
+          src="wired-gradient-1021-rules.gif"
+          alt="wired-gradient-1021-rules"
+        />
+      );
     case 2:
-      return <MdOutlineDevicesOther />;
+      return (
+        <img
+          src="wired-gradient-970-video-conference.gif"
+          alt="wired-gradient-970-video-conference"
+        />
+      );
     case 3:
-      return <TbDeviceDesktopCode />;
+      return (
+        <img src="wired-gradient-742-code.gif" alt="wired-gradient-742-code" />
+      );
     case 4:
-      return <HiOutlineCommandLine />;
+      return (
+        <img
+          src="wired-gradient-1326-command-window-line.gif"
+          alt="wired-gradient-1326-command-window-line"
+        />
+      );
     case 5:
-      return <BsDatabaseCheck />;
+      return (
+        <img
+          src="wired-gradient-57-server.gif"
+          alt="wired-gradient-57-server"
+        />
+      );
     case 6:
-      return <GrSecure />;
+      return (
+        <img
+          src="wired-gradient-966-privacy-policy.gif"
+          alt="wired-gradient-966-privacy-policy"
+        />
+      );
     default:
-      return <GrSecure />;
+      return (
+        <img
+          src="wired-gradient-966-privacy-policy.gif"
+          alt="wired-gradient-966-privacy-policy"
+        />
+      );
   }
 };
 
@@ -40,7 +64,7 @@ const ServiceItem = ({ service }: any) => {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <motion.div layout ref={ref} className="service-section second">
+    <motion.div layout ref={ref} className="service-section">
       <AnimatePresence initial={false}>
         {isInView && (
           <motion.div
@@ -79,34 +103,13 @@ const ServiceItem = ({ service }: any) => {
 };
 
 export default function Services() {
-  const willChange = useWillChange();
-  const ref = useRef(null);
-
-  const { scrollY } = useScroll({ target: ref });
-  const y = useTransform(scrollY, [2000, 4200], [0, 2500]);
-
   return (
-    <motion.section
-      ref={ref}
-      id="services"
-      className="service-wrapper"
-      layoutScroll
-    >
-      <motion.div
-        className="section-number"
-        style={{
-          margin: "auto",
-          willChange,
-          y,
-        }}
-      >
-        <span>02</span>
-      </motion.div>
+    <section id="services" className="service-wrapper">
       <div className="service-container">
         {data?.map((service) => {
           return <ServiceItem service={service} />;
         })}
       </div>
-    </motion.section>
+    </section>
   );
 }

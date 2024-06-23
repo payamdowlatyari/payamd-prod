@@ -3,8 +3,6 @@ import {
   useWillChange,
   AnimatePresence,
   useInView,
-  useScroll,
-  useTransform,
 } from "framer-motion";
 import { useRef } from "react";
 import { data } from "./data";
@@ -16,11 +14,8 @@ export default function About() {
   const willChange = useWillChange();
   const isInView = useInView(ref, { once: true });
 
-  const { scrollY } = useScroll({ target: ref });
-  const y = useTransform(scrollY, [500, 1200], [-100, 400]);
-
   return (
-    <motion.section id="about" layoutScroll>
+    <section id="about">
       <motion.div
         ref={ref}
         layout
@@ -29,7 +24,7 @@ export default function About() {
           willChange,
         }}
       >
-        <div className="about-wrapper second">
+        <div className="about-wrapper">
           <AnimatePresence initial={false}>
             {isInView && (
               <motion.div
@@ -67,15 +62,6 @@ export default function About() {
           <ImageEffect item1="/me-sea2.webp" item2="/me-sea3.webp" />
         </div>
       </motion.div>
-      <motion.div
-        className="section-number"
-        style={{
-          willChange,
-          y,
-        }}
-      >
-        <span>01</span>
-      </motion.div>
-    </motion.section>
+    </section>
   );
 }
