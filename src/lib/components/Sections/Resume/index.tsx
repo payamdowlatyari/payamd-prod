@@ -25,6 +25,18 @@ const Resume = () => {
       <Intro />
       <div className="horizental-text">
         <ParallaxText baseVelocity={0.01}>Resume ✳︎ Resume ✳︎ </ParallaxText>
+        <ParallaxText baseVelocity={-0.01}>
+          Experience ✳︎ Experience ✳︎{" "}
+        </ParallaxText>
+        <ParallaxText baseVelocity={0.01}>
+          Education ✳︎ Education ✳︎{" "}
+        </ParallaxText>
+        <ParallaxText baseVelocity={-0.01}>
+          Certificates ✳︎ Certificates ✳︎{" "}
+        </ParallaxText>
+        <ParallaxText baseVelocity={0.01}>
+          Publications ✳︎ Publications ✳︎{" "}
+        </ParallaxText>
         <ParallaxText baseVelocity={-0.01}>Skills ✳︎ Skills ✳︎ </ParallaxText>
       </div>
       <div className="resume-wrapper">

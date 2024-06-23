@@ -1,18 +1,19 @@
 import { Flex, Spacer, List, ListItem, Box, Text } from "@chakra-ui/react";
 import { education } from "./data";
-import { FcGraduationCap } from "react-icons/fc";
 import React from "react";
 
 const Education = () => (
   <div className="resume-section">
-    <div className="resume-header">
-      <FcGraduationCap />
-    </div>
+    <div className="resume-header"></div>
     <div className="resume-body">
       <div className="resume-title">
         <h3>Education</h3>
+        <img
+          src="wired-gradient-486-school.gif"
+          alt="wired-lineal-486-school"
+        />
       </div>
-      <div className="resume-content second">
+      <div className="resume-content">
         {education?.map(({ school, major, date, description }) => (
           <React.Fragment key={school}>
             <Flex p={4}>

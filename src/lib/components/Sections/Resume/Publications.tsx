@@ -1,6 +1,5 @@
 import { Text, Box, Spacer, Flex } from "@chakra-ui/react";
 import { publication } from "./data";
-import { FcNews } from "react-icons/fc";
 import LinkOut from "../../motion/View/LinkOut";
 import React from "react";
 
@@ -12,16 +11,17 @@ import React from "react";
 const Publications = () => (
   // Outer container for the Publications section
   <div className="resume-section">
-    <div className="resume-header">
-      {/* Icon for the Publications section */}
-      <FcNews />
-    </div>
+    <div className="resume-header"></div>
     <div className="resume-body">
       <div className="resume-title">
         {/* Title for the Publications section */}
         <h3>Publications</h3>
+        <img
+          src="wired-gradient-245-edit-document.gif"
+          alt="wired-lineal-245-edit-document"
+        />
       </div>
-      <div className="resume-content second">
+      <div className="resume-content">
         {/* Map over the list of publications and render each one */}
         {publication?.map(
           // Destructure the properties from each publication

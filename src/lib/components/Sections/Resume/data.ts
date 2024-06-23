@@ -16,6 +16,20 @@ export const intro = {
 
 export const experience = [
   {
+    title: "Full Stack Engineer",
+    company: "Avalon AI",
+    date: "Apr 2024 - Present",
+    description: [
+      "Define and document software requirements specifications and identify the best solutions",
+      "Design system architecture and configure resources and development environments ",
+      "Work with a team to develop a full-stack web application for the healthcare industry",
+      "Design, implement, and deploy backend features and API services",
+      "Setup and utilize AWS service and serverless tools such as Lambda and DynamoDB",
+      "Build automated testing tools and CI/CD pipelines",
+    ],
+    index: 0,
+  },
+  {
     title: "Software Engineer",
     company: "Amplify.ai",
     date: "Dec 2020 - Nov 2023",
@@ -30,7 +44,7 @@ export const experience = [
     index: 1,
   },
   {
-    title: "Full Stack Web Developer",
+    title: "Web Developer",
     company: "Freelance",
     date: "Sep 2019 - Present",
     description: [

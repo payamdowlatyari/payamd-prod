@@ -350,17 +350,20 @@ section {
 
 .resume-header {
   display: flex;
-  font-size: 50vw;
-  position: absolute;
   opacity: 0.5;
   z-index: -1;
 }
 
+.resume-header img {
+  width: 150px;
+}
+
 .resume-body {
-  display: flex;
-  flex-wrap: wrap;
   max-width: 90vw;
-  justify-content: center;
+  min-height: 70vh;
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
 }
 
 .resume-content {
@@ -372,27 +375,31 @@ section {
   transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.resume-content:hover {
-  transform: scale(1.025);
-  transition: 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+.resume-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .resume-title h3 {
-  font-size: min(max(10vw, 50px), 96px);
+  font-size: min(max(10vw, 48px), 72px);
   margin-top: 0;
   padding: 1vw;
 }
 
+.resume-title img {
+  width: 100px;
+}
+
 .resume-skills-content {
   display: flex;
-  flex-wrap: wrap;
-  width: 800px;
   max-width: 95vw;
+  max-height: 50vh;
   justify-content: center;
 }
 
 .resume-skills-content .skills-content svg {
-  width: 5vw;
+  width: 4vw;
   min-width: 3em;
   max-width: 4em;
   overflow: visible;
@@ -402,20 +409,10 @@ section {
 }
 
 .resume-skills-content .skill-group {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
   margin: 5px;
   border-radius: 5px;
   transform: scale(1);
   transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  width: 350px;
-  padding: 1em;
-}
-
-.resume-skills-content .skill-group:hover {
-  transform: scale(1.025);
-  transition: 0.35s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .resume-skills-content .skills-header {
@@ -425,8 +422,10 @@ section {
 .resume-skills-content .skills-header h4 {
   font-weight: 300;
   letter-spacing: -0.2vw;
-  font-size: min(max(5vw, 34px), 64px);
-  display: inline;
+  font-size: min(max(3vw, 24px), 48px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .resume-skills-content .skills-content {

@@ -1,18 +1,19 @@
 import { Flex, Spacer, List, ListItem, Box, Text } from "@chakra-ui/react";
 import { experience } from "./data";
-import { FcBriefcase } from "react-icons/fc";
 
 const Experience = () => {
   return (
     <div className="resume-section">
-      <div className="resume-header">
-        <FcBriefcase />
-      </div>
+      <div className="resume-header"></div>
       <div className="resume-body">
         <div className="resume-title">
           <h3>Experience</h3>
+          <img
+            src="wired-gradient-187-suitcase.gif"
+            alt="wired-lineal-187-suitcase"
+          />
         </div>
-        <div className="resume-content second">
+        <div className="resume-content">
           {experience?.map((item) => {
             return (
               <>
