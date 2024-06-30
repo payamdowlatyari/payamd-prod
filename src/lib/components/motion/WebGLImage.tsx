@@ -1,13 +1,15 @@
 "use client";
 
-import { useRef } from "react";
 import {
   ScrollScene,
   UseCanvas,
   styles,
   useImageAsTexture,
 } from "@14islands/r3f-scroll-rig";
+import Image from "next/image";
+import { useRef } from "react";
 import "@14islands/r3f-scroll-rig/css";
+// eslint-disable-next-line import/order
 import { MeshDistortMaterial } from "@react-three/drei";
 
 const ImageMesh = ({ track, ...props }: any) => {
@@ -25,12 +27,13 @@ export default function WebGLImage({ id, size }: any) {
 
   return (
     <>
-      <img
+      <Image
         ref={el}
         className={`${styles.hidden} WebGLImage`}
-        src={id}
+        src={`/${id}`}
         alt="test"
         width={size}
+        height={size}
         loading="lazy"
       />
       <UseCanvas>

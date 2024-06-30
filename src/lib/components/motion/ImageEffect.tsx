@@ -1,7 +1,7 @@
-import * as THREE from "three";
-import { useRef, useState } from "react";
-import { Canvas, extend, useFrame } from "@react-three/fiber";
 import { useTexture, shaderMaterial } from "@react-three/drei";
+import { Canvas, extend, useFrame } from "@react-three/fiber";
+import { useRef, useState } from "react";
+import * as THREE from "three";
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace

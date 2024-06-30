@@ -1,16 +1,19 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export default function Logo({ light, size }: any) {
   return (
-    <a href="/">
+    <Link href="/">
       {light ? (
-        <img
-          src="pd-logo1-removebg-preview.png"
+        <Image
+          src="/pd-logo1-removebg-preview.png"
           alt="logo"
           width={size}
           height={size}
         />
       ) : (
-        <img src="pd-logo1-removebg-preview.png" alt="logo" />
+        <Image src="/pd-logo1-removebg-preview.png" alt="logo" />
       )}
-    </a>
+    </Link>
   );
 }

@@ -1,6 +1,6 @@
-import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 import { Input, Textarea } from "@chakra-ui/react";
+import emailjs from "@emailjs/browser";
+import { useRef, useState } from "react";
 
 export const SendMail = () => {
   const form: any = useRef();

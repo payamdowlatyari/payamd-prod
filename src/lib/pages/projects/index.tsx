@@ -2,10 +2,11 @@
 
 import "../../styles/globals.css";
 import { motion, useIsPresent } from "framer-motion";
+
 import Menu from "~/lib/components/motion/Menu/Menu";
-import Portfolio from "~/lib/components/Sections/Portfolio";
-import CopyRight from "~/lib/components/motion/View/CopyRight";
 import ParallaxText from "~/lib/components/motion/ParallaxText";
+import CopyRight from "~/lib/components/motion/View/CopyRight";
+import Portfolio from "~/lib/components/Sections/Portfolio";
 
 const Projects = () => {
   const isPresent = useIsPresent();

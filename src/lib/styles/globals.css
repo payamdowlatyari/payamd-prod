@@ -250,7 +250,7 @@ section {
   position: absolute;
   z-index: 10;
   top: 650px;
-  right: 75px;
+  left: 75px;
   aspect-ratio: 1;
 }
 
@@ -374,6 +374,7 @@ section {
   font-size: min(max(10vw, 48px), 72px);
   margin-top: 0;
   padding: 1vw;
+  letter-spacing: -0.25vw;
 }
 
 .resume-title img {
@@ -437,9 +438,9 @@ section {
   height: 100vh;
 }
 
-.resume-intro .intro-image {
+.intro-image {
   top: 20vh;
-  right: 10vw;
+  right: 5vw;
   position: absolute;
   mix-blend-mode: difference;
   width: 500px;
@@ -694,22 +695,27 @@ textarea {
 /* title */
 
 .title-content {
-  align-self: flex-end;
   display: flex;
+  align-self: flex-end;
   flex-direction: column;
-  min-height: 75vh;
   justify-content: space-between;
+  height: 85vh;
 }
 
 .main-title {
   padding: 1em;
-  max-width: 750px;
 }
-
+.title-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+}
 .title-wrapper img {
-  width: 150px;
-  height: auto;
   z-index: -1;
+  position: absolute;
+  left: 0;
 }
 
 .main-title h1 {
@@ -722,6 +728,35 @@ textarea {
   margin: 0 10px;
 }
 
+.box1 {
+  position: absolute;
+  height: 100vh;
+  width: 50vw;
+  background-color: var(--gray);
+  margin-left: 400px;
+  transform: skew(45deg);
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.box2 {
+  position: absolute;
+  height: 100vh;
+  width: 50vw;
+  background-color: var(--ash-black);
+  margin-left: 500px;
+  transform: skew(-60deg);
+  opacity: 0.2;
+  z-index: -1;
+}
+
+.dom-element {
+  position: absolute;
+}
+.dom-paragraph {
+  font-size: min(max(24px, 2vw), 32px);
+  max-width: 600px;
+}
 /* footer  */
 
 footer {

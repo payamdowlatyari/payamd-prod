@@ -6,6 +6,7 @@ import {
   useWillChange,
 } from "framer-motion";
 import { useEffect } from "react";
+
 import Logo from "../components/motion/Menu/Logo";
 
 /**
@@ -87,7 +88,7 @@ const Header = () => {
           textAlign: "center", // Text alignment
         }}
       >
-        <Logo light size="400px" />
+        <Logo light size={400} />
       </motion.div>
     </motion.div>
   );

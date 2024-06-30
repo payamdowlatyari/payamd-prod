@@ -5,9 +5,11 @@ import {
   useInView,
 } from "framer-motion";
 import { useRef } from "react";
-import { data } from "./data";
-import ImageEffect from "../../motion/ImageEffect";
 import StaggerText from "react-stagger-text";
+
+import ImageEffect from "../../motion/ImageEffect";
+
+import { data } from "./data";
 
 export default function About() {
   const ref = useRef(null);

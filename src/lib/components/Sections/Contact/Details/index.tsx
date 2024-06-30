@@ -1,8 +1,9 @@
-import Social from "./Social";
+import { Divider } from "@chakra-ui/react";
+
 import Email from "./Email";
 import External from "./External";
 import PhoneNumber from "./Phone";
-import { Divider } from "@chakra-ui/react";
+import Social from "./Social";
 
 export default function Contacts() {
   return (

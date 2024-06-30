@@ -1,5 +1,7 @@
-import Icon from "../../motion/Icon";
+import Image from "next/image";
+
 import { uxui, frontend, backend, devops } from "../../data/icons";
+import Icon from "../../motion/Icon";
 
 export const FilterByGroup = ({ group }: any) => {
   return (
@@ -24,9 +26,11 @@ export default function Skills() {
       <div className="resume-body">
         <div className="resume-title">
           <h3>Skills</h3>
-          <img
-            src="wired-gradient-56-document.gif"
+          <Image
+            src="/wired-gradient-56-document.gif"
             alt="wired-lineal-56-document"
+            width={100}
+            height={100}
           />
         </div>
         <div className="resume-skills-content">

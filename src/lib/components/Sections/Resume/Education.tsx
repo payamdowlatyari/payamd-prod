@@ -1,15 +1,19 @@
 import { Flex, Spacer, List, ListItem, Box, Text } from "@chakra-ui/react";
-import { education } from "./data";
+import Image from "next/image";
 import React from "react";
+
+import { education } from "./data";
 
 const Education = () => (
   <div className="resume-section">
     <div className="resume-body">
       <div className="resume-title">
         <h3>Education</h3>
-        <img
-          src="wired-gradient-486-school.gif"
+        <Image
+          src="/wired-gradient-486-school.gif"
           alt="wired-lineal-486-school"
+          width={100}
+          height={100}
         />
       </div>
       <div className="resume-content">

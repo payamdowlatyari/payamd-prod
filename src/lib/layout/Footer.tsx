@@ -1,9 +1,10 @@
-import Contact from "../components/Sections/Contact/Details";
+import { useScrollbar, useTracker } from "@14islands/r3f-scroll-rig";
+import { motion, useMotionValue, useTransform } from "framer-motion";
+import { useRef, useEffect, MutableRefObject } from "react";
+
 import Nav from "../components/motion/Menu/Nav";
 import CopyRight from "../components/motion/View/CopyRight";
-import { useRef, useEffect, MutableRefObject } from "react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
-import { useScrollbar, useTracker } from "@14islands/r3f-scroll-rig";
+import Contact from "../components/Sections/Contact/Details";
 
 /**
  * Footer component that handles the scrolling animation and rendering of the

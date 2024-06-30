@@ -2,10 +2,11 @@
 
 import "../../styles/globals.css";
 import { motion, useSpring, useScroll, useIsPresent } from "framer-motion";
-import Menu from "~/lib/components/motion/Menu/Menu";
-import Footer from "~/lib/layout/Footer";
-import Resume from "~/lib/components/Sections/Resume";
 import { useRef } from "react";
+
+import Menu from "~/lib/components/motion/Menu/Menu";
+import Resume from "~/lib/components/Sections/Resume";
+import Footer from "~/lib/layout/Footer";
 
 /**
  * The About Route component.

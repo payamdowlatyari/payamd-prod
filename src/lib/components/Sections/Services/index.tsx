@@ -4,48 +4,77 @@ import {
   AnimatePresence,
   useInView,
 } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
+
 import { data } from "./data";
 
 const serviceIcon = (id: number) => {
   switch (id) {
     case 1:
       return (
-        <img
-          src="wired-gradient-1021-rules.gif"
+        <Image
+          src="/wired-gradient-1021-rules.gif"
           alt="wired-gradient-1021-rules"
+          width={100}
+          height={100}
+          unoptimized
+          loading="lazy"
         />
       );
     case 2:
       return (
-        <img
-          src="wired-gradient-970-video-conference.gif"
+        <Image
+          src="/wired-gradient-970-video-conference.gif"
           alt="wired-gradient-970-video-conference"
+          width={100}
+          height={100}
+          unoptimized
+          loading="lazy"
         />
       );
     case 3:
       return (
-        <img src="wired-gradient-742-code.gif" alt="wired-gradient-742-code" />
+        <Image
+          src="/wired-gradient-742-code.gif"
+          alt="wired-gradient-742-code"
+          width={100}
+          height={100}
+          unoptimized
+          loading="lazy"
+        />
       );
     case 4:
       return (
-        <img
-          src="wired-gradient-1326-command-window-line.gif"
+        <Image
+          src="/wired-gradient-1326-command-window-line.gif"
           alt="wired-gradient-1326-command-window-line"
+          width={100}
+          height={100}
+          unoptimized
+          loading="lazy"
         />
       );
     case 5:
       return (
-        <img
-          src="wired-gradient-57-server.gif"
+        <Image
+          src="/wired-gradient-57-server.gif"
           alt="wired-gradient-57-server"
+          width={100}
+          height={100}
+          unoptimized
+          loading="lazy"
         />
       );
     default:
       return (
-        <img
-          src="wired-gradient-966-privacy-policy.gif"
+        <Image
+          src="/wired-gradient-966-privacy-policy.gif"
           alt="wired-gradient-966-privacy-policy"
+          width={100}
+          height={100}
+          unoptimized
+          loading="lazy"
         />
       );
   }

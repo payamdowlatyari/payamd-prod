@@ -1,13 +1,15 @@
+import { motion, useScroll, useTransform, useWillChange } from "framer-motion";
 import { useRef } from "react";
+
+import Logo from "../../motion/Menu/Logo";
+import ParallaxText from "../../motion/ParallaxText";
+
 import Certificates from "./Certificates";
 import Education from "./Education";
 import Experience from "./Experience";
-import Publications from "./Publications";
-import { motion, useScroll, useTransform, useWillChange } from "framer-motion";
-import Skills from "./Skills";
 import Intro from "./Intro";
-import Logo from "../../motion/Menu/Logo";
-import ParallaxText from "../../motion/ParallaxText";
+import Publications from "./Publications";
+import Skills from "./Skills";
 
 const Resume = () => {
   const resume = useRef(null);
@@ -64,7 +66,7 @@ const Resume = () => {
         </motion.ul>
       </div>
       <div className="logo-pd">
-        <Logo light size="60px" />
+        <Logo light size={60} />
       </div>
     </motion.section>
   );

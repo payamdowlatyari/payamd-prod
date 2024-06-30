@@ -1,14 +1,22 @@
 import { Text, Flex, Box, Spacer } from "@chakra-ui/react";
-import { certificate } from "./data";
-import LinkOut from "../../motion/View/LinkOut";
+import Image from "next/image";
 import React from "react";
+
+import LinkOut from "../../motion/View/LinkOut";
+
+import { certificate } from "./data";
 
 const Certificates = () => (
   <div className="resume-section">
     <div className="resume-body">
       <div className="resume-title">
         <h3>Certificates</h3>
-        <img src="wired-gradient-112-book.gif" alt="wired-gradient-112-book" />
+        <Image
+          src="/wired-gradient-112-book.gif"
+          alt="wired-gradient-112-book"
+          width={100}
+          height={100}
+        />
       </div>
       <div className="resume-content">
         {certificate?.map(({ major, link, date, description, school }) => (

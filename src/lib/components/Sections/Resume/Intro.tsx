@@ -1,8 +1,10 @@
-import { useRef } from "react";
-import { intro } from "./data";
 import { motion, useTransform, useWillChange, useScroll } from "framer-motion";
+import { useRef } from "react";
 import StaggerText from "react-stagger-text";
+
 import WebGLImage from "../../motion/WebGLImage";
+
+import { intro } from "./data";
 
 export default function Intro() {
   const ref = useRef(null);
@@ -14,7 +16,7 @@ export default function Intro() {
   return (
     <motion.div layout className="resume-intro" ref={ref}>
       <div className="intro-image">
-        <WebGLImage id="me-home-bw.webp" />
+        <WebGLImage id="me-home-bw.webp" size={500} />
       </div>
       <motion.div
         layout

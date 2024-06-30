@@ -2,10 +2,11 @@
 
 import "../../styles/globals.css";
 import { motion, useIsPresent } from "framer-motion";
-import Menu from "~/lib/components/motion/Menu/Menu";
-import Footer from "~/lib/layout/Footer";
+
 import Logo from "~/lib/components/motion/Menu/Logo";
+import Menu from "~/lib/components/motion/Menu/Menu";
 import ContactPage from "~/lib/components/Sections/Contact";
+import Footer from "~/lib/layout/Footer";
 
 const Contact = () => {
   const isPresent = useIsPresent();
@@ -23,7 +24,7 @@ const Contact = () => {
 
       <ContactPage />
       <div className="logo-pd">
-        <Logo light size="60px" />
+        <Logo light size={60} />
       </div>
       <Footer />
     </>

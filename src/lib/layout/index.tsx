@@ -1,8 +1,8 @@
 "use client";
 
+import { GlobalCanvas, SmoothScrollbar } from "@14islands/r3f-scroll-rig";
 import { Box } from "@chakra-ui/react";
 import { type ReactNode } from "react";
-import { GlobalCanvas, SmoothScrollbar } from "@14islands/r3f-scroll-rig";
 import "@fontsource/poppins";
 
 type LayoutProps = {
@@ -24,7 +24,6 @@ const Layout = ({ children }: LayoutProps) => {
     <Box margin="0 auto" width="100%">
       {/* Set up the global canvas for rendering */}
       <GlobalCanvas style={{ pointerEvents: "none" }}>
-        {/* Add ambient light for global illumination */}
         <ambientLight />
       </GlobalCanvas>
       {/* Set up smooth scrollbar for scrolling */}

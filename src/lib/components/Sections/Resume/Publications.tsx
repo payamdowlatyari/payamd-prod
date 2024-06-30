@@ -1,7 +1,10 @@
 import { Text, Box, Spacer, Flex } from "@chakra-ui/react";
-import { publication } from "./data";
-import LinkOut from "../../motion/View/LinkOut";
+import Image from "next/image";
 import React from "react";
+
+import LinkOut from "../../motion/View/LinkOut";
+
+import { publication } from "./data";
 
 /**
  * Renders the Publications section of the resume.
@@ -15,9 +18,11 @@ const Publications = () => (
       <div className="resume-title">
         {/* Title for the Publications section */}
         <h3>Publications</h3>
-        <img
-          src="wired-gradient-245-edit-document.gif"
+        <Image
+          src="/wired-gradient-245-edit-document.gif"
           alt="wired-lineal-245-edit-document"
+          width={100}
+          height={100}
         />
       </div>
       <div className="resume-content">

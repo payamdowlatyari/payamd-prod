@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import {
   easeIn,
   easeOut,
@@ -8,7 +7,9 @@ import {
   useCycle,
   useWillChange,
 } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { TfiClose, TfiLineDouble } from "react-icons/tfi";
+
 import TopNav from "./TopNav";
 
 const NavToggle = ({ toggle }: any) => {

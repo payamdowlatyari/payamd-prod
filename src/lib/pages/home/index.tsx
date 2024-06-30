@@ -1,15 +1,16 @@
 "use client";
 
 import "../../styles/globals.css";
-import { useRef } from "react";
 import { motion, useSpring, useScroll } from "framer-motion";
-import About from "~/lib/components/Sections/About";
-import Title from "~/lib/components/Sections/Title";
-import Menu from "~/lib/components/motion/Menu/Menu";
-import Footer from "~/lib/layout/Footer";
-import Services from "~/lib/components/Sections/Services";
-import ParallaxText from "~/lib/components/motion/ParallaxText";
+import { useRef } from "react";
+
 import Logo from "~/lib/components/motion/Menu/Logo";
+import Menu from "~/lib/components/motion/Menu/Menu";
+import ParallaxText from "~/lib/components/motion/ParallaxText";
+import About from "~/lib/components/Sections/About";
+import Services from "~/lib/components/Sections/Services";
+import Title from "~/lib/components/Sections/Title";
+import Footer from "~/lib/layout/Footer";
 import Header from "~/lib/layout/Header";
 
 const Home = () => {
@@ -26,6 +27,7 @@ const Home = () => {
     <>
       <Menu />
       <Header />
+
       <Title />
       <About />
       <ParallaxText baseVelocity={0.01}>About ✳︎ Services ✳︎</ParallaxText>
@@ -41,7 +43,7 @@ const Home = () => {
         }}
       >
         <div className="logo-pd">
-          <Logo light size="60px" />
+          <Logo light size={60} />
         </div>
       </motion.div>
       <Footer />

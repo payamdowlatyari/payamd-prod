@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import Icon from "./Icon";
 import LinkOut from "./View/LinkOut";
 
@@ -15,7 +17,7 @@ export default function Card({ item }: any) {
   return (
     <figure className="portfolio-card">
       <div className="portfolio-img-wrapper">
-        <img src={item.img} alt={item.title} />
+        <Image src={item.img} alt={item.title} width={500} height={500} />
       </div>
       <div className="portfolio-content">
         <div>

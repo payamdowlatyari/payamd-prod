@@ -1,4 +1,6 @@
 import { Flex, Spacer, List, ListItem, Box, Text } from "@chakra-ui/react";
+import Image from "next/image";
+
 import { experience } from "./data";
 
 const Experience = () => {
@@ -7,9 +9,11 @@ const Experience = () => {
       <div className="resume-body">
         <div className="resume-title">
           <h3>Experience</h3>
-          <img
-            src="wired-gradient-187-suitcase.gif"
+          <Image
+            src="/wired-gradient-187-suitcase.gif"
             alt="wired-lineal-187-suitcase"
+            width={100}
+            height={100}
           />
         </div>
         <div className="resume-content">

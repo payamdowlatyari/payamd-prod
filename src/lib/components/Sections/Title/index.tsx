@@ -1,7 +1,10 @@
+import { Divider } from "@chakra-ui/react";
+
 import ParallaxText from "../../motion/ParallaxText";
-import { portfolio } from "./data";
 import TextSpinner from "../../motion/TextSpinner";
 import HoverLink from "../../motion/View/HoverLink";
+
+import { portfolio } from "./data";
 
 const Title = () => {
   return (
@@ -14,6 +17,7 @@ const Title = () => {
             <p>{portfolio.text[2]}</p>
           </div>
           <div className="top-links">
+            <Divider bg="white" />
             <div>
               <HoverLink title="Who I am" url="#about" />
             </div>
@@ -21,15 +25,13 @@ const Title = () => {
               <HoverLink title="What I do" url="#services" />
             </div>
           </div>
-          <img
-            src="wired-gradient-680-it-developer.gif"
-            alt="wired-gradient-680-it-developer"
-          />
         </div>
         <TextSpinner />
         <div className="max-width-screen">
           <ParallaxText baseVelocity={-0.05}>{portfolio.titles}</ParallaxText>
         </div>
+        <div className="box1" />
+        <div className="box2" />
       </div>
     </section>
   );

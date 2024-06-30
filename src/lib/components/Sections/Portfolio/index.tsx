@@ -1,8 +1,10 @@
-import { useRef } from "react";
 import { motion, useScroll, useTransform, useWillChange } from "framer-motion";
+import { useRef } from "react";
+
 import Card from "../../motion/Card";
-import data from "./data";
 import Logo from "../../motion/Menu/Logo";
+
+import data from "./data";
 
 export default function Horizental() {
   const ref = useRef(null);
@@ -35,7 +37,7 @@ export default function Horizental() {
         </motion.ul>
       </div>
       <div className="logo-pd">
-        <Logo light size="60px" />
+        <Logo light size={60} />
       </div>
       <svg width="50" height="50" viewBox="0 0 100 100">
         <motion.circle
