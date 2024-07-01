@@ -38,7 +38,7 @@ const Header = () => {
       transition={{
         duration: 2, // Duration of the animation
         delay: 7, // Delay of the animation
-        ease: "anticipate", // Easing function
+        ease: "circInOut", // Easing function
       }}
       style={{
         willChange, // Determine if the component will change
@@ -61,7 +61,7 @@ const Header = () => {
         transition={{
           duration: 1, // Duration of the animation
           delay: 3, // Delay of the animation
-          ease: "circIn", // Easing function
+          ease: "anticipate", // Easing function
         }}
         layout // Enable layout animations
         style={{

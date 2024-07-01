@@ -5,6 +5,7 @@ import { motion, useIsPresent } from "framer-motion";
 
 import Logo from "~/lib/components/motion/Menu/Logo";
 import Menu from "~/lib/components/motion/Menu/Menu";
+import ParallaxText from "~/lib/components/motion/ParallaxText";
 import ContactPage from "~/lib/components/Sections/Contact";
 import Footer from "~/lib/layout/Footer";
 
@@ -23,6 +24,7 @@ const Contact = () => {
       />
 
       <ContactPage />
+      <ParallaxText baseVelocity={0.01}>Contact ✳︎ Contact ✳︎</ParallaxText>
       <div className="logo-pd">
         <Logo light size={60} />
       </div>

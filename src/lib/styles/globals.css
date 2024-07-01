@@ -54,7 +54,7 @@ h6 {
 h1 {
   letter-spacing: -0.5vw;
   line-height: 1;
-  font-size: min(max(10vw, 60px), 120px);
+  font-size: min(max(8vw, 60px), 100px);
 }
 
 h2 {
@@ -153,7 +153,9 @@ section {
   display: flex;
   white-space: nowrap;
   flex-wrap: nowrap;
-  mix-blend-mode: difference;
+  mix-blend-mode: exclusion;
+  background-color: var(--apple);
+  color: var(--ash-black);
 }
 
 .parallax span {

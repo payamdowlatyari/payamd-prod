@@ -35,23 +35,28 @@ export const SendMail = () => {
         focusBorderColor="white"
         placeholder="Your name"
         name="from_name"
-        variant="flushed"
+        variant="filled"
         type="text"
       />
       <Input
         focusBorderColor="white"
         placeholder="Your email"
         name="user_email"
-        variant="flushed"
+        variant="filled"
         type="email"
       />
       <Textarea
         placeholder="Type your message here..."
         focusBorderColor="white"
-        variant="flushed"
+        variant="filled"
         name="message"
       />
-      <Input type="submit" variant="filled" value="Send" />
+      <Input
+        type="submit"
+        variant="outlined"
+        value="Send"
+        style={{ cursor: "pointer" }}
+      />
       <div className="message-confirm">
         {message &&
           (success ? (
