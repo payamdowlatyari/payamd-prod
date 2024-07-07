@@ -52,6 +52,7 @@
     "next-pwa": "^5.6.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-element-to-jsx-string": "^15.0.0",
     "react-icons": "^4.12.0",
     "react-stagger-text": "^1.1.0",
     "tailwind-merge": "^2.3.0",

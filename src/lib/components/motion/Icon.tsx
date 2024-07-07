@@ -20,7 +20,7 @@ export default function Icon({ id, title, del }: any) {
       ref={ref}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 120 120"
-      className="w-[4vw] max-w-12 min-w-8 visible stroke-apple stroke-[3] m-2 hover:stroke-apple"
+      className="w-[4vw] max-w-12 min-w-8 overflow-visible stroke-apple stroke-[3] m-2 hover:stroke-apple"
     >
       <AnimatePresence initial={false}>
         {isInView && (

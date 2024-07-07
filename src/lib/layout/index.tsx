@@ -22,7 +22,11 @@ const Layout = ({ children }: LayoutProps) => {
   // Render the layout component
   return (
     // Apply a margin of 0 auto and width of 100% to center the content
-    <Box margin="0 auto" width="100%">
+    <Box
+      margin="0 auto"
+      width="100%"
+      className="dark:bg-grid-white/[0.05] bg-grid-black/[0.05] bg-neutral-950 relative"
+    >
       {/* Set up the global canvas for rendering */}
       <GlobalCanvas style={{ pointerEvents: "none" }}>
         <ambientLight />

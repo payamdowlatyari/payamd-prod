@@ -32,7 +32,7 @@ const Header = () => {
       style={{
         willChange: willChangeValue,
       }}
-      className="fixed flex justify-center bg-black top-0 left-0 w-full h-full origin-top z-[102]"
+      className="fixed flex justify-center bg-neutral-950 top-0 left-0 w-full h-full origin-top z-[102]"
     >
       <motion.div
         initial={{ opacity: 1, zIndex: "102" }}

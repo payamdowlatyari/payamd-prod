@@ -8,12 +8,6 @@ const express =
   "M126.67 98.44c-4.56 1.16-7.38.05-9.91-3.75-5.68-8.51-11.95-16.63-18-24.9-.78-1.07-1.59-2.12-2.6-3.45C89 76 81.85 85.2 75.14 94.77c-2.4 3.42-4.92 4.91-9.4 3.7l26.92-36.13L67.6 29.71c4.31-.84 7.29-.41 9.93 3.45 5.83 8.52 12.26 16.63 18.67 25.21 6.45-8.55 12.8-16.67 18.8-25.11 2.41-3.42 5-4.72 9.33-3.46-3.28 4.35-6.49 8.63-9.72 12.88-4.36 5.73-8.64 11.53-13.16 17.14-1.61 2-1.35 3.3.09 5.19C109.9 76 118.16 87.1 126.67 98.44zM1.33 61.74c.72-3.61 1.2-7.29 2.2-10.83 6-21.43 30.6-30.34 47.5-17.06C60.93 41.64 63.39 52.62 62.9 65H7.1c-.84 22.21 15.15 35.62 35.53 28.78 7.15-2.4 11.36-8 13.47-15 1.07-3.51 2.84-4.06 6.14-3.06-1.69 8.76-5.52 16.08-13.52 20.66-12 6.86-29.13 4.64-38.14-4.89C5.26 85.89 3 78.92 2 71.39c-.15-1.2-.46-2.38-.7-3.57q.03-3.04.03-6.08zm5.87-1.49h50.43c-.33-16.06-10.33-27.47-24-27.57-15-.12-25.78 11.02-26.43 27.57z";
 const mongo =
   "M90.491 57.282c-.37-4.79-1.496-9.409-3.062-13.934-3.244-10.104-8.45-19.046-15.783-26.74-1.854-1.946-3.916-3.729-5.209-6.151-.818-1.532-1.597-3.085-2.394-4.629l-.505-1.273c-.085.292-.139.396-.142.501-.065 2.517-1.491 4.224-3.267 5.817-1.997 1.793-3.856 3.739-5.775 5.618l-5.901 7.763c-1.592 2.925-3.182 5.85-4.772 8.775l-3.19 8.617-.096.134c-1.756 5.768-2.622 11.698-3.048 17.688-.16 2.251.022 4.535.149 6.798.181 3.235.743 6.415 1.586 9.545 3.062 11.372 9.276 20.805 17.771 28.819 1.579 1.489 3.199 2.843 4.847 4.26.282-.965.507-1.93.763-2.895.256-.961.515-1.917.688-2.881-.174.964-.369 1.92-.562 2.881l-.826 2.895.738 2.501.684 3.884.326 4.053c-.003.823-.036 1.648.014 2.47.012.21.288.404.442.606l1.376.483 1.434.558-.246-3.603-.011-3.548.495-5.405.359-1.177 1.027-1.82c1.268-1.02 2.629-1.946 3.784-3.081 2.09-2.054 4.175-4.134 6.045-6.383a47.846 47.846 0 006.191-9.516c1.122-2.284 2.178-4.614 3.052-7.001.77-2.104 1.247-4.315 1.854-6.479.054-.156.126-.309.16-.468 1.254-5.841 1.465-11.741 1.004-17.682zm-23.599 49.375l-.805-1.763.805 1.763 1.183 1.01-1.183-1.01z";
-const npm =
-  "M2 38.5h124v43.71H64v7.29H36.44v-7.29H2zm6.89 36.43h13.78V53.07h6.89v21.86h6.89V45.79H8.89zm34.44-29.14v36.42h13.78v-7.28h13.78V45.79zm13.78 7.29H64v14.56h-6.89zm20.67-7.29v29.14h13.78V53.07h6.89v21.86h6.89V53.07h6.89v21.86h6.89V45.79z";
-const pnpm =
-  "M0 .004V40h39.996V.004Zm43.996 0V40h40V.004Zm44.008 0V40H128V.004ZM43.996 44v39.996h40V44Zm44.008 0v39.996H128V44ZM0 87.996v40h39.996v-40Zm43.996 0v40h40v-40Zm44.008 0v40H128v-40Z";
-const git =
-  "M124.737 58.378L69.621 3.264c-3.172-3.174-8.32-3.174-11.497 0L46.68 14.71l14.518 14.518c3.375-1.139 7.243-.375 9.932 2.314 2.703 2.706 3.461 6.607 2.294 9.993l13.992 13.993c3.385-1.167 7.292-.413 9.994 2.295 3.78 3.777 3.78 9.9 0 13.679a9.673 9.673 0 01-13.683 0 9.677 9.677 0 01-2.105-10.521L68.574 47.933l-.002 34.341a9.708 9.708 0 012.559 1.828c3.778 3.777 3.778 9.898 0 13.683-3.779 3.777-9.904 3.777-13.679 0-3.778-3.784-3.778-9.905 0-13.683a9.65 9.65 0 013.167-2.11V47.333a9.581 9.581 0 01-3.167-2.111c-2.862-2.86-3.551-7.06-2.083-10.576L41.056 20.333 3.264 58.123a8.133 8.133 0 000 11.5l55.117 55.114c3.174 3.174 8.32 3.174 11.499 0l54.858-54.858a8.135 8.135 0 00-.001-11.501z";
 const typescript =
   "M2 63.91v62.5h125v-125H2zm100.73-5a15.56 15.56 0 017.82 4.5 20.58 20.58 0 013 4c0 .16-5.4 3.81-8.69 5.85-.12.08-.6-.44-1.13-1.23a7.09 7.09 0 00-5.87-3.53c-3.79-.26-6.23 1.73-6.21 5a4.58 4.58 0 00.54 2.34c.83 1.73 2.38 2.76 7.24 4.86 8.95 3.85 12.78 6.39 15.16 10 2.66 4 3.25 10.46 1.45 15.24-2 5.2-6.9 8.73-13.83 9.9a38.32 38.32 0 01-9.52-.1A23 23 0 0180 109.19c-1.15-1.27-3.39-4.58-3.25-4.82a9.34 9.34 0 011.15-.73l4.6-2.64 3.59-2.08.75 1.11a16.78 16.78 0 004.74 4.54c4 2.1 9.46 1.81 12.16-.62a5.43 5.43 0 00.69-6.92c-1-1.39-3-2.56-8.59-5-6.45-2.78-9.23-4.5-11.77-7.24a16.48 16.48 0 01-3.43-6.25 25 25 0 01-.22-8c1.33-6.23 6-10.58 12.82-11.87a31.66 31.66 0 019.49.26zm-29.34 5.24v5.12H57.16v46.23H45.65V69.26H29.38v-5a49.19 49.19 0 01.14-5.16c.06-.08 10-.12 22-.1h21.81z";
 const tailwind =
@@ -43,7 +37,7 @@ export default [
     description: "A demo web application for finding healthcare providers",
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/find-a-doc1750x1000.webp",
     url: "https://find-a-doc-app.vercel.app/",
-    tagIcon: [typescript, next, tailwind, pnpm, git, vercel],
+    tagIcon: [typescript, next, tailwind, vercel],
   },
   {
     index: 1,
@@ -51,7 +45,7 @@ export default [
     description: "A portfolio project build with Three.js and Canvas",
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/canvasfolio1750x1000.webp",
     url: "https://dice-app-two.vercel.app/",
-    tagIcon: [typescript, next, pnpm, git, vercel],
+    tagIcon: [typescript, next, tailwind, vercel],
   },
   {
     index: 2,
@@ -59,7 +53,7 @@ export default [
     description: "A project management user interface",
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/MyDash_Projects_1750x1000.webp",
     url: "https://payamd-dashboard.vercel.app/",
-    tagIcon: [react, redux, node, express, mongo, npm, git, vercel, router],
+    tagIcon: [react, redux, node, express, mongo, router],
   },
   {
     index: 3,
@@ -67,7 +61,7 @@ export default [
     description: "My personal blog about book, film, photography, and comments",
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/blog_1750x1000.webp",
     url: "https://payamd-blog.vercel.app/",
-    tagIcon: [typescript, next, tailwind, redis, pnpm, git, vercel],
+    tagIcon: [typescript, next, tailwind, redis, vercel],
   },
   {
     index: 4,
@@ -75,7 +69,7 @@ export default [
     description: "My photography blog for proffesionals",
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/Portfolio_anim_Photography1750x1000.webp",
     url: "https://payamd-photo.vercel.app/",
-    tagIcon: [typescript, next, tailwind, npm, git, vercel],
+    tagIcon: [typescript, next, tailwind, vercel],
   },
   {
     index: 5,
@@ -83,7 +77,7 @@ export default [
     description: "A GUI for learning Data Structure and Algorithms",
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/algorithms_2100x1200.webp",
     url: "https://algorithms-next.vercel.app/",
-    tagIcon: [typescript, next, tailwind, pnpm, git, vercel],
+    tagIcon: [typescript, next, tailwind, vercel],
   },
   {
     index: 6,
@@ -91,7 +85,7 @@ export default [
     description: "A portfolio website build for professionals",
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/nextfolio_1925x1100.webp",
     url: "https://nextfolio-theta.vercel.app/",
-    tagIcon: [typescript, next, tailwind, pnpm, git, vercel],
+    tagIcon: [typescript, next, tailwind, vercel],
   },
   {
     index: 7,
@@ -99,7 +93,7 @@ export default [
     description: "A research manegement user intrface",
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/paper_browser_1750x1000.webp",
     url: "https://personal-informatics.depstein.net",
-    tagIcon: [typescript, angular, bootstrap, npm, git, vercel],
+    tagIcon: [typescript, angular, bootstrap, vercel],
   },
   {
     index: 8,
@@ -107,7 +101,7 @@ export default [
     description: "A full-stack admin application",
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/CalPlug_2100x1200.webp",
     url: "https://payamdowlatyari.github.io/admin-web-portal/",
-    tagIcon: [react, redux, node, express, mongo, npm, git, vercel, router],
+    tagIcon: [react, redux, node, express, mongo, vercel, router],
   },
   {
     index: 9,
@@ -115,6 +109,6 @@ export default [
     description: "A responsive business portfolio",
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/m-studios_1260x720.webp",
     url: "https://m-studios.us/",
-    tagIcon: [html, css, javascript, bootstrap, npm, git, vercel],
+    tagIcon: [html, css, javascript, bootstrap, vercel],
   },
 ];

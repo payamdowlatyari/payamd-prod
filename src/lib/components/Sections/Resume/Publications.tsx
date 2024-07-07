@@ -25,7 +25,7 @@ const Publications = () => (
       </div>
       <div className="w-[750px] max-w-screen-md flex flex-col justify-evenly">
         {publication?.map(({ title, link, date, description, summary }) => (
-          <div key={link} className="mb-6">
+          <div className="mb-6">
             <div className="flex justify-between flex-wrap gap-2 w-full">
               <LinkOut title={title} url={link} out />
               <p>

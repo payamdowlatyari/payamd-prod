@@ -1,12 +1,19 @@
+// import Link from "next/link";
+
 import ParallaxText from "../../motion/ParallaxText";
+import { Spotlight } from "../../motion/Spotlight";
 import TextSpinner from "../../motion/TextSpinner";
-import HoverLink from "../../motion/View/HoverLink";
+import { GlassButton } from "../../motion/View/TailwindButton";
 
 import { portfolio } from "./data";
 
 const Title = () => {
   return (
     <section id="home">
+      <Spotlight
+        className="-top-40 left-0 md:left-60 md:-top-20"
+        fill="white"
+      />
       <div className="flex flex-col self-end justify-between h-[80vh]">
         <div className="flex flex-col items-start justify-center relative">
           <div className="ml-4">
@@ -14,21 +21,20 @@ const Title = () => {
               {portfolio.text[0]}
             </p>
             <h1>
-              <span className="inline-flex animate-background-shine bg-[linear-gradient(110deg,#939393,45%,#1e293b,55%,#939393)] bg-[length:250%_100%] bg-clip-text text-5xl lg:text-7xl text-transparent">
+              <span className="inline-flex text-5xl lg:text-7xl">
                 {portfolio.text[1]}
               </span>
             </h1>
-            <p className="ml-2 text-2xl lg:text-3xl text-ultra-light-gray">
+            {/* <p className="ml-2 text-2xl lg:text-3xl text-ultra-light-gray">
+              {portfolio.text[2]}
+            </p> */}
+            <p className="ml-2 text-2xl lg:text-3xl animate-text-shimmer bg-clip-text text-transparent bg-[linear-gradient(110deg,#e2e8f0,45%,#1e293b,55%,#e2e8f0)] bg-[length:250%_100%]">
               {portfolio.text[2]}
             </p>
           </div>
           <div className="uppercase m-5 flex">
-            <div className="min-w-[120px] ml-2">
-              <HoverLink title="Who I am" url="#about" />
-            </div>
-            <div className="min-w-[120px] ml-5">
-              <HoverLink title="What I do" url="#services" />
-            </div>
+            <GlassButton url="#about" title="Who I am" />
+            <GlassButton url="#services" title="What I do" />
           </div>
         </div>
         <TextSpinner />

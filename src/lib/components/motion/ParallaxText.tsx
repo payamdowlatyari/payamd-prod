@@ -51,19 +51,19 @@ export default function ParallaxText({
   return (
     <div className="overflow-hidden flex flex-nowrap whitespace-nowrap m-0 tracking-[-2px] leading-[0.8]">
       <motion.div
-        className="uppercase flex whitespace-nowrap flex-nowrap mix-blend-difference text-ultra-light-gray tracking-[-2px]"
+        className="uppercase flex whitespace-nowrap flex-nowrap mix-blend-difference tracking-[-2px]"
         style={{ x }}
       >
-        <span className="block mr-5 text-3xl md:text-5xl lg:text-7xl">
+        <span className="block mr-5 text-3xl md:text-5xl lg:text-7xl from-coolGray-200 via-coolGray-300 to-coolGray-400 bg-gradient-to-r bg-clip-text text-transparent">
           {children}{" "}
         </span>
-        <span className="block mr-5 text-3xl md:text-5xl lg:text-7xl">
+        <span className="block mr-5 text-3xl md:text-5xl lg:text-7xl from-coolGray-200 via-coolGray-300 to-coolGray-400 bg-gradient-to-r bg-clip-text text-transparent">
           {children}{" "}
         </span>
-        <span className="block mr-5 text-3xl md:text-5xl lg:text-7xl">
+        <span className="block mr-5 text-3xl md:text-5xl lg:text-7xl from-coolGray-200 via-coolGray-300 to-coolGray-400 bg-gradient-to-r bg-clip-text text-transparent">
           {children}{" "}
         </span>
-        <span className="block mr-5 text-3xl md:text-5xl lg:text-7xl">
+        <span className="block mr-5 text-3xl md:text-5xl lg:text-7xl from-coolGray-200 via-coolGray-300 to-coolGray-400 bg-gradient-to-r bg-clip-text text-transparent">
           {children}{" "}
         </span>
       </motion.div>

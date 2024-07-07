@@ -1,61 +1,112 @@
-// "use client";
+import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
+import { useState } from "react";
 
-// import Image from "next/image";
-// import React from "react";
-// import { CardBody, CardContainer, CardItem } from "./3d-card";
-// import Link from "next/link";
+import { cn } from "./utils/cn";
 
-// export function ThreeDCard({ item }: any) {
-//   return (
-//     <CardContainer className="inter-var">
-//       <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
-//         <CardItem
-//           as="p"
-//           translateZ="60"
-//           className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
-//         >
-//           {item.description}
-//         </CardItem>
-//         <CardItem translateZ="100" className="w-full mt-4">
-//           <div className="portfolio-img-wrapper">
-//             <Image
-//               src={item.img}
-//               alt={item.title}
-//               height="1000"
-//               width="1000"
-//               className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
-//             />
-//           </div>
-//         </CardItem>
-//         <div className="flex justify-between items-center mt-20">
-//           <CardItem
-//             translateZ={20}
-//             as={Link}
-//             href={item.url}
-//             target="__blank"
-//             className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
-//           >
-//             {item.title} →
-//           </CardItem>
-//         </div>
-//       </CardBody>
-//     </CardContainer>
-//   );
-// }
+export const Card = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <div
+      className={cn(
+        "rounded-2xl h-full w-full p-4 overflow-hidden bg-black border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
+        className
+      )}
+    >
+      <div className="relative z-50">
+        <div className="p-4">{children}</div>
+      </div>
+    </div>
+  );
+};
+export const CardTitle = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <h4 className={cn("text-zinc-100 font-bold tracking-wide mt-4", className)}>
+      {children}
+    </h4>
+  );
+};
+export const CardDescription = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <p
+      className={cn(
+        "mt-8 text-zinc-400 tracking-wide leading-relaxed text-sm",
+        className
+      )}
+    >
+      {children}
+    </p>
+  );
+};
 
-// export default function Card({ item }: any) {
-//     return (
-//       <figure className="portfolio-card">
-//         <div className="portfolio-img-wrapper">
-//           <img src={item.img} alt={item.title} />
-//         </div>
-//         <div className="portfolio-content">
-//           <div>
-//             <HoverLink url={item.url} title={item.title} out size="1.25em" />
-//             <p>{item.description}</p>
-//           </div>
-//           {getTags(item.tagIcon)}
-//         </div>
-//       </figure>
-//     );
-//   }
+export const HoverEffect = ({
+  items,
+  className,
+}: {
+  items: {
+    title: string;
+    description: string;
+    link: string;
+  }[];
+  className?: string;
+}) => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  return (
+    <div
+      className={cn(
+        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
+        className
+      )}
+    >
+      {items.map((item, idx) => (
+        <Link
+          href={item?.link}
+          key={item?.link}
+          className="relative group  block p-2 h-full w-full"
+          onMouseEnter={() => setHoveredIndex(idx)}
+          onMouseLeave={() => setHoveredIndex(null)}
+        >
+          <AnimatePresence>
+            {hoveredIndex === idx && (
+              <motion.span
+                className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block  rounded-3xl"
+                layoutId="hoverBackground"
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: 1,
+                  transition: { duration: 0.15 },
+                }}
+                exit={{
+                  opacity: 0,
+                  transition: { duration: 0.15, delay: 0.2 },
+                }}
+              />
+            )}
+          </AnimatePresence>
+          <Card>
+            <CardTitle>{item.title}</CardTitle>
+            <CardDescription>{item.description}</CardDescription>
+          </Card>
+        </Link>
+      ))}
+    </div>
+  );
+};

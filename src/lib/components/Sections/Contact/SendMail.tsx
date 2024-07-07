@@ -40,7 +40,7 @@ export const SendMail = () => {
         focusBorderColor="white"
         placeholder="Your name"
         name="from_name"
-        variant="filled"
+        variant="outlined"
         type="text"
       />
       <Input
@@ -48,20 +48,20 @@ export const SendMail = () => {
         focusBorderColor="white"
         placeholder="Your email"
         name="user_email"
-        variant="filled"
+        variant="outlined"
         type="email"
       />
       <Textarea
         className="m-1"
         placeholder="Type your message here..."
         focusBorderColor="white"
-        variant="filled"
+        variant="outlined"
         name="message"
       />
       <Input
-        className="transition-background inline-flex h-12 items-center justify-center rounded-md border border-apple bg-gradient-to-r from-apple via-ultra-light-gray to-apple bg-[length:200%_200%] bg-[0%_0%] px-6 font-medium text-black hover:bg-[100%_200%] focus:outline-none focus:ring-2 focus:ring-ultra-light-gray focus:ring-offset-2 focus:ring-offset-ultra-light-gray duration-500 m-1"
+        className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
         type="submit"
-        variant="outlined"
+        variant="unstyled"
         value="Send Message"
         style={{ cursor: "pointer" }}
       />
