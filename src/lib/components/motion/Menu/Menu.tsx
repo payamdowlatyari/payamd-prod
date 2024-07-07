@@ -14,14 +14,18 @@ import TopNav from "./TopNav";
 
 const NavToggle = ({ toggle }: any) => {
   return (
-    <motion.button onClick={toggle} layout>
+    <motion.button
+      onClick={toggle}
+      layout
+      className="outline-[none] border-[none] cursor-pointer [position:inherit] top-[5px] right-[15px] bg-transparent flex items-center z-[101]"
+    >
       <motion.span
         variants={{
           closed: { display: "contents" },
           open: { display: "none" },
         }}
       >
-        MENU <TfiLineDouble />
+        MENU <TfiLineDouble className="px-2 text-5xl" />
       </motion.span>
       <motion.span
         variants={{
@@ -29,7 +33,7 @@ const NavToggle = ({ toggle }: any) => {
           open: { display: "contents" },
         }}
       >
-        CLOSE <TfiClose />
+        CLOSE <TfiClose className="px-2 text-5xl" />
       </motion.span>
     </motion.button>
   );
@@ -92,6 +96,7 @@ export default function Menu() {
         willChange,
         background: isOpen ? "#222424" : "transparent",
       }}
+      className="fixed top-0 left-0 z-[100]"
     >
       <NavToggle toggle={() => toggleOpen()} />
       <motion.div
@@ -100,7 +105,7 @@ export default function Menu() {
           willChange,
           display: isOpen ? "flex" : "none",
         }}
-        className="main-nav"
+        className="w-screen h-screen flex flex-wrap justify-evenly items-center content-center backdrop-brightness-50"
         ref={scope}
       >
         <TopNav />

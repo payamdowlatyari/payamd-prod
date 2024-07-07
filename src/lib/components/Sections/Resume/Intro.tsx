@@ -14,12 +14,17 @@ export default function Intro() {
   const y = useTransform(scrollY, [0, 500], [0, 300]);
 
   return (
-    <motion.div layout className="resume-intro" ref={ref}>
-      <div className="intro-image">
-        <WebGLImage id="me-home-bw.webp" size={500} />
+    <motion.div
+      layout
+      className="p-1 w-[800px] max-w-[95vw] m-auto top-[40vh] h-screen"
+      ref={ref}
+    >
+      <div className="top-[40vh] right-0 absolute mix-blend-difference w-[600px] max-w-[100vw]">
+        <WebGLImage id="me-home-bw.webp" size={400} />
       </div>
       <motion.div
         layout
+        className="absolute top-[20vh] w-[600px] max-w-[95vw] m-auto"
         style={{
           willChange,
           y,

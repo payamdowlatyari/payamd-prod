@@ -21,17 +21,7 @@ export default function ImageGradient({ id, title }: any) {
       viewport={{ once: true }}
       onViewportEnter={() => setIsInView(true)}
     >
-      <Image
-        style={{
-          objectFit: "cover",
-          borderRadius: "5px",
-          width: "100%",
-          height: "auto",
-        }}
-        src={id}
-        alt={title}
-        onLoad={() => setIsLoaded(true)}
-      />
+      <Image src={id} alt={title} onLoad={() => setIsLoaded(true)} />
     </motion.span>
   );
 }

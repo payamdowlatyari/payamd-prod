@@ -1,6 +1,4 @@
-import { Text, Box, Spacer, Flex } from "@chakra-ui/react";
 import Image from "next/image";
-import React from "react";
 
 import LinkOut from "../../motion/View/LinkOut";
 
@@ -9,48 +7,38 @@ import { publication } from "./data";
 /**
  * Renders the Publications section of the resume.
  *
- * @return {JSX.Element} The rendered Publications section.
+ * @returns {JSX.Element} The rendered Publications section.
  */
 const Publications = () => (
-  // Outer container for the Publications section
-  <div className="resume-section">
-    <div className="resume-body">
-      <div className="resume-title">
-        {/* Title for the Publications section */}
-        <h3>Publications</h3>
+  <div className="flex flex-row justify-center items-center h-screen m-1">
+    <div className="flex flex-col justify-evenly max-w-[98vw] h-[80vh] overflow-hidden">
+      <div className="flex flex-col-reverse items-center px-4">
+        <h3 className="text-3xl md:text-4xl lg:text-5xl tracking-[-0.2vw]">
+          Publications
+        </h3>
         <Image
           src="/wired-gradient-245-edit-document.gif"
-          alt="wired-lineal-245-edit-document"
-          width={100}
-          height={100}
+          alt="Edit Document"
+          width={80}
+          height={80}
         />
       </div>
-      <div className="resume-content">
-        {/* Map over the list of publications and render each one */}
-        {publication?.map(
-          // Destructure the properties from each publication
-          ({ title, link, date, description }) => (
-            <React.Fragment key={link}>
-              {/* Container for the publication details */}
-              <Flex p={2}>
-                {/* Title of the publication */}
-                <Box>
-                  <LinkOut title={title} url={link} out />
-                </Box>
-                {/* Spacer to align the date with other elements */}
-                <Spacer />
-                {/* Date of the publication */}
-                <Text fontSize="xs">{date}</Text>
-              </Flex>
-
-              {/* Container for the description of the publication */}
-              <Box px={4}>
-                {/* Description of the publication */}
-                <Text fontSize="xs">{description}</Text>
-              </Box>
-            </React.Fragment>
-          )
-        )}
+      <div className="w-[750px] max-w-screen-md flex flex-col justify-evenly">
+        {publication?.map(({ title, link, date, description, summary }) => (
+          <div key={link} className="mb-6">
+            <div className="flex justify-between flex-wrap gap-2 w-full">
+              <LinkOut title={title} url={link} out />
+              <p>
+                <span className="mr-2 text-sm text-ultra-light-gray">
+                  {date}
+                </span>
+              </p>
+            </div>
+            <p className="mt-2 ml-1 text-sm">{description}</p>
+            <br />
+            <p className="ml-1 text-sm text-ultra-light-gray">{summary}</p>
+          </div>
+        ))}
       </div>
     </div>
   </div>

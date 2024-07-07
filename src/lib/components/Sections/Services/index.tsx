@@ -20,6 +20,7 @@ const serviceIcon = (id: number) => {
           height={100}
           unoptimized
           loading="lazy"
+          className="w-[100px] h-[100px] m-auto"
         />
       );
     case 2:
@@ -31,6 +32,7 @@ const serviceIcon = (id: number) => {
           height={100}
           unoptimized
           loading="lazy"
+          className="w-[100px] h-[100px] m-auto"
         />
       );
     case 3:
@@ -42,6 +44,7 @@ const serviceIcon = (id: number) => {
           height={100}
           unoptimized
           loading="lazy"
+          className="w-[100px] h-[100px] m-auto"
         />
       );
     case 4:
@@ -53,6 +56,7 @@ const serviceIcon = (id: number) => {
           height={100}
           unoptimized
           loading="lazy"
+          className="w-[100px] h-[100px] m-auto"
         />
       );
     case 5:
@@ -64,6 +68,7 @@ const serviceIcon = (id: number) => {
           height={100}
           unoptimized
           loading="lazy"
+          className="w-[100px] h-[100px] m-auto"
         />
       );
     default:
@@ -75,6 +80,7 @@ const serviceIcon = (id: number) => {
           height={100}
           unoptimized
           loading="lazy"
+          className="w-[100px] h-[100px] m-auto"
         />
       );
   }
@@ -86,7 +92,11 @@ const ServiceItem = ({ service }: any) => {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <motion.div layout ref={ref} className="service-section">
+    <motion.div
+      layout
+      ref={ref}
+      className="px-2 py-4 min-h-[40vh] max-w-[95vw]"
+    >
       <AnimatePresence initial={false}>
         {isInView && (
           <motion.div
@@ -103,7 +113,7 @@ const ServiceItem = ({ service }: any) => {
             }}
           >
             <motion.div
-              className="service-icon"
+              className="w-[500px]"
               initial={{ x: service.id % 2 > 0 ? 100 : -100 }}
               animate={{ x: 0 }}
               transition={{ delay: 0.5, duration: 0.75, ease: "easeOut" }}
@@ -113,9 +123,13 @@ const ServiceItem = ({ service }: any) => {
             >
               {serviceIcon(service.id)}
             </motion.div>
-            <div>
-              <h2>{service.name}</h2>
-              <p>{service.text}</p>
+            <div className="w-[500px] m-1">
+              <h2 className="text-2xl lg:text-4xl capitalize font-light">
+                {service.name}
+              </h2>
+              <p className="text-sm lg:text-base font-thin ml-2">
+                {service.text}
+              </p>
             </div>
           </motion.div>
         )}
@@ -126,8 +140,8 @@ const ServiceItem = ({ service }: any) => {
 
 export default function Services() {
   return (
-    <section id="services" className="service-wrapper">
-      <div className="service-container">
+    <section id="services" className="flex flex-wrap-reverse justify-around">
+      <div className="grid p-[1w] justify-end">
         {data?.map((service) => {
           return <ServiceItem service={service} />;
         })}

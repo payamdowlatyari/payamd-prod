@@ -5,20 +5,19 @@ export default function HoverLink({ title, url, size, out, low }: any) {
   return (
     <Link
       href={url}
-      className="underlined underlinedThin"
+      className="relative text-lg w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-apple after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left"
       style={{
         fontSize: size,
-        fontWeight: "400",
       }}
       target={out ? "_blank" : ""}
     >
       <>
         {!low ? (
-          <span style={{ textTransform: "uppercase" }}>{title}</span>
+          <span className="uppercase">{title}</span>
         ) : (
           <span>{title}</span>
         )}
-        {out ? <RiArrowRightUpLine style={{ display: "inline" }} /> : ""}
+        {out ? <RiArrowRightUpLine className="inline" /> : ""}
       </>
     </Link>
   );

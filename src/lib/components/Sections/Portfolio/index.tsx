@@ -14,14 +14,10 @@ export default function Horizental() {
   const x = useTransform(scrollYProgress, [0, 1], ["45%", "-45%"]);
 
   return (
-    <motion.section
-      ref={ref}
-      layoutScroll
-      id="projects"
-      className="portfolio-wrapper"
-    >
-      <div className="portfolio-container">
+    <motion.section ref={ref} layoutScroll id="projects" className="h-[500vh]">
+      <div className="fixed flex top-0 overflow-hidden items-center h-screen">
         <motion.ul
+          className="flex list-none py-1 h-[50vh]"
           style={{
             willChange,
             x,
@@ -29,17 +25,22 @@ export default function Horizental() {
         >
           {data?.map((project: any) => {
             return (
-              <li>
+              <li className="p-[1vw] max-w-[100vw] h-[50vh]">
                 <Card item={project} />
               </li>
             );
           })}
         </motion.ul>
       </div>
-      <div className="logo-pd">
+      <div className="fixed z-[998] -top-4 left-3">
         <Logo light size={60} />
       </div>
-      <svg width="50" height="50" viewBox="0 0 100 100">
+      <svg
+        width="50"
+        height="50"
+        viewBox="0 0 100 100"
+        className="fixed -rotate-90 top-12 right-5"
+      >
         <motion.circle
           cx="50"
           cy="50"
@@ -49,6 +50,7 @@ export default function Horizental() {
             pathLength: scrollYProgress,
             willChange,
           }}
+          className="fill-none stroke-[5%] stroke-apple"
         />
       </svg>
     </motion.section>

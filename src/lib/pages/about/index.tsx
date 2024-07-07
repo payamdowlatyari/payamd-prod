@@ -1,6 +1,6 @@
 "use client";
 
-import "../../styles/globals.css";
+// import "../../styles/globals.css";
 import { motion, useSpring, useScroll, useIsPresent } from "framer-motion";
 import { useRef } from "react";
 
@@ -52,7 +52,7 @@ const AboutRoute = () => {
         // Set the originY value based on the isPresent value
         style={{ originY: isPresent ? 0 : 1 }}
         // Add the 'privacy-screen' class to the component
-        className="privacy-screen"
+        className="fixed top-0 left-0 right-0 bottom-0 bg-slate-100 z-[2]"
         ref={ref}
       />
 
@@ -63,7 +63,11 @@ const AboutRoute = () => {
       <Footer />
 
       {/* Render the progress bar */}
-      <motion.div className="progress" style={{ scaleX }} />
+
+      <motion.div
+        className="fixed bottom-0 left-0 right-0 h-3 origin-[0%] bg-slate-100"
+        style={{ scaleX }}
+      />
     </>
   );
 };

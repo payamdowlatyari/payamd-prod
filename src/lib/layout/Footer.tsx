@@ -39,19 +39,18 @@ const Footer = () => {
 
   // Render the footer component with the motion values applied
   return (
-    <motion.footer ref={el} layout>
-      {/* Render the navigation and contact details */}
+    <motion.footer ref={el} layout className="grid h-screen items-end">
       <motion.div
         style={{
           y,
           opacity,
           scale,
         }}
+        className="flex flex-wrap items-center justify-around min-h-[70vh]"
       >
         <Nav />
         <Contact />
       </motion.div>
-      {/* Render the copyright information */}
       <CopyRight />
     </motion.footer>
   );

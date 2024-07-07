@@ -5,7 +5,7 @@ import LinkOut from "./View/LinkOut";
 
 const getTags = (tags: any) => {
   return (
-    <div className="portfolio-tag">
+    <div className="flex flex-row flex-wrap text-slate-50 justify-center">
       {tags?.map((tag: any) => {
         return <Icon id={tag} />;
       })}
@@ -15,11 +15,17 @@ const getTags = (tags: any) => {
 
 export default function Card({ item }: any) {
   return (
-    <figure className="portfolio-card">
-      <div className="portfolio-img-wrapper">
-        <Image src={item.img} alt={item.title} width={500} height={500} />
+    <figure className="relative flex flex-row justify-evenly flex-wrap overflow-hidden rounded-xl shadow-ultra-light-gray shadow-sm transition-all hover:shadow-md hover:shadow-ultra-light-gray duration-500">
+      <div>
+        <Image
+          src={item.img}
+          alt={item.title}
+          width={500}
+          height={500}
+          className="object-cover w-[500px] max-w-[100vw] h-auto origin-bottom"
+        />
       </div>
-      <div className="portfolio-content">
+      <div className="flex flex-wrap flex-col justify-evenly content-center max-w-[100vw] min-h-[25vh] w-full  p-2">
         <div>
           <LinkOut url={item.url} title={item.title} out size="1.25em" />
           <p>{item.description}</p>

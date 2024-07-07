@@ -21,22 +21,22 @@ export default function About() {
       <motion.div
         ref={ref}
         layout
-        className="about-section"
+        className="flex flex-wrap justify-evenly w-full p-1"
         style={{
           willChange,
         }}
       >
-        <div className="about-wrapper">
+        <div className="max-w-3xl mix-blend-difference">
           <AnimatePresence initial={false}>
             {isInView && (
               <motion.div
                 layout
                 style={{
                   willChange,
-                  padding: "20px",
+                  padding: "10px",
                 }}
               >
-                <h3>
+                <h2 className="text-3xl tracking-[-0.1vw] leading-none font-light mx-[0] my-[0.25em]">
                   <StaggerText
                     staggerType="letter"
                     staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"
@@ -45,8 +45,8 @@ export default function About() {
                   >
                     {data.title}
                   </StaggerText>
-                </h3>
-                <p>
+                </h2>
+                <p className="pl-2">
                   <StaggerText
                     staggerType="word"
                     staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"
@@ -60,7 +60,7 @@ export default function About() {
             )}
           </AnimatePresence>
         </div>
-        <div className="about-image">
+        <div className="h-[400px] w-[400px] m-1 static right-0">
           <ImageEffect item1="/me-sea2.webp" item2="/me-sea3.webp" />
         </div>
       </motion.div>

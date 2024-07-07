@@ -49,12 +49,23 @@ export default function ParallaxText({
   });
 
   return (
-    <div className="parallax">
-      <motion.div className="scroller" style={{ x }}>
-        <span>{children} </span>
-        <span>{children} </span>
-        <span>{children} </span>
-        <span>{children} </span>
+    <div className="overflow-hidden flex flex-nowrap whitespace-nowrap m-0 tracking-[-2px] leading-[0.8]">
+      <motion.div
+        className="uppercase flex whitespace-nowrap flex-nowrap mix-blend-difference text-ultra-light-gray tracking-[-2px]"
+        style={{ x }}
+      >
+        <span className="block mr-5 text-3xl md:text-5xl lg:text-7xl">
+          {children}{" "}
+        </span>
+        <span className="block mr-5 text-3xl md:text-5xl lg:text-7xl">
+          {children}{" "}
+        </span>
+        <span className="block mr-5 text-3xl md:text-5xl lg:text-7xl">
+          {children}{" "}
+        </span>
+        <span className="block mr-5 text-3xl md:text-5xl lg:text-7xl">
+          {children}{" "}
+        </span>
       </motion.div>
     </div>
   );

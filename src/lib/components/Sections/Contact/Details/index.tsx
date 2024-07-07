@@ -7,25 +7,33 @@ import Social from "./Social";
 
 export default function Contacts() {
   return (
-    <div className="contacts">
-      <div>
+    <div className="m-auto w-[45w] px-4">
+      <div className="flex flex-wrap items-center m-auto w-[350px] max-w[98vw]">
         <Divider />
-        <h5>Email</h5>
+        <h5 className="min-w-[100px] text-base m-2 capitalize text-ultra-light-gray">
+          Email
+        </h5>
         <Email />
       </div>
-      <div>
+      <div className="flex flex-wrap items-center m-auto w-[350px] max-w[98vw]">
         <Divider />
-        <h5>Phone</h5>
+        <h5 className="min-w-[100px] text-base m-2 capitalize text-ultra-light-gray">
+          Phone
+        </h5>
         <PhoneNumber />
       </div>
-      <div>
+      <div className="flex flex-wrap items-center m-auto w-[350px] max-w[98vw]">
         <Divider />
-        <h5>Social</h5>
+        <h5 className="min-w-[100px] text-base m-2 capitalize text-ultra-light-gray">
+          Social
+        </h5>
         <Social />
       </div>
-      <div>
+      <div className="flex flex-wrap items-center m-auto w-[350px] max-w[98vw]">
         <Divider />
-        <h5>Links</h5>
+        <h5 className="min-w-[100px] text-base m-2 capitalize text-ultra-light-gray">
+          Links
+        </h5>
         <External />
         <Divider />
       </div>

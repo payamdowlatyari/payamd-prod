@@ -57,18 +57,6 @@ export const experience = [
     ],
     index: 2,
   },
-  {
-    title: "Reaserch and Learning Assistant",
-    company: "UC Irvine, School of ICS",
-    date: "Dec 2019 - Dec 2020",
-    description: [
-      "Worked closely with ICS 31 Intro to Python teaching staff",
-      "Accommodated office hours, grade quizzes and assignments",
-      "Reviewed 150+ scientific papers and co-authored a published paper",
-      "Developed interactive UI for importing, saving, and browsing articles",
-    ],
-    index: 3,
-  },
 ];
 
 export const education = [
@@ -101,6 +89,21 @@ export const certificate = [
     description:
       "Capstone: A bank portal application with Angular2+, Java, Spring,MySQL, REST API, and CRUD functionality",
   },
+  {
+    school: "Stanford University",
+    major: "Machine Learning",
+    date: "Feb 2020",
+    link: "https://www.coursera.org/account/accomplishments/specialization/certificate/8NJAABHZRNUM",
+    description: "",
+  },
+  {
+    school: "The Interaction Design Foundation",
+    major: "User Experience Design Courses",
+    date: "Oct 2019",
+    link: "https://www.interaction-design.org/members/payam-dowlatyari",
+    description:
+      "12+ Course Certificates on various topics such as Design Thinking, Data-driven design, Service Design, Information visualization, etc.",
+  },
 ];
 
 export const publication = [
@@ -110,5 +113,7 @@ export const publication = [
     date: "Dec 2020",
     description:
       "Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, Article No.: 126",
+    summary:
+      "The research community on the study and design of systems for personal informatics has grown over the past decade. To take stock of what the topics the field has studied and methods the field has used, we map and label 523 publications from ACM's library, IEEE Xplore, and PubMed. We surface that the literature has focused on studying and designing for health and wellness domains, an emphasis on understanding and overcoming barriers to data collection and reflection, and progressively fewer contributions involving artifacts being made. Our mapping review suggests directions future research could explore, such as identifying and resolving barriers to tracking stages beyond collection and reflection, engaging more with domain experts, and further discussing the privacy and ethical concerns around tracked data.",
   },
 ];

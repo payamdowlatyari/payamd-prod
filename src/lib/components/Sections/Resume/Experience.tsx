@@ -1,42 +1,45 @@
-import { Flex, Spacer, List, ListItem, Box, Text } from "@chakra-ui/react";
 import Image from "next/image";
 
 import { experience } from "./data";
 
 const Experience = () => {
   return (
-    <div className="resume-section">
-      <div className="resume-body">
-        <div className="resume-title">
-          <h3>Experience</h3>
+    <div className="flex flex-row justify-center items-center h-screen m-1">
+      <div className="flex flex-col justify-evenly max-w-[98vw] h-[90vh] overflow-hidden">
+        <div className="flex flex-col-reverse items-center px-4">
+          <h3 className="text-3xl md:text-4xl lg:text-5xl tracking-[-0.2vw]">
+            Experience
+          </h3>
           <Image
             src="/wired-gradient-187-suitcase.gif"
             alt="wired-lineal-187-suitcase"
-            width={100}
-            height={100}
+            width={80}
+            height={80}
           />
         </div>
-        <div className="resume-content">
+        <div className="w-[750px] flex flex-col justify-evenly">
           {experience?.map((item) => {
             return (
-              <>
-                <Flex px={4} pt={4}>
-                  <Box>
-                    <Text>
-                      <b>{item.title}</b>, <i>{item.company}</i>
-                    </Text>{" "}
-                  </Box>
-                  <Spacer />
-                  <Box>
-                    <Text fontSize="xs">{item.date}</Text>
-                  </Box>{" "}
-                </Flex>
-                <List px={4} pb={4}>
+              <div className="mb-6">
+                <div className="flex justify-between flex-wrap gap-2 w-full">
+                  <span className="text-apple font-bold uppercase">
+                    {item.title}
+                  </span>
+                  <p>
+                    <span className="mr-2 text-sm text-ultra-light-gray">
+                      {item.company}
+                    </span>
+                    <span className="text-sm text-ultra-light-gray">
+                      {item.date}
+                    </span>
+                  </p>
+                </div>
+                <div className="mt-2 ml-1 text-sm">
                   {item.description?.map((desc) => {
-                    return <ListItem fontSize="xs">{desc}</ListItem>;
+                    return <p className="mb-1">{desc}</p>;
                   })}
-                </List>
-              </>
+                </div>
+              </div>
             );
           })}
         </div>

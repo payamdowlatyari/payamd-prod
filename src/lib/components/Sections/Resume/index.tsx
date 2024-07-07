@@ -20,13 +20,12 @@ const Resume = () => {
   return (
     <motion.section
       id="resume"
-      className="resume-main"
+      className="block top-0 max-w-[100vw] overflow-hidden h-[2300vh] p-0"
       ref={resume}
       layoutScroll
     >
       <Intro />
-      <div className="horizental-text">
-        <ParallaxText baseVelocity={0.01}>Resume ✳︎ Resume ✳︎ </ParallaxText>
+      <div className="relative top-96">
         <ParallaxText baseVelocity={-0.01}>
           Experience ✳︎ Experience ✳︎{" "}
         </ParallaxText>
@@ -39,33 +38,36 @@ const Resume = () => {
         <ParallaxText baseVelocity={0.01}>
           Publications ✳︎ Publications ✳︎{" "}
         </ParallaxText>
-        <ParallaxText baseVelocity={-0.01}>Skills ✳︎ Skills ✳︎ </ParallaxText>
+        <ParallaxText baseVelocity={-0.01}>
+          Skills ✳︎ Skills ✳︎ Skills ✳︎{" "}
+        </ParallaxText>
       </div>
-      <div className="resume-wrapper">
+      <div className="fixed flex top-0 overflow-hidden items-center h-screen">
         <motion.ul
+          className="fixed flex list-none h-screen"
           style={{
             willChange,
             x,
           }}
         >
-          <li>
+          <li className="w-screen">
             <Experience />
           </li>
-          <li>
+          <li className="w-screen">
             <Education />
           </li>
-          <li>
+          <li className="w-screen">
             <Certificates />
           </li>
-          <li>
+          <li className="w-screen">
             <Publications />
           </li>
-          <li>
+          <li className="w-screen">
             <Skills />
           </li>
         </motion.ul>
       </div>
-      <div className="logo-pd">
+      <div className="fixed z-[998] -top-4 left-3">
         <Logo light size={60} />
       </div>
     </motion.section>

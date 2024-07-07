@@ -43,13 +43,17 @@ export default function TextSpinner() {
   });
 
   return (
-    <motion.div ref={scope} className="circle" style={{ width: radius * 2 }}>
+    <motion.div
+      ref={scope}
+      className="absolute z-10 top-[650px] right-[75px] [aspect-ratio:1]"
+      style={{ width: radius * 2 }}
+    >
       <p aria-label={text} />
       <p aria-hidden="true" className="text">
         {characters.map((ch, i) => (
           <motion.span
             key={ch}
-            className={`letter letter-${i}`}
+            className={`absolute top-0 left-1/2 letter-${i}`}
             style={{
               transformOrigin: `0 ${radius}px`,
               transform: `rotate(${i * letterSpacing}deg)`,
@@ -60,7 +64,7 @@ export default function TextSpinner() {
           </motion.span>
         ))}
       </p>
-      <span className="spinner-icon">
+      <span className="left-10 absolute rotate-[60deg] text-xl">
         <BsFillMouseFill />
       </span>
     </motion.div>

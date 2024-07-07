@@ -30,8 +30,13 @@ export const SendMail = () => {
   };
 
   return (
-    <form ref={form} onSubmit={sendEmail} className="contact-form">
+    <form
+      ref={form}
+      onSubmit={sendEmail}
+      className="m-auto-[10px] w-[500px] max-w-[95vw]"
+    >
       <Input
+        className="m-1"
         focusBorderColor="white"
         placeholder="Your name"
         name="from_name"
@@ -39,6 +44,7 @@ export const SendMail = () => {
         type="text"
       />
       <Input
+        className="m-1"
         focusBorderColor="white"
         placeholder="Your email"
         name="user_email"
@@ -46,23 +52,25 @@ export const SendMail = () => {
         type="email"
       />
       <Textarea
+        className="m-1"
         placeholder="Type your message here..."
         focusBorderColor="white"
         variant="filled"
         name="message"
       />
       <Input
+        className="transition-background inline-flex h-12 items-center justify-center rounded-md border border-apple bg-gradient-to-r from-apple via-ultra-light-gray to-apple bg-[length:200%_200%] bg-[0%_0%] px-6 font-medium text-black hover:bg-[100%_200%] focus:outline-none focus:ring-2 focus:ring-ultra-light-gray focus:ring-offset-2 focus:ring-offset-ultra-light-gray duration-500 m-1"
         type="submit"
         variant="outlined"
-        value="Send"
+        value="Send Message"
         style={{ cursor: "pointer" }}
       />
-      <div className="message-confirm">
+      <div className="flex justify-center p-2">
         {message &&
           (success ? (
-            <span className="message-success">{message}</span>
+            <span className="text-green">{message}</span>
           ) : (
-            <span className="message-fail">{message}</span>
+            <span className="text-red">{message}</span>
           ))}
       </div>
     </form>
