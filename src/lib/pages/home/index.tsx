@@ -1,6 +1,5 @@
 "use client";
 
-// import "../../styles/globals.css";
 import { motion, useSpring, useScroll } from "framer-motion";
 import { useRef } from "react";
 
@@ -11,7 +10,7 @@ import About from "~/lib/components/Sections/About";
 import Services from "~/lib/components/Sections/Services";
 import Title from "~/lib/components/Sections/Title";
 import Footer from "~/lib/layout/Footer";
-// import Header from "~/lib/layout/Header";
+import Header from "~/lib/layout/Header";
 
 const Home = () => {
   const ref = useRef(null);
@@ -26,10 +25,8 @@ const Home = () => {
   return (
     <>
       <Menu />
-      {/* <Header /> */}
-
+      <Header />
       <Title />
-
       <About />
       <ParallaxText baseVelocity={0.01}>About ✳︎ Services ✳︎</ParallaxText>
       <Services />
@@ -50,7 +47,7 @@ const Home = () => {
       <Footer />
       <motion.div
         ref={ref}
-        className="fixed bottom-0 left-0 right-0 h-3 origin-[0%] bg-slate-100"
+        className="fixed bottom-0 left-0 right-0 h-3 origin-[0%] bg-silver"
         style={{ scaleX }}
       />
     </>
