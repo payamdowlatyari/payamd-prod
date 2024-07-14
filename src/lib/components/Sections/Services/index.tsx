@@ -123,7 +123,7 @@ const ServiceItem = ({ service }: any) => {
             >
               {serviceIcon(service.id)}
             </motion.div>
-            <div className="w-[500px] m-1">
+            <div className="w-[500px] m-1 p-1">
               <h2 className="text-2xl lg:text-4xl capitalize font-light">
                 {service.name}
               </h2>

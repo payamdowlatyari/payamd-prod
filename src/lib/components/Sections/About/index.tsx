@@ -26,14 +26,13 @@ export default function About() {
           willChange,
         }}
       >
-        <div className="max-w-3xl mix-blend-difference">
+        <div className="max-w-3xl p-1">
           <AnimatePresence initial={false}>
             {isInView && (
               <motion.div
                 layout
                 style={{
                   willChange,
-                  padding: "10px",
                 }}
               >
                 <h2 className="text-3xl tracking-[-0.1vw] leading-none font-light mx-[0] my-[0.25em]">

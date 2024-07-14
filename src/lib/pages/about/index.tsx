@@ -8,10 +8,12 @@ import Resume from "~/lib/components/Sections/Resume";
 import Footer from "~/lib/layout/Footer";
 
 const AboutRoute = () => {
+  const ref = useRef(null);
   const progressBarRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: progressBarRef });
+  const { scrollYProgress } = useScroll();
+
   const isPresent = useIsPresent();
-  const scaleX = useSpring(scrollYProgress ?? 0, {
+  const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.1,
@@ -26,12 +28,13 @@ const AboutRoute = () => {
         exit={{ scaleY: 1, transition: { duration: 1, ease: "circIn" } }}
         style={{ originY: isPresent ? 0 : 1 }}
         className="fixed top-0 left-0 right-0 bottom-0 bg-white z-[2]"
-        ref={progressBarRef}
+        ref={ref}
       />
       <Resume />
       <Footer />
       <motion.div
-        className="fixed bottom-0 left-0 right-0 h-3 origin-[0%] bg-silver"
+        ref={progressBarRef}
+        className="fixed bottom-0 left-0 right-0 h-3 origin-[0%] bg-ultra-light-gray"
         style={{ scaleX }}
       />
     </>

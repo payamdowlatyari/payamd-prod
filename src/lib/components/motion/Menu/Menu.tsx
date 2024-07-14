@@ -94,9 +94,9 @@ export default function Menu() {
       ref={containerRef}
       style={{
         willChange,
-        background: isOpen ? "#222424" : "transparent",
+        // background: isOpen ? "#222424" : "transparent",
       }}
-      className="fixed top-0 left-0 z-[100]"
+      className={`fixed top-0 left-0 z-[100] ${isOpen ? "bg-black" : "bg-transparent"}`}
     >
       <NavToggle toggle={() => toggleOpen()} />
       <motion.div
@@ -105,7 +105,7 @@ export default function Menu() {
           willChange,
           display: isOpen ? "flex" : "none",
         }}
-        className="w-screen h-screen flex flex-wrap justify-evenly items-center content-center backdrop-brightness-50"
+        className="w-screen h-screen flex flex-wrap justify-evenly items-center content-center"
         ref={scope}
       >
         <TopNav />

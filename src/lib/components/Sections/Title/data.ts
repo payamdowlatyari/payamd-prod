@@ -20,4 +20,5 @@ export const portfolio = {
   name: "Payam Dowlatyari",
   text: [" I am", "Payam Dowlatyari", "a Software Engineer in California"],
   titles: "Sofware Engineer ✳︎ UX Designer ✳︎ Photographer Blogger ✳︎ ",
+  email: "pdyari@gmail.com",
 };

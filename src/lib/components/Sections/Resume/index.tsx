@@ -25,7 +25,6 @@ const Resume = () => {
       layoutScroll
     >
       <Intro />
-
       <div className="relative top-96">
         <ParallaxText baseVelocity={-0.01}>
           Experience ✳︎ Experience ✳︎{" "}

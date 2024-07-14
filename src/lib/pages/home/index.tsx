@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useSpring, useScroll } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { useRef } from "react";
 
 import Logo from "~/lib/components/motion/Menu/Logo";
@@ -25,6 +25,7 @@ const Home = () => {
   return (
     <>
       <Menu />
+
       <Header />
       <Title />
       <About />
@@ -47,7 +48,7 @@ const Home = () => {
       <Footer />
       <motion.div
         ref={ref}
-        className="fixed bottom-0 left-0 right-0 h-3 origin-[0%] bg-silver"
+        className="fixed bottom-0 left-0 right-0 h-3 origin-[0%] bg-ultra-light-gray"
         style={{ scaleX }}
       />
     </>

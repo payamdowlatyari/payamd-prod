@@ -1,7 +1,7 @@
 "use client";
 
 import "../../app/globals.css";
-import { GlobalCanvas, SmoothScrollbar } from "@14islands/r3f-scroll-rig";
+import { SmoothScrollbar, GlobalCanvas } from "@14islands/r3f-scroll-rig";
 import { Box } from "@chakra-ui/react";
 import { type ReactNode } from "react";
 import "@fontsource/poppins";
@@ -25,12 +25,15 @@ const Layout = ({ children }: LayoutProps) => {
     <Box
       margin="0 auto"
       width="100%"
-      className="dark:bg-grid-white/[0.05] bg-grid-black/[0.05] bg-neutral-950 relative"
+      className="relative h-full w-full bg-black"
     >
+      <div className="fixed bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]" />
       {/* Set up the global canvas for rendering */}
+
       <GlobalCanvas style={{ pointerEvents: "none" }}>
         <ambientLight />
       </GlobalCanvas>
+
       <SmoothScrollbar>
         {(bind) => <article {...bind}>{children}</article>}
       </SmoothScrollbar>
