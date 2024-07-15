@@ -21,10 +21,11 @@ const Layout = ({ children }: LayoutProps) => {
   // Render the layout component
   return (
     // Apply a margin of 0 auto and width of 100% to center the content
-    <main className="relative h-full w-full m-auto bg-black">
-      <div className="fixed bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]" />
-      {/* Set up the global canvas for rendering */}
+    // <main className="relative h-full w-full m-auto bg-black">
+    //   <div className="fixed bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]" />
 
+    <>
+      {/* Set up the global canvas for rendering */}
       <GlobalCanvas style={{ pointerEvents: "none" }}>
         <ambientLight />
       </GlobalCanvas>
@@ -32,7 +33,7 @@ const Layout = ({ children }: LayoutProps) => {
       <SmoothScrollbar>
         {(bind) => <article {...bind}>{children}</article>}
       </SmoothScrollbar>
-    </main>
+    </>
   );
 };
 

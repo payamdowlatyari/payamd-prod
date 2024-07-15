@@ -36,7 +36,7 @@ export const SendMail = () => {
       className="m-auto-[10px] w-[500px] max-w-[95vw]"
     >
       <Input
-        className="my-2 px-2 h-12 block w-full rounded-md border border-gray-800 bg-gray-950 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 focus:ring-offset-gray-50"
+        className="my-2 px-2 h-12 block w-full rounded-md border border-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 focus:ring-offset-gray-50"
         focusBorderColor="white"
         placeholder="Your name"
         name="from_name"
@@ -44,7 +44,7 @@ export const SendMail = () => {
         type="text"
       />
       <Input
-        className="my-2 px-2 h-12 block w-full rounded-md border border-gray-800 bg-gray-950 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 focus:ring-offset-gray-50"
+        className="my-2 px-2 h-12 block w-full rounded-md border border-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 focus:ring-offset-gray-50"
         focusBorderColor="white"
         placeholder="Your email"
         name="user_email"
@@ -52,7 +52,7 @@ export const SendMail = () => {
         type="email"
       />
       <Textarea
-        className="my-2 px-2 block w-full rounded-md border border-gray-800 bg-gray-950 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 focus:ring-offset-gray-50"
+        className="my-2 px-2 block w-full rounded-md border border-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 focus:ring-offset-gray-50"
         placeholder="Type your message here..."
         focusBorderColor="white"
         variant="unstyled"

@@ -39,7 +39,11 @@ const Footer = () => {
 
   // Render the footer component with the motion values applied
   return (
-    <motion.footer ref={el} layout className="grid h-screen items-end">
+    <motion.footer
+      ref={el}
+      layout
+      className="grid h-[90vh] items-end w-screen bg-white text-black top-0 z-[-2]"
+    >
       <motion.div
         style={{
           y,

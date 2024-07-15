@@ -26,7 +26,9 @@ const Projects = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["45%", "-45%"]);
 
   return (
-    <>
+    <main className="relative h-full w-full m-auto bg-black">
+      <div className="bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]" />
+
       <Menu />
       <motion.div
         initial={{ scaleX: 1 }}
@@ -91,7 +93,7 @@ const Projects = () => {
         </ParallaxText>
         <CopyRight />
       </div>
-    </>
+    </main>
   );
 };
 

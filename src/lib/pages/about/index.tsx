@@ -39,7 +39,9 @@ const AboutRoute = () => {
   const x = useTransform(scrollY, [1000, 28000], ["20%", "-180%"]);
 
   return (
-    <>
+    <main className="relative h-full w-full m-auto bg-black">
+      <div className="bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]" />
+
       <Menu />
       <motion.div
         initial={{ scaleY: 1 }}
@@ -108,7 +110,7 @@ const AboutRoute = () => {
         className="fixed bottom-0 left-0 right-0 h-3 origin-[0%] bg-ultra-light-gray"
         style={{ scaleX }}
       />
-    </>
+    </main>
   );
 };
 
