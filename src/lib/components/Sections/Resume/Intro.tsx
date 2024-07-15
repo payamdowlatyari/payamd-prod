@@ -2,9 +2,8 @@ import { motion, useTransform, useWillChange, useScroll } from "framer-motion";
 import { useRef } from "react";
 import StaggerText from "react-stagger-text";
 
+import { intro } from "../../data/data";
 import WebGLImage from "../../motion/WebGLImage";
-
-import { intro } from "./data";
 
 export default function Intro() {
   const ref = useRef(null);

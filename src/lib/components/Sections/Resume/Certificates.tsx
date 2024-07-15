@@ -1,9 +1,8 @@
 import Image from "next/image";
 import React from "react";
 
+import { certificate } from "../../data/data";
 import LinkOut from "../../motion/View/LinkOut";
-
-import { certificate } from "./data";
 
 const Certificates = () => (
   <div className="flex flex-row justify-center items-center h-screen m-1">

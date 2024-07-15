@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  /* @apply bg-black text-white; */
-}
 h1,
 h2,
 h3,

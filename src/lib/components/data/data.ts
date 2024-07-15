@@ -30,7 +30,7 @@ const vercel = "M64.002 8.576 128 119.424H0Zm0 0";
 const router =
   "M99.04 50.315c-3.646-1.148-5.528-.761-9.351-1.18-5.91-.645-8.265-2.959-9.264-8.913-.559-3.324.101-8.191-1.326-11.204-2.729-5.746-9.115-8.323-15.53-6.852-5.417 1.244-9.924 6.666-10.174 12.232-.285 6.355 3.33 11.778 9.537 13.65 2.95.89 6.083 1.338 9.163 1.565 5.649.413 6.083 3.558 7.61 6.147.964 1.632 1.897 3.24 1.897 8.107s-.939 6.474-1.896 8.106c-1.528 2.583-3.413 4.275-9.062 4.693-3.08.228-6.22.676-9.162 1.567-6.208 1.877-9.823 7.293-9.538 13.649.25 5.566 4.757 10.988 10.174 12.232 6.415 1.476 12.801-1.106 15.53-6.852 1.433-3.013 2.218-6.427 2.777-9.75 1.005-5.955 3.36-8.269 9.264-8.915 3.823-.418 7.78 0 11.363-2.038 3.785-2.77 7.168-6.93 7.168-12.692 0-5.764-3.645-11.806-9.18-13.552zM38.4 77.373c-7.45 0-13.528-6.098-13.528-13.575 0-7.476 6.077-13.574 13.527-13.574 7.45 0 13.528 6.098 13.528 13.574 0 7.47-6.083 13.575-13.528 13.575zM13.48 104.96C6.04 104.942-.018 98.82 0 91.337c.018-7.47 6.119-13.55 13.575-13.526 7.444.018 13.503 6.14 13.48 13.622-.018 7.464-6.12 13.545-13.575 13.527zm100.512 0c-7.462.041-13.586-6.015-13.629-13.473-.041-7.488 5.994-13.634 13.426-13.676 7.462-.042 13.587 6.014 13.629 13.472.041 7.482-5.994 13.635-13.426 13.677z";
 
-export default [
+export const projects = [
   {
     index: 0,
     title: "FindADoc",
@@ -110,5 +110,212 @@ export default [
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/m-studios_1260x720.webp",
     url: "https://m-studios.us/",
     tagIcon: [html, css, javascript, bootstrap, vercel],
+  },
+];
+
+export const about = {
+  title: "My name is Payam Dowlatyari.",
+  text: `I am a software engineer, UX designer, photographer, and
+      blogger. I studied Software Engineering at UC Irvine and
+      graduated in 2020. I have been working in Silicon Valley as a
+      full-stack web developer since then with a focus on the design
+      and implementation of user interfaces using JavaScript-based
+      frameworks and libraries. I am a hobbyist photographer and blogger 
+      interested in art, philosophy, and social sciences.`,
+  image:
+    "https://storage.googleapis.com/www.payamd.com/Portfolio/glasses-pen-paper-color.jpeg",
+  image2:
+    "https://storage.googleapis.com/www.payamd.com/Portfolio/isaa-unsplash.jpeg",
+  image3:
+    "https://storage.googleapis.com/www.payamd.com/assets/img/alphabet-computer-conceptual-dark.jpg",
+  image4:
+    "https://storage.googleapis.com/www.payamd.com/Portfolio/tech/bgt2.png",
+  image5:
+    "https://storage.googleapis.com/www.payamd.com/Portfolio/tech/bg1.jpeg",
+  image6:
+    "https://storage.googleapis.com/www.payamd.com/Portfolio/tech/bg22.jpeg",
+};
+
+export const social = [
+  {
+    name: "Github",
+    url: "https://github.com/payamdowlatyari",
+    icon: "M17.791,46.836C18.502,46.53,19,45.823,19,45v-5.4c0-0.197,0.016-0.402,0.041-0.61C19.027,38.994,19.014,38.997,19,39 c0,0-3,0-3.6,0c-1.5,0-2.8-0.6-3.4-1.8c-0.7-1.3-1-3.5-2.8-4.7C8.9,32.3,9.1,32,9.7,32c0.6,0.1,1.9,0.9,2.7,2c0.9,1.1,1.8,2,3.4,2 c2.487,0,3.82-0.125,4.622-0.555C21.356,34.056,22.649,33,24,33v-0.025c-5.668-0.182-9.289-2.066-10.975-4.975 c-3.665,0.042-6.856,0.405-8.677,0.707c-0.058-0.327-0.108-0.656-0.151-0.987c1.797-0.296,4.843-0.647,8.345-0.714 c-0.112-0.276-0.209-0.559-0.291-0.849c-3.511-0.178-6.541-0.039-8.187,0.097c-0.02-0.332-0.047-0.663-0.051-0.999 c1.649-0.135,4.597-0.27,8.018-0.111c-0.079-0.5-0.13-1.011-0.13-1.543c0-1.7,0.6-3.5,1.7-5c-0.5-1.7-1.2-5.3,0.2-6.6 c2.7,0,4.6,1.3,5.5,2.1C21,13.4,22.9,13,25,13s4,0.4,5.6,1.1c0.9-0.8,2.8-2.1,5.5-2.1c1.5,1.4,0.7,5,0.2,6.6c1.1,1.5,1.7,3.2,1.6,5 c0,0.484-0.045,0.951-0.11,1.409c3.499-0.172,6.527-0.034,8.204,0.102c-0.002,0.337-0.033,0.666-0.051,0.999 c-1.671-0.138-4.775-0.28-8.359-0.089c-0.089,0.336-0.197,0.663-0.325,0.98c3.546,0.046,6.665,0.389,8.548,0.689 c-0.043,0.332-0.093,0.661-0.151,0.987c-1.912-0.306-5.171-0.664-8.879-0.682C35.112,30.873,31.557,32.75,26,32.969V33 c2.6,0,5,3.9,5,6.6V45c0,0.823,0.498,1.53,1.209,1.836C41.37,43.804,48,35.164,48,25C48,12.318,37.683,2,25,2S2,12.318,2,25 C2,35.164,8.63,43.804,17.791,46.836z",
+  },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/payamdowlatyari/",
+    icon: "M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z",
+  },
+  {
+    name: "Medium",
+    url: "https://medium.com/@pdowlatyari",
+    icon: "M 18.998047 15 A 17.002 17.002 0 0 0 18.998047 49.003906 A 17.002 17.002 0 0 0 18.998047 15 z M 45.498047 16 A 8.502 16.002 0 0 0 45.498047 48.003906 A 8.502 16.002 0 0 0 45.498047 16 z M 58.5 17 A 3.5 15.002 0 1 0 58.5 47.003906 A 3.5 15.002 0 1 0 58.5 17 z",
+  },
+];
+
+export const portfolio = {
+  name: "Payam Dowlatyari",
+  text: [" I am", "Payam Dowlatyari", "a Software Engineer in California"],
+  titles: "Sofware Engineer ✳︎ UX Designer ✳︎ Photographer Blogger ✳︎ ",
+  email: "pdyari@gmail.com",
+};
+
+export const services = [
+  {
+    name: "UX Design",
+    text: `Well-designed User Experience (UX) can make a real difference. I conduct user research and follow User-Centered and Design Thinking principles.`,
+    id: 1,
+    src: "wired-gradient-1021-rules.gif",
+  },
+  {
+    name: "User Interface Design",
+    text: `A User Interface (UI) should be visually appealing to attract users. I pick the right combination of colors, fonts, and graphics to create the UI components.`,
+    id: 2,
+    src: "wired-gradient-970-video-conference.gif",
+  },
+  {
+    name: "Frontend Development",
+    text: `What clients see on a web browser should function as well as it looks. I use JavaScript with frameworks such as React and Angular to implement that.`,
+    id: 3,
+    src: "wired-gradient-742-code.gif",
+  },
+  {
+    name: "Backend Development",
+    text: `Any request from client is processed on the server. Any response requires data. I develop applications for the interaction between user and data.`,
+    id: 4,
+    src: "wired-gradient-1326-command-window-line.gif",
+  },
+  {
+    name: "Database Design",
+    text: `Data is the most valuable asset. Users read and write data to database. I design relational and non-relational database suitable for the application.`,
+    id: 5,
+    src: "wired-gradient-57-server.gif",
+  },
+  {
+    name: "Software Security",
+    text: `Every data transaction involves some risks. As data is valuable, I eliminate those risks using secure data transfer protocols and encryption methods.`,
+    id: 6,
+    src: "wired-gradient-966-privacy-policy.gif",
+  },
+];
+
+export const intro = {
+  text: `After obtaining my B.S. in Software Engineering from UC Irvine in 2020,
+    I entered the tech industry and worked at Amplify.ai for three years developing AI applications. 
+    Having the opportunity to study at UCI and work in an innovative start-up environment, 
+    I've improved my technical and soft skills, uncovered my passion for design, and expanded my mastery in software development in recent years. \n 
+    Meanwhile, I dedicated time to learning new skills and completed a 9-month postgraduate program in full-stack web development. 
+    Likewise, I gained hands-on experience with different tools, such as JS/TS-based frameworks, including React.js, 
+    server-side technologies such as Node.js, automation and DevOps tools, cloud services, and SQL and NoSQL databases. `,
+  image:
+    "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/me-home-removebg-sketch.png",
+  image2:
+    "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/me-home-bw-removebg-EDIT.jpeg",
+  image3:
+    "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/me-camera-removebg-preview.png",
+};
+
+export const experience = [
+  {
+    title: "Full Stack Engineer",
+    company: "Avalon AI",
+    date: "Apr 2024 - Present",
+    description: [
+      "Define and document software requirements specifications and identify the best solutions",
+      "Design system architecture and configure resources and development environments ",
+      "Work with a team to develop a full-stack web application for the healthcare industry",
+      "Design, implement, and deploy backend features and API services",
+      "Setup and utilize AWS service and serverless tools such as Lambda and DynamoDB",
+      "Build automated testing tools and CI/CD pipelines",
+    ],
+    index: 0,
+  },
+  {
+    title: "Software Engineer",
+    company: "Amplify.ai",
+    date: "Dec 2020 - Nov 2023",
+    description: [
+      "Designed, Developed, tested, deployed, and maintained AI-powered applications",
+      "Built 100+ user engagement apps on various platforms i.e. Facebook, Twitter, Twilio, etc.",
+      "Designed and optimized SQL and NoSQL queries for data analysis and visualizations",
+      "Developed 200+ automated scripts and DevOps services using NodeJS, AWS, Jenkins, etc.",
+      "Created a developer-friendly toolkit to facilitate the configuration process using SvelteJS",
+      "Implemented user authentication and authorization tools such as 2FA, OAuth, etc.",
+    ],
+    index: 1,
+  },
+  {
+    title: "Web Developer",
+    company: "Freelance",
+    date: "Sep 2019 - Present",
+    description: [
+      "Design and develop interactive user interfaces using JS/TS frameworks",
+      "Build cross-browser compatible front-end components and architecture",
+      "Design and implement backend models and data access layers",
+      "Build server-side components, business logic, and API endpoints",
+      "Implement security features and mechanisms to protect sensitive data",
+      "Optimize applications for maximum speed and performance",
+    ],
+    index: 2,
+  },
+];
+
+export const education = [
+  {
+    school: "UC Irvine",
+    major: "Software Engineering B.S.",
+    date: "Class 2020",
+    description: [
+      "Capstone: Grid-Level Energy Negotiation for EVSE",
+      "Research Area: Informatics and Human-Computer Interaction",
+      "Honor Society: National Society of Leadership and Success (ΣAπ)",
+    ],
+    index: 1,
+  },
+  {
+    school: "American River College",
+    major: "Computer Science A.S.",
+    date: "Class 2018",
+    description: ["Activities and societies: Math and Computer Science tutor"],
+    index: 2,
+  },
+];
+
+export const certificate = [
+  {
+    school: "Postgraduate Certificate, Caltech",
+    major: "Full-Stack Web Development",
+    date: "Mar 2023",
+    link: "https://success.simplilearn.com/a8ed0cbb-aa08-40b3-b6ce-a5eac2e55dd4#gs.1kwd89",
+    description:
+      "Capstone: A bank portal application with Angular2+, Java, Spring,MySQL, REST API, and CRUD functionality",
+  },
+  {
+    school: "Stanford University",
+    major: "Machine Learning",
+    date: "Feb 2020",
+    link: "https://www.coursera.org/account/accomplishments/specialization/certificate/8NJAABHZRNUM",
+    description: "",
+  },
+  {
+    school: "The Interaction Design Foundation",
+    major: "User Experience Design Courses",
+    date: "Oct 2019",
+    link: "https://www.interaction-design.org/members/payam-dowlatyari",
+    description:
+      "12+ Course Certificates on various topics such as Design Thinking, Data-driven design, Service Design, Information visualization, etc.",
+  },
+];
+
+export const publication = [
+  {
+    title: "Mapping and Taking Stock of the Personal Informatics Literature",
+    link: "https://dl.acm.org/doi/10.1145/3432231",
+    date: "Dec 2020",
+    description:
+      "Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, Article No.: 126",
+    summary:
+      "The research community on the study and design of systems for personal informatics has grown over the past decade. To take stock of what the topics the field has studied and methods the field has used, we map and label 523 publications from ACM's library, IEEE Xplore, and PubMed. We surface that the literature has focused on studying and designing for health and wellness domains, an emphasis on understanding and overcoming barriers to data collection and reflection, and progressively fewer contributions involving artifacts being made. Our mapping review suggests directions future research could explore, such as identifying and resolving barriers to tracking stages beyond collection and reflection, engaging more with domain experts, and further discussing the privacy and ethical concerns around tracked data.",
   },
 ];

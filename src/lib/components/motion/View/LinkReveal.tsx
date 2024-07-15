@@ -2,15 +2,15 @@ import Link from "next/link";
 
 export default function LinkReveal({ title, sub, url }: any) {
   return (
-    <div className="relative block my-1 outline-none">
+    <div className="relative block m-1 outline-none">
       <Link
         href={url}
-        className="flex flex-col items-center text-apple hover:text-white transition-colors duration-500 ease-in-out"
+        className="flex flex-row flex-wrap items-baseline text-zinc-300 hover:text-white transition-colors duration-500 ease-in-out"
       >
-        <span className="relative text-3xl md:text-5xl inline-block overflow-hidden py-1 text-apple">
+        <span className="relative font-medium text-4xl lg:text-5xl inline-block overflow-hidden m-1 p-1 min-w-[300px]">
           {title}
         </span>
-        <span className="relative text-base text-ultra-light-gray inline-block text-[0.25em] ml-[0] mr-[0] my-[0.25em] mt-[0.25em] p-[0.25em] normal-case">
+        <span className="relative text-base inline-block min-w-[300px] m-1 p-1 normal-case">
           {sub}
         </span>
       </Link>

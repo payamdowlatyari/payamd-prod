@@ -94,7 +94,6 @@ export default function Menu() {
       ref={containerRef}
       style={{
         willChange,
-        // background: isOpen ? "#222424" : "transparent",
       }}
       className={`fixed top-0 left-0 z-[100] ${isOpen ? "bg-black" : "bg-transparent"}`}
     >

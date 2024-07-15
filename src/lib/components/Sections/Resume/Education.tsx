@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-import { education } from "./data";
+import { education } from "../../data/data";
 
 const Education = () => (
   <div className="flex flex-row flex-wrap justify-center items-center h-screen max-w-[100vw] overflow-hidden m-1">

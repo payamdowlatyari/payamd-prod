@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { experience } from "./data";
+import { experience } from "../../data/data";
 
 const Experience = () => {
   return (

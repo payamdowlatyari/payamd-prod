@@ -1,4 +1,4 @@
-import { social } from "../../Title/data";
+import { social } from "../../../data/data";
 import LinkOut from "~/lib/components/motion/View/LinkOut";
 
 export default function Social() {

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import LinkOut from "../../motion/View/LinkOut";
 
-import { publication } from "./data";
+import { publication } from "../../data/data";
 
 /**
  * Renders the Publications section of the resume.
