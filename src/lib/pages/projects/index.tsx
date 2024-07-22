@@ -4,6 +4,7 @@ import {
   motion,
   useIsPresent,
   useScroll,
+  useSpring,
   useTransform,
   useWillChange,
 } from "framer-motion";
@@ -24,11 +25,15 @@ const Projects = () => {
   const willChange = useWillChange();
 
   const x = useTransform(scrollYProgress, [0, 1], ["45%", "-45%"]);
-
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.1,
+  });
   return (
     <main className="relative h-full w-full m-auto bg-black">
-      <div className="bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]" />
-
+      <div className="fixed bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" />
+      <div className="fixed left-0 right-0 top-[-10%] h-[1000px] w-[1000px] rounded-full bg-[radial-gradient(circle_400px_at_50%_300px,#fbfbfb36,#000)]" />
       <Menu />
       <motion.div
         initial={{ scaleX: 1 }}
@@ -49,7 +54,7 @@ const Projects = () => {
       >
         <div className="fixed flex top-0 overflow-hidden items-center h-screen">
           <motion.ul
-            className="flex list-none py-1 h-[50vh]"
+            className="flex list-none py-1 h-[55vh]"
             style={{
               willChange,
               x,
@@ -67,24 +72,6 @@ const Projects = () => {
         <div className="fixed z-[998] -top-4 left-3">
           <Logo light size={60} />
         </div>
-        <svg
-          width="50"
-          height="50"
-          viewBox="0 0 100 100"
-          className="fixed -rotate-90 top-12 right-5"
-        >
-          <motion.circle
-            cx="50"
-            cy="50"
-            r="30"
-            pathLength="3"
-            style={{
-              pathLength: scrollYProgress,
-              willChange,
-            }}
-            className="fill-none stroke-[5%] stroke-apple"
-          />
-        </svg>
       </motion.section>
       <div className="sticky bottom-0">
         <ParallaxText baseVelocity={0.01}>
@@ -93,6 +80,11 @@ const Projects = () => {
         </ParallaxText>
         <CopyRight />
       </div>
+      <motion.div
+        ref={ref}
+        className="fixed bottom-0 left-0 right-0 h-3 origin-[0%] bg-ultra-light-gray"
+        style={{ scaleX }}
+      />
     </main>
   );
 };

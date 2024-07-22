@@ -12,7 +12,7 @@ import { useRef } from "react";
 import StaggerText from "react-stagger-text";
 
 import { about, services, portfolio } from "~/lib/components/data/data";
-import ImageEffect from "~/lib/components/motion/ImageEffect";
+// import ImageEffect from "~/lib/components/motion/ImageEffect";
 import Logo from "~/lib/components/motion/Menu/Logo";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import ParallaxText from "~/lib/components/motion/ParallaxText";
@@ -20,7 +20,7 @@ import TextSpinner from "~/lib/components/motion/TextSpinner";
 import { GlassButton } from "~/lib/components/motion/View/TailwindButton";
 import { ServiceItem } from "~/lib/components/Sections/Services/ServiceItem";
 import Footer from "~/lib/layout/Footer";
-import Header from "~/lib/layout/Header";
+// import Header from "~/lib/layout/Header";
 
 const Home = () => {
   const ref = useRef(null);
@@ -39,10 +39,10 @@ const Home = () => {
 
   return (
     <main className="relative h-full w-full m-auto bg-black">
-      <div className="bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]" />
-      <Menu />
+      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" />
 
-      <Header />
+      <Menu />
+      {/* <Header /> */}
       <section id="home">
         <div className="flex flex-col self-end justify-between h-[80vh]">
           <div className="flex flex-col items-start justify-center relative">
@@ -70,7 +70,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-      {/* <About /> */}
       <section id="about">
         <motion.div
           ref={ref2}
@@ -113,12 +112,10 @@ const Home = () => {
               )}
             </AnimatePresence>
           </div>
-          <div className="h-[400px] w-[400px] m-1 static right-0">
+          {/* <div className="h-[400px] w-[400px] m-1 static right-0">
             <ImageEffect item1="/me-sea2.webp" item2="/me-sea3.webp" />
-          </div>
+          </div> */}
         </motion.div>
-
-        {/* <Services /> */}
       </section>
       <ParallaxText baseVelocity={0.01}>About ✳︎ Services ✳︎</ParallaxText>
       <section id="services" className="flex flex-wrap-reverse justify-around">

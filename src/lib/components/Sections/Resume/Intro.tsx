@@ -3,7 +3,7 @@ import { useRef } from "react";
 import StaggerText from "react-stagger-text";
 
 import { intro } from "../../data/data";
-import WebGLImage from "../../motion/WebGLImage";
+// import WebGLImage from "../../motion/WebGLImage";
 
 export default function Intro() {
   const ref = useRef(null);
@@ -18,9 +18,9 @@ export default function Intro() {
       className="p-1 w-[800px] max-w-[95vw] m-auto top-[40vh] h-screen"
       ref={ref}
     >
-      <div className="top-[40vh] right-0 absolute mix-blend-difference w-[600px] max-w-[100vw]">
+      {/* <div className="top-[40vh] right-0 absolute mix-blend-difference w-[600px] max-w-[100vw]">
         <WebGLImage id="me-home-bw.webp" size={400} />
-      </div>
+      </div> */}
       <motion.div
         layout
         className="absolute top-[20vh] w-[600px] max-w-[95vw] m-auto"

@@ -3,19 +3,9 @@ import Image from "next/image";
 import Icon from "./Icon";
 import LinkOut from "./View/LinkOut";
 
-const getTags = (tags: any) => {
-  return (
-    <div className="flex flex-row flex-wrap text-slate-50 justify-center">
-      {tags?.map((tag: any) => {
-        return <Icon id={tag} />;
-      })}
-    </div>
-  );
-};
-
 export default function Card({ item }: any) {
   return (
-    <figure className="relative flex flex-row justify-evenly flex-wrap overflow-hidden rounded-xl shadow-ultra-light-gray shadow-sm opacity-80 transition-all hover:opacity-100 hover:shadow-md hover:shadow-ultra-light-gray duration-500">
+    <figure className="relative flex flex-row justify-evenly flex-wrap overflow-hidden rounded-xl shadow-zinc-500 shadow-md opacity-80 transition-all hover:opacity-100 hover:scale-105 hover:shadow-lg hover:shadow-zinc-400 duration-500">
       <div>
         <Image
           src={item.img}
@@ -30,7 +20,11 @@ export default function Card({ item }: any) {
           <LinkOut url={item.url} title={item.title} out size="1em" />
           <p className="text-sm">{item.description}</p>
         </div>
-        {getTags(item.tagIcon)}
+        <div className="flex flex-row flex-wrap text-slate-50 justify-center">
+          {item.tagIcon?.map((tag: any) => {
+            return <Icon id={tag} />;
+          })}
+        </div>
       </div>
     </figure>
   );

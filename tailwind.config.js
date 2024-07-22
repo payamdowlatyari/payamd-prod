@@ -21,10 +21,14 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        shimmer: "shimmer 2s linear infinite",
+        'shimmer': "shimmer 2s linear infinite",
+        'text-shimmer': 'text-shimmer 2.5s ease-out infinite alternate',
+        'spotlight': "spotlight 2s ease .75s 1 forwards",
+        "border-width": "border-width 3s infinite alternate",
+        "background-shine": "background-shine 2s linear infinite"
       },
       keyframes: {
-        shimmer: {
+        'shimmer': {
           from: {
             backgroundPosition: "0 0",
           },
@@ -32,30 +36,38 @@ module.exports = {
             backgroundPosition: "-200% 0",
           },
         },
-      },
-      keyframes: {
         'text-shimmer': {
           from: { backgroundPosition: '0 0' },
           to: { backgroundPosition: '-200% 0' },
         },
-      },
-      animation: {
-        'text-shimmer': 'text-shimmer 2.5s ease-out infinite alternate',
-      },
-    },
-    animation: {
-      spotlight: "spotlight 2s ease .75s 1 forwards",
-    },
-    keyframes: {
-      spotlight: {
-        "0%": {
-          opacity: 0,
-          transform: "translate(-72%, -62%) scale(0.5)",
+        'spotlight': {
+          "0%": {
+            opacity: 0,
+            transform: "translate(-72%, -62%) scale(0.5)",
+          },
+          "100%": {
+            opacity: 1,
+            transform: "translate(-50%,-40%) scale(1)",
+          },
         },
-        "100%": {
-          opacity: 1,
-          transform: "translate(-50%,-40%) scale(1)",
+        "border-width": {
+          "from": {
+            "width": "10px",
+            "opacity": "0"
+          },
+          "to": {
+            "width": "100px",
+            "opacity": "1"
+          }
         },
+        "background-shine": {
+          "from": {
+            "backgroundPosition": "0 0"
+          },
+          "to": {
+            "backgroundPosition": "-200% 0"
+          }
+        }
       },
     },
     colors: {
