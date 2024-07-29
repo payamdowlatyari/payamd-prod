@@ -34,6 +34,16 @@ export const metadata: Metadata = {
   formatDetection: {
     telephone: false,
   },
+  creator: APP_NAME,
+  openGraph: {
+    title: APP_NAME,
+    description:
+      "Payam Dowlatyari's personal website. The first page includes a short description about Payam, and a list of services and skills he offers.",
+    url: "https://www.payamd.com",
+    siteName: "Payam Dowlatyari",
+    locale: "en-US",
+    type: "website",
+  },
 };
 
 const RootLayout = ({ children }: RootLayoutProps) => {

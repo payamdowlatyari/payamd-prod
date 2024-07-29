@@ -29,7 +29,7 @@ export default function WebGLImage({ id, size }: any) {
     <>
       <Image
         ref={el}
-        className={`${styles.hidden} WebGLImage`}
+        className={`${styles.transparentColor} WebGLImage`}
         src={`/${id}`}
         alt="test"
         width={size}

@@ -49,7 +49,7 @@ export default function ParallaxText({
   });
 
   return (
-    <div className="overflow-hidden flex flex-nowrap whitespace-nowrap m-0 tracking-[-2px] leading-[0.8]">
+    <div className="overflow-hidden flex flex-nowrap whitespace-nowrap m-0 tracking-[-2px] leading-[0.8] z-[2]">
       <motion.div
         className="uppercase flex whitespace-nowrap flex-nowrap mix-blend-difference tracking-[-2px]"
         style={{ x }}

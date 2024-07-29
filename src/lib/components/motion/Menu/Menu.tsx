@@ -95,7 +95,7 @@ export default function Menu() {
       style={{
         willChange,
       }}
-      className={`fixed top-0 left-0 z-[100] ${isOpen ? "bg-black" : "bg-transparent"}`}
+      className={`fixed top-0 left-0 z-[100] ${isOpen ? "bg-neutral-900 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-70" : "bg-transparent"}`}
     >
       <NavToggle toggle={() => toggleOpen()} />
       <motion.div

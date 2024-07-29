@@ -1,32 +1,20 @@
-import LinkReveal from "../View/LinkReveal";
+import { LinkOverlay } from "../View/TailwindButton";
 
 export default function TopNav() {
   return (
-    <ul className="flex flex-col flex-wrap">
+    <div className="flex flex-col flex-wrap">
       <li className="list-none">
-        <LinkReveal title="Home" sub="Who I am and what I do" url="/" />
+        <LinkOverlay url="/" title="Home" />
       </li>
       <li className="list-none">
-        <LinkReveal
-          title="About"
-          sub="Intro, my resume, and skills"
-          url="/about"
-        />
+        <LinkOverlay url="/about" title="About" />
       </li>
       <li className="list-none">
-        <LinkReveal
-          title="Projects"
-          sub="My work portfolio and recent projects"
-          url="/projects"
-        />
+        <LinkOverlay url="/projects" title="Projects" />
       </li>
       <li className="list-none">
-        <LinkReveal
-          title="Contact"
-          sub="Send me a message to connect"
-          url="/contact"
-        />
+        <LinkOverlay url="/contact" title="Contact" />
       </li>
-    </ul>
+    </div>
   );
 }

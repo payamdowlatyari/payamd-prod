@@ -16,7 +16,7 @@ export const ServiceItem = ({ service }: any) => {
     <motion.div
       layout
       ref={ref}
-      className="px-2 py-4 min-h-[40vh] max-w-[95vw]"
+      className="px-2 py-4 min-h-[40vh] max-w-[95vw] z-[1]"
     >
       <AnimatePresence initial={false}>
         {isInView && (
@@ -50,12 +50,10 @@ export const ServiceItem = ({ service }: any) => {
               />
             </motion.div>
             <div className="w-[500px] m-1 p-1">
-              <h2 className="text-2xl lg:text-4xl capitalize font-light">
+              <h2 className="text-2xl lg:text-4xl capitalize font-medium mb-2">
                 {service.name}
               </h2>
-              <p className="text-sm lg:text-base font-thin ml-2">
-                {service.text}
-              </p>
+              <p className="text-sm lg:text-base font-light">{service.text}</p>
             </div>
           </motion.div>
         )}

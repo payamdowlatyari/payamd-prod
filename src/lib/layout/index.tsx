@@ -1,9 +1,12 @@
 "use client";
 
 import "../../app/globals.css";
-// import { SmoothScrollbar, GlobalCanvas } from "@14islands/r3f-scroll-rig";
+import { SmoothScrollbar, GlobalCanvas } from "@14islands/r3f-scroll-rig";
 import { type ReactNode } from "react";
 import "@fontsource/poppins";
+import "@14islands/r3f-scroll-rig/css";
+
+import { motion } from "framer-motion";
 
 type LayoutProps = {
   children: ReactNode;
@@ -20,21 +23,21 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps) => {
   // Render the layout component
   return (
-    // Apply a margin of 0 auto and width of 100% to center the content
-    // <main className="relative h-full w-full m-auto bg-black">
-    //   <div className="fixed bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]" />
-
-    <>
-      {children}
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1, ease: "easeIn" }}
+    >
       {/* Set up the global canvas for rendering */}
-      {/* <GlobalCanvas style={{ pointerEvents: "none" }}>
+      <GlobalCanvas style={{ pointerEvents: "none" }}>
         <ambientLight />
       </GlobalCanvas>
 
       <SmoothScrollbar>
         {(bind) => <article {...bind}>{children}</article>}
-      </SmoothScrollbar> */}
-    </>
+      </SmoothScrollbar>
+    </motion.main>
   );
 };
 

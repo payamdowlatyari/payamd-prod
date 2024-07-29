@@ -5,7 +5,7 @@ import LinkOut from "./View/LinkOut";
 
 export default function Card({ item }: any) {
   return (
-    <figure className="relative flex flex-row justify-evenly flex-wrap overflow-hidden rounded-xl shadow-zinc-500 shadow-md opacity-80 transition-all hover:opacity-100 hover:scale-105 hover:shadow-lg hover:shadow-zinc-400 duration-500">
+    <figure className="relative flex flex-row justify-evenly flex-wrap overflow-hidden rounded-xl shadow-neutral-500 shadow-md opacity-90 transition-all hover:opacity-100 hover:scale-105 hover:shadow-lg hover:shadow-neutral-500 duration-500">
       <div>
         <Image
           src={item.img}

@@ -6,5 +6,15 @@ export default function Scramble({ title, url }: any) {
     text: title,
   });
 
-  return <Link ref={ref} href={url} onMouseOver={replay} onFocus={replay} />;
+  return (
+    <div className="flex flex-wrap items-center m-auto w-[150px] max-w[98vw]">
+      <Link
+        className="font-bold tracking-wide mx-4"
+        ref={ref}
+        href={url}
+        onMouseOver={replay}
+        onFocus={replay}
+      />
+    </div>
+  );
 }

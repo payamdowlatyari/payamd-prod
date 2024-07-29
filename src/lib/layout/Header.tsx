@@ -63,7 +63,7 @@ const Header = () => {
         }}
         className="self-center text-center fixed"
       >
-        <Logo light size={400} />
+        <Logo light size={100} />
       </motion.div>
     </motion.div>
   );

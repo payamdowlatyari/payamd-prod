@@ -4,15 +4,16 @@ import {
   motion,
   useSpring,
   useScroll,
-  useIsPresent,
   useWillChange,
   useTransform,
 } from "framer-motion";
 import { useRef } from "react";
 
+import { BackgroundGradientAnimation } from "~/lib/components/motion/BackgroundGradientAnimation";
 import Logo from "~/lib/components/motion/Menu/Logo";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import ParallaxText from "~/lib/components/motion/ParallaxText";
+import { InitialTransition } from "~/lib/components/motion/Transition";
 import Certificates from "~/lib/components/Sections/Resume/Certificates";
 import Education from "~/lib/components/Sections/Resume/Education";
 import Experience from "~/lib/components/Sections/Resume/Experience";
@@ -22,11 +23,9 @@ import Skills from "~/lib/components/Sections/Resume/Skills";
 import Footer from "~/lib/layout/Footer";
 
 const AboutRoute = () => {
-  const ref = useRef(null);
   const progressBarRef = useRef(null);
   const { scrollYProgress } = useScroll();
 
-  const isPresent = useIsPresent();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -39,18 +38,9 @@ const AboutRoute = () => {
   const x = useTransform(scrollY, [1000, 28000], ["20%", "-180%"]);
 
   return (
-    <main className="relative h-full w-full m-auto bg-black">
-      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" />
-
+    <>
       <Menu />
-      <motion.div
-        initial={{ scaleY: 1 }}
-        animate={{ scaleY: 0, transition: { duration: 1, ease: "circOut" } }}
-        exit={{ scaleY: 1, transition: { duration: 1, ease: "circIn" } }}
-        style={{ originY: isPresent ? 0 : 1 }}
-        className="fixed top-0 left-0 right-0 bottom-0 bg-white z-[2]"
-        ref={ref}
-      />
+      <InitialTransition />
       <motion.section
         id="resume"
         className="block top-0 max-w-[100vw] overflow-hidden h-[2300vh] p-0"
@@ -58,24 +48,13 @@ const AboutRoute = () => {
         layoutScroll
       >
         <Intro />
-        <div className="relative top-96">
+        <div className="relative top-96 z-[1]">
           <ParallaxText baseVelocity={-0.01}>
-            Experience ✳︎ Experience ✳︎{" "}
-          </ParallaxText>
-          <ParallaxText baseVelocity={0.01}>
-            Education ✳︎ Education ✳︎{" "}
-          </ParallaxText>
-          <ParallaxText baseVelocity={-0.01}>
-            Certificates ✳︎ Certificates ✳︎{" "}
-          </ParallaxText>
-          <ParallaxText baseVelocity={0.01}>
-            Publications ✳︎ Publications ✳︎{" "}
-          </ParallaxText>
-          <ParallaxText baseVelocity={-0.01}>
-            Skills ✳︎ Skills ✳︎ Skills ✳︎{" "}
+            Experience ✳︎ Education ✳︎ Certificates ✳︎ Publications ✳︎
+            Skills ✳︎{" "}
           </ParallaxText>
         </div>
-        <div className="fixed flex top-0 overflow-hidden items-center h-screen">
+        <div className="fixed flex top-0 overflow-hidden items-center h-screen z-[1]">
           <motion.ul
             className="fixed flex list-none h-screen"
             style={{
@@ -100,17 +79,18 @@ const AboutRoute = () => {
             </li>
           </motion.ul>
         </div>
-        <div className="fixed z-[998] -top-4 left-3">
+        <div className="fixed z-[998] top-1 left-3">
           <Logo light size={60} />
         </div>
       </motion.section>
+      <BackgroundGradientAnimation />
       <Footer />
       <motion.div
         ref={progressBarRef}
-        className="fixed bottom-0 left-0 right-0 h-3 origin-[0%] bg-ultra-light-gray"
+        className="fixed bottom-0 left-0 right-0 h-3 origin-[0%] bg-neutral-400"
         style={{ scaleX }}
       />
-    </main>
+    </>
   );
 };
 

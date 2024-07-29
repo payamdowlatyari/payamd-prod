@@ -5,9 +5,11 @@ import { useRef } from "react";
 const icon = {
   hidden: {
     pathLength: 0,
+    fill: "transparent",
   },
   visible: {
     pathLength: 1,
+    fill: "currentColor",
   },
 };
 
@@ -20,11 +22,18 @@ export default function Icon({ id, title, del }: any) {
       ref={ref}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 120 120"
-      className="w-[4vw] max-w-12 min-w-8 overflow-visible stroke-apple stroke-[3] m-2 hover:stroke-apple"
+      className="w-[4vw] max-w-12 min-w-8 overflow-visible stroke-neutral-50 stroke-[1] m-2 fill-neutral-50"
     >
       <AnimatePresence initial={false}>
         {isInView && (
-          <Tooltip hasArrow label={title} placement="top" openDelay={1000}>
+          <Tooltip
+            hasArrow
+            label={title}
+            bg="blackAlpha"
+            color="white"
+            placement="top"
+            openDelay={1000}
+          >
             <motion.path
               d={id}
               variants={icon}

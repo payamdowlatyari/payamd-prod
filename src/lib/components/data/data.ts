@@ -292,11 +292,11 @@ export const certificate = [
       "Capstone: A bank portal application with Angular2+, Java, Spring,MySQL, REST API, and CRUD functionality",
   },
   {
-    school: "Stanford University",
-    major: "Machine Learning",
-    date: "Feb 2020",
-    link: "https://www.coursera.org/account/accomplishments/specialization/certificate/8NJAABHZRNUM",
-    description: "",
+    school: "University of Colorado Boulder",
+    major: "Secure Software Design",
+    date: "Sep 2020",
+    link: "https://www.coursera.org/account/accomplishments/specialization/certificate/CMWVV4CZ59WM",
+    description: "Software Development Lifecycle, Design and Implementation",
   },
   {
     school: "The Interaction Design Foundation",
