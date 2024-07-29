@@ -10,8 +10,8 @@ import {
 import { useRef } from "react";
 
 import { projects } from "~/lib/components/data/data";
-import Card from "~/lib/components/motion/Card";
 import { BackgroundGradientAnimation } from "~/lib/components/motion/BackgroundGradientAnimation";
+import Card from "~/lib/components/motion/Card";
 import Logo from "~/lib/components/motion/Menu/Logo";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import ParallaxText from "~/lib/components/motion/ParallaxText";

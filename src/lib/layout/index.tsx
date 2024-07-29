@@ -2,10 +2,12 @@
 
 import "../../app/globals.css";
 import { SmoothScrollbar, GlobalCanvas } from "@14islands/r3f-scroll-rig";
+// eslint-disable-next-line import/order
 import { type ReactNode } from "react";
 import "@fontsource/poppins";
 import "@14islands/r3f-scroll-rig/css";
 
+// eslint-disable-next-line import/order
 import { motion } from "framer-motion";
 
 type LayoutProps = {
