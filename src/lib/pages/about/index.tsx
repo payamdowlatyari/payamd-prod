@@ -35,7 +35,9 @@ const AboutRoute = () => {
   const resume = useRef(null);
   const willChange = useWillChange();
   const { scrollY } = useScroll({ target: resume });
-  const x = useTransform(scrollY, [1000, 28000], ["20%", "-180%"]);
+  const x = useTransform(scrollY, [1000, 28000], ["20%", "-180%"], {
+    clamp: false,
+  });
 
   return (
     <>

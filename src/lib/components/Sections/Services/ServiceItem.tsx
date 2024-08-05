@@ -22,9 +22,9 @@ export const ServiceItem = ({ service }: any) => {
         {isInView && (
           <motion.div
             layout
-            initial={{ y: 200 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.5, ease: "easeIn" }}
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: "easeIn" }}
             style={{
               willChange,
             }}
@@ -34,7 +34,7 @@ export const ServiceItem = ({ service }: any) => {
               className="w-[500px]"
               initial={{ x: service.id % 2 > 0 ? 100 : -100 }}
               animate={{ x: 0 }}
-              transition={{ delay: 0.5, duration: 0.75, ease: "easeOut" }}
+              transition={{ delay: 1, duration: 0.75, ease: "easeOut" }}
               style={{
                 willChange,
               }}
@@ -46,7 +46,7 @@ export const ServiceItem = ({ service }: any) => {
                 height={100}
                 unoptimized
                 loading="lazy"
-                className="w-[100px] h-[100px] m-auto"
+                className="w-[80px] h-[80px] m-auto mb-2"
               />
             </motion.div>
             <div className="w-[500px] m-1 p-1">

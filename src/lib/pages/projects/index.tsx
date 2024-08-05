@@ -23,7 +23,7 @@ const Projects = () => {
   const { scrollYProgress } = useScroll({ target: ref });
   const willChange = useWillChange();
 
-  const x = useTransform(scrollYProgress, [0, 1], ["45%", "-45%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["-45%", "45%"]);
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,

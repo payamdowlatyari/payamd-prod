@@ -10,19 +10,20 @@ const Certificates = () => (
         </h3>
       </div>
       <div className="w-[750px] max-w-screen-md flex flex-col justify-evenly">
-        {certificate?.map(({ major, link, date, description, school }) => (
-          <div className="mb-6" key={link}>
+        {certificate?.map(({ major, link, date, school }) => (
+          <div className="bg-gray-800/40 backdrop-blur-sm ring-1 ring-inset ring-gray-500/20 rounded-lg mx-2 mb-4 p-2">
             <div className="flex justify-between flex-wrap gap-2 w-full">
-              <span className="font-bold">
-                <LinkOut title={major} url={link} out />
-              </span>
               <p>
-                <span className="mr-2 text-sm text-neutral-300">{school}</span>
+                <span className="font-bold">
+                  <LinkOut title={major} url={link} out />
+                </span>
+              </p>
+              <p>
                 <span className="text-sm text-neutral-300">{date}</span>
               </p>
             </div>
-            <p className="mt-2 ml-1 text-sm border-l-2 pl-2 border-neutral-300">
-              {description}
+            <p>
+              <span className="mr-2 text-sm text-neutral-300">{school}</span>
             </p>
           </div>
         ))}

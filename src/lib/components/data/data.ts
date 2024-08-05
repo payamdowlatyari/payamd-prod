@@ -38,6 +38,7 @@ export const projects = [
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/find-a-doc1750x1000.webp",
     url: "https://find-a-doc-app.vercel.app/",
     tagIcon: [typescript, next, tailwind, vercel],
+    tags: ["Typescript", "Next.js", "Tailwind", "Vercel"],
   },
   {
     index: 1,
@@ -46,6 +47,7 @@ export const projects = [
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/canvasfolio1750x1000.webp",
     url: "https://dice-app-two.vercel.app/",
     tagIcon: [typescript, next, tailwind, vercel],
+    tags: ["Typescript", "Next.js", "Tailwind", "Vercel"],
   },
   {
     index: 2,
@@ -54,6 +56,7 @@ export const projects = [
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/MyDash_Projects_1750x1000.webp",
     url: "https://payamd-dashboard.vercel.app/",
     tagIcon: [react, redux, node, express, mongo, router],
+    tags: ["React", "Redux", "Node", "Express", "Mongo", "Router"],
   },
   {
     index: 3,
@@ -62,6 +65,7 @@ export const projects = [
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/blog_1750x1000.webp",
     url: "https://payamd-blog.vercel.app/",
     tagIcon: [typescript, next, tailwind, redis, vercel],
+    tags: ["Typescript", "Next.js", "Tailwind", "Redis", "Vercel"],
   },
   {
     index: 4,
@@ -70,6 +74,7 @@ export const projects = [
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/Portfolio_anim_Photography1750x1000.webp",
     url: "https://payamd-photo.vercel.app/",
     tagIcon: [typescript, next, tailwind, vercel],
+    tags: ["Typescript", "Next.js", "Tailwind", "Vercel"],
   },
   {
     index: 5,
@@ -78,6 +83,7 @@ export const projects = [
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/algorithms_2100x1200.webp",
     url: "https://algorithms-next.vercel.app/",
     tagIcon: [typescript, next, tailwind, vercel],
+    tags: ["Typescript", "Next.js", "Tailwind", "Vercel"],
   },
   {
     index: 6,
@@ -86,6 +92,7 @@ export const projects = [
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/nextfolio_1925x1100.webp",
     url: "https://nextfolio-theta.vercel.app/",
     tagIcon: [typescript, next, tailwind, vercel],
+    tags: ["Typescript", "Next.js", "Tailwind", "Vercel"],
   },
   {
     index: 7,
@@ -94,6 +101,7 @@ export const projects = [
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/paper_browser_1750x1000.webp",
     url: "https://personal-informatics.depstein.net",
     tagIcon: [typescript, angular, bootstrap, vercel],
+    tags: ["Typescript", "Angular", "Bootstrap", "Vercel"],
   },
   {
     index: 8,
@@ -102,6 +110,7 @@ export const projects = [
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/CalPlug_2100x1200.webp",
     url: "https://payamdowlatyari.github.io/admin-web-portal/",
     tagIcon: [react, redux, node, express, mongo, vercel, router],
+    tags: ["React", "Redux", "Node", "Express", "Mongo", "Router", "Vercel"],
   },
   {
     index: 9,
@@ -110,6 +119,7 @@ export const projects = [
     img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/m-studios_1260x720.webp",
     url: "https://m-studios.us/",
     tagIcon: [html, css, javascript, bootstrap, vercel],
+    tags: ["HTML", "CSS", "Javascript", "Bootstrap", "Vercel"],
   },
 ];
 
@@ -122,18 +132,6 @@ export const about = {
       and implementation of user interfaces using JavaScript-based
       frameworks and libraries. I am a hobbyist photographer and blogger 
       interested in art, philosophy, and social sciences.`,
-  image:
-    "https://storage.googleapis.com/www.payamd.com/Portfolio/glasses-pen-paper-color.jpeg",
-  image2:
-    "https://storage.googleapis.com/www.payamd.com/Portfolio/isaa-unsplash.jpeg",
-  image3:
-    "https://storage.googleapis.com/www.payamd.com/assets/img/alphabet-computer-conceptual-dark.jpg",
-  image4:
-    "https://storage.googleapis.com/www.payamd.com/Portfolio/tech/bgt2.png",
-  image5:
-    "https://storage.googleapis.com/www.payamd.com/Portfolio/tech/bg1.jpeg",
-  image6:
-    "https://storage.googleapis.com/www.payamd.com/Portfolio/tech/bg22.jpeg",
 };
 
 export const social = [
@@ -164,39 +162,75 @@ export const portfolio = {
 export const services = [
   {
     name: "UX Design",
-    text: `Well-designed User Experience (UX) can make a real difference. I conduct user research and follow User-Centered and Design Thinking principles.`,
+    text: `Well-designed User Interfaces can make a real difference. I conduct user research and follow the Design Thinking principles to create user-friendly interfaces.`,
     id: 1,
-    src: "wired-gradient-1021-rules.gif",
-  },
-  {
-    name: "User Interface Design",
-    text: `A User Interface (UI) should be visually appealing to attract users. I pick the right combination of colors, fonts, and graphics to create the UI components.`,
-    id: 2,
     src: "wired-gradient-970-video-conference.gif",
   },
   {
     name: "Frontend Development",
-    text: `What clients see on a web browser should function as well as it looks. I use JavaScript with frameworks such as React and Angular to implement that.`,
-    id: 3,
+    text: `Websites and web applications must function well when they are interacting with the user. I use frontend technologies such as React, Next.js, and TypeScript to implement that.`,
+    id: 2,
     src: "wired-gradient-742-code.gif",
   },
   {
+    name: "API Development",
+    text: `I design, develop, and maintain RESTful APIs. I utilize Node.js, Express.js, AWS API Gateway, and Lambda to implement them. I also use OpenAPI and Swagger to document APIs.`,
+    id: 3,
+    src: "wired-gradient-1330-rest-api.gif",
+  },
+  {
     name: "Backend Development",
-    text: `Any request from client is processed on the server. Any response requires data. I develop applications for the interaction between user and data.`,
+    text: `Any request from the user on the web browser is processed on the server side to provide a response. Any response requires data. I develop applications for the interaction between user and data.`,
     id: 4,
     src: "wired-gradient-1326-command-window-line.gif",
   },
   {
     name: "Database Design",
-    text: `Data is the most valuable asset. Users read and write data to database. I design relational and non-relational database suitable for the application.`,
+    text: `Data is the most valuable asset these days and users need to have access to data in every interaction with the application in real time. I design relational and non-relational database suitable for the application.`,
     id: 5,
     src: "wired-gradient-57-server.gif",
   },
   {
-    name: "Software Security",
-    text: `Every data transaction involves some risks. As data is valuable, I eliminate those risks using secure data transfer protocols and encryption methods.`,
+    name: "Cloud Services",
+    text: `I use AWS, Google Cloud, and Microsoft Azure to deploy and maintain applications. I also design cloud infrastructure based on the requirements of the application.`,
     id: 6,
+    src: "wired-gradient-1331-repository.gif",
+  },
+  {
+    name: "DevOps",
+    text: `As a software engineer, DevOps is essential for the success of any project. I employ tools such as Docker, Kubernetes, and Jenkins to deploy and maintain applications.`,
+    src: "wired-gradient-1325-code-fork.gif",
+    id: 7,
+  },
+  {
+    name: "Software Security",
+    text: `Every data transaction involves some risks. As data is valuable, I eliminate those risks using authentication, data protection, secure data transfer protocols and encryption methods.`,
+    id: 8,
     src: "wired-gradient-966-privacy-policy.gif",
+  },
+  {
+    name: "Software Testing",
+    text: "I test software to ensure that it works as expected. I use Jest, React Testing Library, and Cypress to test web applications for unit, integration, and e2e testing.",
+    id: 9,
+    src: "wired-gradient-1140-error.gif",
+  },
+  {
+    name: "Application Architecture",
+    text: "Full stack applications are complex, especially when they are deployed on the cloud services. I find the right solution and architecture to develop scalable and maintainable applications.",
+    src: "wired-gradient-1309-load-balancer.gif",
+    id: 10,
+  },
+  {
+    name: "Software Maintenance",
+    text: `Like computer hardware, software products need to be maintained, debugged, and updated. Once the product is luanched, the maintenance is essential for the success of the product.`,
+    id: 11,
+    src: "wired-gradient-409-tool.gif",
+  },
+  {
+    name: "Software Documentation",
+    text: "In the process of software development, it is necessary to document the project. I write documentation for the project for future reference and maintenance, and use tools such as JSDoc and Markdown.",
+    id: 12,
+    src: "wired-gradient-56-document.gif",
   },
 ];
 

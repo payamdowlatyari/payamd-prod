@@ -1,32 +1,39 @@
-import { motion, useTransform, useWillChange, useScroll } from "framer-motion";
+import { motion, useWillChange } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
 import StaggerText from "react-stagger-text";
 
 import { intro } from "../../data/data";
-import WebGLImage from "../../motion/WebGLImage";
 
 export default function Intro() {
   const ref = useRef(null);
   const willChange = useWillChange();
 
-  const { scrollY } = useScroll({ target: ref });
-  const y = useTransform(scrollY, [0, 500], [0, 300]);
+  // const { scrollY } = useScroll({ target: ref });
+  // const y = useTransform(scrollY, [0, 500], [0, 400]);
+
+  // const scale = useTransform(scrollY, [0, 500], [1, 0.5]);
 
   return (
     <motion.div
       layout
-      className="p-1 w-[800px] max-w-[95vw] m-auto top-[40vh] h-screen"
+      className="flex flex-wrap flex-row justify-evenly h-screen w-screen p-1"
       ref={ref}
     >
-      <div className="top-[40vh] right-0 absolute w-[600px] max-w-[100vw] z-[1]">
-        <WebGLImage id="me-home-bw.webp" size={400} />
-      </div>
+      <Image
+        src="/me-home-bw-removebg-EDIT.jpeg"
+        alt="test"
+        width={350}
+        height={350}
+        loading="lazy"
+        className="relative z-[1] w-[350px] h-[350px] m-auto"
+      />
       <motion.div
         layout
-        className="absolute top-[20vh] w-[600px] max-w-[95vw] m-auto z-[1]"
+        className="relative w-[700px] max-w-[95vw] m-auto z-[1] p-2"
         style={{
           willChange,
-          y,
+          // y,
         }}
       >
         <h1 className="text-5xl md:text-7xl lg:text-9xl tracking-tighter mb-2">
@@ -39,7 +46,7 @@ export default function Intro() {
             About
           </StaggerText>
         </h1>
-        <p className="text-md lg:text-lg">
+        <p className="text-sm md:text-base font-light">
           <StaggerText
             staggerType="word"
             staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"

@@ -3,9 +3,9 @@ import Icon from "../../motion/Icon";
 
 export const FilterByGroup = ({ group }: any) => {
   return (
-    <div className="mb-1">
+    <div className="bg-gray-800/40 backdrop-blur-sm ring-1 ring-inset ring-gray-500/20 rounded-lg mb-4 p-2">
       <div className="m-auto rounded-sm">
-        <h4 className="flex items-center text-2xl md:text-3xl m-2 mt-4 font-medium">
+        <h4 className="flex items-center text-2xl md:text-3xl m-2 font-medium">
           {group[0].group}
         </h4>
       </div>

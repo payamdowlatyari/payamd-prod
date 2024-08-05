@@ -11,17 +11,16 @@ const Publications = () => (
       </div>
       <div className="w-[750px] max-w-screen-md flex flex-col justify-evenly">
         {publication?.map(({ title, link, date, description, summary }) => (
-          <div className="mb-6">
+          <div className="bg-gray-800/40 backdrop-blur-sm ring-1 ring-inset ring-gray-500/20 rounded-lg mb-4 p-2">
             <div className="flex justify-between flex-wrap gap-2 w-full">
               <LinkOut title={title} url={link} out />
               <p>
                 <span className="mr-2 text-sm text-neutral-300">{date}</span>
               </p>
             </div>
-            <div className="border-l-2 pl-2 border-neutral-300">
-              <p className="mt-2 ml-1 text-sm">{description}</p>
-              <br />
-              <p className="ml-1 text-sm">{summary}</p>
+            <div className="pl-1">
+              <p className="my-2 font-thin">{description}</p>
+              <p className="text-sm">{summary}</p>
             </div>
           </div>
         ))}
