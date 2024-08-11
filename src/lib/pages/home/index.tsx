@@ -20,7 +20,7 @@ import ParallaxText from "~/lib/components/motion/ParallaxText";
 import Scramble from "~/lib/components/motion/Scramble";
 import { ServiceItem } from "~/lib/components/Sections/Services/ServiceItem";
 import Footer from "~/lib/layout/Footer";
-// import Header from "~/lib/layout/Header";
+import Header from "~/lib/layout/Header";
 
 const Home = () => {
   const ref = useRef(null);
@@ -40,7 +40,7 @@ const Home = () => {
   return (
     <>
       <Menu />
-      {/* <Header /> */}
+      <Header />
       <section id="home">
         <div className="flex flex-col self-end justify-between h-[80vh]">
           <div className="flex flex-col items-start justify-center relative">
@@ -131,8 +131,8 @@ const Home = () => {
         animate={{ opacity: 1 }}
         transition={{
           duration: 2,
-          delay: 10,
-          ease: "easeIn",
+          delay: 8,
+          ease: "easeInOut",
         }}
       >
         <div className="fixed z-[998] top-1 left-3">

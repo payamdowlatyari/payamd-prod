@@ -9,15 +9,10 @@ export default function Intro() {
   const ref = useRef(null);
   const willChange = useWillChange();
 
-  // const { scrollY } = useScroll({ target: ref });
-  // const y = useTransform(scrollY, [0, 500], [0, 400]);
-
-  // const scale = useTransform(scrollY, [0, 500], [1, 0.5]);
-
   return (
     <motion.div
       layout
-      className="flex flex-wrap flex-row justify-evenly h-screen w-screen p-1"
+      className="flex flex-wrap flex-row justify-center h-screen w-screen p-1"
       ref={ref}
     >
       <Image
