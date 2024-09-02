@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { RiArrowRightUpLine } from "react-icons/ri";
 
-export default function LinkOut({ title, url, size, out, low }: any) {
+export default function LinkOut({ title, url, size, low }: any) {
   return (
     <Link
       href={url}
       style={{
         fontSize: size,
       }}
-      target={out ? "_blank" : ""}
+      target="_blank"
     >
       <>
         {!low ? (
@@ -20,7 +20,7 @@ export default function LinkOut({ title, url, size, out, low }: any) {
             {title}
           </span>
         )}
-        {out ? <RiArrowRightUpLine className="inline" /> : ""}
+        <RiArrowRightUpLine className="inline" />
       </>
     </Link>
   );

@@ -2,7 +2,7 @@ import { Divider, Tooltip } from "@chakra-ui/react";
 import Link from "next/link";
 
 import { social } from "../../data/data";
-import LinkOut from "~/lib/components/motion/View/LinkOut";
+import LinkOut from "../../motion/View/LinkOut";
 
 export default function Contacts() {
   return (
@@ -13,12 +13,7 @@ export default function Contacts() {
           Email
         </h5>
         <div className="inline-grid p-2">
-          <LinkOut
-            title="pdyari@gmail.com"
-            url="mailto:pdyari@gmail.com"
-            out
-            low
-          />
+          <LinkOut title="pdyari@gmail.com" url="mailto:pdyari@gmail.com" low />
         </div>
       </div>
       <div className="flex flex-wrap items-center m-auto w-[350px] max-w[98vw] my-2">
@@ -27,7 +22,7 @@ export default function Contacts() {
           Phone
         </h5>
         <div className="inline-grid p-2">
-          <LinkOut title="+1 916 547 8918" url="tel:+19165478918" out low />
+          <LinkOut title="+1 916 547 8918" url="tel:+19165478918" low />
         </div>
       </div>
 
@@ -37,12 +32,8 @@ export default function Contacts() {
           Links
         </h5>
         <div className="inline-grid p-2">
-          <LinkOut title="My Blog" url="https://payamd-blog.vercel.app/" out />
-          <LinkOut
-            title="Photography"
-            url="https://payamd-photo.vercel.app/"
-            out
-          />
+          <LinkOut title="My Blog" url="https://blog.payamd.com" low />
+          <LinkOut title="Photography" url="https://photos.payamd.com" out />
         </div>
       </div>
       <div className="flex flex-wrap items-center m-auto w-[350px] max-w[98vw] my-2">
