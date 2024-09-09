@@ -1,7 +1,7 @@
 "use client";
 
 import "../../app/globals.css";
-import { GlobalCanvas, SmoothScrollbar } from "@14islands/r3f-scroll-rig";
+import { SmoothScrollbar } from "@14islands/r3f-scroll-rig";
 // eslint-disable-next-line import/order
 import { type ReactNode } from "react";
 import "@fontsource/poppins";
@@ -32,10 +32,10 @@ const Layout = ({ children }: LayoutProps) => {
       transition={{ duration: 1, ease: "easeIn" }}
     >
       {/* Set up the global canvas for rendering */}
-      <GlobalCanvas style={{ pointerEvents: "none", zIndex: -1 }}>
+      {/* <GlobalCanvas style={{ pointerEvents: "none", zIndex: -1 }}>
         <ambientLight color="white" />
         <pointLight color="white" />
-      </GlobalCanvas>
+      </GlobalCanvas> */}
 
       <SmoothScrollbar
         config={{

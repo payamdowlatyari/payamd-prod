@@ -2,9 +2,9 @@ import { useScrollbar, useTracker } from "@14islands/r3f-scroll-rig";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useRef, useEffect, MutableRefObject } from "react";
 
-import Nav from "../components/motion/Menu/Nav";
 import CopyRight from "../components/motion/View/CopyRight";
-import Contact from "../components/Sections/Contact/ContactDetails";
+import { Social } from "../components/Sections/Contact/Social";
+import { BackgroundBeamsWithCollision } from "../components/motion/BackgroundBeams";
 
 /**
  * Footer component that handles the scrolling animation and rendering of the
@@ -33,26 +33,29 @@ const Footer = () => {
   }, [onScroll, progress, scrollState]);
 
   // Create motion values for the y, opacity, and scale transformations
-  const y = useTransform(progress, [0, 1], ["-100%", "0%"]);
   const opacity = useTransform(progress, [0.75, 1], [0, 1]);
   const scale = useTransform(progress, [0.5, 1], [0.75, 1]);
 
   // Render the footer component with the motion values applied
   return (
-    <motion.footer ref={el} layout className="grid h-screen items-end w-screen">
-      <motion.div
-        style={{
-          y,
-          opacity,
-          scale,
-        }}
-        className="flex flex-wrap items-center justify-around min-h-[70vh] z-[1]"
+    <BackgroundBeamsWithCollision>
+      <motion.footer
+        ref={el}
+        layout
+        className="grid items-end w-screen h-full min-h-52"
       >
-        <Nav />
-        <Contact />
-      </motion.div>
-      <CopyRight />
-    </motion.footer>
+        <motion.div
+          style={{
+            opacity,
+            scale,
+          }}
+          className="flex flex-col items-center justify-center h-full z-[2]"
+        >
+          <Social />
+          <CopyRight />
+        </motion.div>
+      </motion.footer>
+    </BackgroundBeamsWithCollision>
   );
 };
 

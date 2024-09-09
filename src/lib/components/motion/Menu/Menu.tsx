@@ -10,7 +10,10 @@ import {
 import { useEffect, useRef } from "react";
 import { TfiClose, TfiLineDouble } from "react-icons/tfi";
 
-import TopNav from "./TopNav";
+import Contact from "../../Sections/Contact/ContactDetails";
+import { Social } from "../../Sections/Contact/Social";
+
+import Nav from "./Nav";
 
 const NavToggle = ({ toggle }: any) => {
   return (
@@ -60,8 +63,18 @@ function useMenuAnimation(isOpen: boolean) {
             { opacity: 1, filter: "blur(0px)" },
             { ease: easeIn, duration: 1 },
           ],
+          [
+            ".social",
+            { opacity: 1, y: 0 },
+            { ease: easeIn, duration: 1, delay: 0.75 },
+          ],
         ]
       : [
+          [
+            ".social",
+            { opacity: 0, y: 10 },
+            { ease: easeOut, duration: 1, delay: 0.75 },
+          ],
           [
             ".contacts",
             { opacity: 0, filter: "blur(10px)" },
@@ -95,7 +108,7 @@ export default function Menu() {
       style={{
         willChange,
       }}
-      className={`fixed top-0 left-0 z-[100] ${isOpen ? "bg-neutral-900 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-70" : "bg-transparent"}`}
+      className={`fixed top-0 left-0 z-[100] ${isOpen ? "bg-black" : "bg-transparent"}`}
     >
       <NavToggle toggle={() => toggleOpen()} />
       <motion.div
@@ -104,10 +117,18 @@ export default function Menu() {
           willChange,
           display: isOpen ? "flex" : "none",
         }}
-        className="w-screen h-screen flex flex-wrap justify-evenly items-center content-center"
+        className="flex flex-wrap w-screen h-screen bg-black bg-grid-white/[0.1] relative items-end justify-center"
         ref={scope}
       >
-        <TopNav />
+        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+        <div className="flex flex-wrap w-full h-[75vh] justify-around items-center content-end">
+          <Nav />
+          <Contact />
+        </div>
+
+        <div className="m-auto h-[25vh]">
+          <Social />
+        </div>
       </motion.div>
     </motion.nav>
   );

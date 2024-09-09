@@ -3,7 +3,6 @@
 import { BackgroundGradientAnimation } from "~/lib/components/motion/BackgroundGradientAnimation";
 import Logo from "~/lib/components/motion/Menu/Logo";
 import Menu from "~/lib/components/motion/Menu/Menu";
-import ParallaxText from "~/lib/components/motion/ParallaxText";
 import { InitialTransition } from "~/lib/components/motion/Transition";
 import { SendMail } from "~/lib/components/Sections/Contact/SendMail";
 import Footer from "~/lib/layout/Footer";
@@ -22,8 +21,6 @@ const Contact = () => {
           <SendMail />
         </div>
       </section>
-
-      <ParallaxText baseVelocity={0.01}>Contact ✳︎ Contact ✳︎</ParallaxText>
       <div className="fixed z-[998] top-1 left-3">
         <Logo light size={60} />
       </div>

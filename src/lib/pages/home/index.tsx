@@ -13,6 +13,7 @@ import StaggerText from "react-stagger-text";
 
 import { about, services, portfolio } from "~/lib/components/data/data";
 import { BackgroundGradientAnimation } from "~/lib/components/motion/BackgroundGradientAnimation";
+import { FlipWords } from "~/lib/components/motion/FlipWords";
 import ImageEffect from "~/lib/components/motion/ImageEffect";
 import Logo from "~/lib/components/motion/Menu/Logo";
 import Menu from "~/lib/components/motion/Menu/Menu";
@@ -20,7 +21,7 @@ import ParallaxText from "~/lib/components/motion/ParallaxText";
 import Scramble from "~/lib/components/motion/Scramble";
 import { ServiceItem } from "~/lib/components/Sections/Services/ServiceItem";
 import Footer from "~/lib/layout/Footer";
-import Header from "~/lib/layout/Header";
+// import Header from "~/lib/layout/Header";
 
 const Home = () => {
   const ref = useRef(null);
@@ -40,21 +41,23 @@ const Home = () => {
   return (
     <>
       <Menu />
-      <Header />
+      {/* <Header /> */}
       <section id="home">
-        <div className="flex flex-col self-end justify-between h-[80vh]">
-          <div className="flex flex-col items-start justify-center relative">
-            <div className="ml-4 z-[1] max-w-[700px]">
-              <p className="m-4 text-3xl lg:text-4xl">{portfolio.text[0]}</p>
-              <h1 className="m-2">
-                <span className="inline-flex text-6xl lg:text-9xl tracking-tight">
+        <div className="flex flex-col self-end justify-between">
+          <div className="flex flex-col items-start justify-center h-[50vh] relative">
+            <div className="ml-2 z-[1]">
+              <h1 className="m-2 py-4 bg-[linear-gradient(110deg,#e2e8f0,45%,#1e293b,55%,#e2e8f0)] bg-clip-text text-transparent">
+                <span className="inline-flex text-5xl lg:text-7xl tracking-tight">
                   {portfolio.text[1]}
                 </span>
               </h1>
-              <p className="m-4 text-3xl lg:text-4xl animate-text-shimmer bg-clip-text text-transparent bg-[linear-gradient(110deg,#e2e8f0,45%,#1e293b,55%,#e2e8f0)] bg-[length:250%_100%]">
-                {portfolio.text[2]}
-              </p>
             </div>
+            <div className="flex justify-center items-center px-4">
+              <div className="text-4xl z-[1] mx-auto font-normal text-neutral-300">
+                a <FlipWords words={portfolio.words} />
+              </div>
+            </div>
+
             <div className="uppercase ml-6 mt-6 flex justify-evenly z-[1]">
               <Scramble url="#about" title="Who I am" />
               <Scramble url="#services" title="What I do" />
@@ -141,6 +144,7 @@ const Home = () => {
       </motion.div>
       <BackgroundGradientAnimation />
       <Footer />
+
       <motion.div
         ref={ref}
         className="fixed bottom-0 left-0 right-0 h-3 origin-[0%] bg-neutral-200"

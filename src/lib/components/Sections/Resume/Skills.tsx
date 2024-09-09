@@ -11,9 +11,7 @@ export const FilterByGroup = ({ group }: any) => {
       </div>
       <div className="flex flex-wrap m-auto whitespace-nowrap max-w-[98vw] py-1">
         {group?.map((icon: any) => {
-          return (
-            <Icon id={icon.item} title={icon.title} del={Math.random() * 3} />
-          );
+          return <Icon id={icon.item} title={icon.title} />;
         })}
       </div>
     </div>

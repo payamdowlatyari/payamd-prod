@@ -44,6 +44,9 @@ dependencies:
   '@react-three/fiber':
     specifier: ^8.16.8
     version: 8.16.8(react-dom@18.3.1)(react@18.3.1)(three@0.160.1)
+  '@tabler/icons-react':
+    specifier: ^3.14.0
+    version: 3.14.0(react@18.3.1)
   clsx:
     specifier: ^2.1.1
     version: 2.1.1
@@ -77,6 +80,9 @@ dependencies:
   next-pwa:
     specifier: ^5.6.0
     version: 5.6.0(@babel/core@7.24.7)(esbuild@0.20.2)(next@14.1.1-canary.43)(webpack@5.91.0)
+  next-themes:
+    specifier: ^0.3.0
+    version: 0.3.0(react-dom@18.3.1)(react@18.3.1)
   react:
     specifier: ^18.3.1
     version: 18.3.1
@@ -86,6 +92,9 @@ dependencies:
   react-element-to-jsx-string:
     specifier: ^15.0.0
     version: 15.0.0(react-dom@18.3.1)(react@18.3.1)
+  react-icon-cloud:
+    specifier: ^4.1.4
+    version: 4.1.4(react@18.3.1)
   react-icons:
     specifier: ^4.12.0
     version: 4.12.0(react@18.3.1)
@@ -3020,6 +3029,11 @@ packages:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
 
+  /@csstools/convert-colors@2.0.0:
+    resolution: {integrity: sha512-P7BVvddsP2Wl5v3drJ3ArzpdfXMqoZ/oHOV/yFiGFb3JQr9Z9UXZ9tnHAKJsO89lfprR1F9ExW3Yij21EjEBIA==}
+    engines: {node: '>=6.0.0'}
+    dev: false
+
   /@discoveryjs/json-ext@0.5.7:
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
     engines: {node: '>=10.0.0'}
@@ -5504,6 +5518,19 @@ packages:
     dependencies:
       '@swc/counter': 0.1.3
       tslib: 2.6.3
+
+  /@tabler/icons-react@3.14.0(react@18.3.1):
+    resolution: {integrity: sha512-3XdbuyhBNq8aZW0qagR9YL8diACZYSAtaw6VuwcO2l6HzVFPN6N5TDex9WTz/3lf+uktAvOv1kNuuFBjSjN9yw==}
+    peerDependencies:
+      react: '>= 16'
+    dependencies:
+      '@tabler/icons': 3.14.0
+      react: 18.3.1
+    dev: false
+
+  /@tabler/icons@3.14.0:
+    resolution: {integrity: sha512-OakKjK1kuDWKoNwdnHHVMt11kTZAC10iZpN/8o/CSYdeBH7S3v5n8IyqAYynFxLI8yBGTyBvljtvWdmWh57zSg==}
+    dev: false
 
   /@testing-library/dom@9.3.4:
     resolution: {integrity: sha512-FlS4ZWlp97iiNWig0Muq8p+3rVDjRiYE+YKGbAqXOu9nwJFFOdL00kFpz42M+4huzYi86vAK1sOOfyOG45muIQ==}
@@ -11668,6 +11695,16 @@ packages:
       next: 14.1.1-canary.43(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1)
     dev: true
 
+  /next-themes@0.3.0(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-/QHIrsYpd6Kfk7xakK4svpDI5mmXP0gfvCoJdGpZQ2TOrQZmsW0QxjaiLn8wbIKjtm4BTSqLoix4lxYYOnLJ/w==}
+    peerDependencies:
+      react: ^16.8 || ^17 || ^18
+      react-dom: ^16.8 || ^17 || ^18
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    dev: false
+
   /next@14.1.1-canary.43(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-GT/ug7jPuv9fYOkljZCnQPe7noUJvDPpeioKyqB0lXOuM+7n5g4coJNQIOHGKt6u7G8M5s9u6TO76hlJoV2Iuw==}
     engines: {node: '>=18.17.0'}
@@ -12811,6 +12848,16 @@ packages:
       react-clientside-effect: 1.2.6(react@18.3.1)
       use-callback-ref: 1.3.2(@types/react@18.3.3)(react@18.3.1)
       use-sidecar: 1.1.2(@types/react@18.3.3)(react@18.3.1)
+    dev: false
+
+  /react-icon-cloud@4.1.4(react@18.3.1):
+    resolution: {integrity: sha512-hc8yGNU98V6ObPdeNIt75M016xGMxbTWqB4l6exo1uwE5bvFU095unMbX2K3YBKYhGKEV3c7fSmq3jD3cRWX+A==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16'
+    dependencies:
+      '@csstools/convert-colors': 2.0.0
+      react: 18.3.1
     dev: false
 
   /react-icons@4.12.0(react@18.3.1):

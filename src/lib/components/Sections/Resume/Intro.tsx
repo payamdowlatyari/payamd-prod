@@ -1,47 +1,49 @@
-import { motion, useWillChange } from "framer-motion";
-import Image from "next/image";
-import { useRef } from "react";
-import StaggerText from "react-stagger-text";
+// import { motion, useWillChange } from "framer-motion";
+// import Image from "next/image";
+// import { useRef } from "react";
+// import StaggerText from "react-stagger-text";
 
-import { intro } from "../../data/data";
+// import { intro } from "../../data/data";
+import ScrollReveal from "../../motion/ScrollReveal";
+// import { TextAnimate } from "../../motion/TextAnimate";
 
 export default function Intro() {
-  const ref = useRef(null);
-  const willChange = useWillChange();
+  // const ref = useRef(null);
+  // const willChange = useWillChange();
 
   return (
-    <motion.div
-      layout
-      className="flex flex-wrap flex-row justify-center h-screen w-screen p-1"
-      ref={ref}
+    <div
+      // layout
+      className="flex flex-col h-[500vh] w-full"
+      // ref={ref}
     >
-      <Image
+      {/* <Image
         src="/me-home-bw-removebg-EDIT.jpeg"
         alt="test"
         width={350}
         height={350}
         loading="lazy"
         className="relative z-[1] w-[350px] h-[350px] m-auto"
-      />
-      <motion.div
-        layout
-        className="relative w-[700px] max-w-[95vw] m-auto z-[1] p-2"
-        style={{
-          willChange,
-          // y,
-        }}
-      >
-        <h1 className="text-5xl md:text-7xl lg:text-9xl tracking-tighter mb-2">
-          <StaggerText
+      /> */}
+      <div className="h-[300vh]">
+        {/* <h1 className="text-5xl md:text-7xl lg:text-9xl tracking-tighter mb-2"> */}
+        {/* <TextAnimate text="About" /> */}
+        {/* <StaggerText
             staggerType="letter"
             staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"
             staggerDuration={1}
             startDelay={0.5}
           >
             About
-          </StaggerText>
-        </h1>
-        <p className="text-sm md:text-base font-light">
+          </StaggerText> */}
+        {/* </h1> */}
+        <ScrollReveal className="md:text-3xl text-blue-200">
+          {/* {intro.text} */}
+          It uses a sticky container with a fixed height and a large space at
+          the bottom. Finally, it calculates the scroll position and applies an
+          opacity effect to each child based on its position.
+        </ScrollReveal>
+        {/* <p className="text-sm md:text-base font-light">
           <StaggerText
             staggerType="word"
             staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"
@@ -50,8 +52,8 @@ export default function Intro() {
           >
             {intro.text}
           </StaggerText>
-        </p>
-      </motion.div>
-    </motion.div>
+        </p> */}
+      </div>
+    </div>
   );
 }

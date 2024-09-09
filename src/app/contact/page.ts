@@ -1,5 +1,6 @@
-import Contact from "~/lib/pages/contact/index";
 import { Metadata } from "next";
+
+import Contact from "~/lib/pages/contact/index";
 
 export const metadata: Metadata = {
   title: "Contact",
