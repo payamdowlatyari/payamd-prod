@@ -66,14 +66,14 @@ function useMenuAnimation(isOpen: boolean) {
           [
             ".social",
             { opacity: 1, y: 0 },
-            { ease: easeIn, duration: 1, delay: 0.75 },
+            { ease: easeIn, duration: 1, delay: 0.5 },
           ],
         ]
       : [
           [
             ".social",
             { opacity: 0, y: 10 },
-            { ease: easeOut, duration: 1, delay: 0.75 },
+            { ease: easeOut, duration: 1, delay: 0.5 },
           ],
           [
             ".contacts",

@@ -21,7 +21,7 @@ import ParallaxText from "~/lib/components/motion/ParallaxText";
 import Scramble from "~/lib/components/motion/Scramble";
 import { ServiceItem } from "~/lib/components/Sections/Services/ServiceItem";
 import Footer from "~/lib/layout/Footer";
-// import Header from "~/lib/layout/Header";
+import Header from "~/lib/layout/Header";
 
 const Home = () => {
   const ref = useRef(null);
@@ -41,24 +41,24 @@ const Home = () => {
   return (
     <>
       <Menu />
-      {/* <Header /> */}
+      <Header />
       <section id="home">
         <div className="flex flex-col self-end justify-between">
-          <div className="flex flex-col items-start justify-center h-[50vh] relative">
+          <div className="flex flex-col items-start justify-center h-[50vh] w-[600px] relative">
             <div className="ml-2 z-[1]">
               <h1 className="m-2 py-4 bg-[linear-gradient(110deg,#e2e8f0,45%,#1e293b,55%,#e2e8f0)] bg-clip-text text-transparent">
-                <span className="inline-flex text-5xl lg:text-7xl tracking-tight">
+                <span className="inline-flex text-7xl lg:text-9xl tracking-tight">
                   {portfolio.text[1]}
                 </span>
               </h1>
             </div>
             <div className="flex justify-center items-center px-4">
-              <div className="text-4xl z-[1] mx-auto font-normal text-neutral-300">
+              <div className="text-5xl z-[1] mx-auto font-normal text-neutral-300">
                 a <FlipWords words={portfolio.words} />
               </div>
             </div>
 
-            <div className="uppercase ml-6 mt-6 flex justify-evenly z-[1]">
+            <div className="h-48 uppercase ml-6 mt-6 flex justify-evenly z-[1]">
               <Scramble url="#about" title="Who I am" />
               <Scramble url="#services" title="What I do" />
             </div>

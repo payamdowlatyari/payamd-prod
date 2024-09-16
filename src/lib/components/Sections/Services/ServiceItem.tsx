@@ -46,14 +46,16 @@ export const ServiceItem = ({ service }: any) => {
                 height={100}
                 unoptimized
                 loading="lazy"
-                className="w-[80px] h-[80px] m-auto mb-2"
+                className="w-24 h-24 m-auto mb-2"
               />
             </motion.div>
             <div className="w-[500px] m-1 p-1">
-              <h2 className="text-2xl lg:text-4xl capitalize font-medium mb-2">
+              <h2 className="text-2xl lg:text-4xl capitalize font-medium text-gray-300 mb-2">
                 {service.name}
               </h2>
-              <p className="text-sm lg:text-base font-light">{service.text}</p>
+              <p className="text-sm lg:text-base font-light text-gray-100">
+                {service.text}
+              </p>
             </div>
           </motion.div>
         )}

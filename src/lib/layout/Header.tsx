@@ -32,8 +32,10 @@ const Header = () => {
       style={{
         willChange: willChangeValue,
       }}
-      className="fixed flex justify-center bg-neutral-950 top-0 left-0 w-full h-full origin-top z-[102]"
+      className="fixed flex justify-center bg-black bg-grid-white/[0.1] top-0 left-0 w-full h-full origin-top z-[102]"
     >
+      <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+
       <motion.div
         initial={{ opacity: 1, zIndex: "102" }}
         animate={{ opacity: 0, zIndex: "-100" }}

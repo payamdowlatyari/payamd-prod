@@ -1,4 +1,5 @@
 import { experience } from "../../data/data";
+import { MagicCard } from "../../motion/MagicCard";
 
 const Experience = () => {
   return (
@@ -10,11 +11,11 @@ const Experience = () => {
           </h3>
         </div>
 
-        <div className="w-[750px] flex flex-col justify-evenly">
+        <div className="max-w-[98vw] flex flex-col justify-evenly">
           {experience?.map((item) => {
             return (
-              <div className="bg-gray-800/40 backdrop-blur-sm ring-1 ring-inset ring-gray-500/20 rounded-lg mb-4 p-2">
-                <div className="flex justify-between flex-wrap gap-2 w-full">
+              <MagicCard className="cursor-pointer flex-col items-stretch justify-center shadow-2xl whitespace-nowrap m-1 p-1">
+                <div className="flex justify-between flex-wrap gap-1 sm:gap-2">
                   <p>
                     <span className="font-bold uppercase">{item.title}</span>
                     <span className="text-neutral-300 font-thin ml-2">
@@ -27,12 +28,12 @@ const Experience = () => {
                     </span>
                   </p>
                 </div>
-                <div className="mt-2 text-sm pl-1">
+                <div className="mt-1 sm:mt-2 text-xs sm:text-sm pl-1">
                   {item.description?.map((desc) => {
                     return <p className="mb-1">{desc}</p>;
                   })}
                 </div>
-              </div>
+              </MagicCard>
             );
           })}
         </div>

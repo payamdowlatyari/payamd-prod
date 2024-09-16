@@ -31,6 +31,7 @@ module.exports = {
         third: "moveInCircle 40s linear infinite",
         fourth: "moveHorizontal 40s ease infinite",
         fifth: "moveInCircle 20s ease infinite",
+        marquee: 'marquee var(--duration, 30s) linear infinite',
       },
       keyframes: {
         'shimmer': {
@@ -106,6 +107,9 @@ module.exports = {
             transform: "translateY(-50%)",
           },
         },
+        marquee: {
+          to: { transform: 'translateX(-50%)' }
+        }
       },
     },
     colors: {

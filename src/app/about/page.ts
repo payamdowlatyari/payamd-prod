@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+
 import AboutRoute from "~/lib/pages/about";
 
 export const metadata: Metadata = {

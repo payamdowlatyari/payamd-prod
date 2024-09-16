@@ -53,7 +53,7 @@ function OpacityChild({
   const opacity = useTransform(
     progress,
     [index / total, (index + 1) / total],
-    [0.5, 1]
+    [0.25, 1]
   );
 
   let className = "";
@@ -88,7 +88,7 @@ export default function ScrollReveal({
         className
       )}
     >
-      <div className="sticky top-0 flex h-full w-full items-center justify-center">
+      <div className="sticky top-0 left-0 flex h-full w-full items-center justify-center">
         <div className="flex h-fit w-full min-w-fit flex-wrap whitespace-break-spaces p-4">
           {flat.map((child, index) => {
             return (

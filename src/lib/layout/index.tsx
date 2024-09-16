@@ -31,11 +31,7 @@ const Layout = ({ children }: LayoutProps) => {
       exit={{ opacity: 0 }}
       transition={{ duration: 1, ease: "easeIn" }}
     >
-      {/* Set up the global canvas for rendering */}
-      {/* <GlobalCanvas style={{ pointerEvents: "none", zIndex: -1 }}>
-        <ambientLight color="white" />
-        <pointLight color="white" />
-      </GlobalCanvas> */}
+      {/* Smooth scrollbar for scrolling */}
 
       <SmoothScrollbar
         config={{

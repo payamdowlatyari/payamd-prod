@@ -1,4 +1,5 @@
 import { publication } from "../../data/data";
+import { MagicCard } from "../../motion/MagicCard";
 import LinkOut from "../../motion/View/LinkOut";
 
 const Publications = () => (
@@ -9,20 +10,20 @@ const Publications = () => (
           Publications
         </h3>
       </div>
-      <div className="w-[750px] max-w-screen-md flex flex-col justify-evenly">
+      <div className="max-w-[98vw] flex flex-col justify-evenly">
         {publication?.map(({ title, link, date, description, summary }) => (
-          <div className="bg-gray-800/40 backdrop-blur-sm ring-1 ring-inset ring-gray-500/20 rounded-lg mb-4 p-2">
+          <MagicCard className="cursor-pointer flex-col items-stretch justify-center shadow-2xl whitespace-nowrap m-1 p-1">
             <div className="flex justify-between flex-wrap gap-2 w-full">
               <LinkOut title={title} url={link} out />
               <p>
                 <span className="mr-2 text-sm text-neutral-300">{date}</span>
               </p>
             </div>
-            <div className="pl-1">
+            <div className="pl-1 text-wrap max-w-screen-md">
               <p className="my-2 font-thin">{description}</p>
               <p className="text-sm">{summary}</p>
             </div>
-          </div>
+          </MagicCard>
         ))}
       </div>
     </div>

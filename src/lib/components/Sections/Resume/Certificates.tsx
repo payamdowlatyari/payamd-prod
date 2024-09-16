@@ -1,4 +1,5 @@
 import { certificate } from "../../data/data";
+import { MagicCard } from "../../motion/MagicCard";
 import LinkOut from "../../motion/View/LinkOut";
 
 const Certificates = () => (
@@ -9,9 +10,9 @@ const Certificates = () => (
           Certificates
         </h3>
       </div>
-      <div className="w-[750px] max-w-screen-md flex flex-col justify-evenly">
+      <div className="max-w-[98vw] flex flex-col justify-evenly">
         {certificate?.map(({ major, link, date, school }) => (
-          <div className="bg-gray-800/40 backdrop-blur-sm ring-1 ring-inset ring-gray-500/20 rounded-lg mx-2 mb-4 p-2">
+          <MagicCard className="cursor-pointer flex-col items-stretch justify-center shadow-2xl whitespace-nowrap m-1 p-1">
             <div className="flex justify-between flex-wrap gap-2 w-full">
               <p>
                 <span className="font-bold">
@@ -25,7 +26,7 @@ const Certificates = () => (
             <p>
               <span className="mr-2 text-sm text-neutral-300">{school}</span>
             </p>
-          </div>
+          </MagicCard>
         ))}
       </div>
     </div>

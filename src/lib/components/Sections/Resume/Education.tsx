@@ -1,4 +1,5 @@
 import { education } from "../../data/data";
+import { MagicCard } from "../../motion/MagicCard";
 
 const Education = () => (
   <div className="flex flex-row flex-wrap justify-center items-center h-screen max-w-[100vw] overflow-hidden m-1">
@@ -8,10 +9,10 @@ const Education = () => (
           Education
         </h3>
       </div>
-      <div className="w-[750px] max-w-screen-md flex flex-col justify-evenly">
+      <div className="max-w-[98vw] flex flex-col justify-evenly">
         {education?.map(({ school, major, date, description }) => (
-          <div className="bg-gray-800/40 backdrop-blur-sm ring-1 ring-inset ring-gray-500/20 rounded-lg mx-2 mb-4 p-2">
-            <div className="flex justify-between flex-wrap gap-2 w-full">
+          <MagicCard className="cursor-pointer flex-col items-stretch justify-center shadow-2xl whitespace-nowrap m-1 p-1">
+            <div className="flex justify-between flex-wrap gap-2 w-full p-1">
               <p>
                 <span className="font-bold uppercase">{school}</span>
               </p>
@@ -30,7 +31,7 @@ const Education = () => (
                 </p>
               ))}
             </div>
-          </div>
+          </MagicCard>
         ))}
       </div>
     </div>
