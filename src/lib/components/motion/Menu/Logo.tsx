@@ -12,7 +12,12 @@ export default function Logo({ light, size }: any) {
           height={size}
         />
       ) : (
-        <Image src="/pd-logo1-removebg-preview.png" alt="logo" />
+        <Image
+          src="/pd-logo1-removebg-preview.png"
+          width={size}
+          height={size}
+          alt="logo"
+        />
       )}
     </Link>
   );

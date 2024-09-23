@@ -26,8 +26,7 @@ export function Social() {
     },
   ];
   return (
-    <div className="flex flex-col items-center justify-center h-full w-full py-8 social">
-      <h3 className="text-xl uppercase text-neutral-50">Follow Me On</h3>
+    <div className="flex flex-col items-center justify-center h-full w-full py-2 social">
       <FloatingDock items={links} />
     </div>
   );

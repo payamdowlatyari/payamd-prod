@@ -12,14 +12,15 @@ import { useRef } from "react";
 import StaggerText from "react-stagger-text";
 
 import { about, services, portfolio } from "~/lib/components/data/data";
+import { GridBeam } from "~/lib/components/motion/BackgroundBeams";
 import { BackgroundGradientAnimation } from "~/lib/components/motion/BackgroundGradientAnimation";
+import { Feature } from "~/lib/components/motion/Feature";
 import { FlipWords } from "~/lib/components/motion/FlipWords";
 import ImageEffect from "~/lib/components/motion/ImageEffect";
 import Logo from "~/lib/components/motion/Menu/Logo";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import ParallaxText from "~/lib/components/motion/ParallaxText";
 import Scramble from "~/lib/components/motion/Scramble";
-import { ServiceItem } from "~/lib/components/Sections/Services/ServiceItem";
 import Footer from "~/lib/layout/Footer";
 import Header from "~/lib/layout/Header";
 
@@ -44,25 +45,27 @@ const Home = () => {
       <Header />
       <section id="home">
         <div className="flex flex-col self-end justify-between">
-          <div className="flex flex-col items-start justify-center h-[50vh] w-[600px] relative">
-            <div className="ml-2 z-[1]">
-              <h1 className="m-2 py-4 bg-[linear-gradient(110deg,#e2e8f0,45%,#1e293b,55%,#e2e8f0)] bg-clip-text text-transparent">
-                <span className="inline-flex text-7xl lg:text-9xl tracking-tight">
-                  {portfolio.text[1]}
-                </span>
-              </h1>
-            </div>
-            <div className="flex justify-center items-center px-4">
-              <div className="text-5xl z-[1] mx-auto font-normal text-neutral-300">
-                a <FlipWords words={portfolio.words} />
+          <div className="flex flex-col items-start justify-center h-[50vh] w-[600px] max-w-[100vw] relative">
+            <GridBeam className="z-[2]">
+              <div className="ml-2 z-[1]">
+                <h1 className="m-2 py-4 bg-[linear-gradient(110deg,#e2e8f0,45%,#1e293b,55%,#e2e8f0)] bg-clip-text text-transparent">
+                  <span className="inline-flex text-7xl lg:text-9xl tracking-tight">
+                    {portfolio.text[1]}
+                  </span>
+                </h1>
               </div>
-            </div>
-
+              <div className="flex justify-start items-center px-4">
+                <div className="text-3xl md:text-5xl z-[1] font-normal text-neutral-300">
+                  <FlipWords words={portfolio.words} />
+                </div>
+              </div>
+            </GridBeam>
             <div className="h-48 uppercase ml-6 mt-6 flex justify-evenly z-[1]">
               <Scramble url="#about" title="Who I am" />
               <Scramble url="#services" title="What I do" />
             </div>
           </div>
+
           <div className="max-w-[100vw] z-[1]">
             <ParallaxText baseVelocity={-0.05}>{portfolio.titles}</ParallaxText>
           </div>
@@ -72,12 +75,12 @@ const Home = () => {
         <motion.div
           ref={ref2}
           layout
-          className="flex flex-wrap justify-evenly w-full p-1"
+          className="flex flex-wrap justify-evenly items-center w-full p-1"
           style={{
             willChange,
           }}
         >
-          <div className="max-w-3xl p-1 z-[1]">
+          <div className="max-w-2xl p-1 z-[1]">
             <AnimatePresence initial={false}>
               {isInView && (
                 <motion.div
@@ -115,17 +118,22 @@ const Home = () => {
           </div>
         </motion.div>
       </section>
-      <div className="z-[2]">
-        <ParallaxText baseVelocity={0.01}>About ✳︎ Services ✳︎</ParallaxText>
-      </div>
-      <section
-        id="services"
-        className="flex flex-wrap-reverse justify-around py-5"
-      >
-        <div className="grid p-[1w] justify-end">
-          {services?.map((service: any) => {
-            return <ServiceItem service={service} />;
-          })}
+
+      <section id="services" className="flex flex-wrap justify-evenly py-5">
+        <h2 className="z-[1] text-3xl font-medium tracking-[-0.1vw] leading-none mx-[0] my-[0.25em]">
+          My Services
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 relative z-10 py-10 max-w-7xl ">
+          {services.map((service, index) => (
+            <Feature
+              title={service.name}
+              description={service.text}
+              icon={undefined}
+              key={service.id}
+              {...Feature}
+              index={index}
+            />
+          ))}
         </div>
       </section>
       <motion.div

@@ -1,5 +1,11 @@
 /* eslint-disable react/no-array-index-key */
-import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  MotionValue,
+  useScroll,
+  useTransform,
+  easeInOut,
+} from "framer-motion";
 import React, { useRef } from "react";
 
 import { cn } from "./utils/cn";
@@ -53,7 +59,19 @@ function OpacityChild({
   const opacity = useTransform(
     progress,
     [index / total, (index + 1) / total],
-    [0.25, 1]
+    [0, 1],
+    {
+      ease: easeInOut,
+    }
+  );
+
+  const scale = useTransform(
+    progress,
+    [index / total, (index + 1) / total],
+    [0, 1],
+    {
+      ease: easeInOut,
+    }
   );
 
   let className = "";
@@ -62,7 +80,7 @@ function OpacityChild({
   }
 
   return (
-    <motion.span style={{ opacity }} className={cn(className, "h-fit")}>
+    <motion.span style={{ opacity, scale }} className={cn(className, "h-fit")}>
       {children}
     </motion.span>
   );
@@ -84,7 +102,7 @@ export default function ScrollReveal({
       ref={containerRef}
       className={cn(
         // Adjust the height and spacing according to the need
-        "storybook-fix relative h-[150vh] w-full overflow-y-scroll bg-foreground text-background text-zinc-900",
+        "storybook-fix relative h-[150vh] w-full overflow-y-scroll",
         className
       )}
     >

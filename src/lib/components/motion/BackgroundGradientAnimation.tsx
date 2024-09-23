@@ -6,11 +6,11 @@ import { cn } from "./utils/cn";
 
 export const BackgroundGradientAnimation = ({
   gradientBackgroundStart = "rgb(15, 15, 15)",
-  gradientBackgroundEnd = "rgb(15, 15, 15)",
-  firstColor = "18, 113, 255",
-  secondColor = "221, 74, 255",
-  thirdColor = "100, 220, 255",
-  fourthColor = "50, 50, 50",
+  gradientBackgroundEnd = "rgb(0, 0, 0)",
+  firstColor = "0, 0, 0",
+  secondColor = "0, 0, 0",
+  thirdColor = "0, 0, 100",
+  fourthColor = "0, 0, 0",
   fifthColor = "0, 0, 0",
   pointerColor = "140, 100, 255",
   size = "80%",

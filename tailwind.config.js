@@ -109,7 +109,7 @@ module.exports = {
         },
         marquee: {
           to: { transform: 'translateX(-50%)' }
-        }
+        },
       },
     },
     colors: {

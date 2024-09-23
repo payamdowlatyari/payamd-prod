@@ -35,12 +35,26 @@ const ResumeRoute = () => {
   const resume = useRef(null);
   const willChange = useWillChange();
   const { scrollY } = useScroll({ target: resume });
-  const x = useTransform(scrollY, [100, 14000], ["0%", "-120%"], {
+  const x = useTransform(scrollY, [100, 13000], ["0%", "-120%"], {
     clamp: false,
   });
-  const opacity = useTransform(scrollY, [0, 12000, 13000], [1, 1, 0], {
-    clamp: false,
-  });
+  const opacity = useTransform(
+    scrollY,
+    [0, 12000, 12500, 13000],
+    [1, 1, 0, 0],
+    {
+      clamp: false,
+    }
+  );
+
+  const opacity2 = useTransform(
+    scrollY,
+    [0, 12000, 12500, 13000],
+    [0, 0, 0.5, 1],
+    {
+      clamp: false,
+    }
+  );
 
   const arr = [
     Logos.html5,
@@ -56,10 +70,12 @@ const ResumeRoute = () => {
     Logos.express,
     Logos.mongodb,
     Logos.mysql,
+    Logos.graphql,
     Logos.jest,
     Logos.aws,
     Logos.git,
     Logos.npm,
+    Logos.docker,
     Logos.vscode,
     Logos.vercel,
   ];
@@ -110,13 +126,20 @@ const ResumeRoute = () => {
           ))}
         </Marquee>
       </motion.div>
-      <div className="flex flex-row flex-wrap justify-center items-center content-end h-screen m-auto max-w-96 pb-20">
+      <motion.div
+        layout
+        style={{ opacity: opacity2 }}
+        className="flex flex-row flex-wrap justify-between items-center content-end h-full m-auto max-w-screen-sm p-2"
+      >
         {arr.map((Logo) => (
-          <span className="m-1 z-[2]">
+          <span
+            key={Logo.name}
+            className="m-1 relative scale-75 md:scale-100 hover:scale-125 transition z-[2]"
+          >
             <Logo />
           </span>
         ))}
-      </div>
+      </motion.div>
       <BackgroundGradientAnimation />
       <Footer />
       <motion.div

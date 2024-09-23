@@ -1,9 +1,15 @@
 "use client";
 
-import { motion, useSpring, useScroll } from "framer-motion";
+import {
+  motion,
+  useSpring,
+  useScroll,
+  useTransform,
+  useWillChange,
+} from "framer-motion";
 import { useRef } from "react";
-import { BackgroundGradientAnimation } from "~/lib/components/motion/BackgroundGradientAnimation";
 
+import { BackgroundGradientAnimation } from "~/lib/components/motion/BackgroundGradientAnimation";
 import Logo from "~/lib/components/motion/Menu/Logo";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import ScrollReveal from "~/lib/components/motion/ScrollReveal";
@@ -21,6 +27,21 @@ const AboutRoute = () => {
     restDelta: 0.1,
   });
 
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 0.4, 0.3], {
+    clamp: false,
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], ["-5%", "45%"], {
+    clamp: false,
+  });
+
+  const opacity2 = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0, 0], {
+    clamp: false,
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const willChange = useWillChange();
+
   return (
     <>
       <Menu />
@@ -28,14 +49,20 @@ const AboutRoute = () => {
       <section
         ref={ref}
         id="about"
-        className="flex flex-wrap bg-black bg-grid-white/[0.05] relative items-end justify-center overflow-hidden"
+        className="flex flex-wrap bg-black relative items-end justify-center overflow-hidden"
       >
-        <div className="flex flex-1 flex-wrap md:flex-nowrap items-baseline z-[1] mix-blend-exclusion">
-          <div className="fixed right-0 bottom-80 mix-blend-difference z-[1] bg-[url('/me-home-bw.webp')] bg-cover bg-center w-96 h-96" />
+        <div className="flex flex-1 flex-wrap md:flex-nowrap items-baseline z-[1]">
+          <motion.div
+            style={{ opacity, x, willChange }}
+            className="fixed right-0 bottom-20 z-[1] bg-[url('/me-home-bw.webp')] mix-blend-exclusion shadow-xl shadow-black bg-cover bg-center w-[400px] md:w-[700px] h-[400px] md:h-[700px]"
+          />
 
-          <h1 className="absolute left-0 top-40 text-7xl md:text-9xl text-white mix-blend-difference">
+          <motion.h1
+            style={{ opacity: opacity2, scale, willChange }}
+            className="fixed left-0 top-36 text-7xl md:text-9xl text-white"
+          >
             About
-          </h1>
+          </motion.h1>
 
           <ScrollReveal className="md:text-4xl text-white text-2xl max-w-screen-md">
             After obtaining my B.S. in Software Engineering from UC Irvine in

@@ -1,10 +1,12 @@
 import { useScrollbar, useTracker } from "@14islands/r3f-scroll-rig";
 import { motion, useMotionValue, useTransform } from "framer-motion";
+import Link from "next/link";
 import { useRef, useEffect, MutableRefObject } from "react";
 
+import { BackgroundBeamsWithCollision } from "../components/motion/BackgroundBeams";
+import Logo from "../components/motion/Menu/Logo";
 import CopyRight from "../components/motion/View/CopyRight";
 import { Social } from "../components/Sections/Contact/Social";
-import { BackgroundBeamsWithCollision } from "../components/motion/BackgroundBeams";
 
 /**
  * Footer component that handles the scrolling animation and rendering of the
@@ -33,8 +35,8 @@ const Footer = () => {
   }, [onScroll, progress, scrollState]);
 
   // Create motion values for the y, opacity, and scale transformations
-  const opacity = useTransform(progress, [0.75, 1], [0, 1]);
-  const scale = useTransform(progress, [0.5, 1], [0.75, 1]);
+  const opacity = useTransform(progress, [0.5, 1], [0, 1]);
+  const scale = useTransform(progress, [0.5, 1], [0.5, 1]);
 
   // Render the footer component with the motion values applied
   return (
@@ -42,16 +44,46 @@ const Footer = () => {
       <motion.footer
         ref={el}
         layout
-        className="grid items-end w-screen h-full min-h-52"
+        className="flex justify-center items-end w-screen h-full min-h-96"
       >
         <motion.div
           style={{
             opacity,
             scale,
           }}
-          className="flex flex-col items-center justify-center h-full z-[2]"
+          className="flex flex-col items-center justify-end h-full z-10"
         >
-          <Social />
+          <div className="w-screen h-full flex flex-col items-center justify-center">
+            <Logo light={false} size={50} />
+            <div className="flex flex-row mt-4 w-full justify-center">
+              <Link
+                href="/about"
+                className="uppercase text-xs px-1 text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold"
+              >
+                About
+              </Link>
+              <Link
+                href="/resume"
+                className="uppercase text-xs px-1 text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold"
+              >
+                Resume
+              </Link>
+              <Link
+                href="/projects"
+                className="uppercase text-xs px-1 text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold"
+              >
+                Projects
+              </Link>
+              <Link
+                href="/contact"
+                className="uppercase text-xs px-1 text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold"
+              >
+                Contact
+              </Link>
+            </div>
+            <Social />
+          </div>
+
           <CopyRight />
         </motion.div>
       </motion.footer>

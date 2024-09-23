@@ -70,8 +70,8 @@ function IconContainer({
     return val - bounds.x - bounds.width / 2;
   });
 
-  const widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
-  const heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
+  const widthTransform = useTransform(distance, [-100, 0, 100], [50, 60, 50]);
+  const heightTransform = useTransform(distance, [-100, 0, 100], [50, 60, 50]);
 
   const widthTransformIcon = useTransform(
     distance,
@@ -115,7 +115,7 @@ function IconContainer({
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="aspect-square rounded-full bg-neutral-800 flex items-center justify-center relative"
+        className="aspect-square rounded-full flex items-center justify-center relative"
       >
         <AnimatePresence>
           {hovered && (

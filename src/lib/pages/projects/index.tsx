@@ -11,7 +11,7 @@ import { useRef } from "react";
 
 import { projects } from "~/lib/components/data/data";
 import { BackgroundGradientAnimation } from "~/lib/components/motion/BackgroundGradientAnimation";
-import Card from "~/lib/components/motion/Card";
+import { ThreeDCardDemo } from "~/lib/components/motion/Card";
 import Logo from "~/lib/components/motion/Menu/Logo";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import ParallaxText from "~/lib/components/motion/ParallaxText";
@@ -52,10 +52,10 @@ const Projects = () => {
               x,
             }}
           >
-            {projects?.map((project: any) => {
+            {projects?.map((item: any) => {
               return (
-                <li className="p-[1vw] max-w-[100vw] h-[50vh]">
-                  <Card item={project} />
+                <li className="p-[1vw] max-w-[100vw] min-w-fit h-[50vh]">
+                  <ThreeDCardDemo item={item} />
                 </li>
               );
             })}
