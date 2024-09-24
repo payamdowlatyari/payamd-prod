@@ -17,6 +17,7 @@ import Menu from "~/lib/components/motion/Menu/Menu";
 import ParallaxText from "~/lib/components/motion/ParallaxText";
 import { InitialTransition } from "~/lib/components/motion/Transition";
 import CopyRight from "~/lib/components/motion/View/CopyRight";
+// import Footer from "~/lib/layout/Footer";
 
 const Projects = () => {
   const ref = useRef(null);
@@ -46,7 +47,7 @@ const Projects = () => {
       >
         <div className="fixed flex top-0 overflow-hidden items-center h-screen z-[2]">
           <motion.ul
-            className="flex list-none py-1 h-[55vh]"
+            className="flex list-none py-1 h-[60vh]"
             style={{
               willChange,
               x,
@@ -67,12 +68,13 @@ const Projects = () => {
       </motion.section>
       <BackgroundGradientAnimation />
 
-      <div className="sticky bottom-0 z-[2]">
+      <div className="m-auto sticky bottom-0 z-[2]">
         <ParallaxText baseVelocity={0.01}>
           {" "}
           ✳︎ Portfolio ✳︎ Projects
         </ParallaxText>
         <CopyRight />
+        {/* <Footer /> */}
       </div>
       <motion.div
         ref={ref}

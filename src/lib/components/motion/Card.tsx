@@ -162,7 +162,7 @@ export const CardItem = ({
 export function ThreeDCardDemo({ item }: any) {
   return (
     <CardContainer className="relative flex flex-row justify-evenly flex-wrap inter-var">
-      <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-[20rem] sm:w-[25rem] md:w-[30rem] max-w-screen-sm h-auto rounded-xl p-6 border">
+      <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-[20rem] sm:w-[25rem] md:w-[30rem] max-w-screen-sm h-[30rem] rounded-xl p-6 border">
         <CardItem
           translateZ={20}
           as={Link}
