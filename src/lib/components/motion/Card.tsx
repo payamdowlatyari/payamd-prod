@@ -14,6 +14,7 @@ import React, {
   useEffect,
 } from "react";
 
+import Icon from "./Icon";
 import { cn } from "./utils/cn";
 
 const MouseEnterContext = createContext<
@@ -191,7 +192,7 @@ export function ThreeDCardDemo({ item }: any) {
         <div className="flex flex-wrap justify-start items-center mt-8">
           {item.tags?.map((tag: any) => {
             return (
-              <span className="inline-flex items-center mx-1 gap-x-1 py-1 px-3 rounded-full text-xs font-medium bg-white/10 text-white">
+              <span className="inline-flex items-center m-1 gap-x-1 py-1 px-3 rounded-full text-xs font-medium border border-slate-700 text-white">
                 {tag}
               </span>
             );

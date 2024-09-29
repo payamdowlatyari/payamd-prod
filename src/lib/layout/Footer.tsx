@@ -44,7 +44,7 @@ const Footer = () => {
       <motion.footer
         ref={el}
         layout
-        className="flex justify-center items-end w-screen h-full min-h-96"
+        className="flex justify-center items-end w-screen h-full min-h-[50vh]"
       >
         <motion.div
           style={{

@@ -80,7 +80,7 @@ const Home = () => {
             willChange,
           }}
         >
-          <div className="max-w-2xl p-1 z-[1]">
+          <div className="max-w-2xl p-1 my-4 z-[1]">
             <AnimatePresence initial={false}>
               {isInView && (
                 <motion.div
@@ -120,15 +120,15 @@ const Home = () => {
       </section>
 
       <section id="services" className="flex flex-wrap justify-evenly py-5">
-        <h2 className="z-[1] text-3xl font-medium tracking-[-0.1vw] leading-none mx-[0] my-[0.25em]">
+        <h2 className="z-[1] text-3xl md:text-5xl leading-none mx-[0] my-[0.25em]">
           My Services
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 relative z-10 py-10 max-w-7xl ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 relative z-10 py-10 max-w-7xl ">
           {services.map((service, index) => (
             <Feature
               title={service.name}
               description={service.text}
-              icon={undefined}
+              icon={service.icon ? <service.icon /> : null}
               key={service.id}
               {...Feature}
               index={index}

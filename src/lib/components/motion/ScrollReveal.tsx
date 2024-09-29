@@ -59,16 +59,7 @@ function OpacityChild({
   const opacity = useTransform(
     progress,
     [index / total, (index + 1) / total],
-    [0, 1],
-    {
-      ease: easeInOut,
-    }
-  );
-
-  const scale = useTransform(
-    progress,
-    [index / total, (index + 1) / total],
-    [0, 1],
+    [0.1, 1],
     {
       ease: easeInOut,
     }
@@ -80,7 +71,7 @@ function OpacityChild({
   }
 
   return (
-    <motion.span style={{ opacity, scale }} className={cn(className, "h-fit")}>
+    <motion.span style={{ opacity }} className={cn(className, "h-fit")}>
       {children}
     </motion.span>
   );
@@ -96,17 +87,18 @@ export default function ScrollReveal({
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({ target: containerRef });
+
   return (
     <div
       {...props}
       ref={containerRef}
       className={cn(
         // Adjust the height and spacing according to the need
-        "storybook-fix relative h-[150vh] w-full overflow-y-scroll",
+        "storybook-fix relative h-[200vh] w-full overflow-y-scroll",
         className
       )}
     >
-      <div className="sticky top-0 left-0 flex h-full w-full items-center justify-center">
+      <div className="absolute top-[20vh] left-0 flex h-full w-full items-center justify-center">
         <div className="flex h-fit w-full min-w-fit flex-wrap whitespace-break-spaces p-4">
           {flat.map((child, index) => {
             return (
@@ -124,7 +116,7 @@ export default function ScrollReveal({
       </div>
       {Array.from({ length: count }).map((_, index) => (
         // Create really large area to make the scroll effect work
-        <div key={index} className="h-32" />
+        <div key={index} className="h-40" />
       ))}
     </div>
   );

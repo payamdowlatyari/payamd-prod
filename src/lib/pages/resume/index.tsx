@@ -134,7 +134,7 @@ const ResumeRoute = () => {
         {arr.map((Logo) => (
           <span
             key={Logo.name}
-            className="m-1 relative scale-75 md:scale-100 hover:scale-125 transition z-[2]"
+            className="m-[2px] md:m-1 relative scale-75 md:scale-100 hover:scale-125 transition z-[2]"
           >
             <Logo />
           </span>

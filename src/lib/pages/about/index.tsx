@@ -67,16 +67,22 @@ const AboutRoute = () => {
           <ScrollReveal className="md:text-4xl text-white text-2xl max-w-screen-md">
             After obtaining my B.S. in Software Engineering from UC Irvine in
             2020, I entered the tech industry and worked at Amplify.ai for three
-            years developing AI applications. Having the opportunity to study at
-            UCI and work in an innovative start-up environment, I haveve
+            years developing AI applications. I satrted working as a software
+            engineer and web application architect at Avalon AI to improve
+            healthcare services in the United States. Having the opportunity to
+            study at UCI and work in an innovative start-up environments, I have
             improved my technical and soft skills, uncovered my passion for
             design, and expanded my mastery in software development in recent
-            years. Meanwhile, I dedicated time to learning new skills and
+            years. \n Meanwhile, I dedicated time to learning new skills and
             completed a 9-month postgraduate program in full-stack web
             development. Likewise, I gained hands-on experience with different
             tools, such as JS/TS-based frameworks, including React.js,
             server-side technologies such as Node.js, automation and DevOps
-            tools, cloud services, and SQL and NoSQL databases.
+            tools, and database technologies such as SQL and NoSQL databases, as
+            well as cloud technologies such as AWS, Google Cloud, and Microsoft
+            Azure. I am a team player, and I am always willing to learn new
+            skills and improve my skills. I have a great interest in learning
+            new technologies and am always looking for new challenges.
           </ScrollReveal>
         </div>
         <div className="fixed z-[998] top-1 left-3">

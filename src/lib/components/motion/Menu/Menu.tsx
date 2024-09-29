@@ -109,7 +109,7 @@ export default function Menu() {
       style={{
         willChange,
       }}
-      className={`fixed top-0 left-0 z-[100] ${isOpen ? "bg-black" : "bg-transparent"}`}
+      className={`fixed top-0 right-0 z-[100] ${isOpen ? "bg-black" : "bg-transparent"}`}
     >
       <NavToggle toggle={() => toggleOpen()} />
       <motion.div
@@ -121,7 +121,7 @@ export default function Menu() {
         className="flex flex-wrap w-screen h-screen bg-black relative items-end justify-center"
         ref={scope}
       >
-        <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+        <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]" />
         <div className="flex flex-wrap w-full h-[70vh] justify-around items-center content-end">
           <Nav />
           <Contact />
