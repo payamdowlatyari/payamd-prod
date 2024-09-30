@@ -65,13 +65,22 @@ function OpacityChild({
     }
   );
 
+  const y = useTransform(
+    progress,
+    [index / total, (index + 2) / total],
+    [10, 0],
+    {
+      ease: easeInOut,
+    }
+  );
+
   let className = "";
   if (React.isValidElement(children)) {
     className = Reflect.get(children, "props")?.className;
   }
 
   return (
-    <motion.span style={{ opacity }} className={cn(className, "h-fit")}>
+    <motion.span style={{ opacity, y }} className={cn(className, "h-fit")}>
       {children}
     </motion.span>
   );

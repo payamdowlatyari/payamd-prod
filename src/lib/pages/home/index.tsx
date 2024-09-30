@@ -22,7 +22,7 @@ import Menu from "~/lib/components/motion/Menu/Menu";
 import ParallaxText from "~/lib/components/motion/ParallaxText";
 import Scramble from "~/lib/components/motion/Scramble";
 import Footer from "~/lib/layout/Footer";
-import Header from "~/lib/layout/Header";
+// import Header from "~/lib/layout/Header";
 
 const Home = () => {
   const ref = useRef(null);
@@ -42,7 +42,7 @@ const Home = () => {
   return (
     <>
       <Menu />
-      <Header />
+      {/* <Header /> */}
       <section id="home">
         <div className="flex flex-col self-end justify-between">
           <div className="flex flex-col items-start justify-center h-[50vh] w-[600px] max-w-[100vw] relative">
@@ -152,10 +152,9 @@ const Home = () => {
       </motion.div>
       <BackgroundGradientAnimation />
       <Footer />
-
       <motion.div
         ref={ref}
-        className="fixed bottom-0 left-0 right-0 h-3 origin-[0%] bg-neutral-200"
+        className="fixed bottom-0 left-0 right-0 h-2 origin-[0%] bg-indigo-500"
         style={{ scaleX }}
       />
     </>
