@@ -9,8 +9,6 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 
-import { BackgroundGradientAnimation } from "~/lib/components/motion/BackgroundGradientAnimation";
-import Logo from "~/lib/components/motion/Menu/Logo";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import ScrollReveal from "~/lib/components/motion/ScrollReveal";
 import { InitialTransition } from "~/lib/components/motion/Transition";
@@ -43,7 +41,7 @@ const AboutRoute = () => {
   const willChange = useWillChange();
 
   return (
-    <>
+    <article>
       <Menu />
       <InitialTransition />
       <section
@@ -54,17 +52,17 @@ const AboutRoute = () => {
         <div className="flex flex-1 flex-wrap md:flex-nowrap items-baseline z-[1]">
           <motion.div
             style={{ opacity, x, willChange }}
-            className="fixed right-0 bottom-20 z-[1] bg-[url('/me-home-bw.webp')] mix-blend-exclusion shadow-xl shadow-black bg-cover bg-center w-[400px] md:w-[700px] h-[400px] md:h-[700px]"
+            className="fixed right-0 bottom-20 z-[1] bg-[url('/me-home-removebg34.png')] mix-blend-exclusion shadow-xl shadow-black bg-cover bg-center w-[400px] md:w-[600px] h-[400px] md:h-[600px]"
           />
 
           <motion.h1
             style={{ opacity: opacity2, scale, willChange }}
-            className="fixed left-0 top-36 text-7xl md:text-9xl text-white"
+            className="fixed left-10 top-36 text-7xl md:text-9xl text-gray-50"
           >
             About
           </motion.h1>
 
-          <ScrollReveal className="md:text-4xl text-white text-2xl max-w-screen-md">
+          <ScrollReveal className="text-2xl md:text-4xl text-gray-50 max-w-screen-md">
             After obtaining my B.S. in Software Engineering from UC Irvine in
             2020, I entered the tech industry and worked at Amplify.ai for three
             years developing AI applications. I satrted working as a software
@@ -73,7 +71,7 @@ const AboutRoute = () => {
             study at UCI and work in an innovative start-up environments, I have
             improved my technical and soft skills, uncovered my passion for
             design, and expanded my mastery in software development in recent
-            years. \n Meanwhile, I dedicated time to learning new skills and
+            years. Meanwhile, I dedicated time to learning new skills and
             completed a 9-month postgraduate program in full-stack web
             development. Likewise, I gained hands-on experience with different
             tools, such as JS/TS-based frameworks, including React.js,
@@ -85,20 +83,15 @@ const AboutRoute = () => {
             new technologies and am always looking for new challenges.
           </ScrollReveal>
         </div>
-        <div className="fixed z-[998] top-1 left-3">
-          <Logo light size={60} />
-        </div>
       </section>
-      <BackgroundGradientAnimation />
-
       <Footer />
 
       <motion.div
         ref={progressBarRef}
-        className="fixed bottom-0 left-0 right-0 h-3 origin-[0%] bg-neutral-400"
+        className="fixed bottom-0 left-0 right-0 h-2 z-10 origin-[0%] bg-neutral-400 opacity-50"
         style={{ scaleX }}
       />
-    </>
+    </article>
   );
 };
 

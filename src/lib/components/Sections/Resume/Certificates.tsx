@@ -12,7 +12,10 @@ const Certificates = () => (
       </div>
       <div className="max-w-[98vw] flex flex-col justify-evenly">
         {certificate?.map(({ major, link, date, school }) => (
-          <MagicCard className="cursor-pointer flex-col items-stretch justify-center shadow-2xl whitespace-nowrap m-1 p-1">
+          <MagicCard
+            key={major}
+            className="cursor-pointer flex-col items-stretch justify-center shadow-2xl whitespace-nowrap m-1 p-1"
+          >
             <div className="flex justify-between flex-wrap gap-2 w-full">
               <p>
                 <span className="font-bold">

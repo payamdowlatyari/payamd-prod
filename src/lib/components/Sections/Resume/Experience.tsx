@@ -14,7 +14,10 @@ const Experience = () => {
         <div className="max-w-[98vw] flex flex-col justify-evenly">
           {experience?.map((item) => {
             return (
-              <MagicCard className="cursor-pointer flex-col items-stretch justify-center shadow-2xl whitespace-nowrap m-1 p-1">
+              <MagicCard
+                key={item.title}
+                className="cursor-pointer flex-col items-stretch justify-center shadow-2xl whitespace-nowrap m-1 p-1"
+              >
                 <div className="flex justify-between flex-wrap gap-1 sm:gap-2">
                   <p>
                     <span className="font-bold uppercase">{item.title}</span>
@@ -30,7 +33,11 @@ const Experience = () => {
                 </div>
                 <div className="mt-1 sm:mt-2 text-xs sm:text-sm pl-1">
                   {item.description?.map((desc) => {
-                    return <p className="mb-1">{desc}</p>;
+                    return (
+                      <p key={desc} className="mb-1">
+                        {desc}
+                      </p>
+                    );
                   })}
                 </div>
               </MagicCard>

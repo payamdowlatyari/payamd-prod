@@ -1,3 +1,5 @@
+/* eslint-disable import/order */
+
 "use client";
 
 import {
@@ -9,7 +11,7 @@ import {
 import Image from "next/image";
 import { useRef } from "react";
 import "@14islands/r3f-scroll-rig/css";
-// eslint-disable-next-line import/order
+
 import { MeshDistortMaterial } from "@react-three/drei";
 
 const ImageMesh = ({ track, ...props }: any) => {
@@ -26,7 +28,7 @@ export default function WebGLImage({ id, size }: any) {
   const el: any = useRef();
 
   return (
-    <>
+    <article>
       <Image
         ref={el}
         className={`${styles.transparentColor} WebGLImage`}
@@ -41,6 +43,6 @@ export default function WebGLImage({ id, size }: any) {
           {(props) => <ImageMesh {...props} />}
         </ScrollScene>
       </UseCanvas>
-    </>
+    </article>
   );
 }

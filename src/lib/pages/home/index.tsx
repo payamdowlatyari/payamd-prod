@@ -13,16 +13,14 @@ import StaggerText from "react-stagger-text";
 
 import { about, services, portfolio } from "~/lib/components/data/data";
 import { GridBeam } from "~/lib/components/motion/BackgroundBeams";
-import { BackgroundGradientAnimation } from "~/lib/components/motion/BackgroundGradientAnimation";
 import { Feature } from "~/lib/components/motion/Feature";
 import { FlipWords } from "~/lib/components/motion/FlipWords";
 import ImageEffect from "~/lib/components/motion/ImageEffect";
-import Logo from "~/lib/components/motion/Menu/Logo";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import ParallaxText from "~/lib/components/motion/ParallaxText";
 import Scramble from "~/lib/components/motion/Scramble";
 import Footer from "~/lib/layout/Footer";
-// import Header from "~/lib/layout/Header";
+import Header from "~/lib/layout/Header";
 
 const Home = () => {
   const ref = useRef(null);
@@ -40,31 +38,29 @@ const Home = () => {
   const isInView = useInView(ref2, { once: true });
 
   return (
-    <>
+    <article>
       <Menu />
-      {/* <Header /> */}
+      <Header />
       <section id="home">
         <div className="flex flex-col self-end justify-between">
-          <div className="flex flex-col items-start justify-center h-[50vh] w-[600px] max-w-[100vw] relative">
-            <GridBeam className="z-[2]">
-              <div className="ml-2 z-[1]">
-                <h1 className="m-2 py-4 bg-[linear-gradient(110deg,#e2e8f0,45%,#1e293b,55%,#e2e8f0)] bg-clip-text text-transparent">
-                  <span className="inline-flex text-7xl lg:text-9xl tracking-tight">
-                    {portfolio.text[1]}
-                  </span>
-                </h1>
+          <GridBeam className="flex flex-col items-start justify-center h-[50vh] w-[600px] max-w-[100vw] relative z-[2]">
+            <div className="ml-2 z-[1]">
+              <h1 className="m-2 py-4 bg-[linear-gradient(110deg,#e2e8f0,45%,#1e293b,55%,#e2e8f0)] bg-clip-text text-transparent">
+                <span className="inline-flex text-7xl lg:text-9xl tracking-tight">
+                  {portfolio.text[1]}
+                </span>
+              </h1>
+            </div>
+            <div className="flex justify-start items-center px-4">
+              <div className="text-3xl md:text-5xl z-[1] font-normal text-neutral-300">
+                <FlipWords words={portfolio.words} />
               </div>
-              <div className="flex justify-start items-center px-4">
-                <div className="text-3xl md:text-5xl z-[1] font-normal text-neutral-300">
-                  <FlipWords words={portfolio.words} />
-                </div>
-              </div>
-            </GridBeam>
+            </div>
             <div className="h-48 uppercase ml-6 mt-6 flex justify-evenly z-[1]">
               <Scramble url="#about" title="Who I am" />
               <Scramble url="#services" title="What I do" />
             </div>
-          </div>
+          </GridBeam>
 
           <div className="max-w-[100vw] z-[1]">
             <ParallaxText baseVelocity={-0.05}>{portfolio.titles}</ParallaxText>
@@ -128,7 +124,9 @@ const Home = () => {
             <Feature
               title={service.name}
               description={service.text}
-              icon={service.icon ? <service.icon /> : null}
+              icon={
+                service.icon ? <service.icon size={25} color="white" /> : null
+              }
               key={service.id}
               {...Feature}
               index={index}
@@ -145,19 +143,14 @@ const Home = () => {
           delay: 8,
           ease: "easeInOut",
         }}
-      >
-        <div className="fixed z-[998] top-1 left-3">
-          <Logo light size={60} />
-        </div>
-      </motion.div>
-      <BackgroundGradientAnimation />
+      />
       <Footer />
       <motion.div
         ref={ref}
-        className="fixed bottom-0 left-0 right-0 h-2 origin-[0%] bg-indigo-500"
+        className="fixed bottom-0 left-0 right-0 h-2 z-10 origin-[0%] bg-gray-400 opacity-50"
         style={{ scaleX }}
       />
-    </>
+    </article>
   );
 };
 

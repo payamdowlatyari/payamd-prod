@@ -1,7 +1,5 @@
 "use client";
 
-import { BackgroundGradientAnimation } from "~/lib/components/motion/BackgroundGradientAnimation";
-import Logo from "~/lib/components/motion/Menu/Logo";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import { InitialTransition } from "~/lib/components/motion/Transition";
 import { SendMail } from "~/lib/components/Sections/Contact/SendMail";
@@ -9,7 +7,7 @@ import Footer from "~/lib/layout/Footer";
 
 const Contact = () => {
   return (
-    <>
+    <article>
       <Menu />
       <InitialTransition />
       <section className="relative z-[2]">
@@ -21,13 +19,8 @@ const Contact = () => {
           <SendMail />
         </div>
       </section>
-      <div className="fixed z-[998] top-1 left-3">
-        <Logo light size={60} />
-      </div>
-
-      <BackgroundGradientAnimation />
       <Footer />
-    </>
+    </article>
   );
 };
 

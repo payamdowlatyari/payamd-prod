@@ -12,7 +12,7 @@ import { TfiClose, TfiLineDouble } from "react-icons/tfi";
 
 import Contact from "../../Sections/Contact/ContactDetails";
 import { Social } from "../../Sections/Contact/Social";
-import { BackgroundBeams } from "../BackgroundBeams";
+import { HeroHighlight } from "../HeroHighlight";
 
 import Nav from "./Nav";
 
@@ -121,17 +121,18 @@ export default function Menu() {
         className="flex flex-wrap w-screen h-screen bg-black relative items-end justify-center"
         ref={scope}
       >
-        <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]" />
-        <div className="flex flex-wrap w-full h-[70vh] justify-around items-center content-end">
-          <Nav />
-          <Contact />
-        </div>
+        <HeroHighlight>
+          <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]" />
+          <div className="flex flex-wrap w-full h-[70vh] justify-around items-center content-end">
+            <Nav />
+            <Contact />
+          </div>
 
-        <div className="m-auto h-[30vh] z-10">
-          <Social />
-        </div>
+          <div className="m-auto h-[30vh] z-10">
+            <Social />
+          </div>
+        </HeroHighlight>
       </motion.div>
-      <BackgroundBeams />
     </motion.nav>
   );
 }

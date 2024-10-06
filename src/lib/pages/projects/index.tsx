@@ -10,28 +10,25 @@ import {
 import { useRef } from "react";
 
 import { projects } from "~/lib/components/data/data";
-import { BackgroundGradientAnimation } from "~/lib/components/motion/BackgroundGradientAnimation";
 import { ThreeDCardDemo } from "~/lib/components/motion/Card";
-import Logo from "~/lib/components/motion/Menu/Logo";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import ParallaxText from "~/lib/components/motion/ParallaxText";
 import { InitialTransition } from "~/lib/components/motion/Transition";
 import CopyRight from "~/lib/components/motion/View/CopyRight";
-// import Footer from "~/lib/layout/Footer";
 
 const Projects = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
   const willChange = useWillChange();
 
-  const x = useTransform(scrollYProgress, [0, 1], ["-45%", "45%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["45%", "-45%"]);
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.1,
   });
   return (
-    <>
+    <article>
       <Menu />
       <InitialTransition />
       <div className="fixed flex top-[8%] z-[1]">
@@ -62,26 +59,20 @@ const Projects = () => {
             })}
           </motion.ul>
         </div>
-        <div className="fixed z-[998] top-1 left-3">
-          <Logo light size={60} />
-        </div>
       </motion.section>
-      <BackgroundGradientAnimation />
-
       <div className="m-auto sticky bottom-0 z-[2]">
         <ParallaxText baseVelocity={0.01}>
           {" "}
           ✳︎ Portfolio ✳︎ Projects
         </ParallaxText>
         <CopyRight />
-        {/* <Footer /> */}
       </div>
       <motion.div
         ref={ref}
-        className="fixed bottom-0 left-0 right-0 h-3 origin-[0%] bg-neutral-200"
+        className="fixed bottom-0 left-0 right-0 z-[2] h-2 origin-[0%] bg-neutral-400 opacity-50"
         style={{ scaleX }}
       />
-    </>
+    </article>
   );
 };
 

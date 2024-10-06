@@ -58,16 +58,16 @@ function OpacityChild({
 }) {
   const opacity = useTransform(
     progress,
-    [index / total, (index + 1) / total],
+    [index / total, (index + 20) / total < 1 ? (index + 20) / total : 1],
     [0.1, 1],
     {
       ease: easeInOut,
     }
   );
 
-  const y = useTransform(
+  const x = useTransform(
     progress,
-    [index / total, (index + 2) / total],
+    [index / total, (index + 20) / total < 1 ? (index + 20) / total : 1],
     [10, 0],
     {
       ease: easeInOut,
@@ -80,7 +80,7 @@ function OpacityChild({
   }
 
   return (
-    <motion.span style={{ opacity, y }} className={cn(className, "h-fit")}>
+    <motion.span style={{ opacity, x }} className={cn(className, "h-fit")}>
       {children}
     </motion.span>
   );
@@ -103,12 +103,12 @@ export default function ScrollReveal({
       ref={containerRef}
       className={cn(
         // Adjust the height and spacing according to the need
-        "storybook-fix relative h-[200vh] w-full overflow-y-scroll",
+        "storybook-fix relative h-[200vh] w-full overflow-y-scroll scroll-smooth",
         className
       )}
     >
       <div className="absolute top-[20vh] left-0 flex h-full w-full items-center justify-center">
-        <div className="flex h-fit w-full min-w-fit flex-wrap whitespace-break-spaces p-4">
+        <div className="flex h-fit w-full min-w-fit flex-wrap whitespace-break-spaces p-2 md:p-4">
           {flat.map((child, index) => {
             return (
               <OpacityChild

@@ -48,7 +48,7 @@ const Header = () => {
         style={{
           willChange: willChangeValue,
         }}
-        className="self-center mix-blend-difference"
+        className="self-center mix-blend-difference text-5xl"
       >
         <motion.span>{roundedCount}</motion.span>
         <span>%</span>

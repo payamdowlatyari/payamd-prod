@@ -11,9 +11,7 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 
-import { BackgroundGradientAnimation } from "~/lib/components/motion/BackgroundGradientAnimation";
 import { Logos, Marquee } from "~/lib/components/motion/Marquee";
-import Logo from "~/lib/components/motion/Menu/Logo";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import { InitialTransition } from "~/lib/components/motion/Transition";
 import Certificates from "~/lib/components/Sections/Resume/Certificates";
@@ -47,15 +45,6 @@ const ResumeRoute = () => {
     }
   );
 
-  const opacity2 = useTransform(
-    scrollY,
-    [0, 12000, 12500, 13000],
-    [0, 0, 0.5, 1],
-    {
-      clamp: false,
-    }
-  );
-
   const arr = [
     Logos.html5,
     Logos.css3,
@@ -81,7 +70,7 @@ const ResumeRoute = () => {
   ];
 
   return (
-    <>
+    <article>
       <Menu />
       <InitialTransition />
       <motion.section
@@ -90,7 +79,7 @@ const ResumeRoute = () => {
         ref={resume}
         layoutScroll
       >
-        <div className="fixed flex top-0 overflow-hidden items-center h-screen z-[1]">
+        <div className="fixed flex top-0 overflow-hidden items-center h-screen z-[2]">
           <motion.ul
             className="fixed flex list-none h-screen"
             style={{
@@ -112,15 +101,15 @@ const ResumeRoute = () => {
             </li>
           </motion.ul>
         </div>
-        <div className="fixed z-[998] top-1 left-3">
-          <Logo light size={60} />
-        </div>
       </motion.section>
 
       <motion.div layout style={{ opacity }} className="sticky bottom-0 z-[2]">
         <Marquee>
           {arr.map((Logo) => (
-            <div className="relative scale-75 hover:scale-100 transition h-full w-fit mx-[0.5rem] flex items-center justify-start">
+            <div
+              key={Logo.name}
+              className="relative scale-75 hover:scale-100 transition h-full w-fit mx-[0.5rem] flex items-center justify-start"
+            >
               <Logo />
             </div>
           ))}
@@ -128,26 +117,24 @@ const ResumeRoute = () => {
       </motion.div>
       <motion.div
         layout
-        style={{ opacity: opacity2 }}
         className="flex flex-row flex-wrap justify-between items-center content-end h-full m-auto max-w-screen-sm p-2"
       >
         {arr.map((Logo) => (
-          <span
+          <div
             key={Logo.name}
             className="m-[2px] md:m-1 relative scale-75 md:scale-100 hover:scale-125 transition z-[2]"
           >
             <Logo />
-          </span>
+          </div>
         ))}
       </motion.div>
-      <BackgroundGradientAnimation />
       <Footer />
       <motion.div
         ref={progressBarRef}
-        className="fixed bottom-0 left-0 right-0 h-3 origin-[0%] bg-neutral-400"
-        style={{ scaleX }}
+        className="fixed bottom-0 left-0 right-0 h-2 origin-[0%] bg-neutral-400 opacity-50"
+        style={{ scaleX, zIndex: 2, willChange: "transform" }}
       />
-    </>
+    </article>
   );
 };
 

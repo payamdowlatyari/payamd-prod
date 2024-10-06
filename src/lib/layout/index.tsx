@@ -1,3 +1,5 @@
+/* eslint-disable import/order */
+
 "use client";
 
 import "../../app/globals.css";
@@ -6,8 +8,10 @@ import { type ReactNode } from "react";
 import "@fontsource/poppins";
 import "@14islands/r3f-scroll-rig/css";
 
-// eslint-disable-next-line import/order
 import { motion } from "framer-motion";
+
+import { BackgroundGradientAnimation } from "../components/motion/BackgroundGradientAnimation";
+import Logo from "../components/motion/Menu/Logo";
 
 type LayoutProps = {
   children: ReactNode;
@@ -21,7 +25,7 @@ type LayoutProps = {
  * @param {ReactNode} props.children - The children to be rendered inside the layout.
  * @returns {JSX.Element} The layout component.
  */
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children }: LayoutProps): JSX.Element => {
   // Render the layout component
   return (
     <motion.main
@@ -43,6 +47,11 @@ const Layout = ({ children }: LayoutProps) => {
       >
         {(bind) => <article {...bind}>{children}</article>}
       </SmoothScrollbar>
+
+      <BackgroundGradientAnimation />
+      <div className="fixed z-[998] top-1 left-3">
+        <Logo light size={60} />
+      </div>
     </motion.main>
   );
 };
