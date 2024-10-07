@@ -29,7 +29,13 @@ export const metadata: Metadata = {
     "Framer Motion",
     "Portfolio",
     "Software Engineer",
+    "Application Architect",
+    "Web Developer",
+    "Web Application Developer",
     "Frontend Developer",
+    "UX Designer",
+    "Photographer",
+    "Blogger",
   ],
   formatDetection: {
     telephone: false,

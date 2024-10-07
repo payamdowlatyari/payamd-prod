@@ -1,24 +1,9 @@
-import {
-  animate,
-  motion,
-  useMotionValue,
-  useTransform,
-  useWillChange,
-} from "framer-motion";
-import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 import Logo from "../components/motion/Menu/Logo";
+import { NumberTicker } from "../components/motion/NumberTicker";
 
 const Header = () => {
-  const countValue = useMotionValue(0);
-  const roundedCount = useTransform(countValue, Math.round);
-  const willChangeValue = useWillChange();
-
-  useEffect(() => {
-    const countAnimation = animate(countValue, 100, { duration: 3, delay: 0 });
-    return () => countAnimation.stop();
-  }, [countValue]);
-
   return (
     <motion.div
       layout
@@ -29,10 +14,7 @@ const Header = () => {
         delay: 7,
         ease: "circInOut",
       }}
-      style={{
-        willChange: willChangeValue,
-      }}
-      className="fixed flex justify-center bg-black top-0 left-0 w-full h-full origin-top z-[102]"
+      className="fixed flex justify-center bg-black top-0 left-0 w-full h-full origin-top z-[1002]"
     >
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
@@ -42,17 +24,17 @@ const Header = () => {
         transition={{
           duration: 1,
           delay: 3,
-          ease: "anticipate",
+          ease: "easeIn",
         }}
         layout
-        style={{
-          willChange: willChangeValue,
-        }}
         className="self-center mix-blend-difference text-5xl"
       >
-        <motion.span>{roundedCount}</motion.span>
-        <span>%</span>
+        <NumberTicker
+          value={100}
+          className="self-center mix-blend-difference text-5xl"
+        />
       </motion.div>
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{
@@ -60,9 +42,6 @@ const Header = () => {
           transition: { duration: 2, ease: "easeIn", delay: 4 },
         }}
         layout
-        style={{
-          willChange: willChangeValue,
-        }}
         className="self-center text-center fixed"
       >
         <Logo light size={100} />

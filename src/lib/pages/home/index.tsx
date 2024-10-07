@@ -27,9 +27,9 @@ const Home = () => {
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.1,
+    stiffness: 200,
+    damping: 50,
+    restDelta: 0.001,
   });
 
   const ref2 = useRef(null);
@@ -38,15 +38,15 @@ const Home = () => {
   const isInView = useInView(ref2, { once: true });
 
   return (
-    <article>
+    <main className="bg-black">
       <Menu />
       <Header />
-      <section id="home">
+      <section id="hero">
         <div className="flex flex-col self-end justify-between">
           <GridBeam className="flex flex-col items-start justify-center h-[50vh] w-[600px] max-w-[100vw] relative z-[2]">
             <div className="ml-2 z-[1]">
               <h1 className="m-2 py-4 bg-[linear-gradient(110deg,#e2e8f0,45%,#1e293b,55%,#e2e8f0)] bg-clip-text text-transparent">
-                <span className="inline-flex text-7xl lg:text-9xl tracking-tight">
+                <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b bg-clip-text inline-flex text-7xl lg:text-9xl tracking-tight text-transparent from-white to-slate-900/10">
                   {portfolio.text[1]}
                 </span>
               </h1>
@@ -57,7 +57,7 @@ const Home = () => {
               </div>
             </div>
             <div className="h-48 uppercase ml-6 mt-6 flex justify-evenly z-[1]">
-              <Scramble url="#about" title="Who I am" />
+              <Scramble url="#intro" title="Who I am" />
               <Scramble url="#services" title="What I do" />
             </div>
           </GridBeam>
@@ -67,7 +67,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section id="about">
+      <section id="intro">
         <motion.div
           ref={ref2}
           layout
@@ -115,7 +115,10 @@ const Home = () => {
         </motion.div>
       </section>
 
-      <section id="services" className="flex flex-wrap justify-evenly py-5">
+      <section
+        id="services"
+        className="flex flex-wrap justify-evenly items-baseline py-5"
+      >
         <h2 className="z-[1] text-3xl md:text-5xl leading-none mx-[0] my-[0.25em]">
           My Services
         </h2>
@@ -134,23 +137,13 @@ const Home = () => {
           ))}
         </div>
       </section>
-      <motion.div
-        layout
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          duration: 2,
-          delay: 8,
-          ease: "easeInOut",
-        }}
-      />
       <Footer />
       <motion.div
         ref={ref}
-        className="fixed bottom-0 left-0 right-0 h-2 z-10 origin-[0%] bg-gray-400 opacity-50"
+        className="fixed bottom-0 left-0 right-0 h-2 z-10 origin-[0%] bg-gray-50"
         style={{ scaleX }}
       />
-    </article>
+    </main>
   );
 };
 

@@ -11,7 +11,6 @@ import { useRef } from "react";
 
 import Menu from "~/lib/components/motion/Menu/Menu";
 import ScrollReveal from "~/lib/components/motion/ScrollReveal";
-import { InitialTransition } from "~/lib/components/motion/Transition";
 import Footer from "~/lib/layout/Footer";
 
 const AboutRoute = () => {
@@ -20,16 +19,16 @@ const AboutRoute = () => {
   const { scrollYProgress } = useScroll();
 
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.1,
+    stiffness: 200,
+    damping: 50,
+    restDelta: 0.001,
   });
 
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 0.4, 0.3], {
     clamp: false,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["-5%", "45%"], {
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "50%"], {
     clamp: false,
   });
 
@@ -41,28 +40,27 @@ const AboutRoute = () => {
   const willChange = useWillChange();
 
   return (
-    <article>
+    <main className="bg-black">
       <Menu />
-      <InitialTransition />
       <section
         ref={ref}
         id="about"
-        className="flex flex-wrap bg-black relative items-end justify-center overflow-hidden"
+        className="flex flex-wrap relative items-end justify-center overflow-hidden"
       >
-        <div className="flex flex-1 flex-wrap md:flex-nowrap items-baseline z-[1]">
+        <div className="flex flex-1 flex-wrap md:flex-nowrap items-baseline z-10">
           <motion.div
             style={{ opacity, x, willChange }}
-            className="fixed right-0 bottom-20 z-[1] bg-[url('/me-home-removebg34.png')] mix-blend-exclusion shadow-xl shadow-black bg-cover bg-center w-[400px] md:w-[600px] h-[400px] md:h-[600px]"
+            className="fixed right-10 bottom-20 z-10 bg-[url('/me-home-removebg34.png')] mix-blend-exclusion shadow-xl shadow-black bg-cover bg-center w-[400px] md:w-[600px] h-[400px] md:h-[600px]"
           />
 
           <motion.h1
             style={{ opacity: opacity2, scale, willChange }}
-            className="fixed left-10 top-36 text-7xl md:text-9xl text-gray-50"
+            className="fixed left-10 top-36 text-7xl md:text-9xl text-gray-50 z-10"
           >
             About
           </motion.h1>
 
-          <ScrollReveal className="text-2xl md:text-4xl text-gray-50 max-w-screen-md">
+          <ScrollReveal className="text-2xl md:text-4xl text-gray-50 max-w-screen-md z-10">
             After obtaining my B.S. in Software Engineering from UC Irvine in
             2020, I entered the tech industry and worked at Amplify.ai for three
             years developing AI applications. I satrted working as a software
@@ -88,10 +86,10 @@ const AboutRoute = () => {
 
       <motion.div
         ref={progressBarRef}
-        className="fixed bottom-0 left-0 right-0 h-2 z-10 origin-[0%] bg-neutral-400 opacity-50"
+        className="fixed bottom-0 left-0 right-0 h-2 z-10 origin-[0%] bg-gray-50"
         style={{ scaleX }}
       />
-    </article>
+    </main>
   );
 };
 

@@ -13,7 +13,6 @@ import { projects } from "~/lib/components/data/data";
 import { ThreeDCardDemo } from "~/lib/components/motion/Card";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import ParallaxText from "~/lib/components/motion/ParallaxText";
-import { InitialTransition } from "~/lib/components/motion/Transition";
 import CopyRight from "~/lib/components/motion/View/CopyRight";
 
 const Projects = () => {
@@ -23,14 +22,13 @@ const Projects = () => {
 
   const x = useTransform(scrollYProgress, [0, 1], ["45%", "-45%"]);
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.1,
+    stiffness: 200,
+    damping: 50,
+    restDelta: 0.001,
   });
   return (
-    <article>
+    <main className="bg-black">
       <Menu />
-      <InitialTransition />
       <div className="fixed flex top-[8%] z-[1]">
         <h1 className="text-5xl md:text-7xl lg:text-9xl ml-2 tracking-tighter">
           Projects
@@ -69,10 +67,10 @@ const Projects = () => {
       </div>
       <motion.div
         ref={ref}
-        className="fixed bottom-0 left-0 right-0 z-[2] h-2 origin-[0%] bg-neutral-400 opacity-50"
+        className="fixed bottom-0 left-0 right-0 z-10 h-2 origin-[0%] bg-neutral-50"
         style={{ scaleX }}
       />
-    </article>
+    </main>
   );
 };
 

@@ -1,16 +1,14 @@
 "use client";
 
 import Menu from "~/lib/components/motion/Menu/Menu";
-import { InitialTransition } from "~/lib/components/motion/Transition";
 import { SendMail } from "~/lib/components/Sections/Contact/SendMail";
 import Footer from "~/lib/layout/Footer";
 
 const Contact = () => {
   return (
-    <article>
+    <main className="bg-black">
       <Menu />
-      <InitialTransition />
-      <section className="relative z-[2]">
+      <section className="w-fit m-auto z-10">
         <div className="flex flex-col justify-center items-center m-auto">
           <h1 className="text-5xl md:text-7xl lg:text-9xl tracking-tighter py-1">
             Contact
@@ -20,7 +18,7 @@ const Contact = () => {
         </div>
       </section>
       <Footer />
-    </article>
+    </main>
   );
 };
 

@@ -13,7 +13,6 @@ import { useRef } from "react";
 
 import { Logos, Marquee } from "~/lib/components/motion/Marquee";
 import Menu from "~/lib/components/motion/Menu/Menu";
-import { InitialTransition } from "~/lib/components/motion/Transition";
 import Certificates from "~/lib/components/Sections/Resume/Certificates";
 import Education from "~/lib/components/Sections/Resume/Education";
 import Experience from "~/lib/components/Sections/Resume/Experience";
@@ -25,9 +24,9 @@ const ResumeRoute = () => {
   const { scrollYProgress } = useScroll();
 
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.1,
+    stiffness: 200,
+    damping: 50,
+    restDelta: 0.001,
   });
 
   const resume = useRef(null);
@@ -70,9 +69,8 @@ const ResumeRoute = () => {
   ];
 
   return (
-    <article>
+    <main className="bg-black">
       <Menu />
-      <InitialTransition />
       <motion.section
         id="resume"
         className="block top-0 max-w-[100vw] overflow-hidden h-[1400vh] p-0"
@@ -131,10 +129,10 @@ const ResumeRoute = () => {
       <Footer />
       <motion.div
         ref={progressBarRef}
-        className="fixed bottom-0 left-0 right-0 h-2 origin-[0%] bg-neutral-400 opacity-50"
+        className="fixed bottom-0 left-0 right-0 h-2 origin-[0%] z-10 bg-neutral-50"
         style={{ scaleX, zIndex: 2, willChange: "transform" }}
       />
-    </article>
+    </main>
   );
 };
 

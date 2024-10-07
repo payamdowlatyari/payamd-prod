@@ -40,12 +40,12 @@ const Footer = () => {
 
   // Render the footer component with the motion values applied
   return (
-    <BackgroundBeamsWithCollision>
-      <motion.footer
-        ref={el}
-        layout
-        className="flex justify-center items-end w-screen h-full min-h-[50vh]"
-      >
+    <motion.footer
+      ref={el}
+      layout
+      className="flex justify-center items-end w-screen h-full min-h-[50vh]"
+    >
+      <BackgroundBeamsWithCollision>
         <motion.div
           style={{
             opacity,
@@ -86,8 +86,8 @@ const Footer = () => {
 
           <CopyRight />
         </motion.div>
-      </motion.footer>
-    </BackgroundBeamsWithCollision>
+      </BackgroundBeamsWithCollision>
+    </motion.footer>
   );
 };
 

@@ -8,10 +8,9 @@ import { type ReactNode } from "react";
 import "@fontsource/poppins";
 import "@14islands/r3f-scroll-rig/css";
 
-import { motion } from "framer-motion";
-
 import { BackgroundGradientAnimation } from "../components/motion/BackgroundGradientAnimation";
 import Logo from "../components/motion/Menu/Logo";
+import { Transition } from "../components/motion/Transition";
 
 type LayoutProps = {
   children: ReactNode;
@@ -28,31 +27,28 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps): JSX.Element => {
   // Render the layout component
   return (
-    <motion.main
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 2, ease: "easeInOut" }}
-    >
+    <div>
       <GlobalCanvas style={{ zIndex: -1 }}>
         <ambientLight />
       </GlobalCanvas>
-      {/* Smooth scrollbar for scrolling */}
-
       <SmoothScrollbar
         config={{
           damping: 0.05,
-          overscrollDamping: 0.1,
+          stiffness: 0.1,
         }}
       >
-        {(bind) => <article {...bind}>{children}</article>}
+        {(bind) => (
+          <article {...bind}>
+            <Transition />
+            {children}
+          </article>
+        )}
       </SmoothScrollbar>
-
-      <BackgroundGradientAnimation />
       <div className="fixed z-[998] top-1 left-3">
         <Logo light size={60} />
       </div>
-    </motion.main>
+      <BackgroundGradientAnimation />
+    </div>
   );
 };
 

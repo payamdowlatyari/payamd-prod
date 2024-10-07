@@ -21,7 +21,7 @@ const NavToggle = ({ toggle }: any) => {
     <motion.button
       onClick={toggle}
       layout
-      className="outline-[none] border-[none] cursor-pointer [position:inherit] top-[5px] right-[15px] bg-transparent flex items-center z-[101]"
+      className="outline-none border-none cursor-pointer absolute top-1 right-3 bg-transparent flex items-center z-[101]"
     >
       <motion.span
         variants={{
@@ -61,32 +61,37 @@ function useMenuAnimation(isOpen: boolean) {
           ],
           [
             ".contacts",
-            { opacity: 1, filter: "blur(0px)" },
-            { ease: easeIn, duration: 1 },
+            { opacity: 1, y: 0, filter: "blur(0px)" },
+            { ease: easeIn, duration: 0.9 },
           ],
           [
             ".social",
             { opacity: 1, y: 0 },
-            { ease: easeIn, duration: 1, delay: 0.5 },
+            { ease: easeIn, duration: 0.5, delay: 0.5 },
           ],
         ]
       : [
           [
             ".social",
             { opacity: 0, y: 10 },
-            { ease: easeOut, duration: 1, delay: 0.5 },
+            { ease: easeOut, duration: 0.5, delay: 0.5 },
           ],
           [
             ".contacts",
-            { opacity: 0, filter: "blur(10px)" },
-            { ease: easeOut, duration: 1 },
+            { opacity: 0, y: 10, filter: "blur(10px)" },
+            { ease: easeOut, duration: 0.9 },
           ],
           [
             "li",
             { transform: "scale(0.5)", opacity: 0, filter: "blur(10px)" },
             { delay: stagger(0.05, { from: "last" }), at: "<" },
           ],
-          ["ul", { transform: "translateX(-100%)" }, { at: "-0.1" }],
+          [
+            "ul",
+            { transform: "translateX(-100%)" },
+            { at: "-0.1" },
+            { ease: easeOut, duration: 0.8 },
+          ],
         ];
 
     animate([...menuAnimations]);
@@ -127,7 +132,6 @@ export default function Menu() {
             <Nav />
             <Contact />
           </div>
-
           <div className="m-auto h-[30vh] z-10">
             <Social />
           </div>

@@ -1,22 +1,17 @@
 "use client";
 
-import { motion, useIsPresent } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef } from "react";
 
-export const InitialTransition = () => {
+export const Transition = () => {
   const ref = useRef(null);
-  const isPresent = useIsPresent();
   return (
     <motion.div
-      initial={{ opacity: 1, zIndex: 3 }}
-      animate={{
-        opacity: 0,
-        zIndex: 2,
-        transition: { duration: 2, delay: 0.5, ease: "circInOut" },
-      }}
-      exit={{ opacity: 0, zIndex: 1, transition: { duration: 0.5 } }}
-      style={{ originY: isPresent ? 0 : 1 }}
-      className="fixed top-0 left-0 right-0 bottom-0 bg-black"
+      initial={{ y: "0%", opacity: 1 }}
+      animate={{ y: "-100%", opacity: 0 }}
+      exit={{ y: "-100%", opacity: 0 }}
+      transition={{ delay: 0.5, duration: 1, ease: "easeOut" }}
+      className="fixed top-0 left-0 right-0 bottom-0 bg-black z-[1000] pointer-events-none"
       ref={ref}
     />
   );
