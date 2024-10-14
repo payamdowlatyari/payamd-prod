@@ -26,6 +26,10 @@ const AboutRoute = () => {
     clamp: false,
   });
 
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.5], {
+    clamp: false,
+  });
+
   return (
     <motion.main
       initial={{ opacity: 0 }}
@@ -42,12 +46,12 @@ const AboutRoute = () => {
       >
         <div className="flex flex-1 flex-wrap md:flex-nowrap items-baseline z-10">
           <motion.div
-            style={{ translateY }}
-            className="fixed right-0 top-0 z-11 bg-[url('/me-color-dark.webp')] bg-right bg-contain bg-no-repeat w-[600px] max-w-[100vw] h-full"
+            style={{ translateY, scale }}
+            className="fixed right-0 top-0 z-11 bg-[url('/me-home-filter.webp')] opacity-60 bg-right bg-contain bg-no-repeat w-[600px] max-w-[100vw] h-full"
           />
           <motion.h1
             style={{ opacity }}
-            className="fixed left-40 top-40 text-7xl md:text-9xl text-gray-50 z-10"
+            className="fixed top-40 left-20 text-7xl md:text-9xl text-gray-50 z-10"
           >
             About
           </motion.h1>
