@@ -11,15 +11,12 @@ import {
 import { useRef } from "react";
 import StaggerText from "react-stagger-text";
 
-import { about, services, portfolio } from "~/lib/components/data/data";
+import { about, services } from "~/lib/components/data/data";
 import { GridBeam } from "~/lib/components/motion/BackgroundBeams";
 import { Feature } from "~/lib/components/motion/Feature";
-import { FlipWords } from "~/lib/components/motion/FlipWords";
 import { Hero3D } from "~/lib/components/motion/Hero3D";
 import ImageEffect from "~/lib/components/motion/ImageEffect";
 import Menu from "~/lib/components/motion/Menu/Menu";
-import ParallaxText from "~/lib/components/motion/ParallaxText";
-import Scramble from "~/lib/components/motion/Scramble";
 import Footer from "~/lib/layout/Footer";
 import Header from "~/lib/layout/Header";
 
@@ -47,7 +44,7 @@ const Home = () => {
       className="bg-black"
     >
       <Menu />
-      {/* <Header /> */}
+      <Header />
       <section id="hero">
         <Hero3D />
       </section>
