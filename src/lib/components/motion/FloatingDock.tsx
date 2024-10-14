@@ -192,7 +192,7 @@ const DATA = {
         url: "https://x.com/payamyam",
         icon: Icons.x,
       },
-      medium: {
+      Medium: {
         name: "Medium",
         url: "https://medium.com/@pdowlatyari",
         icon: Icons.medium,
@@ -203,7 +203,7 @@ const DATA = {
 
 export function DockDemo() {
   return (
-    <div className="bg-transparent relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg md:shadow-xl">
+    <div className="bg-transparent relative flex h-full w-full flex-col items-center justify-center overflow-hidden">
       <Tooltip>
         <Dock direction="middle">
           {Object.entries(DATA.contact.social).map(([name, social]) => (

@@ -122,6 +122,7 @@ export default function Menu() {
         style={{
           willChange,
           display: isOpen ? "flex" : "none",
+          transition: "0.5s ease",
         }}
         className="flex flex-wrap w-screen h-screen bg-black relative items-end justify-center"
         ref={scope}

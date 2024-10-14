@@ -69,7 +69,13 @@ const ResumeRoute = () => {
   ];
 
   return (
-    <main className="bg-black">
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 3, ease: "easeInOut" }}
+      className="bg-black"
+    >
       <Menu />
       <motion.section
         id="resume"
@@ -132,7 +138,7 @@ const ResumeRoute = () => {
         className="fixed bottom-0 left-0 right-0 h-2 origin-[0%] z-10 bg-neutral-50"
         style={{ scaleX, zIndex: 2, willChange: "transform" }}
       />
-    </main>
+    </motion.main>
   );
 };
 

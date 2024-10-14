@@ -14,7 +14,6 @@ import React, {
   useEffect,
 } from "react";
 
-import Icon from "./Icon";
 import { cn } from "./utils/cn";
 
 const MouseEnterContext = createContext<

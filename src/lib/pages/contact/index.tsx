@@ -1,12 +1,21 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 import Menu from "~/lib/components/motion/Menu/Menu";
+import { Transition } from "~/lib/components/motion/Transition";
 import { SendMail } from "~/lib/components/Sections/Contact/SendMail";
 import Footer from "~/lib/layout/Footer";
 
 const Contact = () => {
   return (
-    <main className="bg-black">
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 3, ease: "easeInOut" }}
+      className="bg-black"
+    >
       <Menu />
       <section className="w-fit m-auto z-10">
         <div className="flex flex-col justify-center items-center m-auto">
@@ -18,7 +27,8 @@ const Contact = () => {
         </div>
       </section>
       <Footer />
-    </main>
+      <Transition />
+    </motion.main>
   );
 };
 

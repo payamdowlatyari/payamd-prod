@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-namespace */
+/* eslint-disable react/no-unknown-property */
 import { useTexture, shaderMaterial } from "@react-three/drei";
 import { Canvas, extend, useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
 import * as THREE from "three";
 
 declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
     interface IntrinsicElements {
       imageFadeMaterial: any; // ???
@@ -16,11 +17,8 @@ export const ImageFadeMaterial = shaderMaterial(
   {
     effectFactor: 1.2,
     dispFactor: 0,
-    /* eslint-disable react/no-unknown-property */
     tex: 0,
-    /* eslint-disable react/no-unknown-property */
     tex2: 0,
-    /* eslint-disable react/no-unknown-property */
     disp: 0,
   },
   ` varying vec2 vUv;

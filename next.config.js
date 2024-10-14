@@ -28,6 +28,21 @@ module.exports = withPWA({
     }),
   },
   resolver: {
-    sourceExts: ['jsx', 'js', 'ts', 'tsx', 'cjs', 'json'] //add here
+    sourceExts: ['jsx', 'js', 'ts', 'tsx', 'cjs', 'json', 'md', 'mdx', 'jpg', 'png', 'gif', 'webp', 'svg'] //add here
   },
+  rules: [
+    {
+      test: /\.glsl$|\.frag$|\.vert$/i,
+      use: ['raw-loader'],
+    },
+  ],
+  webpack: (config, { isServer }) => {
+    config.module.rules.push({
+      test: /\.(glsl|vs|fs|vert|frag)$/,
+      exclude: /node_modules/,
+      use: ['raw-loader', 'glslify-loader']
+    });
+
+    return config;
+  }
 });

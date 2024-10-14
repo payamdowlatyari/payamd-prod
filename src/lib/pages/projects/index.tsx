@@ -17,17 +17,32 @@ import CopyRight from "~/lib/components/motion/View/CopyRight";
 
 const Projects = () => {
   const ref = useRef(null);
+
+  const ref2 = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
+
+  const { scrollY } = useScroll({ target: ref2 });
   const willChange = useWillChange();
 
-  const x = useTransform(scrollYProgress, [0, 1], ["45%", "-45%"]);
+  const x = useTransform(
+    scrollY,
+    [0, 3000, 6000, 9000],
+    ["50%", "35%", "-35%", "-50%"]
+  );
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 200,
+    stiffness: 100,
     damping: 50,
-    restDelta: 0.001,
+    restDelta: 0.01,
   });
+
   return (
-    <main className="bg-black">
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 3, ease: "easeInOut" }}
+      className="bg-black"
+    >
       <Menu />
       <div className="fixed flex top-[8%] z-[1]">
         <h1 className="text-5xl md:text-7xl lg:text-9xl ml-2 tracking-tighter">
@@ -38,10 +53,11 @@ const Projects = () => {
         ref={ref}
         layoutScroll
         id="projects"
-        className="h-[500vh]"
+        className="h-[1000vh]"
       >
         <div className="fixed flex top-0 overflow-hidden items-center h-screen z-[2]">
           <motion.ul
+            ref={ref2}
             className="flex list-none py-1 h-[60vh]"
             style={{
               willChange,
@@ -66,11 +82,11 @@ const Projects = () => {
         <CopyRight />
       </div>
       <motion.div
-        ref={ref}
-        className="fixed bottom-0 left-0 right-0 z-10 h-2 origin-[0%] bg-neutral-50"
+        ref={ref2}
+        className="fixed bottom-0 left-0 right-0 h-2 z-10 origin-[0%] bg-gray-50"
         style={{ scaleX }}
       />
-    </main>
+    </motion.main>
   );
 };
 

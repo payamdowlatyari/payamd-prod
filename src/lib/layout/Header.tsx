@@ -7,14 +7,14 @@ const Header = () => {
   return (
     <motion.div
       layout
-      initial={{ y: "0%" }}
-      animate={{ y: "-100%" }}
+      initial={{ scale: 1 }}
+      animate={{ scale: 0, rotate: 360 }}
       transition={{
         duration: 2,
         delay: 7,
         ease: "circInOut",
       }}
-      className="fixed flex justify-center bg-black top-0 left-0 w-full h-full origin-top z-[1002]"
+      className="fixed flex justify-center bg-black top-0 left-0 w-full h-full origin-center z-[1002]"
     >
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 

@@ -1,11 +1,10 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable react/jsx-no-useless-fragment */
 
 "use client";
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { useTheme } from "next-themes";
 import { useEffect, useMemo, useState } from "react";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import {
   Cloud,
   fetchSimpleIcons,
@@ -84,7 +83,6 @@ export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
   }, [data, theme]);
 
   return (
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     <Cloud {...cloudProps}>
       <>{renderedIcons}</>

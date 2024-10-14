@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useScrollbar, useTracker } from "@14islands/r3f-scroll-rig";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import Link from "next/link";
@@ -45,48 +46,48 @@ const Footer = () => {
       layout
       className="flex justify-center items-end w-screen h-full min-h-[50vh]"
     >
-      <BackgroundBeamsWithCollision>
-        <motion.div
-          style={{
-            opacity,
-            scale,
-          }}
-          className="flex flex-col items-center justify-end h-full z-10"
-        >
-          <div className="w-screen h-full flex flex-col items-center justify-center">
-            <Logo light={false} size={50} />
-            <div className="flex flex-row mt-4 w-full justify-center">
-              <Link
-                href="/about"
-                className="uppercase text-xs px-1 text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold"
-              >
-                About
-              </Link>
-              <Link
-                href="/resume"
-                className="uppercase text-xs px-1 text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold"
-              >
-                Resume
-              </Link>
-              <Link
-                href="/projects"
-                className="uppercase text-xs px-1 text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold"
-              >
-                Projects
-              </Link>
-              <Link
-                href="/contact"
-                className="uppercase text-xs px-1 text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold"
-              >
-                Contact
-              </Link>
-            </div>
-            <Social />
+      {/* <BackgroundBeamsWithCollision> */}
+      <motion.div
+        // style={{
+        //   opacity,
+        //   scale,
+        // }}
+        className="flex flex-col items-center justify-end h-full z-10"
+      >
+        <div className="w-screen h-full flex flex-col items-center justify-center">
+          <Logo light={false} size={50} />
+          <div className="flex flex-row mt-4 w-full justify-center">
+            <Link
+              href="/about"
+              className="uppercase text-xs px-1 text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold"
+            >
+              About
+            </Link>
+            <Link
+              href="/resume"
+              className="uppercase text-xs px-1 text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold"
+            >
+              Resume
+            </Link>
+            <Link
+              href="/projects"
+              className="uppercase text-xs px-1 text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold"
+            >
+              Projects
+            </Link>
+            <Link
+              href="/contact"
+              className="uppercase text-xs px-1 text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold"
+            >
+              Contact
+            </Link>
           </div>
+          <Social />
+        </div>
 
-          <CopyRight />
-        </motion.div>
-      </BackgroundBeamsWithCollision>
+        <CopyRight />
+      </motion.div>
+      {/* </BackgroundBeamsWithCollision> */}
     </motion.footer>
   );
 };

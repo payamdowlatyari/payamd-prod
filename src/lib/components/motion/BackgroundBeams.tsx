@@ -92,7 +92,7 @@ export const BackgroundBeamsWithCollision = ({
       {children}
       <div
         ref={containerRef}
-        className="absolute bottom-0 bg-neutral-100 w-full inset-x-0 pointer-events-none"
+        className="absolute bottom-0 bg-neutral-100 w-full z-10 inset-x-0 pointer-events-none"
         style={{
           boxShadow:
             "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset",
@@ -410,7 +410,7 @@ export const Beam = () => {
       viewBox="0 0 156 63"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="absolute top-0 left-0 ml-24 mt-8"
+      className="absolute top-0 left-0 ml-72 -mt-32"
     >
       <path
         d="M31 .5h32M0 .5h32m30 31h32m-1 0h32m-1 31h32M62.5 32V0m62 63V31"

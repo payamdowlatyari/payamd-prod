@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable import/order */
 
 "use client";
@@ -11,6 +12,7 @@ import "@14islands/r3f-scroll-rig/css";
 import { BackgroundGradientAnimation } from "../components/motion/BackgroundGradientAnimation";
 import Logo from "../components/motion/Menu/Logo";
 import { Transition } from "../components/motion/Transition";
+import { motion } from "framer-motion";
 
 type LayoutProps = {
   children: ReactNode;
@@ -27,7 +29,7 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps): JSX.Element => {
   // Render the layout component
   return (
-    <div>
+    <div className="w-full h-full">
       <GlobalCanvas style={{ zIndex: -1 }}>
         <ambientLight />
       </GlobalCanvas>
@@ -39,15 +41,21 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
       >
         {(bind) => (
           <article {...bind}>
+            <BackgroundGradientAnimation />
             <Transition />
             {children}
           </article>
         )}
       </SmoothScrollbar>
       <div className="fixed z-[998] top-1 left-3">
-        <Logo light size={60} />
+        <motion.div
+          whileHover={{ rotate: 360 }}
+          whileTap={{ scale: 0.8 }}
+          transition={{ duration: 0.5, ease: "backInOut" }}
+        >
+          <Logo size={60} />
+        </motion.div>
       </div>
-      <BackgroundGradientAnimation />
     </div>
   );
 };

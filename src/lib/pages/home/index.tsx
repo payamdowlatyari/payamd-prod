@@ -15,6 +15,7 @@ import { about, services, portfolio } from "~/lib/components/data/data";
 import { GridBeam } from "~/lib/components/motion/BackgroundBeams";
 import { Feature } from "~/lib/components/motion/Feature";
 import { FlipWords } from "~/lib/components/motion/FlipWords";
+import { Hero3D } from "~/lib/components/motion/Hero3D";
 import ImageEffect from "~/lib/components/motion/ImageEffect";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import ParallaxText from "~/lib/components/motion/ParallaxText";
@@ -38,34 +39,17 @@ const Home = () => {
   const isInView = useInView(ref2, { once: true });
 
   return (
-    <main className="bg-black">
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 3, ease: "easeInOut" }}
+      className="bg-black"
+    >
       <Menu />
-      <Header />
+      {/* <Header /> */}
       <section id="hero">
-        <div className="flex flex-col self-end justify-between">
-          <GridBeam className="flex flex-col items-start justify-center h-[50vh] w-[600px] max-w-[100vw] relative z-[2]">
-            <div className="ml-2 z-[1]">
-              <h1 className="m-2 py-4 bg-[linear-gradient(110deg,#e2e8f0,45%,#1e293b,55%,#e2e8f0)] bg-clip-text text-transparent">
-                <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b bg-clip-text inline-flex text-7xl lg:text-9xl tracking-tight text-transparent from-white to-slate-900/10">
-                  {portfolio.text[1]}
-                </span>
-              </h1>
-            </div>
-            <div className="flex justify-start items-center px-4">
-              <div className="text-3xl md:text-5xl z-[1] font-normal text-neutral-300">
-                <FlipWords words={portfolio.words} />
-              </div>
-            </div>
-            <div className="h-48 uppercase ml-6 mt-6 flex justify-evenly z-[1]">
-              <Scramble url="#intro" title="Who I am" />
-              <Scramble url="#services" title="What I do" />
-            </div>
-          </GridBeam>
-
-          <div className="max-w-[100vw] z-[1]">
-            <ParallaxText baseVelocity={-0.05}>{portfolio.titles}</ParallaxText>
-          </div>
-        </div>
+        <Hero3D />
       </section>
       <section id="intro">
         <motion.div
@@ -77,37 +61,39 @@ const Home = () => {
           }}
         >
           <div className="max-w-2xl p-1 my-4 z-[1]">
-            <AnimatePresence initial={false}>
-              {isInView && (
-                <motion.div
-                  layout
-                  style={{
-                    willChange,
-                  }}
-                >
-                  <h2 className="text-3xl font-medium tracking-[-0.1vw] leading-none mx-[0] my-[0.25em]">
-                    <StaggerText
-                      staggerType="letter"
-                      staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"
-                      staggerDuration={1}
-                      startDelay={0.5}
-                    >
-                      {about.title}
-                    </StaggerText>
-                  </h2>
-                  <p>
-                    <StaggerText
-                      staggerType="word"
-                      staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"
-                      staggerDuration={0.5}
-                      startDelay={0.5}
-                    >
-                      {about.text}
-                    </StaggerText>
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <GridBeam className="w-full h-full">
+              <AnimatePresence initial={false}>
+                {isInView && (
+                  <motion.div
+                    layout
+                    style={{
+                      willChange,
+                    }}
+                  >
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-[-0.1vw] leading-none mx-[0] my-[0.25em]">
+                      <StaggerText
+                        staggerType="word"
+                        staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"
+                        staggerDuration={1}
+                        startDelay={0.5}
+                      >
+                        {about.title}
+                      </StaggerText>
+                    </h2>
+                    <p className="text-sm md:text-base lg:text-lg">
+                      <StaggerText
+                        staggerType="word"
+                        staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"
+                        staggerDuration={0.1}
+                        startDelay={0.5}
+                      >
+                        {about.text}
+                      </StaggerText>
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </GridBeam>
           </div>
           <div className="h-[400px] w-[400px] m-1 static right-0 z-[1]">
             <ImageEffect item1="/me-sea2.webp" item2="/me-sea3.webp" />
@@ -117,11 +103,15 @@ const Home = () => {
 
       <section
         id="services"
-        className="flex flex-wrap justify-evenly items-baseline py-5"
+        className="flex flex-wrap justify-evenly items-baseline py-10"
       >
-        <h2 className="z-[1] text-3xl md:text-5xl leading-none mx-[0] my-[0.25em]">
-          My Services
-        </h2>
+        <div className="">
+          <GridBeam className="w-full h-full">
+            <h2 className="z-[1] text-3xl md:text-5xl leading-none mx-[0] my-[0.25em]">
+              My Services
+            </h2>
+          </GridBeam>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 relative z-10 py-10 max-w-7xl ">
           {services.map((service, index) => (
             <Feature
@@ -143,7 +133,7 @@ const Home = () => {
         className="fixed bottom-0 left-0 right-0 h-2 z-10 origin-[0%] bg-gray-50"
         style={{ scaleX }}
       />
-    </main>
+    </motion.main>
   );
 };
 

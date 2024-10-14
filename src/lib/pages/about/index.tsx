@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  motion,
-  useSpring,
-  useScroll,
-  useTransform,
-  useWillChange,
-} from "framer-motion";
+import { motion, useSpring, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 import Menu from "~/lib/components/motion/Menu/Menu";
@@ -24,23 +18,22 @@ const AboutRoute = () => {
     restDelta: 0.001,
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 0.4, 0.3], {
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0], {
     clamp: false,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "50%"], {
+  const translateY = useTransform(scrollYProgress, [0, 0.8], ["-5%", "5%"], {
     clamp: false,
   });
-
-  const opacity2 = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0, 0], {
-    clamp: false,
-  });
-
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0]);
-  const willChange = useWillChange();
 
   return (
-    <main className="bg-black">
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 3, ease: "easeInOut" }}
+      className="bg-black"
+    >
       <Menu />
       <section
         ref={ref}
@@ -49,13 +42,12 @@ const AboutRoute = () => {
       >
         <div className="flex flex-1 flex-wrap md:flex-nowrap items-baseline z-10">
           <motion.div
-            style={{ opacity, x, willChange }}
-            className="fixed right-10 bottom-20 z-10 bg-[url('/me-home-removebg34.png')] mix-blend-exclusion shadow-xl shadow-black bg-cover bg-center w-[400px] md:w-[600px] h-[400px] md:h-[600px]"
+            style={{ translateY }}
+            className="fixed right-0 top-0 z-11 bg-[url('/me-color-dark.webp')] bg-right bg-contain bg-no-repeat w-[600px] max-w-[100vw] h-full"
           />
-
           <motion.h1
-            style={{ opacity: opacity2, scale, willChange }}
-            className="fixed left-10 top-36 text-7xl md:text-9xl text-gray-50 z-10"
+            style={{ opacity }}
+            className="fixed left-40 top-40 text-7xl md:text-9xl text-gray-50 z-10"
           >
             About
           </motion.h1>
@@ -83,13 +75,12 @@ const AboutRoute = () => {
         </div>
       </section>
       <Footer />
-
       <motion.div
         ref={progressBarRef}
-        className="fixed bottom-0 left-0 right-0 h-2 z-10 origin-[0%] bg-gray-50"
+        className="fixed bottom-0 left-0 h-2 w-screen z-10 origin-left bg-gray-100"
         style={{ scaleX }}
       />
-    </main>
+    </motion.main>
   );
 };
 
