@@ -1,5 +1,5 @@
 import { experience } from "../../data/data";
-import { MagicCard } from "../../motion/MagicCard";
+import { HoverEffect } from "../../motion/Card";
 
 const Experience = () => {
   return (
@@ -12,37 +12,7 @@ const Experience = () => {
         </div>
 
         <div className="max-w-[98vw] flex flex-col justify-evenly">
-          {experience?.map((item) => {
-            return (
-              <MagicCard
-                key={item.title}
-                className="cursor-pointer flex-col items-stretch justify-center shadow-2xl whitespace-nowrap m-1 p-1"
-              >
-                <div className="flex justify-between flex-wrap gap-1 sm:gap-2">
-                  <p>
-                    <span className="font-bold uppercase">{item.title}</span>
-                    <span className="text-neutral-300 font-thin ml-2">
-                      {item.company}
-                    </span>
-                  </p>
-                  <p>
-                    <span className="inline-flex items-center mx-1 text-sm">
-                      {item.date}
-                    </span>
-                  </p>
-                </div>
-                <div className="mt-1 sm:mt-2 text-xs sm:text-sm pl-1">
-                  {item.description?.map((desc) => {
-                    return (
-                      <p key={desc} className="mb-1">
-                        {desc}
-                      </p>
-                    );
-                  })}
-                </div>
-              </MagicCard>
-            );
-          })}
+          <HoverEffect items={experience} />
         </div>
       </div>
     </div>

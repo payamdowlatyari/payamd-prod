@@ -1,4 +1,5 @@
 /* eslint-disable react/no-array-index-key */
+
 import {
   motion,
   MotionValue,
@@ -103,7 +104,7 @@ export default function ScrollReveal({
       ref={containerRef}
       className={cn(
         // Adjust the height and spacing according to the need
-        "storybook-fix relative h-[200vh] w-full overflow-y-scroll scroll-smooth",
+        "relative h-[200vh] w-full overflow-y-scroll scroll-smooth",
         className
       )}
     >

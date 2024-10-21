@@ -17,7 +17,7 @@ module.exports = withPWA({
     dirs: ["src"],
   },
   images: {
-    domains: ["storage.googleapis.com"],
+    domains: ["storage.googleapis.com", "api.microlink.io"],
   },
   ransformer: {
     getTransformOptions: async () => ({

@@ -11,6 +11,7 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 
+import IconCloud from "~/lib/components/motion/IconCloud";
 import { Logos, Marquee } from "~/lib/components/motion/Marquee";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import Certificates from "~/lib/components/Sections/Resume/Certificates";
@@ -18,6 +19,36 @@ import Education from "~/lib/components/Sections/Resume/Education";
 import Experience from "~/lib/components/Sections/Resume/Experience";
 import Publications from "~/lib/components/Sections/Resume/Publications";
 import Footer from "~/lib/layout/Footer";
+
+const slugs = [
+  "typescript",
+  "javascript",
+  "java",
+  "react",
+  "html5",
+  "css3",
+  "nodedotjs",
+  "express",
+  "nextdotjs",
+  "amazonaws",
+  "mysql",
+  "mongodb",
+  "framer",
+  "vercel",
+  "jest",
+  "docker",
+  "git",
+  "jira",
+  "github",
+  "visualstudiocode",
+  "figma",
+  "npm",
+  "yarn",
+  "reactrouter",
+  "tailwindcss",
+  "bootstrap",
+  "graphql",
+];
 
 const ResumeRoute = () => {
   const progressBarRef = useRef(null);
@@ -119,19 +150,9 @@ const ResumeRoute = () => {
           ))}
         </Marquee>
       </motion.div>
-      <motion.div
-        layout
-        className="flex flex-row flex-wrap justify-between items-center content-end h-full m-auto max-w-screen-sm p-2"
-      >
-        {arr.map((Logo) => (
-          <div
-            key={Logo.name}
-            className="m-[2px] md:m-1 relative scale-75 md:scale-100 hover:scale-125 transition z-[2]"
-          >
-            <Logo />
-          </div>
-        ))}
-      </motion.div>
+      <div className="relative flex size-full max-w-lg items-center justify-center overflow-hidden rounded-lg px-20 pb-20 pt-8 mx-auto">
+        <IconCloud iconSlugs={slugs} />
+      </div>
       <Footer />
       <motion.div
         ref={progressBarRef}

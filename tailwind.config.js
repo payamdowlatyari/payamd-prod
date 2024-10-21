@@ -32,6 +32,8 @@ module.exports = {
         fourth: "moveHorizontal 40s ease infinite",
         fifth: "moveInCircle 20s ease infinite",
         marquee: 'marquee var(--duration, 30s) linear infinite',
+        "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
+        shine: "shine var(--duration) infinite linear",
       },
       keyframes: {
         'shimmer': {
@@ -109,6 +111,22 @@ module.exports = {
         },
         marquee: {
           to: { transform: 'translateX(-50%)' }
+        },
+        "border-beam": {
+          "100%": {
+            "offset-distance": "100%",
+          },
+        },
+        shine: {
+          "0%": {
+            "background-position": "0% 0%",
+          },
+          "50%": {
+            "background-position": "100% 100%",
+          },
+          to: {
+            "background-position": "0% 0%",
+          },
         },
       },
     },

@@ -1,18 +1,11 @@
 "use client";
 
-import {
-  AnimatePresence,
-  motion,
-  useInView,
-  useScroll,
-  useSpring,
-  useWillChange,
-} from "framer-motion";
+import { motion, useScroll, useSpring, useWillChange } from "framer-motion";
 import { useRef } from "react";
-import StaggerText from "react-stagger-text";
 
 import { about, services } from "~/lib/components/data/data";
 import { GridBeam } from "~/lib/components/motion/BackgroundBeams";
+import { BorderBeam } from "~/lib/components/motion/BorderBeam";
 import { Feature } from "~/lib/components/motion/Feature";
 import { Hero3D } from "~/lib/components/motion/Hero3D";
 import ImageEffect from "~/lib/components/motion/ImageEffect";
@@ -33,7 +26,6 @@ const Home = () => {
   const ref2 = useRef(null);
 
   const willChange = useWillChange();
-  const isInView = useInView(ref2, { once: true });
 
   return (
     <motion.main
@@ -58,41 +50,17 @@ const Home = () => {
           }}
         >
           <div className="max-w-2xl p-1 my-4 z-[1]">
-            <GridBeam className="w-full h-full">
-              <AnimatePresence initial={false}>
-                {isInView && (
-                  <motion.div
-                    layout
-                    style={{
-                      willChange,
-                    }}
-                  >
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-[-0.1vw] leading-none mx-[0] my-[0.25em]">
-                      <StaggerText
-                        staggerType="word"
-                        staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"
-                        staggerDuration={1}
-                        startDelay={0.5}
-                      >
-                        {about.title}
-                      </StaggerText>
-                    </h2>
-                    <p className="text-sm md:text-base lg:text-lg">
-                      <StaggerText
-                        staggerType="word"
-                        staggerEasing="cubic-bezier(0.4, 0, 0.2, 1)"
-                        staggerDuration={0.1}
-                        startDelay={0.5}
-                      >
-                        {about.text}
-                      </StaggerText>
-                    </p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </GridBeam>
+            <div className="relative flex h-96 w-full flex-col justify-center overflow-hidden rounded-lg border border-transparent md:shadow-xl p-1">
+              <h2 className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b bg-clip-text text-xl md:text-3xl font-semibold leading-none text-transparent from-apple to-gray-500 px-2">
+                {about.title}
+              </h2>
+              <p className="text-sm md:text-base lg:text-lg text-gray-200 mt-4 px-2">
+                {about.text}
+              </p>
+              <BorderBeam size={250} duration={12} delay={9} />
+            </div>
           </div>
-          <div className="h-[400px] w-[400px] m-1 static right-0 z-[1]">
+          <div className="h-96 w-96 m-1 static right-0 z-[1]">
             <ImageEffect item1="/me-sea2.webp" item2="/me-sea3.webp" />
           </div>
         </motion.div>

@@ -214,7 +214,7 @@ export const intro = {
 export const experience = [
   {
     title: "Full Stack Engineer",
-    company: "Avalon AI",
+    subtitle: "Avalon AI",
     date: "Apr 2024 - Present",
     description: [
       "Define and document software requirements specifications and identify the best solutions",
@@ -227,7 +227,7 @@ export const experience = [
   },
   {
     title: "Software Engineer",
-    company: "Amplify.ai",
+    subtitle: "Amplify.ai",
     date: "Dec 2020 - Nov 2023",
     description: [
       "Designed, Developed, tested, deployed, and maintained AI-powered applications",
@@ -240,7 +240,7 @@ export const experience = [
   },
   {
     title: "Web Developer",
-    company: "Freelance",
+    subtitle: "Freelance",
     date: "Sep 2019 - Present",
     description: [
       "Design and develop interactive user interfaces using JS/TS frameworks",
@@ -255,8 +255,8 @@ export const experience = [
 
 export const education = [
   {
-    school: "UC Irvine",
-    major: "Software Engineering B.S.",
+    title: "UC Irvine",
+    subtitle: "Software Engineering B.S.",
     date: "Class 2020",
     description: [
       "Capstone: Grid-Level Energy Negotiation for EVSE",
@@ -266,8 +266,8 @@ export const education = [
     index: 1,
   },
   {
-    school: "American River College",
-    major: "Computer Science A.S.",
+    title: "American River College",
+    subtitle: "Computer Science A.S.",
     date: "Class 2018",
     description: ["Activities and societies: Math and Computer Science tutor"],
     index: 2,
@@ -276,23 +276,23 @@ export const education = [
 
 export const certificate = [
   {
-    school: "Postgraduate Certificate, Caltech",
-    major: "Full-Stack Web Development",
+    title: "Postgraduate Certificate, Caltech",
+    subtitle: "Full-Stack Web Development",
     date: "Mar 2023",
     link: "https://success.simplilearn.com/a8ed0cbb-aa08-40b3-b6ce-a5eac2e55dd4#gs.1kwd89",
     description:
       "Capstone: A bank portal application with Angular2+, Java, Spring,MySQL, REST API, and CRUD functionality",
   },
   {
-    school: "University of Colorado Boulder",
-    major: "Secure Software Design",
+    title: "University of Colorado Boulder",
+    subtitle: "Secure Software Design",
     date: "Sep 2020",
     link: "https://www.coursera.org/account/accomplishments/specialization/certificate/CMWVV4CZ59WM",
     description: "Software Development Lifecycle, Design and Implementation",
   },
   {
-    school: "The Interaction Design Foundation",
-    major: "User Experience Design Courses",
+    title: "The Interaction Design Foundation",
+    subtitle: "User Experience Design Courses",
     date: "Oct 2019",
     link: "https://www.interaction-design.org/members/payam-dowlatyari",
     description:
@@ -305,9 +305,9 @@ export const publication = [
     title: "Mapping and Taking Stock of the Personal Informatics Literature",
     link: "https://dl.acm.org/doi/10.1145/3432231",
     date: "Dec 2020",
-    description:
+    subtitle:
       "Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, Article No.: 126",
-    summary:
+    description:
       "The research community on the study and design of systems for personal informatics has grown over the past decade. To take stock of what the topics the field has studied and methods the field has used, we map and label 523 publications from ACM's library, IEEE Xplore, and PubMed. We surface that the literature has focused on studying and designing for health and wellness domains, an emphasis on understanding and overcoming barriers to data collection and reflection, and progressively fewer contributions involving artifacts being made. Our mapping review suggests directions future research could explore, such as identifying and resolving barriers to tracking stages beyond collection and reflection, engaging more with domain experts, and further discussing the privacy and ethical concerns around tracked data.",
   },
 ];

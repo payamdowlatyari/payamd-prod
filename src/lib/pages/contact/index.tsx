@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 
 import Menu from "~/lib/components/motion/Menu/Menu";
-import { Transition } from "~/lib/components/motion/Transition";
 import { SendMail } from "~/lib/components/Sections/Contact/SendMail";
 import Footer from "~/lib/layout/Footer";
 
@@ -27,7 +26,6 @@ const Contact = () => {
         </div>
       </section>
       <Footer />
-      <Transition />
     </motion.main>
   );
 };

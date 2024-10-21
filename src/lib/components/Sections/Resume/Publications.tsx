@@ -1,6 +1,5 @@
 import { publication } from "../../data/data";
-import { MagicCard } from "../../motion/MagicCard";
-import LinkOut from "../../motion/View/LinkOut";
+import { HoverEffect } from "../../motion/Card";
 
 const Publications = () => (
   <div className="flex flex-row justify-center items-center h-screen m-1">
@@ -11,23 +10,7 @@ const Publications = () => (
         </h3>
       </div>
       <div className="max-w-[98vw] flex flex-col justify-evenly">
-        {publication?.map(({ title, link, date, description, summary }) => (
-          <MagicCard
-            key={title}
-            className="cursor-pointer flex-col items-stretch justify-center shadow-2xl whitespace-nowrap m-1 p-1"
-          >
-            <div className="flex justify-between flex-wrap gap-2 w-full">
-              <LinkOut title={title} url={link} out />
-              <p>
-                <span className="mr-2 text-sm text-neutral-300">{date}</span>
-              </p>
-            </div>
-            <div className="pl-1 text-wrap max-w-screen-md">
-              <p className="my-2 font-thin">{description}</p>
-              <p className="text-sm">{summary}</p>
-            </div>
-          </MagicCard>
-        ))}
+        <HoverEffect items={publication} />
       </div>
     </div>
   </div>

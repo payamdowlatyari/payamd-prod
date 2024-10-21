@@ -1,9 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable prefer-const */
 /* eslint-disable react/jsx-no-constructed-context-values */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react/prop-types */
 
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React, {
@@ -15,6 +18,74 @@ import React, {
 } from "react";
 
 import { cn } from "./utils/cn";
+
+export const WobbleCard = ({
+  children,
+  containerClassName,
+  className,
+}: {
+  children: React.ReactNode;
+  containerClassName?: string;
+  className?: string;
+}) => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLElement>) => {
+    const { clientX, clientY } = event;
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = (clientX - (rect.left + rect.width / 2)) / 20;
+    const y = (clientY - (rect.top + rect.height / 2)) / 20;
+    setMousePosition({ x, y });
+  };
+  return (
+    <motion.section
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => {
+        setIsHovering(false);
+        setMousePosition({ x: 0, y: 0 });
+      }}
+      style={{
+        transform: isHovering
+          ? `translate3d(${mousePosition.x}px, ${mousePosition.y}px, 0) scale3d(1, 1, 1)`
+          : "translate3d(0px, 0px, 0) scale3d(1, 1, 1)",
+        transition: "transform 0.1s ease-out",
+      }}
+      className={cn(
+        "mx-auto w-full relative rounded-2xl overflow-hidden",
+        containerClassName
+      )}
+    >
+      <div
+        className="relative h-full sm:mx-0 sm:rounded-2xl overflow-hidden"
+        style={{
+          boxShadow:
+            "0 10px 32px rgba(34, 42, 53, 0.12), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.05), 0 4px 6px rgba(34, 42, 53, 0.08), 0 24px 108px rgba(47, 48, 55, 0.10)",
+        }}
+      >
+        <motion.div
+          style={{
+            transform: isHovering
+              ? `translate3d(${-mousePosition.x}px, ${-mousePosition.y}px, 0) scale3d(1.03, 1.03, 1)`
+              : "translate3d(0px, 0px, 0) scale3d(1, 1, 1)",
+            transition: "transform 0.1s ease-out",
+          }}
+          className={cn("h-full px-2 py-4 sm:px-4", className)}
+        >
+          <div
+            className="absolute inset-0 w-full h-full scale-[1.2] transform opacity-10 [mask-image:radial-gradient(#fff,transparent,75%)]"
+            style={{
+              backgroundImage: "url(/noise.webp)",
+              backgroundSize: "30%",
+            }}
+          />
+          {children}
+        </motion.div>
+      </div>
+    </motion.section>
+  );
+};
 
 const MouseEnterContext = createContext<
   [boolean, React.Dispatch<React.SetStateAction<boolean>>] | undefined
@@ -201,3 +272,150 @@ export function ThreeDCardDemo({ item }: any) {
     </CardContainer>
   );
 }
+
+export const Card = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <div
+      className={cn(
+        "rounded-2xl h-full w-full p-2 overflow-hidden bg-black border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
+        className
+      )}
+    >
+      <div className="relative z-50">
+        <div className="p-1">{children}</div>
+      </div>
+    </div>
+  );
+};
+export const CardTitle = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <h4
+      className={cn(
+        "text-zinc-100 font-bold tracking-wide text-base md:text-lg mt-1",
+        className
+      )}
+    >
+      {children}
+    </h4>
+  );
+};
+
+export const CardSubTitle = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <p
+      className={cn(
+        " mt-1 text-zinc-400 tracking-wide leading-relaxed text-sm md:text-base",
+        className
+      )}
+    >
+      {children}
+    </p>
+  );
+};
+
+export const CardDate = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <p
+      className={cn(
+        "mt-1 text-zinc-400 tracking-wide leading-relaxed text-xs md:text-sm min-w-12",
+        className
+      )}
+    >
+      {children}
+    </p>
+  );
+};
+
+export const CardDescription = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <p
+      className={cn(
+        "mt-3 text-zinc-200 tracking-wide leading-relaxed text-xs md:text-sm",
+        className
+      )}
+    >
+      {children}
+    </p>
+  );
+};
+
+export const HoverEffect = ({
+  items,
+  className,
+}: {
+  items: any[];
+  className?: string;
+}) => {
+  let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  return (
+    <div className={cn("flex flex-col py-5", className)}>
+      {items.map((item, idx) => (
+        <Link
+          href={item?.link || "#"}
+          key={item?.link || idx}
+          target="_blank"
+          className="relative group block p-2 h-full w-[20rem] md:w-[35rem]"
+          onMouseEnter={() => setHoveredIndex(idx)}
+          onMouseLeave={() => setHoveredIndex(null)}
+        >
+          <AnimatePresence>
+            {hoveredIndex === idx && (
+              <motion.span
+                className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block rounded-3xl"
+                layoutId="hoverBackground"
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: 1,
+                  transition: { duration: 0.15 },
+                }}
+                exit={{
+                  opacity: 0,
+                  transition: { duration: 0.15, delay: 0.2 },
+                }}
+              />
+            )}
+          </AnimatePresence>
+          <Card>
+            <div className="flex justify-between">
+              <CardTitle>{item.title}</CardTitle>
+              <CardDate>{item.date}</CardDate>
+            </div>
+            <CardSubTitle>{item.subtitle}</CardSubTitle>
+            <CardDescription>{item.description}</CardDescription>
+          </Card>
+        </Link>
+      ))}
+    </div>
+  );
+};

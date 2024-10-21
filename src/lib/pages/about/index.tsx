@@ -3,6 +3,7 @@
 import { motion, useSpring, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
+import { LinkPreview } from "~/lib/components/motion/LinkPreview";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import ScrollReveal from "~/lib/components/motion/ScrollReveal";
 import Footer from "~/lib/layout/Footer";
@@ -44,10 +45,10 @@ const AboutRoute = () => {
         id="about"
         className="flex flex-wrap relative items-end justify-center overflow-hidden"
       >
-        <div className="flex flex-1 flex-wrap md:flex-nowrap items-baseline z-10">
+        <div className="flex flex-col flex-1 flex-wrap md:flex-nowrap items-baseline z-10">
           <motion.div
             style={{ translateY, scale }}
-            className="fixed right-0 top-0 z-11 bg-[url('/me-home-filter.webp')] opacity-60 bg-right bg-contain bg-no-repeat w-[600px] max-w-[100vw] h-full"
+            className="fixed right-0 top-0 z-11 bg-[url('/me-ai-red.jpeg')] opacity-60 bg-right bg-contain bg-no-repeat w-[600px] max-w-[100vw] h-full"
           />
           <motion.h1
             style={{ opacity }}
@@ -76,8 +77,28 @@ const AboutRoute = () => {
             skills and improve my skills. I have a great interest in learning
             new technologies and am always looking for new challenges.
           </ScrollReveal>
+          <div className="flex justify-center items-center flex-col z-10 px-4">
+            <p className="text-neutral-400 text-xl md:text-3xl max-w-3xl mx-auto mb-10">
+              Check out my personal{" "}
+              <LinkPreview
+                url="https://payamd-blog.vercel.app/"
+                className="font-bold"
+              >
+                Blog
+              </LinkPreview>{" "}
+              and{" "}
+              <LinkPreview
+                url="https://payamd-photo.vercel.app/"
+                className="font-bold"
+              >
+                Photography
+              </LinkPreview>{" "}
+              portfolio.
+            </p>
+          </div>
         </div>
       </section>
+
       <Footer />
       <motion.div
         ref={progressBarRef}
