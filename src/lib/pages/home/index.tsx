@@ -49,12 +49,12 @@ const Home = () => {
             willChange,
           }}
         >
-          <div className="max-w-2xl p-1 my-4 z-[1]">
-            <div className="relative flex h-96 w-full flex-col justify-center overflow-hidden rounded-lg border border-transparent md:shadow-xl p-1">
-              <h2 className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b bg-clip-text text-xl md:text-3xl font-semibold leading-none text-transparent from-apple to-gray-500 px-2">
+          <div className="max-w-2xl p-2 my-4 z-0">
+            <div className="relative flex h-full w-full flex-col justify-center overflow-hidden rounded-lg border border-transparent md:shadow-xl p-4">
+              <h2 className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b bg-clip-text text-2xl md:text-4xl font-semibold leading-none text-transparent from-apple to-gray-500 px-2">
                 {about.title}
               </h2>
-              <p className="text-sm md:text-base lg:text-lg text-gray-200 mt-4 px-2">
+              <p className="text-sm md:text-base lg:text-lg text-neutral-400 mt-4 px-2">
                 {about.text}
               </p>
               <BorderBeam size={250} duration={12} delay={9} />
@@ -72,7 +72,7 @@ const Home = () => {
       >
         <div className="">
           <GridBeam className="w-full h-full">
-            <h2 className="z-[1] text-3xl md:text-5xl leading-none mx-[0] my-[0.25em]">
+            <h2 className="z-[1] text-3xl md:text-5xl leading-none mx-0 my-2 text-neutral-200">
               My Services
             </h2>
           </GridBeam>

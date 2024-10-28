@@ -107,7 +107,7 @@ function Scene() {
     <>
       <Html zIndexRange={[-1, -10]} prepend fullscreen>
         <div ref={(el) => setDomEl(el)} className="dom-element">
-          <p className="flex flex-col">
+          <p className="flex flex-col text-neutral-500">
             PAYAM <br />
             DOWLATYARI
           </p>
@@ -122,6 +122,7 @@ function Scene() {
           fragmentShader={fragmentShader}
           uniforms={uniforms}
           flatShading
+          transparent
           silent
         />
         <Lights />
@@ -152,10 +153,10 @@ function Title3D() {
 
 function Aside() {
   return (
-    <div className="absolute flex flex-col self-end h-full">
+    <div className="absolute flex flex-col self-end h-full w-screen items-end right-0">
       <GridBeam className="flex flex-col items-start justify-end h-[50vh] relative z-[2]">
-        <div className="flex justify-start items-center px-8">
-          <div className="text-3xl md:text-5xl z-[1] font-normal text-gray-500">
+        <div className="flex justify-center items-center px-8">
+          <div className="text-3xl md:text-5xl z-[1] mr-2 font-normal text-neutral-300">
             <FlipWords words={portfolio.words} />
           </div>
         </div>
@@ -171,7 +172,7 @@ function Aside() {
 
 export function Hero3D() {
   return (
-    <div>
+    <div className="bg-transparent">
       <Leva
         collapsed={false}
         flat
@@ -185,7 +186,7 @@ export function Hero3D() {
           },
         }}
       />
-      <main className="w-screen bg-transparent">
+      <main className="w-screen">
         <Title3D />
         <Aside />
       </main>

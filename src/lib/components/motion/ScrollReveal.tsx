@@ -1,4 +1,4 @@
-/* eslint-disable react/no-array-index-key */
+/* eslint-disable react/jsx-no-useless-fragment */
 
 import {
   motion,
@@ -35,11 +35,7 @@ const flatten = (children: React.ReactNode): React.ReactNode[] => {
       }
     } else {
       const parts = String(child).split(/(\s+)/);
-      result.push(
-        ...parts.map((part, index) => (
-          <React.Fragment key={index}>{part}</React.Fragment>
-        ))
-      );
+      result.push(...parts.map((part) => <>{part}</>));
     }
   });
 
@@ -102,21 +98,16 @@ export default function ScrollReveal({
     <div
       {...props}
       ref={containerRef}
-      className={cn(
-        // Adjust the height and spacing according to the need
-        "relative h-[200vh] w-full overflow-y-scroll scroll-smooth",
-        className
-      )}
+      className={cn("relative h-[200vh] z-10", className)}
     >
-      <div className="absolute top-[20vh] left-0 flex h-full w-full items-center justify-center">
-        <div className="flex h-fit w-full min-w-fit flex-wrap whitespace-break-spaces p-2 md:p-4">
+      <div className="sticky top-1/3 mx-auto flex h-1/2 max-w-4xl items-center bg-transparent px-2 py-20">
+        <div className="flex h-fit w-full min-w-fit flex-wrap whitespace-break-spaces p-1 md:p-2">
           {flat.map((child, index) => {
             return (
               <OpacityChild
                 progress={scrollYProgress}
                 index={index}
                 total={flat.length}
-                key={index}
               >
                 {child}
               </OpacityChild>
@@ -124,9 +115,8 @@ export default function ScrollReveal({
           })}
         </div>
       </div>
-      {Array.from({ length: count }).map((_, index) => (
-        // Create really large area to make the scroll effect work
-        <div key={index} className="h-40" />
+      {Array.from({ length: count }).map(() => (
+        <div className="h-40" />
       ))}
     </div>
   );

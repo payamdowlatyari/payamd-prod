@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-shadow */
-
 "use client";
 
 import {
@@ -11,44 +9,13 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 
+import { resume } from "~/lib/components/data/data";
+import { BlurFade } from "~/lib/components/motion/BlurFade";
+import { HoverEffect } from "~/lib/components/motion/Card";
 import IconCloud from "~/lib/components/motion/IconCloud";
 import { Logos, Marquee } from "~/lib/components/motion/Marquee";
 import Menu from "~/lib/components/motion/Menu/Menu";
-import Certificates from "~/lib/components/Sections/Resume/Certificates";
-import Education from "~/lib/components/Sections/Resume/Education";
-import Experience from "~/lib/components/Sections/Resume/Experience";
-import Publications from "~/lib/components/Sections/Resume/Publications";
 import Footer from "~/lib/layout/Footer";
-
-const slugs = [
-  "typescript",
-  "javascript",
-  "java",
-  "react",
-  "html5",
-  "css3",
-  "nodedotjs",
-  "express",
-  "nextdotjs",
-  "amazonaws",
-  "mysql",
-  "mongodb",
-  "framer",
-  "vercel",
-  "jest",
-  "docker",
-  "git",
-  "jira",
-  "github",
-  "visualstudiocode",
-  "figma",
-  "npm",
-  "yarn",
-  "reactrouter",
-  "tailwindcss",
-  "bootstrap",
-  "graphql",
-];
 
 const ResumeRoute = () => {
   const progressBarRef = useRef(null);
@@ -60,10 +27,10 @@ const ResumeRoute = () => {
     restDelta: 0.001,
   });
 
-  const resume = useRef(null);
+  const ref = useRef(null);
   const willChange = useWillChange();
-  const { scrollY } = useScroll({ target: resume });
-  const x = useTransform(scrollY, [100, 13000], ["0%", "-120%"], {
+  const { scrollY } = useScroll({ target: ref });
+  const x = useTransform(scrollY, [1000, 13000], ["10%", "-120%"], {
     clamp: false,
   });
   const opacity = useTransform(
@@ -75,30 +42,6 @@ const ResumeRoute = () => {
     }
   );
 
-  const arr = [
-    Logos.html5,
-    Logos.css3,
-    Logos.javascript,
-    Logos.typescript,
-    Logos.framer,
-    Logos.reactjs,
-    Logos.tailwindcss,
-    Logos.nextjs,
-    Logos.nodejs,
-    Logos.java,
-    Logos.express,
-    Logos.mongodb,
-    Logos.mysql,
-    Logos.graphql,
-    Logos.jest,
-    Logos.aws,
-    Logos.git,
-    Logos.npm,
-    Logos.docker,
-    Logos.vscode,
-    Logos.vercel,
-  ];
-
   return (
     <motion.main
       initial={{ opacity: 0 }}
@@ -108,10 +51,23 @@ const ResumeRoute = () => {
       className="bg-black"
     >
       <Menu />
+      <div className="relative flex flex-col gap-4 h-screen w-screen items-center justify-center overflow-hidden p-8 z-[2] mx-auto">
+        <BlurFade delay={0.5} inView>
+          <h1 className="relative z-10 text-xl sm:text-5xl md:text-9xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 text-center tracking-tighter">
+            Resume
+          </h1>
+        </BlurFade>
+        <BlurFade delay={0.75} inView>
+          <p className="text-neutral-500 max-w-lg mx-auto my-2 text-center text-lg relative z-10">
+            Here you can find my resume including my education, experience,
+            certifications, publications, and skills.
+          </p>
+        </BlurFade>
+      </div>
       <motion.section
         id="resume"
         className="block top-0 max-w-[100vw] overflow-hidden h-[1400vh] p-0"
-        ref={resume}
+        ref={ref}
         layoutScroll
       >
         <div className="fixed flex top-0 overflow-hidden items-center h-screen z-[2]">
@@ -122,25 +78,43 @@ const ResumeRoute = () => {
               x,
             }}
           >
-            <li className="w-screen">
-              <Experience />
-            </li>
-            <li className="w-screen">
-              <Education />
-            </li>
-            <li className="w-screen">
-              <Certificates />
-            </li>
-            <li className="w-screen">
-              <Publications />
-            </li>
+            {resume && resume?.length > 0 ? (
+              resume?.map((section) => (
+                <li className="w-screen">
+                  <div className="flex flex-row justify-center items-center h-screen m-1 z-0">
+                    <div className="flex flex-col justify-center max-w-[98vw] h-[90vh] overflow-hidden z-10">
+                      <div className="flex flex-col-reverse px-4">
+                        <BlurFade delay={0.5} inView>
+                          <h3 className="text-3xl md:text-5xl lg:text-7xl tracking-[-0.2vw]">
+                            {section.section}
+                          </h3>
+                        </BlurFade>
+                      </div>
+
+                      <div className="max-w-[98vw] flex flex-col justify-evenly">
+                        <BlurFade delay={1} inView>
+                          <HoverEffect items={section.items} />
+                        </BlurFade>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              ))
+            ) : (
+              <div className="flex flex-col justify-evenly h-screen">
+                <div className="flex flex-col-reverse px-4">
+                  <h3 className="text-3xl md:text-5xl lg:text-7xl tracking-[-0.2vw]">
+                    Resume
+                  </h3>
+                </div>
+              </div>
+            )}
           </motion.ul>
         </div>
       </motion.section>
-
       <motion.div layout style={{ opacity }} className="sticky bottom-0 z-[2]">
         <Marquee>
-          {arr.map((Logo) => (
+          {Object.values(Logos).map((Logo) => (
             <div
               key={Logo.name}
               className="relative scale-75 hover:scale-100 transition h-full w-fit mx-[0.5rem] flex items-center justify-start"
@@ -150,8 +124,14 @@ const ResumeRoute = () => {
           ))}
         </Marquee>
       </motion.div>
-      <div className="relative flex size-full max-w-lg items-center justify-center overflow-hidden rounded-lg px-20 pb-20 pt-8 mx-auto">
-        <IconCloud iconSlugs={slugs} />
+
+      <div className="relative flex flex-wrap gap-4 size-full max-w-lg items-center justify-center overflow-hidden rounded-lg px-10 pb-10 pt-8 mx-auto">
+        <BlurFade delay={0.5} inView>
+          <h3 className="text-4xl md:text-5xl lg:text-6xl tracking-[-0.2vw]">
+            Skills
+          </h3>
+        </BlurFade>
+        <IconCloud />
       </div>
       <Footer />
       <motion.div

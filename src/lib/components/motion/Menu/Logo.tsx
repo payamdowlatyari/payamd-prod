@@ -5,8 +5,8 @@ import Link from "next/link";
 export default function Logo({ light, size }: any) {
   return (
     <motion.div
-      whileHover={{ rotate: 360 }}
-      whileTap={{ scale: 0.8 }}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
       transition={{ duration: 0.5, ease: "backInOut" }}
     >
       <Link href="/">

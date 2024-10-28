@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable react/jsx-no-useless-fragment */
 
@@ -12,6 +13,36 @@ import {
   renderSimpleIcon,
   SimpleIcon,
 } from "react-icon-cloud";
+
+const iconSlugs = [
+  "typescript",
+  "javascript",
+  "java",
+  "react",
+  "html5",
+  "css3",
+  "nodedotjs",
+  "express",
+  "nextdotjs",
+  "amazonaws",
+  "mysql",
+  "mongodb",
+  "framer",
+  "vercel",
+  "jest",
+  "docker",
+  "git",
+  "jira",
+  "github",
+  "visualstudiocode",
+  "figma",
+  "npm",
+  "yarn",
+  "reactrouter",
+  "tailwindcss",
+  "bootstrap",
+  "graphql",
+];
 
 export const cloudProps: Omit<ICloud, "children"> = {
   containerProps: {
@@ -66,7 +97,7 @@ export type DynamicCloudProps = {
 
 type IconData = Awaited<ReturnType<typeof fetchSimpleIcons>>;
 
-export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
+export default function IconCloud() {
   const [data, setData] = useState<IconData | null>(null);
   const { theme } = useTheme();
 

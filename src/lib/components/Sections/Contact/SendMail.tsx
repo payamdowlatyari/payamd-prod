@@ -1,4 +1,3 @@
-// import { Input } from "@chakra-ui/react";
 import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
 
@@ -11,22 +10,26 @@ export const SendMail = () => {
   const sendEmail = (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm("service_vwpswjd", "template_ysr7uax", form.current, {
-        publicKey: "70grQE4k9fKjEvoPu",
-      })
-      .then(
-        (response) => {
-          if (response.status === 200) {
-            setSuccess(true);
-            setMessage(`Your message has been sent!`);
+    if (!form.current) return;
+
+    setTimeout(() => {
+      emailjs
+        .sendForm("service_vwpswjd", "template_ysr7uax", form.current, {
+          publicKey: "70grQE4k9fKjEvoPu",
+        })
+        .then(
+          (response) => {
+            if (response.status === 200) {
+              setSuccess(true);
+              setMessage(`Your message has been sent!`);
+            }
+          },
+          (error) => {
+            setSuccess(false);
+            setMessage(`${error.text}, message failed! Email pdyari@gmail.com`);
           }
-        },
-        (error) => {
-          setSuccess(false);
-          setMessage(`${error.text}, message failed! Email pdyari@gmail.com`);
-        }
-      );
+        );
+    }, 2000);
   };
 
   return (

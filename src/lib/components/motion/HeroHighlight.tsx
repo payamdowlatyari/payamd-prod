@@ -33,8 +33,8 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
   gridGap = 6,
   flickerChance = 0.3,
   color = "rgb(0, 0, 0)",
-  width,
-  height,
+  width = 1920,
+  height = 1080,
   className,
   maxOpacity = 0.3,
 }) => {
@@ -181,8 +181,8 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
       ref={canvasRef}
       className={`size-full pointer-events-none ${className}`}
       style={{
-        width: width || "100%",
-        height: height || "100%",
+        width: width || "100vw",
+        height: height || "100vh",
       }}
       width={width}
       height={height}

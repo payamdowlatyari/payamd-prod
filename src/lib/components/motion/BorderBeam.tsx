@@ -13,12 +13,12 @@ interface BorderBeamProps {
 
 export const BorderBeam = ({
   className,
-  size = 200,
+  size = 250,
   duration = 15,
   anchor = 90,
   borderWidth = 1.5,
-  colorFrom = "#ffaa40",
-  colorTo = "#9c40ff",
+  colorFrom = "#0000ff",
+  colorTo = "#ffff00",
   delay = 0,
 }: BorderBeamProps) => {
   return (
@@ -75,7 +75,7 @@ export function ShineBorder({
         } as React.CSSProperties
       }
       className={cn(
-        "relative grid min-h-32 w-fit min-w-96 place-items-center rounded-[--border-radius] bg-white p-3 text-black dark:bg-black dark:text-white",
+        "relative grid h-fit w-fit place-items-center rounded-[--border-radius] bg-white p-3 text-black dark:bg-black dark:text-white",
         className
       )}
     >

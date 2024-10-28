@@ -11,8 +11,7 @@ import { useEffect, useRef } from "react";
 import { TfiClose, TfiLineDouble } from "react-icons/tfi";
 
 import Contact from "../../Sections/Contact/ContactDetails";
-import { Social } from "../../Sections/Contact/Social";
-import { FlickeringGrid } from "../HeroHighlight";
+import { DockDemo } from "../FloatingDock";
 
 import Nav from "./Nav";
 
@@ -108,6 +107,7 @@ export default function Menu() {
 
   return (
     <motion.nav
+      layout
       initial={false}
       animate={isOpen ? "open" : "closed"}
       ref={containerRef}
@@ -122,28 +122,19 @@ export default function Menu() {
         style={{
           willChange,
           display: isOpen ? "flex" : "none",
-          transition: "0.5s ease",
         }}
         className="flex flex-wrap w-screen h-screen bg-black relative items-end justify-center"
         ref={scope}
       >
-        <FlickeringGrid
-          className="z-0 absolute inset-0 size-full m-auto"
-          squareSize={4}
-          gridGap={6}
-          color="#6B7280"
-          maxOpacity={0.5}
-          flickerChance={0.1}
-          height={800}
-          width={1200}
-        />
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]" />
-        <div className="flex flex-wrap w-full h-[70vh] justify-around items-center content-end">
+        <div className="flex flex-wrap w-full h-[80vh] md:h-[70vh] justify-around items-center content-end">
           <Nav />
           <Contact />
         </div>
-        <div className="m-auto h-[30vh] z-10">
-          <Social />
+        <div className="m-auto h-[20vh] md:h-[30vh] z-10">
+          <div className="flex flex-col items-center justify-center h-full w-full py-2 social">
+            <DockDemo />
+          </div>
         </div>
       </motion.div>
     </motion.nav>

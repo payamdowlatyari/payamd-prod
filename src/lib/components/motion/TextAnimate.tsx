@@ -201,13 +201,8 @@ export const TextAnimate: FC<Props> = ({
   type = "whipInUp",
   ...props
 }: Props) => {
-  //   const { ref, inView } = useInView({
-  //     threshold: 0.5,
-  //     triggerOnce: true,
-  //   });
-
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref);
 
   const letters = Array.from(text);
   const { container, child } = animationVariants[type];
@@ -232,15 +227,12 @@ export const TextAnimate: FC<Props> = ({
               ref={ref}
               className="inline-block mr-[0.25em] whitespace-nowrap"
               aria-hidden="true"
-              //   key={index}
               initial="hidden"
               animate="visible"
               variants={container}
               transition={{
                 delayChildren: index * 0.13,
-                // delayChildren: index * 0.35,
                 staggerChildren: 0.025,
-                // staggerChildren: 0.05,
               }}
             >
               {word.split("").map((character) => {

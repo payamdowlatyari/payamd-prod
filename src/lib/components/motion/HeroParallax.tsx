@@ -11,6 +11,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+import { BlurFade } from "./BlurFade";
+
 export const ProductCard = ({
   product,
   translate,
@@ -44,26 +46,28 @@ export const ProductCard = ({
           src={product.img}
           height="600"
           width="600"
-          className="object-cover object-left-top absolute h-full w-full inset-0"
+          className="object-cover object-left-top absolute h-full w-full inset-0 rounded-xl"
           alt={product.title}
         />
       </Link>
 
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none" />
-      <h2 className="absolute top-4 left-4 opacity-0 group-hover/product:opacity-100 text-white font-semibold">
-        {product.title}
-      </h2>
-      <p className="absolute top-12 left-4 opacity-0 group-hover/product:opacity-100 text-white text-xs">
-        {product.description}
-      </p>
-      <div className="absolute bottom-12 left-4 opacity-0 group-hover/product:opacity-100">
-        {product.tags?.map((tag: any) => {
-          return (
-            <span className="inline-flex items-center m-1 gap-x-1 py-1 px-3 rounded-full text-xs font-medium border border-slate-700 text-white">
-              {tag}
-            </span>
-          );
-        })}
+      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-90 bg-black pointer-events-none" />
+      <div className="flex flex-col justify-between h-full p-6">
+        <h3 className="absolute top-4 left-4 z-10 text-xl text-white tracking-tighter">
+          {product.title}
+        </h3>
+        <p className="absolute top-12 left-4 opacity-0 group-hover/product:opacity-100 text-white text-sm">
+          {product.description}
+        </p>
+        <div className="absolute bottom-12 left-4 opacity-0 group-hover/product:opacity-100">
+          {product.tags?.map((tag: any) => {
+            return (
+              <span className="inline-flex items-center m-1 gap-x-1 py-1 px-3 rounded-full text-xs font-medium border border-neutral-700 text-white">
+                {tag}
+              </span>
+            );
+          })}
+        </div>
       </div>
     </motion.div>
   );
@@ -121,13 +125,20 @@ export const HeroParallax = ({
       className="h-[200vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
-        <h1 className="text-2xl md:text-7xl font-semibold text-white">
-          Projects
-        </h1>
-        <h3 className="text-xl md:text-3xl font-semibold text-white">
-          my web development portfolio
-        </h3>
-        <p className="max-w-2xl text-base md:text-xl mt-8 text-neutral-200">
+        <BlurFade delay={1} inView>
+          <h1
+            style={{ lineHeight: 1.5 }}
+            className="relative z-10 text-7xl md:text-9xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 tracking-tighter ml-2"
+          >
+            Projects
+          </h1>
+        </BlurFade>
+        <BlurFade delay={1.25} inView>
+          <h3 className="text-xl md:text-3xl font-semibold text-neutral-300 mt-4 ml-3">
+            My Web Development Portfolio
+          </h3>
+        </BlurFade>
+        <p className="max-w-2xl text-base md:text-xl mt-8 ml-2 text-neutral-300">
           Here are some of my most recent works in web applications and landing
           pages. I have used different tools, technologies, and services to
           create these projects.

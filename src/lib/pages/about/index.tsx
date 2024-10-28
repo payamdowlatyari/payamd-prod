@@ -1,8 +1,10 @@
 "use client";
 
 import { motion, useSpring, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
 
+import { BlurFade } from "~/lib/components/motion/BlurFade";
 import { LinkPreview } from "~/lib/components/motion/LinkPreview";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import ScrollReveal from "~/lib/components/motion/ScrollReveal";
@@ -19,15 +21,7 @@ const AboutRoute = () => {
     restDelta: 0.001,
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0], {
-    clamp: false,
-  });
-
-  const translateY = useTransform(scrollYProgress, [0, 0.8], ["-5%", "5%"], {
-    clamp: false,
-  });
-
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.5], {
+  const opacity = useTransform(scrollYProgress, [0, 0.25], [1, 0], {
     clamp: false,
   });
 
@@ -46,18 +40,28 @@ const AboutRoute = () => {
         className="flex flex-wrap relative items-end justify-center overflow-hidden"
       >
         <div className="flex flex-col flex-1 flex-wrap md:flex-nowrap items-baseline z-10">
-          <motion.div
-            style={{ translateY, scale }}
-            className="fixed right-0 top-0 z-11 bg-[url('/me-ai-red.jpeg')] opacity-60 bg-right bg-contain bg-no-repeat w-[600px] max-w-[100vw] h-full"
-          />
-          <motion.h1
-            style={{ opacity }}
-            className="fixed top-40 left-20 text-7xl md:text-9xl text-gray-50 z-10"
-          >
-            About
-          </motion.h1>
-
-          <ScrollReveal className="text-2xl md:text-4xl text-gray-50 max-w-screen-md z-10">
+          <motion.div style={{ opacity }} className="fixed right-0 mt-40 mx-3 ">
+            <BlurFade delay={0.5} inView>
+              <Image
+                src="/me-ai-hat.jpeg"
+                width={400}
+                height={400}
+                alt="me"
+                className="opacity-80"
+              />
+            </BlurFade>
+            <BlurFade delay={1} inView>
+              <h1 className="relative z-10 text-xl sm:text-5xl md:text-9xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 tracking-tighter">
+                About
+              </h1>
+              <p className="text-lg lg:text-xl text-neutral-500 mb-5">
+                My name is Payam Dowlatyari
+                <br /> a Software Engineer <br />
+                in California
+              </p>
+            </BlurFade>
+          </motion.div>
+          <ScrollReveal className="text-xl sm:text-2xl md:text-3xl text-neutral-200 z-10">
             After obtaining my B.S. in Software Engineering from UC Irvine in
             2020, I entered the tech industry and worked at Amplify.ai for three
             years developing AI applications. I satrted working as a software
@@ -77,8 +81,8 @@ const AboutRoute = () => {
             skills and improve my skills. I have a great interest in learning
             new technologies and am always looking for new challenges.
           </ScrollReveal>
-          <div className="flex justify-center items-center flex-col z-10 px-4">
-            <p className="text-neutral-400 text-xl md:text-3xl max-w-3xl mx-auto mb-10">
+          <div className="flex justify-center items-center w-screen z-10 px-4">
+            <p className="text-neutral-400 text-xl md:text-2xl mx-auto mb-10">
               Check out my personal{" "}
               <LinkPreview
                 url="https://payamd-blog.vercel.app/"
