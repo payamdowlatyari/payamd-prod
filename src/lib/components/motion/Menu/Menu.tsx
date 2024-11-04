@@ -1,6 +1,4 @@
 import {
-  easeIn,
-  easeOut,
   motion,
   stagger,
   useAnimate,
@@ -50,46 +48,45 @@ function useMenuAnimation(isOpen: boolean) {
       ? [
           [
             "ul",
-            { transform: "translateX(0%)" },
-            { ease: [0.08, 0.65, 0.53, 0.96], duration: 0.8 },
+            { transform: "translateY(0%)" },
+            { ease: [0.08, 0.65, 0.53, 0.96], duration: 0.5 },
           ],
           [
             "li",
-            { transform: "scale(1)", opacity: 1, filter: "blur(0px)" },
+            { transform: "translateX(0%)", opacity: 1, filter: "blur(0px)" },
             { delay: stagger(0.05), at: "-0.1" },
           ],
           [
             ".contacts",
-            { opacity: 1, y: 0, filter: "blur(0px)" },
-            { ease: easeIn, duration: 0.9 },
+            { opacity: 1, transform: "translateX(0%)", filter: "blur(0px)" },
+            { ease: [0.08, 0.65, 0.53, 0.96], duration: 0.5 },
           ],
           [
             ".social",
-            { opacity: 1, y: 0 },
-            { ease: easeIn, duration: 0.5, delay: 0.5 },
+            { opacity: 1, transform: "translateY(0%)", filter: "blur(0px)" },
+            { ease: [0.08, 0.65, 0.53, 0.96], duration: 0.5 },
           ],
         ]
       : [
-          [
-            ".social",
-            { opacity: 0, y: 10 },
-            { ease: easeOut, duration: 0.5, delay: 0.5 },
-          ],
+          [".social", { opacity: 0, transform: "translateY(100%)" }],
           [
             ".contacts",
-            { opacity: 0, y: 10, filter: "blur(10px)" },
-            { ease: easeOut, duration: 0.9 },
+            { opacity: 0, transform: "translateX(100%)", filter: "blur(10px)" },
           ],
           [
             "li",
-            { transform: "scale(0.5)", opacity: 0, filter: "blur(10px)" },
-            { delay: stagger(0.05, { from: "last" }), at: "<" },
+            {
+              transform: "translateX(-100%)",
+              opacity: 0,
+              filter: "blur(10px)",
+            },
+            { delay: stagger(0.05, { from: "last" }) },
           ],
           [
             "ul",
-            { transform: "translateX(-100%)" },
+            { transform: "translateY(-100%)" },
             { at: "-0.1" },
-            { ease: easeOut, duration: 0.8 },
+            { ease: [0.08, 0.65, 0.53, 0.96], duration: 0.5 },
           ],
         ];
 
@@ -98,7 +95,6 @@ function useMenuAnimation(isOpen: boolean) {
 
   return scope;
 }
-
 export default function Menu() {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
@@ -114,19 +110,23 @@ export default function Menu() {
       style={{
         willChange,
       }}
-      className={`fixed top-0 right-0 z-[100] ${isOpen ? "bg-black" : "bg-transparent"}`}
+      className="fixed top-0 right-0 z-[100] bg-transparent"
     >
       <NavToggle toggle={() => toggleOpen()} />
       <motion.div
         layout
         style={{
           willChange,
-          display: isOpen ? "flex" : "none",
         }}
-        className="flex flex-wrap w-screen h-screen bg-black relative items-end justify-center"
+        variants={{
+          closed: { opacity: 0, display: "none" },
+          open: { opacity: 1, display: "flex" },
+        }}
+        transition={{ duration: 0.5, ease: [0.08, 0.65, 0.53, 0.96] }}
+        className="flex flex-wrap w-screen h-screen bg-neutral-950 relative items-end justify-center"
         ref={scope}
       >
-        <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]" />
+        <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-neutral-950 [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]" />
         <div className="flex flex-wrap w-full h-[80vh] md:h-[70vh] justify-around items-center content-end">
           <Nav />
           <Contact />

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 import { BlurFade } from "~/lib/components/motion/BlurFade";
 import Menu from "~/lib/components/motion/Menu/Menu";
+import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBat";
 import { SendMail } from "~/lib/components/Sections/Contact/SendMail";
 import Footer from "~/lib/layout/Footer";
 
@@ -20,7 +21,7 @@ const Contact = () => {
       <section className="w-fit m-auto z-10">
         <div className="flex flex-col justify-center items-center m-auto">
           <BlurFade delay={1} inView>
-            <h1 className="text-6xl md:text-7xl lg:text-8xl uppercase text-neutral-400 tracking-tighter py-1">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl text-neutral-400 tracking-tighter py-1">
               Contact
             </h1>
           </BlurFade>
@@ -33,6 +34,7 @@ const Contact = () => {
         </div>
       </section>
       <Footer />
+      <ScrollProgressBar showPercentage />
     </motion.main>
   );
 };

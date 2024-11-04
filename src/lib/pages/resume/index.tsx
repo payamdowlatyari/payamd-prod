@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  motion,
-  useSpring,
-  useScroll,
-  useWillChange,
-  useTransform,
-} from "framer-motion";
+import { motion, useScroll, useWillChange, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 import { resume } from "~/lib/components/data/data";
@@ -15,18 +9,10 @@ import { HoverEffect } from "~/lib/components/motion/Card";
 import IconCloud from "~/lib/components/motion/IconCloud";
 import { Logos, Marquee } from "~/lib/components/motion/Marquee";
 import Menu from "~/lib/components/motion/Menu/Menu";
+import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBat";
 import Footer from "~/lib/layout/Footer";
 
 const ResumeRoute = () => {
-  const progressBarRef = useRef(null);
-  const { scrollYProgress } = useScroll();
-
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 200,
-    damping: 50,
-    restDelta: 0.001,
-  });
-
   const ref = useRef(null);
   const willChange = useWillChange();
   const { scrollY } = useScroll({ target: ref });
@@ -51,7 +37,7 @@ const ResumeRoute = () => {
       className="bg-black"
     >
       <Menu />
-      <div className="relative flex flex-col gap-4 h-screen w-screen items-center justify-center overflow-hidden p-8 z-[2] mx-auto">
+      <div className="relative flex flex-col gap-4 h-screen w-screen items-center justify-center overflow-hidden p-8 z-0 mx-auto">
         <BlurFade delay={0.5} inView>
           <h1 className="relative z-10 text-xl sm:text-5xl md:text-9xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 text-center tracking-tighter">
             Resume
@@ -134,11 +120,7 @@ const ResumeRoute = () => {
         <IconCloud />
       </div>
       <Footer />
-      <motion.div
-        ref={progressBarRef}
-        className="fixed bottom-0 left-0 right-0 h-2 origin-[0%] z-10 bg-neutral-50"
-        style={{ scaleX, zIndex: 2, willChange: "transform" }}
-      />
+      <ScrollProgressBar showPercentage />
     </motion.main>
   );
 };

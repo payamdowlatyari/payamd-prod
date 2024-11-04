@@ -51,18 +51,18 @@ export const ProductCard = ({
         />
       </Link>
 
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-90 bg-black pointer-events-none" />
-      <div className="flex flex-col justify-between h-full p-6">
-        <h3 className="absolute top-4 left-4 z-10 text-xl text-white tracking-tighter">
+      <div className="absolute inset-0 h-full w-full opacity-10 group-hover/product:opacity-90 bg-black pointer-events-none" />
+      <div className="flex flex-col justify-center place-items-start h-full p-6">
+        <h3 className="z-10 text-xl opacity-0 group-hover/product:opacity-100 font-semibold text-neutral-50 tracking-tighter">
           {product.title}
         </h3>
-        <p className="absolute top-12 left-4 opacity-0 group-hover/product:opacity-100 text-white text-sm">
+        <p className="z-10 opacity-0 group-hover/product:opacity-100 text-neutral-300 text-sm">
           {product.description}
         </p>
-        <div className="absolute bottom-12 left-4 opacity-0 group-hover/product:opacity-100">
+        <div className="z-10 opacity-0 group-hover/product:opacity-100 mt-4">
           {product.tags?.map((tag: any) => {
             return (
-              <span className="inline-flex items-center m-1 gap-x-1 py-1 px-3 rounded-full text-xs font-medium border border-neutral-700 text-white">
+              <span className="inline-flex items-center m-1 gap-x-1 py-1 px-3 rounded-full text-xs font-medium border border-neutral-700 text-neutral-300">
                 {tag}
               </span>
             );
@@ -122,7 +122,7 @@ export const HeroParallax = ({
   return (
     <div
       ref={ref}
-      className="h-[200vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[250vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
         <BlurFade delay={1} inView>

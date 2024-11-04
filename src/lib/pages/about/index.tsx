@@ -1,30 +1,16 @@
 "use client";
 
-import { motion, useSpring, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
 
 import { BlurFade } from "~/lib/components/motion/BlurFade";
 import { LinkPreview } from "~/lib/components/motion/LinkPreview";
 import Menu from "~/lib/components/motion/Menu/Menu";
+import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBat";
 import ScrollReveal from "~/lib/components/motion/ScrollReveal";
 import Footer from "~/lib/layout/Footer";
 
 const AboutRoute = () => {
-  const progressBarRef = useRef(null);
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll();
-
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 200,
-    damping: 50,
-    restDelta: 0.001,
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.25], [1, 0], {
-    clamp: false,
-  });
-
   return (
     <motion.main
       initial={{ opacity: 0 }}
@@ -35,12 +21,21 @@ const AboutRoute = () => {
     >
       <Menu />
       <section
-        ref={ref}
         id="about"
         className="flex flex-wrap relative items-end justify-center overflow-hidden"
       >
         <div className="flex flex-col flex-1 flex-wrap md:flex-nowrap items-baseline z-10">
-          <motion.div style={{ opacity }} className="fixed right-0 mt-40 mx-3 ">
+          <motion.div className="absolute mt-28 mx-1 w-screen flex flex-wrap items-center justify-evenly">
+            <BlurFade delay={1} inView>
+              <h1 className="relative z-10 text-5xl sm:text-7xl md:text-9xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-400 tracking-tighter">
+                About
+              </h1>
+              <p className="text-lg lg:text-xl text-neutral-400 mb-5">
+                My name is Payam Dowlatyari
+                <br /> a Software Engineer <br />
+                in California
+              </p>
+            </BlurFade>
             <BlurFade delay={0.5} inView>
               <Image
                 src="/me-ai-hat.jpeg"
@@ -49,16 +44,6 @@ const AboutRoute = () => {
                 alt="me"
                 className="opacity-80"
               />
-            </BlurFade>
-            <BlurFade delay={1} inView>
-              <h1 className="relative z-10 text-xl sm:text-5xl md:text-9xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 tracking-tighter">
-                About
-              </h1>
-              <p className="text-lg lg:text-xl text-neutral-500 mb-5">
-                My name is Payam Dowlatyari
-                <br /> a Software Engineer <br />
-                in California
-              </p>
             </BlurFade>
           </motion.div>
           <ScrollReveal className="text-xl sm:text-2xl md:text-3xl text-neutral-200 z-10">
@@ -104,11 +89,7 @@ const AboutRoute = () => {
       </section>
 
       <Footer />
-      <motion.div
-        ref={progressBarRef}
-        className="fixed bottom-0 left-0 h-2 w-screen z-10 origin-left bg-gray-100"
-        style={{ scaleX }}
-      />
+      <ScrollProgressBar showPercentage />
     </motion.main>
   );
 };

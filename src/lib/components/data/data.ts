@@ -167,11 +167,10 @@ export const projects = [
 
 export const about = {
   title: "My name is Payam Dowlatyari.",
-  text: `I am a software engineer, Application Architect, UX designer, photographer, and
-      blogger. I studied Software Engineering at UC Irvine and
-      graduated in 2020. I have been working in Silicon Valley as a
-      full-stack web developer and web application AI developer since 2019. 
-       I am a hobbyist photographer and blogger 
+  text: `I am a software engineer, web application developer, solutions architect, and UX designer. 
+      I studied Software Engineering at UC Irvine and graduated in 2020. 
+      I have been working in the tech industry as a full-stack web application developer 
+      and web application AI developer since 2019. I am a hobbyist photographer and blogger 
       interested in art, philosophy, and social sciences.`,
 };
 
@@ -184,7 +183,8 @@ export const portfolio = {
   phone: "+1 916 547 8918",
   words: [
     "Software Engineer",
-    "Application Architect",
+    "Full Stack Developer",
+    "Solutions Architect",
     "UX Designer",
     "Photographer",
     "Blogger",

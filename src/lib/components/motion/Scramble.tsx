@@ -7,7 +7,7 @@ export default function Scramble({ title, url }: any) {
   });
 
   return (
-    <div className="flex flex-wrap items-center m-auto w-[150px] max-w[98vw]">
+    <div className="flex flex-wrap items-center justify-center min-w-40">
       <Link
         className="font-bold tracking-wide mx-4"
         ref={ref}

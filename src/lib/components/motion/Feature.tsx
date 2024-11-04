@@ -4,13 +4,10 @@ export const Feature = ({
   title,
   description,
   icon,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  index,
 }: {
   title: string;
   description: string;
   icon: React.ReactNode;
-  index: number;
 }) => {
   return (
     <div

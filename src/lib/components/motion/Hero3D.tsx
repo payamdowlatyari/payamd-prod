@@ -154,13 +154,13 @@ function Title3D() {
 function Aside() {
   return (
     <div className="absolute flex flex-col self-end h-full w-screen items-end right-0">
-      <GridBeam className="flex flex-col items-start justify-end h-[50vh] relative z-[2]">
+      <GridBeam className="flex flex-col items-start justify-end h-[50vh] relative z-10">
         <div className="flex justify-center items-center px-8">
-          <div className="text-3xl md:text-5xl z-[1] mr-2 font-normal text-neutral-300">
+          <div className="text-3xl md:text-5xl font-normal text-neutral-300">
             <FlipWords words={portfolio.words} />
           </div>
         </div>
-        <div className="h-48 uppercase ml-12 flex justify-evenly z-[1]">
+        <div className="h-48 w-screen uppercase flex justify-end">
           <Scramble url="#intro" title="Who I am" />
           <Scramble url="#services" title="What I do" />
         </div>
