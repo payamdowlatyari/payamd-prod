@@ -46,7 +46,7 @@ const AboutRoute = () => {
               />
             </BlurFade>
           </motion.div>
-          <ScrollReveal className="text-xl sm:text-2xl md:text-3xl text-neutral-200 z-10">
+          <ScrollReveal className="text-xl sm:text-2xl md:text-3xl text-neutral-200 z-10 mx-auto">
             After obtaining my B.S. in Software Engineering from UC Irvine in
             2020, I entered the tech industry and worked at Amplify.ai for three
             years developing AI applications. I satrted working as a software

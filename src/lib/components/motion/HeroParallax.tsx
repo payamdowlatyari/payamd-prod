@@ -13,6 +13,17 @@ import React from "react";
 
 import { BlurFade } from "./BlurFade";
 
+export function BadgeRotateBorder(title: any) {
+  return (
+    <div className="relative inline-flex overflow-hidden rounded-full p-px">
+      <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#c2c2c2_0%,#505050_50%,#bebebe_100%)]" />
+      <span className="inline-flex h-full w-full items-center justify-center rounded-full bg-neutral-950 px-3 py-1 text-xs font-medium text-gray-50 backdrop-blur-3xl">
+        {title}
+      </span>
+    </div>
+  );
+}
+
 export const ProductCard = ({
   product,
   translate,
@@ -53,7 +64,7 @@ export const ProductCard = ({
 
       <div className="absolute inset-0 h-full w-full opacity-10 group-hover/product:opacity-90 bg-black pointer-events-none" />
       <div className="flex flex-col justify-center place-items-start h-full p-6">
-        <h3 className="z-10 text-xl opacity-0 group-hover/product:opacity-100 font-semibold text-neutral-50 tracking-tighter">
+        <h3 className="z-10 text-xl md:text-3xl opacity-0 group-hover/product:opacity-100 font-semibold text-neutral-50 tracking-tighter">
           {product.title}
         </h3>
         <p className="z-10 opacity-0 group-hover/product:opacity-100 text-neutral-300 text-sm">
@@ -62,9 +73,12 @@ export const ProductCard = ({
         <div className="z-10 opacity-0 group-hover/product:opacity-100 mt-4">
           {product.tags?.map((tag: any) => {
             return (
-              <span className="inline-flex items-center m-1 gap-x-1 py-1 px-3 rounded-full text-xs font-medium border border-neutral-700 text-neutral-300">
-                {tag}
-              </span>
+              <div className="relative inline-flex overflow-hidden rounded-full p-px m-1">
+                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#c2c2c2_0%,#505050_50%,#bebebe_100%)]" />
+                <span className="inline-flex h-full w-full items-center justify-center rounded-full bg-neutral-950 px-3 py-1 text-xs font-medium text-neutral-50 backdrop-blur-3xl">
+                  {tag}
+                </span>
+              </div>
             );
           })}
         </div>

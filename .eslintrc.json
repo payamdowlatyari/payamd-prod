@@ -5,9 +5,14 @@
     "plugin:@next/next/recommended",
     "plugin:storybook/recommended"
   ],
+  "plugins": ["file-extension-in-import"],
   "rules": {
     "no-unused-vars": "off",
-    "@typescript-eslint/no-explicit-any": ["off"],
-    "@typescript-eslint/consistent-type-imports": ["off"]
+    "@typescript-eslint/no-explicit-any": ["off", {}],
+    "@typescript-eslint/consistent-type-imports": ["off", {}],
+    "@typescript-eslint/no-empty-interface": ["off", {}],
+    "import/extensions": ["error", "ignorePackages"],
+    "import/no-unresolved": "off",
+    "import/no-extraneous-dependencies": "off"
   }
 }

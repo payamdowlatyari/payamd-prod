@@ -39,12 +39,12 @@ const ResumeRoute = () => {
       <Menu />
       <div className="relative flex flex-col gap-4 h-screen w-screen items-center justify-center overflow-hidden p-8 z-0 mx-auto">
         <BlurFade delay={0.5} inView>
-          <h1 className="relative z-10 text-xl sm:text-5xl md:text-9xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 text-center tracking-tighter">
+          <h1 className="relative z-10 text-5xl md:text-9xl bg-clip-text font-semibold text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 text-center tracking-tight">
             Resume
           </h1>
         </BlurFade>
         <BlurFade delay={0.75} inView>
-          <p className="text-neutral-500 max-w-lg mx-auto my-2 text-center text-lg relative z-10">
+          <p className="text-neutral-400 max-w-lg mx-auto my-2 text-center text-lg relative z-10">
             Here you can find my resume including my education, experience,
             certifications, publications, and skills.
           </p>
@@ -71,13 +71,15 @@ const ResumeRoute = () => {
                     <div className="flex flex-col justify-center max-w-[98vw] h-[90vh] overflow-hidden z-10">
                       <div className="flex flex-col-reverse px-4">
                         <BlurFade delay={0.5} inView>
-                          <h3 className="text-3xl md:text-5xl lg:text-7xl tracking-[-0.2vw]">
-                            {section.section}
-                          </h3>
+                          <div className="w-full flex mt-2 items-center justify-center">
+                            <h2 className="text-center text-5xl md:text-7xl lg:text-[8rem] font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-500 to-neutral-900 select-none">
+                              {section.section}
+                            </h2>
+                          </div>
                         </BlurFade>
                       </div>
 
-                      <div className="max-w-[98vw] flex flex-col justify-evenly">
+                      <div className="max-w-screen-lg flex flex-col justify-evenly">
                         <BlurFade delay={1} inView>
                           <HoverEffect items={section.items} />
                         </BlurFade>
@@ -98,7 +100,10 @@ const ResumeRoute = () => {
           </motion.ul>
         </div>
       </motion.section>
-      <motion.div layout style={{ opacity }} className="sticky bottom-0 z-[2]">
+      <motion.div layout style={{ opacity }} className="sticky bottom-0 z-10">
+        <div className="absolute left-0 w-1/6 h-full bg-gradient-to-r from-black to-transparent z-10" />
+        <div className="absolute right-0 w-1/6 h-full bg-gradient-to-l from-black to-transparent z-10" />
+
         <Marquee>
           {Object.values(Logos).map((Logo) => (
             <div
@@ -113,9 +118,11 @@ const ResumeRoute = () => {
 
       <div className="relative flex flex-wrap gap-4 size-full max-w-lg items-center justify-center overflow-hidden rounded-lg px-10 pb-10 pt-8 mx-auto">
         <BlurFade delay={0.5} inView>
-          <h3 className="text-4xl md:text-5xl lg:text-6xl tracking-[-0.2vw]">
-            Skills
-          </h3>
+          <div className="w-full flex mt-4 items-center justify-center">
+            <h2 className="text-center text-7xl lg:text-[10rem] font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-500 to-neutral-900 select-none">
+              Skills
+            </h2>
+          </div>
         </BlurFade>
         <IconCloud />
       </div>
