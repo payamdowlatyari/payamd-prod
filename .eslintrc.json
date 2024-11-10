@@ -11,8 +11,17 @@
     "@typescript-eslint/no-explicit-any": ["off", {}],
     "@typescript-eslint/consistent-type-imports": ["off", {}],
     "@typescript-eslint/no-empty-interface": ["off", {}],
-    "import/extensions": ["error", "ignorePackages"],
     "import/no-unresolved": "off",
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
   }
 }
