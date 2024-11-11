@@ -22,10 +22,8 @@ import fragmentShader from "./utils/shaders/fragment.glsl";
 import vertexShader from "./utils/shaders/vertex.glsl";
 import { FlipWords } from "./FlipWords";
 import { portfolio } from "../data/data";
-import Scramble from "./Scramble";
 import { GridBeam } from "./BackgroundBeams";
 import ParallaxText from "./ParallaxText";
-import { ButtonMagnetic } from "./ButtonMagnetic";
 import { LinkOverlay } from "./View/TailwindButton";
 
 const useDomToCanvas = (domEl: any) => {

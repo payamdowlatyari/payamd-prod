@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 
 import { about, services } from "~/lib/components/data/data";
-import { GridBeam } from "~/lib/components/motion/BackgroundBeams";
 import { BorderBeam } from "~/lib/components/motion/BorderBeam";
 import { Feature } from "~/lib/components/motion/Feature";
 import { Hero3D } from "~/lib/components/motion/Hero3D";

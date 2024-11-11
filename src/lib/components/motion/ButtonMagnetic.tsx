@@ -1,4 +1,3 @@
-// @NOTE: in case you are using Next.js
 "use client";
 
 import { useRef, useState } from "react";
