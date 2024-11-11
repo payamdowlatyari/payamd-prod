@@ -42,7 +42,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
         )}
       </SmoothScrollbar>
       <div className="fixed z-[998] top-1 left-3">
-        <Logo size={60} />
+        <Logo size={60} light />
       </div>
     </div>
   );
