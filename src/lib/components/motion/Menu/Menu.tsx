@@ -13,7 +13,7 @@ import { DockDemo } from "../FloatingDock";
 
 import Nav from "./Nav";
 
-const NavToggle = ({ toggle }: any) => {
+const NavToggle = ({ toggle }: { toggle: () => void }) => {
   return (
     <motion.button
       onClick={toggle}
@@ -80,14 +80,8 @@ function useMenuAnimation(isOpen: boolean) {
               opacity: 0,
               filter: "blur(10px)",
             },
-            { delay: stagger(0.05, { from: "last" }) },
           ],
-          [
-            "ul",
-            { transform: "translateY(-100%)" },
-            { at: "-0.1" },
-            { ease: [0.08, 0.65, 0.53, 0.96], duration: 0.5 },
-          ],
+          ["ul", { transform: "translateY(-100%)" }, { at: "-0.1" }],
         ];
 
     animate([...menuAnimations]);

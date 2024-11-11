@@ -25,6 +25,8 @@ import { portfolio } from "../data/data";
 import Scramble from "./Scramble";
 import { GridBeam } from "./BackgroundBeams";
 import ParallaxText from "./ParallaxText";
+import { ButtonMagnetic } from "./ButtonMagnetic";
+import { LinkOverlay } from "./View/TailwindButton";
 
 const useDomToCanvas = (domEl: any) => {
   const [texture, setTexture] = useState();
@@ -107,10 +109,10 @@ function Scene() {
     <>
       <Html zIndexRange={[-1, -10]} prepend fullscreen>
         <div ref={(el) => setDomEl(el)} className="dom-element">
-          <p className="flex flex-col text-neutral-500">
+          <h1 className="flex flex-col text-neutral-500">
             PAYAM <br />
             DOWLATYARI
-          </p>
+          </h1>
         </div>
       </Html>
       <mesh>
@@ -155,14 +157,17 @@ function Aside() {
   return (
     <div className="absolute flex flex-col self-end h-full w-screen items-end right-0">
       <GridBeam className="flex flex-col items-start justify-end h-[50vh] relative z-10">
-        <div className="flex justify-center items-center px-8">
-          <div className="text-3xl md:text-5xl font-normal text-neutral-300">
+        <div className="flex flex-wrap justify-start items-center px-8">
+          <h3 className="text-3xl md:text-5xl font-normal text-neutral-500">
+            I am a
+          </h3>
+          <h3 className="text-3xl md:text-5xl font-normal text-neutral-300">
             <FlipWords words={portfolio.words} />
-          </div>
+          </h3>
         </div>
-        <div className="h-48 w-screen uppercase flex justify-end">
-          <Scramble url="#intro" title="Who I am" />
-          <Scramble url="#services" title="What I do" />
+        <div className="h-48 w-screen uppercase flex justify-end items-center gap-2">
+          <LinkOverlay url="#intro" title="Who I am" />
+          <LinkOverlay url="#services" title="What I do" />
         </div>
         <ParallaxText baseVelocity={-0.05}>{portfolio.titles}</ParallaxText>
       </GridBeam>

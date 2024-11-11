@@ -2,7 +2,13 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Logo({ light, size }: any) {
+export default function Logo({
+  light,
+  size,
+}: {
+  light: boolean;
+  size: number;
+}) {
   return (
     <motion.div
       whileHover={{ scale: 1.1 }}

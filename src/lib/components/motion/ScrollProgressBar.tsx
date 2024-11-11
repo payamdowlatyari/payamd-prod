@@ -6,7 +6,7 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import React from "react";
+import { useState } from "react";
 
 import { cn } from "./utils/cn";
 
@@ -27,7 +27,7 @@ export default function ScrollProgressBar({
 
   const scrollPercentage = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
-  const [percentage, setPercentage] = React.useState(0);
+  const [percentage, setPercentage] = useState(0);
 
   useMotionValueEvent(scrollPercentage, "change", (latest) => {
     setPercentage(Math.round(latest));
@@ -58,7 +58,7 @@ export default function ScrollProgressBar({
         "bottom-0 start-0": position === "bottom-left",
       })}
     >
-      {percentage > 0 && percentage < 98 && (
+      {percentage > 0 && (
         <>
           <svg width="100" height="100" viewBox="0 0 100 100">
             <circle

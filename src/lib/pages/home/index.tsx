@@ -9,7 +9,7 @@ import { Feature } from "~/lib/components/motion/Feature";
 import { Hero3D } from "~/lib/components/motion/Hero3D";
 import ImageEffect from "~/lib/components/motion/ImageEffect";
 import Menu from "~/lib/components/motion/Menu/Menu";
-import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBat";
+import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBar";
 import Footer from "~/lib/layout/Footer";
 import Header from "~/lib/layout/Header";
 
@@ -50,12 +50,15 @@ const Home = () => {
         id="services"
         className="flex flex-wrap justify-evenly items-baseline py-10"
       >
-        <div className="">
-          <GridBeam className="w-full h-full">
-            <h2 className="font-semibold text-3xl md:text-5xl mx-0 my-2 text-neutral-200">
-              My Services
+        <div>
+          <div className="w-full flex my-4 items-center justify-center">
+            <h2 className="text-7xl lg:text-9xl font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-500 to-neutral-900 select-none">
+              Services
             </h2>
-          </GridBeam>
+          </div>
+          <p className="text-base md:text-lg lg:text-xl text-neutral-400 mt-4 px-2">
+            The technologies I work with <br /> and services I offer
+          </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 relative z-10 py-10 max-w-7xl ">
           {services.map((service) => (

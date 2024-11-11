@@ -100,7 +100,7 @@ export default function ScrollReveal({
       ref={containerRef}
       className={cn("relative h-[200vh] z-10", className)}
     >
-      <div className="sticky top-1/3 mx-auto flex h-1/2 max-w-screen-md items-center bg-transparent px-2 py-20">
+      <div className="sticky top-1/3 mx-auto flex h-1/2 w-full sm:w-3/4 md:w-2/3 items-center bg-transparent px-2 py-20">
         <div className="flex h-fit w-full min-w-fit flex-wrap whitespace-break-spaces p-1 md:p-2">
           {flat.map((child, index) => {
             return (

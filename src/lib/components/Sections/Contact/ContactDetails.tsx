@@ -9,7 +9,6 @@ export default function Contacts() {
         </h5>
         <div className="inline-grid p-2">
           <LinkOut title="pdyari@gmail.com" url="mailto:pdyari@gmail.com" low />
-          <LinkOut title="+1 916 547 8918" url="tel:+19165478918" low />
         </div>
       </div>
 

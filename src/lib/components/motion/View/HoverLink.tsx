@@ -1,7 +1,17 @@
 import Link from "next/link";
 import { RiArrowRightUpLine } from "react-icons/ri";
 
-export default function HoverLink({ title, url, out, low }: any) {
+export default function HoverLink({
+  title,
+  url,
+  out,
+  low,
+}: {
+  title: string;
+  url: string;
+  out?: boolean;
+  low?: boolean;
+}) {
   return (
     <Link
       href={url}

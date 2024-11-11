@@ -9,14 +9,15 @@ import { HoverEffect } from "~/lib/components/motion/Card";
 import IconCloud from "~/lib/components/motion/IconCloud";
 import { Logos, Marquee } from "~/lib/components/motion/Marquee";
 import Menu from "~/lib/components/motion/Menu/Menu";
-import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBat";
+import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBar";
 import Footer from "~/lib/layout/Footer";
+import { IoIosArrowRoundDown } from "react-icons/io";
 
 const ResumeRoute = () => {
   const ref = useRef(null);
   const willChange = useWillChange();
   const { scrollY } = useScroll({ target: ref });
-  const x = useTransform(scrollY, [1000, 13000], ["10%", "-120%"], {
+  const x = useTransform(scrollY, [1500, 13000], ["20%", "-120%"], {
     clamp: false,
   });
   const opacity = useTransform(
@@ -48,11 +49,15 @@ const ResumeRoute = () => {
             Here you can find my resume including my education, experience,
             certifications, publications, and skills.
           </p>
+          <p className="text-neutral-100 mx-auto z-10 flex flex-col items-center text-center gap-2 mt-6">
+            Scroll down
+            <IoIosArrowRoundDown />
+          </p>
         </BlurFade>
       </div>
       <motion.section
         id="resume"
-        className="block top-0 max-w-[100vw] overflow-hidden h-[1400vh] p-0"
+        className="block top-0 max-w-screen-lg overflow-hidden h-[1400vh] p-0"
         ref={ref}
         layoutScroll
       >
@@ -66,7 +71,7 @@ const ResumeRoute = () => {
           >
             {resume && resume?.length > 0 ? (
               resume?.map((section) => (
-                <li className="w-screen">
+                <li className="w-screen max-w-screen-lg">
                   <div className="flex flex-row justify-center items-center h-screen m-1 z-0">
                     <div className="flex flex-col justify-center max-w-[98vw] h-[90vh] overflow-hidden z-10">
                       <div className="flex flex-col-reverse px-4">
@@ -101,9 +106,8 @@ const ResumeRoute = () => {
         </div>
       </motion.section>
       <motion.div layout style={{ opacity }} className="sticky bottom-0 z-10">
-        <div className="absolute left-0 w-1/6 h-full bg-gradient-to-r from-black to-transparent z-10" />
-        <div className="absolute right-0 w-1/6 h-full bg-gradient-to-l from-black to-transparent z-10" />
-
+        <div className="absolute left-0 w-1/6 h-full bg-gradient-to-r from-black to-transparent z-10 bg-opacity-50" />
+        <div className="absolute right-0 w-1/6 h-full bg-gradient-to-l from-black to-transparent z-10 bg-opacity-50" />
         <Marquee>
           {Object.values(Logos).map((Logo) => (
             <div

@@ -5,6 +5,7 @@
     "plugin:@next/next/recommended",
     "plugin:storybook/recommended"
   ],
+  "plugins": ["extensions"],
   "rules": {
     "no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": ["off", {}],

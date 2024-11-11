@@ -13,7 +13,7 @@ import React from "react";
 
 import { BlurFade } from "./BlurFade";
 
-export function BadgeRotateBorder(title: any) {
+export function BadgeRotateBorder(title: string) {
   return (
     <div className="relative inline-flex overflow-hidden rounded-full p-px">
       <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#c2c2c2_0%,#505050_50%,#bebebe_100%)]" />
@@ -64,14 +64,14 @@ export const ProductCard = ({
 
       <div className="absolute inset-0 h-full w-full opacity-10 group-hover/product:opacity-90 bg-black pointer-events-none" />
       <div className="flex flex-col justify-center place-items-start h-full p-6">
-        <h3 className="z-10 text-xl md:text-3xl opacity-0 group-hover/product:opacity-100 font-semibold text-neutral-50 tracking-tighter">
+        <h3 className="z-10 text-xl md:text-3xl opacity-0 group-hover/product:opacity-100 font-semibold text-neutral-50 tracking-tight mb-1">
           {product.title}
         </h3>
-        <p className="z-10 opacity-0 group-hover/product:opacity-100 text-neutral-300 text-sm">
+        <p className="z-10 opacity-0 group-hover/product:opacity-100 text-neutral-300 text-base my-1">
           {product.description}
         </p>
         <div className="z-10 opacity-0 group-hover/product:opacity-100 mt-4">
-          {product.tags?.map((tag: any) => {
+          {product.tags?.map((tag: string) => {
             return (
               <div className="relative inline-flex overflow-hidden rounded-full p-px m-1">
                 <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#c2c2c2_0%,#505050_50%,#bebebe_100%)]" />
@@ -140,12 +140,11 @@ export const HeroParallax = ({
     >
       <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
         <BlurFade delay={1} inView>
-          <h1
-            style={{ lineHeight: 1.5 }}
-            className="relative z-10 text-7xl md:text-9xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 tracking-tighter ml-2"
-          >
-            Projects
-          </h1>
+          <div className="w-full flex mt-4" style={{ lineHeight: 1.5 }}>
+            <h1 className="text-center text-7xl lg:text-[10rem] font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-300 to-neutral-900 select-none">
+              Projects
+            </h1>
+          </div>
         </BlurFade>
         <BlurFade delay={1.25} inView>
           <h3 className="text-xl md:text-3xl font-semibold text-neutral-300 mt-4 ml-3">

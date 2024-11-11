@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { projects } from "~/lib/components/data/data";
 import { HeroParallax } from "~/lib/components/motion/HeroParallax";
 import Menu from "~/lib/components/motion/Menu/Menu";
-import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBat";
+import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBar";
 import Footer from "~/lib/layout/Footer";
 
 const Projects = () => {

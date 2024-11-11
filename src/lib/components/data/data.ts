@@ -203,12 +203,6 @@ export const intro = {
     as well as cloud technologies such as AWS, Google Cloud, and Microsoft Azure.
     I am a team player, and I'm always willing to learn new skills and improve my skills.
     I have a great interest in learning new technologies and am always looking for new challenges.`,
-  image:
-    "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/me-home-removebg-sketch.png",
-  image2:
-    "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/me-home-bw-removebg-EDIT.jpeg",
-  image3:
-    "https://storage.googleapis.com/www.payamd.com/Portfolio/anim/me-camera-removebg-preview.png",
 };
 
 export const experience = [
@@ -218,7 +212,7 @@ export const experience = [
     date: "Apr 2024 - Present",
     description: [
       "Define and document software requirements specifications and identify the best solutions",
-      "Design system architecture and configure resources and development environments ",
+      "Design system architecture and configure resources and development environments",
       "Work with a team to develop a full-stack web application for the healthcare industry",
       "Design, implement, and deploy backend features and API services",
       "Setup and utilize AWS service and serverless tools such as Lambda and DynamoDB",
@@ -232,7 +226,6 @@ export const experience = [
     description: [
       "Designed, Developed, tested, deployed, and maintained AI-powered applications",
       "Built 100+ user engagement apps on various platforms i.e. Facebook, Twitter, Twilio, etc.",
-      "Designed and optimized SQL and NoSQL queries for data analysis and visualizations",
       "Created a developer-friendly toolkit to facilitate the configuration process using SvelteJS",
       "Implemented user authentication and authorization tools such as 2FA, OAuth, etc.",
     ],
@@ -243,11 +236,10 @@ export const experience = [
     subtitle: "Freelance",
     date: "Sep 2019 - Present",
     description: [
-      "Design and develop interactive user interfaces using JS/TS frameworks",
-      "Build cross-browser compatible front-end components and architecture",
+      "Design and develop cross-browser compatible user interfaces",
       "Design and implement backend models and data access layers",
-      "Build server-side components, business logic, and API endpoints",
-      "Optimize applications for maximum speed and performance",
+      "Build server-side applications, business logic, and API endpoints",
+      "Optimize applications for maximum speed, security, and performance",
     ],
     index: 2,
   },
