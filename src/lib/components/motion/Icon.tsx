@@ -1,6 +1,6 @@
 import { Tooltip } from "@chakra-ui/react";
 
-export default function Icon({ id, title }: any) {
+export default function Icon({ id, title }: { id: string; title: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

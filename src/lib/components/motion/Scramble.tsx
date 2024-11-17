@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { useScramble } from "use-scramble";
 
-export default function Scramble({ title, url }: any) {
+export default function Scramble({
+  title,
+  url,
+}: {
+  title: string;
+  url: string;
+}) {
   const { ref, replay } = useScramble({
     text: title,
   });

@@ -30,8 +30,9 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
       </GlobalCanvas>
       <SmoothScrollbar
         config={{
-          damping: 0.05,
-          stiffness: 0.1,
+          damping: 0.01,
+          renderByPixels: true,
+          dampingFactor: 0.1,
         }}
       >
         {(bind) => (

@@ -18,7 +18,7 @@ export default function Contacts() {
         </h5>
         <div className="inline-grid p-2">
           <LinkOut title="My Blog" url="https://blog.payamd.com" low />
-          <LinkOut title="Photography" url="https://photos.payamd.com" out />
+          <LinkOut title="Photography" url="https://photos.payamd.com" low />
         </div>
       </div>
     </div>

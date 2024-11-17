@@ -60,7 +60,7 @@ export default function ScrollProgressBar({
     >
       {percentage > 0 && (
         <>
-          <svg width="100" height="100" viewBox="0 0 100 100">
+          <svg width="80" height="80" viewBox="0 0 100 100">
             <circle
               cx="50"
               cy="50"
@@ -81,7 +81,7 @@ export default function ScrollProgressBar({
             />
           </svg>
           {showPercentage && (
-            <span className="text-sm absolute ml-2">{percentage}%</span>
+            <span className="text-xs absolute ml-2">{percentage}%</span>
           )}
         </>
       )}

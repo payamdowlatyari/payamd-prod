@@ -1,7 +1,17 @@
 import Link from "next/link";
 import { RiArrowRightUpLine } from "react-icons/ri";
 
-export default function LinkOut({ title, url, size, low }: any) {
+export default function LinkOut({
+  title,
+  url,
+  size,
+  low,
+}: {
+  title: string;
+  url: string;
+  size?: number;
+  low?: boolean;
+}) {
   return (
     <Link
       href={url}

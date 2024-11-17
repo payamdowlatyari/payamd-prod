@@ -1,5 +1,3 @@
-/* eslint-disable import/order */
-
 "use client";
 
 import {
@@ -8,11 +6,10 @@ import {
   styles,
   useImageAsTexture,
 } from "@14islands/r3f-scroll-rig";
+import "@14islands/r3f-scroll-rig/css";
+import { MeshDistortMaterial } from "@react-three/drei";
 import Image from "next/image";
 import { useRef } from "react";
-import "@14islands/r3f-scroll-rig/css";
-
-import { MeshDistortMaterial } from "@react-three/drei";
 
 const ImageMesh = ({ track, ...props }: any) => {
   const texture = useImageAsTexture(track);

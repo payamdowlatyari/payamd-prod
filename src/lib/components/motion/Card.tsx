@@ -283,7 +283,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-2 overflow-hidden bg-black border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
+        "rounded-2xl h-full w-full p-2 overflow-hidden bg-black bg-opacity-90 border border-white/[0.2] group-hover:border-slate-700 group-hover:bg-opacity-100 relative z-20",
         className
       )}
     >
@@ -303,7 +303,7 @@ export const CardTitle = ({
   return (
     <h4
       className={cn(
-        "text-zinc-100 font-bold tracking-wide text-base md:text-lg mt-1",
+        "text-neutral-100 font-bold tracking-wide text-base md:text-lg",
         className
       )}
     >
@@ -322,7 +322,7 @@ export const CardSubTitle = ({
   return (
     <p
       className={cn(
-        " mt-1 text-zinc-400 tracking-wide leading-relaxed text-sm md:text-base",
+        "my-1 md:my-2 text-neutral-400 tracking-wide leading-relaxed text-sm md:text-base",
         className
       )}
     >
@@ -341,7 +341,7 @@ export const CardDate = ({
   return (
     <p
       className={cn(
-        "mt-1 text-zinc-400 tracking-wide leading-relaxed text-xs md:text-sm min-w-12",
+        "mt-1 text-neutral-400 tracking-wide leading-relaxed text-xs md:text-sm min-w-12",
         className
       )}
     >
@@ -360,7 +360,7 @@ export const CardDescription = ({
   return (
     <p
       className={cn(
-        "mt-3 text-zinc-200 tracking-wide leading-relaxed text-xs md:text-sm",
+        "mt-1 md:mt-2 text-neutral-200 tracking-wide leading-relaxed text-xs md:text-sm",
         className
       )}
     >
@@ -383,16 +383,16 @@ export const HoverEffect = ({
       {items.map((item, idx) => (
         <Link
           href={item?.link || "#"}
-          key={item?.link || idx}
+          key={item?.idx}
           target="_blank"
-          className="relative group block p-2 h-full w-[20rem] sm:w-[40rem]"
+          className="relative group block p-2 h-full w-[20rem] sm:w-[40rem] md:w-[45rem]"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
-                className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block rounded-3xl"
+                className="absolute inset-0 h-full w-full bg-slate-800/[0.8] block rounded-3xl"
                 layoutId="hoverBackground"
                 initial={{ opacity: 0 }}
                 animate={{

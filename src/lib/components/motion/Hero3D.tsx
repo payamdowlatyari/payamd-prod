@@ -26,7 +26,7 @@ import { GridBeam } from "./BackgroundBeams";
 import ParallaxText from "./ParallaxText";
 import { LinkOverlay } from "./View/TailwindButton";
 
-const useDomToCanvas = (domEl: any) => {
+const useDomToCanvas = (domEl: HTMLDivElement | null) => {
   const [texture, setTexture] = useState();
   useEffect(() => {
     if (!domEl) return;

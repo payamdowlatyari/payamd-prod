@@ -76,7 +76,13 @@ export function FadingImage({ i1, i2 }: any) {
   );
 }
 
-export default function ImageEffect({ item1, item2 }: any) {
+export default function ImageEffect({
+  item1,
+  item2,
+}: {
+  item1: string;
+  item2: string;
+}) {
   return (
     <Canvas camera={{ position: [0, 0, 1], fov: 50 }}>
       <FadingImage i1={item1} i2={item2} />

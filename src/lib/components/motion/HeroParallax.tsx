@@ -140,18 +140,21 @@ export const HeroParallax = ({
     >
       <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
         <BlurFade delay={1} inView>
-          <div className="w-full flex mt-4" style={{ lineHeight: 1.5 }}>
-            <h1 className="text-center text-7xl lg:text-[10rem] font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-300 to-neutral-900 select-none">
+          <div className="w-full flex mt-4">
+            <h1
+              style={{ lineHeight: 1.5 }}
+              className="text-center text-7xl lg:text-[10rem] font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-300 to-neutral-900 select-none"
+            >
               Projects
             </h1>
           </div>
         </BlurFade>
         <BlurFade delay={1.25} inView>
-          <h3 className="text-xl md:text-3xl font-semibold text-neutral-300 mt-4 ml-3">
+          <h3 className="text-xl md:text-3xl font-semibold text-neutral-400 mt-4 ml-3">
             My Web Development Portfolio
           </h3>
         </BlurFade>
-        <p className="max-w-2xl text-base md:text-xl mt-8 ml-2 text-neutral-300">
+        <p className="max-w-2xl text-base md:text-xl mt-8 ml-2 text-neutral-400">
           Here are some of my most recent works in web applications and landing
           pages. I have used different tools, technologies, and services to
           create these projects.

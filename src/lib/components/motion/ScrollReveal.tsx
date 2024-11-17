@@ -7,7 +7,14 @@ import {
   useTransform,
   easeInOut,
 } from "framer-motion";
-import React, { useRef } from "react";
+import {
+  Children,
+  cloneElement,
+  Fragment,
+  isValidElement,
+  ReactNode,
+  useRef,
+} from "react";
 
 import { cn } from "./utils/cn";
 
@@ -21,15 +28,15 @@ interface ScrollRevealProps
 }
 
 // This function might need updates to support different cases.
-const flatten = (children: React.ReactNode): React.ReactNode[] => {
+const flatten = (children: ReactNode): React.ReactNode[] => {
   const result: React.ReactNode[] = [];
 
-  React.Children.forEach(children, (child) => {
-    if (React.isValidElement(child)) {
-      if (child.type === React.Fragment) {
+  Children.forEach(children, (child) => {
+    if (isValidElement(child)) {
+      if (child.type === Fragment) {
         result.push(...flatten(child.props.children));
       } else if (child.props.children) {
-        result.push(React.cloneElement(child, {}));
+        result.push(cloneElement(child, {}));
       } else {
         result.push(child);
       }
@@ -72,7 +79,7 @@ function OpacityChild({
   );
 
   let className = "";
-  if (React.isValidElement(children)) {
+  if (isValidElement(children)) {
     className = Reflect.get(children, "props")?.className;
   }
 

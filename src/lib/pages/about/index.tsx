@@ -32,7 +32,7 @@ const AboutRoute = () => {
                   About
                 </h1>
               </div>
-              <p className="text-xl lg:text-2xl text-neutral-400 mb-5">
+              <p className="text-lg md:text-xl lg:text-2xl text-neutral-400 mb-5">
                 My name is Payam Dowlatyari
                 <br /> a Software Engineer <br />
                 in California
@@ -45,6 +45,7 @@ const AboutRoute = () => {
                 height={400}
                 alt="me"
                 className="opacity-80"
+                loading="lazy"
               />
             </BlurFade>
           </motion.div>

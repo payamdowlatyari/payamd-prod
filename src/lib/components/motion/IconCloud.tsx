@@ -29,12 +29,16 @@ const iconSlugs = [
   "mongodb",
   "framer",
   "vercel",
+  "python",
   "jest",
   "docker",
+  "jenkins",
   "git",
   "jira",
   "github",
+  "slack",
   "visualstudiocode",
+  "postman",
   "figma",
   "npm",
   "yarn",
@@ -42,6 +46,8 @@ const iconSlugs = [
   "tailwindcss",
   "bootstrap",
   "graphql",
+  "awsamplify",
+  "svelte",
 ];
 
 export const cloudProps: Omit<ICloud, "children"> = {

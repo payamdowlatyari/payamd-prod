@@ -343,7 +343,7 @@ export const Marquee: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   return (
     <div className="w-full overflow-hidden sm:mt-24 mt-10 z-10">
-      <div className="relative flex max-w-[100vw] m-auto overflow-hidden py-3">
+      <div className="relative flex max-w-[100vw] m-auto overflow-hidden py-2">
         <div className="flex w-max animate-marquee [--duration:60s] hover:[animation-play-state:paused]">
           {children}
           {children}

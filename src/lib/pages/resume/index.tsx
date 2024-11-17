@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useWillChange, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { IoIosArrowRoundDown } from "react-icons/io";
 
 import { resume } from "~/lib/components/data/data";
 import { BlurFade } from "~/lib/components/motion/BlurFade";
@@ -11,7 +12,6 @@ import { Logos, Marquee } from "~/lib/components/motion/Marquee";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBar";
 import Footer from "~/lib/layout/Footer";
-import { IoIosArrowRoundDown } from "react-icons/io";
 
 const ResumeRoute = () => {
   const ref = useRef(null);
@@ -22,7 +22,7 @@ const ResumeRoute = () => {
   });
   const opacity = useTransform(
     scrollY,
-    [0, 12000, 12500, 13000],
+    [0, 11000, 11500, 12000],
     [1, 1, 0, 0],
     {
       clamp: false,
@@ -46,10 +46,10 @@ const ResumeRoute = () => {
         </BlurFade>
         <BlurFade delay={0.75} inView>
           <p className="text-neutral-400 max-w-lg mx-auto my-2 text-center text-lg relative z-10">
-            Here you can find my resume including my education, experience,
-            certifications, publications, and skills.
+            Here is a summary of my experience, education, professional
+            certifications, academic publications, and technical skills.
           </p>
-          <p className="text-neutral-100 mx-auto z-10 flex flex-col items-center text-center gap-2 mt-6">
+          <p className="text-neutral-100 mx-auto z-10 flex flex-col items-center text-center gap-2 mt-12">
             Scroll down
             <IoIosArrowRoundDown />
           </p>
@@ -57,7 +57,7 @@ const ResumeRoute = () => {
       </div>
       <motion.section
         id="resume"
-        className="block top-0 max-w-screen-lg overflow-hidden h-[1400vh] p-0"
+        className="block top-0 max-w-screen-lg overflow-hidden h-[1200vh] p-0"
         ref={ref}
         layoutScroll
       >
@@ -77,7 +77,7 @@ const ResumeRoute = () => {
                       <div className="flex flex-col-reverse px-4">
                         <BlurFade delay={0.5} inView>
                           <div className="w-full flex mt-2 items-center justify-center">
-                            <h2 className="text-center text-5xl md:text-7xl lg:text-[8rem] font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-500 to-neutral-900 select-none">
+                            <h2 className="text-center text-5xl md:text-7xl lg:text-9xl font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-500 to-neutral-900 select-none">
                               {section.section}
                             </h2>
                           </div>
