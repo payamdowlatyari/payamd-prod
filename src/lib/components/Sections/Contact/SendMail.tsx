@@ -1,4 +1,4 @@
-import emailjs from "@emailjs/browser";
+import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
 import { useRef, useState } from "react";
 
 export const SendMail = () => {
@@ -7,29 +7,42 @@ export const SendMail = () => {
   const [success, setSuccess] = useState(false);
   const [message, setMessage] = useState("");
 
-  const sendEmail = (e: { preventDefault: () => void }) => {
+  const sendEmail = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
     if (!form.current) return;
 
-    setTimeout(() => {
-      emailjs
-        .sendForm("service_vwpswjd", "template_ysr7uax", form.current, {
-          publicKey: "70grQE4k9fKjEvoPu",
-        })
-        .then(
-          (response) => {
-            if (response.status === 200) {
-              setSuccess(true);
-              setMessage(`Your message has been sent!`);
-            }
-          },
-          (error) => {
-            setSuccess(false);
-            setMessage(`${error.text}, message failed! Email pdyari@gmail.com`);
-          }
-        );
-    }, 2000);
+    if (
+      !process.env.NEXT_PUBLIC_SERVICE_ID ||
+      !process.env.NEXT_PUBLIC_TEMPLATE_ID ||
+      !process.env.NEXT_PUBLIC_API_KEY
+    ) {
+      setSuccess(false);
+      setMessage("Failed to send message, please try again later");
+      return;
+    }
+
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_SERVICE_ID as string,
+        process.env.NEXT_PUBLIC_TEMPLATE_ID as string,
+        {},
+        {
+          publicKey: process.env.NEXT_PUBLIC_API_KEY,
+        }
+      );
+      setSuccess(true);
+      setMessage(`Your message has been sent!`);
+    } catch (err) {
+      if (err instanceof EmailJSResponseStatus) {
+        setSuccess(false);
+        setMessage(`${err.text}, message failed! Email pdyari@gmail.com`);
+        return;
+      }
+
+      setSuccess(false);
+      setMessage("Failed to send message, please try again later");
+    }
   };
 
   return (

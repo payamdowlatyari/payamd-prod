@@ -52,3 +52,6 @@ sitemap*.xml
 .vscode/settings.json
 
 *storybook.log
+
+# env
+.env

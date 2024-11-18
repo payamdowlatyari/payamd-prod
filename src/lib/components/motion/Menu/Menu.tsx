@@ -120,7 +120,6 @@ export default function Menu() {
         className="flex flex-wrap w-screen h-screen bg-neutral-950 relative items-end justify-center"
         ref={scope}
       >
-        <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-neutral-950 [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]" />
         <div className="flex flex-wrap w-full h-[80vh] md:h-[70vh] justify-around items-center content-end">
           <Nav />
           <Contact />

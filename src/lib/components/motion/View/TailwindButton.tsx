@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { RiArrowRightUpLine } from "react-icons/ri";
 
 export function GlassButton({ title, url }: { title: string; url: string }) {
   return (
@@ -56,6 +57,21 @@ export function LinkOverlay({ title, url }: { title: string; url: string }) {
         <span className="absolute top-0 left-0 translate-y-full group-hover:translate-y-0 transition-transform ease-in-out duration-500 hover:duration-300">
           {title}
         </span>
+      </div>
+    </Link>
+  );
+}
+
+export function LinkArrowOut({ title, url }: { title: string; url: string }) {
+  return (
+    <Link
+      href={url}
+      className="group inline-flex text-base backdrop-blur-md text-white justify-center items-center py-1 w-fit rounded-xl duration-200 group bg-page-gradient text-md font-geistSans hover:bg-transparent/10 hover:text-zinc-100"
+    >
+      {title}
+      <div className="flex overflow-hidden relative justify-center items-center ml-1 w-5 h-5">
+        <RiArrowRightUpLine className="absolute transition-all duration-500 group-hover:translate-x-4 group-hover:-translate-y-5" />
+        <RiArrowRightUpLine className="absolute transition-all duration-500 -translate-x-4 -translate-y-5 group-hover:translate-x-0 group-hover:translate-y-0" />
       </div>
     </Link>
   );
