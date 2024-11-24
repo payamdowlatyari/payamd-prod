@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-no-useless-fragment */
-
 import {
   motion,
   MotionValue,
@@ -42,7 +40,7 @@ const flatten = (children: ReactNode): React.ReactNode[] => {
       }
     } else {
       const parts = String(child).split(/(\s+)/);
-      result.push(...parts.map((part) => <>{part}</>));
+      result.push(...parts.map((part) => part));
     }
   });
 

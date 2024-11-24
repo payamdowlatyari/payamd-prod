@@ -27,13 +27,13 @@ const Home = () => {
         <Hero3D />
       </section>
       <section id="intro">
-        <div className="flex flex-wrap justify-evenly items-center w-full p-1">
+        <div className="flex flex-wrap justify-evenly items-center w-full">
           <div className="max-w-2xl p-2 my-4 z-0">
             <div className="relative flex h-full w-full flex-col justify-center overflow-hidden rounded-lg border border-transparent md:shadow-xl p-4">
-              <h2 className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b bg-clip-text text-2xl md:text-4xl font-semibold leading-none text-transparent from-apple to-gray-500 px-2">
+              <h2 className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b bg-clip-text text-3xl md:text-5xl font-semibold text-transparent from-gray-200 to-gray-500 p-2">
                 {about.title}
               </h2>
-              <p className="text-sm md:text-base lg:text-lg text-neutral-400 mt-4 px-2">
+              <p className="text-base md:text-lg lg:text-xl text-gray-300 mt-4 px-2">
                 {about.text}
               </p>
               <BorderBeam size={250} duration={12} delay={9} />

@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import {
   motion,
   useScroll,
@@ -50,20 +49,18 @@ export default function ParallaxText({
   });
 
   return (
-    <div className="overflow-hidden flex flex-nowrap whitespace-nowrap m-0 tracking-[-2px] leading-[0.8] z-[2]">
-      <motion.div
-        className="uppercase flex whitespace-nowrap flex-nowrap mix-blend-difference tracking-[-2px]"
-        style={{ x }}
-      >
-        {[1, 2, 3, 4].map((index) => (
-          <span
-            key={index}
-            className="block mr-5 text-4xl md:text-5xl lg:text-6xl bg-gradient-to-b bg-clip-text leading-none text-transparent from-white to-slate-900/10"
-          >
-            {children}{" "}
-          </span>
-        ))}
-      </motion.div>
-    </div>
+    <motion.div
+      className="uppercase flex whitespace-nowrap flex-nowrap mix-blend-difference tracking-[-2px]"
+      style={{ x }}
+    >
+      {[1, 2, 3, 4].map((index) => (
+        <span
+          key={index}
+          className="block mr-5 text-5xl md:text-7xl lg:text-9xl bg-gradient-to-b bg-clip-text leading-none text-transparent from-slate-50 to-slate-700/20"
+        >
+          {children}{" "}
+        </span>
+      ))}
+    </motion.div>
   );
 }

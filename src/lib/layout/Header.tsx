@@ -27,12 +27,9 @@ const Header = () => {
           ease: "easeIn",
         }}
         layout
-        className="self-center mix-blend-difference text-5xl"
+        className="self-center mix-blend-difference text-9xl"
       >
-        <NumberTicker
-          value={100}
-          className="self-center mix-blend-difference text-5xl"
-        />
+        <NumberTicker value={100} />
       </motion.div>
 
       <motion.div

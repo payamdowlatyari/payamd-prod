@@ -22,7 +22,7 @@ const Contact = () => {
         <div className="flex flex-col justify-center items-center m-auto">
           <BlurFade delay={1} inView>
             <div className="w-full flex mt-4 items-center justify-center">
-              <h1 className="text-center text-5xl md:text-7xl lg:text-9xl font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-500 to-neutral-900 select-none">
+              <h1 className="text-center text-5xl md:text-7xl lg:text-9xl font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-400 to-neutral-800 select-none">
                 Contact
               </h1>
             </div>

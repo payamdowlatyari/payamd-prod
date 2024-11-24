@@ -28,11 +28,11 @@ const AboutRoute = () => {
           <motion.div className="absolute mt-28 mx-1 w-screen flex flex-wrap items-center justify-evenly">
             <BlurFade delay={1} inView>
               <div className="w-full flex mt-4 items-center justify-center">
-                <h1 className="text-center text-7xl lg:text-[10rem] font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-500 to-neutral-900 select-none">
+                <h1 className="text-center text-6xl md:text-9xl lg:text-[10rem] font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-300 to-neutral-700 select-none">
                   About
                 </h1>
               </div>
-              <p className="text-lg md:text-xl lg:text-2xl text-neutral-400 mb-5">
+              <p className="text-lg md:text-xl lg:text-2xl text-neutral-300 mb-5">
                 My name is Payam Dowlatyari
                 <br /> a Software Engineer <br />
                 in California
