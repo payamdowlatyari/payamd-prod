@@ -163,6 +163,14 @@ export const projects = [
     url: "https://m-studios.us/",
     tags: ["HTML", "CSS", "Javascript", "Bootstrap", "Vercel"],
   },
+  {
+    index: 10,
+    title: "A Vue Portfolio",
+    description: "A smooth scroll portfolio website",
+    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/vue-portfolio-1750x1000.webp",
+    url: "https://vue-project-orpin-seven.vercel.app/",
+    tags: ["Javascript", "Vue", "Lenis", "Vercel"],
+  },
 ];
 
 export const about = {
