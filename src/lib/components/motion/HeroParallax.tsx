@@ -46,7 +46,7 @@ export const ProductCard = ({
         y: -20,
       }}
       key={product.title}
-      className="group/product h-72 w-[25rem] max-w-screen-sm relative flex-shrink-0"
+      className="group/product h-48 md:h-60 lg:h-72 w-[15rem] md:w-[20rem] lg:w-[25rem] max-w-screen-sm relative flex-shrink-0"
     >
       <Link
         href={product.url}
@@ -167,7 +167,6 @@ export const HeroParallax = ({
           translateY,
           opacity,
         }}
-        className=""
       >
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
           {firstRow.map((product) => (
