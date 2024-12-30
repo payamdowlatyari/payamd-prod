@@ -9,6 +9,7 @@ import { Hero3D } from "~/lib/components/motion/Hero3D";
 import ImageEffect from "~/lib/components/motion/ImageEffect";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBar";
+import { LinkOverlay } from "~/lib/components/motion/View/TailwindButton";
 import Footer from "~/lib/layout/Footer";
 import Header from "~/lib/layout/Header";
 
@@ -38,6 +39,11 @@ const Home = () => {
               </p>
               <BorderBeam size={250} duration={12} delay={9} />
             </div>
+            <div className="flex justify-center uppercase">
+              <LinkOverlay url="/about" title="About me" />
+              <LinkOverlay url="/resume" title="My resume" />
+              <LinkOverlay url="/contact" title="Contact me" />
+            </div>
           </div>
           <div className="h-96 w-96 m-1 static right-0 z-[1]">
             <ImageEffect item1="/me-sea2.webp" item2="/me-sea3.webp" />
@@ -55,9 +61,12 @@ const Home = () => {
               Services
             </h2>
           </div>
-          <p className="text-base md:text-lg lg:text-xl text-neutral-400 mt-4 px-2">
+          <p className="text-base md:text-lg lg:text-xl text-neutral-300 mt-4 px-2">
             The technologies I work with <br /> and services I offer
           </p>
+          <div className="flex justify-end uppercase">
+            <LinkOverlay url="/projects" title="My projects" />
+          </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 relative z-10 py-10 max-w-7xl ">
           {services.map((service) => (

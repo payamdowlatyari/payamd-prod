@@ -155,7 +155,7 @@ function Aside() {
   return (
     <div className="absolute flex flex-col self-end h-full w-screen items-end right-0">
       <GridBeam className="flex flex-col items-start justify-end h-[50vh] relative z-10">
-        <div className="flex flex-wrap justify-start items-center px-8 mx-4 gap-2">
+        <div className="flex flex-wrap justify-start items-center px-8 mx-4 mt-16 gap-2">
           <h3 className="text-3xl md:text-5xl font-normal text-neutral-500">
             I am a
           </h3>
