@@ -36,7 +36,6 @@ import { LinkOverlay } from "./View/TailwindButton";
  * The resulting canvas is then used to create a `THREE.CanvasTexture` which is
  * stored in the local state and updated on window resize using a debounced function.
  */
-
 const useDomToCanvas = (
   domEl: HTMLDivElement | null
 ): THREE.Texture | undefined => {

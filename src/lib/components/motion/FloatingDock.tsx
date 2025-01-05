@@ -35,6 +35,18 @@ export interface DockIconProps {
   props?: PropsWithChildren;
 }
 
+/**
+ * A single dock icon component, used by the Dock component.
+ *
+ * @param {number} [size] - The size of the icon.
+ * @param {number} [magnification=60] - The magnification of the icon when hovered.
+ * @param {number} [distance=140] - The distance from the center of the dock to the icon.
+ * @param {MotionValue<number>} mouseX - A MotionValue of the mouse's x position.
+ * @param {string} [className] - Additional class names to add to the icon.
+ * @param {React.ReactNode} children - The icon to render.
+ * @param {PropsWithChildren} props - Additional props to pass to the icon.
+ * @returns {JSX.Element} A dock icon component.
+ */
 function DockIcon({
   size,
   magnification = DEFAULT_MAGNIFICATION,
@@ -43,7 +55,7 @@ function DockIcon({
   className,
   children,
   ...props
-}: DockIconProps) {
+}: DockIconProps): JSX.Element {
   const ref = useRef<HTMLDivElement>(null);
 
   const distanceCalc = useTransform(mouseX, (val: number) => {

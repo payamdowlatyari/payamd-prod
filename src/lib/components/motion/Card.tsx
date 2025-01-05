@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable prefer-const */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable react-hooks/exhaustive-deps */
@@ -123,12 +124,7 @@ const MouseEnterContext = createContext<
  * @param {React.ReactNode} children - The children to render inside the card.
  * @param {string} [className] - A class name to add to the card.
  * @param {string} [containerClassName] - A class name to add to the container element.
- * @returns {JSX.Element}
- *
- * @example
- * <CardContainer>
- *   <div className="relative z-20">Hello World</div>
- * </CardContainer>
+ * @returns {JSX.Element} A JSX element representing the CardContainer component.
  */
 export const CardContainer = ({
   children,
@@ -227,13 +223,20 @@ export const useMouseEnter = (): [
   }
   return context;
 };
+
+/**
+ * A component that renders its children in a 3D space.
+ *
+ * @param {{ children: React.ReactNode; className?: string; }} props
+ * @returns {JSX.Element} A JSX element representing the CardBody component
+ */
 export const CardBody = ({
   children,
   className,
 }: {
   children: React.ReactNode;
   className?: string;
-}) => {
+}): JSX.Element => {
   return (
     <div
       className={cn(
@@ -252,12 +255,7 @@ export const CardBody = ({
  * CSS properties to the card item.
  *
  * @param {{ as?: React.ElementType; children: React.ReactNode; className?: string; translateX?: number | string; translateY?: number | string; translateZ?: number | string; rotateX?: number | string; rotateY?: number | string; rotateZ?: number | string; [key: string]: any; }} props
- * @returns {JSX.Element}
- *
- * @example
- * <CardItem translateX={20} translateY={20} rotateX={30} rotateY={30}>
- *   <Image src="/path/to/image.jpg" width={500} height={500} alt="Card item" />
- * </CardItem>
+ * @returns {JSX.Element} A JSX element representing the CardItem component
  */
 export const CardItem = ({
   as: Tag = "div",
@@ -326,7 +324,6 @@ export const CardItem = ({
  * @param {string[]} [props.item.tags] - An array of tags associated with the item.
  * @returns {JSX.Element} A JSX element representing a stylized 3D card with hover effects.
  */
-
 export function ThreeDCardDemo({ item }: any): JSX.Element {
   return (
     <CardContainer className="relative flex flex-row justify-evenly flex-wrap inter-var">
@@ -378,7 +375,6 @@ export function ThreeDCardDemo({ item }: any): JSX.Element {
  * @param {React.ReactNode} props.children - The content to be rendered inside the card.
  * @returns {JSX.Element} A styled card component with default and custom styles.
  */
-
 export const Card = ({
   className,
   children,
@@ -399,6 +395,7 @@ export const Card = ({
     </div>
   );
 };
+
 /**
  * A component that renders a card title with specified styling.
  *
@@ -408,7 +405,6 @@ export const Card = ({
  *
  * @returns {JSX.Element} A heading element styled as a card title.
  */
-
 export const CardTitle = ({
   className,
   children,
@@ -437,7 +433,6 @@ export const CardTitle = ({
  *
  * @returns {JSX.Element} A paragraph element styled as a subtitle.
  */
-
 export const CardSubTitle = ({
   className,
   children,
@@ -463,10 +458,7 @@ export const CardSubTitle = ({
  * @param {React.ReactNode} children - The date string to render.
  * @param {string} [className] - An optional class name to add to the element.
  *
- * @returns {React.ReactElement}
- *
- * @example
- * <CardDate>Jan 12, 2024</CardDate>
+ * @returns {React.ReactElement} A date label component.
  */
 export const CardDate = ({
   className,
@@ -495,7 +487,6 @@ export const CardDate = ({
  * @param {React.ReactNode} props.children - The content to be displayed within the paragraph.
  * @returns {JSX.Element} A styled paragraph element.
  */
-
 export const CardDescription = ({
   className,
   children,
@@ -519,14 +510,6 @@ export const CardDescription = ({
  * A component that renders a group of items with a hover effect.
  * @param {{ items: any[]; className?: string; }} props
  * @returns {JSX.Element}
- *
- * @example
- * <HoverEffect
- *   items={[
- *     { title: 'Item 1', subtitle: 'Subtitle 1', description: 'Description 1', link: '#' },
- *     { title: 'Item 2', subtitle: 'Subtitle 2', description: 'Description 2', link: '#' },
- *   ]}
- * />
  */
 export const HoverEffect = ({
   items,
@@ -544,7 +527,7 @@ export const HoverEffect = ({
           href={item?.link || "#"}
           key={item?.idx}
           target="_blank"
-          className="relative group block p-2 h-full w-[20rem] sm:w-[40rem] md:w-[45rem]"
+          className="relative group block p-2 h-full w-[20rem] sm:w-[35rem] md:w-[45rem]"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
@@ -571,7 +554,15 @@ export const HoverEffect = ({
               <CardDate>{item.date}</CardDate>
             </div>
             <CardSubTitle>{item.subtitle}</CardSubTitle>
-            <CardDescription>{item.description}</CardDescription>
+            <CardDescription>
+              {item.description && item.description.length > 0 && (
+                <>
+                  {item.description.map((d: any, i: number) => (
+                    <p key={i}>{d}</p>
+                  ))}
+                </>
+              )}
+            </CardDescription>
           </Card>
         </Link>
       ))}

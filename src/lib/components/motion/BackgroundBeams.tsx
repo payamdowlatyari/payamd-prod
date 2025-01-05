@@ -20,7 +20,6 @@ import { cn } from "./utils/cn";
  * The container and its children are styled to occupy full height and width, with optional custom
  * class names for additional styling.
  */
-
 export const BackgroundBeamsWithCollision = ({
   children,
   className,

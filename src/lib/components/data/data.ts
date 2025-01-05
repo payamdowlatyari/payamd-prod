@@ -219,11 +219,10 @@ export const experience = [
     subtitle: "Avalon AI",
     date: "Apr 2024 - Present",
     description: [
-      "Define and document software requirements specifications and identify the best solutions",
+      "Define software requirements specifications and identify the best solutions",
       "Design system architecture and configure resources and development environments",
       "Work with a team to develop a full-stack web application for the healthcare industry",
-      "Design, implement, and deploy backend features and API services",
-      "Setup and utilize AWS service and serverless tools such as Lambda and DynamoDB",
+      "Utilize AWS serverless technologies such as Lambda, API Gateway, and DynamoDB",
     ],
     index: 0,
   },
@@ -242,11 +241,9 @@ export const experience = [
   {
     title: "Web Developer",
     subtitle: "Freelance",
-    date: "Sep 2019 - Present",
+    date: "Sep 2019 - Dec 2020",
     description: [
-      "Design and develop cross-browser compatible user interfaces",
-      "Design and implement backend models and data access layers",
-      "Build server-side applications, business logic, and API endpoints",
+      "Develop responsive web applications using HTML, CSS, and JavaScript",
       "Optimize applications for maximum speed, security, and performance",
     ],
     index: 2,
@@ -280,23 +277,25 @@ export const certificate = [
     subtitle: "Full-Stack Web Development",
     date: "Mar 2023",
     link: "https://success.simplilearn.com/a8ed0cbb-aa08-40b3-b6ce-a5eac2e55dd4#gs.1kwd89",
-    description:
-      "Capstone: A bank portal application with Angular2+, Java, Spring,MySQL, REST API, and CRUD functionality",
+    description: [
+      "Capstone: A bank portal application with Angular2+, Java ,MySQL, REST API, and CRUD functionality",
+    ],
   },
   {
     title: "University of Colorado Boulder",
     subtitle: "Secure Software Design",
     date: "Sep 2020",
     link: "https://www.coursera.org/account/accomplishments/specialization/certificate/CMWVV4CZ59WM",
-    description: "Software Development Lifecycle, Design and Implementation",
+    description: ["Software Development Lifecycle, Design and Implementation"],
   },
   {
     title: "The Interaction Design Foundation",
     subtitle: "User Experience Design Courses",
     date: "Oct 2019",
     link: "https://www.interaction-design.org/members/payam-dowlatyari",
-    description:
-      "12+ Course Certificates on various topics such as Design Thinking, Data-driven design, Service Design, Information visualization, etc.",
+    description: [
+      "Certificates on various topics such as Design Thinking, Data-driven design, Service Design, etc.",
+    ],
   },
 ];
 
@@ -307,8 +306,9 @@ export const publication = [
     date: "Dec 2020",
     subtitle:
       "Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, Article No.: 126",
-    description:
+    description: [
       "The research community on the study and design of systems for personal informatics has grown over the past decade. To take stock of what the topics the field has studied and methods the field has used, we map and label 523 publications from ACM's library, IEEE Xplore, and PubMed. We surface that the literature has focused on studying and designing for health and wellness domains, an emphasis on understanding and overcoming barriers to data collection and reflection, and progressively fewer contributions involving artifacts being made. Our mapping review suggests directions future research could explore, such as identifying and resolving barriers to tracking stages beyond collection and reflection, engaging more with domain experts, and further discussing the privacy and ethical concerns around tracked data.",
+    ],
   },
 ];
 

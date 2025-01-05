@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { IoIosArrowRoundDown } from "react-icons/io";
 
 import { resume } from "~/lib/components/data/data";
+import { GridBeam } from "~/lib/components/motion/BackgroundBeams";
 import { BlurFade } from "~/lib/components/motion/BlurFade";
 import { HoverEffect } from "~/lib/components/motion/Card";
 import IconCloud from "~/lib/components/motion/IconCloud";
@@ -44,19 +45,21 @@ const Resume = (): JSX.Element => {
       <Menu />
       <div className="relative flex flex-col gap-4 h-screen w-screen items-center justify-center overflow-hidden p-8 z-0 mx-auto">
         <BlurFade delay={0.5} inView>
-          <h1 className="relative z-10 text-7xl md:text-9xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 text-center tracking-tight">
-            Resume
-          </h1>
-        </BlurFade>
-        <BlurFade delay={0.75} inView>
-          <p className="text-neutral-400 max-w-lg mx-auto my-2 text-center text-lg relative z-10">
-            Here is a summary of my experience, education, professional
-            certifications, academic publications, and technical skills.
-          </p>
-          <p className="text-neutral-100 mx-auto z-10 flex flex-col items-center text-center gap-2 mt-12">
-            Scroll down
-            <IoIosArrowRoundDown />
-          </p>
+          <GridBeam className="sm:pl-16 pt-28 pl-4 flex">
+            <div className="grid gap-2">
+              <h1 className="text-5xl sm:text-7xl font-semibold max-w-sm text-center">
+                Resume
+              </h1>
+              <p className="text-neutral-400 max-w-sm text-center">
+                Here is a summary of my experience, education, professional
+                certifications, academic publications, and technical skills.{" "}
+              </p>
+              <p className="text-neutral-100 mx-auto z-10 flex flex-col items-center text-center gap-2 mt-12">
+                Scroll down
+                <IoIosArrowRoundDown />
+              </p>
+            </div>
+          </GridBeam>
         </BlurFade>
       </div>
       <motion.section

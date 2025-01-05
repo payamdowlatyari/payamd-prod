@@ -270,7 +270,6 @@ export const HeroHighlight = ({
  * @param {string} [className] - Optional additional class names for styling.
  * @returns {JSX.Element} A motion span element with a background animation.
  */
-
 export const Highlight = ({
   children,
   className,

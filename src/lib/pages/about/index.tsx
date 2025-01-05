@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+import { GridBeam } from "~/lib/components/motion/BackgroundBeams";
 import { BlurFade } from "~/lib/components/motion/BlurFade";
 import { LinkPreview } from "~/lib/components/motion/LinkPreview";
 import Menu from "~/lib/components/motion/Menu/Menu";
@@ -31,24 +32,26 @@ const About = (): JSX.Element => {
         <div className="flex flex-col flex-1 flex-wrap md:flex-nowrap items-baseline z-10">
           <motion.div className="absolute mt-28 mx-1 w-screen flex flex-wrap items-center justify-evenly">
             <BlurFade delay={0.5} inView>
-              <div className="w-full flex mt-4 items-center justify-center">
-                <h1 className="text-center text-6xl md:text-9xl lg:text-[10rem] font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-300 to-neutral-700 select-none">
-                  About
-                </h1>
-              </div>
-              <p className="text-lg md:text-xl lg:text-2xl text-neutral-300 mb-5">
-                My name is Payam Dowlatyari
-                <br /> a Software Engineer <br />
-                in California
-              </p>
+              <GridBeam className="sm:pl-16 pt-28 pl-4 flex">
+                <div className="grid gap-2">
+                  <h1 className="text-5xl sm:text-7xl font-semibold max-w-sm">
+                    About
+                  </h1>
+                  <p className="text-neutral-400 max-w-lg">
+                    My name is Payam Dowlatyari a Software Engineer in
+                    California
+                  </p>
+                </div>
+              </GridBeam>
             </BlurFade>
+
             <BlurFade delay={0} inView>
               <Image
                 src="/me-ai-red.jpeg"
                 width={400}
                 height={400}
                 alt="me"
-                className="opacity-80"
+                className="opacity-80 hover:opacity-100 scale-75 md:scale-100"
                 loading="lazy"
               />
             </BlurFade>

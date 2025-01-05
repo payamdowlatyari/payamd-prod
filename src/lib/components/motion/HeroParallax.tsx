@@ -11,6 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+import { GridBeam } from "./BackgroundBeams";
 import { BlurFade } from "./BlurFade";
 
 /**
@@ -145,19 +146,6 @@ export const ProductCard = ({
  *
  * The component uses the following styles:
  *
- * - The component will be rendered with a max-width of 100vw.
- * - The component will be rendered with a height of 250vh.
- * - The products will be rendered with a max-width of 600px.
- * - The products will be rendered with a height of 300px.
- * - The products will be rendered with a margin of 20px on the top and bottom.
- * - The products will be rendered with a padding of 20px on the left and right.
- * - The products will be rendered with a background color of #333.
- * - The products will be rendered with a text color of #fff.
- * - The products will be rendered with a font size of 20px.
- * - The products will be rendered with a font weight of 500.
- * - The products will be rendered with a line height of 1.5.
- * - The products will be rendered with a text align of center.
- *
  * @param {Object[]} products - An array of products to render.
  * @param {string} products.title - The title of the product.
  * @param {string} products.description - A short description of the product.
@@ -218,26 +206,20 @@ export const HeroParallax = ({
       className="h-[250vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
-        <BlurFade delay={1} inView>
-          <div className="w-full flex mt-4">
-            <h1
-              style={{ lineHeight: 1.5 }}
-              className="text-center text-7xl lg:text-[10rem] tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-300 to-neutral-900 select-none"
-            >
-              Projects
-            </h1>
-          </div>
+        <BlurFade delay={0.5} inView>
+          <GridBeam className="sm:pl-16 pt-28 pl-4 flex">
+            <div className="grid gap-2">
+              <h1 className="text-5xl sm:text-7xl font-semibold max-w-sm">
+                Projects
+              </h1>
+              <p className="text-neutral-400 max-w-lg">
+                Here are some of my most recent works in web applications and
+                landing pages. I have used different tools, technologies, and
+                services to create these projects.
+              </p>
+            </div>
+          </GridBeam>
         </BlurFade>
-        <BlurFade delay={1.25} inView>
-          <h3 className="text-xl md:text-3xl font-semibold text-neutral-400 mt-4 ml-3">
-            My Web Development Portfolio
-          </h3>
-        </BlurFade>
-        <p className="max-w-2xl text-base md:text-xl mt-8 ml-2 text-neutral-400">
-          Here are some of my most recent works in web applications and landing
-          pages. I have used different tools, technologies, and services to
-          create these projects.
-        </p>
       </div>
       <motion.div
         style={{

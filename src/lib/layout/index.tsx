@@ -1,7 +1,7 @@
 "use client";
 
 import "../../app/globals.css";
-import { SmoothScrollbar, GlobalCanvas } from "@14islands/r3f-scroll-rig";
+import { GlobalCanvas, SmoothScrollbar } from "@14islands/r3f-scroll-rig";
 import { type ReactNode } from "react";
 import "@fontsource/poppins";
 import "@14islands/r3f-scroll-rig/css";
