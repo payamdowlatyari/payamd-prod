@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { RiArrowRightUpLine } from "react-icons/ri";
 
+/**
+ * HoverLink component
+ * @returns {JSX.Element}
+ */
 export default function HoverLink({
   title,
   url,
@@ -11,7 +15,7 @@ export default function HoverLink({
   url: string;
   out?: boolean;
   low?: boolean;
-}) {
+}): JSX.Element {
   return (
     <Link
       href={url}

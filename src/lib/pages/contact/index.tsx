@@ -8,7 +8,11 @@ import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBar";
 import { SendMail } from "~/lib/components/Sections/Contact/SendMail";
 import Footer from "~/lib/layout/Footer";
 
-const Contact = () => {
+/**
+ * Contact component
+ * @returns {JSX.Element}
+ */
+const Contact = (): JSX.Element => {
   return (
     <motion.main
       initial={{ opacity: 0 }}

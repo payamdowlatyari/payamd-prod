@@ -1,6 +1,12 @@
 import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
 import { useRef, useState } from "react";
 
+/**
+ * Sends an email using emailjs.com service.
+ * @param e Event object
+ * @returns void
+ * @throws EmailJSResponseStatus
+ */
 export const SendMail = () => {
   const form: any = useRef();
 

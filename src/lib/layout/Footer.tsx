@@ -1,7 +1,7 @@
 import { useScrollbar, useTracker } from "@14islands/r3f-scroll-rig";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import Link from "next/link";
-import { useRef, useEffect, MutableRefObject } from "react";
+import { useRef, useEffect } from "react";
 
 import { DockDemo } from "../components/motion/FloatingDock";
 import Logo from "../components/motion/Menu/Logo";
@@ -14,25 +14,25 @@ import CopyRight from "../components/motion/View/CopyRight";
  * @returns {JSX.Element} The Footer component.
  */
 const Footer = (): JSX.Element => {
-  // Reference to the footer element
-  const el: MutableRefObject<any> = useRef();
-
-  // Get the scrollbar event handler and scroll state tracker
+  const el: React.RefObject<HTMLElement> = useRef<HTMLElement>(null);
   const { onScroll } = useScrollbar();
-  const { scrollState } = useTracker(el);
+  const { scrollState } = useTracker(el as React.MutableRefObject<HTMLElement>);
 
-  // Create a motion value to track the progress of the scrolling animation
   const progress = useMotionValue(0);
+  const opacity = useTransform(progress, [0.5, 1], [0, 1]);
+  const scale = useTransform(progress, [0.5, 1], [0.75, 1]);
 
   useEffect(() => {
     return onScroll(() => progress.set(scrollState.visibility));
   }, [onScroll, progress, scrollState]);
 
-  // Create motion values for the y, opacity, and scale transformations
-  const opacity = useTransform(progress, [0.5, 1], [0, 1]);
-  const scale = useTransform(progress, [0.5, 1], [0.75, 1]);
+  const links = [
+    { href: "/about", label: "About" },
+    { href: "/resume", label: "Resume" },
+    { href: "/projects", label: "Projects" },
+    { href: "/contact", label: "Contact" },
+  ];
 
-  // Render the footer component with the motion values applied
   return (
     <motion.footer
       ref={el}
@@ -40,39 +40,21 @@ const Footer = (): JSX.Element => {
       className="flex justify-center items-end w-screen h-full min-h-[40vh]"
     >
       <motion.div
-        style={{
-          opacity,
-          scale,
-        }}
+        style={{ opacity, scale }}
         className="flex flex-col items-center justify-end h-full z-10"
       >
         <div className="w-screen h-full flex flex-col items-center justify-center">
           <Logo light={false} size={50} />
           <div className="flex flex-row mt-4 w-full justify-center">
-            <Link
-              href="/about"
-              className="uppercase text-xs px-1 text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold"
-            >
-              About
-            </Link>
-            <Link
-              href="/resume"
-              className="uppercase text-xs px-1 text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold"
-            >
-              Resume
-            </Link>
-            <Link
-              href="/projects"
-              className="uppercase text-xs px-1 text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold"
-            >
-              Projects
-            </Link>
-            <Link
-              href="/contact"
-              className="uppercase text-xs px-1 text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold"
-            >
-              Contact
-            </Link>
+            {links.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className="uppercase text-xs px-1 text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold"
+              >
+                {label}
+              </Link>
+            ))}
           </div>
           <div className="flex flex-col items-center justify-center h-full w-full py-2 social">
             <DockDemo />

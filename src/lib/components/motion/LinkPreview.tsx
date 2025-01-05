@@ -29,6 +29,21 @@ type LinkPreviewProps = {
   | { isStatic?: false; imageSrc?: never }
 );
 
+/**
+ * LinkPreview component renders a hover card with a link preview image.
+ *
+ * @param {React.ReactNode} children - The content that will trigger the hover card.
+ * @param {string} url - The URL of the link to preview.
+ * @param {string} [className] - Additional class names for custom styling.
+ * @param {number} [width=200] - The width of the preview image.
+ * @param {number} [height=125] - The height of the preview image.
+ * @param {number} [quality=50] - The quality of the preview image.
+ * @param {string} [layout="fixed"] - The layout style for the image.
+ * @param {boolean} [isStatic=false] - If true, use a static image source.
+ * @param {string} [imageSrc] - The static image source if `isStatic` is true.
+ * @returns {JSX.Element} A hover card component with an animated image preview.
+ */
+
 export const LinkPreview = ({
   children,
   url,
@@ -39,7 +54,7 @@ export const LinkPreview = ({
   layout = "fixed",
   isStatic = false,
   imageSrc = "",
-}: LinkPreviewProps) => {
+}: LinkPreviewProps): JSX.Element => {
   let src;
   if (!isStatic) {
     const params = encode({

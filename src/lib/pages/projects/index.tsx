@@ -8,7 +8,11 @@ import Menu from "~/lib/components/motion/Menu/Menu";
 import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBar";
 import Footer from "~/lib/layout/Footer";
 
-const Projects = () => {
+/**
+ * Projects component
+ * @returns {JSX.Element}
+ */
+const Projects = (): JSX.Element => {
   return (
     <motion.main
       initial={{ opacity: 0 }}

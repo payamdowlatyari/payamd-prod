@@ -1,25 +1,25 @@
 import HoverLink from "../View/HoverLink";
 
-export default function Nav() {
+/**
+ * Nav component
+ * @returns {JSX.Element}
+ */
+export default function Nav(): JSX.Element {
+  const links = [
+    { title: "Home", url: "/" },
+    { title: "About", url: "/about" },
+    { title: "Resume", url: "/resume" },
+    { title: "Projects", url: "/projects" },
+    { title: "Contact", url: "/contact" },
+  ];
+
   return (
-    <div className="z-10 navbar">
-      <ul className="inline-grid justify-center h-fit w-fit py-2 min-w-72">
-        <li className="list-none py-1">
-          <HoverLink title="Home" url="/" />
+    <ul className="inline-grid justify-center h-fit w-fit py-2 min-w-72">
+      {links.map(({ title, url }) => (
+        <li key={title} className="list-none py-1">
+          <HoverLink title={title} url={url} />
         </li>
-        <li className="list-none py-1">
-          <HoverLink title="About" url="/about" />
-        </li>
-        <li className="list-none py-1">
-          <HoverLink title="Resume" url="/resume" />
-        </li>
-        <li className="list-none py-1">
-          <HoverLink title="Projects" url="/projects" />
-        </li>
-        <li className="list-none py-1">
-          <HoverLink title="Contact" url="/contact" />
-        </li>
-      </ul>
-    </div>
+      ))}
+    </ul>
   );
 }

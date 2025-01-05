@@ -81,7 +81,7 @@ export default function ScrollProgressBar({
             />
           </svg>
           {showPercentage && (
-            <span className="text-xs absolute ml-2">{percentage}%</span>
+            <span className="text-xs absolute ml-1">{percentage}%</span>
           )}
         </>
       )}

@@ -29,6 +29,15 @@ type Uniforms = {
     type: string;
   };
 };
+/**
+ * A component that renders a full-screen canvas with a custom shader.
+ *
+ * @param source a string containing the fragment shader source code
+ * @param uniforms an object containing the uniforms that will be passed to the shader
+ * @param maxFps the maximum frame rate at which the shader will be rendered
+ *
+ * @returns A JSX element representing a full-screen canvas with a custom shader
+ */
 const ShaderMaterial = ({
   source,
   uniforms,
@@ -56,6 +65,27 @@ const ShaderMaterial = ({
     timeLocation.value = timestamp;
   });
 
+  /**
+   * Given an object containing uniforms, returns a new object containing the
+   * uniforms converted into a format that can be passed to a ShaderMaterial.
+   *
+   * Currently supports the following types:
+   * - uniform1f: a single float value
+   * - uniform3f: a single 3-element vector value
+   * - uniform1fv: an array of float values
+   * - uniform3fv: an array of 3-element vector values
+   * - uniform2f: a single 2-element vector value
+   *
+   * If an unsupported type is encountered, logs an error message to the console.
+   *
+   * In addition to the input uniforms, the returned object will contain two
+   * additional uniforms: u_time and u_resolution. The value of u_time is the
+   * current timestamp, and the value of u_resolution is a 2-element vector
+   * containing the width and height of the canvas.
+   *
+   * @param uniforms an object containing uniforms to be converted
+   * @returns an object containing the converted uniforms
+   */
   const getUniforms = () => {
     const preparedUniforms: any = {};
 
@@ -272,6 +302,20 @@ interface ShaderProps {
   maxFps?: number;
 }
 
+/**
+ * A component that renders a canvas with a reveal effect.
+ * The reveal effect is done by randomizing the opacity of dots
+ * in a grid, and then increasing the opacity over time.
+ *
+ * @param {Object} props The component props
+ * @param {number} [props.animationSpeed=0.4] The speed of the animation.
+ * @param {number[]} [props.opacities=[0.3, 0.3, 0.3, 0.5, 0.5, 0.5, 0.8, 0.8, 0.8, 1]] The opacity of the dots.
+ * @param {number[][]} [props.colors=[[0, 255, 255]]] The color of the dots.
+ * @param {string} [props.containerClassName] The class name for the container element.
+ * @param {number} [props.dotSize] The size of the dots.
+ * @param {boolean} [props.showGradient=true] Whether to show a gradient overlay on top of the canvas.
+ * @returns {JSX.Element} A JSX element with the reveal effect.
+ */
 export const CanvasRevealEffect = ({
   animationSpeed = 0.4,
   opacities = [0.3, 0.3, 0.3, 0.5, 0.5, 0.5, 0.8, 0.8, 0.8, 1],
@@ -290,7 +334,7 @@ export const CanvasRevealEffect = ({
   containerClassName?: string;
   dotSize?: number;
   showGradient?: boolean;
-}) => {
+}): JSX.Element => {
   return (
     <div className={cn("h-full relative bg-white w-full", containerClassName)}>
       <div className="h-full w-full">

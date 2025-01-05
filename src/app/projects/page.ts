@@ -1,5 +1,6 @@
-import Projects from "~/lib/pages/projects";
 import { Metadata } from "next";
+
+import Projects from "~/lib/pages/projects";
 
 export const metadata: Metadata = {
   title: "Projects",

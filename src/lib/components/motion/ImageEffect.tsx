@@ -2,7 +2,7 @@
 /* eslint-disable react/no-unknown-property */
 import { useTexture, shaderMaterial } from "@react-three/drei";
 import { Canvas, extend, useFrame } from "@react-three/fiber";
-import { useRef, useState } from "react";
+import { ReactElement, useRef, useState } from "react";
 import * as THREE from "three";
 
 declare global {
@@ -48,7 +48,18 @@ export const ImageFadeMaterial = shaderMaterial(
 );
 extend({ ImageFadeMaterial });
 
-export function FadingImage({ i1, i2 }: any) {
+/**
+ * A mesh component that displays a fading image effect.
+ *
+ * It takes two image urls as props and displays them as a fading effect.
+ * The effect is triggered by hovering over the component.
+ *
+ * @param {Object} props - The props object.
+ * @param {string} props.i1 - The first image url.
+ * @param {string} props.i2 - The second image url.
+ * @returns {ReactElement} - The React component.
+ */
+export function FadingImage({ i1, i2 }: any): ReactElement {
   const ref: any = useRef();
   const [texture1, texture2, dispTexture] = useTexture([i1, i2, "/13.jpg"]);
   const [hovered, setHover] = useState(false);
@@ -76,13 +87,22 @@ export function FadingImage({ i1, i2 }: any) {
   );
 }
 
+/**
+ * A Canvas component that renders a FadingImage component with two images.
+ *
+ * @function ImageEffect
+ * @param {Object} props Component props
+ * @param {string} props.item1 The first image to be rendered
+ * @param {string} props.item2 The second image to be rendered
+ * @returns {ReactElement} A Canvas component with a FadingImage component
+ */
 export default function ImageEffect({
   item1,
   item2,
 }: {
   item1: string;
   item2: string;
-}) {
+}): ReactElement {
   return (
     <Canvas camera={{ position: [0, 0, 1], fov: 50 }}>
       <FadingImage i1={item1} i2={item2} />

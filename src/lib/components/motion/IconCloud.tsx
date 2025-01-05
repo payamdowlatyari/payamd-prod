@@ -77,7 +77,17 @@ export const cloudProps: Omit<ICloud, "children"> = {
   },
 };
 
-export const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
+/**
+ * Renders a simple icon with a light or dark background depending on the theme.
+ *
+ * @param icon Icon data with a name and a color.
+ * @param theme The theme to use, either "light" or "dark".
+ * @returns {JSX.Element} The rendered icon.
+ */
+export const renderCustomIcon = (
+  icon: SimpleIcon,
+  theme: string
+): JSX.Element => {
   const bgHex = theme === "light" ? "#f3f2ef" : "#080510";
   const fallbackHex = theme === "light" ? "#6e6e73" : "#ffffff";
   const minContrastRatio = theme === "dark" ? 2 : 1.2;
@@ -103,7 +113,18 @@ export type DynamicCloudProps = {
 
 type IconData = Awaited<ReturnType<typeof fetchSimpleIcons>>;
 
-export default function IconCloud() {
+/**
+ * A component that renders a cloud of icons in a floating dock.
+ *
+ * It takes an array of icon slugs as a prop, fetches the icons from the server,
+ * and renders them in a cloud layout.
+ *
+ * The cloud is interactive and can be dragged around the screen.
+ *
+ * @param {string[]} iconSlugs An array of icon slugs to render.
+ * @returns {JSX.Element} A JSX element representing the cloud of icons.
+ */
+export default function IconCloud(): JSX.Element {
   const [data, setData] = useState<IconData | null>(null);
   const { theme } = useTheme();
 

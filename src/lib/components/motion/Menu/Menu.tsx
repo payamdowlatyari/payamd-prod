@@ -1,11 +1,5 @@
-import {
-  motion,
-  stagger,
-  useAnimate,
-  useCycle,
-  useWillChange,
-} from "framer-motion";
-import { useEffect, useRef } from "react";
+import { motion, stagger, useAnimate, useCycle } from "framer-motion";
+import { useEffect } from "react";
 import { TfiClose, TfiLineDouble } from "react-icons/tfi";
 
 import Contact from "../../Sections/Contact/ContactDetails";
@@ -13,7 +7,12 @@ import { DockDemo } from "../FloatingDock";
 
 import Nav from "./Nav";
 
-const NavToggle = ({ toggle }: { toggle: () => void }) => {
+/**
+ * NavToggle component
+ * @param {function} toggle - A function to toggle the menu
+ * @returns {JSX.Element}
+ */
+const NavToggle = ({ toggle }: { toggle: () => void }): JSX.Element => {
   return (
     <motion.button
       onClick={toggle}
@@ -40,7 +39,12 @@ const NavToggle = ({ toggle }: { toggle: () => void }) => {
   );
 };
 
-function useMenuAnimation(isOpen: boolean) {
+/**
+ * useMenuAnimation hook
+ * @param {boolean} isOpen - A boolean value indicating whether the menu is open or closed
+ * @returns {any} - An array containing the scope and animate functions
+ */
+function useMenuAnimation(isOpen: boolean): any {
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
@@ -89,10 +93,12 @@ function useMenuAnimation(isOpen: boolean) {
 
   return scope;
 }
-export default function Menu() {
+/**
+ * Menu component
+ * @returns {JSX.Element}
+ */
+export default function Menu(): JSX.Element {
   const [isOpen, toggleOpen] = useCycle(false, true);
-  const containerRef = useRef(null);
-  const willChange = useWillChange();
   const scope = useMenuAnimation(isOpen);
 
   return (
@@ -100,18 +106,11 @@ export default function Menu() {
       layout
       initial={false}
       animate={isOpen ? "open" : "closed"}
-      ref={containerRef}
-      style={{
-        willChange,
-      }}
       className="fixed top-0 right-0 z-[100] bg-transparent"
     >
       <NavToggle toggle={() => toggleOpen()} />
       <motion.div
         layout
-        style={{
-          willChange,
-        }}
         variants={{
           closed: { opacity: 0, display: "none" },
           open: { opacity: 1, display: "flex" },

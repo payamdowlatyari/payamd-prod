@@ -196,11 +196,22 @@ const animationVariants = {
   },
 };
 
+/**
+ * A component that animates text using various motion effects.
+ *
+ * @param {Object} props - The component props.
+ * @param {string} props.text - The text to be animated.
+ * @param {AnimationType} [props.type='whipInUp'] - The animation type to be applied to the text.
+ * @param {number} [props.delay] - Optional delay before the animation starts.
+ * @param {number} [props.duration] - Optional duration for the animation.
+ * @returns {JSX.Element} A JSX element with animated text.
+ */
+
 export const TextAnimate: FC<Props> = ({
   text,
   type = "whipInUp",
   ...props
-}: Props) => {
+}: Props): JSX.Element => {
   const ref = useRef(null);
   const isInView = useInView(ref);
 

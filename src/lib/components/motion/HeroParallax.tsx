@@ -13,7 +13,14 @@ import React from "react";
 
 import { BlurFade } from "./BlurFade";
 
-export function BadgeRotateBorder(title: string) {
+/**
+ * Renders a badge with a rotating border animation.
+ *
+ * @param {string} title - The title text to display in the center of the badge.
+ * @returns {JSX.Element} A JSX element representing a badge with a rotating border.
+ */
+
+export function BadgeRotateBorder(title: string): JSX.Element {
   return (
     <div className="relative inline-flex overflow-hidden rounded-full p-px">
       <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#c2c2c2_0%,#505050_50%,#bebebe_100%)]" />
@@ -24,6 +31,19 @@ export function BadgeRotateBorder(title: string) {
   );
 }
 
+/**
+ * A component that renders a product card with a hover animation.
+ *
+ * @param {Object} props
+ * @prop {Object} product - The product data to display in the card, with keys:
+ *   - title: The title of the product, as a string.
+ *   - description: A short description of the product, as a string.
+ *   - url: The URL to link to when the card is clicked, as a string.
+ *   - img: The URL of the product image to display, as a string.
+ *   - tags: An array of strings representing tags or categories associated with the product.
+ * @prop {MotionValue<number>} translate - A Framer Motion `MotionValue` representing the horizontal position of the card, to be animated.
+ * @returns {JSX.Element} A JSX element representing a product card with a hover animation.
+ */
 export const ProductCard = ({
   product,
   translate,
@@ -36,7 +56,7 @@ export const ProductCard = ({
     tags: string[];
   };
   translate: MotionValue<number>;
-}) => {
+}): JSX.Element => {
   return (
     <motion.div
       style={{
@@ -87,6 +107,65 @@ export const ProductCard = ({
   );
 };
 
+/**
+ * A hero section for a web development portfolio page.
+ *
+ * This component renders a parallax scrolling effect for a set of products (web
+ * applications or landing pages). It uses framer-motion to create a smooth and
+ * responsive animation.
+ *
+ * The component takes an array of products as a prop, where each product is an
+ * object containing the following properties:
+ *
+ * - title: The title of the product.
+ * - description: A short description of the product.
+ * - url: The URL of the product.
+ * - img: The URL of an image for the product.
+ * - tags: An array of tags associated with the product.
+ *
+ * The component will render a row of products, with each product in a separate
+ * column. The products will be spaced evenly apart, with a small gap between
+ * each row.
+ *
+ * The component uses the following animations:
+ *
+ * - The first row of products will be translated horizontally as the user scrolls
+ *   down the page, with the products moving from left to right.
+ * - The second row of products will be translated horizontally in the opposite
+ *   direction, with the products moving from right to left.
+ * - The third row of products will be translated horizontally in the same
+ *   direction as the first row, with the products moving from left to right.
+ * - The products will also be rotated and translated vertically as the user
+ *   scrolls down the page, to create a sense of depth and movement.
+ * - The products will fade in and out as the user scrolls down the page, to
+ *   create a sense of depth and movement.
+ *
+ * The component also renders a heading and a paragraph of text above the
+ * products, which will be blurred and faded in as the user scrolls down the page.
+ *
+ * The component uses the following styles:
+ *
+ * - The component will be rendered with a max-width of 100vw.
+ * - The component will be rendered with a height of 250vh.
+ * - The products will be rendered with a max-width of 600px.
+ * - The products will be rendered with a height of 300px.
+ * - The products will be rendered with a margin of 20px on the top and bottom.
+ * - The products will be rendered with a padding of 20px on the left and right.
+ * - The products will be rendered with a background color of #333.
+ * - The products will be rendered with a text color of #fff.
+ * - The products will be rendered with a font size of 20px.
+ * - The products will be rendered with a font weight of 500.
+ * - The products will be rendered with a line height of 1.5.
+ * - The products will be rendered with a text align of center.
+ *
+ * @param {Object[]} products - An array of products to render.
+ * @param {string} products.title - The title of the product.
+ * @param {string} products.description - A short description of the product.
+ * @param {string} products.url - The URL of the product.
+ * @param {string} products.img - The URL of an image for the product.
+ * @param {string[]} products.tags - An array of tags associated with the product.
+ * @returns {JSX.Element} A hero section for a web development portfolio page.
+ */
 export const HeroParallax = ({
   products,
 }: {
@@ -97,7 +176,7 @@ export const HeroParallax = ({
     img: string;
     tags: string[];
   }[];
-}) => {
+}): JSX.Element => {
   const firstRow = products.slice(0, 5);
   const secondRow = products.slice(5, 10);
   const thirdRow = products.slice(10, 15);
@@ -143,7 +222,7 @@ export const HeroParallax = ({
           <div className="w-full flex mt-4">
             <h1
               style={{ lineHeight: 1.5 }}
-              className="text-center text-7xl lg:text-[10rem] font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-300 to-neutral-900 select-none"
+              className="text-center text-7xl lg:text-[10rem] tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-300 to-neutral-900 select-none"
             >
               Projects
             </h1>

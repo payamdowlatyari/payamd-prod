@@ -47,6 +47,13 @@ const flatten = (children: ReactNode): React.ReactNode[] => {
   return result.flatMap((child) => (Array.isArray(child) ? child : [child]));
 };
 
+/**
+ * @param index The index of the child
+ * @param progress The progress of the scroll
+ * @param total The total number of children
+ * @param children The children
+ * @returns {JSX.Element}
+ */
 function OpacityChild({
   children,
   index,
@@ -57,7 +64,7 @@ function OpacityChild({
   index: number;
   total: number;
   progress: MotionValue<number>;
-}) {
+}): JSX.Element {
   const opacity = useTransform(
     progress,
     [index / total, (index + 20) / total < 1 ? (index + 20) / total : 1],
@@ -88,11 +95,17 @@ function OpacityChild({
   );
 }
 
+/**
+ * ScrollReveal component
+ * @param {React.ReactNode} children - The children of the component.
+ * @param {string} className - The class name of the component.
+ * @returns {JSX.Element}
+ */
 export default function ScrollReveal({
   children,
   className,
   ...props
-}: ScrollRevealProps) {
+}: ScrollRevealProps): JSX.Element {
   const flat = flatten(children);
   const count = flat.length;
   const containerRef = useRef<HTMLDivElement>(null);

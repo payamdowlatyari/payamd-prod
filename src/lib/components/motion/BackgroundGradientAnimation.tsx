@@ -4,6 +4,25 @@ import { ReactNode, useEffect, useRef, useState } from "react";
 
 import { cn } from "./utils/cn";
 
+/**
+ * A gradient animation component that can be used as a full-screen background.
+ * The gradient can be interacted with by the user.
+ * @param gradientBackgroundStart - The start color of the gradient.
+ * @param gradientBackgroundEnd - The end color of the gradient.
+ * @param firstColor - The color of the first gradient.
+ * @param secondColor - The color of the second gradient.
+ * @param thirdColor - The color of the third gradient.
+ * @param fourthColor - The color of the fourth gradient.
+ * @param fifthColor - The color of the fifth gradient.
+ * @param pointerColor - The color of the pointer.
+ * @param size - The size of the gradient.
+ * @param blendingValue - The blending value of the gradient.
+ * @param children - The content of the component.
+ * @param className - The class name of the component.
+ * @param interactive - Whether the component is interactive or not.
+ * @param containerClassName - The class name of the container element.
+ * @returns A JSX element representing the gradient animation component.
+ */
 export const BackgroundGradientAnimation = ({
   gradientBackgroundStart = "rgb(0, 0, 0)",
   gradientBackgroundEnd = "rgb(0, 0, 0)",
@@ -189,12 +208,25 @@ interface AuroraBackgroundProps extends React.HTMLProps<HTMLDivElement> {
   showRadialGradient?: boolean;
 }
 
+/**
+ * A component that renders a background that changes color based on the user's mouse position.
+ *
+ * @param {ReactNode} children - The content to render inside the background.
+ * @param {string} [className] - Optional additional class names for styling.
+ * @param {boolean} [showRadialGradient] - Whether to show a radial gradient. Defaults to true.
+ * @returns {JSX.Element} A JSX element representing the background.
+ *
+ * @example
+ * <AuroraBackground>
+ *   <p>Hello World</p>
+ * </AuroraBackground>
+ */
 export const AuroraBackground = ({
   className,
   children,
   showRadialGradient = true,
   ...props
-}: AuroraBackgroundProps) => {
+}: AuroraBackgroundProps): JSX.Element => {
   return (
     <main>
       <div

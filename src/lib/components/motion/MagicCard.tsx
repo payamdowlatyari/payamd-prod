@@ -19,13 +19,24 @@ export interface MagicCardProps extends React.HTMLAttributes<HTMLDivElement> {
   gradientOpacity?: number;
 }
 
+/**
+ * @description A component that renders a card with a magic gradient effect that follows the user's mouse.
+ *
+ * @param {ReactNode} children - The children to render inside the card.
+ * @param {string} [className] - A class name to add to the card.
+ * @param {number} [gradientSize=200] - The size of the gradient effect.
+ * @param {string} [gradientColor="#2f02d1"] - The color of the gradient effect.
+ * @param {number} [gradientOpacity=0.8] - The opacity of the gradient effect.
+ * @returns {JSX.Element}
+ *
+ */
 export function MagicCard({
   children,
   className,
   gradientSize = 200,
   gradientColor = "#2f02d1",
   gradientOpacity = 0.8,
-}: MagicCardProps) {
+}: MagicCardProps): JSX.Element {
   const mouseX = useMotionValue(-gradientSize);
   const mouseY = useMotionValue(-gradientSize);
 
@@ -71,6 +82,45 @@ export function MagicCard({
   );
 }
 
+/**
+ * Creates a card component with a spotlight effect.
+ *
+ * The spotlight effect is a radial gradient that follows the user's mouse.
+ * The gradient is white in the center and transparent at the edges.
+ * The effect is reversed when the user hovers over the component.
+ *
+ * The component accepts the following props:
+ * - radius: The radius of the spotlight effect.
+ * - color: The color of the spotlight effect.
+ * - className: The class name of the component.
+ * - children: The children of the component.
+ *
+ * The component will automatically add the following classes to the root element:
+ * - p-10: Adds padding to the component.
+ * - rounded-md: Adds a rounded corner to the component.
+ * - relative: Sets the position of the component to relative.
+ * - border: Adds a border to the component.
+ * - border-neutral-800: Sets the color of the border to neutral-800.
+ * - bg-black: Sets the background color of the component to black.
+ * - dark:border-neutral-800: Sets the color of the border to neutral-800 when the user is in dark mode.
+ *
+ * The component will also add the following classes to the spotlight element:
+ * - pointer-events-none: Disables mouse events on the spotlight element.
+ * - absolute: Sets the position of the spotlight element to absolute.
+ * - z-0: Sets the z-index of the spotlight element to 0.
+ * - inset-px: Sets the position of the spotlight element to inset-px.
+ * - rounded-md: Adds a rounded corner to the spotlight element.
+ * - opacity-0: Sets the opacity of the spotlight element to 0.
+ * - transition: Adds a transition effect to the spotlight element.
+ * - duration-300: Sets the duration of the transition effect to 300ms.
+ * - group-hover/spotlight:opacity-100: Sets the opacity of the spotlight element to 100 when the user hovers over the component.
+ *
+ * @param {number} radius - The radius of the spotlight effect.
+ * @param {string} color - The color of the spotlight effect.
+ * @param {string} className - The class name of the component.
+ * @param {React.ReactNode} children - The children of the component.
+ * @returns {JSX.Element}
+ */
 export const CardSpotlight = ({
   children,
   radius = 350,
@@ -81,7 +131,7 @@ export const CardSpotlight = ({
   radius?: number;
   color?: string;
   children: React.ReactNode;
-} & React.HTMLAttributes<HTMLDivElement>) => {
+} & React.HTMLAttributes<HTMLDivElement>): JSX.Element => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   function handleMouseMove({

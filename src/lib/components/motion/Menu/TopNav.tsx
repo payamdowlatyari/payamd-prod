@@ -1,20 +1,24 @@
 import { LinkOverlay } from "../View/TailwindButton";
 
-export default function TopNav() {
+/**
+ * TopNav component
+ * @returns {JSX.Element}
+ */
+export default function TopNav(): JSX.Element {
+  const links = [
+    { title: "Home", url: "/" },
+    { title: "About", url: "/about" },
+    { title: "Projects", url: "/projects" },
+    { title: "Contact", url: "/contact" },
+  ];
+
   return (
-    <div className="flex flex-col flex-wrap">
-      <li className="list-none">
-        <LinkOverlay url="/" title="Home" />
-      </li>
-      <li className="list-none">
-        <LinkOverlay url="/about" title="About" />
-      </li>
-      <li className="list-none">
-        <LinkOverlay url="/projects" title="Projects" />
-      </li>
-      <li className="list-none">
-        <LinkOverlay url="/contact" title="Contact" />
-      </li>
-    </div>
+    <ul className="flex flex-col flex-wrap">
+      {links.map(({ title, url }) => (
+        <li key={title} className="list-none">
+          <LinkOverlay url={url} title={title} />
+        </li>
+      ))}
+    </ul>
   );
 }

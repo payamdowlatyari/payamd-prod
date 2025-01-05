@@ -26,7 +26,20 @@ import { GridBeam } from "./BackgroundBeams";
 import ParallaxText from "./ParallaxText";
 import { LinkOverlay } from "./View/TailwindButton";
 
-const useDomToCanvas = (domEl: HTMLDivElement | null) => {
+/**
+ * Custom hook that converts a DOM element into a Canvas texture.
+ *
+ * @param {HTMLDivElement | null} domEl - The DOM element to convert to a canvas texture.
+ * @returns {THREE.Texture | undefined} The canvas texture generated from the DOM element.
+ *
+ * This hook uses `html2canvas` to capture the DOM element and create a canvas.
+ * The resulting canvas is then used to create a `THREE.CanvasTexture` which is
+ * stored in the local state and updated on window resize using a debounced function.
+ */
+
+const useDomToCanvas = (
+  domEl: HTMLDivElement | null
+): THREE.Texture | undefined => {
   const [texture, setTexture] = useState();
   useEffect(() => {
     if (!domEl) return;
@@ -52,7 +65,11 @@ const useDomToCanvas = (domEl: HTMLDivElement | null) => {
   return texture;
 };
 
-function Lights() {
+/**
+ * Lights component
+ * @returns {JSX.Element}
+ */
+function Lights(): JSX.Element {
   const pointLightRef: any = useRef();
 
   useHelper(pointLightRef, PointLightHelper, 0.7, "cyan");
@@ -67,7 +84,11 @@ function Lights() {
   return <pointLight ref={pointLightRef} {...config} />;
 }
 
-function Scene() {
+/**
+ * Scene component
+ * @returns {JSX.Element}
+ */
+function Scene(): JSX.Element {
   const state = useThree();
   const { width, height } = state.viewport;
   const [domEl, setDomEl] = useState<HTMLDivElement | null>(null);
@@ -130,7 +151,12 @@ function Scene() {
     </>
   );
 }
-function Title3D() {
+
+/**
+ * Title3D component
+ * @returns {JSX.Element}
+ */
+function Title3D(): JSX.Element {
   return (
     <div className="absolute top-0 left-0 h-screen w-screen">
       <Canvas
@@ -151,11 +177,19 @@ function Title3D() {
   );
 }
 
-function Aside() {
+/**
+ * Aside component
+ * @returns {JSX.Element}
+ */
+function Aside(): JSX.Element {
   return (
     <div className="absolute flex flex-col self-end h-full w-screen items-end right-0">
       <GridBeam className="flex flex-col items-start justify-end h-[50vh] relative z-10">
-        <div className="flex flex-wrap justify-start items-center px-8 mx-4 mt-16 gap-2">
+        <div className="h-12 w-screen uppercase flex justify-end items-center gap-2">
+          <LinkOverlay url="#intro" title="Who I am" />
+          <LinkOverlay url="#services" title="What I do" />
+        </div>
+        <div className="flex flex-wrap justify-start items-center w-full px-8 my-8 gap-2">
           <h3 className="text-3xl md:text-5xl font-normal text-neutral-500">
             I am a
           </h3>
@@ -163,17 +197,18 @@ function Aside() {
             <FlipWords words={portfolio.words} />
           </h3>
         </div>
-        <div className="h-48 w-screen uppercase flex justify-end items-center gap-2">
-          <LinkOverlay url="#intro" title="Who I am" />
-          <LinkOverlay url="#services" title="What I do" />
-        </div>
+
         <ParallaxText baseVelocity={-0.05}>{portfolio.titles}</ParallaxText>
       </GridBeam>
     </div>
   );
 }
 
-export function Hero3D() {
+/**
+ * Hero3D component
+ * @returns {JSX.Element}
+ */
+export function Hero3D(): JSX.Element {
   return (
     <div className="bg-transparent">
       <Leva

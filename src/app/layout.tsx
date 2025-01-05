@@ -52,7 +52,16 @@ export const metadata: Metadata = {
   },
 };
 
-const RootLayout = ({ children }: RootLayoutProps) => {
+/**
+ * RootLayout component that wraps the entire application.
+ * It provides a global structure for the application by defining the HTML and body tags.
+ *
+ * @param {RootLayoutProps} props - The properties for the RootLayout component.
+ * @param {React.ReactNode} props.children - The content to be rendered within the layout.
+ * @returns {JSX.Element} The RootLayout component.
+ */
+
+const RootLayout = ({ children }: RootLayoutProps): JSX.Element => {
   return (
     <html lang="en">
       <body>

@@ -1,6 +1,20 @@
 import { Tooltip } from "@chakra-ui/react";
 
-export default function Icon({ id, title }: { id: string; title: string }) {
+/**
+ * A component that renders an SVG path with a tooltip.
+ *
+ * @param {string} id The SVG path definition.
+ * @param {string} title The tooltip text.
+ *
+ * @returns {JSX.Element} The rendered SVG element.
+ */
+export default function Icon({
+  id,
+  title,
+}: {
+  id: string;
+  title: string;
+}): JSX.Element {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

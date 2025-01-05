@@ -19,6 +19,22 @@ import React, {
 
 import { cn } from "./utils/cn";
 
+/**
+ * A component that renders a card with a wobble effect when the user moves the
+ * mouse over the card.
+ *
+ * The component takes three props:
+ *
+ * - `children`: The content to render inside the card.
+ * - `containerClassName`: An optional class name to add to the container element.
+ * - `className`: An optional class name to add to the card element.
+ *
+ * The component creates a wobble effect by calculating the position of the mouse
+ * relative to the center of the card and updating the state. It then uses the
+ * `style` property to set the `transform` property of the card element based on
+ * the state. The `transition` property is set to "transform 0.1s ease-out" to
+ * create a smooth animation.
+ */
 export const WobbleCard = ({
   children,
   containerClassName,
@@ -31,6 +47,16 @@ export const WobbleCard = ({
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
+  /**
+   * Sets the mouse position when the user moves the mouse over the card.
+   *
+   * This function is used to create a wobble effect when the user moves the mouse
+   * over the card. It calculates the position of the mouse relative to the
+   * center of the card and updates the state.
+   *
+   * @param {React.MouseEvent<HTMLElement>} event - The event object from the
+   *   `mousemove` event.
+   */
   const handleMouseMove = (event: React.MouseEvent<HTMLElement>) => {
     const { clientX, clientY } = event;
     const rect = event.currentTarget.getBoundingClientRect();
@@ -91,6 +117,19 @@ const MouseEnterContext = createContext<
   [boolean, React.Dispatch<React.SetStateAction<boolean>>] | undefined
 >(undefined);
 
+/**
+ * A component that renders a card with a 3D rotation effect that follows the user's mouse.
+ *
+ * @param {React.ReactNode} children - The children to render inside the card.
+ * @param {string} [className] - A class name to add to the card.
+ * @param {string} [containerClassName] - A class name to add to the container element.
+ * @returns {JSX.Element}
+ *
+ * @example
+ * <CardContainer>
+ *   <div className="relative z-20">Hello World</div>
+ * </CardContainer>
+ */
 export const CardContainer = ({
   children,
   className,
@@ -99,10 +138,16 @@ export const CardContainer = ({
   children?: React.ReactNode;
   className?: string;
   containerClassName?: string;
-}) => {
+}): JSX.Element => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMouseEntered, setIsMouseEntered] = useState(false);
 
+  /**
+   * Updates the container's transform to rotate it in 3D space
+   * based on the user's mouse position.
+   *
+   * @param {React.MouseEvent<HTMLDivElement>} e - The mouse event that triggered this function.
+   */
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
     const { left, top, width, height } =
@@ -112,12 +157,20 @@ export const CardContainer = ({
     containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
   };
 
+  /**
+   * Resets the container's transform to its original state when the user enters the card.
+   * @param {React.MouseEvent<HTMLDivElement>} e - The mouse event that triggered this function.
+   */
   const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
     setIsMouseEntered(true);
     if (!containerRef.current) return;
     containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
   };
 
+  /**
+   * Resets the container's transform to its original state when the user leaves the card.
+   * @param {React.MouseEvent<HTMLDivElement>} e - The mouse event that triggered this function.
+   */
   const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
     setIsMouseEntered(false);
@@ -154,7 +207,20 @@ export const CardContainer = ({
   );
 };
 
-export const useMouseEnter = () => {
+/**
+ * Returns the state of whether the mouse is currently inside the
+ * component's boundaries, and a function to update that state.
+ *
+ * This hook must be used within a `MouseEnterProvider` component.
+ *
+ * @returns {[(boolean), (React.Dispatch<React.SetStateAction<boolean>>)]}
+ *   An array containing the state of whether the mouse is currently
+ *   inside the component's boundaries, and a function to update that state.
+ */
+export const useMouseEnter = (): [
+  boolean,
+  React.Dispatch<React.SetStateAction<boolean>>,
+] => {
   const context = useContext(MouseEnterContext);
   if (context === undefined) {
     throw new Error("useMouseEnter must be used within a MouseEnterProvider");
@@ -180,6 +246,19 @@ export const CardBody = ({
   );
 };
 
+/**
+ * A component that renders a card item with animations when the user hovers it.
+ * It applies the translateX, translateY, translateZ, rotateX, rotateY and rotateZ
+ * CSS properties to the card item.
+ *
+ * @param {{ as?: React.ElementType; children: React.ReactNode; className?: string; translateX?: number | string; translateY?: number | string; translateZ?: number | string; rotateX?: number | string; rotateY?: number | string; rotateZ?: number | string; [key: string]: any; }} props
+ * @returns {JSX.Element}
+ *
+ * @example
+ * <CardItem translateX={20} translateY={20} rotateX={30} rotateY={30}>
+ *   <Image src="/path/to/image.jpg" width={500} height={500} alt="Card item" />
+ * </CardItem>
+ */
 export const CardItem = ({
   as: Tag = "div",
   children,
@@ -202,10 +281,15 @@ export const CardItem = ({
   rotateY?: number | string;
   rotateZ?: number | string;
   [key: string]: any;
-}) => {
+}): JSX.Element => {
   const ref = useRef<HTMLDivElement>(null);
   const [isMouseEntered] = useMouseEnter();
 
+  /**
+   * Handles the animations for the card item when the user hovers it or not.
+   * It applies the translateX, translateY, translateZ, rotateX, rotateY and rotateZ
+   * CSS properties to the card item.
+   */
   const handleAnimations = () => {
     if (!ref.current) return;
     if (isMouseEntered) {
@@ -230,7 +314,20 @@ export const CardItem = ({
   );
 };
 
-export function ThreeDCardDemo({ item }: any) {
+/**
+ * ThreeDCardDemo component renders a 3D interactive card with motion effects.
+ *
+ * @param {Object} props - The component props.
+ * @param {Object} props.item - The item data to display in the card.
+ * @param {string} props.item.title - The title of the item.
+ * @param {string} props.item.description - A brief description of the item.
+ * @param {string} props.item.url - The URL to link to when the card is clicked.
+ * @param {string} props.item.img - The URL of the item image to display.
+ * @param {string[]} [props.item.tags] - An array of tags associated with the item.
+ * @returns {JSX.Element} A JSX element representing a stylized 3D card with hover effects.
+ */
+
+export function ThreeDCardDemo({ item }: any): JSX.Element {
   return (
     <CardContainer className="relative flex flex-row justify-evenly flex-wrap inter-var">
       <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-[20rem] sm:w-[25rem] md:w-[30rem] max-w-screen-sm h-[30rem] rounded-xl p-6 border">
@@ -273,13 +370,22 @@ export function ThreeDCardDemo({ item }: any) {
   );
 }
 
+/**
+ * A component that renders a styled card container.
+ *
+ * @param {Object} props - The component props.
+ * @param {string} [props.className] - Additional class names for custom styling.
+ * @param {React.ReactNode} props.children - The content to be rendered inside the card.
+ * @returns {JSX.Element} A styled card component with default and custom styles.
+ */
+
 export const Card = ({
   className,
   children,
 }: {
   className?: string;
   children: React.ReactNode;
-}) => {
+}): JSX.Element => {
   return (
     <div
       className={cn(
@@ -293,13 +399,23 @@ export const Card = ({
     </div>
   );
 };
+/**
+ * A component that renders a card title with specified styling.
+ *
+ * @param {Object} props - The component props.
+ * @param {string} [props.className] - Optional additional class names for styling.
+ * @param {React.ReactNode} props.children - The content to be rendered as the card title.
+ *
+ * @returns {JSX.Element} A heading element styled as a card title.
+ */
+
 export const CardTitle = ({
   className,
   children,
 }: {
   className?: string;
   children: React.ReactNode;
-}) => {
+}): JSX.Element => {
   return (
     <h4
       className={cn(
@@ -312,13 +428,23 @@ export const CardTitle = ({
   );
 };
 
+/**
+ * A component that renders a styled subtitle paragraph.
+ *
+ * @param {Object} props - The component props.
+ * @param {string} [props.className] - Optional additional class names for styling.
+ * @param {React.ReactNode} props.children - The content to be rendered within the subtitle.
+ *
+ * @returns {JSX.Element} A paragraph element styled as a subtitle.
+ */
+
 export const CardSubTitle = ({
   className,
   children,
 }: {
   className?: string;
   children: React.ReactNode;
-}) => {
+}): JSX.Element => {
   return (
     <p
       className={cn(
@@ -331,13 +457,24 @@ export const CardSubTitle = ({
   );
 };
 
+/**
+ * A component that renders a date label.
+ *
+ * @param {React.ReactNode} children - The date string to render.
+ * @param {string} [className] - An optional class name to add to the element.
+ *
+ * @returns {React.ReactElement}
+ *
+ * @example
+ * <CardDate>Jan 12, 2024</CardDate>
+ */
 export const CardDate = ({
   className,
   children,
 }: {
   className?: string;
   children: React.ReactNode;
-}) => {
+}): React.ReactElement => {
   return (
     <p
       className={cn(
@@ -350,13 +487,22 @@ export const CardDate = ({
   );
 };
 
+/**
+ * A component that renders a description paragraph with specified styling.
+ *
+ * @param {Object} props - The component props.
+ * @param {string} [props.className] - Additional class names for styling.
+ * @param {React.ReactNode} props.children - The content to be displayed within the paragraph.
+ * @returns {JSX.Element} A styled paragraph element.
+ */
+
 export const CardDescription = ({
   className,
   children,
 }: {
   className?: string;
   children: React.ReactNode;
-}) => {
+}): JSX.Element => {
   return (
     <p
       className={cn(
@@ -369,13 +515,26 @@ export const CardDescription = ({
   );
 };
 
+/**
+ * A component that renders a group of items with a hover effect.
+ * @param {{ items: any[]; className?: string; }} props
+ * @returns {JSX.Element}
+ *
+ * @example
+ * <HoverEffect
+ *   items={[
+ *     { title: 'Item 1', subtitle: 'Subtitle 1', description: 'Description 1', link: '#' },
+ *     { title: 'Item 2', subtitle: 'Subtitle 2', description: 'Description 2', link: '#' },
+ *   ]}
+ * />
+ */
 export const HoverEffect = ({
   items,
   className,
 }: {
   items: any[];
   className?: string;
-}) => {
+}): JSX.Element => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (

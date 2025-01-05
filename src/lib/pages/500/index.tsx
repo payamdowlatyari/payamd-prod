@@ -7,12 +7,17 @@ import {
   Link as ChakraLink,
   useColorMode,
   Flex,
+  chakra,
 } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
-import MotionBox from "~/lib/components/motion/Box";
-
-const Page500 = () => {
+const MotionBox = motion(chakra.div);
+/**
+ * Page500 component
+ * @returns {JSX.Element}
+ */
+const Page500 = (): JSX.Element => {
   const { colorMode } = useColorMode();
 
   return (

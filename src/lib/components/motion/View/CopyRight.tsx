@@ -1,6 +1,10 @@
 import Link from "next/link";
 
-export default function CopyRight() {
+/**
+ * CopyRight component
+ * @returns {JSX.Element}
+ */
+export default function CopyRight(): JSX.Element {
   return (
     <div className="flex mx-auto text-sm self-end py-7">
       <Link

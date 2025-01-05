@@ -2,13 +2,19 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
+/**
+ * Logo component
+ * @param {boolean} light
+ * @param {number} size
+ * @returns {JSX.Element}
+ */
 export default function Logo({
   light,
   size,
 }: {
   light: boolean;
   size: number;
-}) {
+}): JSX.Element {
   return (
     <motion.div
       whileHover={{ scale: 1.1 }}

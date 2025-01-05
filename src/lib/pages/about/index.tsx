@@ -10,13 +10,17 @@ import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBar";
 import ScrollReveal from "~/lib/components/motion/ScrollReveal";
 import Footer from "~/lib/layout/Footer";
 
-const AboutRoute = () => {
+/**
+ * About component
+ * @returns {JSX.Element}
+ */
+const About = (): JSX.Element => {
   return (
     <motion.main
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 3, ease: "easeInOut" }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
       className="bg-black"
     >
       <Menu />
@@ -26,7 +30,7 @@ const AboutRoute = () => {
       >
         <div className="flex flex-col flex-1 flex-wrap md:flex-nowrap items-baseline z-10">
           <motion.div className="absolute mt-28 mx-1 w-screen flex flex-wrap items-center justify-evenly">
-            <BlurFade delay={1} inView>
+            <BlurFade delay={0.5} inView>
               <div className="w-full flex mt-4 items-center justify-center">
                 <h1 className="text-center text-6xl md:text-9xl lg:text-[10rem] font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-300 to-neutral-700 select-none">
                   About
@@ -38,7 +42,7 @@ const AboutRoute = () => {
                 in California
               </p>
             </BlurFade>
-            <BlurFade delay={0.5} inView>
+            <BlurFade delay={0} inView>
               <Image
                 src="/me-ai-red.jpeg"
                 width={400}
@@ -97,4 +101,4 @@ const AboutRoute = () => {
   );
 };
 
-export default AboutRoute;
+export default About;

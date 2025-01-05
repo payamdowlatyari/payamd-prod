@@ -201,7 +201,13 @@ const DATA = {
   },
 };
 
-export function DockDemo() {
+/**
+ * A demo of the Dock component, displaying a dock in the middle of the screen
+ * with the social media links from the DATA object.
+ *
+ * @returns {JSX.Element} A JSX element representing the dock demo.
+ */
+export function DockDemo(): JSX.Element {
   return (
     <div className="bg-transparent relative flex h-full w-full flex-col items-center justify-center overflow-hidden">
       <Tooltip>

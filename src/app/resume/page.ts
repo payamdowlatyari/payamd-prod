@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import ResumeRoute from "~/lib/pages/resume";
+import Resume from "~/lib/pages/resume";
 
 export const metadata: Metadata = {
   title: "Resume",
@@ -8,4 +8,4 @@ export const metadata: Metadata = {
     "Payam Dowlatyari's resume. This page has Payam's resume including his education, experience, certifications, publications, and skills.",
 };
 
-export default ResumeRoute;
+export default Resume;

@@ -1,7 +1,19 @@
 import Link from "next/link";
 import { RiArrowRightUpLine } from "react-icons/ri";
 
-export function GlassButton({ title, url }: { title: string; url: string }) {
+/**
+ * GlassButton component
+ * @param {string} title - The title of the button.
+ * @param {string} url - The URL to navigate to when the button is clicked.
+ * @returns {JSX.Element}
+ */
+export function GlassButton({
+  title,
+  url,
+}: {
+  title: string;
+  url: string;
+}): JSX.Element {
   return (
     <Link
       href={url}
@@ -18,7 +30,19 @@ export function GlassButton({ title, url }: { title: string; url: string }) {
   );
 }
 
-export function Shimmer({ title, url }: { title: string; url: string }) {
+/**
+ * Shimmer component
+ * @param {string} title - The title of the button.
+ * @param {string} url - The URL to navigate to when the button is clicked.
+ * @returns {JSX.Element}
+ */
+export function Shimmer({
+  title,
+  url,
+}: {
+  title: string;
+  url: string;
+}): JSX.Element {
   return (
     <Link
       href={url}
@@ -29,7 +53,19 @@ export function Shimmer({ title, url }: { title: string; url: string }) {
   );
 }
 
-export function BorderMagic({ title, url }: { title: string; url: string }) {
+/**
+ * BorderMagic component
+ * @param {string} title - The title of the button.
+ * @param {string} url - The URL to navigate to when the button is clicked.
+ * @returns {JSX.Element}
+ */
+export function BorderMagic({
+  title,
+  url,
+}: {
+  title: string;
+  url: string;
+}): JSX.Element {
   return (
     <Link
       href={url}
@@ -43,13 +79,25 @@ export function BorderMagic({ title, url }: { title: string; url: string }) {
   );
 }
 
-export function LinkOverlay({ title, url }: { title: string; url: string }) {
+/**
+ * LinkOverlay component
+ * @param {string} title - The title of the button.
+ * @param {string} url - The URL to navigate to when the button is clicked.
+ * @returns {JSX.Element}
+ */
+export function LinkOverlay({
+  title,
+  url,
+}: {
+  title: string;
+  url: string;
+}): JSX.Element {
   return (
     <Link
       href={url}
-      className="px-2 py-1 m-1 md:px-4 md:py-2 md:m-2 text-neutral-300"
+      className="px-2 py-1 m-1 md:px-4 md:py-2 md:m-2 text-neutral-100"
     >
-      <div className="relative overflow-hidden group font-medium">
+      <div className="relative overflow-hidden group font-semibold">
         <span className="invisible">{title}</span>
         <span className="absolute top-0 left-0 group-hover:-translate-y-full transition-transform ease-in-out duration-500 hover:duration-300">
           {title}
@@ -62,7 +110,19 @@ export function LinkOverlay({ title, url }: { title: string; url: string }) {
   );
 }
 
-export function LinkArrowOut({ title, url }: { title: string; url: string }) {
+/**
+ * LinkArrowOut component
+ * @param {string} title - The title of the button.
+ * @param {string} url - The URL to navigate to when the button is clicked.
+ * @returns {JSX.Element}
+ */
+export function LinkArrowOut({
+  title,
+  url,
+}: {
+  title: string;
+  url: string;
+}): JSX.Element {
   return (
     <Link
       href={url}

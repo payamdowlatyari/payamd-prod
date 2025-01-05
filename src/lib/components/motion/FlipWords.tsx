@@ -3,10 +3,31 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useCallback, useEffect, useState } from "react";
+import { ReactElement, useCallback, useEffect, useState } from "react";
 
 import { cn } from "./utils/cn";
 
+/**
+ * FlipWords is a component that takes a list of words and displays them in a
+ * sequential, animated manner. It cycles through the words and displays them
+ * in a given duration.
+ *
+ * It uses Framer Motion to animate the words, and uses the AnimatePresence
+ * component to manage the animation state.
+ *
+ * Each word is split into individual letters, and each letter is animated
+ * independently. The words are displayed in a vertical list, with each word
+ * being displayed on top of the previous one.
+ *
+ * The component can be styled with the className prop, and the animation
+ * duration can be set with the duration prop.
+ *
+ * @param {Object} props - The component props.
+ * @param {string[]} props.words - The list of words to display.
+ * @param {number} props.duration - The duration of the animation in milliseconds.
+ * @param {string} props.className - The class name to apply to the component.
+ * @returns {ReactElement} The FlipWords component.
+ */
 export const FlipWords = ({
   words,
   duration = 3000,
@@ -15,7 +36,7 @@ export const FlipWords = ({
   words: string[];
   duration?: number;
   className?: string;
-}) => {
+}): ReactElement => {
   const [currentWord, setCurrentWord] = useState(words[0]);
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
 

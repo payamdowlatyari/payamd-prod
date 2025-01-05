@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import AboutRoute from "~/lib/pages/about";
+import About from "~/lib/pages/about";
 
 export const metadata: Metadata = {
   title: "About",
@@ -8,4 +8,4 @@ export const metadata: Metadata = {
     "About Payam Dowlatyari, which is a full-stack web developer and designer. Here is more about him.",
 };
 
-export default AboutRoute;
+export default About;

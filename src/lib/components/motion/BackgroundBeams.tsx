@@ -7,13 +7,27 @@ import React, { useRef, useState, useEffect } from "react";
 
 import { cn } from "./utils/cn";
 
+/**
+ * A component that renders a series of animated background beams with collision detection.
+ *
+ * @param {React.ReactNode} children - The content to render inside the background beams.
+ * @param {string} [className] - Optional additional class names for styling the container.
+ * @returns {JSX.Element} A React component rendering the background beams with collision detection.
+ *
+ * The component uses a set of predefined beams with various animation properties such as
+ * initial position, translation, duration, delay, and repeat delay. Each beam is rendered using
+ * the `CollisionMechanism` component, which handles the animation and collision detection logic.
+ * The container and its children are styled to occupy full height and width, with optional custom
+ * class names for additional styling.
+ */
+
 export const BackgroundBeamsWithCollision = ({
   children,
   className,
 }: {
   children: React.ReactNode;
   className?: string;
-}) => {
+}): JSX.Element => {
   const containerRef = useRef<HTMLDivElement>(null);
   const parentRef = useRef<HTMLDivElement>(null);
 
@@ -229,7 +243,21 @@ const CollisionMechanism = React.forwardRef<
 
 CollisionMechanism.displayName = "CollisionMechanism";
 
-const Explosion = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
+/**
+ * Explosion animation component.
+ *
+ * This component renders an explosion animation at the specified position,
+ * using a combination of a gradient background and a series of moving spans to
+ * create a burst effect.
+ *
+ * @param {Object} props - props to be passed to the component
+ * @param {string} [props.className] - additional class names for styling
+ *
+ * @returns {JSX.Element} A JSX element representing the explosion animation.
+ */
+const Explosion = ({
+  ...props
+}: React.HTMLProps<HTMLDivElement>): JSX.Element => {
   const spans = Array.from({ length: 20 }, (_, index) => ({
     id: index,
     initialX: 0,
@@ -402,6 +430,14 @@ export const BackgroundBeams = React.memo(
 
 BackgroundBeams.displayName = "BackgroundBeams";
 
+/**
+ * A single beam element that animates a gradient from left to right.
+ *
+ * The `Beam` component is an SVG element that renders a single beam with a gradient
+ * animation. The gradient animation moves from left to right and repeats indefinitely.
+ *
+ * @returns A JSX element representing a single beam.
+ */
 export const Beam = () => {
   return (
     <svg
@@ -453,6 +489,18 @@ export const Beam = () => {
     </svg>
   );
 };
+/**
+ * A component that renders a beam of light and its children.
+ *
+ * The `GridBeam` component is a convenience wrapper around the `Beam` component.
+ * It renders a single beam of light and its children inside a container
+ * element. The container element is a `div` with a class name that is the
+ * result of merging the `className` prop with the `cn` function.
+ *
+ * @param {React.ReactNode} children - The content of the component.
+ * @param {string} className - The class name of the container element.
+ * @returns A JSX element representing the component.
+ */
 export const GridBeam: React.FC<{
   children: React.ReactNode;
   className?: string;

@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 
 import { about, services } from "~/lib/components/data/data";
-import { BorderBeam } from "~/lib/components/motion/BorderBeam";
 import { Feature } from "~/lib/components/motion/Feature";
 import { Hero3D } from "~/lib/components/motion/Hero3D";
 import ImageEffect from "~/lib/components/motion/ImageEffect";
@@ -13,7 +12,11 @@ import { LinkOverlay } from "~/lib/components/motion/View/TailwindButton";
 import Footer from "~/lib/layout/Footer";
 import Header from "~/lib/layout/Header";
 
-const Home = () => {
+/**
+ * Home component
+ * @returns {JSX.Element}
+ */
+const Home = (): JSX.Element => {
   return (
     <motion.main
       initial={{ opacity: 1 }}
@@ -31,13 +34,12 @@ const Home = () => {
         <div className="flex flex-wrap justify-evenly items-center w-full">
           <div className="max-w-2xl p-2 my-4 z-0">
             <div className="relative flex h-full w-full flex-col justify-center overflow-hidden rounded-lg border border-transparent md:shadow-xl p-4">
-              <h2 className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b bg-clip-text text-3xl md:text-5xl font-semibold text-transparent from-gray-200 to-gray-500 p-2">
+              <h2 className="text-5xl lg:text-6xl tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-500 to-neutral-700 select-none">
                 {about.title}
               </h2>
-              <p className="text-base md:text-lg lg:text-xl text-gray-300 mt-4 px-2">
+              <p className="text-base md:text-lg lg:text-xl text-neutral-300 mt-4 px-2">
                 {about.text}
               </p>
-              <BorderBeam size={250} duration={12} delay={9} />
             </div>
             <div className="flex justify-center uppercase">
               <LinkOverlay url="/about" title="About me" />
@@ -61,10 +63,12 @@ const Home = () => {
               Services
             </h2>
           </div>
-          <p className="text-base md:text-lg lg:text-xl text-neutral-300 mt-4 px-2">
-            The technologies I work with <br /> and services I offer
+          <p className="text-sm md:text-base lg:text-lg text-neutral-300 mt-4 px-2">
+            These are the services I can provide for you as a software engineer
+            <br />
+            including the technologies I have worked with in recent years.
           </p>
-          <div className="flex justify-end uppercase">
+          <div className="flex justify-center uppercase">
             <LinkOverlay url="/projects" title="My projects" />
           </div>
         </div>

@@ -190,6 +190,18 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
   );
 };
 
+/**
+ * A component that renders a hero highlight with a circle that follows the user's mouse position.
+ *
+ * @param {{ children: React.ReactNode, className?: string, containerClassName?: string }}
+ *   The component props.
+ * @returns {JSX.Element}
+ *
+ * @example
+ * <HeroHighlight>
+ *   <div className="relative z-20">Hello World</div>
+ * </HeroHighlight>
+ */
 export const HeroHighlight = ({
   children,
   className,
@@ -198,10 +210,17 @@ export const HeroHighlight = ({
   children: React.ReactNode;
   className?: string;
   containerClassName?: string;
-}) => {
+}): JSX.Element => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
+  /**
+   * Updates the mouse position motion values when the user moves the mouse
+   * over the hero highlight container.
+   *
+   * @param {{ currentTarget: HTMLElement, clientX: number, clientY: number }}
+   *   The event object from the `mousemove` event.
+   */
   function handleMouseMove({
     currentTarget,
     clientX,
@@ -244,13 +263,21 @@ export const HeroHighlight = ({
   );
 };
 
+/**
+ * Highlight component that animates a gradient background from left to right.
+ *
+ * @param {React.ReactNode} children - The content to be highlighted.
+ * @param {string} [className] - Optional additional class names for styling.
+ * @returns {JSX.Element} A motion span element with a background animation.
+ */
+
 export const Highlight = ({
   children,
   className,
 }: {
   children: React.ReactNode;
   className?: string;
-}) => {
+}): JSX.Element => {
   return (
     <motion.span
       initial={{

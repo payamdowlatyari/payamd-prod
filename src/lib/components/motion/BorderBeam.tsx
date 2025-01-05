@@ -11,6 +11,28 @@ interface BorderBeamProps {
   delay?: number;
 }
 
+/**
+ * A beam of light that moves horizontally across the element.
+ *
+ * The beam is a pseudo-element that is rendered with a gradient from
+ * `colorFrom` to `colorTo` and has a width of `size` pixels. The beam
+ * is positioned at the `anchor` percentage of the element, and has a
+ * delay of `delay` seconds.
+ *
+ * The beam is rendered with a mask that is a linear gradient from
+ * transparent to white, which is then composited with the background
+ * image of the element to create a "beam" effect.
+ *
+ * @param {string} className CSS class names to add to the element.
+ * @param {number} size The width of the beam in pixels. Defaults to 250.
+ * @param {number} duration The duration of the animation in seconds. Defaults to 15.
+ * @param {number} anchor The position of the beam as a percentage of the element. Defaults to 90.
+ * @param {number} borderWidth The width of the border in pixels. Defaults to 1.5.
+ * @param {string} colorFrom The color of the beam at the start. Defaults to "#0000ff".
+ * @param {string} colorTo The color of the beam at the end. Defaults to "#ffff00".
+ * @param {number} delay The delay of the animation in seconds. Defaults to 0.
+ * @returns A JSX element representing the BorderBeam.
+ */
 export const BorderBeam = ({
   className,
   size = 250,
@@ -57,6 +79,19 @@ interface ShineBorderProps {
   children: React.ReactNode;
 }
 
+/**
+ * A component that renders a child element with a shining border effect.
+ *
+ * @param {object} props The component props.
+ * @prop {number} [borderRadius=8] The border radius of the child element.
+ * @prop {number} [borderWidth=1] The border width of the child element.
+ * @prop {number} [duration=14] The duration of the animation in seconds.
+ * @prop {string|string[]} [color="#000000"] The color of the shining border. Can be a single color or an array of colors.
+ * @prop {string} [className] The class name to add to the child element.
+ * @prop {React.ReactNode} children The child element(s) to render with the shining border effect.
+ *
+ * @returns A JSX element representing the ShineBorder.
+ */
 export function ShineBorder({
   borderRadius = 8,
   borderWidth = 1,
