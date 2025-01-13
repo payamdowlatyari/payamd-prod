@@ -31,7 +31,7 @@ const Contact = (): JSX.Element => {
                 <h1 className="text-5xl sm:text-7xl font-semibold max-w-lg">
                   Contact
                 </h1>
-                <p className="text-neutral-400 max-w-lg text-center">
+                <p className="text-neutral-400 max-w-lg md:text-lg text-center">
                   Get in touch with me
                 </p>
               </div>

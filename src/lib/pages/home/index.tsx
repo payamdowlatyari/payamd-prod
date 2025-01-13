@@ -34,13 +34,13 @@ const Home = (): JSX.Element => {
         <div className="flex flex-wrap justify-evenly items-center w-full">
           <div className="max-w-2xl p-2 my-4 z-0">
             <div className="relative flex h-full w-full flex-col justify-center overflow-hidden rounded-lg border border-transparent md:shadow-xl p-4">
-              <p className="text-3xl lg:text-4xl tracking-tight leading-8 p-2 bg-clip-text text-transparent bg-gradient-to-b from-neutral-500 to-neutral-700 select-none">
+              <p className="text-3xl lg:text-4xl tracking-tight leading-8 p-2 bg-clip-text text-transparent bg-gradient-to-b from-neutral-400 to-neutral-600 select-none">
                 My name is
               </p>
-              <h2 className="text-5xl lg:text-6xl tracking-tight leading-none p-1 bg-clip-text text-transparent bg-gradient-to-b from-neutral-500 to-neutral-700 select-none">
+              <h2 className="text-5xl lg:text-6xl tracking-tight leading-none p-1 bg-clip-text text-transparent bg-gradient-to-b from-neutral-400 to-neutral-600 select-none">
                 Payam Dowlatyari
               </h2>
-              <p className="text-sm md:text-base lg:text-lg text-neutral-400 mt-4">
+              <p className="text-sm md:text-base lg:text-lg text-neutral-400 m-1 mt-4">
                 {about.text}
               </p>
             </div>
@@ -62,7 +62,7 @@ const Home = (): JSX.Element => {
       >
         <div>
           <div className="w-full flex my-4 items-center justify-start">
-            <h2 className="text-7xl lg:text-9xl tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-500 to-neutral-900 select-none">
+            <h2 className="text-5xl md:text-7xl tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-400 to-neutral-600 select-none">
               Services
             </h2>
           </div>
@@ -71,8 +71,9 @@ const Home = (): JSX.Element => {
             <br />
             including the technologies I have worked with in recent years.
           </p>
-          <div className="flex justify-end items-center gap-1 md:gap-2 text-sm md:text-base uppercase">
+          <div className="flex justify-start items-center gap-1 md:gap-2 p-2 text-sm md:text-base uppercase">
             <LinkOverlay url="/projects" title="My projects" />
+            <LinkOverlay url="/contact" title="Contact me" />
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 relative z-10 py-10 max-w-7xl ">

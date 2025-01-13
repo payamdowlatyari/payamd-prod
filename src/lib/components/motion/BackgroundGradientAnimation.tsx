@@ -26,17 +26,17 @@ import { cn } from "./utils/cn";
 export const BackgroundGradientAnimation = ({
   gradientBackgroundStart = "rgb(0, 0, 0)",
   gradientBackgroundEnd = "rgb(0, 0, 0)",
-  firstColor = "0, 0, 0",
-  secondColor = "0, 0, 0",
+  firstColor = "0, 50, 100",
+  secondColor = "0, 0, 50",
   thirdColor = "0, 0, 100",
-  fourthColor = "0, 0, 0",
+  fourthColor = "0, 0, 50",
   fifthColor = "0, 0, 0",
-  pointerColor = "0, 0, 0",
+  pointerColor = "50, 0, 150",
   size = "80%",
   blendingValue = "hard-light",
   children,
   className,
-  interactive = false,
+  interactive = true,
   containerClassName,
 }: {
   gradientBackgroundStart?: string;
@@ -112,7 +112,7 @@ export const BackgroundGradientAnimation = ({
   return (
     <div
       className={cn(
-        "z-1 h-screen w-screen fixed overflow-hidden top-0 left-0 bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]",
+        "z-0 h-screen w-screen fixed overflow-hidden top-0 left-0 bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]",
         containerClassName
       )}
     >

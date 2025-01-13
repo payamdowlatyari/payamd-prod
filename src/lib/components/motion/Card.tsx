@@ -7,6 +7,7 @@
 
 "use client";
 
+import { Button } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,6 +20,7 @@ import React, {
 } from "react";
 
 import { cn } from "./utils/cn";
+import { LinkArrowOut } from "./View/TailwindButton";
 
 /**
  * A component that renders a card with a wobble effect when the user moves the
@@ -415,7 +417,7 @@ export const CardTitle = ({
   return (
     <h4
       className={cn(
-        "text-neutral-100 font-bold tracking-wide text-base md:text-lg",
+        "text-neutral-100 font-semibold tracking-wide text-base md:text-lg",
         className
       )}
     >
@@ -470,7 +472,7 @@ export const CardDate = ({
   return (
     <p
       className={cn(
-        "mt-1 text-neutral-400 tracking-wide leading-relaxed text-xs md:text-sm min-w-12",
+        "mt-1 ml-1 text-neutral-400 tracking-wide leading-relaxed text-xs md:text-sm min-w-12",
         className
       )}
     >
@@ -569,3 +571,105 @@ export const HoverEffect = ({
     </div>
   );
 };
+
+export function ExpandableCard({
+  /**
+   * The height of the card when it is collapsed.
+   */
+  height = "8rem",
+  /**
+   * The class name to apply to the root container.
+   */
+  className = "",
+  children,
+  /**
+   * Whether the button should be full width or not.
+   */
+  wide = false,
+}: {
+  height: string;
+  wide?: boolean;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  const [isExpanded, setIsExpanded] = React.useState(false);
+  const [contentHeight, setContentHeight] = React.useState(0);
+  const contentRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    if (contentRef.current) {
+      setContentHeight(contentRef.current.scrollHeight);
+    }
+  }, []);
+  return (
+    <div
+      className={cn(
+        "rounded-2xl h-full w-full p-2 overflow-hidden bg-black bg-opacity-90 border border-white/[0.2] group-hover:border-slate-700 group-hover:bg-opacity-100 relative z-20",
+        className
+      )}
+    >
+      <div className="relative overflow-hidden bg-inherit dark:bg-inherit">
+        <div
+          ref={contentRef}
+          id="expandable-content"
+          className="transition-all duration-300 ease-in-out"
+          style={{ height: isExpanded ? `${contentHeight}px` : height }}
+        >
+          {children}
+        </div>
+        <div
+          data-expanded={isExpanded}
+          className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-inherit dark:from-inherit/50 to-transparent pointer-events-none data-[expanded=true]:opacity-0 transition-opacity duration-300 ease-in-out"
+          aria-hidden={isExpanded ? "true" : "false"}
+        />
+        <div
+          className={cn(
+            "mx-auto bg-inherit dark:bg-inherit",
+            wide ? "w-full" : "w-fit",
+            isExpanded ? "pt-2" : "absolute bottom-4 inset-x-0"
+          )}
+        >
+          <Button
+            variant="outline"
+            className="w-full bg-inherit dark:bg-inherit rounded-lg"
+            onClick={() => setIsExpanded(!isExpanded)}
+            aria-expanded={isExpanded}
+            aria-controls="expandable-content"
+          >
+            {isExpanded ? "Collapse" : "Expand"}
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function ResumeCard({ items }: { items: any }) {
+  return (
+    <div className="flex flex-col my-5 max-w-screen-sm">
+      {items.map((item: any, idx: number) => (
+        <div key={idx} className="h-full w-full p-2 mt-2 overflow-hidden">
+          <div className="flex justify-between">
+            {/* <CardTitle>{item.title}</CardTitle> */}
+            {item.link ? (
+              <LinkArrowOut title={item.title} url={item.link} />
+            ) : (
+              <CardTitle>{item.title}</CardTitle>
+            )}
+            <CardDate>{item.date}</CardDate>
+          </div>
+          <CardSubTitle>{item.subtitle}</CardSubTitle>
+          <CardDescription>
+            {item.description && item.description.length > 0 && (
+              <>
+                {item.description.map((d: any, i: number) => (
+                  <p key={i}>{d}</p>
+                ))}
+              </>
+            )}
+          </CardDescription>
+        </div>
+      ))}
+    </div>
+  );
+}

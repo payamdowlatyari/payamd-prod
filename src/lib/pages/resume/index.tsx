@@ -7,8 +7,7 @@ import { IoIosArrowRoundDown } from "react-icons/io";
 import { resume } from "~/lib/components/data/data";
 import { GridBeam } from "~/lib/components/motion/BackgroundBeams";
 import { BlurFade } from "~/lib/components/motion/BlurFade";
-import { HoverEffect } from "~/lib/components/motion/Card";
-import IconCloud from "~/lib/components/motion/IconCloud";
+import { ResumeCard } from "~/lib/components/motion/Card";
 import { Logos, Marquee } from "~/lib/components/motion/Marquee";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBar";
@@ -21,7 +20,7 @@ import Footer from "~/lib/layout/Footer";
 const Resume = (): JSX.Element => {
   const ref = useRef(null);
   const { scrollY } = useScroll({ target: ref });
-  const x = useTransform(scrollY, [1500, 13000], ["20%", "-120%"], {
+  const x = useTransform(scrollY, [1500, 12000], ["20%", "-120%"], {
     clamp: false,
   });
   const opacity = useTransform(
@@ -64,7 +63,7 @@ const Resume = (): JSX.Element => {
       </div>
       <motion.section
         id="resume"
-        className="block top-0 max-w-screen-lg overflow-hidden h-[1400vh] p-0"
+        className="block top-0 max-w-screen-lg overflow-hidden h-[1200vh] p-0"
         ref={ref}
         layoutScroll
       >
@@ -91,7 +90,7 @@ const Resume = (): JSX.Element => {
 
                     <div className="max-w-screen-lg flex flex-col justify-evenly">
                       <BlurFade delay={1} inView>
-                        <HoverEffect items={section.items} />
+                        <ResumeCard items={section.items} />
                       </BlurFade>
                     </div>
                   </div>
@@ -115,17 +114,6 @@ const Resume = (): JSX.Element => {
           ))}
         </Marquee>
       </motion.div>
-
-      <div className="relative flex flex-wrap gap-4 size-full max-w-lg items-center justify-center overflow-hidden rounded-lg px-10 pb-10 pt-8 mx-auto">
-        <BlurFade delay={0.5} inView>
-          <div className="w-full flex mt-4 items-center justify-center">
-            <h2 className="text-center text-5xl lg:text-7xl tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-500 to-neutral-700 select-none">
-              Skills
-            </h2>
-          </div>
-        </BlurFade>
-        <IconCloud />
-      </div>
       <Footer />
       <ScrollProgressBar showPercentage />
     </motion.main>

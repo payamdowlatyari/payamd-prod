@@ -30,14 +30,14 @@ const About = (): JSX.Element => {
         className="flex flex-wrap relative items-end justify-center overflow-hidden"
       >
         <div className="flex flex-col flex-1 flex-wrap md:flex-nowrap items-baseline z-10">
-          <motion.div className="absolute mt-28 mx-1 w-screen flex flex-wrap items-center justify-evenly">
+          <motion.div className="absolute mt-[25vh] mx-1 w-screen flex flex-wrap items-center justify-evenly">
             <BlurFade delay={0.5} inView>
               <GridBeam className="sm:pl-16 pt-28 pl-4 flex">
                 <div className="grid gap-2">
                   <h1 className="text-5xl sm:text-7xl font-semibold max-w-sm">
                     About
                   </h1>
-                  <p className="text-neutral-400 max-w-lg">
+                  <p className="text-neutral-400 md:text-lg max-w-lg">
                     My name is Payam Dowlatyari a Software Engineer in
                     California
                   </p>
@@ -56,7 +56,7 @@ const About = (): JSX.Element => {
               />
             </BlurFade>
           </motion.div>
-          <ScrollReveal className="text-xl sm:text-2xl md:text-3xl text-neutral-200 z-10 mx-auto">
+          <ScrollReveal className="text-lg sm:text-xl md:text-2xl text-neutral-200 z-10 mx-auto">
             After obtaining my B.S. in Software Engineering from UC Irvine in
             2020, I entered the tech industry and worked at Amplify.ai for three
             years developing AI applications. I satrted working as a software

@@ -294,7 +294,7 @@ export const certificate = [
     date: "Oct 2019",
     link: "https://www.interaction-design.org/members/payam-dowlatyari",
     description: [
-      "Certificates on various topics such as Design Thinking, Data-driven design, Service Design, etc.",
+      "Certificates on topics such as Design Thinking, Data-driven design, Service Design, etc.",
     ],
   },
 ];

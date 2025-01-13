@@ -63,7 +63,7 @@ export const SendMail = () => {
           <div className="h-[1px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-white to-[rgba(17,17,17,0)] transition-all duration-1000" />
         </div>
         <input
-          className="block h-12 w-full rounded-md border border-neutral-800 bg-neutral-950 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 focus:ring-offset-gray-50"
+          className="block h-12 w-full rounded-md border border-slate-800 bg-slate-950 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 focus:ring-offset-gray-50"
           placeholder="Your name"
           name="from_name"
           type="text"
@@ -74,7 +74,7 @@ export const SendMail = () => {
           <div className="h-[1px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-white to-[rgba(17,17,17,0)] transition-all duration-1000" />
         </div>
         <input
-          className="block h-12 w-full rounded-md border border-neutral-800 bg-neutral-950 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 focus:ring-offset-gray-50"
+          className="block h-12 w-full rounded-md border border-slate-800 bg-slate-950 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 focus:ring-offset-gray-50"
           placeholder="Your email"
           name="user_email"
           type="email"
@@ -86,7 +86,7 @@ export const SendMail = () => {
         </div>
 
         <textarea
-          className="block h-32 w-full rounded-md border border-neutral-800 bg-neutral-950 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 focus:ring-offset-gray-50"
+          className="block h-32 w-full rounded-md border border-slate-800 bg-slate-950 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 focus:ring-offset-gray-50"
           placeholder="Type your message here..."
           rows={5}
           name="message"
@@ -94,7 +94,7 @@ export const SendMail = () => {
       </div>
       <button
         type="submit"
-        className="inline-flex h-12 w-full animate-background-shine items-center justify-center rounded-md border border-neutral-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-neutral-400 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-neutral-50 hover:text-neutral-50 hover:shadow-lg duration-500"
+        className="inline-flex h-12 w-full animate-background-shine items-center justify-center rounded-md border border-slate-800 hover:border-slate-200 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-neutral-400 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-neutral-50 hover:text-neutral-50 hover:shadow-lg duration-500"
       >
         Send Message
       </button>
