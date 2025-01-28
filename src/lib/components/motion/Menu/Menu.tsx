@@ -119,14 +119,12 @@ export default function Menu(): JSX.Element {
         className="flex flex-wrap w-screen h-screen bg-neutral-950 relative items-end justify-center"
         ref={scope}
       >
-        <div className="flex flex-wrap w-full h-[80vh] md:h-[70vh] justify-around items-center content-end">
+        <div className="flex flex-wrap w-full h-4/5 sm:h-3/5 md:h-2/3 justify-around items-center content-end">
           <Nav />
           <Contact />
         </div>
-        <div className="m-auto h-[20vh] md:h-[30vh] z-10">
-          <div className="flex flex-col items-center justify-center h-full w-full py-2 social">
-            <DockDemo />
-          </div>
+        <div className="flex flex-col items-center justify-end h-1/5 sm:h-2/5 md:h-1/3 py-2 social">
+          <DockDemo />
         </div>
       </motion.div>
     </motion.nav>

@@ -46,7 +46,6 @@ const Home = (): JSX.Element => {
             </div>
             <div className="flex justify-start items-center gap-1 md:gap-2 px-1 md:px-2 text-sm md:text-base uppercase">
               <LinkOverlay url="/about" title="About me" />
-              <LinkOverlay url="/resume" title="My resume" />
               <LinkOverlay url="/contact" title="Contact me" />
             </div>
           </div>

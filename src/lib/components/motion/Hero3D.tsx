@@ -188,7 +188,7 @@ function Aside(): JSX.Element {
           <LinkOverlay url="#intro" title="Who I am" />
           <LinkOverlay url="#services" title="What I do" />
         </div>
-        <div className="flex flex-wrap justify-start items-center w-full px-8 my-8 gap-2">
+        <div className="flex justify-start items-center w-full px-8 my-8 gap-2">
           <h3 className="text-3xl md:text-5xl font-normal text-neutral-500">
             I am a
           </h3>

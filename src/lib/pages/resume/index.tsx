@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
 import { IoIosArrowRoundDown } from "react-icons/io";
 
@@ -8,9 +9,11 @@ import { resume } from "~/lib/components/data/data";
 import { GridBeam } from "~/lib/components/motion/BackgroundBeams";
 import { BlurFade } from "~/lib/components/motion/BlurFade";
 import { ResumeCard } from "~/lib/components/motion/Card";
+import { LinkPreview } from "~/lib/components/motion/LinkPreview";
 import { Logos, Marquee } from "~/lib/components/motion/Marquee";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBar";
+import ScrollReveal from "~/lib/components/motion/ScrollReveal";
 import Footer from "~/lib/layout/Footer";
 
 /**
@@ -20,13 +23,13 @@ import Footer from "~/lib/layout/Footer";
 const Resume = (): JSX.Element => {
   const ref = useRef(null);
   const { scrollY } = useScroll({ target: ref });
-  const x = useTransform(scrollY, [1500, 12000], ["20%", "-120%"], {
+  const x = useTransform(scrollY, [3000, 15000], ["20%", "-120%"], {
     clamp: false,
   });
   const opacity = useTransform(
     scrollY,
-    [0, 11000, 11500, 12000],
-    [1, 1, 0, 0],
+    [0, 1000, 1500, 13000, 15000],
+    [0, 0, 1, 0, 0],
     {
       clamp: false,
     }
@@ -42,6 +45,60 @@ const Resume = (): JSX.Element => {
       transition={{ duration: 1.5, ease: "easeInOut" }}
     >
       <Menu />
+
+      <section
+        id="about"
+        className="flex flex-wrap relative items-end justify-center overflow-hidden"
+      >
+        <div className="flex flex-col flex-1 flex-wrap md:flex-nowrap items-baseline z-10">
+          <motion.div className="absolute mt-40 sm:mt-[25vh] mx-1 w-screen flex flex-wrap items-center justify-evenly">
+            <BlurFade delay={0.5} inView>
+              <GridBeam className="pl-4 sm:pl-16 pt-14 sm:pt-28 flex">
+                <div className="grid gap-2">
+                  <h1 className="text-5xl sm:text-7xl font-semibold max-w-sm">
+                    About
+                  </h1>
+                  <p className="text-neutral-400 md:text-lg max-w-lg">
+                    My name is Payam Dowlatyari a Software Engineer in
+                    California
+                  </p>
+                </div>
+              </GridBeam>
+            </BlurFade>
+
+            <BlurFade delay={0} inView>
+              <Image
+                src="/me-ai-red_processed.jpeg"
+                width={400}
+                height={400}
+                alt="me"
+                className="opacity-80 hover:opacity-100 scale-75 md:scale-100"
+                loading="lazy"
+              />
+            </BlurFade>
+          </motion.div>
+          <ScrollReveal className="text-lg sm:text-xl md:text-2xl text-neutral-200 z-10 mx-auto">
+            After obtaining my B.S. in Software Engineering from UC Irvine in
+            2020, I entered the tech industry and worked at Amplify.ai for three
+            years developing AI applications. I satrted working as a software
+            engineer and web application architect at Avalon AI to improve
+            healthcare services in the United States. Having the opportunity to
+            study at UCI and work in an innovative start-up environments, I have
+            improved my technical and soft skills, uncovered my passion for
+            design, and expanded my mastery in software development in recent
+            years. Meanwhile, I dedicated time to learning new skills and
+            completed a 9-month postgraduate program in full-stack web
+            development. Likewise, I gained hands-on experience with different
+            tools, such as JS/TS-based frameworks, including React.js,
+            server-side technologies such as Node.js, automation and DevOps
+            tools, and database technologies such as SQL and NoSQL databases, as
+            well as cloud technologies such as AWS, Google Cloud, and Microsoft
+            Azure. I am a team player, and I am always willing to learn new
+            skills and improve my skills. I have a great interest in learning
+            new technologies and am always looking for new challenges.
+          </ScrollReveal>
+        </div>
+      </section>
       <div className="relative flex flex-col gap-4 h-screen w-screen items-center justify-center overflow-hidden p-8 z-0 mx-auto">
         <BlurFade delay={0.5} inView>
           <GridBeam className="sm:pl-16 pt-28 pl-4 flex">
@@ -100,6 +157,7 @@ const Resume = (): JSX.Element => {
           </motion.ul>
         </div>
       </motion.section>
+
       <motion.div layout style={{ opacity }} className="sticky bottom-0 z-10">
         <div className="absolute left-0 w-1/6 h-full bg-gradient-to-r from-black to-transparent z-10 bg-opacity-50" />
         <div className="absolute right-0 w-1/6 h-full bg-gradient-to-l from-black to-transparent z-10 bg-opacity-50" />
@@ -114,6 +172,25 @@ const Resume = (): JSX.Element => {
           ))}
         </Marquee>
       </motion.div>
+      <div className=" flex justify-center items-center w-screen z-10 px-4 relative bottom-0">
+        <p className="text-neutral-400 text-xl md:text-2xl mx-auto mb-10">
+          Check out my personal{" "}
+          <LinkPreview
+            url="https://payamd-blog.vercel.app/"
+            className="font-bold"
+          >
+            Blog
+          </LinkPreview>{" "}
+          and{" "}
+          <LinkPreview
+            url="https://payamd-photo.vercel.app/"
+            className="font-bold"
+          >
+            Photography
+          </LinkPreview>{" "}
+          portfolio.
+        </p>
+      </div>
       <Footer />
       <ScrollProgressBar showPercentage />
     </motion.main>

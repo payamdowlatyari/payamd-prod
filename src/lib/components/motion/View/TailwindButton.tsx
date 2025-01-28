@@ -88,14 +88,16 @@ export function BorderMagic({
 export function LinkOverlay({
   title,
   url,
+  className = "",
 }: {
   title: string;
   url: string;
+  className?: string;
 }): JSX.Element {
   return (
     <Link
       href={url}
-      className="px-2 py-1 m-1 md:px-4 md:py-2 md:m-2 text-neutral-100"
+      className={`px-2 py-1 m-1 md:px-4 md:py-2 md:m-2 text-neutral-100 ${className}`}
     >
       <div className="relative overflow-hidden group font-semibold">
         <span className="invisible">{title}</span>

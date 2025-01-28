@@ -8,7 +8,6 @@ export default function Nav(): JSX.Element {
   const links = [
     { title: "Home", url: "/" },
     { title: "About", url: "/about" },
-    { title: "Resume", url: "/resume" },
     { title: "Projects", url: "/projects" },
     { title: "Contact", url: "/contact" },
   ];
@@ -16,7 +15,7 @@ export default function Nav(): JSX.Element {
   return (
     <ul className="inline-grid justify-center h-fit w-fit py-2 min-w-72">
       {links.map(({ title, url }) => (
-        <li key={title} className="list-none py-1">
+        <li key={title} className="list-none my-2">
           <HoverLink title={title} url={url} />
         </li>
       ))}
