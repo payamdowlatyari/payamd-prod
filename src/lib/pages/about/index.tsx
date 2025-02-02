@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-import { IoIosArrowRoundDown } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 
 import { resume } from "~/lib/components/data/data";
 import { GridBeam } from "~/lib/components/motion/BackgroundBeams";
@@ -72,7 +72,7 @@ const About = (): JSX.Element => {
                 width={400}
                 height={400}
                 alt="me"
-                className="opacity-80 hover:opacity-100 scale-75 md:scale-100"
+                className="scale-75 md:scale-100 opacity-75"
                 loading="lazy"
               />
             </BlurFade>
@@ -99,20 +99,18 @@ const About = (): JSX.Element => {
           </ScrollReveal>
         </div>
       </section>
-      <div className="relative flex flex-col gap-4 h-screen w-screen items-center justify-center overflow-hidden p-8 z-0 mx-auto">
+      <div className="flex flex-col gap-4 h-screen w-screen items-center justify-center overflow-hidden p-8 z-0 mx-auto">
         <BlurFade delay={0.5} inView>
           <GridBeam className="sm:pl-16 pt-28 pl-4 flex">
             <div className="grid gap-2">
-              <h1 className="text-5xl sm:text-7xl font-semibold max-w-sm text-center">
-                Resume
-              </h1>
-              <p className="text-neutral-400 max-w-sm text-center">
+              <h1 className="text-5xl sm:text-7xl font-semibold">Resume</h1>
+              <p className="text-neutral-400 max-w-lg">
                 Here is a summary of my experience, education, professional
                 certifications, academic publications, and technical skills.{" "}
               </p>
-              <p className="text-neutral-100 mx-auto z-10 flex flex-col items-center text-center gap-2 mt-12">
+              <p className="text-neutral-100 z-10 flex items-center justify-end gap-2 mt-12">
                 Scroll down
-                <IoIosArrowRoundDown />
+                <IoIosArrowForward />
               </p>
             </div>
           </GridBeam>
@@ -137,7 +135,7 @@ const About = (): JSX.Element => {
                   <div className="flex flex-col justify-center max-w-[98vw] h-[90vh] overflow-hidden z-10">
                     <div className="flex flex-col-reverse px-4">
                       <BlurFade delay={0.5} inView>
-                        <div className="w-full flex mt-2 items-center justify-center">
+                        <div className="w-full flex mt-2 items-center justify-start">
                           <h2 className="text-center text-5xl md:text-7xl tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-500 to-neutral-700 select-none">
                             {section.section}
                           </h2>
@@ -172,8 +170,8 @@ const About = (): JSX.Element => {
           ))}
         </Marquee>
       </motion.div>
-      <div className=" flex justify-center items-center w-screen z-10 px-4 relative bottom-0">
-        <p className="text-neutral-400 text-xl md:text-2xl mx-auto mb-10">
+      <div className="flex flex-col justify-center items-center text-center max-w-sm m-auto z-10 px-4 relative bottom-0">
+        <p className="text-neutral-400 text-2xl sm:text-3xl md:text-4xl mx-auto mb-10">
           Check out my personal{" "}
           <LinkPreview
             url="https://payamd-blog.vercel.app/"

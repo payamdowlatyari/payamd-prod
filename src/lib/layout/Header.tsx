@@ -17,7 +17,7 @@ const Header = (): JSX.Element => {
         delay: 4,
         ease: "circInOut",
       }}
-      className="fixed flex justify-center bg-black top-0 left-0 w-full h-full origin-center z-[1002]"
+      className="fixed flex justify-center top-0 left-0 w-full h-full origin-center bg-neutral-950 z-[1002]"
     >
       <motion.div
         initial={{ opacity: 1, zIndex: "102" }}
@@ -28,7 +28,7 @@ const Header = (): JSX.Element => {
           ease: "easeIn",
         }}
         layout
-        className="self-center mix-blend-difference text-9xl"
+        className="self-center text-9xl"
       >
         <NumberTicker value={100} />
       </motion.div>

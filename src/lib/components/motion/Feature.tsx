@@ -32,14 +32,18 @@ export const Feature = ({
   icon: React.ReactNode;
 }): JSX.Element => {
   return (
-    <div className={cn("flex flex-col py-10 relative group/feature")}>
-      <div className="mb-4 relative z-10 px-10">{icon}</div>
-      <div className="text-lg font-bold mb-2 relative z-10 px-10">
-        <span className="group-hover/feature:translate-x-2 text-neutral-300 transition duration-200 inline-block">
+    <div
+      className={cn(
+        "flex flex-col py-10 relative text-neutral-300 group/feature"
+      )}
+    >
+      <div className="mb-4 relative z-10 px-5 md:px-10">{icon}</div>
+      <div className="text-lg font-bold mb-2 relative z-10 px-5 md:px-10">
+        <span className="group-hover/feature:translate-x-2 transition duration-200 inline-block">
           {title}
         </span>
       </div>
-      <p className="text-sm max-w-xs relative z-10 px-10 text-neutral-300">
+      <p className="text-sm max-w-xs relative z-10 px-5 md:px-10">
         {description}
       </p>
     </div>

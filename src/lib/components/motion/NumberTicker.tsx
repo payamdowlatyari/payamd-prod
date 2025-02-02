@@ -58,7 +58,7 @@ export function NumberTicker({
   return (
     <span
       className={cn(
-        "inline-block tracking-wider text-[10rem] font-bold text-neutral-400",
+        "inline-block tracking-wider text-3xl font-bold leading-none",
         className
       )}
       ref={ref}

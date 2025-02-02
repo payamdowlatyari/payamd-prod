@@ -24,7 +24,7 @@ import { FlipWords } from "./FlipWords";
 import { portfolio } from "../data/data";
 import { GridBeam } from "./BackgroundBeams";
 import ParallaxText from "./ParallaxText";
-import { LinkOverlay } from "./View/TailwindButton";
+import { TextHoverEnter } from "./TextHoverEnter";
 
 /**
  * Custom hook that converts a DOM element into a Canvas texture.
@@ -185,8 +185,8 @@ function Aside(): JSX.Element {
     <div className="absolute flex flex-col self-end h-full w-screen items-end right-0">
       <GridBeam className="flex flex-col items-start justify-end h-[50vh] relative z-10">
         <div className="h-12 w-screen uppercase flex justify-end items-center gap-2">
-          <LinkOverlay url="#intro" title="Who I am" />
-          <LinkOverlay url="#services" title="What I do" />
+          <TextHoverEnter url="#intro" title="Who I am" />
+          <TextHoverEnter url="#services" title="What I do" />
         </div>
         <div className="flex justify-start items-center w-full px-8 my-8 gap-2">
           <h3 className="text-3xl md:text-5xl font-normal text-neutral-500">
