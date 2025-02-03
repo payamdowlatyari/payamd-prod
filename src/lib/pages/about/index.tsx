@@ -3,7 +3,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-import { IoIosArrowForward } from "react-icons/io";
 
 import { resume } from "~/lib/components/data/data";
 import { GridBeam } from "~/lib/components/motion/BackgroundBeams";
@@ -14,6 +13,7 @@ import { Logos, Marquee } from "~/lib/components/motion/Marquee";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBar";
 import ScrollReveal from "~/lib/components/motion/ScrollReveal";
+// import { TextHoverEnter } from "~/lib/components/motion/TextHoverEnter";
 import Footer from "~/lib/layout/Footer";
 
 /**
@@ -26,14 +26,9 @@ const About = (): JSX.Element => {
   const x = useTransform(scrollY, [2500, 15000], ["20%", "-120%"], {
     clamp: false,
   });
-  const opacity = useTransform(
-    scrollY,
-    [0, 1000, 1500, 13000, 15000],
-    [0, 0, 1, 0, 0],
-    {
-      clamp: false,
-    }
-  );
+  const opacity = useTransform(scrollY, [0, 1500, 12000, 12500], [0, 1, 1, 0], {
+    clamp: false,
+  });
 
   return (
     <motion.main
@@ -58,7 +53,7 @@ const About = (): JSX.Element => {
                   <h1 className="text-5xl sm:text-7xl font-semibold max-w-sm">
                     About
                   </h1>
-                  <p className="text-neutral-400 md:text-lg max-w-lg">
+                  <p className="text-neutral-400 md:text-lg max-w-screen-sm">
                     My name is Payam Dowlatyari a Software Engineer in
                     California
                   </p>
@@ -99,18 +94,14 @@ const About = (): JSX.Element => {
           </ScrollReveal>
         </div>
       </section>
-      <div className="flex flex-col gap-4 h-screen w-screen items-center justify-center overflow-hidden p-8 z-0 mx-auto">
+      <div className="flex flex-col gap-4 h-screen w-screen items-center justify-center overflow-hidden p-4 z-0 mx-auto">
         <BlurFade delay={0.5} inView>
-          <GridBeam className="sm:pl-16 pt-28 pl-4 flex">
+          <GridBeam className="sm:pl-8 pt-2 pl-4 flex">
             <div className="grid gap-2">
               <h1 className="text-5xl sm:text-7xl font-semibold">Resume</h1>
-              <p className="text-neutral-400 max-w-lg">
-                Here is a summary of my experience, education, professional
-                certifications, academic publications, and technical skills.{" "}
-              </p>
-              <p className="text-neutral-100 z-10 flex items-center justify-end gap-2 mt-12">
-                Scroll down
-                <IoIosArrowForward />
+              <p className="text-neutral-400 md:text-lg max-w-sm">
+                Scroll down to view a summary of my experience, skills, and
+                education
               </p>
             </div>
           </GridBeam>
@@ -118,7 +109,7 @@ const About = (): JSX.Element => {
       </div>
       <motion.section
         id="resume"
-        className="block top-0 max-w-screen-lg overflow-hidden h-[1200vh] p-0"
+        className="block top-0 max-w-screen-lg overflow-hidden h-[1250vh] p-0"
         ref={ref}
         layoutScroll
       >
@@ -173,16 +164,13 @@ const About = (): JSX.Element => {
       <div className="flex flex-col justify-center items-center text-center max-w-sm m-auto z-10 px-4 relative bottom-0">
         <p className="text-neutral-400 text-2xl sm:text-3xl md:text-4xl mx-auto mb-10">
           Check out my personal{" "}
-          <LinkPreview
-            url="https://payamd-blog.vercel.app/"
-            className="font-bold"
-          >
+          <LinkPreview url="https://blog.payamd.com/" className="font-semibold">
             Blog
           </LinkPreview>{" "}
           and{" "}
           <LinkPreview
-            url="https://payamd-photo.vercel.app/"
-            className="font-bold"
+            url="https://photos.payamd.com/"
+            className="font-semibold"
           >
             Photography
           </LinkPreview>{" "}

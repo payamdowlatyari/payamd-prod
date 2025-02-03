@@ -212,7 +212,7 @@ export const HeroParallax = ({
               <h1 className="text-5xl sm:text-7xl font-semibold max-w-sm">
                 Projects
               </h1>
-              <p className="text-neutral-400 max-w-lg">
+              <p className="text-neutral-400 max-w-xl">
                 Here are some of my most recent works in web applications and
                 landing pages. I have used different tools, technologies, and
                 services to create these projects.

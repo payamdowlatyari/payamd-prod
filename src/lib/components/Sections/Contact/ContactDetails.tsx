@@ -21,7 +21,7 @@ export default function Contacts(): JSX.Element {
     {
       title: "Check Out",
       links: [
-        { name: "My Blog", url: "https://blog.payamd.com" },
+        { name: "Blog", url: "https://blog.payamd.com" },
         { name: "Photography", url: "https://photos.payamd.com" },
       ],
     },
