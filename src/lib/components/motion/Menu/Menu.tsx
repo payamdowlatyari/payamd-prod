@@ -123,7 +123,8 @@ export default function Menu(): JSX.Element {
           <Nav />
           <Contact />
         </div>
-        <div className="flex flex-col items-center justify-end h-1/5 sm:h-2/5 md:h-1/3 py-2 social">
+
+        <div className="flex flex-col items-center justify-end min-w-72 h-1/5 sm:h-2/5 md:h-1/3 py-2 social">
           <DockDemo />
         </div>
       </motion.div>

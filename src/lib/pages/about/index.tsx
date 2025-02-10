@@ -72,7 +72,7 @@ const About = (): JSX.Element => {
               />
             </BlurFade>
           </motion.div>
-          <ScrollReveal className="text-lg sm:text-xl md:text-2xl text-neutral-200 z-10 mx-auto">
+          <ScrollReveal className="text-lg sm:text-2xl md:text-3xl text-neutral-200 z-10 mx-auto">
             After obtaining my B.S. in Software Engineering from UC Irvine in
             2020, I entered the tech industry and worked at Amplify.ai for three
             years developing AI applications. I satrted working as a software
@@ -93,8 +93,21 @@ const About = (): JSX.Element => {
             new technologies and am always looking for new challenges.
           </ScrollReveal>
         </div>
+        <div className="flex flex-col w-screen">
+          <BlurFade delay={0.5} inView>
+            <GridBeam className="sm:pl-8 pt-2 pl-4 flex">
+              <div className="grid gap-2 max-w-lg">
+                <h1 className="text-5xl sm:text-7xl font-semibold">Resume</h1>
+                <p className="text-neutral-400 text-2xl sm:text-3xl md:text-4xl">
+                  Scroll down to view a summary of my experience, skills, and
+                  education
+                </p>
+              </div>
+            </GridBeam>
+          </BlurFade>
+        </div>
       </section>
-      <div className="flex flex-col gap-4 h-screen w-screen items-center justify-center overflow-hidden p-4 z-0 mx-auto">
+      {/* <div className="flex flex-col gap-4 h-screen w-screen items-center justify-center overflow-hidden p-4 z-0 mx-auto">
         <BlurFade delay={0.5} inView>
           <GridBeam className="sm:pl-8 pt-2 pl-4 flex">
             <div className="grid gap-2">
@@ -106,7 +119,7 @@ const About = (): JSX.Element => {
             </div>
           </GridBeam>
         </BlurFade>
-      </div>
+      </div> */}
       <motion.section
         id="resume"
         className="block top-0 max-w-screen-lg overflow-hidden h-[1250vh] p-0"
