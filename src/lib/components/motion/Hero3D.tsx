@@ -127,7 +127,7 @@ function Scene(): JSX.Element {
     <>
       <Html zIndexRange={[-1, -10]} prepend fullscreen>
         <div ref={(el) => setDomEl(el)} className="dom-element">
-          <h1 className="flex flex-col text-neutral-500">
+          <h1 className="flex flex-col text-neutral-600">
             PAYAM <br />
             DOWLATYARI
           </h1>
@@ -188,11 +188,11 @@ function Aside(): JSX.Element {
           <TextHoverEnter url="#intro" title="Who I am" />
           <TextHoverEnter url="#services" title="What I do" />
         </div>
-        <div className="flex justify-start items-center w-full px-8 my-8 gap-2">
-          <h3 className="text-3xl md:text-5xl font-normal text-neutral-500">
+        <div className="flex flex-col justify-start items-start w-full px-8 my-8 gap-2">
+          <h3 className="text-2xl md:text-4xl font-normal text-neutral-300">
             I am a
           </h3>
-          <h3 className="text-3xl md:text-5xl font-normal text-neutral-300">
+          <h3 className="text-3xl md:text-5xl font-normal text-neutral-500">
             <FlipWords words={portfolio.words} />
           </h3>
         </div>

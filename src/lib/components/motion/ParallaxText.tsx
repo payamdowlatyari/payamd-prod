@@ -63,7 +63,7 @@ export default function ParallaxText({
       {[1, 2, 3, 4].map((index) => (
         <span
           key={index}
-          className="block mr-5 text-5xl md:text-7xl lg:text-9xl bg-gradient-to-b bg-clip-text leading-none text-transparent from-slate-50 to-slate-700/20"
+          className="block mr-5 text-5xl md:text-7xl lg:text-9xl bg-gradient-to-b bg-clip-text leading-none text-transparent from-neutral-400 to-neutral-600"
         >
           {children}{" "}
         </span>

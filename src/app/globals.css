@@ -62,10 +62,11 @@
   .dom-element {
     width: 100%;
     height: 100%;
-    font-size: clamp(48px, 15vw, 128px);
+    font-size: clamp(54px, 15vw, 160px);
+    max-width: 100vw;
     display: flex;
     align-items: center;
-    padding-left: 2vw;
+    padding-left: 1vw;
     line-height: 0.8;
     font-weight: 700;
   }
