@@ -57,13 +57,13 @@ export default function ParallaxText({
 
   return (
     <motion.div
-      className="uppercase flex whitespace-nowrap flex-nowrap mix-blend-difference tracking-[-2px]"
+      className="uppercase flex whitespace-nowrap flex-nowrap -tracking-wide"
       style={{ x }}
     >
       {[1, 2, 3, 4].map((index) => (
         <span
           key={index}
-          className="block mr-5 text-5xl md:text-7xl lg:text-9xl bg-gradient-to-b bg-clip-text leading-none text-transparent from-neutral-400 to-neutral-600"
+          className="block mr-5 text-5xl md:text-7xl lg:text-9xl bg-gradient-to-b bg-clip-text leading-none text-transparent from-neutral-600 to-neutral-800"
         >
           {children}{" "}
         </span>

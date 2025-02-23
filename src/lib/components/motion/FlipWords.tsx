@@ -11,22 +11,10 @@ import { cn } from "./utils/cn";
  * FlipWords is a component that takes a list of words and displays them in a
  * sequential, animated manner. It cycles through the words and displays them
  * in a given duration.
- *
- * It uses Framer Motion to animate the words, and uses the AnimatePresence
- * component to manage the animation state.
- *
- * Each word is split into individual letters, and each letter is animated
- * independently. The words are displayed in a vertical list, with each word
- * being displayed on top of the previous one.
- *
- * The component can be styled with the className prop, and the animation
- * duration can be set with the duration prop.
- *
- * @param {Object} props - The component props.
- * @param {string[]} props.words - The list of words to display.
- * @param {number} props.duration - The duration of the animation in milliseconds.
- * @param {string} props.className - The class name to apply to the component.
- * @returns {ReactElement} The FlipWords component.
+ * @param words - The list of words to display.
+ * @param duration - The duration to display each word.
+ * @param className - The class name of the component.
+ * @returns A JSX element representing the FlipWords component.
  */
 export const FlipWords = ({
   words,

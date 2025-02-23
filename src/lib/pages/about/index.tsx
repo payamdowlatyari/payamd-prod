@@ -13,7 +13,6 @@ import { Logos, Marquee } from "~/lib/components/motion/Marquee";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBar";
 import ScrollReveal from "~/lib/components/motion/ScrollReveal";
-// import { TextHoverEnter } from "~/lib/components/motion/TextHoverEnter";
 import Footer from "~/lib/layout/Footer";
 
 /**
@@ -21,14 +20,22 @@ import Footer from "~/lib/layout/Footer";
  * @returns {JSX.Element}
  */
 const About = (): JSX.Element => {
-  const ref = useRef(null);
-  const { scrollY } = useScroll({ target: ref });
-  const x = useTransform(scrollY, [2500, 15000], ["20%", "-120%"], {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const x = useTransform(scrollYProgress, [0.2, 1], ["5%", "-105%"], {
     clamp: false,
   });
-  const opacity = useTransform(scrollY, [0, 1500, 12000, 12500], [0, 1, 1, 0], {
-    clamp: false,
-  });
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.1, 0.2, 0.8, 0.9, 1],
+    [0, 0, 1, 1, 0, 0],
+    {
+      clamp: false,
+    }
+  );
 
   return (
     <motion.main
@@ -72,7 +79,7 @@ const About = (): JSX.Element => {
               />
             </BlurFade>
           </motion.div>
-          <ScrollReveal className="text-lg sm:text-2xl md:text-3xl text-neutral-200 z-10 mx-auto">
+          <ScrollReveal className="text-lg sm:text-3xl md:text-4xl text-neutral-300 font-thin z-10 mx-auto">
             After obtaining my B.S. in Software Engineering from UC Irvine in
             2020, I entered the tech industry and worked at Amplify.ai for three
             years developing AI applications. I satrted working as a software
@@ -82,9 +89,9 @@ const About = (): JSX.Element => {
             improved my technical and soft skills, uncovered my passion for
             design, and expanded my mastery in software development in recent
             years. Meanwhile, I dedicated time to learning new skills and
-            completed a 9-month postgraduate program in full-stack web
-            development. Likewise, I gained hands-on experience with different
-            tools, such as JS/TS-based frameworks, including React.js,
+            completed a postgraduate program in full-stack web development.
+            Likewise, I gained hands-on experience with different tools, such as
+            JavaScript libraries and frameworks, including React.js and Next.js,
             server-side technologies such as Node.js, automation and DevOps
             tools, and database technologies such as SQL and NoSQL databases, as
             well as cloud technologies such as AWS, Google Cloud, and Microsoft
@@ -93,33 +100,7 @@ const About = (): JSX.Element => {
             new technologies and am always looking for new challenges.
           </ScrollReveal>
         </div>
-        <div className="flex flex-col w-screen">
-          <BlurFade delay={0.5} inView>
-            <GridBeam className="sm:pl-8 pt-2 pl-4 flex">
-              <div className="grid gap-2 max-w-lg">
-                <h1 className="text-5xl sm:text-7xl font-semibold">Resume</h1>
-                <p className="text-neutral-400 text-2xl sm:text-3xl md:text-4xl">
-                  Scroll down to view a summary of my experience, skills, and
-                  education
-                </p>
-              </div>
-            </GridBeam>
-          </BlurFade>
-        </div>
       </section>
-      {/* <div className="flex flex-col gap-4 h-screen w-screen items-center justify-center overflow-hidden p-4 z-0 mx-auto">
-        <BlurFade delay={0.5} inView>
-          <GridBeam className="sm:pl-8 pt-2 pl-4 flex">
-            <div className="grid gap-2">
-              <h1 className="text-5xl sm:text-7xl font-semibold">Resume</h1>
-              <p className="text-neutral-400 md:text-lg max-w-sm">
-                Scroll down to view a summary of my experience, skills, and
-                education
-              </p>
-            </div>
-          </GridBeam>
-        </BlurFade>
-      </div> */}
       <motion.section
         id="resume"
         className="block top-0 max-w-screen-lg overflow-hidden h-[1250vh] p-0"

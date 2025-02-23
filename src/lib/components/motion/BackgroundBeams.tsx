@@ -2,295 +2,10 @@
 
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import React, { useRef, useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import React from "react";
 
 import { cn } from "./utils/cn";
-
-/**
- * A component that renders a series of animated background beams with collision detection.
- *
- * @param {React.ReactNode} children - The content to render inside the background beams.
- * @param {string} [className] - Optional additional class names for styling the container.
- * @returns {JSX.Element} A React component rendering the background beams with collision detection.
- *
- * The component uses a set of predefined beams with various animation properties such as
- * initial position, translation, duration, delay, and repeat delay. Each beam is rendered using
- * the `CollisionMechanism` component, which handles the animation and collision detection logic.
- * The container and its children are styled to occupy full height and width, with optional custom
- * class names for additional styling.
- */
-export const BackgroundBeamsWithCollision = ({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}): JSX.Element => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const parentRef = useRef<HTMLDivElement>(null);
-
-  const beams = [
-    {
-      initialX: 10,
-      translateX: 10,
-      duration: 7,
-      repeatDelay: 3,
-      delay: 2,
-    },
-    {
-      initialX: 600,
-      translateX: 600,
-      duration: 3,
-      repeatDelay: 3,
-      delay: 4,
-    },
-    {
-      initialX: 100,
-      translateX: 100,
-      duration: 7,
-      repeatDelay: 7,
-      className: "h-6",
-    },
-    {
-      initialX: 400,
-      translateX: 400,
-      duration: 5,
-      repeatDelay: 14,
-      delay: 4,
-    },
-    {
-      initialX: 800,
-      translateX: 800,
-      duration: 11,
-      repeatDelay: 2,
-      className: "h-20",
-    },
-    {
-      initialX: 1000,
-      translateX: 1000,
-      duration: 4,
-      repeatDelay: 2,
-      className: "h-12",
-    },
-    {
-      initialX: 1200,
-      translateX: 1200,
-      duration: 6,
-      repeatDelay: 4,
-      delay: 2,
-      className: "h-6",
-    },
-  ];
-
-  return (
-    <div
-      ref={parentRef}
-      className={cn(
-        "h-full bg-transparent relative flex items-center w-full justify-center overflow-hidden",
-        // h-screen if you want bigger
-        className
-      )}
-    >
-      {beams.map((beam) => (
-        // eslint-disable-next-line @typescript-eslint/no-use-before-define
-        <CollisionMechanism
-          key={`${beam.initialX}beam-idx`}
-          beamOptions={beam}
-          containerRef={containerRef}
-          parentRef={parentRef}
-        />
-      ))}
-
-      {children}
-      <div
-        ref={containerRef}
-        className="absolute bottom-0 bg-neutral-100 w-full z-10 inset-x-0 pointer-events-none"
-        style={{
-          boxShadow:
-            "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset",
-        }}
-      />
-    </div>
-  );
-};
-
-const CollisionMechanism = React.forwardRef<
-  HTMLDivElement,
-  {
-    containerRef: React.RefObject<HTMLDivElement>;
-    parentRef: React.RefObject<HTMLDivElement>;
-    beamOptions?: {
-      initialX?: number;
-      translateX?: number;
-      initialY?: number;
-      translateY?: number;
-      rotate?: number;
-      className?: string;
-      duration?: number;
-      delay?: number;
-      repeatDelay?: number;
-    };
-  }
->(({ parentRef, containerRef, beamOptions = {} }) => {
-  const beamRef = useRef<HTMLDivElement>(null);
-  const [collision, setCollision] = useState<{
-    detected: boolean;
-    coordinates: { x: number; y: number } | null;
-  }>({
-    detected: false,
-    coordinates: null,
-  });
-  const [beamKey, setBeamKey] = useState(0);
-  const [cycleCollisionDetected, setCycleCollisionDetected] = useState(false);
-
-  useEffect(() => {
-    const checkCollision = () => {
-      if (
-        beamRef.current &&
-        containerRef.current &&
-        parentRef.current &&
-        !cycleCollisionDetected
-      ) {
-        const beamRect = beamRef.current.getBoundingClientRect();
-        const containerRect = containerRef.current.getBoundingClientRect();
-        const parentRect = parentRef.current.getBoundingClientRect();
-
-        if (beamRect.bottom >= containerRect.top) {
-          const relativeX =
-            beamRect.left - parentRect.left + beamRect.width / 2;
-          const relativeY = beamRect.bottom - parentRect.top;
-
-          setCollision({
-            detected: true,
-            coordinates: {
-              x: relativeX,
-              y: relativeY,
-            },
-          });
-          setCycleCollisionDetected(true);
-        }
-      }
-    };
-
-    const animationInterval = setInterval(checkCollision, 50);
-
-    return () => clearInterval(animationInterval);
-  }, [cycleCollisionDetected, containerRef, parentRef]);
-
-  useEffect(() => {
-    if (collision.detected && collision.coordinates) {
-      setTimeout(() => {
-        setCollision({ detected: false, coordinates: null });
-        setCycleCollisionDetected(false);
-      }, 2000);
-
-      setTimeout(() => {
-        setBeamKey((prevKey) => prevKey + 1);
-      }, 2000);
-    }
-  }, [collision]);
-
-  return (
-    <>
-      <motion.div
-        key={beamKey}
-        ref={beamRef}
-        animate="animate"
-        initial={{
-          translateY: beamOptions.initialY || "-200px",
-          translateX: beamOptions.initialX || "0px",
-          rotate: beamOptions.rotate || 0,
-        }}
-        variants={{
-          animate: {
-            translateY: beamOptions.translateY || "1800px",
-            translateX: beamOptions.translateX || "0px",
-            rotate: beamOptions.rotate || 0,
-          },
-        }}
-        transition={{
-          duration: beamOptions.duration || 8,
-          repeat: Infinity,
-          repeatType: "loop",
-          ease: "linear",
-          delay: beamOptions.delay || 0,
-          repeatDelay: beamOptions.repeatDelay || 0,
-        }}
-        className={cn(
-          "absolute left-0 top-20 m-auto h-14 w-px rounded-full bg-gradient-to-t from-indigo-500 via-violet-300 to-transparent",
-          beamOptions.className
-        )}
-      />
-      <AnimatePresence>
-        {collision.detected && collision.coordinates && (
-          // eslint-disable-next-line @typescript-eslint/no-use-before-define
-          <Explosion
-            key={`${collision.coordinates.x}-${collision.coordinates.y}`}
-            className=""
-            style={{
-              left: `${collision.coordinates.x}px`,
-              top: `${collision.coordinates.y}px`,
-              transform: "translate(-50%, -50%)",
-            }}
-          />
-        )}
-      </AnimatePresence>
-    </>
-  );
-});
-
-CollisionMechanism.displayName = "CollisionMechanism";
-
-/**
- * Explosion animation component.
- *
- * This component renders an explosion animation at the specified position,
- * using a combination of a gradient background and a series of moving spans to
- * create a burst effect.
- *
- * @param {Object} props - props to be passed to the component
- * @param {string} [props.className] - additional class names for styling
- *
- * @returns {JSX.Element} A JSX element representing the explosion animation.
- */
-const Explosion = ({
-  ...props
-}: React.HTMLProps<HTMLDivElement>): JSX.Element => {
-  const spans = Array.from({ length: 20 }, (_, index) => ({
-    id: index,
-    initialX: 0,
-    initialY: 0,
-    directionX: Math.floor(Math.random() * 80 - 40),
-    directionY: Math.floor(Math.random() * -50 - 10),
-  }));
-
-  return (
-    // eslint-disable-next-line react/prop-types
-    <div {...props} className={cn("absolute z-50 h-2 w-2", props.className)}>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute -inset-x-10 top-0 m-auto h-2 w-10 rounded-full bg-gradient-to-r from-transparent via-indigo-500 to-transparent blur-sm"
-      />
-      {spans.map((span) => (
-        <motion.span
-          key={span.id}
-          initial={{ x: span.initialX, y: span.initialY, opacity: 1 }}
-          animate={{
-            x: span.directionX,
-            y: span.directionY,
-            opacity: 0,
-          }}
-          transition={{ duration: Math.random() * 1.5 + 0.5, ease: "easeOut" }}
-          className="absolute h-1 w-1 rounded-full bg-gradient-to-b from-indigo-500 to-lightBlue-500"
-        />
-      ))}
-    </div>
-  );
-};
 
 export const BackgroundBeams = React.memo(
   ({ className }: { className?: string }) => {
@@ -427,15 +142,8 @@ export const BackgroundBeams = React.memo(
   }
 );
 
-BackgroundBeams.displayName = "BackgroundBeams";
-
 /**
  * A single beam element that animates a gradient from left to right.
- *
- * The `Beam` component is an SVG element that renders a single beam with a gradient
- * animation. The gradient animation moves from left to right and repeats indefinitely.
- *
- * @returns A JSX element representing a single beam.
  */
 export const Beam = () => {
   return (
@@ -488,22 +196,25 @@ export const Beam = () => {
     </svg>
   );
 };
+
 /**
  * A component that renders a beam of light and its children.
  *
- * The `GridBeam` component is a convenience wrapper around the `Beam` component.
- * It renders a single beam of light and its children inside a container
- * element. The container element is a `div` with a class name that is the
- * result of merging the `className` prop with the `cn` function.
- *
- * @param {React.ReactNode} children - The content of the component.
- * @param {string} className - The class name of the container element.
- * @returns A JSX element representing the component.
+ * @param {{ children: React.ReactNode; className?: string; }} props - The component props.
+ * @param {React.ReactNode} props.children - The content to be rendered inside the beam.
+ * @param {string} [props.className] - Optional additional class names for styling.
+ * @returns {JSX.Element} A React component rendering a beam of light and its children.
  */
 export const GridBeam: React.FC<{
   children: React.ReactNode;
   className?: string;
-}> = ({ children, className }) => (
+}> = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}): JSX.Element => (
   <div className={cn("relative w-full h-full", className)}>
     <Beam />
     {children}

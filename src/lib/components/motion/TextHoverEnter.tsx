@@ -7,8 +7,13 @@ import { cn } from "./utils/cn";
 const DURATION = 0.25;
 const STAGGER = 0.025;
 
-// type TextGlitchProps = React.ComponentProps<"div">;
-
+/**
+ * TextHoverEnter component
+ * @param {string} title - The title of the component.
+ * @param {string} url - The URL of the component.
+ * @param {string} className - The class name of the component.
+ * @returns {JSX.Element}
+ */
 export function TextHoverEnter({
   title,
   url,
@@ -17,7 +22,7 @@ export function TextHoverEnter({
   title: string;
   url: string;
   className?: string;
-}) {
+}): JSX.Element | null {
   if (typeof title !== "string") {
     return null;
   }
@@ -74,5 +79,59 @@ export function TextHoverEnter({
         ))}
       </div>
     </motion.a>
+  );
+}
+
+/**
+ * Props for the AnimatedText component.
+ */
+interface AnimatedTextProps {
+  text?: string;
+  className?: string;
+}
+
+/**
+ * A component that renders a hover animation on the given text.
+ * @param {string} text - The text to render.
+ * @param {string} className - The class name of the component.
+ * @returns {JSX.Element} A JSX element representing the animated text.
+ */
+export function TextHover({
+  text = "Hover me",
+  className = "",
+}: AnimatedTextProps): JSX.Element {
+  return (
+    <motion.span
+      className={cn(
+        "w-full text-center inline-block cursor-pointer text-3xl transition-all",
+        className
+      )}
+      whileHover="hover"
+      initial="initial"
+    >
+      {text.split("").map((char, index) => (
+        <motion.span
+          className="inline-block"
+          variants={{
+            initial: {
+              y: 0,
+              scale: 1,
+            },
+            hover: {
+              y: -4,
+              scale: 1.2,
+              transition: {
+                type: "spring",
+                stiffness: 300,
+                damping: 15,
+                delay: index * 0.03,
+              },
+            },
+          }}
+        >
+          {char}
+        </motion.span>
+      ))}
+    </motion.span>
   );
 }

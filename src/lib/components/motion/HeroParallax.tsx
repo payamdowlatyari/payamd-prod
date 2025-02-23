@@ -35,15 +35,10 @@ export function BadgeRotateBorder(title: string): JSX.Element {
 /**
  * A component that renders a product card with a hover animation.
  *
- * @param {Object} props
- * @prop {Object} product - The product data to display in the card, with keys:
- *   - title: The title of the product, as a string.
- *   - description: A short description of the product, as a string.
- *   - url: The URL to link to when the card is clicked, as a string.
- *   - img: The URL of the product image to display, as a string.
- *   - tags: An array of strings representing tags or categories associated with the product.
- * @prop {MotionValue<number>} translate - A Framer Motion `MotionValue` representing the horizontal position of the card, to be animated.
- * @returns {JSX.Element} A JSX element representing a product card with a hover animation.
+ * @param {Object} props - The component props.
+ * @param {Object} props.product - The product data to display in the card.
+ * @param {MotionValue} props.translate - The motion value used for the hover animation.
+ * @returns {JSX.Element} A JSX element representing a product card with hover animation.
  */
 export const ProductCard = ({
   product,
@@ -111,48 +106,9 @@ export const ProductCard = ({
 /**
  * A hero section for a web development portfolio page.
  *
- * This component renders a parallax scrolling effect for a set of products (web
- * applications or landing pages). It uses framer-motion to create a smooth and
- * responsive animation.
- *
- * The component takes an array of products as a prop, where each product is an
- * object containing the following properties:
- *
- * - title: The title of the product.
- * - description: A short description of the product.
- * - url: The URL of the product.
- * - img: The URL of an image for the product.
- * - tags: An array of tags associated with the product.
- *
- * The component will render a row of products, with each product in a separate
- * column. The products will be spaced evenly apart, with a small gap between
- * each row.
- *
- * The component uses the following animations:
- *
- * - The first row of products will be translated horizontally as the user scrolls
- *   down the page, with the products moving from left to right.
- * - The second row of products will be translated horizontally in the opposite
- *   direction, with the products moving from right to left.
- * - The third row of products will be translated horizontally in the same
- *   direction as the first row, with the products moving from left to right.
- * - The products will also be rotated and translated vertically as the user
- *   scrolls down the page, to create a sense of depth and movement.
- * - The products will fade in and out as the user scrolls down the page, to
- *   create a sense of depth and movement.
- *
- * The component also renders a heading and a paragraph of text above the
- * products, which will be blurred and faded in as the user scrolls down the page.
- *
- * The component uses the following styles:
- *
- * @param {Object[]} products - An array of products to render.
- * @param {string} products.title - The title of the product.
- * @param {string} products.description - A short description of the product.
- * @param {string} products.url - The URL of the product.
- * @param {string} products.img - The URL of an image for the product.
- * @param {string[]} products.tags - An array of tags associated with the product.
- * @returns {JSX.Element} A hero section for a web development portfolio page.
+ * @param {Object} props - The component props.
+ * @param {Object[]} props.products - An array of product data to display in the hero section.
+ * @returns {JSX.Element} A JSX element representing the hero section.
  */
 export const HeroParallax = ({
   products,

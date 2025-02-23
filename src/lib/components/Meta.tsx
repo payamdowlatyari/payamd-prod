@@ -1,6 +1,10 @@
 const APP_NAME = "Payam Dowlatyari";
 
-const Meta = () => {
+/**
+ * Meta component
+ * @returns {JSX.Element}
+ */
+const Meta = (): JSX.Element => {
   return (
     <>
       <meta name="application-name" content={APP_NAME} />

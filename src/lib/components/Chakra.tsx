@@ -10,7 +10,13 @@ interface ChakraProps {
   children: React.ReactNode;
 }
 
-export const Chakra = ({ children }: ChakraProps) => {
+/**
+ * The ChakraProvider component is used to provide the Chakra UI theme to the app.
+ * It also sets the initial color mode to "light" and the color mode manager to "cookie".
+ * @param {ChakraProps} props - The component props.
+ * @returns {JSX.Element} A JSX element representing the ChakraProvider component.
+ */
+export const Chakra = ({ children }: ChakraProps): JSX.Element => {
   return (
     <>
       <ColorModeScript

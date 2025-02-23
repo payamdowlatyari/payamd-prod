@@ -201,12 +201,12 @@ const animationVariants = {
  *
  * @param {Object} props - The component props.
  * @param {string} props.text - The text to be animated.
- * @param {AnimationType} [props.type='whipInUp'] - The animation type to be applied to the text.
- * @param {number} [props.delay] - Optional delay before the animation starts.
- * @param {number} [props.duration] - Optional duration for the animation.
- * @returns {JSX.Element} A JSX element with animated text.
+ * @param {string} [props.type="whipInUp"] - The type of animation to use.
+ * @param {number} [props.delay=0] - The delay in seconds before the animation starts.
+ * @param {number} [props.duration=1] - The duration of the animation in seconds.
+ *
+ * @returns {JSX.Element} A JSX element representing the animated text.
  */
-
 export const TextAnimate: FC<Props> = ({
   text,
   type = "whipInUp",

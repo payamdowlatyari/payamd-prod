@@ -3,7 +3,8 @@ import { useEffect } from "react";
 import { TfiClose, TfiLineDouble } from "react-icons/tfi";
 
 import Contact from "../../Sections/Contact/ContactDetails";
-import { DockDemo } from "../FloatingDock";
+import { MagneticSocialLinks } from "../FloatingDock";
+import { Squares } from "../Squares";
 
 import Nav from "./Nav";
 
@@ -119,13 +120,22 @@ export default function Menu(): JSX.Element {
         className="flex flex-wrap w-screen h-screen bg-neutral-950 relative items-end justify-center"
         ref={scope}
       >
+        <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden bg-[#060606]">
+          <Squares
+            direction="diagonal"
+            speed={0.25}
+            squareSize={50}
+            borderColor="#222"
+            hoverFillColor="#222"
+          />
+        </div>
         <div className="flex flex-wrap w-full h-4/5 sm:h-3/5 md:h-2/3 justify-around items-center content-end">
           <Nav />
           <Contact />
         </div>
 
         <div className="flex flex-col items-center justify-end min-w-72 h-1/5 sm:h-2/5 md:h-1/3 py-2 social">
-          <DockDemo />
+          <MagneticSocialLinks />
         </div>
       </motion.div>
     </motion.nav>

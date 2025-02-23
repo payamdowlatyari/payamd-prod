@@ -3,7 +3,7 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 import Link from "next/link";
 import { useRef, useEffect } from "react";
 
-import { DockDemo } from "../components/motion/FloatingDock";
+import { MagneticSocialLinks } from "../components/motion/FloatingDock";
 import Logo from "../components/motion/Menu/Logo";
 import CopyRight from "../components/motion/View/CopyRight";
 
@@ -56,7 +56,7 @@ const Footer = (): JSX.Element => {
             ))}
           </div>
           <div className="flex flex-col items-center justify-center h-full w-full py-2 social">
-            <DockDemo />
+            <MagneticSocialLinks />
           </div>
         </div>
         <CopyRight />

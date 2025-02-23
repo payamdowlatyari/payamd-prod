@@ -17,6 +17,15 @@ interface ScrollProgressBarType {
   showPercentage?: boolean;
 }
 
+/**
+ * ScrollProgressBar component renders a progress bar that shows the scroll progress.
+ *
+ * @param {Object} props - The component props.
+ * @param {"circle" | "bar"} props.type - The type of the progress bar.
+ * @param {"top-right" | "bottom-right" | "top-left" | "bottom-left"} props.position - The position of the progress bar.
+ * @param {number} props.strokeSize - The size of the progress bar stroke.
+ * @param {boolean} props.showPercentage - Whether to show the percentage of the progress bar.
+ */
 export default function ScrollProgressBar({
   type = "circle",
   position = "bottom-right",

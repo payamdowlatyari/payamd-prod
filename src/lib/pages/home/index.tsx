@@ -11,6 +11,7 @@ import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBar";
 import { TextHoverEnter } from "~/lib/components/motion/TextHoverEnter";
 import Footer from "~/lib/layout/Footer";
 import Header from "~/lib/layout/Header";
+
 /**
  * Home component
  * @returns {JSX.Element}

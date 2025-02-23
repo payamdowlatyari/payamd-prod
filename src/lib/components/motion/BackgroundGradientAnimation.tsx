@@ -26,12 +26,18 @@ import { cn } from "./utils/cn";
 export const BackgroundGradientAnimation = ({
   gradientBackgroundStart = "rgb(0, 0, 0)",
   gradientBackgroundEnd = "rgb(0, 0, 0)",
-  firstColor = "0, 50, 100",
-  secondColor = "0, 0, 50",
-  thirdColor = "0, 0, 100",
-  fourthColor = "0, 0, 50",
+  // firstColor = "0, 50, 100",
+  // eslint-disable-next-line sonarjs/no-duplicate-string
+  firstColor = "50, 50, 50",
+  // secondColor = "0, 0, 50",
+  secondColor = "50, 50, 50",
+  // thirdColor = "0, 0, 100",
+  thirdColor = "0, 0, 0",
+  // fourthColor = "0, 0, 50",
+  fourthColor = "0, 0, 0",
   fifthColor = "0, 0, 0",
-  pointerColor = "50, 0, 150",
+  // pointerColor = "50, 0, 150",
+  pointerColor = "75, 75, 75",
   size = "80%",
   blendingValue = "hard-light",
   children,
@@ -209,17 +215,9 @@ interface AuroraBackgroundProps extends React.HTMLProps<HTMLDivElement> {
 }
 
 /**
- * A component that renders a background that changes color based on the user's mouse position.
- *
- * @param {ReactNode} children - The content to render inside the background.
- * @param {string} [className] - Optional additional class names for styling.
- * @param {boolean} [showRadialGradient] - Whether to show a radial gradient. Defaults to true.
- * @returns {JSX.Element} A JSX element representing the background.
- *
- * @example
- * <AuroraBackground>
- *   <p>Hello World</p>
- * </AuroraBackground>
+ * A component that applies a gradient animation to a child element.
+ * @param {AuroraBackgroundProps} props - The component props.
+ * @returns {JSX.Element} A JSX element representing the AuroraBackground component.
  */
 export const AuroraBackground = ({
   className,
@@ -238,7 +236,6 @@ export const AuroraBackground = ({
       >
         <div className="absolute inset-0 overflow-hidden">
           <div
-            //   I'm sorry but this is what peak developer performance looks like // trigger warning
             className={cn(
               `
             [--white-gradient:repeating-linear-gradient(100deg,var(--white)_0%,var(--white)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--white)_16%)]
