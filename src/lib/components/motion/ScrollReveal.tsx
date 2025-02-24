@@ -1,141 +1,79 @@
-import {
-  motion,
-  MotionValue,
-  useScroll,
-  useTransform,
-  easeInOut,
-} from "framer-motion";
-import {
-  Children,
-  cloneElement,
-  Fragment,
-  isValidElement,
-  ReactNode,
-  useRef,
-} from "react";
+"use client";
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import type { FC, ReactNode } from "react";
+import { useRef } from "react";
 
 import { cn } from "./utils/cn";
 
-interface ScrollRevealProps
-  extends React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLDivElement>,
-    HTMLDivElement
-  > {
-  children: React.ReactNode;
+interface WordProps {
+  children: ReactNode;
+  progress: any;
+  range: [number, number];
+}
+
+/**
+ * A single word component that has a scrolling reveal effect.
+ *
+ * @param {ReactNode} children - The word to render.
+ * @param {number} progress - The progress of the scroll (0-1).
+ * @param {number[]} range - The range of the scroll (start, end).
+ *
+ * @returns {React.ReactElement} The word component.
+ */
+const Word: FC<WordProps> = ({ children, progress, range }) => {
+  const opacity = useTransform(progress, range, [0, 1]);
+  return (
+    <span className="relative mx-[2px] lg:mx-1">
+      <span className="absolute opacity-30">{children}</span>
+      <motion.span style={{ opacity }} className="text-neutral-100">
+        {children}
+      </motion.span>
+    </span>
+  );
+};
+
+interface TextRevealByWordProps {
+  text: string;
   className?: string;
 }
 
-// This function might need updates to support different cases.
-const flatten = (children: ReactNode): React.ReactNode[] => {
-  const result: React.ReactNode[] = [];
-
-  Children.forEach(children, (child) => {
-    if (isValidElement(child)) {
-      if (child.type === Fragment) {
-        result.push(...flatten(child.props.children));
-      } else if (child.props.children) {
-        result.push(cloneElement(child, {}));
-      } else {
-        result.push(child);
-      }
-    } else {
-      const parts = String(child).split(/(\s+)/);
-      result.push(...parts.map((part) => part));
-    }
-  });
-
-  return result.flatMap((child) => (Array.isArray(child) ? child : [child]));
-};
-
 /**
- * @param index The index of the child
- * @param progress The progress of the scroll
- * @param total The total number of children
- * @param children The children
- * @returns {JSX.Element}
+ * A component that reveals text word by word as the user scrolls.
+ *
+ * @param {string} text - The text to be revealed.
+ * @param {string} [className] - Additional CSS classes to apply to the component.
+ * @returns {JSX.Element} The TextRevealByWord component.
  */
-function OpacityChild({
-  children,
-  index,
-  progress,
-  total,
-}: {
-  children: React.ReactNode;
-  index: number;
-  total: number;
-  progress: MotionValue<number>;
-}): JSX.Element {
-  const opacity = useTransform(
-    progress,
-    [index / total, (index + 20) / total < 1 ? (index + 20) / total : 1],
-    [0.1, 1],
-    {
-      ease: easeInOut,
-    }
-  );
-
-  const x = useTransform(
-    progress,
-    [index / total, (index + 20) / total < 1 ? (index + 20) / total : 1],
-    [10, 0],
-    {
-      ease: easeInOut,
-    }
-  );
-
-  let className = "";
-  if (isValidElement(children)) {
-    className = Reflect.get(children, "props")?.className;
-  }
-
-  return (
-    <motion.span style={{ opacity, x }} className={cn(className, "h-fit")}>
-      {children}
-    </motion.span>
-  );
-}
-
-/**
- * ScrollReveal component
- * @param {React.ReactNode} children - The children of the component.
- * @param {string} className - The class name of the component.
- * @returns {JSX.Element}
- */
-export default function ScrollReveal({
-  children,
+export const TextRevealByWord: FC<TextRevealByWordProps> = ({
+  text,
   className,
-  ...props
-}: ScrollRevealProps): JSX.Element {
-  const flat = flatten(children);
-  const count = flat.length;
-  const containerRef = useRef<HTMLDivElement>(null);
+}) => {
+  const targetRef = useRef<HTMLDivElement | null>(null);
 
-  const { scrollYProgress } = useScroll({ target: containerRef });
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+  });
+  const words = text.split(" ");
 
   return (
-    <div
-      {...props}
-      ref={containerRef}
-      className={cn("relative h-[200vh] z-10", className)}
-    >
-      <div className="sticky top-[75vh] flex h-1/2 max-w-screen-2xl items-center bg-transparent px-2 py-20">
-        <div className="flex h-fit w-full flex-wrap whitespace-break-spaces p-1 md:p-2 mx-auto">
-          {flat.map((child, index) => {
+    <div ref={targetRef} className={cn("relative z-0 h-[400vh]", className)}>
+      <div className="sticky top-60 md:top-20 mx-auto flex h-1/6 max-w-screen-xl items-center bg-transparent px-2 py-10">
+        <p
+          ref={targetRef}
+          className="flex flex-wrap p-3 md:p-5 text-lg sm:text-xl lg:text-2xl lg:p-10 xl:text-3xl"
+        >
+          {words.map((word, i) => {
+            const start = i / words.length;
+            const end = start + 1 / words.length;
             return (
-              <OpacityChild
-                progress={scrollYProgress}
-                index={index}
-                total={flat.length}
-              >
-                {child}
-              </OpacityChild>
+              <Word progress={scrollYProgress} range={[start, end]}>
+                {word}
+              </Word>
             );
           })}
-        </div>
+        </p>
       </div>
-      {Array.from({ length: count }).map(() => (
-        <div className="h-40" />
-      ))}
     </div>
   );
-}
+};

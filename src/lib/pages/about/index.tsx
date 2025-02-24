@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
-import { resume } from "~/lib/components/data/data";
+import { intro, resume } from "~/lib/components/data/data";
 import { GridBeam } from "~/lib/components/motion/BackgroundBeams";
 import { BlurFade } from "~/lib/components/motion/BlurFade";
 import { ResumeCard } from "~/lib/components/motion/Card";
@@ -12,7 +12,7 @@ import { LinkPreview } from "~/lib/components/motion/LinkPreview";
 import { Logos, Marquee } from "~/lib/components/motion/Marquee";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBar";
-import ScrollReveal from "~/lib/components/motion/ScrollReveal";
+import { TextRevealByWord } from "~/lib/components/motion/ScrollReveal";
 import Footer from "~/lib/layout/Footer";
 
 /**
@@ -25,9 +25,10 @@ const About = (): JSX.Element => {
     target: ref,
     offset: ["start end", "end start"],
   });
-  const x = useTransform(scrollYProgress, [0.2, 1], ["5%", "-105%"], {
+  const x = useTransform(scrollYProgress, [0.3, 1], ["25%", "-125%"], {
     clamp: false,
   });
+
   const opacity = useTransform(
     scrollYProgress,
     [0, 0.1, 0.2, 0.8, 0.9, 1],
@@ -37,73 +38,56 @@ const About = (): JSX.Element => {
     }
   );
 
+  const opacity2 = useTransform(scrollYProgress, [0, 0.05, 0.08], [1, 1, 0]);
+
   return (
     <motion.main
-      className="bg-black"
+      className="bg-neutral-950 text-neutral-50"
       layout
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 1.5, ease: "easeInOut" }}
+      ref={ref}
     >
       <Menu />
+      <div id="about">
+        <motion.div
+          style={{ opacity: opacity2 }}
+          className="fixed mt-40 sm:mt-60 md:mt-80 mx-1 w-screen flex flex-wrap items-center justify-evenly"
+        >
+          <BlurFade delay={0.5} inView>
+            <GridBeam className="pl-4 sm:pl-16 pt-14 sm:pt-28 flex">
+              <motion.div className="grid gap-2">
+                <h1 className="text-5xl sm:text-7xl font-semibold max-w-sm">
+                  About
+                </h1>
+                <p className="text-neutral-400 md:text-lg max-w-screen-sm">
+                  My name is Payam Dowlatyari a Software Engineer in California
+                </p>
+              </motion.div>
+            </GridBeam>
+          </BlurFade>
 
-      <section
-        id="about"
-        className="flex flex-wrap relative items-end justify-center overflow-hidden"
-      >
-        <div className="flex flex-col flex-1 flex-wrap md:flex-nowrap items-baseline z-10">
-          <motion.div className="absolute mt-40 sm:mt-[25vh] mx-1 w-screen flex flex-wrap items-center justify-evenly">
-            <BlurFade delay={0.5} inView>
-              <GridBeam className="pl-4 sm:pl-16 pt-14 sm:pt-28 flex">
-                <div className="grid gap-2">
-                  <h1 className="text-5xl sm:text-7xl font-semibold max-w-sm">
-                    About
-                  </h1>
-                  <p className="text-neutral-400 md:text-lg max-w-screen-sm">
-                    My name is Payam Dowlatyari a Software Engineer in
-                    California
-                  </p>
-                </div>
-              </GridBeam>
-            </BlurFade>
+          <BlurFade delay={0} inView>
+            <Image
+              src="/me-ai-red_processed.jpeg"
+              width={400}
+              height={400}
+              alt="me"
+              className="scale-50 sm:scale-75 md:scale-100 opacity-75"
+              loading="lazy"
+            />
+          </BlurFade>
+        </motion.div>
 
-            <BlurFade delay={0} inView>
-              <Image
-                src="/me-ai-red_processed.jpeg"
-                width={400}
-                height={400}
-                alt="me"
-                className="scale-75 md:scale-100 opacity-75"
-                loading="lazy"
-              />
-            </BlurFade>
-          </motion.div>
-          <ScrollReveal className="text-lg sm:text-3xl md:text-4xl text-neutral-300 font-thin z-10 mx-auto">
-            After obtaining my B.S. in Software Engineering from UC Irvine in
-            2020, I entered the tech industry and worked at Amplify.ai for three
-            years developing AI applications. I satrted working as a software
-            engineer and web application architect at Avalon AI to improve
-            healthcare services in the United States. Having the opportunity to
-            study at UCI and work in an innovative start-up environments, I have
-            improved my technical and soft skills, uncovered my passion for
-            design, and expanded my mastery in software development in recent
-            years. Meanwhile, I dedicated time to learning new skills and
-            completed a postgraduate program in full-stack web development.
-            Likewise, I gained hands-on experience with different tools, such as
-            JavaScript libraries and frameworks, including React.js and Next.js,
-            server-side technologies such as Node.js, automation and DevOps
-            tools, and database technologies such as SQL and NoSQL databases, as
-            well as cloud technologies such as AWS, Google Cloud, and Microsoft
-            Azure. I am a team player, and I am always willing to learn new
-            skills and improve my skills. I have a great interest in learning
-            new technologies and am always looking for new challenges.
-          </ScrollReveal>
+        <div className="z-10 flex min-h-screen items-center justify-center pt-[100vh]">
+          <TextRevealByWord text={intro.text.replace(/\s+/g, " ")} />
         </div>
-      </section>
+      </div>
       <motion.section
         id="resume"
-        className="block top-0 max-w-screen-lg overflow-hidden h-[1250vh] p-0"
+        className="block top-0 max-w-screen-lg overflow-hidden h-[1500vh] p-0"
         ref={ref}
         layoutScroll
       >

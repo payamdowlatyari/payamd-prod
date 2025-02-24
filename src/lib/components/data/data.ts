@@ -200,17 +200,24 @@ export const portfolio = {
 };
 
 export const intro = {
-  text: `After obtaining my B.S. in Software Engineering from UC Irvine in 2020,
-    I entered the tech industry and worked at Amplify.ai for three years developing AI applications. I satrted working as 
-    a software engineer and web application architect at Avalon AI to improve healthcare services in the United States.
-    Having the opportunity to study at UCI and work in an innovative start-up environments, 
-    I've improved my technical and soft skills, uncovered my passion for design, and expanded my mastery in software development in recent years. \n 
-    Meanwhile, I dedicated time to learning new skills and completed a 9-month postgraduate program in full-stack web development. 
-    Likewise, I gained hands-on experience with different tools, such as JS/TS-based frameworks, including React.js, 
-    server-side technologies such as Node.js, automation and DevOps tools, and database technologies such as SQL and NoSQL databases, 
-    as well as cloud technologies such as AWS, Google Cloud, and Microsoft Azure.
-    I am a team player, and I'm always willing to learn new skills and improve my skills.
-    I have a great interest in learning new technologies and am always looking for new challenges.`,
+  text: `After obtaining my B.S. in Software Engineering from UC Irvine in
+2020, I entered the tech industry and worked at Amplify.ai for three
+years developing AI applications. I satrted working as a software
+engineer and web application architect at Avalon AI to improve
+healthcare services in the United States. Having the opportunity to
+study at UCI and work in an innovative start-up environments, I have
+improved my technical and soft skills, uncovered my passion for
+design, and expanded my mastery in software development in recent
+years. Meanwhile, I dedicated time to learning new skills and
+completed a postgraduate program in full-stack web development.
+Likewise, I gained hands-on experience with different tools, such as
+JavaScript libraries and frameworks, including React.js and Next.js,
+server-side technologies such as Node.js, automation and DevOps
+tools, and database technologies such as SQL and NoSQL databases, as
+well as cloud technologies such as AWS, Google Cloud, and Microsoft
+Azure. I am a team player, and I am always willing to learn new
+skills and improve my skills. I have a great interest in learning
+new technologies and am always looking for new challenges.`,
 };
 
 export const experience = [
@@ -256,17 +263,20 @@ export const education = [
     subtitle: "Software Engineering B.S.",
     date: "Class 2020",
     description: [
-      "Capstone: Grid-Level Energy Negotiation for EVSE",
-      "Research Area: Informatics and Human-Computer Interaction",
+      "Capstone Project: Grid-Level Energy Negotiation for Electric Vehicle Supply Equipment (EVSE)",
+      "Research Area: Informatics, Human-Computer Interaction, and Self-Tracking",
+      "Activities and societies: IEEE, ACM, UCI HCI Lab",
       "Honor Society: National Society of Leadership and Success (ΣAπ)",
     ],
     index: 1,
   },
   {
     title: "American River College",
-    subtitle: "Computer Science A.S.",
+    subtitle: "Computer Science",
     date: "Class 2018",
-    description: ["Activities and societies: Math and Computer Science tutor"],
+    description: [
+      "Activities and societies: Mathematics and Computer Science tutor at MESA",
+    ],
     index: 2,
   },
 ];

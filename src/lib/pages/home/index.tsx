@@ -23,7 +23,7 @@ const Home = (): JSX.Element => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 3, ease: "easeInOut" }}
-      className="bg-black"
+      className="bg-neutral-950 text-neutral-50"
     >
       <Menu />
       <Header />

@@ -408,7 +408,7 @@ function MagneticSocialLink({
  */
 export function MagneticSocialLinks(): JSX.Element {
   return (
-    <div className="flex min-h-32 w-full items-center justify-center bg-transparent">
+    <div className="flex min-h-28 w-full items-center justify-center bg-transparent">
       <div className="flex items-center justify-start space-x-3">
         {Object.entries(DATA.contact.social).map(([name, social]) => (
           <MagneticSocialLink key={name} link={social.url}>
