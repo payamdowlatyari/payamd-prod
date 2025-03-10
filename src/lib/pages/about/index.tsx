@@ -5,12 +5,13 @@ import Image from "next/image";
 import { useRef } from "react";
 
 import { intro, resume } from "~/lib/components/data/data";
-import { GridBeam } from "~/lib/components/motion/BackgroundBeams";
+// import { GridBeam } from "~/lib/components/motion/BackgroundBeams";
 import { BlurFade } from "~/lib/components/motion/BlurFade";
 import { ResumeCard } from "~/lib/components/motion/Card";
 import { LinkPreview } from "~/lib/components/motion/LinkPreview";
 import { Logos, Marquee } from "~/lib/components/motion/Marquee";
 import Menu from "~/lib/components/motion/Menu/Menu";
+import { GradientTracing } from "~/lib/components/motion/PulseBeams";
 import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBar";
 import { TextRevealByWord } from "~/lib/components/motion/ScrollReveal";
 import Footer from "~/lib/layout/Footer";
@@ -57,7 +58,13 @@ const About = (): JSX.Element => {
           className="fixed mt-40 sm:mt-60 md:mt-80 mx-1 w-screen flex flex-wrap items-center justify-evenly"
         >
           <BlurFade delay={0.5} inView>
-            <GridBeam className="pl-4 sm:pl-16 pt-14 sm:pt-28 flex">
+            <GradientTracing
+              width={500}
+              height={250}
+              path="M0,150 Q75,0 150,150 T300,150"
+              gradientColors={["#E74C3C", "#E74C3C", "#F39C12"]}
+            />
+            <div className="pl-4 sm:pl-16 pt-1 sm:pt-2 flex">
               <motion.div className="grid gap-2">
                 <h1 className="text-5xl sm:text-7xl font-semibold max-w-sm">
                   About
@@ -66,7 +73,7 @@ const About = (): JSX.Element => {
                   My name is Payam Dowlatyari a Software Engineer in California
                 </p>
               </motion.div>
-            </GridBeam>
+            </div>
           </BlurFade>
 
           <BlurFade delay={0} inView>
@@ -84,6 +91,9 @@ const About = (): JSX.Element => {
         <div className="z-10 flex min-h-screen items-center justify-center pt-[100vh]">
           <TextRevealByWord text={intro.text.replace(/\s+/g, " ")} />
         </div>
+      </div>
+      <div className="flex justify-center items-center w-screen">
+        <GradientTracing width={300} height={100} path="M0,50 Q150,0 300,50" />
       </div>
       <motion.section
         id="resume"
@@ -139,6 +149,15 @@ const About = (): JSX.Element => {
           ))}
         </Marquee>
       </motion.div>
+
+      <div className="flex justify-center items-center w-screen">
+        <GradientTracing
+          width={500}
+          height={100}
+          path="M0,50 C75,0 150,100 225,50 S300,0 375,50"
+          gradientColors={["#FF6B6B", "#FF6B6B", "#4ECDC4"]}
+        />
+      </div>
       <div className="flex flex-col justify-center items-center text-center max-w-sm m-auto z-10 px-4 relative bottom-0">
         <p className="text-neutral-400 text-2xl sm:text-3xl md:text-4xl mx-auto mb-10">
           Check out my personal{" "}

@@ -25,6 +25,7 @@ import { portfolio } from "../data/data";
 import { GridBeam } from "./BackgroundBeams";
 import ParallaxText from "./ParallaxText";
 import { TextHoverEnter } from "./TextHoverEnter";
+import { GradientTracing } from "./PulseBeams";
 
 /**
  * Custom hook that converts a DOM element into a Canvas texture.
@@ -183,6 +184,13 @@ function Title3D(): JSX.Element {
 function Aside(): JSX.Element {
   return (
     <div className="absolute flex flex-col self-end h-full w-screen items-end right-0">
+      <div className="absolute">
+        <GradientTracing
+          width={300}
+          height={100}
+          path="M0,50 L75,25 L150,75 L225,25 L300,50"
+        />
+      </div>
       <GridBeam className="flex flex-col items-start justify-end h-[50vh] relative z-10">
         <div className="h-12 w-screen uppercase flex justify-end items-center gap-2">
           <TextHoverEnter url="#intro" title="Who I am" />

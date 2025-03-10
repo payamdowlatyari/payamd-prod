@@ -263,7 +263,7 @@ export const education = [
     subtitle: "Software Engineering B.S.",
     date: "Class 2020",
     description: [
-      "Capstone Project: Grid-Level Energy Negotiation for Electric Vehicle Supply Equipment (EVSE)",
+      "Capstone: Grid-Level Energy Negotiation for Electric Vehicle Supply Equipment (EVSE)",
       "Research Area: Informatics, Human-Computer Interaction, and Self-Tracking",
       "Activities and societies: IEEE, ACM, UCI HCI Lab",
       "Honor Society: National Society of Leadership and Success (ΣAπ)",

@@ -7,6 +7,7 @@ import { Feature } from "~/lib/components/motion/Feature";
 import { Hero3D } from "~/lib/components/motion/Hero3D";
 import ImageEffect from "~/lib/components/motion/ImageEffect";
 import Menu from "~/lib/components/motion/Menu/Menu";
+import { GradientTracing } from "~/lib/components/motion/PulseBeams";
 import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBar";
 import { TextHoverEnter } from "~/lib/components/motion/TextHoverEnter";
 import Footer from "~/lib/layout/Footer";
@@ -30,6 +31,7 @@ const Home = (): JSX.Element => {
       <section id="hero">
         <Hero3D />
       </section>
+
       <section id="intro">
         <div className="flex flex-wrap justify-evenly items-center w-full">
           <div className="max-w-2xl p-2 my-4 z-0">
@@ -54,7 +56,9 @@ const Home = (): JSX.Element => {
           </div>
         </div>
       </section>
-
+      <div className="flex justify-center items-center w-full">
+        <GradientTracing width={500} height={50} />
+      </div>
       <section
         id="services"
         className="flex flex-wrap justify-evenly items-baseline py-10"

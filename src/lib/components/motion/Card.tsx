@@ -111,7 +111,7 @@ export const CardDescription = ({
   return (
     <p
       className={cn(
-        "mt-1 md:mt-2 text-neutral-200 tracking-wide leading-relaxed text-xs md:text-sm",
+        "mt-1 md:mt-2 text-neutral-200 tracking-wide leading-relaxed text-xs md:text-sm md:leading-loose",
         className
       )}
     >
@@ -129,7 +129,7 @@ export function ResumeCard({ items }: { items: any }): JSX.Element {
   return (
     <div className="flex flex-col my-5 max-w-screen-sm">
       {items.map((item: any, idx: number) => (
-        <div key={idx} className="h-full w-full p-2 mt-2 overflow-hidden">
+        <div key={idx} className="h-full w-full p-2 overflow-hidden">
           <div className="flex justify-between">
             {item.link ? (
               <LinkArrowOut title={item.title} url={item.link} />
@@ -141,13 +141,14 @@ export function ResumeCard({ items }: { items: any }): JSX.Element {
           <CardSubTitle>{item.subtitle}</CardSubTitle>
           <CardDescription>
             {item.description && item.description.length > 0 && (
-              <>
+              <ul className="list-disc list-inside text-xs md:text-sm">
                 {item.description.map((d: any, i: number) => (
-                  <p key={i}>{d}</p>
+                  <li key={i}>{d}</li>
                 ))}
-              </>
+              </ul>
             )}
           </CardDescription>
+          <div className="border-t border-neutral-800 mt-3" />
         </div>
       ))}
     </div>
