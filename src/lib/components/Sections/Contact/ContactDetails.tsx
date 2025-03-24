@@ -28,10 +28,10 @@ export default function Contacts(): JSX.Element {
   ];
 
   return (
-    <div className="flex flex-col px-4 my-4 z-10 contacts min-w-72">
+    <div className="flex flex-col px-4 my-4 z-10 contacts min-w-64">
       {contactDetails.map((section, index) => (
-        <div key={index} className="flex flex-col w-64 my-2 pl-2">
-          <h5 className="font-semibold text-4xl m-1 uppercase text-neutral-500">
+        <div key={index} className="flex flex-col w-60 my-2 pl-2">
+          <h5 className="font-semibold text-2xl md:text-3xl lg:text-4xl m-1 uppercase text-neutral-500">
             {section.title}
           </h5>
           <div className="inline-grid p-1">

@@ -118,7 +118,6 @@ export const PulseBeams = ({
  * @param {{ start: string; middle: string; end: string; }} [props.gradientColors] - Optional gradient colors used within the beam gradients.
  * @returns {JSX.Element} A JSX element representing the SVG with animated beams.
  */
-
 const SVGs = ({
   beams,
   width,
@@ -188,15 +187,9 @@ const SVGs = ({
 };
 
 /**
- * GradientColors
- *
  * Returns a set of <stop> elements to be used in a <linearGradient>
  * element. The gradient colors are defined by the `colors` object
  * which has the following default values:
- *
- * - `start`: `#18CCFC`
- * - `middle`: `#6344F5`
- * - `end`: `#AE48FF`
  *
  * @param {{ start: string; middle: string; end: string; }} [colors]
  * @returns {JSX.Element}

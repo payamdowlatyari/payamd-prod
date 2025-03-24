@@ -4,17 +4,10 @@ import Link from "next/link";
 
 /**
  * Logo component
- * @param {boolean} light
  * @param {number} size
  * @returns {JSX.Element}
  */
-export default function Logo({
-  light,
-  size,
-}: {
-  light: boolean;
-  size: number;
-}): JSX.Element {
+export default function Logo({ size }: { size: number }): JSX.Element {
   return (
     <motion.div
       whileHover={{ scale: 1.1 }}
@@ -22,21 +15,12 @@ export default function Logo({
       transition={{ duration: 0.5, ease: "backInOut" }}
     >
       <Link href="/">
-        {light ? (
-          <Image
-            src="/pd-logo1-removebg-preview.png"
-            alt="logo"
-            width={size}
-            height={size}
-          />
-        ) : (
-          <Image
-            src="/pd-logo1-removebg-preview.png"
-            width={size}
-            height={size}
-            alt="logo"
-          />
-        )}
+        <Image
+          src="/pd-logo1-removebg-preview.png"
+          alt="logo"
+          width={size}
+          height={size}
+        />
       </Link>
     </motion.div>
   );

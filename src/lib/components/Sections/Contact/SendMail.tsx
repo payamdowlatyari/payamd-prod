@@ -13,7 +13,15 @@ export const SendMail = () => {
   const [success, setSuccess] = useState(false);
   const [message, setMessage] = useState("");
 
-  const sendEmail = async (e: { preventDefault: () => void }) => {
+  /**
+   * Handles sending an email through emailjs.com service.
+   * @param {React.FormEvent<HTMLFormElement>} e - Form submit event
+   * @returns {Promise<void>}
+   * @throws {EmailJSResponseStatus}
+   */
+  const sendEmail = async (e: {
+    preventDefault: () => void;
+  }): Promise<void> => {
     e.preventDefault();
 
     if (!form.current) return;

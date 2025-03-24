@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 export const Logos = {
   html5: () => (
     <svg
@@ -345,6 +343,7 @@ export const Logos = {
  * @returns {React.ReactElement} The marquee component.
  */
 export const Marquee: React.FC<{ children: React.ReactNode }> = ({
+  // eslint-disable-next-line react/prop-types
   children,
 }) => {
   return (

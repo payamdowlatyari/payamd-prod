@@ -8,7 +8,7 @@ import * as THREE from "three";
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      imageFadeMaterial: any; // ???
+      imageFadeMaterial: any;
     }
   }
 }
@@ -91,10 +91,10 @@ export function FadingImage({ i1, i2 }: any): ReactElement {
  * A Canvas component that renders a FadingImage component with two images.
  *
  * @function ImageEffect
- * @param {Object} props Component props
- * @param {string} props.item1 The first image to be rendered
- * @param {string} props.item2 The second image to be rendered
- * @returns {ReactElement} A Canvas component with a FadingImage component
+ * @param {Object} props - The props object.
+ * @param {string} props.item1 - The first image url.
+ * @param {string} props.item2 - The second image url.
+ * @returns {ReactElement} - The React component.
  */
 export default function ImageEffect({
   item1,

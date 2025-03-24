@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 "use client";
 
 import { ReactNode, useEffect, useRef, useState } from "react";
@@ -26,17 +28,11 @@ import { cn } from "./utils/cn";
 export const BackgroundGradientAnimation = ({
   gradientBackgroundStart = "rgb(0, 0, 0)",
   gradientBackgroundEnd = "rgb(0, 0, 0)",
-  // firstColor = "0, 50, 100",
-  // eslint-disable-next-line sonarjs/no-duplicate-string
   firstColor = "50, 50, 50",
-  // secondColor = "0, 0, 50",
   secondColor = "50, 50, 50",
-  // thirdColor = "0, 0, 100",
   thirdColor = "0, 0, 0",
-  // fourthColor = "0, 0, 50",
   fourthColor = "0, 0, 0",
   fifthColor = "0, 0, 0",
-  // pointerColor = "50, 0, 150",
   pointerColor = "75, 75, 75",
   size = "80%",
   blendingValue = "hard-light",
@@ -83,7 +79,6 @@ export const BackgroundGradientAnimation = ({
     document.body.style.setProperty("--pointer-color", pointerColor);
     document.body.style.setProperty("--size", size);
     document.body.style.setProperty("--blending-value", blendingValue);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -99,9 +94,16 @@ export const BackgroundGradientAnimation = ({
     }
 
     move();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tgX, tgY]);
 
+  /**
+   * Handle mouse move event on the interactive background gradient animation.
+   * It takes the target element's bounding client rectangle and the mouse event
+   * and calculates the target X and Y coordinates based on the mouse position
+   * inside the element.
+   *
+   * @param {React.MouseEvent<HTMLDivElement>} event - The mouse move event.
+   */
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (interactiveRef.current) {
       const rect = interactiveRef.current.getBoundingClientRect();

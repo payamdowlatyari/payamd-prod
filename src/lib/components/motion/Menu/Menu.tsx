@@ -6,7 +6,7 @@ import Contact from "../../Sections/Contact/ContactDetails";
 import { MagneticSocialLinks } from "../FloatingDock";
 import { Squares } from "../Squares";
 
-import Nav from "./Nav";
+import { Nav } from "./Nav";
 
 /**
  * NavToggle component
@@ -120,7 +120,7 @@ export default function Menu(): JSX.Element {
         className="flex flex-wrap w-screen h-screen bg-neutral-950 relative items-end justify-center"
         ref={scope}
       >
-        <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden bg-[#060606]">
+        <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden bg-neutral-900">
           <Squares
             direction="diagonal"
             speed={0.25}

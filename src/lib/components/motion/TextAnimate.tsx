@@ -29,7 +29,17 @@ const animationVariants = {
   fadeIn: {
     container: {
       hidden: { opacity: 0 },
-      visible: (i: number = 1) => ({
+      /**
+       * Animation variant for visible state.
+       * @param {number} [i=1] - The index of the animation. Used to calculate the delay.
+       * @returns {{ opacity: number, transition: { staggerChildren: number, delayChildren: number } }}
+       */
+      visible: (
+        i: number = 1
+      ): {
+        opacity: number;
+        transition: { staggerChildren: number; delayChildren: number };
+      } => ({
         opacity: 1,
         transition: { staggerChildren: 0.05, delayChildren: i * 0.3 },
       }),
@@ -80,7 +90,14 @@ const animationVariants = {
   calmInUp: {
     container: {
       hidden: {},
-      visible: (i: number = 1) => ({
+      /**
+       * Returns an object containing transition settings for a motion component.
+       *
+       * @param {number} [i=1] - A multiplier for the delay of child animations.
+       *
+       * @returns {Object} An object with a transition property that includes staggerChildren and delayChildren.
+       */
+      visible: (i: number = 1): object => ({
         transition: { staggerChildren: 0.01, delayChildren: 0.2 * i },
       }),
     },
@@ -105,7 +122,14 @@ const animationVariants = {
   shiftInUp: {
     container: {
       hidden: {},
-      visible: (i: number = 1) => ({
+      /**
+       * Returns an object containing transition settings for a motion component.
+       *
+       * @param {number} [i=1] - A multiplier for the delay of child animations.
+       *
+       * @returns {Object} An object with a transition property that includes staggerChildren and delayChildren.
+       */
+      visible: (i: number = 1): object => ({
         transition: { staggerChildren: 0.01, delayChildren: 0.2 * i },
       }),
     },
@@ -130,7 +154,14 @@ const animationVariants = {
   whipInUp: {
     container: {
       hidden: {},
-      visible: (i: number = 1) => ({
+      /**
+       * Returns an object containing transition settings for a motion component.
+       *
+       * @param {number} [i=1] - A multiplier for the delay of child animations.
+       *
+       * @returns {Object} An object with a transition property that includes staggerChildren and delayChildren.
+       */
+      visible: (i: number = 1): object => ({
         transition: { staggerChildren: 0.01, delayChildren: 0.2 * i },
       }),
     },

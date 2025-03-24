@@ -11,8 +11,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-import { GridBeam } from "./BackgroundBeams";
 import { BlurFade } from "./BlurFade";
+import { GradientTracing } from "./PulseBeams";
 
 /**
  * Renders a badge with a rotating border animation.
@@ -20,7 +20,6 @@ import { BlurFade } from "./BlurFade";
  * @param {string} title - The title text to display in the center of the badge.
  * @returns {JSX.Element} A JSX element representing a badge with a rotating border.
  */
-
 export function BadgeRotateBorder(title: string): JSX.Element {
   return (
     <div className="relative inline-flex overflow-hidden rounded-full p-px">
@@ -62,7 +61,7 @@ export const ProductCard = ({
         y: -20,
       }}
       key={product.title}
-      className="group/product h-48 md:h-60 lg:h-72 w-[15rem] md:w-[20rem] lg:w-[25rem] max-w-screen-sm relative flex-shrink-0"
+      className="group/product h-30 sm:h-40 md:h-60 lg:h-72 w-[10rem] sm:w-[15rem] md:w-[20rem] lg:w-[25rem] max-w-screen-sm relative flex-shrink-0"
     >
       <Link
         href={product.url}
@@ -79,19 +78,19 @@ export const ProductCard = ({
       </Link>
 
       <div className="absolute inset-0 h-full w-full opacity-10 group-hover/product:opacity-90 bg-black pointer-events-none" />
-      <div className="flex flex-col justify-center place-items-start h-full p-6">
-        <h3 className="z-10 text-xl md:text-3xl opacity-0 group-hover/product:opacity-100 font-semibold text-neutral-50 tracking-tight mb-1">
+      <div className="flex flex-col justify-center place-items-start h-full p-2 md:p-4 lg:p-6">
+        <h3 className="z-10 text-lg sm:text-xl md:text-2xl opacity-0 group-hover/product:opacity-100 font-semibold text-neutral-50 tracking-tight mb-1">
           {product.title}
         </h3>
-        <p className="z-10 opacity-0 group-hover/product:opacity-100 text-neutral-300 text-base my-1">
+        <p className="z-10 opacity-0 group-hover/product:opacity-100 text-neutral-300 text-sm md:text-base my-1">
           {product.description}
         </p>
-        <div className="z-10 opacity-0 group-hover/product:opacity-100 mt-4">
+        <div className="z-10 opacity-0 group-hover/product:opacity-100 mt-2 md:mt-4">
           {product.tags?.map((tag: string) => {
             return (
               <div className="relative inline-flex overflow-hidden rounded-full p-px m-1">
                 <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#c2c2c2_0%,#505050_50%,#bebebe_100%)]" />
-                <span className="inline-flex h-full w-full items-center justify-center rounded-full bg-neutral-950 px-3 py-1 text-xs font-medium text-neutral-50 backdrop-blur-3xl">
+                <span className="inline-flex h-full w-full items-center justify-center rounded-full bg-neutral-950 px-1 md:px-2 py-1 text-xs font-medium text-neutral-50 backdrop-blur-3xl">
                   {tag}
                 </span>
               </div>
@@ -121,9 +120,9 @@ export const HeroParallax = ({
     tags: string[];
   }[];
 }): JSX.Element => {
-  const firstRow = products.slice(0, 5);
-  const secondRow = products.slice(5, 10);
-  const thirdRow = products.slice(10, 15);
+  const firstRow = products.slice(0, 4);
+  const secondRow = products.slice(4, 8);
+  const thirdRow = products.slice(8, 12);
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -163,7 +162,7 @@ export const HeroParallax = ({
     >
       <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
         <BlurFade delay={0.5} inView>
-          <GridBeam className="sm:pl-16 pt-28 pl-4 flex">
+          <div className="sm:pl-16 pt-28 pl-4 flex">
             <div className="grid gap-2">
               <h1 className="text-5xl sm:text-7xl font-semibold max-w-sm">
                 Projects
@@ -173,8 +172,14 @@ export const HeroParallax = ({
                 landing pages. I have used different tools, technologies, and
                 services to create these projects.
               </p>
+              <GradientTracing
+                width={300}
+                height={100}
+                path="M0,50 C25,0 50,100 75,50 S125,0 150,50 S200,100 225,50 S275,0 300,50 M0,50 C25,100 50,0 75,50 S125,100 150,50 S200,0 225,50 S275,100 300,50"
+                gradientColors={["#FF6B6B", "#FF6B6B", "#4ECDC4"]}
+              />
             </div>
-          </GridBeam>
+          </div>
         </BlurFade>
       </div>
       <motion.div
@@ -185,7 +190,7 @@ export const HeroParallax = ({
           opacity,
         }}
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-10 md:space-x-20 mb-10 md:mb-20">
           {firstRow.map((product) => (
             <ProductCard
               product={product}
@@ -194,7 +199,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row mb-20 space-x-20">
+        <motion.div className="flex flex-row space-x-10 md:space-x-20 mb-10 md:mb-20">
           {secondRow.map((product) => (
             <ProductCard
               product={product}
@@ -203,7 +208,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-10 md:space-x-20">
           {thirdRow.map((product) => (
             <ProductCard
               product={product}

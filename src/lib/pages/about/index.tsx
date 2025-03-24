@@ -5,14 +5,16 @@ import Image from "next/image";
 import { useRef } from "react";
 
 import { intro, resume } from "~/lib/components/data/data";
-// import { GridBeam } from "~/lib/components/motion/BackgroundBeams";
 import { BlurFade } from "~/lib/components/motion/BlurFade";
 import { ResumeCard } from "~/lib/components/motion/Card";
+import { GooeyText } from "~/lib/components/motion/FlipWords";
 import { LinkPreview } from "~/lib/components/motion/LinkPreview";
 import { Logos, Marquee } from "~/lib/components/motion/Marquee";
 import Menu from "~/lib/components/motion/Menu/Menu";
 import { GradientTracing } from "~/lib/components/motion/PulseBeams";
-import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBar";
+import ScrollProgressBar, {
+  ProgressiveBlur,
+} from "~/lib/components/motion/ScrollProgressBar";
 import { TextRevealByWord } from "~/lib/components/motion/ScrollReveal";
 import Footer from "~/lib/layout/Footer";
 
@@ -44,11 +46,10 @@ const About = (): JSX.Element => {
   return (
     <motion.main
       className="bg-neutral-950 text-neutral-50"
-      layout
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 1.5, ease: "easeInOut" }}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
       ref={ref}
     >
       <Menu />
@@ -59,10 +60,9 @@ const About = (): JSX.Element => {
         >
           <BlurFade delay={0.5} inView>
             <GradientTracing
-              width={500}
+              width={300}
               height={250}
-              path="M0,150 Q75,0 150,150 T300,150"
-              gradientColors={["#E74C3C", "#E74C3C", "#F39C12"]}
+              path="M0,75 C100,0 200,150 300,75"
             />
             <div className="pl-4 sm:pl-16 pt-1 sm:pt-2 flex">
               <motion.div className="grid gap-2">
@@ -92,8 +92,27 @@ const About = (): JSX.Element => {
           <TextRevealByWord text={intro.text.replace(/\s+/g, " ")} />
         </div>
       </div>
-      <div className="flex justify-center items-center w-screen">
-        <GradientTracing width={300} height={100} path="M0,50 Q150,0 300,50" />
+      <div className="flex flex-col justify-center items-center w-screen py-20">
+        <GradientTracing
+          width={250}
+          height={250}
+          path="M100,0 L75,75 L125,75 L50,200 L100,100 L50,100 L100,0"
+          gradientColors={["#F1C40F", "#F1C40F", "#E67E22"]}
+          animationDuration={5}
+          strokeWidth={2}
+        />
+        <GooeyText
+          texts={[
+            "Experience",
+            "Education",
+            "Certificates",
+            "Publications",
+            "Skills",
+          ]}
+          morphTime={2.5}
+          className="text-4xl sm:text-5xl md:text-6xl my-10"
+          cooldownTime={0.5}
+        />
       </div>
       <motion.section
         id="resume"
@@ -109,7 +128,10 @@ const About = (): JSX.Element => {
             }}
           >
             {resume.map((section) => (
-              <li className="w-screen max-w-screen-lg" key={section.section}>
+              <li
+                className="w-screen max-w-screen-lg border-l border-neutral-800"
+                key={section.section}
+              >
                 <div className="flex flex-row justify-center items-center h-screen m-1 z-0">
                   <div className="flex flex-col justify-center max-w-[98vw] h-[90vh] overflow-hidden z-10">
                     <div className="flex flex-col-reverse px-4">
@@ -134,10 +156,7 @@ const About = (): JSX.Element => {
           </motion.ul>
         </div>
       </motion.section>
-
       <motion.div layout style={{ opacity }} className="sticky bottom-0 z-10">
-        <div className="absolute left-0 w-1/6 h-full bg-gradient-to-r from-black to-transparent z-10 bg-opacity-50" />
-        <div className="absolute right-0 w-1/6 h-full bg-gradient-to-l from-black to-transparent z-10 bg-opacity-50" />
         <Marquee>
           {Object.values(Logos).map((Logo) => (
             <div
@@ -148,16 +167,22 @@ const About = (): JSX.Element => {
             </div>
           ))}
         </Marquee>
+        <ProgressiveBlur
+          className="pointer-events-none absolute top-0 left-0 h-full w-16 md:w-32"
+          direction="left"
+          blurIntensity={1}
+        />
+        <ProgressiveBlur
+          className="pointer-events-none absolute top-0 right-0 h-full w-16 md:w-32"
+          direction="right"
+          blurIntensity={1}
+        />
       </motion.div>
 
-      <div className="flex justify-center items-center w-screen">
-        <GradientTracing
-          width={500}
-          height={100}
-          path="M0,50 C75,0 150,100 225,50 S300,0 375,50"
-          gradientColors={["#FF6B6B", "#FF6B6B", "#4ECDC4"]}
-        />
+      <div className="flex flex-col justify-center items-center w-screen">
+        <GradientTracing width={500} height={100} />
       </div>
+
       <div className="flex flex-col justify-center items-center text-center max-w-sm m-auto z-10 px-4 relative bottom-0">
         <p className="text-neutral-400 text-2xl sm:text-3xl md:text-4xl mx-auto mb-10">
           Check out my personal{" "}

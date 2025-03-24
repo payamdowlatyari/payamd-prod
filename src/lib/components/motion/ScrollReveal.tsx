@@ -21,6 +21,7 @@ interface WordProps {
  *
  * @returns {React.ReactElement} The word component.
  */
+/** */
 const Word: FC<WordProps> = ({ children, progress, range }) => {
   const opacity = useTransform(progress, range, [0, 1]);
 
@@ -59,10 +60,10 @@ export const TextRevealByWord: FC<TextRevealByWordProps> = ({
 
   return (
     <div ref={targetRef} className={cn("relative z-0 h-[400vh]", className)}>
-      <div className="sticky top-60 md:top-20 mx-auto flex h-1/6 max-w-screen-xl items-center bg-transparent px-2 py-10">
+      <div className="sticky top-40 mx-auto flex h-1/6 max-w-screen-xl items-center bg-transparent px-2 py-20">
         <p
           ref={targetRef}
-          className="flex flex-wrap p-3 md:p-5 text-lg sm:text-xl lg:text-2xl lg:p-10 xl:text-3xl"
+          className="flex flex-wrap p-3 md:p-5 text-base sm:text-xl lg:text-2xl lg:p-10 xl:text-3xl"
         >
           {words.map((word, i) => {
             const start = i / words.length;

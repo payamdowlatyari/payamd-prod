@@ -54,7 +54,7 @@ export function SpinningText({
   radius = 5,
   transition,
   variants,
-}: SpinningTextProps) {
+}: SpinningTextProps): JSX.Element {
   if (typeof children !== "string" && !Array.isArray(children)) {
     throw new Error("children must be a string or an array of strings");
   }
@@ -158,6 +158,12 @@ export function MagnetLines({
 
     const items = container.querySelectorAll("span");
 
+    /**
+     * Given a pointer object, rotates all the child elements of the container
+     * so that they are facing the pointer.
+     *
+     * @param {{ x: any; y: any }} pointer The pointer object.
+     */
     const onPointerMove = (pointer: { x: any; y: any }) => {
       items.forEach((item) => {
         const rect = item.getBoundingClientRect();

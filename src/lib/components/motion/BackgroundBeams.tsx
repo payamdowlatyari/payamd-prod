@@ -1,9 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable consistent-return */
+/* eslint-disable react/no-unused-prop-types */
+/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable no-param-reassign */
 /* eslint-disable react/no-array-index-key */
 
 "use client";
 
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 import { cn } from "./utils/cn";
 
@@ -142,6 +147,154 @@ export const BackgroundBeams = React.memo(
   }
 );
 
+export const beams = [
+  {
+    path: "M269 220.5H16.5C10.9772 220.5 6.5 224.977 6.5 230.5V398.5",
+    gradientConfig: {
+      initial: {
+        x1: "0%",
+        x2: "0%",
+        y1: "80%",
+        y2: "100%",
+      },
+      animate: {
+        x1: ["0%", "0%", "200%"],
+        x2: ["0%", "0%", "180%"],
+        y1: ["80%", "0%", "0%"],
+        y2: ["100%", "20%", "20%"],
+      },
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        repeatType: "loop" as const,
+        ease: "linear",
+        repeatDelay: 2,
+        delay: Math.random() * 2,
+      },
+    },
+    connectionPoints: [
+      { cx: 6.5, cy: 398.5, r: 6 },
+      { cx: 269, cy: 220.5, r: 6 },
+    ],
+  },
+  {
+    path: "M568 200H841C846.523 200 851 195.523 851 190V40",
+    gradientConfig: {
+      initial: {
+        x1: "0%",
+        x2: "0%",
+        y1: "80%",
+        y2: "100%",
+      },
+      animate: {
+        x1: ["20%", "100%", "100%"],
+        x2: ["0%", "90%", "90%"],
+        y1: ["80%", "80%", "-20%"],
+        y2: ["100%", "100%", "0%"],
+      },
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        repeatType: "loop",
+        ease: "linear",
+        repeatDelay: 2,
+        delay: Math.random() * 2,
+      },
+    },
+    connectionPoints: [
+      { cx: 851, cy: 34, r: 6.5 },
+      { cx: 568, cy: 200, r: 6 },
+    ],
+  },
+  {
+    path: "M425.5 274V333C425.5 338.523 421.023 343 415.5 343H152C146.477 343 142 347.477 142 353V426.5",
+    gradientConfig: {
+      initial: {
+        x1: "0%",
+        x2: "0%",
+        y1: "80%",
+        y2: "100%",
+      },
+      animate: {
+        x1: ["20%", "100%", "100%"],
+        x2: ["0%", "90%", "90%"],
+        y1: ["80%", "80%", "-20%"],
+        y2: ["100%", "100%", "0%"],
+      },
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        repeatType: "loop",
+        ease: "linear",
+        repeatDelay: 2,
+        delay: Math.random() * 2,
+      },
+    },
+    connectionPoints: [
+      { cx: 142, cy: 427, r: 6.5 },
+      { cx: 425.5, cy: 274, r: 6 },
+    ],
+  },
+  {
+    path: "M493 274V333.226C493 338.749 497.477 343.226 503 343.226H760C765.523 343.226 770 347.703 770 353.226V427",
+    gradientConfig: {
+      initial: {
+        x1: "40%",
+        x2: "50%",
+        y1: "160%",
+        y2: "180%",
+      },
+      animate: {
+        x1: "0%",
+        x2: "10%",
+        y1: "-40%",
+        y2: "-20%",
+      },
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        repeatType: "loop",
+        ease: "linear",
+        repeatDelay: 2,
+        delay: Math.random() * 2,
+      },
+    },
+    connectionPoints: [
+      { cx: 770, cy: 427, r: 6.5 },
+      { cx: 493, cy: 274, r: 6 },
+    ],
+  },
+  {
+    path: "M380 168V17C380 11.4772 384.477 7 390 7H414",
+    gradientConfig: {
+      initial: {
+        x1: "-40%",
+        x2: "-10%",
+        y1: "0%",
+        y2: "20%",
+      },
+      animate: {
+        x1: ["40%", "0%", "0%"],
+        x2: ["10%", "0%", "0%"],
+        y1: ["0%", "0%", "180%"],
+        y2: ["20%", "20%", "200%"],
+      },
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        repeatType: "loop",
+        ease: "linear",
+        repeatDelay: 2,
+        delay: Math.random() * 2,
+      },
+    },
+    connectionPoints: [
+      { cx: 420.5, cy: 6.5, r: 6 },
+      { cx: 380, cy: 168, r: 6 },
+    ],
+  },
+];
+
 /**
  * A single beam element that animates a gradient from left to right.
  */
@@ -215,8 +368,244 @@ export const GridBeam: React.FC<{
   children: React.ReactNode;
   className?: string;
 }): JSX.Element => (
-  <div className={cn("relative w-full h-full", className)}>
-    <Beam />
-    {children}
-  </div>
+  <div className={cn("relative w-full h-full", className)}>{children}</div>
 );
+
+interface AnimatedGradientBackgroundProps {
+  className?: string;
+  children?: React.ReactNode;
+  intensity?: "subtle" | "medium" | "strong";
+}
+
+interface Beam2 {
+  x: number;
+  y: number;
+  width: number;
+  length: number;
+  angle: number;
+  speed: number;
+  opacity: number;
+  hue: number;
+  pulse: number;
+  pulseSpeed: number;
+}
+
+/**
+ * Creates a new beam with random properties.
+ * @param {number} width - The width of the canvas.
+ * @param {number} height - The height of the canvas.
+ * @returns {Beam2} A new beam with random properties.
+ */
+function createBeam(width: number, height: number): Beam2 {
+  const angle = -35 + Math.random() * 10;
+  return {
+    x: Math.random() * width * 1.5 - width * 0.25,
+    y: Math.random() * height * 1.5 - height * 0.25,
+    width: 30 + Math.random() * 60,
+    length: height * 2.5,
+    angle,
+    speed: 0.6 + Math.random() * 1.2,
+    opacity: 0.12 + Math.random() * 0.16,
+    hue: 190 + Math.random() * 70,
+    pulse: Math.random() * Math.PI * 2,
+    pulseSpeed: 0.02 + Math.random() * 0.03,
+  };
+}
+
+/**
+ * A component that renders a background with a collection of animated beams.
+ *
+ * @param {AnimatedGradientBackgroundProps} props - The component props.
+ * @param {string} [props.className] - Optional additional class names for styling.
+ * @param {React.ReactNode} [props.children] - The content to be rendered inside the component.
+ * @param {"subtle" | "medium" | "strong"} [props.intensity] - The intensity of the beams.
+ * @returns {JSX.Element} A React component rendering a beam background.
+ */
+export function BeamsBackground({
+  className,
+  intensity = "strong",
+  children,
+}: AnimatedGradientBackgroundProps): JSX.Element {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const beamsRef = useRef<Beam2[]>([]);
+  const animationFrameRef = useRef<number>(0);
+  const MINIMUM_BEAMS = 20;
+
+  const opacityMap = {
+    subtle: 0.7,
+    medium: 0.85,
+    strong: 1,
+  };
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    /**
+     * Updates the canvas size based on the current window size and device pixel ratio.
+     * Creates a new array of beams, each with a random x position, y position, speed, and hue.
+     */
+    const updateCanvasSize = () => {
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      ctx.scale(dpr, dpr);
+
+      const totalBeams = MINIMUM_BEAMS * 1.5;
+      beamsRef.current = Array.from({ length: totalBeams }, () =>
+        createBeam(canvas.width, canvas.height)
+      );
+    };
+
+    updateCanvasSize();
+    window.addEventListener("resize", updateCanvasSize);
+
+    /**
+     * Resets a beam to its initial state with a new random x position, y position, speed, and hue.
+     *
+     * @param {Beam2} beam - The beam object to be reset.
+     * @param {number} index - The index of the beam in the array of beams.
+     * @param {number} totalBeams - The total number of beams in the array.
+     * @returns {Beam2} The reset beam object.
+     */
+    function resetBeam(beam: Beam2, index: number, totalBeams: number): Beam2 {
+      if (!canvas) return beam;
+
+      const column = index % 3;
+      const spacing = canvas.width / 3;
+
+      beam.y = canvas.height + 100;
+      beam.x =
+        column * spacing + spacing / 2 + (Math.random() - 0.5) * spacing * 0.5;
+      beam.width = 100 + Math.random() * 100;
+      beam.speed = 0.5 + Math.random() * 0.4;
+      beam.hue = 190 + (index * 70) / totalBeams;
+      beam.opacity = 0.2 + Math.random() * 0.1;
+      return beam;
+    }
+
+    /**
+     * Draws a single beam on the canvas with a pulsing gradient effect.
+     * @param {CanvasRenderingContext2D} ctx - The canvas context to draw on.
+     * @param {Beam2} beam - The beam object to draw, with properties for
+     *     x position, y position, width, length, angle, speed, hue, opacity,
+     *     and pulse phase.
+     */
+    function drawBeam(ctx: CanvasRenderingContext2D, beam: Beam2) {
+      ctx.save();
+      ctx.translate(beam.x, beam.y);
+      ctx.rotate((beam.angle * Math.PI) / 180);
+
+      // Calculate pulsing opacity
+      const pulsingOpacity =
+        beam.opacity *
+        (0.8 + Math.sin(beam.pulse) * 0.2) *
+        opacityMap[intensity];
+
+      const gradient = ctx.createLinearGradient(0, 0, 0, beam.length);
+
+      // Enhanced gradient with multiple color stops
+      gradient.addColorStop(0, `hsla(${beam.hue}, 85%, 65%, 0)`);
+      gradient.addColorStop(
+        0.1,
+        `hsla(${beam.hue}, 85%, 65%, ${pulsingOpacity * 0.5})`
+      );
+      gradient.addColorStop(
+        0.4,
+        `hsla(${beam.hue}, 85%, 65%, ${pulsingOpacity})`
+      );
+      gradient.addColorStop(
+        0.6,
+        `hsla(${beam.hue}, 85%, 65%, ${pulsingOpacity})`
+      );
+      gradient.addColorStop(
+        0.9,
+        `hsla(${beam.hue}, 85%, 65%, ${pulsingOpacity * 0.5})`
+      );
+      gradient.addColorStop(1, `hsla(${beam.hue}, 85%, 65%, 0)`);
+
+      ctx.fillStyle = gradient;
+      ctx.fillRect(-beam.width / 2, 0, beam.width, beam.length);
+      ctx.restore();
+    }
+
+    /**
+     * The main animation loop, which clears the canvas, applies a blur filter,
+     * and then draws each beam in the beams array, updating its position and
+     * pulse animation each frame. When a beam moves off the bottom of the
+     * canvas, it is reset to a new random position.
+     * @returns {void}
+     */
+    function animate(): void {
+      if (!canvas || !ctx) return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.filter = "blur(35px)";
+
+      const totalBeams = beamsRef.current.length;
+      beamsRef.current.forEach((beam: Beam2, index: number) => {
+        beam.y -= beam.speed;
+        beam.pulse += beam.pulseSpeed;
+
+        // Reset beam when it goes off screen
+        if (beam.y + beam.length < -100) {
+          resetBeam(beam, index, totalBeams);
+        }
+
+        drawBeam(ctx, beam);
+      });
+
+      animationFrameRef.current = requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    return () => {
+      window.removeEventListener("resize", updateCanvasSize);
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
+  }, [intensity, opacityMap]);
+
+  return (
+    <div
+      className={cn(
+        "relative min-h-screen w-full overflow-hidden bg-neutral-950 -z-10",
+        className
+      )}
+    >
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0"
+        style={{ filter: "blur(15px)" }}
+      />
+
+      <motion.div
+        className="absolute inset-0 bg-neutral-950/5"
+        animate={{
+          opacity: [0.05, 0.15, 0.05],
+        }}
+        transition={{
+          duration: 10,
+          ease: "easeInOut",
+          repeat: Number.POSITIVE_INFINITY,
+        }}
+        style={{
+          backdropFilter: "blur(50px)",
+        }}
+      />
+
+      <div className="relative z-10 flex h-screen w-full items-center justify-center">
+        <div className="flex flex-col items-center justify-center gap-6 px-4 text-center">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}

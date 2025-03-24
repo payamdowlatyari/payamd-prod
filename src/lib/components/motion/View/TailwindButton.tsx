@@ -128,13 +128,86 @@ export function LinkArrowOut({
   return (
     <Link
       href={url}
-      className="group inline-flex text-base backdrop-blur-md text-white justify-center items-center py-1 w-fit rounded-xl duration-200 group bg-page-gradient text-md font-geistSans hover:bg-transparent/10 hover:text-zinc-100"
+      className="group inline-flex text-base backdrop-blur-md text-white justify-center items-center py-1 w-fit rounded-xl duration-200 group bg-page-gradient font-geistSans hover:bg-transparent/10 hover:text-zinc-100"
     >
       {title}
       <div className="flex overflow-hidden relative justify-center items-center ml-1 w-5 h-5">
         <RiArrowRightUpLine className="absolute transition-all duration-500 group-hover:translate-x-4 group-hover:-translate-y-5" />
         <RiArrowRightUpLine className="absolute transition-all duration-500 -translate-x-4 -translate-y-5 group-hover:translate-x-0 group-hover:translate-y-0" />
       </div>
+    </Link>
+  );
+}
+
+/**
+ * HoverLink component
+ * @returns {JSX.Element}
+ */
+export function HoverLink({
+  title,
+  url,
+  out,
+  low,
+}: {
+  title: string;
+  url: string;
+  out?: boolean;
+  low?: boolean;
+}): JSX.Element {
+  return (
+    <Link
+      href={url}
+      className="relative text-3xl sm:text-4xl md:text-5xl after:absolute after:bg-white after:bottom-0 after:left-0 after:h-[3px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-500"
+      rel="noopener noreferrer"
+      target={out ? "_blank" : ""}
+    >
+      <>
+        {!low ? (
+          <span className="uppercase">{title}</span>
+        ) : (
+          <span>{title}</span>
+        )}
+        {out ? <RiArrowRightUpLine className="inline" /> : ""}
+      </>
+    </Link>
+  );
+}
+
+/**
+ * LinkOut component
+ * @returns {JSX.Element}
+ */
+export function LinkOut({
+  title,
+  url,
+  size,
+  low,
+}: {
+  title: string;
+  url: string;
+  size?: number;
+  low?: boolean;
+}): JSX.Element {
+  return (
+    <Link
+      href={url}
+      style={{
+        fontSize: size,
+      }}
+      target="_blank"
+    >
+      <>
+        {!low ? (
+          <span className="uppercase pr-[1px] hover:pr-1 hover:transition-colors ease-in-out duration-500">
+            {title}
+          </span>
+        ) : (
+          <span className="pr-[1px] hover:pr-1 hover:transition-colors ease-in-out duration-500">
+            {title}
+          </span>
+        )}
+        <RiArrowRightUpLine className="inline" />
+      </>
     </Link>
   );
 }

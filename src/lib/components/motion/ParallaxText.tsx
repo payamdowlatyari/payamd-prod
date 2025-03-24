@@ -18,9 +18,7 @@ interface ParallaxProps {
 
 /**
  * A component that renders a parallax scrolling text effect.
- *
  * @param {React.ReactNode} children - The text to be rendered.
- * @param {number} baseVelocity - The base velocity of the parallax effect. Defaults to 100.
  * @returns {JSX.Element}
  */
 export default function ParallaxText({

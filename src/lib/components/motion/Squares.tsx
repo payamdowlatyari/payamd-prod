@@ -45,7 +45,11 @@ export function Squares({
     // Set canvas background
     canvas.style.background = "#060606";
 
-    const resizeCanvas = () => {
+    /**
+     * Resize the canvas to the window size, and recalculate the number of squares to render.
+     * @returns {void}
+     */
+    const resizeCanvas = (): void => {
       canvas.width = canvas.offsetWidth;
       canvas.height = canvas.offsetHeight;
       numSquaresX.current = Math.ceil(canvas.width / squareSize) + 1;
@@ -55,7 +59,15 @@ export function Squares({
     window.addEventListener("resize", resizeCanvas);
     resizeCanvas();
 
-    const drawGrid = () => {
+    /**
+     * Draw the grid of squares on the canvas.
+     * @description
+     * This function is called every frame. It clears the canvas, and then draws a
+     * grid of squares with a hover effect. The grid is offset by the current scroll
+     * position, and the hover effect is positioned based on the mouse position.
+     * @returns {void}
+     */
+    const drawGrid = (): void => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const startX = Math.floor(gridOffset.current.x / squareSize) * squareSize;
@@ -97,7 +109,15 @@ export function Squares({
       ctx.fillRect(0, 0, canvas.width, canvas.height);
     };
 
-    const updateAnimation = () => {
+    /**
+     * Update the animation by adjusting the grid offset based on the direction.
+     * This function is called every frame. It calculates the effective speed by
+     * taking the maximum of the speed and 0.1, and then adjusts the grid offset
+     * based on the direction. It then calls drawGrid to redraw the canvas with
+     * the new offset, and schedules the next frame using requestAnimationFrame.
+     * @returns {void}
+     */
+    const updateAnimation = (): void => {
       const effectiveSpeed = Math.max(speed, 0.1);
 
       switch (direction) {
@@ -129,6 +149,14 @@ export function Squares({
       requestRef.current = requestAnimationFrame(updateAnimation);
     };
 
+    /**
+     * Handles the mouse move event. This function is called when the user moves the
+     * mouse over the canvas. It calculates the position of the mouse relative to the
+     * canvas, and then calculates the hovered square by taking the floor of the
+     * mouse position divided by the square size. It then sets the hoveredSquare state
+     * to the calculated position.
+     * @param {MouseEvent} event - The mouse move event.
+     */
     const handleMouseMove = (event: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
       const mouseX = event.clientX - rect.left;
@@ -147,6 +175,10 @@ export function Squares({
       setHoveredSquare({ x: hoveredSquareX, y: hoveredSquareY });
     };
 
+    /**
+     * Handles the mouse leave event. This function is called when the user moves the
+     * mouse off the canvas. It sets the hoveredSquare state to null.
+     */
     const handleMouseLeave = () => {
       setHoveredSquare(null);
     };

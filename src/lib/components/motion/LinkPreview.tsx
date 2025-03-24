@@ -87,6 +87,13 @@ export const LinkPreview = ({
 
   const translateX = useSpring(x, springConfig);
 
+  /**
+   * Handle mouse move event. This function is called when the user moves the
+   * mouse over the link preview image. It calculates the offset from the center
+   * of the image and sets the x-motion value to that offset. The offset is
+   * reduced by half to make the effect subtle.
+   * @param {MouseEvent} event - The mouse move event.
+   */
   const handleMouseMove = (event: any) => {
     const targetRect = event.target.getBoundingClientRect();
     const eventOffsetX = event.clientX - targetRect.left;

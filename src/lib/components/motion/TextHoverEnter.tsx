@@ -10,8 +10,6 @@ const STAGGER = 0.025;
 /**
  * TextHoverEnter component
  * @param {string} title - The title of the component.
- * @param {string} url - The URL of the component.
- * @param {string} className - The class name of the component.
  * @returns {JSX.Element}
  */
 export function TextHoverEnter({
@@ -93,7 +91,6 @@ interface AnimatedTextProps {
 /**
  * A component that renders a hover animation on the given text.
  * @param {string} text - The text to render.
- * @param {string} className - The class name of the component.
  * @returns {JSX.Element} A JSX element representing the animated text.
  */
 export function TextHover({

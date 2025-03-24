@@ -288,7 +288,7 @@ export const certificate = [
     date: "Mar 2023",
     link: "https://success.simplilearn.com/a8ed0cbb-aa08-40b3-b6ce-a5eac2e55dd4#gs.1kwd89",
     description: [
-      "Capstone: A bank portal application with Angular2+, Java ,MySQL, REST API, and CRUD functionality",
+      "Capstone: A bank portal with Angular2+, Java ,MySQL, REST API CRUD functionality",
     ],
   },
   {

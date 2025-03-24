@@ -43,7 +43,7 @@ const Footer = (): JSX.Element => {
         className="flex flex-col items-center justify-end h-full z-10"
       >
         <div className="w-screen h-full flex flex-col items-center justify-center">
-          <Logo light={false} size={50} />
+          <Logo size={50} />
           <div className="flex flex-row mt-4 w-full justify-center">
             {links.map(({ href, label }) => (
               <Link
