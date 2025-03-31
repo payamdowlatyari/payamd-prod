@@ -1,12 +1,17 @@
 "use client";
 
 import {
+  DynamicAnimationOptions,
   HTMLMotionProps,
   motion,
+  stagger,
+  useAnimate,
   useAnimation,
   useInView,
 } from "framer-motion";
-import { FC, useEffect, useRef } from "react";
+import { debounce } from "lodash";
+import Link from "next/link";
+import { FC, useEffect, useRef, useState } from "react";
 
 type AnimationType =
   | "fadeIn"
@@ -314,3 +319,120 @@ export const TextAnimate: FC<Props> = ({
     </motion.span>
   );
 };
+
+interface TextProps {
+  label: string;
+  fromFontVariationSettings: string;
+  toFontVariationSettings: string;
+  transition?: DynamicAnimationOptions;
+  link?: string;
+  staggerDuration?: number;
+  staggerFrom?: "first" | "last" | "center" | number;
+  className?: string;
+  onClick?: () => void;
+}
+
+/**
+ * A component that renders a hover animation on a given text using a variable font's font variation settings.
+ * @param {string} label - The text to render.
+ * @returns {JSX.Element} A JSX element representing the animated text.
+ */
+export function VariableFontHoverByLetter({
+  label,
+  fromFontVariationSettings = "'wght' 400, 'slnt' 0",
+  toFontVariationSettings = "'wght' 900, 'slnt' -10",
+  transition = {
+    type: "spring",
+    duration: 0.7,
+  },
+  link,
+  staggerDuration = 0.03,
+  staggerFrom = "first",
+  className,
+  onClick,
+  ...props
+}: TextProps): JSX.Element {
+  const [scope, animate] = useAnimate();
+  const [isHovered, setIsHovered] = useState(false);
+
+  /**
+   * Merges a base transition with additional delay settings based on stagger configuration.
+   *
+   * @param {DynamicAnimationOptions} baseTransition - The base transition options.
+   * @returns {DynamicAnimationOptions} The merged transition options including stagger delay.
+   */
+  const mergeTransition = (
+    baseTransition: DynamicAnimationOptions
+  ): DynamicAnimationOptions => ({
+    ...baseTransition,
+    delay: stagger(staggerDuration, {
+      from: staggerFrom,
+    }),
+  });
+
+  const hoverStart = debounce(
+    () => {
+      if (isHovered) return;
+      setIsHovered(true);
+
+      animate(
+        ".letter",
+        { fontVariationSettings: toFontVariationSettings },
+        mergeTransition(transition)
+      );
+    },
+    100,
+    { leading: true, trailing: true }
+  );
+
+  const hoverEnd = debounce(
+    () => {
+      setIsHovered(false);
+
+      animate(
+        ".letter",
+        { fontVariationSettings: fromFontVariationSettings },
+        mergeTransition(transition)
+      );
+    },
+    100,
+    { leading: true, trailing: true }
+  );
+
+  return (
+    <motion.span
+      className={`${className}`}
+      onHoverStart={hoverStart}
+      onHoverEnd={hoverEnd}
+      onClick={onClick}
+      ref={scope}
+      {...props}
+    >
+      {link ? (
+        <Link href={link} aria-hidden="true">
+          {label.split("").map((letter: string, i: number) => {
+            return (
+              <motion.span
+                key={i as number}
+                className="inline-block whitespace-pre letter"
+                aria-hidden="true"
+              >
+                {letter}
+              </motion.span>
+            );
+          })}
+        </Link>
+      ) : (
+        <span className="inline-block whitespace-pre letter" aria-hidden="true">
+          {label.split("").map((letter: string, i: number) => {
+            return (
+              <motion.span key={i as number} aria-hidden="true">
+                {letter}
+              </motion.span>
+            );
+          })}
+        </span>
+      )}
+    </motion.span>
+  );
+}

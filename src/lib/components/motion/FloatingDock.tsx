@@ -415,7 +415,7 @@ export function Magnetic({
  * @param {MagneticSocialLinkProps} props - The props for the MagneticSocialLink component.
  * @returns {JSX.Element} A JSX element representing the MagneticSocialLink component.
  */
-function MagneticSocialLink({
+export function MagneticSocialLink({
   children,
   link,
 }: {
@@ -458,8 +458,8 @@ function MagneticSocialLink({
  */
 export function MagneticSocialLinks(): JSX.Element {
   return (
-    <div className="flex min-h-28 w-full items-center justify-center bg-transparent">
-      <div className="flex items-center justify-start space-x-3">
+    <div className="flex min-h-24 w-full items-center justify-center bg-transparent">
+      <div className="flex items-center justify-start space-x-2">
         {Object.entries(DATA.contact.social).map(([name, social]) => (
           <MagneticSocialLink key={name} link={social.url}>
             {name}

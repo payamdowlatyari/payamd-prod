@@ -1,4 +1,5 @@
-import { motion, stagger, useAnimate, useCycle } from "framer-motion";
+/* eslint-disable sonarjs/no-duplicate-string */
+import { motion, useAnimate, useCycle } from "framer-motion";
 import { useEffect } from "react";
 import { TfiClose, TfiLineDouble } from "react-icons/tfi";
 
@@ -18,7 +19,7 @@ const NavToggle = ({ toggle }: { toggle: () => void }): JSX.Element => {
     <motion.button
       onClick={toggle}
       layout
-      className="outline-none border-none cursor-pointer absolute top-1 right-3 bg-transparent flex items-center z-[101]"
+      className="outline-none border-none cursor-pointer absolute top-1 right-3 bg-transparent flex items-center z-[1001]"
     >
       <motion.span
         variants={{
@@ -49,47 +50,42 @@ function useMenuAnimation(isOpen: boolean): any {
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
-    const menuAnimations: any = isOpen
+    const blurEffect = "blur(10px)";
+    const animations: any = isOpen
       ? [
-          [
-            "ul",
-            { transform: "translateY(0%)" },
-            { ease: [0.08, 0.65, 0.53, 0.96], duration: 0.5 },
-          ],
+          ["ul", { y: 0 }, { ease: "easeOut", duration: 0.7, at: "-0.1" }],
           [
             "li",
-            { transform: "translateX(0%)", opacity: 1, filter: "blur(0px)" },
-            { delay: stagger(0.05), at: "-0.1" },
+            { x: 0, opacity: 1, filter: "blur(0px)" },
+            { delay: 0.05, at: "-0.1" },
           ],
           [
             ".contacts",
-            { opacity: 1, transform: "translateX(0%)", filter: "blur(0px)" },
-            { ease: [0.08, 0.65, 0.53, 0.96], duration: 0.5 },
+            { x: 0, opacity: 1, filter: "blur(0px)" },
+            { ease: "easeInOut", duration: 0.4 },
           ],
           [
             ".social",
-            { opacity: 1, transform: "translateY(0%)", filter: "blur(0px)" },
-            { ease: [0.08, 0.65, 0.53, 0.96], duration: 0.5 },
+            { y: 0, opacity: 1, filter: "blur(0px)" },
+            { ease: "easeInOut", duration: 0.4 },
           ],
         ]
       : [
-          [".social", { opacity: 0, transform: "translateY(100%)" }],
+          [
+            ".social",
+            { y: 200, filter: blurEffect },
+            { ease: "easeInOut", duration: 0.3 },
+          ],
           [
             ".contacts",
-            { opacity: 0, transform: "translateX(100%)", filter: "blur(10px)" },
+            { x: 100, opacity: 0, filter: blurEffect },
+            { ease: "easeInOut", duration: 0.3, at: "-0.1" },
           ],
-          [
-            "li",
-            {
-              transform: "translateX(-100%)",
-              opacity: 0,
-              filter: "blur(10px)",
-            },
-          ],
-          ["ul", { transform: "translateY(-100%)" }, { at: "-0.1" }],
+          ["li", { x: -100, opacity: 0, filter: blurEffect }, { at: "-0.1" }],
+          ["ul", { y: -100 }, { at: "-0.1" }],
         ];
 
-    animate([...menuAnimations]);
+    animate(animations);
   }, [isOpen, animate]);
 
   return scope;
@@ -113,28 +109,39 @@ export default function Menu(): JSX.Element {
       <motion.div
         layout
         variants={{
-          closed: { opacity: 0, display: "none" },
-          open: { opacity: 1, display: "flex" },
+          closed: {
+            opacity: 0,
+            display: "none",
+            filter: "blur(10px)",
+          },
+          open: { opacity: 1, display: "flex", filter: "blur(0px)" },
+          exit: { opacity: 0, display: "none", filter: "blur(10px)" },
+          initial: { opacity: 0, display: "none", filter: "blur(10px)" },
+          animate: { opacity: 1, display: "flex", filter: "blur(0px)" },
         }}
-        transition={{ duration: 0.5, ease: [0.08, 0.65, 0.53, 0.96] }}
+        transition={{
+          duration: 0.25,
+          ease: [0.08, 0.65, 0.53, 0.96],
+          delay: 0.75,
+        }}
         className="flex flex-wrap w-screen h-screen bg-neutral-950 relative items-end justify-center"
         ref={scope}
       >
         <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden bg-neutral-900">
           <Squares
             direction="diagonal"
-            speed={0.25}
+            speed={0.2}
             squareSize={50}
             borderColor="#222"
             hoverFillColor="#222"
           />
         </div>
-        <div className="flex flex-wrap w-full h-4/5 sm:h-3/5 md:h-2/3 justify-around items-center content-end">
+        <div className="flex flex-wrap w-full h-3/5 justify-around items-center content-end">
           <Nav />
           <Contact />
         </div>
 
-        <div className="flex flex-col items-center justify-end min-w-72 h-1/5 sm:h-2/5 md:h-1/3 py-2 social">
+        <div className="flex flex-col items-center justify-end min-w-72 h-1/5 py-2 social">
           <MagneticSocialLinks />
         </div>
       </motion.div>

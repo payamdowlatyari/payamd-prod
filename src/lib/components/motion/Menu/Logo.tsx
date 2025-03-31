@@ -10,8 +10,8 @@ import Link from "next/link";
 export default function Logo({ size }: { size: number }): JSX.Element {
   return (
     <motion.div
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
       transition={{ duration: 0.5, ease: "backInOut" }}
     >
       <Link href="/">

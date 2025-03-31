@@ -7,7 +7,6 @@ import { useRef } from "react";
 import { intro, resume } from "~/lib/components/data/data";
 import { BlurFade } from "~/lib/components/motion/BlurFade";
 import { ResumeCard } from "~/lib/components/motion/Card";
-import { GooeyText } from "~/lib/components/motion/FlipWords";
 import { LinkPreview } from "~/lib/components/motion/LinkPreview";
 import { Logos, Marquee } from "~/lib/components/motion/Marquee";
 import Menu from "~/lib/components/motion/Menu/Menu";
@@ -16,6 +15,7 @@ import ScrollProgressBar, {
   ProgressiveBlur,
 } from "~/lib/components/motion/ScrollProgressBar";
 import { TextRevealByWord } from "~/lib/components/motion/ScrollReveal";
+import { SpinningText } from "~/lib/components/motion/Spinner";
 import Footer from "~/lib/layout/Footer";
 
 /**
@@ -26,11 +26,16 @@ const About = (): JSX.Element => {
   const ref = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"],
+    // offset: ["start end", "end start"],
   });
-  const x = useTransform(scrollYProgress, [0.3, 1], ["25%", "-125%"], {
-    clamp: false,
-  });
+  const x = useTransform(
+    scrollYProgress,
+    [0, 0.2, 1],
+    ["50%", "50%", "-125%"],
+    {
+      clamp: false,
+    }
+  );
 
   const opacity = useTransform(
     scrollYProgress,
@@ -62,7 +67,10 @@ const About = (): JSX.Element => {
             <GradientTracing
               width={300}
               height={250}
-              path="M0,75 C100,0 200,150 300,75"
+              path="M0,50 L75,25 L150,75 L225,25 L300,50"
+              strokeWidth={2}
+              gradientColors={["#F1C40F", "#F1C40F", "#E67E22"]}
+              animationDuration={5}
             />
             <div className="pl-4 sm:pl-16 pt-1 sm:pt-2 flex">
               <motion.div className="grid gap-2">
@@ -88,31 +96,13 @@ const About = (): JSX.Element => {
           </BlurFade>
         </motion.div>
 
-        <div className="z-10 flex min-h-screen items-center justify-center pt-[100vh]">
+        <div className="z-10 flex min-h-screen justify-center pt-[200vh]">
           <TextRevealByWord text={intro.text.replace(/\s+/g, " ")} />
         </div>
-      </div>
-      <div className="flex flex-col justify-center items-center w-screen py-20">
-        <GradientTracing
-          width={250}
-          height={250}
-          path="M100,0 L75,75 L125,75 L50,200 L100,100 L50,100 L100,0"
-          gradientColors={["#F1C40F", "#F1C40F", "#E67E22"]}
-          animationDuration={5}
-          strokeWidth={2}
-        />
-        <GooeyText
-          texts={[
-            "Experience",
-            "Education",
-            "Certificates",
-            "Publications",
-            "Skills",
-          ]}
-          morphTime={2.5}
-          className="text-4xl sm:text-5xl md:text-6xl my-10"
-          cooldownTime={0.5}
-        />
+
+        <div className="text-center max-w-sm m-auto z-10 px-4 mt-48 tracking-widest relative uppercase text-2xl text-neutral-500">
+          <SpinningText>Scroll down to see my resume</SpinningText>
+        </div>
       </div>
       <motion.section
         id="resume"
@@ -128,19 +118,14 @@ const About = (): JSX.Element => {
             }}
           >
             {resume.map((section) => (
-              <li
-                className="w-screen max-w-screen-lg border-l border-neutral-800"
-                key={section.section}
-              >
+              <li className="w-screen max-w-screen-lg" key={section.section}>
                 <div className="flex flex-row justify-center items-center h-screen m-1 z-0">
-                  <div className="flex flex-col justify-center max-w-[98vw] h-[90vh] overflow-hidden z-10">
+                  <div className="flex flex-col justify-center max-w-screen-lg overflow-hidden z-10">
                     <div className="flex flex-col-reverse px-4">
                       <BlurFade delay={0.5} inView>
-                        <div className="w-full flex mt-2 items-center justify-start">
-                          <h2 className="text-center text-5xl md:text-7xl tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-500 to-neutral-700 select-none">
-                            {section.section}
-                          </h2>
-                        </div>
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-neutral-100">
+                          {section.section}
+                        </h2>
                       </BlurFade>
                     </div>
 

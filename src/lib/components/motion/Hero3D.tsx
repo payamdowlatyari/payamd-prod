@@ -197,7 +197,7 @@ function Aside(): JSX.Element {
           <TextHoverEnter url="#services" title="What I do" />
         </div>
         <div className="flex flex-col justify-start items-start w-full px-8 my-8 gap-2">
-          <h3 className="text-3xl md:text-5xl font-normal text-neutral-500">
+          <h3 className="text-3xl md:text-5xl font-normal text-neutral-200">
             <FlipWords words={portfolio.words} />
           </h3>
         </div>

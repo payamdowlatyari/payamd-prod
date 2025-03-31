@@ -26,7 +26,7 @@ export default function Home(): JSX.Element {
         transition={{
           duration: 1,
           delay: 4,
-          ease: "backInOut",
+          ease: "easeOut",
         }}
         className="fixed flex justify-center top-0 left-0 w-full h-full bg-neutral-950 z-[1002]"
       >
@@ -54,7 +54,11 @@ export default function Home(): JSX.Element {
         </div>
       </section>
       <div className="flex justify-center items-center">
-        <GradientTracing width={500} height={100} />{" "}
+        <GradientTracing
+          width={500}
+          height={100}
+          path="M0,50 L75,25 L150,75 L225,25 L300,50"
+        />{" "}
       </div>
       <section
         id="services"
@@ -72,7 +76,7 @@ export default function Home(): JSX.Element {
           {services.map((service) => (
             <div
               className={cn(
-                "flex flex-col py-10 relative text-neutral-300 group/feature border-l border-t border-neutral-800"
+                "flex flex-col py-10 relative text-neutral-300 group/feature rounded-lg border border-neutral-800 hover:border-neutral-500 transition duration-200 ease-in-out"
               )}
             >
               <div className="mb-4 relative z-10 px-5 md:px-10">

@@ -47,6 +47,8 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
           damping: 0.01,
           renderByPixels: true,
           dampingFactor: 0.1,
+          alwaysShowTracks: true,
+          alwaysShowScrollbar: true,
         }}
       >
         {(bind) => (
@@ -56,7 +58,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
           </article>
         )}
       </SmoothScrollbar>
-      <div className="fixed z-[998] top-1 left-3">
+      <div className="fixed z-[1001] top-1 left-3">
         <Logo size={50} />
       </div>
     </motion.div>
