@@ -32,12 +32,30 @@ dependencies:
   '@emotion/styled':
     specifier: ^11.11.5
     version: 11.11.5(@emotion/react@11.11.4)(@types/react@18.3.3)(react@18.3.1)
+  '@fontsource/aclonica':
+    specifier: ^5.2.5
+    version: 5.2.5
+  '@fontsource/blackout-sunrise':
+    specifier: ^5.2.5
+    version: 5.2.5
+  '@fontsource/blackout-two-am':
+    specifier: ^5.2.5
+    version: 5.2.5
+  '@fontsource/boldonse':
+    specifier: ^5.2.1
+    version: 5.2.1
   '@fontsource/poppins':
     specifier: ^5.0.14
     version: 5.0.14
   '@fontsource/reggae-one':
     specifier: ^5.0.19
     version: 5.0.19
+  '@fontsource/seaweed-script':
+    specifier: ^5.2.5
+    version: 5.2.5
+  '@fontsource/vina-sans':
+    specifier: ^5.2.5
+    version: 5.2.5
   '@motionone/utils':
     specifier: ^10.18.0
     version: 10.18.0
@@ -3482,12 +3500,36 @@ packages:
     resolution: {integrity: sha512-J4yDIIthosAsRZ5CPYP/jQvUAQtlZTTD/4suA08/FEnlxqW3sKS9iAhgsa9VYLZ6vDHn/ixJgIqRQPotoBjxIw==}
     dev: false
 
+  /@fontsource/aclonica@5.2.5:
+    resolution: {integrity: sha512-XFMNzmKgL+ZvZ8m09a9kDzK4D+VGVmiuX4urSOivyLk5bcqixscmBW1ZG04xm6ZpN8/TFCCz8qZT6xkME941JA==}
+    dev: false
+
+  /@fontsource/blackout-sunrise@5.2.5:
+    resolution: {integrity: sha512-xFLVYRjbMKxrX/E1BctzpVl7VF66bmvAp0a7yzaGkXfxdXCsWk//ZJmwpvouBO6jo5WuP3jOws/SzyhhXIN9CA==}
+    dev: false
+
+  /@fontsource/blackout-two-am@5.2.5:
+    resolution: {integrity: sha512-Z/BuMPHDFCRxy9giYrRH95uM0zK+d0ofYz9kT0z1qfqI8Ohl25NoxuBf6YVA1yT/hCUxecREkKSa/9rtdR6NoA==}
+    dev: false
+
+  /@fontsource/boldonse@5.2.1:
+    resolution: {integrity: sha512-C2szZzwOug4r1D1FltMehZ4OQVFbDB5aCaSumKkNqIpttbRJWGMBZuzJ9CvCdxcUWCm4VR+bgIwGP4cDnKsdrQ==}
+    dev: false
+
   /@fontsource/poppins@5.0.14:
     resolution: {integrity: sha512-nmM1zpPo3Uh4JcGAVSQuWaZNYh2FbbwWhZ5t6hRaynmJaNTBW85d3nEh9zMmzI0HX7X5xqQVdRHeDatKpOGsnA==}
     dev: false
 
   /@fontsource/reggae-one@5.0.19:
     resolution: {integrity: sha512-2KXsqP8SuUHMLd/gqsCFKOiG5zUGm/UO7EN5OZ4jXHt+KtjdwgnD4gNim7q+C0CQAGi6zRYrZU1WqNLx5KWXOw==}
+    dev: false
+
+  /@fontsource/seaweed-script@5.2.5:
+    resolution: {integrity: sha512-QUzCy5LhMQf5x6L9PGHm+QJ+jBPlK7hoJNozxnISaWnJHuE5vrEf5F1YYp8hiEz8gYoWyn9urSLTXDJJyztCSA==}
+    dev: false
+
+  /@fontsource/vina-sans@5.2.5:
+    resolution: {integrity: sha512-TyMQg/WFRFIKzfdM6LPXqaaCzNiEfRObx0y6CyrujeFMVNFU8WZRRwkJlcuyLzY6Cnfk1JevVbGLqfx/CY4c+g==}
     dev: false
 
   /@humanwhocodes/config-array@0.11.14:
