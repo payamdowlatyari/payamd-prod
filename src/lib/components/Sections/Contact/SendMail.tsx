@@ -15,21 +15,27 @@ export const SendMail = () => {
 
   /**
    * Handles sending an email through emailjs.com service.
-   * @param {React.FormEvent<HTMLFormElement>} e - Form submit event
+   * @param {React.FormEvent<HTMLFormElement>} event - Form submit event
    * @returns {Promise<void>}
    * @throws {EmailJSResponseStatus}
    */
-  const sendEmail = async (e: {
-    preventDefault: () => void;
-  }): Promise<void> => {
-    e.preventDefault();
+  const sendEmail = async (
+    event: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
+    event.preventDefault();
 
     if (!form.current) return;
 
+    const {
+      NEXT_PUBLIC_SERVICE_ID,
+      NEXT_PUBLIC_TEMPLATE_ID,
+      NEXT_PUBLIC_API_KEY,
+    } = process.env;
+
     if (
-      !process.env.NEXT_PUBLIC_SERVICE_ID ||
-      !process.env.NEXT_PUBLIC_TEMPLATE_ID ||
-      !process.env.NEXT_PUBLIC_API_KEY
+      !NEXT_PUBLIC_SERVICE_ID ||
+      !NEXT_PUBLIC_TEMPLATE_ID ||
+      !NEXT_PUBLIC_API_KEY
     ) {
       setSuccess(false);
       setMessage("Failed to send message, please try again later");
@@ -38,19 +44,17 @@ export const SendMail = () => {
 
     try {
       await emailjs.send(
-        process.env.NEXT_PUBLIC_SERVICE_ID as string,
-        process.env.NEXT_PUBLIC_TEMPLATE_ID as string,
+        NEXT_PUBLIC_SERVICE_ID,
+        NEXT_PUBLIC_TEMPLATE_ID,
         {},
-        {
-          publicKey: process.env.NEXT_PUBLIC_API_KEY,
-        }
+        { publicKey: NEXT_PUBLIC_API_KEY }
       );
       setSuccess(true);
-      setMessage(`Your message has been sent!`);
-    } catch (err) {
-      if (err instanceof EmailJSResponseStatus) {
+      setMessage("Your message has been sent!");
+    } catch (error) {
+      if (error instanceof EmailJSResponseStatus) {
         setSuccess(false);
-        setMessage(`${err.text}, message failed! Email pdyari@gmail.com`);
+        setMessage(`${error.text}, message failed! Email pdyari@gmail.com`);
         return;
       }
 

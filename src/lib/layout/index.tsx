@@ -1,19 +1,19 @@
-/* eslint-disable import/order */
-
 "use client";
 
-import "../../app/globals.css";
+import "~/app/globals.css";
 import { GlobalCanvas, SmoothScrollbar } from "@14islands/r3f-scroll-rig";
+import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { type ReactNode } from "react";
 
 import "@fontsource/poppins";
+import "@fontsource/blackout-sunrise";
+import "@fontsource/blackout-two-am";
+import "@fontsource/aclonica";
 import "@14islands/r3f-scroll-rig/css";
 
-import { BackgroundGradientAnimation } from "../components/motion/BackgroundGradientAnimation";
-import Logo from "../components/motion/Menu/Logo";
-
-import { motion } from "framer-motion";
+import { BackgroundGradientAnimation } from "~/lib/components/motion/BackgroundGradientAnimation";
+import Logo from "~/lib/components/motion/Menu/Logo";
 
 type LayoutProps = {
   children: ReactNode;
@@ -28,11 +28,11 @@ type LayoutProps = {
  * @returns {JSX.Element} The layout component.
  */
 const Layout = ({ children }: LayoutProps): JSX.Element => {
-  const pathname = usePathname(); // Get current route path
-  // Render the layout component
+  const currentPath = usePathname(); // Get current route path
+
   return (
     <motion.div
-      key={pathname} // Ensures animation runs on route change
+      key={currentPath} // Ensures animation runs on route change
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9 }}
@@ -51,8 +51,8 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
           alwaysShowScrollbar: true,
         }}
       >
-        {(bind) => (
-          <article {...bind}>
+        {(scrollBind) => (
+          <article {...scrollBind}>
             <BackgroundGradientAnimation />
             {children}
           </article>

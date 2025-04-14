@@ -3,9 +3,9 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 import Link from "next/link";
 import { useRef, useEffect } from "react";
 
-import { MagneticSocialLinks } from "../components/motion/FloatingDock";
-import Logo from "../components/motion/Menu/Logo";
-import CopyRight from "../components/motion/View/CopyRight";
+import { MagneticSocialLinks } from "~/lib/components/motion/FloatingDock";
+import Logo from "~/lib/components/motion/Menu/Logo";
+import CopyRight from "~/lib/components/motion/View/CopyRight";
 
 /**
  * Footer component that handles the scrolling animation and rendering of the
@@ -14,19 +14,21 @@ import CopyRight from "../components/motion/View/CopyRight";
  * @returns {JSX.Element} The Footer component.
  */
 const Footer = (): JSX.Element => {
-  const el: React.RefObject<HTMLElement> = useRef<HTMLElement>(null);
+  const footerRef = useRef<HTMLElement>(null);
   const { onScroll } = useScrollbar();
-  const { scrollState } = useTracker(el as React.MutableRefObject<HTMLElement>);
+  const { scrollState } = useTracker(
+    footerRef as React.MutableRefObject<HTMLElement>
+  );
 
-  const progress = useMotionValue(0);
-  const opacity = useTransform(progress, [0.5, 1], [0, 1]);
-  const scale = useTransform(progress, [0.5, 1], [0.75, 1]);
+  const scrollProgress = useMotionValue(0);
+  const footerOpacity = useTransform(scrollProgress, [0.5, 1], [0, 1]);
+  const footerScale = useTransform(scrollProgress, [0.5, 1], [0.75, 1]);
 
   useEffect(() => {
-    return onScroll(() => progress.set(scrollState.visibility));
-  }, [onScroll, progress, scrollState]);
+    return onScroll(() => scrollProgress.set(scrollState.visibility));
+  }, [onScroll, scrollProgress, scrollState]);
 
-  const links = [
+  const navigationLinks = [
     { href: "/about", label: "About" },
     { href: "/projects", label: "Projects" },
     { href: "/contact", label: "Contact" },
@@ -34,18 +36,18 @@ const Footer = (): JSX.Element => {
 
   return (
     <motion.footer
-      ref={el}
+      ref={footerRef}
       layout
       className="flex justify-center items-end w-screen h-full min-h-[40vh]"
     >
       <motion.div
-        style={{ opacity, scale }}
+        style={{ opacity: footerOpacity, scale: footerScale }}
         className="flex flex-col items-center justify-end h-full z-10"
       >
         <div className="w-screen h-full flex flex-col items-center justify-center">
           <Logo size={50} />
           <div className="flex flex-row mt-4 w-full justify-center">
-            {links.map(({ href, label }) => (
+            {navigationLinks.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}

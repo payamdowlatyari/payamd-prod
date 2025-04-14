@@ -186,7 +186,7 @@ export const portfolio = {
   name: "Payam Dowlatyari",
   text: [" I am", "Payam Dowlatyari", "in California"],
   titles:
-    "UX Design ✳︎ Frontend Development ✳︎ API Development ✳︎ Backend Development ✳︎ Database Design ✳︎ DevOps ✳︎ Cloud Computing ✳︎ Aplication Architecture",
+    "UX Design ✳︎ Frontend Development ✳︎ API Development ✳︎ Backend Development ✳︎ Database Design ✳︎ DevOps ✳︎ Cloud Computing ✳︎ Aplication Architecture ✳︎",
   email: "pdyari@gmail.com",
   phone: "+1 916 547 8918",
   words: [

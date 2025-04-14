@@ -4,9 +4,8 @@ const withPWA = require("next-pwa")({
     process.env.NODE_ENV === "development" ||
     process.env.NODE_ENV === "preview" ||
     process.env.NODE_ENV === "production",
-  // delete two lines above to enable PWA in production deployment
-  // add your own icons to public/manifest.json
-  // to re-generate manifest.json, you can visit https://tomitm.github.io/appmanifest/
+  register: true,
+  skipWaiting: true,
 });
 
 /** @type {import('next').NextConfig} */
@@ -17,25 +16,25 @@ module.exports = withPWA({
     dirs: ["src"],
   },
   images: {
-    domains: ["storage.googleapis.com", "api.microlink.io"],
-  },
-  ransformer: {
-    getTransformOptions: async () => ({
-      transform: {
-        experimentalImportSupport: false,
-        inlineRequires: false,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "storage.googleapis.com",
+        port: "",
+        pathname: "/**",
       },
-    }),
+      {
+        protocol: "https",
+        hostname: "api.microlink.io",
+        port: "",
+        pathname: "/**",
+      },
+    ]
   },
-  resolver: {
-    sourceExts: ['jsx', 'js', 'ts', 'tsx', 'cjs', 'json', 'md', 'mdx', 'jpg', 'png', 'gif', 'webp', 'svg'] //add here
-  },
-  rules: [
-    {
-      test: /\.glsl$|\.frag$|\.vert$/i,
-      use: ['raw-loader'],
-    },
-  ],
+
+  /**
+   * Adds a custom webpack rule to handle GLSL shader files.
+   */
   webpack: (config, { isServer }) => {
     config.module.rules.push({
       test: /\.(glsl|vs|fs|vert|frag)$/,

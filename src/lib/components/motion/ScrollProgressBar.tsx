@@ -32,7 +32,7 @@ interface ScrollProgressBarType {
 export default function ScrollProgressBar({
   type = "circle",
   position = "bottom-right",
-  strokeSize = 2,
+  strokeSize = 3,
   showPercentage = false,
 }: ScrollProgressBarType) {
   const { scrollYProgress } = useScroll();
@@ -52,7 +52,7 @@ export default function ScrollProgressBar({
         style={{ height: `${strokeSize + 2}px` }}
       >
         <span
-          className="bg-transparent text-neutral-400 h-full w-full block"
+          className="bg-transparent text-neutral-600 h-full w-full block"
           style={{
             width: `${percentage}%`,
           }}
@@ -89,7 +89,7 @@ export default function ScrollProgressBar({
               strokeDashoffset="0"
               strokeWidth={strokeSize}
               style={{ pathLength: scrollYProgress }}
-              className={cn("stroke-neutral-400")}
+              className={cn("stroke-neutral-600")}
             />
           </svg>
           {showPercentage && (

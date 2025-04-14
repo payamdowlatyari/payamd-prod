@@ -128,9 +128,12 @@ function Scene(): JSX.Element {
     <>
       <Html zIndexRange={[-1, -10]} prepend fullscreen>
         <div ref={(el) => setDomEl(el)} className="dom-element">
-          <h1 className="flex flex-col text-neutral-600">
-            PAYAM <br />
-            DOWLATYARI
+          <h1
+            className="flex flex-col text-neutral-500 uppercase"
+            style={{ fontFamily: "Poppins" }}
+          >
+            Payam <br />
+            Dowlatyari
           </h1>
         </div>
       </Html>

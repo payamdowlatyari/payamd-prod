@@ -1,13 +1,8 @@
-import { LinkArrowOut } from "../../motion/View/TailwindButton";
+import { LinkArrowOut } from "~/lib/components/motion/View/TailwindButton";
 
 /**
  * Renders a list of contact links and a list of links to other websites in two
  * separate sections.
- *
- * The contact links are in the format of { title: string, links: { name: string, url: string }[] }.
- * The links are in the format of { name: string, url: string }.
- *
- * The links are rendered using the LinkArrowOut component.
  *
  * @returns {JSX.Element} The rendered contact links and links to other websites.
  */

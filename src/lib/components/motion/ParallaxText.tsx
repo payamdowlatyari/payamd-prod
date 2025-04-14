@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 
-import { wrap } from "./utils/wrap";
+import { wrap } from "~/lib/components/motion/utils/wrap";
 
 interface ParallaxProps {
   children: any;
@@ -60,8 +60,9 @@ export default function ParallaxText({
     >
       {[1, 2, 3, 4].map((index) => (
         <span
+          style={{ fontFamily: "Blackout Two AM", lineHeight: 1.5 }}
           key={index}
-          className="block mr-5 text-5xl md:text-7xl lg:text-9xl bg-gradient-to-b bg-clip-text leading-none text-transparent from-neutral-600 to-neutral-800"
+          className="block mr-5 text-5xl md:text-7xl lg:text-8xl text-transparent bg-clip-text bg-gradient-to-b from-neutral-200 via-neutral-400 to-neutral-600"
         >
           {children}{" "}
         </span>
