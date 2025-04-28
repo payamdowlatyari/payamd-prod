@@ -2,12 +2,13 @@
 
 import { motion } from "framer-motion";
 
-import { beams } from "~/lib/components/motion/BackgroundBeams";
-import Menu from "~/lib/components/motion/Menu/Menu";
-import { PulseBeams } from "~/lib/components/motion/PulseBeams";
-import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBar";
-import { SendMail } from "~/lib/components/Sections/Contact/SendMail";
-import Footer from "~/lib/layout/Footer";
+import Footer from "~/components/Footer/Footer";
+import Menu from "~/components/Menu/Menu";
+import SendMail from "~/components/Message/SendMail";
+import { beams } from "~/components/motion/BackgroundBeams";
+import { PulseBeams } from "~/components/motion/PulseBeams";
+import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
+import { H1, Paragraph } from "~/components/Texts/titles";
 
 /**
  * Contact component
@@ -34,13 +35,12 @@ export default function Contact(): JSX.Element {
                 end: "#AE48FF",
               }}
             >
-              <h1 className="text-5xl sm:text-7xl font-semibold max-w-lg">
-                Contact
-              </h1>
+              <H1 label="Contact" />
             </PulseBeams>
-            <p className="text-neutral-400 max-w-lg md:text-lg m-auto text-center">
-              Get in touch with me
-            </p>
+            <Paragraph
+              text="I would love to hear from you! Please fill out the form below and I will get back to you as soon as possible."
+              className="mb-4 mx-auto text-center max-w-sm"
+            />
           </div>
           <SendMail />
         </div>

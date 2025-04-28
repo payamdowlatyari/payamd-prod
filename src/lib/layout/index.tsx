@@ -7,13 +7,10 @@ import { usePathname } from "next/navigation";
 import { type ReactNode } from "react";
 
 import "@fontsource/poppins";
-import "@fontsource/blackout-sunrise";
-import "@fontsource/blackout-two-am";
-import "@fontsource/aclonica";
 import "@14islands/r3f-scroll-rig/css";
 
-import { BackgroundGradientAnimation } from "~/lib/components/motion/BackgroundGradientAnimation";
-import Logo from "~/lib/components/motion/Menu/Logo";
+import { BackgroundGradientAnimation } from "~/components/motion/BackgroundGradientAnimation";
+import Logo from "~/components/View/Logo";
 
 type LayoutProps = {
   children: ReactNode;

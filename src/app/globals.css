@@ -17,7 +17,7 @@
 
   :root {
     --color-text: #f0f0f0;
-    --color-bg: #101014;
+    --color-bg: #000;
     --color-link: #818798;
     --color-link-hover: #fff;
     --color-title: #7f7f8f;
@@ -76,8 +76,10 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: black;
+  background: var(--color-bg);
   font-family: "Poppins", sans-serif;
+  color: var(--color-text);
+  overflow: hidden;
 }
 
 section {

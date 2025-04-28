@@ -4,19 +4,43 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
-import { intro, resume } from "~/lib/components/data/data";
-import { BlurFade } from "~/lib/components/motion/BlurFade";
-import { ResumeCard } from "~/lib/components/motion/Card";
-import { LinkPreview } from "~/lib/components/motion/LinkPreview";
-import { Logos, Marquee } from "~/lib/components/motion/Marquee";
-import Menu from "~/lib/components/motion/Menu/Menu";
-import { GradientTracing } from "~/lib/components/motion/PulseBeams";
+import Footer from "~/components/Footer/Footer";
+import Menu from "~/components/Menu/Menu";
+import BlurFade from "~/components/motion/BlurFade";
+import { ResumeCard } from "~/components/motion/Card";
+import LinkPreview from "~/components/motion/LinkPreview";
+import { Logos, Marquee } from "~/components/motion/Marquee";
+import { GradientTracing } from "~/components/motion/PulseBeams";
 import ScrollProgressBar, {
   ProgressiveBlur,
-} from "~/lib/components/motion/ScrollProgressBar";
-import { TextRevealByWord } from "~/lib/components/motion/ScrollReveal";
-import { SpinningText } from "~/lib/components/motion/Spinner";
-import Footer from "~/lib/layout/Footer";
+} from "~/components/motion/ScrollProgressBar";
+import TextRevealByWord from "~/components/motion/ScrollReveal";
+import { H1, H2, Paragraph } from "~/components/Texts/titles";
+import { intro, resume } from "~/data/data";
+
+/**
+ * BottomSection component
+ *
+ * Renders a bottom section with a gradient tracing animation.
+ */
+const BottomSection = () => (
+  <div className="flex flex-col items-center justify-center w-screen">
+    <div className="flex flex-col items-center text-center max-w-sm mx-auto z-10 px-4 relative bottom-0">
+      <p className="text-neutral-400 text-2xl sm:text-3xl md:text-4xl mb-10">
+        View my{" "}
+        <LinkPreview url="https://blog.payamd.com/" className="font-semibold">
+          Blog
+        </LinkPreview>{" "}
+        and{" "}
+        <LinkPreview url="https://photos.payamd.com/" className="font-semibold">
+          Photography
+        </LinkPreview>{" "}
+        portfolio.
+      </p>
+    </div>
+    <GradientTracing width={250} height={50} animationDuration={2} />
+  </div>
+);
 
 /**
  * About component
@@ -26,8 +50,9 @@ const About = (): JSX.Element => {
   const ref = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    // offset: ["start end", "end start"],
+    offset: ["start end", "end start"],
   });
+
   const x = useTransform(
     scrollYProgress,
     [0, 0.2, 1],
@@ -74,12 +99,8 @@ const About = (): JSX.Element => {
             />
             <div className="pl-4 sm:pl-16 pt-1 sm:pt-2 flex">
               <motion.div className="grid gap-2">
-                <h1 className="text-5xl sm:text-7xl font-semibold max-w-sm">
-                  About
-                </h1>
-                <p className="text-neutral-400 md:text-lg max-w-screen-sm">
-                  My name is Payam Dowlatyari a Software Engineer in California
-                </p>
+                <H1 label="About" />
+                <Paragraph text="My name is Payam Dowlatyari a Software Engineer in California" />
               </motion.div>
             </div>
           </BlurFade>
@@ -98,10 +119,6 @@ const About = (): JSX.Element => {
 
         <div className="z-10 flex min-h-screen justify-center pt-[200vh]">
           <TextRevealByWord text={intro.text.replace(/\s+/g, " ")} />
-        </div>
-
-        <div className="text-center max-w-sm m-auto z-10 px-4 mt-48 tracking-widest relative uppercase text-2xl text-neutral-500">
-          <SpinningText>Scroll down to see my resume</SpinningText>
         </div>
       </div>
       <motion.section
@@ -122,11 +139,7 @@ const About = (): JSX.Element => {
                 <div className="flex flex-row justify-center items-center h-screen m-1 z-0">
                   <div className="flex flex-col justify-center max-w-screen-lg overflow-hidden z-10">
                     <div className="flex flex-col-reverse px-4">
-                      <BlurFade delay={0.5} inView>
-                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-neutral-100">
-                          {section.section}
-                        </h2>
-                      </BlurFade>
+                      <H2 label={section.section} />
                     </div>
 
                     <div className="max-w-screen-lg flex flex-col justify-evenly">
@@ -163,27 +176,7 @@ const About = (): JSX.Element => {
           blurIntensity={1}
         />
       </motion.div>
-
-      <div className="flex flex-col justify-center items-center w-screen">
-        <GradientTracing width={500} height={100} />
-      </div>
-
-      <div className="flex flex-col justify-center items-center text-center max-w-sm m-auto z-10 px-4 relative bottom-0">
-        <p className="text-neutral-400 text-2xl sm:text-3xl md:text-4xl mx-auto mb-10">
-          Check out my personal{" "}
-          <LinkPreview url="https://blog.payamd.com/" className="font-semibold">
-            Blog
-          </LinkPreview>{" "}
-          and{" "}
-          <LinkPreview
-            url="https://photos.payamd.com/"
-            className="font-semibold"
-          >
-            Photography
-          </LinkPreview>{" "}
-          portfolio.
-        </p>
-      </div>
+      <BottomSection />
       <Footer />
       <ScrollProgressBar showPercentage />
     </motion.main>

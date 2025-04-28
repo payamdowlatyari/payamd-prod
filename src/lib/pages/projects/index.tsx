@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion";
 
-import { projects } from "~/lib/components/data/data";
-import { HeroParallax } from "~/lib/components/motion/HeroParallax";
-import Menu from "~/lib/components/motion/Menu/Menu";
-import ScrollProgressBar from "~/lib/components/motion/ScrollProgressBar";
-import Footer from "~/lib/layout/Footer";
+import Footer from "~/components/Footer/Footer";
+import Menu from "~/components/Menu/Menu";
+import { HeroParallax } from "~/components/motion/HeroParallax";
+import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
+import { projects } from "~/data/data";
 
 /**
  * Projects component
