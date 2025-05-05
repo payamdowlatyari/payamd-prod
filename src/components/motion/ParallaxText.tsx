@@ -19,12 +19,11 @@ interface ParallaxProps {
 /**
  * A component that renders a parallax scrolling text effect.
  * @param {React.ReactNode} children - The text to be rendered.
- * @returns {JSX.Element}
  */
 export default function ParallaxText({
   children,
   baseVelocity = 100,
-}: ParallaxProps): JSX.Element {
+}: ParallaxProps) {
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
@@ -61,7 +60,7 @@ export default function ParallaxText({
       {[1, 2, 3, 4].map((index) => (
         <span
           key={index}
-          className="block mr-5 text-5xl md:text-7xl lg:text-8xl font-bold text-neutral-600"
+          className="block mr-5 text-5xl md:text-7xl lg:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-neutral-200 via-neutral-400 to-neutral-600"
         >
           {children}{" "}
         </span>

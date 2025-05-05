@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-import Providers from "~/app/providers";
 import Layout from "~/lib/layout";
 
 const APP_NAME = "Payam Dowlatyari";
@@ -20,16 +19,14 @@ export const metadata: Metadata = {
     and a list of services and skills he offers.`,
   metadataBase: new URL("https://www.payamd.com"),
   applicationName: APP_NAME,
-  appleWebApp: {
-    capable: true,
-    title: APP_NAME,
-    statusBarStyle: "default",
-  },
   keywords: [
+    "Payam Dowlatyari",
+    "Payam",
+    "Dowlatyari",
+    "Payam D",
     "Next.js",
     "TypeScript",
     "Tailwind CSS",
-    "React",
     "Framer Motion",
     "Portfolio",
     "Personal Website",
@@ -44,14 +41,8 @@ export const metadata: Metadata = {
     "UX Designer",
     "Photographer",
     "Blogger",
-    "Payam",
-    "Dowlatyari",
-    "Payam D",
-    "Payam Dowlatyari",
   ],
-  formatDetection: {
-    telephone: false, // Disable automatic detection of telephone numbers
-  },
+  authors: [{ name: APP_NAME }],
   creator: APP_NAME,
   openGraph: {
     title: APP_NAME,
@@ -64,39 +55,18 @@ export const metadata: Metadata = {
     locale: "en-US",
     type: "website",
   },
-  robots: {
-    index: true,
-    follow: true,
-    nocache: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  icons: {
-    shortcut: "/favicon.ico",
-  },
-  manifest: "/manifest.json",
 };
 
 /**
  * RootLayout component
- * This component is the root layout for the app.
  *
  * @param {RootLayoutProps} props - The props object containing the children to be rendered inside the layout.
- * @returns {JSX.Element} The JSX element representing the root layout.
  */
-const RootLayout = ({ children }: RootLayoutProps): JSX.Element => {
+const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
       <body className="bg-neutral-950 text-neutral-50">
-        <Providers>
-          <Layout>{children}</Layout>
-        </Providers>
+        <Layout>{children}</Layout>
       </body>
     </html>
   );

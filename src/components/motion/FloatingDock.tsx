@@ -1,156 +1,12 @@
 "use client";
 
-import { Tooltip } from "@chakra-ui/react";
-import { type VariantProps, cva } from "class-variance-authority";
 import {
   motion,
   SpringOptions,
   useMotionValue,
   useSpring,
-  useTransform,
 } from "framer-motion";
-import Link from "next/link";
-import React, {
-  PropsWithChildren,
-  ReactElement,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-
-import { cn } from "~/utils/cn";
-
-export interface DockProps extends VariantProps<typeof dockVariants> {
-  className?: string;
-  magnification?: number;
-  distance?: number;
-  direction?: "top" | "middle" | "bottom";
-  children: React.ReactNode;
-}
-
-const DEFAULT_MAGNIFICATION = 60;
-const DEFAULT_DISTANCE = 140;
-
-const dockVariants = cva(
-  "mx-auto mt-8 flex h-[58px] w-max gap-2 rounded-2xl p-2"
-);
-
-export interface DockIconProps {
-  size?: number;
-  magnification?: number;
-  distance?: number;
-  mouseX?: any;
-  className?: string;
-  children?: React.ReactNode;
-  props?: PropsWithChildren;
-}
-
-/**
- * A single dock icon component, used by the Dock component.
- *
- * @param {Object} props - The props for the component.
- * @param {number} [props.size] - The size of the icon.
- * @param {number} [props.magnification] - The magnification of the icon.
- * @param {number} [props.distance] - The distance of the icon from the center.
- * @param {number} [props.mouseX] - The x position of the mouse.
- * @param {string} [props.className] - The class name of the icon.
- * @param {React.ReactNode} [props.children] - The content of the icon.
- * @param {Object} [props.props] - The props for the icon.
- * @returns {JSX.Element} The dock icon component.
- */
-function DockIcon({
-  size,
-  magnification = DEFAULT_MAGNIFICATION,
-  distance = DEFAULT_DISTANCE,
-  mouseX,
-  className,
-  children,
-  ...props
-}: DockIconProps): JSX.Element {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const distanceCalc = useTransform(mouseX, (val: number) => {
-    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-
-    return val - bounds.x - bounds.width / 2;
-  });
-
-  const widthSync = useTransform(
-    distanceCalc,
-    [-distance, 0, distance],
-    [40, magnification, 40]
-  );
-
-  const width = useSpring(widthSync, {
-    mass: 0.1,
-    stiffness: 150,
-    damping: 12,
-  });
-
-  return (
-    <motion.div
-      ref={ref}
-      style={{ width }}
-      className={cn(
-        "flex aspect-square cursor-pointer items-center justify-center rounded-full",
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-const Dock = React.forwardRef<HTMLDivElement, DockProps>(
-  (
-    {
-      className,
-      children,
-      magnification = DEFAULT_MAGNIFICATION,
-      distance = DEFAULT_DISTANCE,
-      direction = "bottom",
-      ...props
-    },
-    ref
-  ) => {
-    const mouseX = useMotionValue(Infinity);
-
-    /**
-     * Render children with modified DockIcon props.
-     * @returns {React.ReactNode} The rendered children.
-     */
-    const renderChildren = (): React.ReactNode => {
-      return React.Children.map(children, (child) => {
-        if (React.isValidElement(child) && child.type === DockIcon) {
-          return React.cloneElement(child, {
-            ...child.props,
-            mouseX,
-            magnification,
-            distance,
-          });
-        }
-        return child;
-      });
-    };
-
-    return (
-      <motion.div
-        ref={ref}
-        onMouseMove={(e) => mouseX.set(e.pageX)}
-        onMouseLeave={() => mouseX.set(Infinity)}
-        {...props}
-        className={cn(dockVariants({ className }), {
-          "items-start": direction === "top",
-          "items-center": direction === "middle",
-          "items-end": direction === "bottom",
-        })}
-      >
-        {renderChildren()}
-      </motion.div>
-    );
-  }
-);
+import React, { useEffect, useRef, useState } from "react";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
@@ -158,9 +14,8 @@ export type IconProps = React.HTMLAttributes<SVGElement>;
  * LinkedIn icon.
  *
  * @param {IconProps} props - props for the SVG element.
- * @returns {ReactElement} The LinkedIn icon.
  */
-const linkedin = (props: IconProps): ReactElement => (
+const linkedin = (props: IconProps) => (
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <title>LinkedIn</title>
     <path
@@ -174,9 +29,8 @@ const linkedin = (props: IconProps): ReactElement => (
  * A x icon.
  *
  * @param {IconProps} props - props for the SVG element.
- * @returns {ReactElement} The x icon.
  */
-const xT = (props: IconProps): ReactElement => (
+const xT = (props: IconProps) => (
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <title>X</title>
     <path
@@ -190,9 +44,8 @@ const xT = (props: IconProps): ReactElement => (
  * A GitHub icon.
  *
  * @param {IconProps} props - props for the SVG element.
- * @returns {ReactElement} The GitHub icon.
  */
-const github = (props: IconProps): ReactElement => (
+const github = (props: IconProps) => (
   <svg viewBox="0 0 438.549 438.549" {...props}>
     <path
       fill="currentColor"
@@ -204,8 +57,7 @@ const github = (props: IconProps): ReactElement => (
 /**
  * The medium icon.
  *
- * @param props - The props to pass to the {@link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/svg | SVG} element.
- * @returns The medium icon.
+ * @param props - The props to pass to the SVG element.
  */
 const medium = (props: IconProps) => (
   <svg
@@ -251,36 +103,6 @@ const DATA = {
   },
 };
 
-/**
- * A demo of the Dock component, displaying a dock in the middle of the screen
- * with the social media links from the DATA object.
- *
- * @returns {JSX.Element} A JSX element representing the dock demo.
- */
-export function SocialDock(): JSX.Element {
-  return (
-    <div className="bg-transparent relative flex h-full w-full flex-col items-center justify-center overflow-hidden">
-      <Tooltip>
-        <Dock direction="middle">
-          {Object.entries(DATA.contact.social).map(([name, social]) => (
-            <DockIcon key={name}>
-              <Tooltip label={name}>
-                <Link
-                  href={social.url}
-                  aria-label={social.name}
-                  className={cn("size-12 rounded-full")}
-                >
-                  <social.icon className="size-4" />
-                </Link>
-              </Tooltip>
-            </DockIcon>
-          ))}
-        </Dock>
-      </Tooltip>
-    </div>
-  );
-}
-
 const SPRING_CONFIG = { stiffness: 26.7, damping: 4.1, mass: 0.2 };
 
 export type MagneticProps = {
@@ -295,7 +117,6 @@ export type MagneticProps = {
  * A component that adds a magnetic effect to a child element.
  *
  * @param {MagneticProps} props - The props for the Magnetic component.
- * @returns {JSX.Element} A JSX element representing the Magnetic component.
  */
 export function Magnetic({
   children,
@@ -303,7 +124,7 @@ export function Magnetic({
   range = 100,
   actionArea = "self",
   springOptions = SPRING_CONFIG,
-}: MagneticProps): JSX.Element {
+}: MagneticProps) {
   const [isHovered, setIsHovered] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -371,7 +192,6 @@ export function Magnetic({
 
   /**
    * Handles the mouse enter event for the component.
-   * If the actionArea is set to "self", sets isHovered to true.
    */
   const handleMouseEnter = () => {
     if (actionArea === "self") {
@@ -381,8 +201,6 @@ export function Magnetic({
 
   /**
    * Handles the mouse leave event for the component.
-   * If the actionArea is set to "self", sets isHovered to false
-   * and resets the x and y motion values to 0.
    */
   const handleMouseLeave = () => {
     if (actionArea === "self") {
@@ -411,7 +229,6 @@ export function Magnetic({
  * A component that adds a magnetic effect to a social link.
  *
  * @param {MagneticSocialLinkProps} props - The props for the MagneticSocialLink component.
- * @returns {JSX.Element} A JSX element representing the MagneticSocialLink component.
  */
 export function MagneticSocialLink({
   children,
@@ -419,7 +236,7 @@ export function MagneticSocialLink({
 }: {
   children: React.ReactNode;
   link: string;
-}): JSX.Element {
+}) {
   return (
     <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
       <a
@@ -451,10 +268,8 @@ export function MagneticSocialLink({
 
 /**
  * A component that displays social links with a magnetic effect.
- *
- * @returns {JSX.Element} A JSX element representing the MagneticSocialLinks component.
  */
-export function MagneticSocialLinks(): JSX.Element {
+export function MagneticSocialLinks() {
   return (
     <div className="flex min-h-24 w-full items-center justify-center bg-transparent">
       <div className="flex items-center justify-start space-x-2">

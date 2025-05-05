@@ -2,15 +2,16 @@
 
 import "~/app/globals.css";
 import { GlobalCanvas, SmoothScrollbar } from "@14islands/r3f-scroll-rig";
-import { motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { type ReactNode } from "react";
 
+import { BackgroundGradientAnimation } from "~/components/motion/BackgroundGradientAnimation";
+import PageTransition from "~/components/motion/PageTransition";
+import Logo from "~/components/View/Logo";
+
 import "@fontsource/poppins";
 import "@14islands/r3f-scroll-rig/css";
-
-import { BackgroundGradientAnimation } from "~/components/motion/BackgroundGradientAnimation";
-import Logo from "~/components/View/Logo";
 
 type LayoutProps = {
   children: ReactNode;
@@ -18,47 +19,36 @@ type LayoutProps = {
 
 /**
  * Layout component that wraps the entire application.
- * It sets up the global canvas for rendering and smooth scrollbar for scrolling.
  *
  * @param {LayoutProps} props - The layout properties.
- * @param {ReactNode} props.children - The children to be rendered inside the layout.
- * @returns {JSX.Element} The layout component.
  */
-const Layout = ({ children }: LayoutProps): JSX.Element => {
-  const currentPath = usePathname(); // Get current route path
+const Layout = ({ children }: LayoutProps) => {
+  const currentPath = usePathname();
 
   return (
-    <motion.div
-      key={currentPath} // Ensures animation runs on route change
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.5 }}
-      className="w-full h-full"
-    >
-      <GlobalCanvas style={{ zIndex: -1 }}>
-        <ambientLight />
-      </GlobalCanvas>
-      <SmoothScrollbar
-        config={{
-          damping: 0.01,
-          renderByPixels: true,
-          dampingFactor: 0.1,
-          alwaysShowTracks: true,
-          alwaysShowScrollbar: true,
-        }}
-      >
-        {(scrollBind) => (
-          <article {...scrollBind}>
-            <BackgroundGradientAnimation />
-            {children}
-          </article>
-        )}
-      </SmoothScrollbar>
-      <div className="fixed z-[1001] top-1 left-3">
-        <Logo size={50} />
-      </div>
-    </motion.div>
+    <AnimatePresence mode="wait" initial={false}>
+      <PageTransition key={currentPath}>
+        <GlobalCanvas style={{ zIndex: -1 }}>
+          <ambientLight />
+        </GlobalCanvas>
+        <SmoothScrollbar
+          config={{
+            damping: 0.01,
+            touchAction: "auto",
+            renderByPixels: true,
+            dampingFactor: 0.1,
+          }}
+        >
+          {(scrollBind) => (
+            <article {...scrollBind}>
+              <BackgroundGradientAnimation />
+              {children}
+            </article>
+          )}
+        </SmoothScrollbar>
+        <Logo />
+      </PageTransition>
+    </AnimatePresence>
   );
 };
 

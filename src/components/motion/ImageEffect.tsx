@@ -3,7 +3,7 @@
 
 import { useTexture, shaderMaterial } from "@react-three/drei";
 import { Canvas, extend, useFrame } from "@react-three/fiber";
-import { ReactElement, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import * as THREE from "three";
 
 declare global {
@@ -47,6 +47,7 @@ export const ImageFadeMaterial = shaderMaterial(
       #include <encodings_fragment>
     }`
 );
+
 extend({ ImageFadeMaterial });
 
 /**
@@ -58,9 +59,8 @@ extend({ ImageFadeMaterial });
  * @param {Object} props - The props object.
  * @param {string} props.i1 - The first image url.
  * @param {string} props.i2 - The second image url.
- * @returns {ReactElement} - The React component.
  */
-export function FadingImage({ i1, i2 }: any): ReactElement {
+export function FadingImage({ i1, i2 }: any) {
   const ref: any = useRef();
   const [texture1, texture2, dispTexture] = useTexture([i1, i2, "/13.jpg"]);
   const [hovered, setHover] = useState(false);
@@ -95,7 +95,6 @@ export function FadingImage({ i1, i2 }: any): ReactElement {
  * @param {Object} props - The props object.
  * @param {string} props.item1 - The first image url.
  * @param {string} props.item2 - The second image url.
- * @returns {ReactElement} - The React component.
  */
 export default function ImageEffect({
   item1,
@@ -103,7 +102,7 @@ export default function ImageEffect({
 }: {
   item1: string;
   item2: string;
-}): ReactElement {
+}) {
   return (
     <Canvas camera={{ position: [0, 0, 1], fov: 50 }}>
       <FadingImage i1={item1} i2={item2} />

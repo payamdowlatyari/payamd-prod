@@ -4,33 +4,31 @@ import { motion } from "framer-motion";
 
 import Footer from "~/components/Footer/Footer";
 import Menu from "~/components/Menu/Menu";
-import Hero from "~/components/motion/Hero";
+import { ContainerTextFlip } from "~/components/motion/FlipWords";
+import { GridBeam } from "~/components/motion/GridBeam";
 import ImageEffect from "~/components/motion/ImageEffect";
 import NumberTicker from "~/components/motion/NumberTicker";
+import ParallaxText from "~/components/motion/ParallaxText";
 import { GradientTracing } from "~/components/motion/PulseBeams";
 import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
-import { H2, H4, Paragraph } from "~/components/Texts/titles";
-import { about, services } from "~/data/data";
+import { TextHoverEnter } from "~/components/motion/TextHoverEnter";
+import { H2, H4, Paragraph } from "~/components/Texts/Texts";
+import { about, portfolio, services } from "~/data";
 import { cn } from "~/utils/cn";
 
 /**
- * HomePreview component
+ * Preview component
  *
- * A preview animation that appears at the top of the page for a brief duration.
- *
- * The animation is a full-screen, fixed-positioned element that contains a
- * {@link NumberTicker} component. The animation starts from the top of the
- * screen and moves downwards, taking 1 second to complete, after a 4 second
- * delay. The animation is only visible for 5 seconds.
+ * A component that displays a preview of the page.
  */
-const HomePreview = () => (
+const Preview = () => (
   <motion.div
     initial={{ y: 0 }}
     animate={{ y: "-100%" }}
     transition={{
       duration: 1,
       delay: 4,
-      ease: "easeOut",
+      ease: "easeInOut",
     }}
     className="fixed flex justify-center top-0 left-0 w-full h-full bg-neutral-950 z-[1002]"
   >
@@ -42,10 +40,6 @@ const HomePreview = () => (
  * Intro component
  *
  * A component that displays a hero section with a short introduction.
- *
- * The component consists of two main parts:
- *  - A text block that contains the introduction text.
- *  - An image block that contains an image of the person.
  */
 const Intro = () => (
   <section id="intro">
@@ -64,9 +58,7 @@ const Intro = () => (
 /**
  * Services component
  *
- * This component displays a list of services offered by the individual, including
- * roles such as software engineer, web developer, solutions architect, and UX designer.
- * Each service is represented with an icon, name, and description.
+ * A component that displays a section with a list of services.
  */
 const Services = () => (
   <section
@@ -83,6 +75,7 @@ const Services = () => (
     <div className="grid grid-cols-1 sm:grid-cols-2 relative z-10 py-10 max-w-7xl">
       {services.map((service) => (
         <div
+          key={service.id}
           className={cn(
             "flex flex-col py-10 relative text-neutral-300 group/feature rounded-lg border border-neutral-800 hover:border-neutral-500 transition duration-200 ease-in-out"
           )}
@@ -105,17 +98,59 @@ const Services = () => (
 );
 
 /**
+ * Hero component
+ *
+ * A component that displays a hero section with a title, subtitle, description, and image.
+ */
+const Hero = () => {
+  return (
+    <section id="hero">
+      <div className="flex flex-col self-end h-full w-screen items-end right-0">
+        <div className="absolute z-0">
+          <GradientTracing
+            width={800}
+            height={200}
+            animationDuration={3}
+            path="M0,50 L75,25 L150,75 L225,25 L300,50"
+          />
+        </div>
+        <GridBeam className="flex flex-col items-start justify-end relative z-10">
+          <div className="flex flex-col justify-start items-start w-full px-8 my-8 gap-2">
+            <div className="relative mb-6 max-w-2xl text-left text-4xl leading-normal font-bold tracking-tight">
+              <div className="inline-block w-screen">
+                <h1 className="text-5xl sm:text-8xl md:text-9xl uppercase w-full">
+                  {portfolio.name}
+                </h1>
+                <ContainerTextFlip
+                  words={portfolio.words}
+                  className="text-2xl sm:text-4xl md:text-6xl w-full"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="h-12 w-screen uppercase flex justify-end items-center gap-2">
+            <TextHoverEnter url="#intro" title="Who I am" />
+            <TextHoverEnter url="#services" title="What I do" />
+          </div>
+          <ParallaxText baseVelocity={-0.05}>{portfolio.titles}</ParallaxText>
+        </GridBeam>
+      </div>
+    </section>
+  );
+};
+
+/**
  * Home component
  * @returns {JSX.Element}
  */
 export default function Home(): JSX.Element {
   return (
-    <motion.main className="bg-neutral-950 text-neutral-50">
+    <main>
       <Menu />
-      <HomePreview />
+      <Preview />
       <Hero />
       <Intro />
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-end">
         <GradientTracing
           width={500}
           height={100}
@@ -125,6 +160,6 @@ export default function Home(): JSX.Element {
       <Services />
       <Footer />
       <ScrollProgressBar showPercentage />
-    </motion.main>
+    </main>
   );
 }

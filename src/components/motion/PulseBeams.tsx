@@ -166,6 +166,7 @@ interface GradientTracingProps {
   animationDuration?: number;
   strokeWidth?: number;
   path?: string;
+  className?: string;
 }
 
 /**
@@ -174,13 +175,7 @@ interface GradientTracingProps {
  * A component that renders a gradient tracing effect with Framer Motion.
  * The gradient moves from left to right, with a duration of 2 seconds by default.
  *
- * @param {number} width - The width of the component.
- * @param {number} height - The height of the component.
- * @param {string} [baseColor="black"] - The color of the base path.
- * @param {string[]} [gradientColors=["#2EB9DF", "#2EB9DF", "#9E00FF"]] - An array of three colors used for the gradient.
- * @param {number} [animationDuration=2] - The duration of the animation in seconds.
- * @param {number} [strokeWidth=2] - The stroke width of the path.
- * @param {string} [path="M0,${height / 2} L${width},${height / 2}"] - The SVG path used for the gradient tracing.
+ * @param {GradientTracingProps} props
  * @returns {JSX.Element} A JSX element representing the gradient tracing effect.
  */
 export const GradientTracing: React.FC<GradientTracingProps> = ({
@@ -191,11 +186,12 @@ export const GradientTracing: React.FC<GradientTracingProps> = ({
   animationDuration = 2,
   strokeWidth = 2,
   path = `M0,${height / 2} L${width},${height / 2}`,
+  className,
 }) => {
   const gradientId = `pulse-${Math.random().toString(36).substr(2, 9)}`;
 
   return (
-    <div className="relative" style={{ width, height }}>
+    <div className={cn("relative", className)} style={{ width, height }}>
       <svg
         width={width}
         height={height}

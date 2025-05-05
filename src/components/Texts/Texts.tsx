@@ -7,7 +7,7 @@ import BlurFade from "~/components/motion/BlurFade";
  */
 const H1 = ({ label }: { label: string }) => (
   <BlurFade blur="6px" duration={0.4} delay={0.3} inView>
-    <h1 className="text-5xl sm:text-7xl md:text-8xl uppercase max-w-lg">
+    <h1 className="text-5xl sm:text-7xl md:text-8xl uppercase tracking-tight max-w-lg">
       {label}
     </h1>
   </BlurFade>

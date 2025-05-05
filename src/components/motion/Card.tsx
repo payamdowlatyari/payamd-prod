@@ -7,10 +7,6 @@ import { cn } from "~/utils/cn";
  * A component that renders a card title with specified styling.
  *
  * @param {Object} props - The component props.
- * @param {string} [props.className] - Optional additional class names for styling.
- * @param {React.ReactNode} props.children - The content to be rendered as the card title.
- *
- * @returns {JSX.Element} A heading element styled as a card title.
  */
 export const CardTitle = ({
   className,
@@ -18,7 +14,7 @@ export const CardTitle = ({
 }: {
   className?: string;
   children: React.ReactNode;
-}): JSX.Element => {
+}) => {
   return (
     <h4
       className={cn(
@@ -35,10 +31,6 @@ export const CardTitle = ({
  * A component that renders a styled subtitle paragraph.
  *
  * @param {Object} props - The component props.
- * @param {string} [props.className] - Optional additional class names for styling.
- * @param {React.ReactNode} props.children - The content to be rendered within the subtitle.
- *
- * @returns {JSX.Element} A paragraph element styled as a subtitle.
  */
 export const CardSubTitle = ({
   className,
@@ -46,11 +38,11 @@ export const CardSubTitle = ({
 }: {
   className?: string;
   children: React.ReactNode;
-}): JSX.Element => {
+}) => {
   return (
     <p
       className={cn(
-        "my-1 md:my-2 text-neutral-400 tracking-wide leading-relaxed text-sm md:text-base",
+        "my-1 md:my-2 text-neutral-400 uppercase tracking-wide leading-relaxed text-xs md:text-sm",
         className
       )}
     >
@@ -61,11 +53,7 @@ export const CardSubTitle = ({
 
 /**
  * A component that renders a date label.
- *
  * @param {React.ReactNode} children - The date string to render.
- * @param {string} [className] - An optional class name to add to the element.
- *
- * @returns {React.ReactElement} A date label component.
  */
 export const CardDate = ({
   className,
@@ -73,7 +61,7 @@ export const CardDate = ({
 }: {
   className?: string;
   children: React.ReactNode;
-}): React.ReactElement => {
+}) => {
   return (
     <p
       className={cn(
@@ -90,9 +78,6 @@ export const CardDate = ({
  * A component that renders a description paragraph with specified styling.
  *
  * @param {Object} props - The component props.
- * @param {string} [props.className] - Additional class names for styling.
- * @param {React.ReactNode} props.children - The content to be displayed within the paragraph.
- * @returns {JSX.Element} A styled paragraph element.
  */
 export const CardDescription = ({
   className,
@@ -100,7 +85,7 @@ export const CardDescription = ({
 }: {
   className?: string;
   children: React.ReactNode;
-}): JSX.Element => {
+}) => {
   return (
     <p
       className={cn(
@@ -116,13 +101,12 @@ export const CardDescription = ({
 /**
  * A component that displays a list of resume items.
  * @param items - An array of resume items.
- * @returns {JSX.Element} A list of resume items.
  */
-export function ResumeCard({ items }: { items: any }): JSX.Element {
+export function Card({ items }: { items: any }) {
   return (
     <div className="flex flex-col my-5 max-w-screen-sm">
       {items.map((item: any) => (
-        <div key={`${item}`} className="h-full w-full p-2 m-1 overflow-hidden">
+        <div key={item.title} className="h-full w-full p-2 m-1 overflow-hidden">
           <div className="flex justify-between">
             {item.link ? (
               <LinkArrowOut title={item.title} url={item.link} />
@@ -135,7 +119,7 @@ export function ResumeCard({ items }: { items: any }): JSX.Element {
           <CardDescription>
             {item.description && item.description.length > 0 && (
               <ul className="list-disc list-inside text-xs md:text-sm">
-                {item.description.map((d: any) => (
+                {item.description.map((d: string) => (
                   <li key={d}>{d}</li>
                 ))}
               </ul>

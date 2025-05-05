@@ -82,94 +82,115 @@ export const services = [
   },
 ];
 
-export const projects = [
+const projectsItems = [
   {
     index: 0,
-    title: "FindADoc",
-    description: "A demo web application for finding healthcare providers",
-    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/find-a-doc1750x1000.webp",
+    title: "PhyscianGPS",
+    description:
+      "A web application that uses AI to identify the best physicians",
+    img: "/projects/physician-gps-home-1750x1000.webp",
     url: "https://find-a-doc-app.vercel.app/",
-    tags: ["Typescript", "Next.js", "Tailwind", "Vercel"],
+    tags: ["Typescript", "Next.js", "Tailwind", "Amplify"],
+    date: "2025",
   },
   {
     index: 1,
     title: "Canvasfolio",
-    description: "A portfolio project build with Three.js and Canvas",
-    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/canvasfolio1750x1000.webp",
-    url: "https://dice-app-two.vercel.app/",
-    tags: ["Typescript", "Next.js", "Tailwind", "Vercel"],
+    description: "A portfolio template for professionals",
+    img: "/projects/canvasfolio1750x1000.webp",
+    url: "https://physiciangps.co/",
+    tags: ["Typescript", "Next.js", "Three.js"],
+    date: "2024",
   },
   {
     index: 2,
     title: "My Dashbaord",
-    description: "A project management user interface",
-    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/MyDash_Projects_1750x1000.webp",
+    description: "A full stack project management dashboard",
+    img: "/projects/MyDash_Projects_1750x1000.webp",
     url: "https://payamd-dashboard.vercel.app/",
-    tags: ["React", "Redux", "Node", "Express", "Mongo", "Router"],
+    tags: ["React", "Redux", "Express", "MongoDB"],
+    date: "2023",
   },
   {
     index: 3,
     title: "My Web Blog",
-    description: "My personal blog about book, film, photography.",
-    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/blog_1750x1000.webp",
+    description: "My personal blog about books, films, and more",
+    img: "/projects/blog_1750x1000.webp",
     url: "https://payamd-blog.vercel.app/",
-    tags: ["Typescript", "Next.js", "Tailwind", "Redis", "Vercel"],
+    tags: ["Typescript", "Next.js", "Tailwind", "rsuite"],
+    date: "2024",
   },
   {
     index: 4,
-    title: "Photos",
-    description: "My photography blog for proffesionals",
-    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/Portfolio_anim_Photography1750x1000.webp",
+    title: "Photography",
+    description: "My photography blog website",
+    img: "/projects/Portfolio_anim_Photography1750x1000.webp",
     url: "https://payamd-photo.vercel.app/",
-    tags: ["Typescript", "Next.js", "Tailwind", "Vercel"],
+    tags: ["Typescript", "Next.js", "Tailwind", "Framer Motion"],
+    date: "2024",
   },
   {
     index: 5,
     title: "Algorithms for Life",
     description: "A GUI for learning Data Structure and Algorithms",
-    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/algorithms_2100x1200.webp",
+    img: "/projects/algorithms_2100x1200.webp",
     url: "https://algorithms-next.vercel.app/",
-    tags: ["Typescript", "Next.js", "Tailwind", "Vercel"],
+    tags: ["Typescript", "Next.js", "Tailwind"],
+    date: "2023",
   },
   {
     index: 6,
     title: "Nextfolio",
-    description: "A portfolio website build for professionals",
-    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/nextfolio_1925x1100.webp",
+    description: "A portfolio website template for professionals",
+    img: "/projects/nextfolio_1925x1100.webp",
     url: "https://nextfolio-theta.vercel.app/",
-    tags: ["Typescript", "Next.js", "Tailwind", "Vercel"],
+    tags: ["Typescript", "Next.js", "Tailwind"],
+    date: "2023",
   },
   {
     index: 7,
     title: "Paper Browser",
-    description: "A research manegement user intrface",
-    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/paper_browser_1750x1000.webp",
+    description: "A research manegement user interface",
+    img: "/projects/paper_browser_1750x1000.webp",
     url: "https://personal-informatics.depstein.net",
-    tags: ["Typescript", "Angular", "Bootstrap", "Vercel"],
+    tags: ["Typescript", "Angular", "Bootstrap"],
+    date: "2020",
   },
   {
     index: 8,
     title: "Admin Web Portal",
-    description: "A full-stack admin application",
-    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/CalPlug_2100x1200.webp",
+    description: "A full-stack admin web portal application",
+    img: "/projects/CalPlug_2100x1200.webp",
     url: "https://payamdowlatyari.github.io/admin-web-portal/",
-    tags: ["React", "Redux", "Node", "Express", "Mongo", "Router"],
+    tags: ["React", "Redux", "Express", "MongoDB"],
+    date: "2020",
   },
   {
     index: 9,
     title: "M-Studios",
-    description: "A responsive business portfolio",
-    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/myprojects/m-studios_1260x720.webp",
+    description: "A responsive business portfolio website",
+    img: "/projects/m-studios_1260x720.webp",
     url: "https://m-studios.us/",
-    tags: ["HTML", "CSS", "Javascript", "Bootstrap", "Vercel"],
+    tags: ["HTML", "CSS", "Javascript", "Bootstrap"],
+    date: "2019",
   },
   {
     index: 10,
     title: "A Vue Portfolio",
-    description: "A smooth scroll portfolio website",
-    img: "https://storage.googleapis.com/www.payamd.com/Portfolio/vue-portfolio-1750x1000.webp",
+    description: "A smooth scroll portfolio website template",
+    img: "/projects/vue-portfolio-1750x1000.webp",
     url: "https://vue-project-orpin-seven.vercel.app/",
-    tags: ["Javascript", "Vue", "Lenis", "Vercel"],
+    tags: ["Javascript", "Vue", "Sass"],
+    date: "2023",
+  },
+  {
+    index: 11,
+    title: "A Next.js Portfolio",
+    description: "A portfolio template for professionals",
+    img: "/projects/animation-ui-gallery-1750x1000.webp",
+    url: "https://nextjs-animation-ui.vercel.app/",
+    tags: ["Typescript", "Next.js", "Tailwind", "Framer Motion"],
+    date: "2024",
   },
 ];
 
@@ -184,23 +205,36 @@ export const about = {
 
 export const portfolio = {
   name: "Payam Dowlatyari",
-  text: [" I am", "Payam Dowlatyari", "in California"],
   titles:
     "UX Design ✳︎ Frontend Development ✳︎ API Development ✳︎ Backend Development ✳︎ Database Design ✳︎ DevOps ✳︎ Cloud Computing ✳︎ Aplication Architecture ✳︎",
-  email: "pdyari@gmail.com",
-  phone: "+1 916 547 8918",
   words: [
     "Software Engineer",
     "Full Stack Developer",
-    "Solutions Architect",
     "UX Designer",
     "Photographer",
     "Blogger",
   ],
+  contacts: [
+    {
+      title: "Contact",
+      links: [{ name: "pdyari@gmail.com", url: "mailto:pdyari@gmail.com" }],
+    },
+    {
+      title: "Check Out",
+      links: [
+        { name: "Blog", url: "https://blog.payamd.com" },
+        { name: "Photography", url: "https://photos.payamd.com" },
+      ],
+    },
+  ],
 };
 
 export const intro = {
-  text: `After obtaining my B.S. in Software Engineering from UC Irvine in
+  title: "About",
+  summary: `My name is Payam Dowlatyari a Software Engineer in California. 
+  I have a passion for building web applications and learning new technologies. 
+  Scroll down to learn more about me.`,
+  description: `After obtaining my B.S. in Software Engineering from UC Irvine in
         2020, I entered the tech industry and worked at Amplify.ai for three
         years developing AI applications. I satrted working as a software
         engineer and web application architect at Avalon AI to improve
@@ -340,3 +374,37 @@ export const resume = [
     items: publication,
   },
 ];
+
+const projectsDetails = {
+  title: "Projects",
+  description:
+    "Here are some of my most recent works in web applications and landing pages. I have used different tools, technologies, and services to create these projects.",
+  // Add black and white icons
+  icons: [
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-plain.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-plain.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-plain.svg",
+  ],
+};
+
+export const contactDetails = {
+  title: "Contact",
+  description:
+    "I'm always open to new opportunities and collaborations. Please don't hesitate to reach out to me.",
+  icons: [
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gmail/gmail-plain.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+  ],
+};
+
+export const projects = {
+  projects: projectsItems,
+  details: projectsDetails,
+};

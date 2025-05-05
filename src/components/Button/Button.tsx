@@ -123,7 +123,7 @@ export function LinkArrowOut({
   return (
     <Link
       href={url}
-      className="group inline-flex text-base backdrop-blur-md text-white justify-center items-center py-1 w-fit rounded-xl duration-200 group bg-page-gradient font-geistSans hover:bg-transparent/10 hover:text-zinc-100"
+      className="group inline-flex text-sm md:text-base backdrop-blur-md text-white justify-center items-center py-1 w-fit rounded-xl duration-200 group bg-page-gradient font-geistSans hover:bg-transparent/10 hover:text-zinc-100"
     >
       {title}
       <div className="flex overflow-hidden relative justify-center items-center ml-1 w-5 h-5">

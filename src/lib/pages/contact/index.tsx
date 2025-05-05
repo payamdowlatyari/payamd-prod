@@ -1,14 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 import Footer from "~/components/Footer/Footer";
 import Menu from "~/components/Menu/Menu";
 import SendMail from "~/components/Message/SendMail";
-import { beams } from "~/components/motion/BackgroundBeams";
+import { beams } from "~/components/motion/GridBeam";
 import { PulseBeams } from "~/components/motion/PulseBeams";
 import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
-import { H1, Paragraph } from "~/components/Texts/titles";
+import { H1, Paragraph } from "~/components/Texts/Texts";
+import { contactDetails } from "~/data";
 
 /**
  * Contact component
@@ -16,13 +15,7 @@ import { H1, Paragraph } from "~/components/Texts/titles";
  */
 export default function Contact(): JSX.Element {
   return (
-    <motion.main
-      initial={{ opacity: 0, scale: 0.9, rotate: -5 }}
-      animate={{ opacity: 1, scale: 1, rotate: 0 }}
-      exit={{ opacity: 0, scale: 0.9, rotate: 5 }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="bg-neutral-950 text-neutral-50"
-    >
+    <main>
       <Menu />
       <section className="w-fit m-auto z-10">
         <div className="flex flex-col justify-center items-center m-auto">
@@ -35,10 +28,10 @@ export default function Contact(): JSX.Element {
                 end: "#AE48FF",
               }}
             >
-              <H1 label="Contact" />
+              <H1 label={contactDetails.title} />
             </PulseBeams>
             <Paragraph
-              text="I would love to hear from you! Please fill out the form below and I will get back to you as soon as possible."
+              text={contactDetails.description}
               className="mb-4 mx-auto text-center max-w-sm"
             />
           </div>
@@ -47,6 +40,6 @@ export default function Contact(): JSX.Element {
       </section>
       <Footer />
       <ScrollProgressBar showPercentage />
-    </motion.main>
+    </main>
   );
 }

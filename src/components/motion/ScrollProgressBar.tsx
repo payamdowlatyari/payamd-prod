@@ -161,6 +161,8 @@ export function ProgressiveBlur({
 
         return (
           <motion.div
+            // eslint-disable-next-line react/no-array-index-key
+            key={index}
             className="pointer-events-none absolute inset-0 rounded-[inherit]"
             style={{
               maskImage: gradient,

@@ -340,7 +340,6 @@ export const Logos = {
  * A component that renders a marquee of its children, with a repeating animation.
  * The duration of the animation is 60 seconds by default.
  * @param {React.ReactNode} children - The children elements to render in the marquee.
- * @returns {React.ReactElement} The marquee component.
  */
 export const Marquee: React.FC<{ children: React.ReactNode }> = ({
   // eslint-disable-next-line react/prop-types

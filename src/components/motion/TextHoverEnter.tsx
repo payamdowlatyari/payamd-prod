@@ -10,7 +10,6 @@ const STAGGER = 0.025;
 /**
  * TextHoverEnter component
  * @param {string} title - The title of the component.
- * @returns {JSX.Element}
  */
 export function TextHoverEnter({
   title,
@@ -20,7 +19,7 @@ export function TextHoverEnter({
   title: string;
   url: string;
   className?: string;
-}): JSX.Element | null {
+}) {
   if (typeof title !== "string") {
     return null;
   }
@@ -43,6 +42,7 @@ export function TextHoverEnter({
       <div>
         {letters.map((letter, i) => (
           <motion.span
+            key={letter}
             className="inline-block"
             variants={{
               initial: { y: 0 },
@@ -61,6 +61,7 @@ export function TextHoverEnter({
       <div className="absolute inset-0">
         {letters.map((letter, i) => (
           <motion.span
+            key={letter}
             className="inline-block"
             variants={{
               initial: { y: "100%" },
@@ -91,12 +92,11 @@ interface AnimatedTextProps {
 /**
  * A component that renders a hover animation on the given text.
  * @param {string} text - The text to render.
- * @returns {JSX.Element} A JSX element representing the animated text.
  */
 export function TextHover({
   text = "Hover me",
   className = "",
-}: AnimatedTextProps): JSX.Element {
+}: AnimatedTextProps) {
   return (
     <motion.span
       className={cn(
@@ -108,6 +108,7 @@ export function TextHover({
     >
       {text.split("").map((char, index) => (
         <motion.span
+          key={char}
           className="inline-block"
           variants={{
             initial: {

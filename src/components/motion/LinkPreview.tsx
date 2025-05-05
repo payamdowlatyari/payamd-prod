@@ -40,8 +40,6 @@ type LinkPreviewProps = {
  * @param {string} props.layout - The layout of the link preview image.
  * @param {boolean} props.isStatic - Whether the link preview image is static.
  * @param {string} props.imageSrc - The source of the static link preview image.
- *
- * @returns {JSX.Element} The LinkPreview component.
  */
 const LinkPreview = ({
   children,
@@ -53,7 +51,7 @@ const LinkPreview = ({
   layout = "fixed",
   isStatic = false,
   imageSrc = "",
-}: LinkPreviewProps): JSX.Element => {
+}: LinkPreviewProps) => {
   let src;
   if (!isStatic) {
     const params = encode({

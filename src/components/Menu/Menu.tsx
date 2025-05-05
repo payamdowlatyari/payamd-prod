@@ -2,15 +2,15 @@ import { motion, useAnimate, useCycle } from "framer-motion";
 import { useEffect } from "react";
 import { TfiClose, TfiLineDouble } from "react-icons/tfi";
 
-import Contact from "~/components/Contact/Contact";
+import { LinkArrowOut } from "~/components/Button/Button";
 import { MagneticSocialLinks } from "~/components/motion/FloatingDock";
 import Squares from "~/components/motion/Squares";
+import { portfolio } from "~/data";
 
 /**
  * Background component
- * @returns {JSX.Element}
  */
-function Background(): JSX.Element {
+function Background() {
   return (
     <div className="absolute top-0 left-0 w-full h-full overflow-hidden bg-neutral-900">
       <Squares
@@ -26,9 +26,8 @@ function Background(): JSX.Element {
 
 /**
  * Nav component
- * @returns {JSX.Element}
  */
-export function Nav(): JSX.Element {
+export function Nav() {
   const links = [
     { title: "Home", url: "/" },
     { title: "About", url: "/about" },
@@ -42,7 +41,7 @@ export function Nav(): JSX.Element {
         <li key={title} className="list-none my-1 ml-4">
           <a
             href={url}
-            className="text-3xl sm:text-4xl uppercase text-neutral-200 hover:text-neutral-50 transition-all duration-200 ease-in-out"
+            className="text-3xl sm:text-4xl md:text-5xl uppercase text-neutral-300 hover:text-neutral-50 transition-colors duration-300 ease-in-out"
           >
             {title}
           </a>
@@ -53,11 +52,33 @@ export function Nav(): JSX.Element {
 }
 
 /**
+ * Renders a list of contact links and a list of links to other websites in two
+ * separate sections.
+ */
+export function Contacts() {
+  return (
+    <div className="flex flex-col px-2 md:px-4 my-2 md:my-4 z-10 contacts min-w-64">
+      {portfolio.contacts.map((section) => (
+        <div key={`${section.title}`} className="flex flex-col w-60 my-2 pl-2">
+          <h5 className="font-semibold text-2xl sm:text-3xl md:text-4xl m-1 uppercase text-neutral-500">
+            {section.title}
+          </h5>
+          <div className="inline-grid p-1">
+            {section.links.map((link) => (
+              <LinkArrowOut key={link.name} title={link.name} url={link.url} />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/**
  * NavToggle component
  * @param {function} toggle - A function to toggle the menu
- * @returns {JSX.Element}
  */
-const NavToggle = ({ toggle }: { toggle: () => void }): JSX.Element => {
+const NavToggle = ({ toggle }: { toggle: () => void }) => {
   return (
     <motion.button
       onClick={toggle}
@@ -156,9 +177,9 @@ export default function Menu(): JSX.Element {
           closed: {
             opacity: 0,
             display: "none",
-            filter: "blur(10px)",
+            filter: BLUR_EFFECT,
           },
-          open: { opacity: 1, display: "flex", filter: "blur(0px)" },
+          open: { opacity: 1, display: "flex", filter: BLUR_EFFECT_EXIT },
         }}
         transition={{
           duration: 0.25,
@@ -169,12 +190,12 @@ export default function Menu(): JSX.Element {
         ref={menuAnimationScope}
       >
         <Background />
-        <div className="flex flex-wrap w-full h-3/5 justify-around items-center content-end">
+        <div className="flex flex-wrap w-full h-4/5 sm:h-3/5 justify-around items-center content-end">
           <Nav />
-          <Contact />
+          <Contacts />
         </div>
 
-        <div className="flex flex-col items-center justify-end min-w-72 h-1/5 py-2 social">
+        <div className="flex flex-col items-center justify-end min-w-72 h-1/5 py-2">
           <MagneticSocialLinks />
         </div>
       </motion.div>

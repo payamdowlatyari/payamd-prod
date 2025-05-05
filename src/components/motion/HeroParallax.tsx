@@ -11,23 +11,31 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+import { H1, Paragraph } from "../Texts/Texts";
 import BlurFade from "~/components/motion/BlurFade";
 import { GradientTracing } from "~/components/motion/PulseBeams";
 
 /**
  * Renders a badge with a rotating border animation.
- *
  * @param {string} title - The title text to display in the center of the badge.
- * @returns {JSX.Element} A JSX element representing a badge with a rotating border.
  */
-export function BadgeRotateBorder(title: string): JSX.Element {
+export function BadgeRotateBorder({
+  title,
+  key,
+}: {
+  title: string;
+  key: number | string;
+}) {
   return (
-    <div className="relative inline-flex overflow-hidden rounded-full p-px">
+    <span
+      className="relative inline-flex overflow-hidden rounded-full p-px m-1"
+      key={key}
+    >
       <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#c2c2c2_0%,#505050_50%,#bebebe_100%)]" />
-      <span className="inline-flex h-full w-full items-center justify-center rounded-full bg-neutral-950 px-3 py-1 text-xs font-medium text-neutral-300 backdrop-blur-3xl">
+      <span className="inline-flex h-full w-full items-center justify-center rounded-full bg-neutral-950 px-2 py-1 text-xs font-medium text-neutral-300 backdrop-blur-3xl">
         {title}
       </span>
-    </div>
+    </span>
   );
 }
 
@@ -37,7 +45,6 @@ export function BadgeRotateBorder(title: string): JSX.Element {
  * @param {Object} props - The component props.
  * @param {Object} props.product - The product data to display in the card.
  * @param {MotionValue} props.translate - The motion value used for the hover animation.
- * @returns {JSX.Element} A JSX element representing a product card with hover animation.
  */
 export const ProductCard = ({
   product,
@@ -51,7 +58,7 @@ export const ProductCard = ({
     tags: string[];
   };
   translate: MotionValue<number>;
-}): JSX.Element => {
+}) => {
   return (
     <motion.div
       style={{
@@ -61,12 +68,13 @@ export const ProductCard = ({
         y: -20,
       }}
       key={product.title}
-      className="group/product h-30 sm:h-40 md:h-60 lg:h-72 w-[10rem] sm:w-[15rem] md:w-[20rem] lg:w-[25rem] max-w-screen-sm relative flex-shrink-0"
+      className="group/product h-32 sm:h-40 md:h-60 lg:h-72 w-40 sm:w-60 md:w-72 lg:w-96 max-w-screen-sm relative flex-shrink-0"
     >
       <Link
         href={product.url}
         className="block group-hover/product:shadow-2xl"
         target="__blank"
+        rel="noopener noreferrer"
       >
         <Image
           src={product.img}
@@ -79,22 +87,15 @@ export const ProductCard = ({
 
       <div className="absolute inset-0 h-full w-full opacity-30 group-hover/product:opacity-90 bg-black pointer-events-none" />
       <div className="flex flex-col justify-center place-items-start h-full p-2 md:p-4 lg:p-6">
-        <h3 className="z-10 text-lg sm:text-xl md:text-2xl opacity-0 group-hover/product:opacity-100 font-semibold text-neutral-50 tracking-tight mb-1">
+        <h3 className="z-10 text-base sm:text-lg md:text-xl opacity-0 group-hover/product:opacity-100 font-semibold text-neutral-50 tracking-tight mb-1">
           {product.title}
         </h3>
-        <p className="z-10 opacity-0 group-hover/product:opacity-100 text-neutral-300 text-sm md:text-base my-1">
+        <p className="z-10 opacity-0 group-hover/product:opacity-100 text-neutral-300 text-xs sm:text-sm md:text-base my-1">
           {product.description}
         </p>
-        <div className="z-10 opacity-0 group-hover/product:opacity-100 mt-2 md:mt-4">
+        <div className="z-10 opacity-0 group-hover/product:opacity-100 hidden md:flex mt-2 md:mt-4">
           {product.tags?.map((tag: string) => {
-            return (
-              <div className="relative inline-flex overflow-hidden rounded-full p-px m-1">
-                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#c2c2c2_0%,#505050_50%,#bebebe_100%)]" />
-                <span className="inline-flex h-full w-full items-center justify-center rounded-full bg-neutral-950 px-1 md:px-2 py-1 text-xs font-medium text-neutral-50 backdrop-blur-3xl">
-                  {tag}
-                </span>
-              </div>
-            );
+            return <BadgeRotateBorder title={tag} key={tag} />;
           })}
         </div>
       </div>
@@ -107,10 +108,10 @@ export const ProductCard = ({
  *
  * @param {Object} props - The component props.
  * @param {Object[]} props.products - An array of product data to display in the hero section.
- * @returns {JSX.Element} A JSX element representing the hero section.
  */
 export const HeroParallax = ({
   products,
+  details,
 }: {
   products: {
     title: string;
@@ -119,7 +120,12 @@ export const HeroParallax = ({
     img: string;
     tags: string[];
   }[];
-}): JSX.Element => {
+  details: {
+    title: string;
+    description: string;
+    icons: string[];
+  };
+}) => {
   const firstRow = products.slice(0, 4);
   const secondRow = products.slice(4, 8);
   const thirdRow = products.slice(8, 12);
@@ -161,23 +167,41 @@ export const HeroParallax = ({
       className="h-[250vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
-        <BlurFade delay={0.5} inView>
-          <div className="sm:pl-16 pt-28 pl-4 flex">
-            <div className="grid gap-2">
-              <h1 className="text-5xl sm:text-7xl font-semibold max-w-sm">
-                Projects
-              </h1>
-              <p className="text-neutral-400 max-w-xl">
-                Here are some of my most recent works in web applications and
-                landing pages. I have used different tools, technologies, and
-                services to create these projects.
-              </p>
+        <BlurFade
+          delay={0.5}
+          inView
+          duration={0.5}
+          blur="6px"
+          variant={{ hidden: { y: 100 }, visible: { y: 0 } }}
+        >
+          <div className="sm:pl-8 pt-16 pl-4 flex flex-col">
+            <div className="grid gap-2 my-5">
+              <H1 label={details.title} />
+              <Paragraph className="max-w-xl" text={details.description} />
               <GradientTracing
                 width={300}
                 height={100}
                 path="M0,50 C25,0 50,100 75,50 S125,0 150,50 S200,100 225,50 S275,0 300,50 M0,50 C25,100 50,0 75,50 S125,100 150,50 S200,0 225,50 S275,100 300,50"
                 gradientColors={["#FF6B6B", "#FF6B6B", "#4ECDC4"]}
               />
+            </div>
+            <div className="flex flex-wrap space-x-5 md:space-x-10 mt-2 md:mt-4">
+              {details.icons.map((icon) => {
+                return (
+                  <div
+                    key={icon}
+                    className="flex items-center justify-center w-10 h-10 my-2 rounded-full bg-neutral-800"
+                  >
+                    <Image
+                      src={icon}
+                      alt={icon}
+                      width={40}
+                      height={40}
+                      className="w-6 h-6 m-1"
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </BlurFade>

@@ -8,12 +8,9 @@ import CopyRight from "~/components/View/CopyRight";
 import Logo from "~/components/View/Logo";
 
 /**
- * Footer component that handles the scrolling animation and rendering of the
- * navigation, contact details, and copyright information.
- *
- * @returns {JSX.Element} The Footer component.
+ * Footer component
  */
-const Footer = (): JSX.Element => {
+const Footer = () => {
   const footerRef = useRef<HTMLElement>(null);
   const { onScroll } = useScrollbar();
   const { scrollState } = useTracker(
@@ -45,7 +42,7 @@ const Footer = (): JSX.Element => {
         className="flex flex-col items-center justify-end h-full z-10"
       >
         <div className="w-screen h-full flex flex-col items-center justify-center">
-          <Logo size={50} />
+          <Logo type="footer" />
           <div className="flex flex-row mt-4 w-full justify-center">
             {navigationLinks.map(({ href, label }) => (
               <Link
