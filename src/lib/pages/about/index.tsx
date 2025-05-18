@@ -122,12 +122,7 @@ const Resume = ({ x }: { x: MotionValue<string> }) => (
                 </div>
 
                 <div className="max-w-screen-lg flex flex-col justify-evenly">
-                  <BlurFade
-                    delay={0.5}
-                    inView
-                    blur="xl"
-                    variant={{ hidden: { y: 100 }, visible: { y: 0 } }}
-                  >
+                  <BlurFade delay={0.5} duration={0.5} inView blur="xl">
                     <Card items={section.items} />
                   </BlurFade>
                 </div>

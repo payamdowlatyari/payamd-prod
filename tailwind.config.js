@@ -33,7 +33,7 @@ module.exports = {
         fifth: "moveInCircle 20s ease infinite",
         marquee: 'marquee var(--duration, 30s) linear infinite',
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
-        shine: "shine var(--duration) infinite linear",
+        shine: "shine 6s infinite linear",
       },
       keyframes: {
         'shimmer': {
@@ -121,11 +121,8 @@ module.exports = {
           "0%": {
             "background-position": "0% 0%",
           },
-          "50%": {
-            "background-position": "100% 100%",
-          },
           to: {
-            "background-position": "0% 0%",
+            "background-position": "-400% 0%",
           },
         },
       },

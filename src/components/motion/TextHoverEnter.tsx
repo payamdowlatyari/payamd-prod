@@ -105,6 +105,9 @@ export function TextHover({
       )}
       whileHover="hover"
       initial="initial"
+      style={{
+        fontFamily: "'Inter', sans-serif",
+      }}
     >
       {text.split("").map((char, index) => (
         <motion.span

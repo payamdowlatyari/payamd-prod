@@ -123,7 +123,7 @@ const Hero = () => {
                 </h1>
                 <ContainerTextFlip
                   words={portfolio.words}
-                  className="text-2xl sm:text-4xl md:text-6xl w-full"
+                  className="text-2xl sm:text-4xl md:text-6xl w-screen"
                 />
               </div>
             </div>

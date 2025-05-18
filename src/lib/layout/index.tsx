@@ -1,15 +1,15 @@
 "use client";
 
-import "~/app/globals.css";
 import { GlobalCanvas, SmoothScrollbar } from "@14islands/r3f-scroll-rig";
 import { AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { type ReactNode } from "react";
 
-import { BackgroundGradientAnimation } from "~/components/motion/BackgroundGradientAnimation";
+import { BackgroundAnimation } from "~/components/motion/BackgroundAnimation";
 import PageTransition from "~/components/motion/PageTransition";
 import Logo from "~/components/View/Logo";
 
+import "~/app/globals.css";
 import "@fontsource/poppins";
 import "@14islands/r3f-scroll-rig/css";
 
@@ -31,17 +31,10 @@ const Layout = ({ children }: LayoutProps) => {
         <GlobalCanvas style={{ zIndex: -1 }}>
           <ambientLight />
         </GlobalCanvas>
-        <SmoothScrollbar
-          config={{
-            damping: 0.01,
-            touchAction: "auto",
-            renderByPixels: true,
-            dampingFactor: 0.1,
-          }}
-        >
+        <SmoothScrollbar>
           {(scrollBind) => (
             <article {...scrollBind}>
-              <BackgroundGradientAnimation />
+              <BackgroundAnimation />
               {children}
             </article>
           )}

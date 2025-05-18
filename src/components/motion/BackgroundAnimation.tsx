@@ -7,41 +7,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { cn } from "~/utils/cn";
 
-/**
- * A gradient animation component that can be used as a full-screen background.
- * The gradient can be interacted with by the user.
- * @param gradientBackgroundStart - The start color of the gradient.
- * @param gradientBackgroundEnd - The end color of the gradient.
- * @param firstColor - The color of the first gradient.
- * @param secondColor - The color of the second gradient.
- * @param thirdColor - The color of the third gradient.
- * @param fourthColor - The color of the fourth gradient.
- * @param fifthColor - The color of the fifth gradient.
- * @param pointerColor - The color of the pointer.
- * @param size - The size of the gradient.
- * @param blendingValue - The blending value of the gradient.
- * @param children - The content of the component.
- * @param className - The class name of the component.
- * @param interactive - Whether the component is interactive or not.
- * @param containerClassName - The class name of the container element.
- * @returns A JSX element representing the gradient animation component.
- */
-export const BackgroundGradientAnimation = ({
-  gradientBackgroundStart = "rgb(0, 0, 0)",
-  gradientBackgroundEnd = "rgb(0, 0, 0)",
-  firstColor = "50, 50, 50",
-  secondColor = "50, 50, 50",
-  thirdColor = "0, 0, 0",
-  fourthColor = "0, 0, 0",
-  fifthColor = "0, 0, 0",
-  pointerColor = "75, 75, 75",
-  size = "80%",
-  blendingValue = "hard-light",
-  children,
-  className,
-  interactive = true,
-  containerClassName,
-}: {
+interface GradientAnimationProps {
   gradientBackgroundStart?: string;
   gradientBackgroundEnd?: string;
   firstColor?: string;
@@ -56,13 +22,38 @@ export const BackgroundGradientAnimation = ({
   className?: string;
   interactive?: boolean;
   containerClassName?: string;
-}) => {
+}
+
+/**
+ * A gradient animation component that can be used as a full-screen background.
+ * The gradient can be interacted with by the user.
+ *
+ * @param {GradientAnimationProps} props - The properties for the gradient animation component.
+ * @returns A JSX element representing the gradient animation component.
+ */
+export const BackgroundAnimation = ({
+  gradientBackgroundStart = "rgb(0, 0, 0)",
+  gradientBackgroundEnd = "rgb(0, 0, 0)",
+  firstColor = "50, 50, 50",
+  secondColor = "50, 50, 50",
+  thirdColor = "0, 0, 0",
+  fourthColor = "0, 0, 0",
+  fifthColor = "0, 0, 0",
+  pointerColor = "75, 75, 75",
+  size = "80%",
+  blendingValue = "hard-light",
+  children,
+  className,
+  interactive = true,
+  containerClassName,
+}: GradientAnimationProps) => {
   const interactiveRef = useRef<HTMLDivElement>(null);
 
   const [curX, setCurX] = useState(0);
   const [curY, setCurY] = useState(0);
   const [tgX, setTgX] = useState(0);
   const [tgY, setTgY] = useState(0);
+
   useEffect(() => {
     document.body.style.setProperty(
       "--gradient-background-start",
@@ -211,55 +202,3 @@ export const BackgroundGradientAnimation = ({
     </div>
   );
 };
-
-// interface AuroraBackgroundProps extends React.HTMLProps<HTMLDivElement> {
-//   children: ReactNode;
-//   showRadialGradient?: boolean;
-// }
-
-// /**
-//  * A component that applies a gradient animation to a child element.
-//  * @param {AuroraBackgroundProps} props - The component props.
-//  */
-// export const AuroraBackground = ({
-//   className,
-//   children,
-//   showRadialGradient = true,
-//   ...props
-// }: AuroraBackgroundProps) => {
-//   return (
-//     <div
-//       className={cn(
-//         "relative flex flex-col  h-screen w-screen items-center justify-center bg-zinc-50 dark:bg-zinc-900 transition-bg",
-//         className
-//       )}
-//       {...props}
-//     >
-//       <div className="absolute inset-0 overflow-hidden">
-//         <div
-//           className={cn(
-//             `
-//             [--white-gradient:repeating-linear-gradient(100deg,var(--white)_0%,var(--white)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--white)_16%)]
-//             [--dark-gradient:repeating-linear-gradient(100deg,var(--black)_0%,var(--black)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--black)_16%)]
-//             [--aurora:repeating-linear-gradient(100deg,var(--blue-500)_10%,var(--indigo-300)_15%,var(--blue-300)_20%,var(--violet-200)_25%,var(--blue-400)_30%)]
-//             [background-image:var(--white-gradient),var(--aurora)]
-//             dark:[background-image:var(--dark-gradient),var(--aurora)]
-//             [background-size:300%,_200%]
-//             [background-position:50%_50%,50%_50%]
-//             filter blur-[10px] invert dark:invert-0
-//             after:content-[""] after:absolute after:inset-0 after:[background-image:var(--white-gradient),var(--aurora)]
-//             after:dark:[background-image:var(--dark-gradient),var(--aurora)]
-//             after:[background-size:200%,_100%]
-//             after:animate-aurora after:[background-attachment:fixed] after:mix-blend-difference
-//             pointer-events-none
-//             absolute -inset-[10px] opacity-50 will-change-transform`,
-
-//             showRadialGradient &&
-//               `[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,var(--transparent)_70%)]`
-//           )}
-//         />
-//       </div>
-//       {children}
-//     </div>
-//   );
-// };

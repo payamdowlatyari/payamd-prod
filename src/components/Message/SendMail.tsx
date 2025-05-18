@@ -106,7 +106,7 @@ export default function SendMail() {
       </div>
       <button
         type="submit"
-        className="inline-flex h-12 w-full animate-background-shine items-center justify-center rounded-md border border-neutral-800 hover:border-neutral-200 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-neutral-400 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-neutral-50 hover:text-neutral-50 hover:shadow-lg duration-500"
+        className="inline-flex h-12 w-full items-center justify-center rounded-md border border-neutral-800 hover:border-neutral-200 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-neutral-400 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-neutral-50 hover:text-neutral-50 hover:shadow-lg duration-500"
       >
         Send Message
       </button>

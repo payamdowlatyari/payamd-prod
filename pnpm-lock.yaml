@@ -80,6 +80,9 @@ dependencies:
   framer-motion:
     specifier: ^10.18.0
     version: 10.18.0(react-dom@18.3.1)(react@18.3.1)
+  hamburger-react:
+    specifier: ^2.5.2
+    version: 2.5.2(react@18.3.1)
   html2canvas:
     specifier: ^1.4.1
     version: 1.4.1
@@ -10566,6 +10569,14 @@ packages:
       pumpify: 1.5.1
       through2: 2.0.5
     dev: true
+
+  /hamburger-react@2.5.2(react@18.3.1):
+    resolution: {integrity: sha512-xsv/I7wQX1RDaulDnvMVCXMMRXnkwnUnkE8seD5eNVZJ4nIrjtK5LLA20l5x/pJ+mPWOzlFxW32VJ86Gbo2Njw==}
+    peerDependencies:
+      react: ^16.8 || ^17 || ^18 || ^19
+    dependencies:
+      react: 18.3.1
+    dev: false
 
   /handlebars@4.7.8:
     resolution: {integrity: sha512-vafaFqs8MZkRrSX7sFVUdo3ap/eNiLnb4IakshzvP56X5Nr1iGKAIqdX6tMlm6HcNRIkr6AxO5jFEoJzzpT8aQ==}

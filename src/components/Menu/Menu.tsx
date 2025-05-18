@@ -1,6 +1,6 @@
 import { motion, useAnimate, useCycle } from "framer-motion";
+import { Pivot as Hamburger } from "hamburger-react";
 import { useEffect } from "react";
-import { TfiClose, TfiLineDouble } from "react-icons/tfi";
 
 import { LinkArrowOut } from "~/components/Button/Button";
 import { MagneticSocialLinks } from "~/components/motion/FloatingDock";
@@ -80,27 +80,9 @@ export function Contacts() {
  */
 const NavToggle = ({ toggle }: { toggle: () => void }) => {
   return (
-    <motion.button
-      onClick={toggle}
-      className="outline-none border-none cursor-pointer absolute top-1 right-3 bg-transparent flex items-center z-[1001]"
-    >
-      <motion.span
-        variants={{
-          closed: { display: "contents" },
-          open: { display: "none" },
-        }}
-      >
-        MENU <TfiLineDouble className="px-2 text-5xl" />
-      </motion.span>
-      <motion.span
-        variants={{
-          closed: { display: "none" },
-          open: { display: "contents" },
-        }}
-      >
-        CLOSE <TfiClose className="px-2 text-5xl" />
-      </motion.span>
-    </motion.button>
+    <span className="outline-none border-none cursor-pointer absolute top-1 right-3 bg-transparent flex items-center z-[1001]">
+      <Hamburger onToggle={toggle} />
+    </span>
   );
 };
 

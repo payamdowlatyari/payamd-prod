@@ -28,11 +28,10 @@ export function BadgeRotateBorder({
 }) {
   return (
     <span
-      className="relative inline-flex overflow-hidden rounded-full p-px m-1"
+      className="relative inline-flex overflow-hidden rounded-full p-px m-1 bg-neutral-400"
       key={key}
     >
-      <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#c2c2c2_0%,#505050_50%,#bebebe_100%)]" />
-      <span className="inline-flex h-full w-full items-center justify-center rounded-full bg-neutral-950 px-2 py-1 text-xs font-medium text-neutral-300 backdrop-blur-3xl">
+      <span className="inline-flex h-full w-full items-center justify-center rounded-full bg-neutral-400 px-2 py-1 text-xs font-medium text-neutral-900 backdrop-blur-3xl">
         {title}
       </span>
     </span>
@@ -190,14 +189,14 @@ export const HeroParallax = ({
                 return (
                   <div
                     key={icon}
-                    className="flex items-center justify-center w-10 h-10 my-2 rounded-full bg-neutral-800"
+                    className="flex items-center justify-center w-10 h-10 my-2 rounded-full bg-neutral-800 hover:bg-neutral-700 transition-all ease-in-out"
                   >
                     <Image
                       src={icon}
                       alt={icon}
                       width={40}
                       height={40}
-                      className="w-6 h-6 m-1"
+                      className="w-6 h-6 m-1 hover:animate-spin transition-all ease-in-out"
                     />
                   </div>
                 );
