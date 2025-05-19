@@ -37,6 +37,48 @@ const Preview = () => (
 );
 
 /**
+ * Hero component
+ *
+ * A component that displays a hero section with a title, subtitle, description, and image.
+ */
+const Hero = () => {
+  return (
+    <section id="hero">
+      <div className="flex flex-col self-end h-full w-screen items-end right-0">
+        <div className="absolute z-0">
+          <GradientTracing
+            width={800}
+            height={200}
+            animationDuration={3}
+            path="M0,50 L75,25 L150,75 L225,25 L300,50"
+          />
+        </div>
+        <GridBeam className="flex flex-col items-start justify-end relative z-10">
+          <div className="flex flex-col justify-start items-start w-full px-8 my-8 gap-2">
+            <div className="relative mb-6 max-w-2xl text-left text-4xl leading-normal font-bold tracking-tight">
+              <div className="inline-block w-screen">
+                <h1 className="text-5xl sm:text-8xl md:text-9xl uppercase w-full">
+                  {portfolio.name}
+                </h1>
+                <ContainerTextFlip
+                  words={portfolio.words}
+                  className="text-2xl sm:text-4xl md:text-6xl"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="h-12 w-screen uppercase flex justify-end items-center gap-2">
+            <TextHoverEnter url="#intro" title="Who I am" />
+            <TextHoverEnter url="#services" title="What I do" />
+          </div>
+          <ParallaxText baseVelocity={-0.05}>{portfolio.titles}</ParallaxText>
+        </GridBeam>
+      </div>
+    </section>
+  );
+};
+
+/**
  * Intro component
  *
  * A component that displays a hero section with a short introduction.
@@ -66,6 +108,11 @@ const Services = () => (
     className="flex flex-wrap justify-evenly items-baseline py-10"
   >
     <div className="max-w-md p-2 my-4 z-0">
+      <GradientTracing
+        width={500}
+        height={100}
+        path="M0,50 L75,25 L150,75 L225,25 L300,50"
+      />
       <H2 label="Services" />
       <Paragraph
         text="These are the services I can provide for you as a software engineer, web developer, solutions architect, and UX designer including the technologies I have worked with in recent years."
@@ -98,48 +145,6 @@ const Services = () => (
 );
 
 /**
- * Hero component
- *
- * A component that displays a hero section with a title, subtitle, description, and image.
- */
-const Hero = () => {
-  return (
-    <section id="hero">
-      <div className="flex flex-col self-end h-full w-screen items-end right-0">
-        <div className="absolute z-0">
-          <GradientTracing
-            width={800}
-            height={200}
-            animationDuration={3}
-            path="M0,50 L75,25 L150,75 L225,25 L300,50"
-          />
-        </div>
-        <GridBeam className="flex flex-col items-start justify-end relative z-10">
-          <div className="flex flex-col justify-start items-start w-full px-8 my-8 gap-2">
-            <div className="relative mb-6 max-w-2xl text-left text-4xl leading-normal font-bold tracking-tight">
-              <div className="inline-block w-screen">
-                <h1 className="text-5xl sm:text-8xl md:text-9xl uppercase w-full">
-                  {portfolio.name}
-                </h1>
-                <ContainerTextFlip
-                  words={portfolio.words}
-                  className="text-2xl sm:text-4xl md:text-6xl w-full"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="h-12 w-screen uppercase flex justify-end items-center gap-2">
-            <TextHoverEnter url="#intro" title="Who I am" />
-            <TextHoverEnter url="#services" title="What I do" />
-          </div>
-          <ParallaxText baseVelocity={-0.05}>{portfolio.titles}</ParallaxText>
-        </GridBeam>
-      </div>
-    </section>
-  );
-};
-
-/**
  * Home component
  * @returns {JSX.Element}
  */
@@ -150,13 +155,6 @@ export default function Home(): JSX.Element {
       <Preview />
       <Hero />
       <Intro />
-      <div className="flex justify-center items-end">
-        <GradientTracing
-          width={500}
-          height={100}
-          path="M0,50 L75,25 L150,75 L225,25 L300,50"
-        />{" "}
-      </div>
       <Services />
       <Footer />
       <ScrollProgressBar showPercentage />

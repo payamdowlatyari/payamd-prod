@@ -28,11 +28,10 @@ export function BadgeRotateBorder({
 }) {
   return (
     <span
-      className="relative inline-flex overflow-hidden rounded-full p-px m-1"
+      className="relative inline-flex overflow-hidden rounded-full m-1 bg-neutral-400"
       key={key}
     >
-      <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#c2c2c2_0%,#505050_50%,#bebebe_100%)]" />
-      <span className="inline-flex h-full w-full items-center justify-center rounded-full bg-neutral-950 px-2 py-1 text-xs font-medium text-neutral-300 backdrop-blur-3xl">
+      <span className="inline-flex h-full w-full items-center justify-center bg-neutral-400 p-1 text-xs font-semibold text-neutral-950">
         {title}
       </span>
     </span>
@@ -94,8 +93,8 @@ export const ProductCard = ({
           {product.description}
         </p>
         <div className="z-10 opacity-0 group-hover/product:opacity-100 hidden md:flex mt-2 md:mt-4">
-          {product.tags?.map((tag: string) => {
-            return <BadgeRotateBorder title={tag} key={tag} />;
+          {product.tags?.map((tag: string, i: number) => {
+            return <BadgeRotateBorder title={tag} key={tag.slice(0, i + 1)} />;
           })}
         </div>
       </div>
@@ -138,11 +137,11 @@ export const HeroParallax = ({
   const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
 
   const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [-200, 800]),
+    useTransform(scrollYProgress, [0, 1], [-200, 600]),
     springConfig
   );
   const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 1], [-200, -800]),
+    useTransform(scrollYProgress, [0, 1], [-200, -600]),
     springConfig
   );
   const rotateX = useSpring(
@@ -158,13 +157,13 @@ export const HeroParallax = ({
     springConfig
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
+    useTransform(scrollYProgress, [0, 0.2], [-800, 300]),
     springConfig
   );
   return (
     <div
       ref={ref}
-      className="h-[250vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[280vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
         <BlurFade
@@ -197,7 +196,7 @@ export const HeroParallax = ({
                       alt={icon}
                       width={40}
                       height={40}
-                      className="w-6 h-6 m-1"
+                      className="w-6 h-6 m-1 hover:animate-spin transition-all duration-500 ease-in-out"
                     />
                   </div>
                 );
