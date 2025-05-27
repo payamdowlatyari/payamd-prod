@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 
 import Footer from "~/components/layout/Footer";
 import Menu from "~/components/layout/Menu";
-import { ContainerTextFlip } from "~/components/motion/FlipWords";
 import { GridBeam } from "~/components/motion/GridBeam";
 import ImageEffect from "~/components/motion/ImageEffect";
+import { MorphingText } from "~/components/motion/MorphingText";
 import NumberTicker from "~/components/motion/NumberTicker";
 import ParallaxText from "~/components/motion/ParallaxText";
 import { GradientTracing } from "~/components/motion/PulseBeams";
@@ -45,25 +45,14 @@ const Hero = () => {
   return (
     <section id="hero">
       <div className="flex flex-col self-end h-full w-screen items-end right-0">
-        <div className="absolute z-0">
-          <GradientTracing
-            width={800}
-            height={200}
-            animationDuration={3}
-            path="M0,50 L75,25 L150,75 L225,25 L300,50"
-          />
-        </div>
         <GridBeam className="flex flex-col items-start justify-end relative z-10">
           <div className="flex flex-col justify-start items-start w-full px-8 my-8 gap-2">
             <div className="relative mb-6 max-w-2xl text-left text-4xl leading-normal font-bold tracking-tight">
-              <div className="inline-block w-screen">
-                <h1 className="text-5xl sm:text-8xl md:text-9xl uppercase w-full">
-                  {portfolio.name}
+              <div className="block w-screen">
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-neutral-500 font-bold -tracking-wider leading-tight uppercase w-full">
+                  Payam <br /> Dowlatyari
                 </h1>
-                <ContainerTextFlip
-                  words={portfolio.words}
-                  className="text-2xl sm:text-4xl md:text-6xl"
-                />
+                <MorphingText texts={portfolio.words} />
               </div>
             </div>
           </div>
