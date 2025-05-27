@@ -11,7 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-import { H1, Paragraph } from "../Texts/Texts";
+import { H1, Paragraph } from "../ui/Texts";
 import BlurFade from "~/components/motion/BlurFade";
 import { GradientTracing } from "~/components/motion/PulseBeams";
 
@@ -19,19 +19,10 @@ import { GradientTracing } from "~/components/motion/PulseBeams";
  * Renders a badge with a rotating border animation.
  * @param {string} title - The title text to display in the center of the badge.
  */
-export function BadgeRotateBorder({
-  title,
-  key,
-}: {
-  title: string;
-  key: number | string;
-}) {
+export function Badge({ title, i }: { title: string; i: number | string }) {
   return (
-    <span
-      className="relative inline-flex overflow-hidden rounded-full m-1 bg-neutral-400"
-      key={key}
-    >
-      <span className="inline-flex h-full w-full items-center justify-center bg-neutral-400 p-1 text-xs font-semibold text-neutral-950">
+    <span className="relative inline-flex overflow-hidden m-1" key={i}>
+      <span className="inline-flex h-full w-full items-center justify-center bg-neutral-400 px-2 py-1 text-xs font-semibold text-neutral-950 rounded-full">
         {title}
       </span>
     </span>
@@ -94,7 +85,7 @@ export const ProductCard = ({
         </p>
         <div className="z-10 opacity-0 group-hover/product:opacity-100 hidden md:flex mt-2 md:mt-4">
           {product.tags?.map((tag: string, i: number) => {
-            return <BadgeRotateBorder title={tag} key={tag.slice(0, i + 1)} />;
+            return <Badge title={tag} i={i} />;
           })}
         </div>
       </div>

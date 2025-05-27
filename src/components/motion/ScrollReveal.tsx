@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import type { FC, ReactNode } from "react";
 import { useRef } from "react";
 
@@ -8,21 +8,27 @@ import { cn } from "~/utils/cn";
 
 interface WordProps {
   children: ReactNode;
-  progress: any;
+  progress: MotionValue<number>;
   range: [number, number];
 }
 
 /**
- * A single word component that has a scrolling reveal effect.
+ * A component that animates a word based on the scroll progress.
  *
- * @param {ReactNode} children - The word to render.
- * @param {number} progress - The progress of the scroll (0-1).
- * @param {number[]} range - The range of the scroll (start, end).
- *
- * @returns {React.ReactElement} The word component.
+ * @param {Object} props - The component props.
+ * @param {ReactNode} props.children - The content to be animated.
+ * @param {MotionValue<number>} props.progress - The scroll progress value.
+ * @param {[number, number]} props.range - The range of opacity values for the word.
  */
-/** */
-const Word: FC<WordProps> = ({ children, progress, range }) => {
+const Word: FC<WordProps> = ({
+  children,
+  progress,
+  range,
+}: {
+  children: ReactNode;
+  progress: MotionValue<number>;
+  range: [number, number];
+}) => {
   const opacity = useTransform(progress, range, [0, 1]);
 
   return (
@@ -42,12 +48,12 @@ interface TextRevealByWordProps {
 
 /**
  * A component that reveals text word by word as the user scrolls.
- *
  * @param {string} text - The text to be revealed.
- * @param {string} [className] - Additional CSS classes to apply to the component.
- * @returns {JSX.Element} The TextRevealByWord component.
  */
-const TextRevealByWord: FC<TextRevealByWordProps> = ({ text, className }) => {
+const TextRevealByWord: FC<TextRevealByWordProps> = ({
+  text,
+  className,
+}: TextRevealByWordProps) => {
   const targetRef = useRef<HTMLDivElement | null>(null);
 
   const { scrollYProgress } = useScroll({

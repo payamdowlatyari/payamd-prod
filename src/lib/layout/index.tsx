@@ -6,9 +6,9 @@ import { AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { type ReactNode } from "react";
 
-import { BackgroundGradientAnimation } from "~/components/motion/BackgroundGradientAnimation";
+import { BackgroundAnimation } from "~/components/motion/BackgroundAnimation";
 import PageTransition from "~/components/motion/PageTransition";
-import Logo from "~/components/View/Logo";
+import Logo from "~/components/ui/Logo";
 
 import "@fontsource/poppins";
 import "@14islands/r3f-scroll-rig/css";
@@ -41,7 +41,7 @@ const Layout = ({ children }: LayoutProps) => {
         >
           {(scrollBind) => (
             <article {...scrollBind}>
-              <BackgroundGradientAnimation />
+              <BackgroundAnimation interactive blendingValue="difference" />
               {children}
             </article>
           )}

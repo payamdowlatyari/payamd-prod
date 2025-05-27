@@ -3,6 +3,7 @@
 
 "use client";
 
+import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 import { cn } from "~/utils/cn";
@@ -202,3 +203,144 @@ export const BackgroundAnimation = ({
     </div>
   );
 };
+
+/**
+ * A component that renders a background with a collection of animated paths
+ * that appear to be floating. The paths are positioned based on the `position`
+ * prop, and the color and width of each path is determined by its index in the
+ * array.
+ *
+ * @param {{ position: number; children: React.ReactNode; className?: string; }}
+ *   props
+ * @param {number} props.position - The position of the paths, where 0 is the
+ *   starting position and 1 is the ending position.
+ * @param {React.ReactNode} props.children - The content to be rendered inside
+ *   the component.
+ * @param {string} [props.className] - Additional class names to be added to the
+ *   component.
+ * @returns {JSX.Element} - A JSX element representing the FloatingPathsBackground
+ *   component.
+ */
+export function FloatingPathsBackground({
+  position,
+  children,
+  className,
+}: {
+  position: number;
+  className?: string;
+  children: React.ReactNode;
+}): JSX.Element {
+  const paths = Array.from({ length: 36 }, (_, i) => ({
+    id: i,
+    d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
+      380 - i * 5 * position
+    } -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${
+      152 - i * 5 * position
+    } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
+      684 - i * 5 * position
+    } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
+    color: `rgba(15,23,42,${0.1 + i * 0.03})`,
+    width: 0.5 + i * 0.03,
+  }));
+
+  return (
+    <div className={cn("w-full relative", className)}>
+      <div className="absolute inset-0 pointer-events-none">
+        <svg
+          className="w-full h-full text-slate-950 dark:text-white"
+          viewBox="0 0 696 316"
+          fill="none"
+        >
+          {paths.map((path) => (
+            <motion.path
+              key={path.id}
+              d={path.d}
+              stroke="currentColor"
+              strokeWidth={path.width}
+              strokeOpacity={0.1 + path.id * 0.03}
+              initial={{ pathLength: 0.3, opacity: 0.6 }}
+              animate={{
+                pathLength: 1,
+                opacity: [0.3, 0.6, 0.3],
+                pathOffset: [0, 1, 0],
+              }}
+              transition={{
+                duration: 20 + Math.random() * 10,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "linear",
+              }}
+            />
+          ))}
+        </svg>
+      </div>
+      {children}
+    </div>
+  );
+}
+
+/**
+ * InteractiveGridPattern is a component that renders a grid pattern with interactive squares.
+ *
+ * @param width - The width of each square.
+ * @param height - The height of each square.
+ * @param squares - The number of squares in the grid. The first element is the number of horizontal squares, and the second element is the number of vertical squares.
+ * @param className - The class name of the grid.
+ * @param squaresClassName - The class name of the squares.
+ */
+interface InteractiveGridPatternProps extends React.SVGProps<SVGSVGElement> {
+  width?: number;
+  height?: number;
+  squares?: [number, number]; // [horizontal, vertical]
+  className?: string;
+  squaresClassName?: string;
+}
+
+/**
+ * The InteractiveGridPattern component.
+ *
+ * @see InteractiveGridPatternProps for the props interface.
+ * @returns A React component.
+ */
+export function InteractiveGridPattern({
+  width = 40,
+  height = 40,
+  squares = [24, 24],
+  className,
+  squaresClassName,
+  ...props
+}: InteractiveGridPatternProps) {
+  const [horizontal, vertical] = squares;
+  const [hoveredSquare, setHoveredSquare] = useState<number | null>(null);
+
+  return (
+    <svg
+      width={width * horizontal}
+      height={height * vertical}
+      className={cn(
+        "absolute inset-0 h-full w-full border border-gray-400/30",
+        className
+      )}
+      {...props}
+    >
+      {Array.from({ length: horizontal * vertical }).map((_, index) => {
+        const x = (index % horizontal) * width;
+        const y = Math.floor(index / horizontal) * height;
+        return (
+          <rect
+            x={x}
+            y={y}
+            width={width}
+            height={height}
+            className={cn(
+              "stroke-gray-400/30 transition-all duration-100 ease-in-out [&:not(:hover)]:duration-1000",
+              hoveredSquare === index ? "fill-gray-300/30" : "fill-transparent",
+              squaresClassName
+            )}
+            onMouseEnter={() => setHoveredSquare(index)}
+            onMouseLeave={() => setHoveredSquare(null)}
+          />
+        );
+      })}
+    </svg>
+  );
+}

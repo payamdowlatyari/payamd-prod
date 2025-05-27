@@ -1,6 +1,6 @@
 "use client";
 
-import { LinkArrowOut } from "~/components/Button/Button";
+import { LinkArrowOut } from "~/components/ui/Button";
 import { cn } from "~/utils/cn";
 
 /**
