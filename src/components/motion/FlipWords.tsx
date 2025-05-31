@@ -87,14 +87,14 @@ export function ContainerTextFlip({
           duration: animationDuration / 1000,
           ease: "easeInOut",
         }}
-        className={cn("inline-block", textClassName)}
+        className={cn("block", textClassName)}
         ref={textRef}
         layoutId={`word-div-${words[currentWordIndex]}-${id}`}
       >
-        <motion.div>
+        <motion.div className="block">
           {words[currentWordIndex].split("").map((letter, index) => (
             <motion.span
-              key={letter}
+              key={letter.slice(0, index + 1)}
               initial={{
                 opacity: 0,
                 filter: BLUR_EFFECT,

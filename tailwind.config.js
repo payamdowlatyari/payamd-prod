@@ -33,7 +33,7 @@ module.exports = {
         fifth: "moveInCircle 20s ease infinite",
         marquee: 'marquee var(--duration, 30s) linear infinite',
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
-        shine: "shine 6s infinite linear",
+        shine: "shine 12s infinite linear",
       },
       keyframes: {
         'shimmer': {

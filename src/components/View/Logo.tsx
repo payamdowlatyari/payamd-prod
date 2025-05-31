@@ -18,7 +18,7 @@ export default function Logo({
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       transition={{ duration: 0.5, ease: "backInOut" }}
-      className={type === "header" ? "fixed top-1 left-3 z-auto" : ""}
+      className={type === "header" ? "fixed top-1 left-3 z-[1001]" : ""}
     >
       <Link href="/">
         <Image
