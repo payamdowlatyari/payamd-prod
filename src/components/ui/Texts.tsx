@@ -7,7 +7,7 @@ import BlurFade from "~/components/motion/BlurFade";
  */
 const H1 = ({ label }: { label: string }) => (
   <BlurFade blur="6px" duration={0.4} delay={0.3} inView>
-    <h1 className="text-5xl sm:text-7xl md:text-8xl uppercase tracking-tight max-w-lg">
+    <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl uppercase tracking-tighter">
       {label}
     </h1>
   </BlurFade>
@@ -20,7 +20,7 @@ const H1 = ({ label }: { label: string }) => (
  */
 const H2 = ({ label }: { label: string }) => (
   <BlurFade blur="6px" duration={0.4} delay={0.3} inView>
-    <h2 className="text-4xl sm:text-5xl md:text-6xl max-w-lg">{label}</h2>
+    <h2 className="text-4xl sm:text-5xl md:text-6xl">{label}</h2>
   </BlurFade>
 );
 
@@ -30,7 +30,9 @@ const H2 = ({ label }: { label: string }) => (
  * @param {string} label - The label to render as the h3 element's content.
  */
 const H3 = ({ label }: { label: string }) => (
-  <h3 className="text-3xl sm:text-5xl max-w-md text-neutral-200">{label}</h3>
+  <h3 className="text-3xl sm:text-4xl md:text-5xl max-w-md text-neutral-200">
+    {label}
+  </h3>
 );
 
 /**
@@ -39,7 +41,9 @@ const H3 = ({ label }: { label: string }) => (
  * @param {string} label - The label to render as the h4 element's content.
  */
 const H4 = ({ label }: { label: string }) => (
-  <h4 className="text-2xl sm:text-4xl max-w-md text-neutral-200">{label}</h4>
+  <h4 className="text-2xl sm:text-3xl md:text-4xl max-w-md text-neutral-200">
+    {label}
+  </h4>
 );
 
 /**
@@ -56,7 +60,7 @@ const Paragraph = ({
 }) => (
   <BlurFade blur="6px" duration={0.4} delay={0.3} inView>
     <p
-      className={`text-neutral-300 max-w-screen-sm text-xs sm:text-sm md:text-lg ${className}`}
+      className={`text-neutral-300 max-w-screen-sm text-xs sm:text-sm md:text-base ${className}`}
     >
       {text}
     </p>

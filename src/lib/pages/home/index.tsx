@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 
-import Footer from "~/components/Footer/Footer";
-import Menu from "~/components/Menu/Menu";
+import Footer from "~/components/layout/Footer";
+import Menu from "~/components/layout/Menu";
 import { ContainerTextFlip } from "~/components/motion/FlipWords";
 import { GridBeam } from "~/components/motion/GridBeam";
 import ImageEffect from "~/components/motion/ImageEffect";
@@ -12,7 +12,7 @@ import ParallaxText from "~/components/motion/ParallaxText";
 import { GradientTracing } from "~/components/motion/PulseBeams";
 import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
 import { TextHoverEnter } from "~/components/motion/TextHoverEnter";
-import { H2, H4, Paragraph } from "~/components/Texts/Texts";
+import { H2, H4, Paragraph } from "~/components/ui/Texts";
 import { about, portfolio, services } from "~/data";
 import { cn } from "~/utils/cn";
 
@@ -157,7 +157,7 @@ export default function Home(): JSX.Element {
       <Intro />
       <Services />
       <Footer />
-      <ScrollProgressBar showPercentage />
+      <ScrollProgressBar />
     </main>
   );
 }

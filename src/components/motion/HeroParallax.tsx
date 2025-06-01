@@ -11,9 +11,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-import { H1, Paragraph } from "../Texts/Texts";
 import BlurFade from "~/components/motion/BlurFade";
 import { GradientTracing } from "~/components/motion/PulseBeams";
+import { H1, Paragraph } from "~/components/ui/Texts";
 
 /**
  * Renders a badge with a rotating border animation.

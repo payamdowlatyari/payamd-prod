@@ -31,12 +31,11 @@ export function TextHoverEnter({
   return (
     <motion.a
       className={cn(
-        "relative block select-none overflow-hidden whitespace-nowrap text-base font-semibold my-1 md:my-2 mx-2 md:mx-4 text-neutral-800 dark:text-neutral-200",
+        "relative block select-none overflow-hidden whitespace-nowrap text-base font-semibold my-1 md:my-2 mx-2 md:mx-4 text-neutral-200",
         className
       )}
       initial="initial"
       whileHover="hovered"
-      style={{ lineHeight: 0.9 }}
       href={url}
     >
       <div>

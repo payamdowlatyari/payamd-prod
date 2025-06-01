@@ -7,7 +7,7 @@ import { type ReactNode } from "react";
 
 import { BackgroundAnimation } from "~/components/motion/BackgroundAnimation";
 import PageTransition from "~/components/motion/PageTransition";
-import Logo from "~/components/View/Logo";
+import Logo from "~/components/ui/Logo";
 
 import "~/app/globals.css";
 import "@fontsource/poppins";

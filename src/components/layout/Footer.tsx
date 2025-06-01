@@ -4,8 +4,31 @@ import Link from "next/link";
 import { useRef, useEffect } from "react";
 
 import { MagneticSocialLinks } from "~/components/motion/FloatingDock";
-import CopyRight from "~/components/View/CopyRight";
-import Logo from "~/components/View/Logo";
+import Logo from "~/components/ui/Logo";
+
+/**
+ * CopyRight component
+ */
+function CopyRight() {
+  return (
+    <div className="flex mx-auto text-xs self-end py-7">
+      <Link
+        className="text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold px-1"
+        href="https://www.payamd.com"
+        target="_blank"
+        rel="noreferrer"
+      >
+        payamd.com
+      </Link>
+      <span className="text-neutral-500">
+        {" © "}
+        {new Date().getFullYear()}
+        {" | "}
+        All Rights Reserved.
+      </span>
+    </div>
+  );
+}
 
 /**
  * Footer component
@@ -18,8 +41,8 @@ const Footer = () => {
   );
 
   const scrollProgress = useMotionValue(0);
-  const footerOpacity = useTransform(scrollProgress, [0.5, 1], [0, 1]);
-  const footerScale = useTransform(scrollProgress, [0.5, 1], [0.75, 1]);
+  const footerOpacity = useTransform(scrollProgress, [0.5, 1], [0.5, 1]);
+  const footerScale = useTransform(scrollProgress, [0.5, 1], [0.5, 1]);
 
   useEffect(() => {
     return onScroll(() => scrollProgress.set(scrollState.visibility));
@@ -35,11 +58,11 @@ const Footer = () => {
     <motion.footer
       ref={footerRef}
       layout
-      className="flex justify-center items-end w-screen h-full min-h-[40vh]"
+      className="flex justify-center items-end w-screen h-full min-h-[50vh] z-0"
     >
       <motion.div
         style={{ opacity: footerOpacity, scale: footerScale }}
-        className="flex flex-col items-center justify-end h-full z-10"
+        className="flex flex-col items-center justify-end z-10"
       >
         <div className="w-screen h-full flex flex-col items-center justify-center">
           <Logo type="footer" />
@@ -54,7 +77,7 @@ const Footer = () => {
               </Link>
             ))}
           </div>
-          <div className="flex flex-col items-center justify-center h-full w-full py-2 social">
+          <div className="flex flex-col items-center justify-center h-full w-full py-2">
             <MagneticSocialLinks />
           </div>
         </div>

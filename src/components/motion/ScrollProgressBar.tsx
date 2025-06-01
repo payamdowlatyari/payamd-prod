@@ -1,22 +1,9 @@
 "use client";
 
-import {
-  motion,
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-  HTMLMotionProps,
-} from "framer-motion";
-import { ReactElement, useState } from "react";
+import { motion, useScroll, HTMLMotionProps, useSpring } from "framer-motion";
+import { ReactElement } from "react";
 
 import { cn } from "~/utils/cn";
-
-interface ScrollProgressBarType {
-  type?: "circle" | "bar";
-  position?: "top-right" | "bottom-right" | "top-left" | "bottom-left";
-  strokeSize?: number;
-  showPercentage?: boolean;
-}
 
 /**
  * ScrollProgressBar component renders a progress bar that shows the scroll progress.
@@ -27,75 +14,19 @@ interface ScrollProgressBarType {
  * @param {number} props.strokeSize - The size of the progress bar stroke.
  * @param {boolean} props.showPercentage - Whether to show the percentage of the progress bar.
  */
-export default function ScrollProgressBar({
-  type = "circle",
-  position = "bottom-right",
-  strokeSize = 3,
-  showPercentage = false,
-}: ScrollProgressBarType) {
+export default function ScrollProgressBar() {
   const { scrollYProgress } = useScroll();
-
-  const scrollPercentage = useTransform(scrollYProgress, [0, 1], [0, 100]);
-
-  const [percentage, setPercentage] = useState(0);
-
-  useMotionValueEvent(scrollPercentage, "change", (latest) => {
-    setPercentage(Math.round(latest));
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
   });
 
-  if (type === "bar") {
-    return (
-      <div
-        className="fixed start-0 end-0 top-0 pointer-events-none z-20"
-        style={{ height: `${strokeSize + 2}px` }}
-      >
-        <span
-          className="bg-transparent text-neutral-600 h-full w-full block"
-          style={{
-            width: `${percentage}%`,
-          }}
-        />
-      </div>
-    );
-  }
-
   return (
-    <div
-      className={cn("fixed flex items-center justify-center z-20", {
-        "top-0 end-0": position === "top-right",
-        "bottom-0 end-0": position === "bottom-right",
-        "top-0 start-0": position === "top-left",
-        "bottom-0 start-0": position === "bottom-left",
-      })}
-    >
-      {percentage > 0 && (
-        <>
-          <svg width="80" height="80" viewBox="0 0 100 100">
-            <circle
-              cx="50"
-              cy="50"
-              r="30"
-              fill="none"
-              strokeWidth={strokeSize}
-            />
-            <motion.circle
-              cx="50"
-              cy="50"
-              r="30"
-              pathLength="1"
-              fill="none"
-              strokeDashoffset="0"
-              strokeWidth={strokeSize}
-              style={{ pathLength: scrollYProgress }}
-              className={cn("stroke-neutral-600")}
-            />
-          </svg>
-          {showPercentage && (
-            <span className="text-xs absolute ml-1">{percentage}%</span>
-          )}
-        </>
-      )}
-    </div>
+    <motion.div
+      style={{ scaleX }}
+      className="fixed left-0 bottom-0 w-full pointer-events-none z-20 h-2 bg-gradient-to-r from-transparent via-neutral-200 to-transparent"
+    />
   );
 }
 

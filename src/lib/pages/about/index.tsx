@@ -4,8 +4,8 @@ import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
-import Footer from "~/components/Footer/Footer";
-import Menu from "~/components/Menu/Menu";
+import Footer from "~/components/layout/Footer";
+import Menu from "~/components/layout/Menu";
 import BlurFade from "~/components/motion/BlurFade";
 import { Card } from "~/components/motion/Card";
 import LinkPreview from "~/components/motion/LinkPreview";
@@ -15,7 +15,7 @@ import ScrollProgressBar, {
   ProgressiveBlur,
 } from "~/components/motion/ScrollProgressBar";
 import TextRevealByWord from "~/components/motion/ScrollReveal";
-import { H1, H2, Paragraph } from "~/components/Texts/Texts";
+import { H1, H2, Paragraph } from "~/components/ui/Texts";
 import { intro, resume } from "~/data";
 
 /**
@@ -32,7 +32,7 @@ const BottomSection = () => (
       path="M0,50 L75,25 L150,75 L225,25 L300,50"
       className="left-1/2 transform -translate-x-1/2"
     />
-    <p className="text-neutral-400 text-2xl sm:text-4xl md:text-5xl text-center mx-auto max-w-xl px-4 my-10">
+    <p className="text-neutral-400 text-center text-2xl sm:text-4xl md:text-5xl mx-auto max-w-xl px-4 my-10">
       Check out my{" "}
       <LinkPreview url="https://blog.payamd.com/">Blog</LinkPreview> and{" "}
       <LinkPreview url="https://photos.payamd.com/">Photography</LinkPreview>{" "}
@@ -122,7 +122,12 @@ const Resume = ({ x }: { x: MotionValue<string> }) => (
                 </div>
 
                 <div className="max-w-screen-lg flex flex-col justify-evenly">
-                  <BlurFade delay={0.5} duration={0.5} inView blur="xl">
+                  <BlurFade
+                    delay={0.5}
+                    inView
+                    blur="xl"
+                    variant={{ hidden: { y: 100 }, visible: { y: 0 } }}
+                  >
                     <Card items={section.items} />
                   </BlurFade>
                 </div>
@@ -146,19 +151,19 @@ const MarqueeSection = ({ opacity }: { opacity: MotionValue<number> }) => (
       {Object.values(Logos).map((Logo) => (
         <div
           key={Logo.name}
-          className="relative scale-75 hover:scale-100 transition h-full w-fit mx-[0.5rem] flex items-center justify-start"
+          className="relative scale-75 hover:scale-90 transition h-full w-fit mx-[0.5rem] flex items-center justify-start"
         >
           <Logo />
         </div>
       ))}
     </Marquee>
     <ProgressiveBlur
-      className="pointer-events-none absolute top-0 left-0 h-full w-16 md:w-32"
+      className="pointer-events-none absolute top-0 left-0 h-full w-16"
       direction="left"
       blurIntensity={1}
     />
     <ProgressiveBlur
-      className="pointer-events-none absolute top-0 right-0 h-full w-16 md:w-32"
+      className="pointer-events-none absolute top-0 right-0 h-full w-16"
       direction="right"
       blurIntensity={1}
     />
@@ -206,7 +211,7 @@ const About = (): JSX.Element => {
       <MarqueeSection opacity={opacityMarquee} />
       <BottomSection />
       <Footer />
-      <ScrollProgressBar showPercentage />
+      <ScrollProgressBar />
     </main>
   );
 };
