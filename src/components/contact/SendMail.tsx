@@ -67,27 +67,38 @@ export default function SendMail() {
     <form
       ref={form}
       onSubmit={sendEmail}
-      className="w-[500px] max-w-[98vw] m-auto"
+      className="m-auto-[10px] w-[500px] max-w-[95vw]"
     >
+      {" "}
       <div className="relative my-2">
+        <div className="absolute top-0 flex w-full justify-center">
+          <div className="h-[1px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-white to-[rgba(17,17,17,0)] transition-all duration-1000" />
+        </div>
         <input
-          className="border-1 block h-12 w-full rounded-md border border-double border-slate-800 border-transparent bg-[linear-gradient(#000,#000),linear-gradient(to_right,#334454,#334454)]	bg-origin-border px-3 py-2 text-slate-200 transition-all duration-500 [background-clip:padding-box,_border-box] placeholder:text-slate-500 focus:bg-[linear-gradient(#000,#000),linear-gradient(to_right,#c7d2fe,#8678f9)] focus:outline-none"
+          className="block h-12 w-full rounded-md border border-neutral-800 bg-neutral-950 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 focus:ring-offset-gray-50"
           placeholder="Your name"
           name="from_name"
           type="text"
         />
       </div>
       <div className="relative my-2">
+        <div className="absolute top-0 flex w-full justify-center">
+          <div className="h-[1px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-white to-[rgba(17,17,17,0)] transition-all duration-1000" />
+        </div>
         <input
-          className="border-1 block h-12 w-full rounded-md border border-double border-slate-800 border-transparent bg-[linear-gradient(#000,#000),linear-gradient(to_right,#334454,#334454)]	bg-origin-border px-3 py-2 text-slate-200 transition-all duration-500 [background-clip:padding-box,_border-box] placeholder:text-slate-500 focus:bg-[linear-gradient(#000,#000),linear-gradient(to_right,#c7d2fe,#8678f9)] focus:outline-none"
+          className="block h-12 w-full rounded-md border border-neutral-800 bg-neutral-950 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 focus:ring-offset-gray-50"
           placeholder="Your email"
           name="user_email"
           type="email"
         />
       </div>
       <div className="relative my-2">
+        <div className="absolute top-0 flex w-full justify-center">
+          <div className="h-[1px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-white to-[rgba(17,17,17,0)] transition-all duration-1000" />
+        </div>
+
         <textarea
-          className="border-1 block h-32 w-full rounded-md border border-double border-slate-800 border-transparent bg-[linear-gradient(#000,#000),linear-gradient(to_right,#334454,#334454)]	bg-origin-border px-3 py-2 text-slate-200 transition-all duration-500 [background-clip:padding-box,_border-box] placeholder:text-slate-500 focus:bg-[linear-gradient(#000,#000),linear-gradient(to_right,#c7d2fe,#8678f9)] focus:outline-none"
+          className="block h-32 w-full rounded-md border border-neutral-800 bg-neutral-950 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 focus:ring-offset-gray-50"
           placeholder="Type your message here..."
           rows={5}
           name="message"
@@ -95,11 +106,11 @@ export default function SendMail() {
       </div>
       <button
         type="submit"
-        className="transition-background inline-flex h-12 w-full items-center justify-center rounded-md border border-gray-800 bg-gradient-to-r from-gray-100 via-indigo-200 to-indigo-300 bg-[length:200%_200%] bg-[0%_0%] px-6 font-bold text-gray-950 duration-500 hover:bg-[100%_200%] focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50"
+        className="inline-flex h-12 w-full items-center justify-center rounded-md border border-neutral-800 hover:border-neutral-200 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-neutral-400 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-neutral-50 hover:text-neutral-50 hover:shadow-lg duration-500"
       >
         Send Message
       </button>
-      <div className="flex justify-center my-2">
+      <div className="flex justify-center p-2">
         {message &&
           (success ? (
             <span className="text-green-500">{message}</span>
