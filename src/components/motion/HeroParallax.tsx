@@ -73,22 +73,22 @@ export const ProductCard = ({
           className="object-cover object-left-top absolute h-full w-full inset-0 rounded-xl"
           alt={product.title}
         />
-      </Link>
 
-      <div className="absolute inset-0 h-full w-full opacity-30 group-hover/product:opacity-90 bg-black pointer-events-none" />
-      <div className="flex flex-col justify-center place-items-start h-full p-2 md:p-4 lg:p-6">
-        <h3 className="z-10 text-base sm:text-lg md:text-xl opacity-0 group-hover/product:opacity-100 font-semibold text-neutral-50 tracking-tight mb-1">
-          {product.title}
-        </h3>
-        <p className="z-10 opacity-0 group-hover/product:opacity-100 text-neutral-300 text-xs sm:text-sm md:text-base my-1">
-          {product.description}
-        </p>
-        <div className="z-10 opacity-0 group-hover/product:opacity-100 hidden md:flex mt-2 md:mt-4">
-          {product.tags?.map((tag: string, i: number) => {
-            return <Badge title={tag} i={i} />;
-          })}
+        <div className="absolute inset-0 h-full w-full opacity-30 group-hover/product:opacity-90 shadow-xl shadow-neutral-700 rounded-xl bg-gradient-to-b bg-neutral-950 pointer-events-none" />
+        <div className="flex flex-col justify-center place-items-start h-full p-2 md:p-4 lg:p-6">
+          <h3 className="z-10 text-base sm:text-lg md:text-xl opacity-0 group-hover/product:opacity-100 font-semibold text-neutral-50 tracking-tight mb-1">
+            {product.title}
+          </h3>
+          <p className="z-10 opacity-0 group-hover/product:opacity-100 text-neutral-300 text-xs sm:text-sm md:text-base my-1">
+            {product.description}
+          </p>
+          <div className="z-10 opacity-0 group-hover/product:opacity-100 hidden md:flex mt-2 md:mt-4">
+            {product.tags?.map((tag: string, i: number) => {
+              return <Badge title={tag} i={tag.concat((i + 1).toString())} />;
+            })}
+          </div>
         </div>
-      </div>
+      </Link>
     </motion.div>
   );
 };
