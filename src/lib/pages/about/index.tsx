@@ -19,8 +19,6 @@ import { H1, H2, Paragraph } from "~/components/ui/Texts";
 import { intro, resume } from "~/data";
 
 /**
- * BottomSection component
- *
  * Renders a bottom section with a gradient tracing animation.
  */
 const BottomSection = () => (
@@ -42,12 +40,10 @@ const BottomSection = () => (
 );
 
 /**
- * Intro component
- *
  * Renders an introduction section with a gradient tracing animation.
  */
 const Intro = ({ opacity }: { opacity: MotionValue<number> }) => (
-  <div>
+  <div className="relative">
     <motion.div
       style={{ opacity }}
       className="fixed mx-1 h-screen w-screen flex flex-wrap items-center justify-evenly"
@@ -96,14 +92,12 @@ const Intro = ({ opacity }: { opacity: MotionValue<number> }) => (
 );
 
 /**
- * Resume component
- *
  * Renders a resume section with a gradient tracing animation.
  */
 const Resume = ({ x }: { x: MotionValue<string> }) => (
   <motion.section
     id="resume"
-    className="block top-0 max-w-screen-lg overflow-hidden h-[1500vh] p-0"
+    className="block top-0 max-w-screen-lg overflow-hidden h-[1500vh] p-0 z-[1]"
     layoutScroll
   >
     <div className="fixed flex top-0 overflow-hidden items-center h-screen z-[2]">
@@ -115,8 +109,8 @@ const Resume = ({ x }: { x: MotionValue<string> }) => (
       >
         {resume.map((section) => (
           <li className="w-screen max-w-screen-lg" key={section.section}>
-            <div className="flex flex-row justify-center items-center h-screen m-1 z-0">
-              <div className="flex flex-col justify-center max-w-screen-lg overflow-hidden z-10">
+            <div className="flex flex-row justify-center items-center h-screen m-1">
+              <div className="flex flex-col justify-center max-w-screen-lg overflow-hidden">
                 <div className="flex flex-col-reverse px-4">
                   <H2 label={section.section} />
                 </div>
@@ -136,8 +130,6 @@ const Resume = ({ x }: { x: MotionValue<string> }) => (
 );
 
 /**
- * MarqueeSection component
- *
  * Renders a marquee section with a gradient tracing animation.
  */
 const MarqueeSection = ({ opacity }: { opacity: MotionValue<number> }) => (
@@ -166,7 +158,8 @@ const MarqueeSection = ({ opacity }: { opacity: MotionValue<number> }) => (
 );
 
 /**
- * About component
+ * A component that displays an about page.
+ *
  * @returns {JSX.Element} The rendered about page.
  */
 const About = (): JSX.Element => {

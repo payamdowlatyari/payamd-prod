@@ -16,20 +16,6 @@ import { GradientTracing } from "~/components/motion/PulseBeams";
 import { H1, Paragraph } from "~/components/ui/Texts";
 
 /**
- * Renders a badge with a rotating border animation.
- * @param {string} title - The title text to display in the center of the badge.
- */
-export function Badge({ title, i }: { title: string; i: number | string }) {
-  return (
-    <span className="relative inline-flex overflow-hidden m-1" key={i}>
-      <span className="inline-flex h-full w-full items-center justify-center bg-neutral-400 px-2 py-1 text-xs font-semibold text-neutral-950 rounded-full">
-        {title}
-      </span>
-    </span>
-  );
-}
-
-/**
  * A component that renders a product card with a hover animation.
  *
  * @param {Object} props - The component props.
@@ -46,6 +32,10 @@ export const ProductCard = ({
     url: string;
     img: string;
     tags: string[];
+    icons: {
+      name: string;
+      icon: any;
+    }[];
   };
   translate: MotionValue<number>;
 }) => {
@@ -82,9 +72,13 @@ export const ProductCard = ({
           <p className="z-10 opacity-0 group-hover/product:opacity-100 text-neutral-300 text-xs sm:text-sm md:text-base my-1">
             {product.description}
           </p>
-          <div className="z-10 opacity-0 group-hover/product:opacity-100 hidden md:flex mt-2 md:mt-4">
-            {product.tags?.map((tag: string, i: number) => {
-              return <Badge title={tag} i={tag.concat((i + 1).toString())} />;
+          <div className="z-10 opacity-0 group-hover/product:opacity-100 flex justify-center mt-2 md:mt-4">
+            {Object.values(product.icons).map((icon) => {
+              return icon.icon ? (
+                <span className="mr-2 md:mr-4" key={icon.name}>
+                  <icon.icon size={20} />
+                </span>
+              ) : null;
             })}
           </div>
         </div>
@@ -109,6 +103,10 @@ export const HeroParallax = ({
     url: string;
     img: string;
     tags: string[];
+    icons: {
+      name: string;
+      icon: any;
+    }[];
   }[];
   details: {
     title: string;

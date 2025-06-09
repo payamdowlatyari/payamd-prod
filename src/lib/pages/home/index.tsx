@@ -1,44 +1,19 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 import Footer from "~/components/layout/Footer";
 import Menu from "~/components/layout/Menu";
 import { GridBeam } from "~/components/motion/GridBeam";
 import ImageEffect from "~/components/motion/ImageEffect";
 import { MorphingText } from "~/components/motion/MorphingText";
-import NumberTicker from "~/components/motion/NumberTicker";
 import ParallaxText from "~/components/motion/ParallaxText";
-import { GradientTracing } from "~/components/motion/PulseBeams";
+import Preview from "~/components/motion/Preview";
 import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
-import { TextHoverEnter } from "~/components/motion/TextHoverEnter";
+import { TextHover } from "~/components/motion/TextHover";
 import { H2, H4, Paragraph } from "~/components/ui/Texts";
 import { about, portfolio, services } from "~/data";
 import { cn } from "~/utils/cn";
 
 /**
- * Preview component
- *
- * A component that displays a preview of the page.
- */
-const Preview = () => (
-  <motion.div
-    initial={{ y: 0 }}
-    animate={{ y: "-100%" }}
-    transition={{
-      duration: 1,
-      delay: 4,
-      ease: "easeInOut",
-    }}
-    className="fixed flex justify-center top-0 left-0 w-full h-full bg-neutral-950 z-[1002]"
-  >
-    <NumberTicker value={100} className="self-center text-9xl" />
-  </motion.div>
-);
-
-/**
- * Hero component
- *
  * A component that displays a hero section with a title, subtitle, description, and image.
  */
 const Hero = () => {
@@ -56,11 +31,13 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          <div className="h-12 w-screen uppercase flex justify-end items-center gap-2">
-            <TextHoverEnter url="#intro" title="Who I am" />
-            <TextHoverEnter url="#services" title="What I do" />
+
+          <div className="h-12 w-screen uppercase flex justify-end items-center gap-2 z-10">
+            <TextHover url="#intro" text="Who I am" />
+            <TextHover url="#services" text="What I do" />
           </div>
           <ParallaxText baseVelocity={-0.05}>{portfolio.titles}</ParallaxText>
+          <ParallaxText baseVelocity={0.05}>{portfolio.titles}</ParallaxText>
         </GridBeam>
       </div>
     </section>
@@ -68,18 +45,16 @@ const Hero = () => {
 };
 
 /**
- * Intro component
- *
  * A component that displays a hero section with a short introduction.
  */
 const Intro = () => (
   <section id="intro">
     <div className="flex flex-wrap justify-evenly items-center w-full">
-      <div className="max-w-2xl p-2 my-4 z-0">
+      <div className="max-w-2xl p-1 md:p-2 my-2 md:my-4">
         <H4 label={about.title} />
         <Paragraph text={about.text} className="mt-4" />
       </div>
-      <div className="h-96 w-96 m-1 static right-0 z-[1]">
+      <div className="h-72 w-72 sm:h-80 sm:w-80 md:h-96 md:w-96 m-1">
         <ImageEffect item1="/me-sea2.webp" item2="/me-sea3.webp" />
       </div>
     </div>
@@ -87,8 +62,6 @@ const Intro = () => (
 );
 
 /**
- * Services component
- *
  * A component that displays a section with a list of services.
  */
 const Services = () => (
@@ -96,19 +69,14 @@ const Services = () => (
     id="services"
     className="flex flex-wrap justify-evenly items-baseline py-10"
   >
-    <div className="max-w-md p-2 my-4 z-0">
-      <GradientTracing
-        width={500}
-        height={100}
-        path="M0,50 L75,25 L150,75 L225,25 L300,50"
-      />
+    <div className="w-full p-1 md:p-2 m-2 md:m-4 max-w-md">
       <H2 label="Services" />
       <Paragraph
         text="These are the services I can provide for you as a software engineer, web developer, solutions architect, and UX designer including the technologies I have worked with in recent years."
         className="mt-4"
       />
     </div>
-    <div className="grid grid-cols-1 sm:grid-cols-2 relative z-10 py-10 max-w-7xl">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 relative z-10 py-10">
       {services.map((service) => (
         <div
           key={service.id}
@@ -134,14 +102,15 @@ const Services = () => (
 );
 
 /**
- * Home component
+ * A component that displays a home page.
+ *
  * @returns {JSX.Element}
  */
 export default function Home(): JSX.Element {
   return (
     <main>
       <Menu />
-      <Preview />
+      <Preview value={100} />
       <Hero />
       <Intro />
       <Services />

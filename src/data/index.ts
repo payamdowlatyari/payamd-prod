@@ -3,83 +3,112 @@ import { FaTerminal, FaDatabase, FaAws, FaDev } from "react-icons/fa6";
 import { GiAutoRepair } from "react-icons/gi";
 import { IoDocumentText } from "react-icons/io5";
 import { MdOutlineDevicesOther } from "react-icons/md";
-import { SiWindowsterminal, SiSpeedtest } from "react-icons/si";
-import { TbApi } from "react-icons/tb";
+import {
+  SiWindowsterminal,
+  SiSpeedtest,
+  SiTypescript,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiAwsamplify,
+  SiReact,
+  SiRedux,
+  SiExpress,
+  SiMongodb,
+  SiFramer,
+  SiAngular,
+  SiBootstrap,
+  SiCss3,
+  SiHtml5,
+  SiJavascript,
+  SiSass,
+  SiVuedotjs,
+} from "react-icons/si";
+import { TbApi, TbBrandThreejs } from "react-icons/tb";
 import { VscCircuitBoard } from "react-icons/vsc";
 
 export const services = [
   {
     name: "UX Design",
     text: `Well-designed User Interfaces can make a real difference. I conduct user research and follow the Design Thinking principles to create user-friendly interfaces.`,
-    id: 1,
+    id: 0,
     icon: MdOutlineDevicesOther,
   },
   {
     name: "Frontend Development",
     text: `Websites and web applications must function well when they are interacting with the user. I use frontend technologies such as React, Next.js, and TypeScript to implement that.`,
-    id: 2,
+    id: 1,
     icon: SiWindowsterminal,
   },
   {
     name: "API Development",
     text: `I design, develop, and maintain RESTful APIs. I utilize Node.js, Express.js, AWS API Gateway, and Lambda to implement them. I also use OpenAPI and Swagger to document APIs.`,
-    id: 3,
+    id: 2,
     icon: TbApi,
   },
   {
     name: "Backend Development",
     text: `Any request from the user on the web browser is processed on the server side to provide a response. Any response requires data. I develop applications for the interaction between user and data.`,
-    id: 4,
+    id: 3,
     icon: FaTerminal,
   },
   {
     name: "Database Design",
     text: `Data is the most valuable asset these days and users need to have access to data in every interaction with the application in real time. I design relational and non-relational database suitable for the application.`,
-    id: 5,
+    id: 4,
     icon: FaDatabase,
   },
   {
     name: "Cloud Services",
     text: `I use AWS, Google Cloud, and Microsoft Azure to deploy and maintain applications. I also design cloud infrastructure based on the requirements of the application.`,
-    id: 6,
+    id: 5,
     icon: FaAws,
   },
   {
     name: "DevOps",
     text: `As a software engineer, DevOps is essential for the success of any project. I employ tools such as Docker, Kubernetes, and Jenkins to deploy and maintain applications.`,
-    id: 7,
+    id: 6,
     icon: FaDev,
   },
   {
     name: "Software Security",
     text: `Every data transaction involves some risks. As data is valuable, I eliminate those risks using authentication, data protection, secure data transfer protocols and encryption methods.`,
-    id: 8,
+    id: 7,
     icon: AiFillSecurityScan,
   },
   {
     name: "Software Testing",
     text: "I test software to ensure that it works as expected. I use Jest, React Testing Library, and Cypress to test web applications for unit, integration, and e2e testing.",
-    id: 9,
+    id: 8,
     icon: SiSpeedtest,
   },
   {
     name: "Application Architecture",
     text: "Full stack applications are complex, especially when they are deployed on the cloud services. I find the right solution and architecture to develop scalable and maintainable applications.",
-    id: 10,
+    id: 9,
     icon: VscCircuitBoard,
   },
   {
     name: "Software Maintenance",
     text: `Like computer hardware, software products need to be maintained, debugged, and updated. Once the product is luanched, the maintenance is essential for the success of the product.`,
-    id: 11,
+    id: 10,
     icon: GiAutoRepair,
   },
   {
     name: "Software Documentation",
     text: "In the process of software development, it is necessary to document the project. I write documentation for the project for future reference and maintenance, and use tools such as JSDoc and Markdown.",
-    id: 12,
+    id: 11,
     icon: IoDocumentText,
   },
+];
+
+// Define commonly used tags as constants to avoid duplication
+const TAGS_TS_NEXT_TAILWIND = ["Typescript", "Next.js", "Tailwind"];
+const TAGS_TS_NEXT_TAILWIND_FRAMER = [
+  "Typescript",
+  "Next.js",
+  "Tailwind",
+  // eslint-disable-next-line sonarjs/no-duplicate-string
+  "Framer Motion",
 ];
 
 const projectsItems = [
@@ -91,6 +120,24 @@ const projectsItems = [
     img: "/projects/physician-gps-home-1750x1000.webp",
     url: "https://find-a-doc-app.vercel.app/",
     tags: ["Typescript", "Next.js", "Tailwind", "Amplify"],
+    icons: [
+      {
+        name: "Typescript",
+        icon: SiTypescript,
+      },
+      {
+        name: "Next.js",
+        icon: SiNextdotjs,
+      },
+      {
+        name: "Tailwind",
+        icon: SiTailwindcss,
+      },
+      {
+        name: "Amplify",
+        icon: SiAwsamplify,
+      },
+    ],
     date: "2025",
   },
   {
@@ -100,6 +147,20 @@ const projectsItems = [
     img: "/projects/canvasfolio1750x1000.webp",
     url: "https://physiciangps.co/",
     tags: ["Typescript", "Next.js", "Three.js"],
+    icons: [
+      {
+        name: "Typescript",
+        icon: SiTypescript,
+      },
+      {
+        name: "Next.js",
+        icon: SiNextdotjs,
+      },
+      {
+        name: "Three.js",
+        icon: TbBrandThreejs,
+      },
+    ],
     date: "2024",
   },
   {
@@ -109,6 +170,24 @@ const projectsItems = [
     img: "/projects/MyDash_Projects_1750x1000.webp",
     url: "https://payamd-dashboard.vercel.app/",
     tags: ["React", "Redux", "Express", "MongoDB"],
+    icons: [
+      {
+        name: "React",
+        icon: SiReact,
+      },
+      {
+        name: "Redux",
+        icon: SiRedux,
+      },
+      {
+        name: "Express",
+        icon: SiExpress,
+      },
+      {
+        name: "MongoDB",
+        icon: SiMongodb,
+      },
+    ],
     date: "2023",
   },
   {
@@ -117,7 +196,21 @@ const projectsItems = [
     description: "My personal blog about books, films, and more",
     img: "/projects/blog_1750x1000.webp",
     url: "https://payamd-blog.vercel.app/",
-    tags: ["Typescript", "Next.js", "Tailwind", "rsuite"],
+    tags: TAGS_TS_NEXT_TAILWIND,
+    icons: [
+      {
+        name: "Typescript",
+        icon: SiTypescript,
+      },
+      {
+        name: "Next.js",
+        icon: SiNextdotjs,
+      },
+      {
+        name: "Tailwind",
+        icon: SiTailwindcss,
+      },
+    ],
     date: "2024",
   },
   {
@@ -126,7 +219,25 @@ const projectsItems = [
     description: "My photography blog website",
     img: "/projects/Portfolio_anim_Photography1750x1000.webp",
     url: "https://payamd-photo.vercel.app/",
-    tags: ["Typescript", "Next.js", "Tailwind", "Framer Motion"],
+    tags: TAGS_TS_NEXT_TAILWIND_FRAMER,
+    icons: [
+      {
+        name: "Typescript",
+        icon: SiTypescript,
+      },
+      {
+        name: "Next.js",
+        icon: SiNextdotjs,
+      },
+      {
+        name: "Tailwind",
+        icon: SiTailwindcss,
+      },
+      {
+        name: "Framer Motion",
+        icon: SiFramer,
+      },
+    ],
     date: "2024",
   },
   {
@@ -135,7 +246,21 @@ const projectsItems = [
     description: "A GUI for learning Data Structure and Algorithms",
     img: "/projects/algorithms_2100x1200.webp",
     url: "https://algorithms-next.vercel.app/",
-    tags: ["Typescript", "Next.js", "Tailwind"],
+    tags: TAGS_TS_NEXT_TAILWIND,
+    icons: [
+      {
+        name: "Typescript",
+        icon: SiTypescript,
+      },
+      {
+        name: "Next.js",
+        icon: SiNextdotjs,
+      },
+      {
+        name: "Tailwind",
+        icon: SiTailwindcss,
+      },
+    ],
     date: "2023",
   },
   {
@@ -144,7 +269,21 @@ const projectsItems = [
     description: "A portfolio website template for professionals",
     img: "/projects/nextfolio_1925x1100.webp",
     url: "https://nextfolio-theta.vercel.app/",
-    tags: ["Typescript", "Next.js", "Tailwind"],
+    tags: TAGS_TS_NEXT_TAILWIND,
+    icons: [
+      {
+        name: "Typescript",
+        icon: SiTypescript,
+      },
+      {
+        name: "Next.js",
+        icon: SiNextdotjs,
+      },
+      {
+        name: "Tailwind",
+        icon: SiTailwindcss,
+      },
+    ],
     date: "2023",
   },
   {
@@ -154,6 +293,20 @@ const projectsItems = [
     img: "/projects/paper_browser_1750x1000.webp",
     url: "https://personal-informatics.depstein.net",
     tags: ["Typescript", "Angular", "Bootstrap"],
+    icons: [
+      {
+        name: "Typescript",
+        icon: SiTypescript,
+      },
+      {
+        name: "Angular",
+        icon: SiAngular,
+      },
+      {
+        name: "Bootstrap",
+        icon: SiBootstrap,
+      },
+    ],
     date: "2020",
   },
   {
@@ -163,6 +316,24 @@ const projectsItems = [
     img: "/projects/CalPlug_2100x1200.webp",
     url: "https://payamdowlatyari.github.io/admin-web-portal/",
     tags: ["React", "Redux", "Express", "MongoDB"],
+    icons: [
+      {
+        name: "React",
+        icon: SiReact,
+      },
+      {
+        name: "Redux",
+        icon: SiRedux,
+      },
+      {
+        name: "Express",
+        icon: SiExpress,
+      },
+      {
+        name: "MongoDB",
+        icon: SiMongodb,
+      },
+    ],
     date: "2020",
   },
   {
@@ -172,6 +343,24 @@ const projectsItems = [
     img: "/projects/m-studios_1260x720.webp",
     url: "https://m-studios.us/",
     tags: ["HTML", "CSS", "Javascript", "Bootstrap"],
+    icons: [
+      {
+        name: "HTML",
+        icon: SiHtml5,
+      },
+      {
+        name: "CSS",
+        icon: SiCss3,
+      },
+      {
+        name: "Javascript",
+        icon: SiJavascript,
+      },
+      {
+        name: "Bootstrap",
+        icon: SiBootstrap,
+      },
+    ],
     date: "2019",
   },
   {
@@ -181,6 +370,20 @@ const projectsItems = [
     img: "/projects/vue-portfolio-1750x1000.webp",
     url: "https://vue-project-orpin-seven.vercel.app/",
     tags: ["Javascript", "Vue", "Sass"],
+    icons: [
+      {
+        name: "Javascript",
+        icon: SiJavascript,
+      },
+      {
+        name: "Vue",
+        icon: SiVuedotjs,
+      },
+      {
+        name: "Sass",
+        icon: SiSass,
+      },
+    ],
     date: "2023",
   },
   {
@@ -189,7 +392,25 @@ const projectsItems = [
     description: "A portfolio template for professionals",
     img: "/projects/animation-ui-gallery-1750x1000.webp",
     url: "https://nextjs-animation-ui.vercel.app/",
-    tags: ["Typescript", "Next.js", "Tailwind", "Framer Motion"],
+    tags: TAGS_TS_NEXT_TAILWIND_FRAMER,
+    icons: [
+      {
+        name: "Typescript",
+        icon: SiTypescript,
+      },
+      {
+        name: "Next.js",
+        icon: SiNextdotjs,
+      },
+      {
+        name: "Tailwind",
+        icon: SiTailwindcss,
+      },
+      {
+        name: "Framer Motion",
+        icon: SiFramer,
+      },
+    ],
     date: "2024",
   },
 ];

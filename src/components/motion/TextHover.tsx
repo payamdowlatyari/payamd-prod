@@ -8,30 +8,31 @@ const DURATION = 0.25;
 const STAGGER = 0.025;
 
 /**
+ * Props for the AnimatedText component.
+ */
+interface AnimatedTextProps {
+  text: string;
+  url: string;
+  className?: string;
+}
+
+/**
  * TextHoverEnter component
  * @param {string} title - The title of the component.
  */
-export function TextHoverEnter({
-  title,
-  url,
-  className,
-}: {
-  title: string;
-  url: string;
-  className?: string;
-}) {
-  if (typeof title !== "string") {
+export function TextHoverEnter({ text, url, className }: AnimatedTextProps) {
+  if (typeof text !== "string") {
     return null;
   }
 
-  const letters = title
+  const letters = text
     .split("")
     .map((letter) => (letter === " " ? "\u00A0" : letter));
 
   return (
     <motion.a
       className={cn(
-        "relative block select-none overflow-hidden whitespace-nowrap text-base font-semibold my-1 md:my-2 mx-2 md:mx-4 text-neutral-200",
+        "relative block cursor-pointer select-none overflow-hidden whitespace-nowrap text-base font-semibold my-1 md:my-2 mx-2 md:mx-4 text-neutral-200",
         className
       )}
       initial="initial"
@@ -81,34 +82,29 @@ export function TextHoverEnter({
 }
 
 /**
- * Props for the AnimatedText component.
- */
-interface AnimatedTextProps {
-  text?: string;
-  className?: string;
-}
-
-/**
  * A component that renders a hover animation on the given text.
  * @param {string} text - The text to render.
  */
-export function TextHover({
-  text = "Hover me",
-  className = "",
-}: AnimatedTextProps) {
+export function TextHover({ text, url, className }: AnimatedTextProps) {
+  if (typeof text !== "string") {
+    return null;
+  }
+
+  const letters = text
+    .split("")
+    .map((letter) => (letter === " " ? "\u00A0" : letter));
+
   return (
-    <motion.span
+    <motion.a
+      href={url}
       className={cn(
-        "w-full text-center inline-block cursor-pointer text-3xl transition-all",
+        "inline-block cursor-pointer text-base font-semibold transition-all tracking-widest m-1 md:m-2",
         className
       )}
       whileHover="hover"
       initial="initial"
-      style={{
-        fontFamily: "'Inter', sans-serif",
-      }}
     >
-      {text.split("").map((char, index) => (
+      {letters.map((char, index) => (
         <motion.span
           key={char}
           className="inline-block"
@@ -132,6 +128,6 @@ export function TextHover({
           {char}
         </motion.span>
       ))}
-    </motion.span>
+    </motion.a>
   );
 }

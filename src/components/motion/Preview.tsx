@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
-
 "use client";
 
-import { useInView, useMotionValue, useSpring } from "framer-motion";
+import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef } from "react";
 
 import { cn } from "~/utils/cn";
@@ -17,7 +15,7 @@ import { cn } from "~/utils/cn";
  * @prop {string} [className] - Additional class name to add to the element.
  * @returns {JSX.Element}
  */
-export default function NumberTicker({
+export default function Preview({
   value,
   direction = "up",
   delay = 0,
@@ -37,10 +35,11 @@ export default function NumberTicker({
   const isInView = useInView(ref, { once: true, margin: "0px" });
 
   useEffect(() => {
-    isInView &&
+    if (isInView) {
       setTimeout(() => {
         motionValue.set(direction === "down" ? 0 : value);
       }, delay * 1000);
+    }
   }, [motionValue, isInView, delay, value, direction]);
 
   useEffect(
@@ -56,12 +55,23 @@ export default function NumberTicker({
   );
 
   return (
-    <span
-      className={cn(
-        "inline-block tracking-wider text-3xl font-bold leading-none",
-        className
-      )}
-      ref={ref}
-    />
+    <motion.div
+      initial={{ y: "0" }}
+      animate={{ y: "-100%" }}
+      transition={{
+        duration: 1,
+        delay: 4,
+        ease: "easeInOut",
+      }}
+      className="fixed flex justify-center top-0 left-0 w-full h-full bg-neutral-950 z-[1002]"
+    >
+      <span
+        className={cn(
+          "inline-block tracking-wider text-3xl font-thin leading-none self-center",
+          className
+        )}
+        ref={ref}
+      />
+    </motion.div>
   );
 }

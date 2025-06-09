@@ -84,14 +84,9 @@ function useMenuAnimation(isOpen: boolean): AnimationScope {
     const animations: any = isOpen
       ? [
           [
-            "ul",
-            { y: 0 },
-            { ease: "easeOut", duration: 0.7, delay: 0.3, at: "-0.1" },
-          ],
-          [
             "li",
             { x: 0, opacity: 1, filter: BLUR_EFFECT_EXIT },
-            { delay: 0.05, ease: "easeInOut", duration: 0.3, at: "-0.1" },
+            { delay: 1, ease: "easeInOut", duration: 0.5 },
           ],
           [
             ".contacts",
@@ -115,8 +110,11 @@ function useMenuAnimation(isOpen: boolean): AnimationScope {
             { x: 100, opacity: 0, filter: BLUR_EFFECT },
             { ease: "easeInOut", duration: 0.3, at: "-0.1" },
           ],
-          ["li", { x: -100, opacity: 0, filter: BLUR_EFFECT }, { at: "-0.1" }],
-          ["ul", { y: -100 }, { at: "-0.1", ease: "easeIn", duration: 0.5 }],
+          [
+            "li",
+            { x: -100, opacity: 0, filter: BLUR_EFFECT },
+            { duration: 0.5 },
+          ],
         ];
 
     animate(animations);
@@ -134,19 +132,29 @@ export default function Menu() {
 
   return (
     <motion.nav
+      layout
       initial={false}
       animate={isMenuOpen ? "open" : "closed"}
-      className="fixed top-0 right-0 z-[100] bg-transparent"
+      className="fixed top-0 right-0 bg-transparent z-50"
     >
       <NavToggle toggle={toggleMenu} />
       <motion.div
+        layout
         variants={{
           closed: {
             opacity: 0,
-            display: "none",
             filter: BLUR_EFFECT,
+            transition: { duration: 0.5 },
+            transitionEnd: { display: "none" },
+            transform: "translateY(-100%)",
           },
-          open: { opacity: 1, display: "flex", filter: BLUR_EFFECT_EXIT },
+          open: {
+            opacity: 1,
+            display: "flex",
+            filter: BLUR_EFFECT_EXIT,
+            transition: { duration: 0.5 },
+            transform: "translateY(0)",
+          },
         }}
         transition={{
           duration: 0.75,
@@ -168,7 +176,6 @@ export default function Menu() {
           <Nav />
           <Contacts />
         </div>
-
         <div className="flex flex-col items-center justify-end h-1/5 sm:h-2/5 w-screen py-2 social">
           <MagneticSocialLinks />
         </div>

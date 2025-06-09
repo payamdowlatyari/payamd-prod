@@ -7,7 +7,8 @@ import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
 import { projects } from "~/data";
 
 /**
- * Projects component
+ * A component that displays a list of projects.
+ *
  * @returns {JSX.Element}
  */
 export default function Projects(): JSX.Element {

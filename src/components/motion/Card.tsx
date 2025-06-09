@@ -65,7 +65,7 @@ export const CardDate = ({
   return (
     <p
       className={cn(
-        "mt-1 ml-1 text-neutral-400 tracking-wide leading-relaxed text-xs md:text-sm min-w-12",
+        "mt-1 ml-2 text-neutral-400 tracking-wide leading-relaxed text-xs md:text-sm min-w-12",
         className
       )}
     >
@@ -106,14 +106,17 @@ export function Card({ items }: { items: any }) {
   return (
     <div
       className={cn(
-        "flex flex-col my-5 max-w-screen-sm animate-shine rounded-xl border",
+        "flex flex-col my-5 animate-shine rounded-xl border max-w-2xl",
         "border-white/10 bg-[linear-gradient(110deg,#000000,45%,#303030,55%,#000000)] bg-[length:400%_100%]",
         "p-2 transition-colors dark:bg-[linear-gradient(110deg,#000103,45%,#303030,55%,#000103)]"
       )}
     >
       {items.map((item: any) => (
-        <div key={item.title} className="h-full w-full p-2 m-1 overflow-hidden">
-          <div className="flex justify-between">
+        <div
+          key={item.title}
+          className="flex flex-col justify-start p-1 md:p-2"
+        >
+          <div className="flex flex-row">
             {item.link ? (
               <LinkArrowOut title={item.title} url={item.link} />
             ) : (

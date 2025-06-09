@@ -10,7 +10,8 @@ import { H1, Paragraph } from "~/components/ui/Texts";
 import { contactDetails } from "~/data";
 
 /**
- * Contact component
+ * A component that displays a contact page.
+ *
  * @returns {JSX.Element}
  */
 export default function Contact(): JSX.Element {
