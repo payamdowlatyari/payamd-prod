@@ -19,27 +19,6 @@ import { H1, H2, Paragraph } from "~/components/ui/Texts";
 import { intro, resume } from "~/data";
 
 /**
- * Renders a bottom section with a gradient tracing animation.
- */
-const BottomSection = () => (
-  <div className="relative">
-    <GradientTracing
-      width={300}
-      height={50}
-      animationDuration={3}
-      path="M0,50 L75,25 L150,75 L225,25 L300,50"
-      className="left-1/2 transform -translate-x-1/2"
-    />
-    <p className="text-neutral-400 text-center text-2xl sm:text-4xl md:text-5xl mx-auto max-w-xl px-4 my-10">
-      Check out my{" "}
-      <LinkPreview url="https://blog.payamd.com/">Blog</LinkPreview> and{" "}
-      <LinkPreview url="https://photos.payamd.com/">Photography</LinkPreview>{" "}
-      portfolio.
-    </p>
-  </div>
-);
-
-/**
  * Renders an introduction section with a gradient tracing animation.
  */
 const Intro = ({ opacity }: { opacity: MotionValue<number> }) => (
@@ -135,26 +114,47 @@ const Resume = ({ x }: { x: MotionValue<string> }) => (
 const MarqueeSection = ({ opacity }: { opacity: MotionValue<number> }) => (
   <motion.div layout style={{ opacity }} className="sticky bottom-0 z-10">
     <Marquee>
-      {Object.values(Logos).map((Logo) => (
+      {Object.entries(Logos).map(([key, Logo]) => (
         <div
-          key={Logo.name}
-          className="relative scale-75 hover:scale-90 transition h-full w-fit mx-[0.5rem] flex items-center justify-start"
+          key={key}
+          className="relative scale-75 hover:scale-90 transition-transform h-full w-fit mx-2 flex items-center justify-start"
         >
           <Logo />
         </div>
       ))}
     </Marquee>
     <ProgressiveBlur
-      className="pointer-events-none absolute top-0 left-0 h-full w-16"
+      className="pointer-events-none absolute inset-y-0 left-0 w-16"
       direction="left"
       blurIntensity={1}
     />
     <ProgressiveBlur
-      className="pointer-events-none absolute top-0 right-0 h-full w-16"
+      className="pointer-events-none absolute inset-y-0 right-0 w-16"
       direction="right"
       blurIntensity={1}
     />
   </motion.div>
+);
+
+/**
+ * Renders a bottom section with a gradient tracing animation.
+ */
+const BottomSection = () => (
+  <div className="relative">
+    <GradientTracing
+      width={300}
+      height={50}
+      animationDuration={3}
+      path="M0,50 L75,25 L150,75 L225,25 L300,50"
+      className="left-1/2 transform -translate-x-1/2"
+    />
+    <p className="text-neutral-400 text-center text-2xl sm:text-4xl md:text-5xl mx-auto max-w-xl px-4 my-10">
+      Check out my{" "}
+      <LinkPreview url="https://blog.payamd.com/">Blog</LinkPreview> and{" "}
+      <LinkPreview url="https://photos.payamd.com/">Photography</LinkPreview>{" "}
+      portfolio.
+    </p>
+  </div>
 );
 
 /**
@@ -164,33 +164,26 @@ const MarqueeSection = ({ opacity }: { opacity: MotionValue<number> }) => (
  */
 const About = (): JSX.Element => {
   const ref = useRef<HTMLDivElement | null>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-  });
+  const { scrollYProgress } = useScroll({ target: ref });
 
   const x = useTransform(
     scrollYProgress,
     [0, 0.2, 1],
     ["50%", "50%", "-125%"],
-    {
-      clamp: false,
-    }
+    { clamp: false }
   );
-
   const opacityIntro = useTransform(
     scrollYProgress,
     [0, 0.05, 0.08],
     [1, 1, 0]
   );
-
   const opacityMarquee = useTransform(
     scrollYProgress,
     [0, 0.1, 0.2, 0.8, 0.9, 1],
     [0, 0, 1, 1, 0, 0],
-    {
-      clamp: false,
-    }
+    { clamp: false }
   );
+
   return (
     <main ref={ref}>
       <Menu />

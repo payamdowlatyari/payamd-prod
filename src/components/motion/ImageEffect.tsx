@@ -60,7 +60,7 @@ extend({ ImageFadeMaterial });
  * @param {string} props.i1 - The first image url.
  * @param {string} props.i2 - The second image url.
  */
-export function FadingImage({ i1, i2 }: any) {
+export function FadingImage({ i1, i2 }: { i1: string; i2: string }) {
   const ref: any = useRef();
   const [texture1, texture2, dispTexture] = useTexture([i1, i2, "/13.jpg"]);
   const [hovered, setHover] = useState(false);
