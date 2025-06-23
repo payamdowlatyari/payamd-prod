@@ -22,7 +22,7 @@ export function Nav() {
   ];
 
   return (
-    <ul className="inline-grid justify-start h-fit w-fit py-2 my-4 min-w-64">
+    <ul className="inline-grid justify-start h-fit w-fit py-2 my-4 min-w-64 mx-auto">
       {links.map(({ title, url }) => (
         <li key={title} className="list-none my-1 ml-4">
           <a
@@ -43,7 +43,7 @@ export function Nav() {
  */
 export function Contacts() {
   return (
-    <div className="flex flex-col px-2 md:px-4 my-2 md:my-4 z-10 contacts min-w-64">
+    <div className="flex flex-col px-2 md:px-4 my-2 md:my-4 z-10 contacts min-w-64 mx-auto">
       {portfolio.contacts.map((section) => (
         <div key={`${section.title}`} className="flex flex-col w-60 my-2 pl-2">
           <h5 className="font-semibold text-3xl md:text-4xl m-1 uppercase text-neutral-600">
