@@ -5,17 +5,28 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
+/**
+ * Interface representing a menu item with a label and href.
+ */
 type MenuItem = {
   label: string;
   href: string;
 };
 
+/**
+ * Interface representing the props for the MenuVertical component.
+ */
 interface MenuVerticalProps {
   menuItems: MenuItem[];
   color?: string;
   skew?: number;
 }
 
+/**
+ * A vertical menu component that displays a list of menu items with animation effects.
+ *
+ * @param {MenuVerticalProps} props - The component props.
+ */
 export const MenuVertical = ({
   menuItems = [],
   color = "#e6e6e6",

@@ -4,6 +4,9 @@ import type { Variants } from "framer-motion";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
+/**
+ * Props for the BlurFade component.
+ */
 interface BlurFadeProps {
   children: React.ReactNode;
   className?: string;
@@ -22,7 +25,6 @@ interface BlurFadeProps {
 /**
  * A component that applies a blur effect to a child element when it is in view.
  * @param {BlurFadeProps} props - The component props.
- * @returns {JSX.Element} A JSX element representing the BlurFade component.
  */
 export default function BlurFade({
   children,
@@ -34,7 +36,7 @@ export default function BlurFade({
   inView = false,
   inViewMargin = "-50px",
   blur = "6px",
-}: BlurFadeProps): JSX.Element {
+}: BlurFadeProps) {
   const ref = useRef(null);
   const inViewResult = useInView(ref, { once: true, margin: inViewMargin });
   const isInView = !inView || inViewResult;

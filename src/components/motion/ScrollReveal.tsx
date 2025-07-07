@@ -6,6 +6,9 @@ import { useRef } from "react";
 
 import { cn } from "~/utils/cn";
 
+/**
+ * Props for the Word component.
+ */
 interface WordProps {
   children: ReactNode;
   progress: MotionValue<number>;
@@ -15,20 +18,9 @@ interface WordProps {
 /**
  * A component that animates a word based on the scroll progress.
  *
- * @param {Object} props - The component props.
- * @param {ReactNode} props.children - The content to be animated.
- * @param {MotionValue<number>} props.progress - The scroll progress value.
- * @param {[number, number]} props.range - The range of opacity values for the word.
+ * @param {WordProps} props - The component props.
  */
-const Word: FC<WordProps> = ({
-  children,
-  progress,
-  range,
-}: {
-  children: ReactNode;
-  progress: MotionValue<number>;
-  range: [number, number];
-}) => {
+const Word: FC<WordProps> = ({ children, progress, range }: WordProps) => {
   const opacity = useTransform(progress, range, [0, 1]);
 
   return (
@@ -41,6 +33,9 @@ const Word: FC<WordProps> = ({
   );
 };
 
+/**
+ * Props for the TextRevealByWord component.
+ */
 interface TextRevealByWordProps {
   text: string;
   className?: string;
@@ -48,7 +43,7 @@ interface TextRevealByWordProps {
 
 /**
  * A component that reveals text word by word as the user scrolls.
- * @param {string} text - The text to be revealed.
+ * @param {TextRevealByWordProps} props - The component properties.
  */
 const TextRevealByWord: FC<TextRevealByWordProps> = ({
   text,

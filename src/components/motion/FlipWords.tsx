@@ -27,7 +27,6 @@ export interface ContainerTextFlipProps {
  * a transition effect to each word as it appears.
  *
  * @param {ContainerTextFlipProps} props - The properties for the component.
- * @returns {JSX.Element} The ContainerTextFlip component.
  */
 export function ContainerTextFlip({
   words = ["better", "modern", "beautiful", "awesome"],
@@ -35,7 +34,7 @@ export function ContainerTextFlip({
   className,
   textClassName,
   animationDuration = 700,
-}: ContainerTextFlipProps): JSX.Element {
+}: ContainerTextFlipProps) {
   const id = useId();
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [width, setWidth] = useState(100);

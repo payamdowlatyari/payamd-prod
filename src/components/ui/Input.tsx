@@ -1,8 +1,16 @@
 "use client";
 
+import { motion } from "framer-motion";
 import React, { useRef, useState } from "react";
 
-const InputSpotlightBorder = () => {
+import { cn } from "~/utils/cn";
+
+/**
+ * InputSpotlightBorder
+ * A component that renders a border around an input field,
+ * with a spotlight effect that follows the user's mouse.
+ */
+export const InputSpotlightBorder = () => {
   const divRef = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -64,4 +72,80 @@ const InputSpotlightBorder = () => {
   );
 };
 
-export default InputSpotlightBorder;
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+  value: string;
+  className?: string;
+}
+
+const containerVariants = {
+  initial: {},
+  animate: {
+    transition: {
+      staggerChildren: 0.05,
+    },
+  },
+};
+
+const letterVariants = {
+  initial: {
+    y: 0,
+    color: "inherit",
+  },
+  animate: {
+    y: "-120%",
+    color: "var(--color-zinc-500)",
+    transition: {
+      type: "spring",
+      stiffness: 300,
+      damping: 20,
+    },
+  },
+};
+
+/**
+ * A React component that renders an animated input field with a label that animates
+ * when the input is focused or contains a value. The label animates by moving up and
+ * changing color, providing a smooth transition effect.
+ *
+ * @param {InputProps} props - The props for the component.
+ */
+export const InputAnimated = ({
+  label,
+  className = "",
+  value,
+  ...props
+}: InputProps) => {
+  const [isFocused, setIsFocused] = useState(false);
+  const showLabel = isFocused || value.length > 0;
+
+  return (
+    <div className={cn("relative", className)}>
+      <motion.div
+        className="absolute top-1/2 -translate-y-1/2 pointer-events-none text-zinc-900 dark:text-zinc-50"
+        variants={containerVariants}
+        initial="initial"
+        animate={showLabel ? "animate" : "initial"}
+      >
+        {label.split("").map((char) => (
+          <motion.span
+            key={char}
+            className="inline-block text-sm"
+            variants={letterVariants}
+            style={{ willChange: "transform" }}
+          >
+            {char === " " ? "\u00A0" : char}
+          </motion.span>
+        ))}
+      </motion.div>
+
+      <input
+        type="text"
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        {...props}
+        className="outline-none border-b-2 border-zinc-900 dark:border-zinc-50 py-2 w-full text-base font-medium text-zinc-900 dark:text-zinc-50 bg-transparent placeholder-transparent"
+      />
+    </div>
+  );
+};

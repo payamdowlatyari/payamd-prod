@@ -8,12 +8,18 @@ import * as THREE from "three";
 
 declare global {
   namespace JSX {
+    /**
+     * @description Extends the JSX.IntrinsicElements interface to include the custom "imageFadeMaterial" element.
+     */
     interface IntrinsicElements {
       imageFadeMaterial: any;
     }
   }
 }
 
+/**
+ * A shader material for the image fading effect.
+ */
 export const ImageFadeMaterial = shaderMaterial(
   {
     effectFactor: 1.2,
@@ -51,16 +57,22 @@ export const ImageFadeMaterial = shaderMaterial(
 extend({ ImageFadeMaterial });
 
 /**
+ * Props for the FadingImage component.
+ */
+type FadingImageProps = {
+  i1: string;
+  i2: string;
+};
+
+/**
  * A mesh component that displays a fading image effect.
  *
  * It takes two image urls as props and displays them as a fading effect.
  * The effect is triggered by hovering over the component.
  *
- * @param {Object} props - The props object.
- * @param {string} props.i1 - The first image url.
- * @param {string} props.i2 - The second image url.
+ * @param {FadingImageProps} props - The props object.
  */
-export function FadingImage({ i1, i2 }: { i1: string; i2: string }) {
+export function FadingImage({ i1, i2 }: FadingImageProps) {
   const ref: any = useRef();
   const [texture1, texture2, dispTexture] = useTexture([i1, i2, "/13.jpg"]);
   const [hovered, setHover] = useState(false);
@@ -89,20 +101,19 @@ export function FadingImage({ i1, i2 }: { i1: string; i2: string }) {
 }
 
 /**
- * A Canvas component that renders a FadingImage component with two images.
- *
- * @function ImageEffect
- * @param {Object} props - The props object.
- * @param {string} props.item1 - The first image url.
- * @param {string} props.item2 - The second image url.
+ * Props for the ImageEffect component.
  */
-export default function ImageEffect({
-  item1,
-  item2,
-}: {
+type ImageEffectProps = {
   item1: string;
   item2: string;
-}) {
+};
+
+/**
+ * A Canvas component that renders a FadingImage component with two images.
+ *
+ * @param {ImageEffectProps} props - The props object.
+ */
+export default function ImageEffect({ item1, item2 }: ImageEffectProps) {
   return (
     <Canvas camera={{ position: [0, 0, 1], fov: 50 }}>
       <FadingImage i1={item1} i2={item2} />

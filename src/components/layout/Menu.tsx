@@ -3,7 +3,6 @@ import { Pivot as Hamburger } from "hamburger-react";
 import { useEffect } from "react";
 
 import { MagneticSocialLinks } from "~/components/motion/FloatingDock";
-import Squares from "~/components/motion/Squares";
 import { LinkArrowOut } from "~/components/ui/Button";
 import { portfolio } from "~/data";
 
@@ -164,14 +163,6 @@ export default function Menu() {
         className="flex flex-wrap w-screen h-screen bg-neutral-950 relative items-end justify-center"
         ref={menuAnimationScope}
       >
-        <Squares
-          direction="diagonal"
-          speed={0.1}
-          squareSize={40}
-          hoverFillColor="rgba(255, 255, 255, 0.1)"
-          borderColor="rgba(255, 255, 255, 0.1)"
-          className="absolute top-0 left-0 w-full h-full overflow-hidden bg-neutral-950"
-        />
         <div className="flex flex-wrap w-full h-4/5 sm:h-3/5 justify-around items-center content-end">
           <Nav />
           <Contacts />

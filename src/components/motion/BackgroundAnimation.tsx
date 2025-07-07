@@ -8,6 +8,9 @@ import { useEffect, useRef, useState } from "react";
 
 import { cn } from "~/utils/cn";
 
+/**
+ * Interface representing the props for the GradientAnimation component.
+ */
 interface GradientAnimationProps {
   gradientBackgroundStart?: string;
   gradientBackgroundEnd?: string;
@@ -30,7 +33,6 @@ interface GradientAnimationProps {
  * The gradient can be interacted with by the user.
  *
  * @param {GradientAnimationProps} props - The properties for the gradient animation component.
- * @returns A JSX element representing the gradient animation component.
  */
 export const BackgroundAnimation = ({
   gradientBackgroundStart = "rgb(0, 0, 0)",
@@ -38,7 +40,7 @@ export const BackgroundAnimation = ({
   firstColor = "50, 50, 50",
   secondColor = "50, 50, 50",
   thirdColor = "0, 0, 0",
-  fourthColor = "0, 0, 0",
+  fourthColor = "0, 50, 50",
   fifthColor = "0, 0, 0",
   pointerColor = "75, 75, 75",
   size = "80%",
@@ -218,8 +220,6 @@ export const BackgroundAnimation = ({
  *   the component.
  * @param {string} [props.className] - Additional class names to be added to the
  *   component.
- * @returns {JSX.Element} - A JSX element representing the FloatingPathsBackground
- *   component.
  */
 export function FloatingPathsBackground({
   position,
@@ -229,7 +229,7 @@ export function FloatingPathsBackground({
   position: number;
   className?: string;
   children: React.ReactNode;
-}): JSX.Element {
+}) {
   const paths = Array.from({ length: 36 }, (_, i) => ({
     id: i,
     d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
@@ -299,7 +299,6 @@ interface InteractiveGridPatternProps extends React.SVGProps<SVGSVGElement> {
  * The InteractiveGridPattern component.
  *
  * @see InteractiveGridPatternProps for the props interface.
- * @returns A React component.
  */
 export function InteractiveGridPattern({
   width = 40,

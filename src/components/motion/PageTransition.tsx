@@ -28,7 +28,7 @@ export default function PageTransition({
       animate="animate"
       exit="exit"
       variants={variants}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
+      transition={{ duration: 1, ease: "easeInOut" }}
     >
       {children}
     </motion.div>

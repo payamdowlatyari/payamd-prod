@@ -1,7 +1,11 @@
 /* eslint-disable consistent-return */
 /* eslint-disable default-case */
+
 import { useRef, useEffect, useState } from "react";
 
+/**
+ * Interface representing the props for the Squares component.
+ */
 interface SquaresProps {
   direction?: "right" | "left" | "up" | "down" | "diagonal";
   speed?: number;
@@ -14,8 +18,7 @@ interface SquaresProps {
 /**
  * A component that renders a grid of squares that move in a specified direction.
  *
- * @param {{ direction?: "right" | "left" | "up" | "down" | "diagonal"; speed?: number; borderColor?: string; squareSize?: number; hoverFillColor?: string; className?: string; }} props
- * @returns {JSX.Element} A JSX element representing the Squares component
+ * @param {SquaresProps} props - The component props.
  */
 export default function Squares({
   direction = "right",
@@ -24,7 +27,7 @@ export default function Squares({
   squareSize = 40,
   hoverFillColor = "#222",
   className,
-}: SquaresProps): JSX.Element {
+}: SquaresProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const requestRef = useRef<number>();
   const numSquaresX = useRef<number>();
@@ -65,9 +68,8 @@ export default function Squares({
      * This function is called every frame. It clears the canvas, and then draws a
      * grid of squares with a hover effect. The grid is offset by the current scroll
      * position, and the hover effect is positioned based on the mouse position.
-     * @returns {void}
      */
-    const drawGrid = (): void => {
+    const drawGrid = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const startX = Math.floor(gridOffset.current.x / squareSize) * squareSize;
@@ -115,9 +117,8 @@ export default function Squares({
      * taking the maximum of the speed and 0.1, and then adjusts the grid offset
      * based on the direction. It then calls drawGrid to redraw the canvas with
      * the new offset, and schedules the next frame using requestAnimationFrame.
-     * @returns {void}
      */
-    const updateAnimation = (): void => {
+    const updateAnimation = () => {
       const effectiveSpeed = Math.max(speed, 0.1);
 
       switch (direction) {

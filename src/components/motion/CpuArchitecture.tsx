@@ -2,6 +2,9 @@
 
 import { cn } from "~/utils/cn";
 
+/**
+ * Props for the CpuArchitecture component.
+ */
 export interface CpuArchitectureSvgProps {
   className?: string;
   width?: string;
@@ -14,7 +17,12 @@ export interface CpuArchitectureSvgProps {
   animateMarkers?: boolean;
 }
 
-const CpuArchitecture = ({
+/**
+ * A simple CPU architecture diagram.
+ *
+ * @param {CpuArchitectureSvgProps} props - The component props.
+ */
+export const CpuArchitecture = ({
   className,
   width = "100%",
   height = "100%",
@@ -421,5 +429,3 @@ const CpuArchitecture = ({
     </svg>
   );
 };
-
-export { CpuArchitecture };

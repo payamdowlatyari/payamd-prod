@@ -4,7 +4,9 @@ import Link from "next/link";
 
 /**
  * Logo component
- * @param {number} size
+ * @param {Object} props - Component properties
+ * @param {number} [props.size=50] - Size of the logo
+ * @param {string} [props.type="header"] - Type of the logo, affects its positioning
  */
 export default function Logo({
   size = 50,

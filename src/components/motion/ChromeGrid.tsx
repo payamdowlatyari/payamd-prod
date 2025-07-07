@@ -22,6 +22,11 @@ interface BoxProps {
   rippleRadius?: number;
 }
 
+/**
+ * A box with a rounded corner and a physical material.
+ *
+ * @param {BoxProps} props - The component props.
+ */
 const Box = ({
   position,
   width = 4,
@@ -150,6 +155,14 @@ const Box = ({
   );
 };
 
+/**
+ * Detects which box in the grid is currently being hovered over,
+ * as determined by a raycast from the camera through the pointer.
+ * Calls the `onHoverChange` callback with the grid position of the
+ * hovered box, or null if no box is being hovered.
+ *
+ * @param {{ gridSize: number, spacingX: number, spacingZ: number, onHoverChange: (hoveredBox: [number, number] | null) => void }} props
+ */
 function HoverDetector({
   onHoverChange,
 }: {
@@ -182,6 +195,9 @@ function HoverDetector({
   return null;
 }
 
+/**
+ * Renders a grid of Boxes that respond to hover events and ripple effects.
+ */
 function GridOfBoxes() {
   const gridSize = 10;
   const boxWidth = 4;
@@ -230,6 +246,35 @@ function GridOfBoxes() {
   );
 }
 
+/**
+ * ChromeGrid is a ThreeJS component that renders a 3D grid of boxes with
+ * hover effects and ripples. It uses a combination of ThreeJS's built-in
+ * meshes and materials, as well as react-three-fiber's hooks and components.
+ *
+ * The component is designed to be a drop-in replacement for a standard
+ * HTML `<div>`, and can be used as a direct child of a Next.js page or
+ * component.
+ *
+ * The component requires no props, and renders a grid of boxes with the
+ * following properties:
+ *
+ * - The grid is centered on the page.
+ * - The grid is 10x10, with each box positioned at a multiple of 4 units.
+ * - Each box is a 4x4x4 cube with rounded corners.
+ * - The boxes are spaced 0.05 units apart.
+ * - The boxes have a hover effect, which changes their scale and color.
+ * - The boxes have a ripple effect when clicked, which changes their scale
+ *   and color.
+ *
+ * The component also renders a few lights to illuminate the grid:
+ *
+ * - An ambient light with an intensity of 1.
+ * - A directional light with an intensity of 10, positioned at [10, 15, 10].
+ * - A directional light with an intensity of 10, positioned at [-10, 10, -5].
+ * - A directional light with an intensity of 5, positioned at [5, -10, 15].
+ * - A point light with an intensity of 2, positioned at [0, 20, 3].
+ * - A point light with an intensity of 1.5, positioned at [15, 5, 15].
+ */
 export default function ChromeGrid() {
   return (
     <div className="h-full w-full bg-black relative z-0">
@@ -241,30 +286,24 @@ export default function ChromeGrid() {
         }}
       >
         <ambientLight intensity={1} />
-
         <directionalLight position={[10, 15, 10]} intensity={10} castShadow />
-
         <directionalLight
           position={[-10, 10, -5]}
           intensity={10}
           color="#ffffff"
         />
-
         <directionalLight
           position={[5, -10, 15]}
           intensity={5}
           color="#f0f8ff"
         />
-
         <pointLight position={[0, 20, 3]} intensity={2} distance={50} />
-
         <pointLight
           position={[15, 5, 15]}
           intensity={1.5}
           distance={40}
           color="#ffffff"
         />
-
         <GridOfBoxes />
       </Canvas>
     </div>

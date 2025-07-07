@@ -58,7 +58,7 @@ const Footer = () => {
     <motion.footer
       ref={footerRef}
       layout
-      className="flex justify-center items-end w-screen h-full min-h-[50vh] z-0"
+      className="flex justify-center items-end w-screen h-full min-h-96 z-0"
     >
       <motion.div
         style={{ opacity: footerOpacity, scale: footerScale }}

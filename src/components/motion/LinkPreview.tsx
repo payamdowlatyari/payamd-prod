@@ -14,6 +14,9 @@ import { useEffect, useState } from "react";
 
 import { cn } from "~/utils/cn";
 
+/**
+ * Props for the LinkPreview component.
+ */
 type LinkPreviewProps = {
   children: React.ReactNode;
   url: string;
@@ -30,16 +33,7 @@ type LinkPreviewProps = {
 /**
  * LinkPreview component renders a hover card with a link preview image.
  *
- * @param {Object} props - The component props.
- * @param {React.ReactNode} props.children - The content of the hover card.
- * @param {string} props.url - The URL of the link to preview.
- * @param {string} props.className - The class name of the hover card.
- * @param {number} props.width - The width of the link preview image.
- * @param {number} props.height - The height of the link preview image.
- * @param {number} props.quality - The quality of the link preview image.
- * @param {string} props.layout - The layout of the link preview image.
- * @param {boolean} props.isStatic - Whether the link preview image is static.
- * @param {string} props.imageSrc - The source of the static link preview image.
+ * @param {LinkPreviewProps} props - The component props.
  */
 const LinkPreview = ({
   children,
@@ -91,7 +85,8 @@ const LinkPreview = ({
    * @param {MouseEvent} event - The mouse move event.
    */
   const handleMouseMove = (event: any) => {
-    const targetRect = event.target.getBoundingClientRect();
+    const target = event.target as Element;
+    const targetRect = target.getBoundingClientRect();
     const eventOffsetX = event.clientX - targetRect.left;
     const offsetFromCenter = (eventOffsetX - targetRect.width / 2) / 2; // Reduce the effect to make it subtle
     x.set(offsetFromCenter);

@@ -7,6 +7,16 @@ import { cn } from "~/utils/cn";
 const morphTime = 1.5;
 const cooldownTime = 0.5;
 
+/**
+ * Creates a morphing text effect.
+ * @param {string[]} texts An array of strings to cycle through.
+ * @returns An object with two properties: `text1Ref` and `text2Ref`, which are refs to the two text elements.
+ * The text elements should be placed inside a container with relative positioning.
+ * The text elements should have absolute positioning and the same font styles as each other.
+ * The morphing effect is done by animating the blur and opacity of the two text elements.
+ * The animation is done using requestAnimationFrame.
+ * The animation is paused when the component is unmounted or the window is blurred.
+ */
 const useMorphingText = (texts: string[]) => {
   const textIndexRef = useRef(0);
   const morphRef = useRef(0);
@@ -66,6 +76,14 @@ const useMorphingText = (texts: string[]) => {
   useEffect(() => {
     let animationFrameId: number;
 
+    /**
+     * Handles the animation loop.
+     *
+     * - Updates the current time.
+     * - Calculates the time difference from the last frame.
+     * - Decreases the cooldown by the time difference.
+     * - If the cooldown is over, start the morph, otherwise do the cooldown.
+     */
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
 
@@ -88,12 +106,25 @@ const useMorphingText = (texts: string[]) => {
   return { text1Ref, text2Ref };
 };
 
+/**
+ * Props for the `MorphingText` component.
+ */
 interface MorphingTextProps {
   // eslint-disable-next-line react/no-unused-prop-types
   className?: string;
   texts: string[];
 }
 
+/**
+ * A component that renders two `<span>` elements that are morphing between each
+ * other. The elements are absolutely positioned and have the same width and
+ * height as their parent.
+ *
+ * The component uses the `useMorphingText` hook internally to handle the
+ * animation logic.
+ *
+ * @param {MorphingTextProps} props - The component props.
+ */
 const Texts: React.FC<Pick<MorphingTextProps, "texts">> = ({
   texts,
 }: MorphingTextProps) => {
@@ -112,6 +143,16 @@ const Texts: React.FC<Pick<MorphingTextProps, "texts">> = ({
   );
 };
 
+/**
+ * A component that renders an SVG with a single filter, which is used
+ * internally by MorphingText. The filter is used to create a threshold
+ * effect on the text.
+ *
+ * The component is a simple wrapper around the SVG element, and is used
+ * to avoid having to manually include the SVG in the render tree.
+ *
+ * @returns The SVG element with the filter.
+ */
 const SvgFilters: React.FC = () => (
   <svg
     id="filters"
@@ -133,6 +174,19 @@ const SvgFilters: React.FC = () => (
   </svg>
 );
 
+/**
+ * A motion component that renders a sequence of morphing text elements.
+ *
+ * The component wraps each text element in a span with a unique key and
+ * uses the `useMotionValue` hook to create a spring animation that
+ * morphs the previous text element into the next one.
+ *
+ * The component also renders an SVG element with a threshold filter,
+ * which is used to create a threshold effect on the text elements.
+ *
+ * @param {MorphingTextProps} props - The component props.
+ * @returns The MorphingText component.
+ */
 export const MorphingText: React.FC<MorphingTextProps> = ({
   className,
   texts,

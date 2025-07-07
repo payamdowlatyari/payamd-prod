@@ -3,7 +3,7 @@
 "use client";
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import React, { useRef, useMemo } from "react";
+import { useRef, useMemo, useEffect } from "react";
 import * as THREE from "three";
 
 const vertexShader = `
@@ -110,6 +110,10 @@ void main() {
 }
 `;
 
+/**
+ * LavaLampShader
+ * A shader that renders a lava lamp style effect on a plane.
+ */
 function LavaLampShader() {
   const meshRef: any = useRef();
   const { size } = useThree();
@@ -123,7 +127,7 @@ function LavaLampShader() {
   );
 
   // Update resolution when size changes
-  React.useEffect(() => {
+  useEffect(() => {
     const { width, height } = size;
     const imageAspect = 1;
     let a1;
@@ -158,6 +162,12 @@ function LavaLampShader() {
   );
 }
 
+/**
+ * LavaLamp component
+ * Renders an animated lava lamp effect using WebGL shaders on a canvas.
+ * The canvas spans the entire width and height of the container and
+ * uses an orthographic camera for rendering.
+ */
 export default function LavaLamp() {
   return (
     <div

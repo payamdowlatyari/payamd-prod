@@ -212,8 +212,6 @@ export const Beam = () => {
  * A component that renders a beam of light and its children.
  *
  * @param {{ children: React.ReactNode; className?: string; }} props - The component props.
- * @param {React.ReactNode} props.children - The content to be rendered inside the beam.
- * @param {string} [props.className] - Optional additional class names for styling.
  */
 export const GridBeam: React.FC<{
   children: React.ReactNode;

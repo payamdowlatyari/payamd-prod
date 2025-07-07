@@ -8,9 +8,19 @@
 
 import { OrthographicCamera, useFBO, useTexture } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
+/**
+ * A hook to get the current width, height, and pixel ratio of the window.
+ *
+ * Returns an object with the following properties:
+ * - width: The width of the window in pixels.
+ * - height: The height of the window in pixels.
+ * - pixelRatio: The device pixel ratio of the window.
+ *
+ * The returned values update automatically when the window is resized.
+ */
 function useDimension() {
   const [dimension, setDimension] = useState({
     width: 0,
@@ -39,8 +49,18 @@ function useDimension() {
   return dimension;
 }
 
+/**
+ * A hook to get the current mouse position and pixel ratio of the window.
+ *
+ * Returns an object with the following properties:
+ * - x: The x-coordinate of the mouse pointer in pixels.
+ * - y: The y-coordinate of the mouse pointer in pixels.
+ * - pixelRatio: The device pixel ratio of the window.
+ *
+ * The returned values update automatically when the mouse is moved.
+ */
 function useMouse() {
-  const [mouse, setMouse] = React.useState({ x: 0, y: 0, pixelRatio: 0 });
+  const [mouse, setMouse] = useState({ x: 0, y: 0, pixelRatio: 0 });
 
   const mouseMove = (e: { clientX: any; clientY: any }) => {
     const { clientX, clientY } = e;
@@ -51,7 +71,7 @@ function useMouse() {
     });
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener("mousemove", mouseMove);
     return () => {
       window.removeEventListener("mousemove", mouseMove);
@@ -61,6 +81,17 @@ function useMouse() {
   return mouse;
 }
 
+/**
+ * A React component for rendering a 3D scene with a ripple effect.
+ *
+ * @description A model for rendering a 3D scene with a ripple effect.
+ *
+ * @example
+ * <Canvas>
+ *   <ambientLight />
+ *   <Model />
+ * </Canvas>
+ */
 function Model() {
   const { viewport } = useThree();
   const texture = useTexture("/10.jpg");
@@ -86,7 +117,20 @@ function Model() {
   const fboBase = useFBO(device.width, device.height);
   const fboTexture = useFBO(device.width, device.height);
 
-  function Images(viewportSize: THREE.Vector2) {
+  /**
+   * Images is a function that returns a scene with an image.
+   *
+   * @description Returns a Three.js scene with an orthographic camera and a plane
+   * that displays a texture.
+   *
+   * @param {THREE.Vector2} viewportSize The size of the viewport.
+   * @returns {{scene: THREE.Scene, camera: THREE.Camera}} A scene and camera that
+   * can be used to render the image.
+   */
+  function Images(viewportSize: THREE.Vector2): {
+    scene: THREE.Scene;
+    camera: THREE.Camera;
+  } {
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(
       viewportSize.width / -2,
@@ -160,6 +204,13 @@ function Model() {
     setMeshes(generatedMeshes);
   }, [texture]);
 
+  /**
+   * Updates the position and scale of a single mesh, given its index in the `meshRefs` array.
+   * Also sets the mesh's visibility to true and its opacity to 1.
+   * @param {number} x - The x coordinate to set the mesh's position to.
+   * @param {number} y - The y coordinate to set the mesh's position to.
+   * @param {number} currentWave - The index of the mesh to update in the `meshRefs` array.
+   */
   function setNewWave(x: number, y: number, currentWave: number) {
     const mesh = meshRefs.current[currentWave];
     if (mesh) {
@@ -172,6 +223,14 @@ function Model() {
     }
   }
 
+  /**
+   * Keeps track of the position of the mouse, and updates the currentWave variable
+   * and calls setNewWave when the mouse has moved more than 0.1 units since the
+   * last frame.
+   *
+   * @param {number} x - The x coordinate of the mouse.
+   * @param {number} y - The y coordinate of the mouse.
+   */
   function trackMousePos(x: number, y: number) {
     if (Math.abs(x - prevMouse.x) > 0.1 || Math.abs(y - prevMouse.y) > 0.1) {
       setCurrentWave((currentWave + 1) % max);
@@ -239,7 +298,6 @@ function Model() {
       <mesh>
         <planeGeometry args={[device.width, device.height, 1, 1]} />
         <shaderMaterial
-          //   args={[device.width, device.height, 1]}
           vertexShader={vertex}
           fragmentShader={fragment}
           transparent
@@ -280,6 +338,16 @@ void main() {
 }
 `;
 
+/**
+ * ImageRipple is a React component that renders a full-screen canvas
+ * with an orthographic camera and a 3D model centered in view.
+ *
+ * It utilizes the device dimensions to correctly set the aspect ratio
+ * and frustum size for the camera, ensuring the model is displayed
+ * proportionately on different screen sizes.
+ *
+ * The component returns null if device dimensions are not available.
+ */
 export default function ImageRipple() {
   const device = useDimension();
 

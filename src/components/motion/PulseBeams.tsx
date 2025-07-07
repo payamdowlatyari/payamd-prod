@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-prop-types */
 /* eslint-disable react/prop-types */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 
@@ -11,6 +12,9 @@ import React, {
 
 import { cn } from "~/utils/cn";
 
+/**
+ * Interface representing the props for the BeamPath component.
+ */
 export interface BeamPath {
   path: string;
   gradientConfig: {
@@ -42,6 +46,9 @@ export interface BeamPath {
   }>;
 }
 
+/**
+ * Interface representing the props for the PulseBeams component.
+ */
 interface PulseBeamsProps {
   children?: React.ReactNode;
   className?: string;
@@ -61,14 +68,7 @@ interface PulseBeamsProps {
 /**
  * Renders an SVG element containing animated beams with gradient effects.
  *
- * @param {Object} props - The properties for the SVG component.
- * @param {BeamPath[]} props.beams - An array of beam paths, each with gradient configurations and optional connection points.
- * @param {number} props.width - The width of the SVG canvas.
- * @param {number} props.height - The height of the SVG canvas.
- * @param {string} props.baseColor - The base color for the beam strokes.
- * @param {string} props.accentColor - The accent color for the beam strokes and connection point outlines.
- * @param {{ start: string; middle: string; end: string; }} [props.gradientColors] - Optional gradient colors used within the beam gradients.
- * @returns {JSX.Element} A JSX element representing the SVG with animated beams.
+ * @param {PulseBeamsProps} props - The component properties.
  */
 const SVGs = ({
   beams,
@@ -77,18 +77,7 @@ const SVGs = ({
   baseColor,
   accentColor,
   gradientColors,
-}: {
-  beams: BeamPath[];
-  width: number;
-  height: number;
-  baseColor: string;
-  accentColor: string;
-  gradientColors?: {
-    start: string;
-    middle: string;
-    end: string;
-  };
-}): JSX.Element => {
+}: PulseBeamsProps) => {
   return (
     <svg
       width={width}
@@ -142,7 +131,6 @@ const SVGs = ({
  * which has the following default values:
  *
  * @param {{ start: string; middle: string; end: string; }} [colors]
- * @returns {JSX.Element}
  */
 const GradientColors = ({
   colors = {
@@ -150,7 +138,9 @@ const GradientColors = ({
     middle: "#6344F5",
     end: "#AE48FF",
   },
-}): JSX.Element => {
+}: {
+  colors?: { start: string; middle: string; end: string };
+}) => {
   return (
     <>
       <stop offset="0%" stopColor={colors.start} stopOpacity="0" />
@@ -161,6 +151,9 @@ const GradientColors = ({
   );
 };
 
+/**
+ * Interface representing the props for the GradientTracing component.
+ */
 interface GradientTracingProps {
   width: number;
   height: number;
@@ -179,7 +172,6 @@ interface GradientTracingProps {
  * The gradient moves from left to right, with a duration of 2 seconds by default.
  *
  * @param {GradientTracingProps} props
- * @returns {JSX.Element} A JSX element representing the gradient tracing effect.
  */
 export const GradientTracing: React.FC<GradientTracingProps> = ({
   width,
@@ -240,17 +232,7 @@ export const GradientTracing: React.FC<GradientTracingProps> = ({
 /**
  * A component that renders a background with a collection of animated beams.
  *
- * @param {{ children?: React.ReactNode; className?: string; background?: React.ReactNode; beams: BeamPath[]; width?: number; height?: number; baseColor?: string; accentColor?: string; gradientColors?: { start: string; middle: string; end: string; }; }} props
- * @param {React.ReactNode} [props.children] - The content to be rendered inside the component.
- * @param {string} [props.className] - Additional class names to be added to the component.
- * @param {React.ReactNode} [props.background] - The background element to be rendered behind the beams.
- * @param {BeamPath[]} props.beams - An array of paths that define the beams. Each path must have a `path` property and a `gradientConfig` property.
- * @param {number} [props.width=858] - The width of the component.
- * @param {number} [props.height=434] - The height of the component.
- * @param {string} [props.baseColor="var(--slate-800)"] - The base color of the beams.
- * @param {string} [props.accentColor="var(--slate-600)"] - The accent color of the beams.
- * @param {{ start: string; middle: string; end: string; }} [props.gradientColors] - An object with three properties that define the colors of the gradient.
- * @returns {JSX.Element} - A JSX element representing the PulseBeams component.
+ * @param {PulseBeamsProps} props
  */
 export const PulseBeams = ({
   children,
@@ -262,7 +244,7 @@ export const PulseBeams = ({
   baseColor = "transparent",
   accentColor = "transparent",
   gradientColors,
-}: PulseBeamsProps): JSX.Element => {
+}: PulseBeamsProps) => {
   return (
     <div
       className={cn(
@@ -286,12 +268,20 @@ export const PulseBeams = ({
   );
 };
 
+/**
+ * Interface representing the props for the Ripple component.
+ */
 interface RippleProps extends ComponentPropsWithoutRef<"div"> {
   mainCircleSize?: number;
   mainCircleOpacity?: number;
   numCircles?: number;
 }
 
+/**
+ * A component that renders a collection of animated ripples.
+ *
+ * @param {RippleProps} props
+ */
 export const Ripple = React.memo(function Ripple({
   mainCircleSize = 210,
   mainCircleOpacity = 0.24,

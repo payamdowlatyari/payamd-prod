@@ -18,7 +18,7 @@ interface AnimatedTextProps {
 
 /**
  * TextHoverEnter component
- * @param {string} title - The title of the component.
+ * @param {AnimatedTextProps} props - The component properties.
  */
 export function TextHoverEnter({ text, url, className }: AnimatedTextProps) {
   if (typeof text !== "string") {
@@ -83,7 +83,7 @@ export function TextHoverEnter({ text, url, className }: AnimatedTextProps) {
 
 /**
  * A component that renders a hover animation on the given text.
- * @param {string} text - The text to render.
+ * @param {AnimatedTextProps} props - The component properties.
  */
 export function TextHover({ text, url, className }: AnimatedTextProps) {
   if (typeof text !== "string") {

@@ -53,7 +53,8 @@ export const CardSubTitle = ({
 
 /**
  * A component that renders a date label.
- * @param {React.ReactNode} children - The date string to render.
+ *
+ * @param {Object} props - The component props.
  */
 export const CardDate = ({
   className,
@@ -98,11 +99,20 @@ export const CardDescription = ({
   );
 };
 
+interface CardProps {
+  title: string;
+  subtitle: string;
+  description: string[];
+  date: string;
+  link?: string;
+}
+
 /**
- * A component that displays a list of resume items.
- * @param items - An array of resume items.
+ * A component that renders a card with specified items.
+ *
+ * @param {CardProps[]} props - The component props.
  */
-export function Card({ items }: { items: any }) {
+export function Card({ items }: { items: CardProps[] }) {
   return (
     <div
       className={cn(
@@ -111,7 +121,7 @@ export function Card({ items }: { items: any }) {
         "p-2 transition-colors dark:bg-[linear-gradient(110deg,#000103,45%,#303030,55%,#000103)]"
       )}
     >
-      {items.map((item: any) => (
+      {items.map((item: CardProps) => (
         <div
           key={item.title}
           className="flex flex-col justify-start p-1 md:p-2"

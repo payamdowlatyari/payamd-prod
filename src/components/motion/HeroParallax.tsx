@@ -10,6 +10,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { IconType } from "react-icons/lib/cjs/iconBase";
 
 import BlurFade from "~/components/motion/BlurFade";
 import { GradientTracing } from "~/components/motion/PulseBeams";
@@ -34,7 +35,7 @@ export const ProductCard = ({
     tags: string[];
     icons: {
       name: string;
-      icon: any;
+      icon: IconType;
     }[];
   };
   translate: MotionValue<number>;
@@ -92,6 +93,7 @@ export const ProductCard = ({
  *
  * @param {Object} props - The component props.
  * @param {Object[]} props.products - An array of product data to display in the hero section.
+ * @param {Object} props.details - The details data to display in the hero section.
  */
 export const HeroParallax = ({
   products,
@@ -105,7 +107,7 @@ export const HeroParallax = ({
     tags: string[];
     icons: {
       name: string;
-      icon: any;
+      icon: IconType;
     }[];
   }[];
   details: {

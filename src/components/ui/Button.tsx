@@ -3,16 +3,11 @@ import { RiArrowRightUpLine } from "react-icons/ri";
 
 /**
  * GlassButton component
- * @param {string} title - The title of the button.
- * @returns {JSX.Element}
+ * @param {Object} props - The component properties.
+ * @param {string} props.title - The title of the button.
+ * @param {string} props.url - The URL the button links to.
  */
-export function GlassButton({
-  title,
-  url,
-}: {
-  title: string;
-  url: string;
-}): JSX.Element {
+export function GlassButton({ title, url }: { title: string; url: string }) {
   return (
     <Link
       href={url}
@@ -31,16 +26,11 @@ export function GlassButton({
 
 /**
  * Shimmer component
- * @param {string} title - The title of the button.
- * @returns {JSX.Element}
+ * @param {Object} props - The component properties.
+ * @param {string} props.title - The title of the button.
+ * @param {string} props.url - The URL the button links to.
  */
-export function Shimmer({
-  title,
-  url,
-}: {
-  title: string;
-  url: string;
-}): JSX.Element {
+export function Shimmer({ title, url }: { title: string; url: string }) {
   return (
     <Link
       href={url}
@@ -53,16 +43,11 @@ export function Shimmer({
 
 /**
  * BorderMagic component
- * @param {string} title - The title of the button.
- * @returns {JSX.Element}
+ * @param {Object} props - The component properties.
+ * @param {string} props.title - The title of the button.
+ * @param {string} props.url - The URL the button links to.
  */
-export function BorderMagic({
-  title,
-  url,
-}: {
-  title: string;
-  url: string;
-}): JSX.Element {
+export function BorderMagic({ title, url }: { title: string; url: string }) {
   return (
     <Link
       href={url}
@@ -78,8 +63,10 @@ export function BorderMagic({
 
 /**
  * LinkOverlay component
- * @param {string} title - The title of the button.
- * @returns {JSX.Element}
+ * @param {Object} props - The component properties.
+ * @param {string} props.title - The title of the link.
+ * @param {string} props.url - The URL the link points to.
+ * @param {string} [props.className] - Additional CSS classes for styling.
  */
 export function LinkOverlay({
   title,
@@ -89,7 +76,7 @@ export function LinkOverlay({
   title: string;
   url: string;
   className?: string;
-}): JSX.Element {
+}) {
   return (
     <Link
       href={url}
@@ -110,16 +97,12 @@ export function LinkOverlay({
 
 /**
  * LinkArrowOut component
- * @param {string} title - The title of the button.
- * @returns {JSX.Element}
+ *
+ * @param {Object} props - The component properties.
+ * @param {string} props.title - The title of the link.
+ * @param {string} props.url - The URL the link points to.
  */
-export function LinkArrowOut({
-  title,
-  url,
-}: {
-  title: string;
-  url: string;
-}): JSX.Element {
+export function LinkArrowOut({ title, url }: { title: string; url: string }) {
   return (
     <Link
       href={url}
@@ -136,7 +119,11 @@ export function LinkArrowOut({
 
 /**
  * HoverLink component
- * @returns {JSX.Element}
+ * @param {Object} props - The component properties.
+ * @param {string} props.title - The title of the link.
+ * @param {string} props.url - The URL the link points to.
+ * @param {boolean} [props.out] - Whether the link opens in a new tab.
+ * @param {boolean} [props.low] - Whether to use a lower emphasis style
  */
 export function HoverLink({
   title,
@@ -148,7 +135,7 @@ export function HoverLink({
   url: string;
   out?: boolean;
   low?: boolean;
-}): JSX.Element {
+}) {
   return (
     <Link
       href={url}
@@ -170,7 +157,11 @@ export function HoverLink({
 
 /**
  * LinkOut component
- * @returns {JSX.Element}
+ * @param {Object} props - The component properties.
+ * @param {string} props.title - The title of the link.
+ * @param {string} props.url - The URL the link points to.
+ * @param {number} [props.size] - The font size of the link
+ * @param {boolean} [props.low] - Whether to use a lower emphasis style
  */
 export function LinkOut({
   title,
@@ -182,7 +173,7 @@ export function LinkOut({
   url: string;
   size?: number;
   low?: boolean;
-}): JSX.Element {
+}) {
   return (
     <Link
       href={url}

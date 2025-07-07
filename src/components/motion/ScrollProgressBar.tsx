@@ -7,12 +7,8 @@ import { cn } from "~/utils/cn";
 
 /**
  * ScrollProgressBar component renders a progress bar that shows the scroll progress.
- *
- * @param {Object} props - The component props.
- * @param {"circle" | "bar"} props.type - The type of the progress bar.
- * @param {"top-right" | "bottom-right" | "top-left" | "bottom-left"} props.position - The position of the progress bar.
- * @param {number} props.strokeSize - The size of the progress bar stroke.
- * @param {boolean} props.showPercentage - Whether to show the percentage of the progress bar.
+ * It uses Framer Motion's `useScroll` hook to track the scroll position
+ * and animates the width of the bar based on the scroll progress.
  */
 export default function ScrollProgressBar() {
   const { scrollYProgress } = useScroll();
@@ -30,14 +26,17 @@ export default function ScrollProgressBar() {
   );
 }
 
-export const GRADIENT_ANGLES = {
+const GRADIENT_ANGLES = {
   top: 0,
   right: 90,
   bottom: 180,
   left: 270,
 };
 
-export type ProgressiveBlurProps = {
+/**
+ * ProgressiveBlurProps interface defines the props for the ProgressiveBlur component.
+ */
+type ProgressiveBlurProps = {
   direction?: keyof typeof GRADIENT_ANGLES;
   blurLayers?: number;
   className?: string;
@@ -52,15 +51,8 @@ export type ProgressiveBlurProps = {
  * gradient that transitions from transparent to white and back to transparent,
  * creating a blur effect that is strongest in the middle of the element.
  *
- * @param {Object} props
- * @prop {string} [direction="bottom"] The direction of the blur effect. Can be
- * "top", "right", "bottom", or "left".
- * @prop {number} [blurLayers=8] The number of blur layers to create. A higher
- * number will create a more gradual blur effect.
- * @prop {string} [className] The class name to apply to the container element.
- * @prop {number} [blurIntensity=0.25] The intensity of the blur effect. A higher
- * number will create a stronger blur effect.
- * @returns {ReactElement}
+ * @param {ProgressiveBlurProps} props - The component props.
+ * @returns {ReactElement} The rendered ProgressiveBlur component.
  */
 export function ProgressiveBlur({
   direction = "bottom",

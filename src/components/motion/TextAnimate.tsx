@@ -15,6 +15,9 @@ import { FC, useEffect, useRef, useState } from "react";
 
 import { cn } from "~/utils/cn";
 
+/**
+ * Animation types for the TextAnimate component.
+ */
 type AnimationType =
   | "fadeIn"
   | "fadeInUp"
@@ -25,6 +28,9 @@ type AnimationType =
   | "whipInUp"
   | "calmInUp";
 
+/**
+ * Props for the TextAnimate component.
+ */
 interface Props extends HTMLMotionProps<"div"> {
   text: string;
   type?: AnimationType;
@@ -38,8 +44,6 @@ const animationVariants = {
       hidden: { opacity: 0 },
       /**
        * Animation variant for visible state.
-       * @param {number} [i=1] - The index of the animation. Used to calculate the delay.
-       * @returns {{ opacity: number, transition: { staggerChildren: number, delayChildren: number } }}
        */
       visible: (
         i: number = 1
@@ -99,12 +103,8 @@ const animationVariants = {
       hidden: {},
       /**
        * Returns an object containing transition settings for a motion component.
-       *
-       * @param {number} [i=1] - A multiplier for the delay of child animations.
-       *
-       * @returns {Object} An object with a transition property that includes staggerChildren and delayChildren.
        */
-      visible: (i: number = 1): object => ({
+      visible: (i: number = 1) => ({
         transition: { staggerChildren: 0.01, delayChildren: 0.2 * i },
       }),
     },
@@ -131,12 +131,8 @@ const animationVariants = {
       hidden: {},
       /**
        * Returns an object containing transition settings for a motion component.
-       *
-       * @param {number} [i=1] - A multiplier for the delay of child animations.
-       *
-       * @returns {Object} An object with a transition property that includes staggerChildren and delayChildren.
        */
-      visible: (i: number = 1): object => ({
+      visible: (i: number = 1) => ({
         transition: { staggerChildren: 0.01, delayChildren: 0.2 * i },
       }),
     },
@@ -163,12 +159,8 @@ const animationVariants = {
       hidden: {},
       /**
        * Returns an object containing transition settings for a motion component.
-       *
-       * @param {number} [i=1] - A multiplier for the delay of child animations.
-       *
-       * @returns {Object} An object with a transition property that includes staggerChildren and delayChildren.
        */
-      visible: (i: number = 1): object => ({
+      visible: (i: number = 1) => ({
         transition: { staggerChildren: 0.01, delayChildren: 0.2 * i },
       }),
     },
@@ -237,19 +229,13 @@ const animationVariants = {
 /**
  * A component that animates text using various motion effects.
  *
- * @param {Object} props - The component props.
- * @param {string} props.text - The text to be animated.
- * @param {string} [props.type="whipInUp"] - The type of animation to use.
- * @param {number} [props.delay=0] - The delay in seconds before the animation starts.
- * @param {number} [props.duration=1] - The duration of the animation in seconds.
- *
- * @returns {JSX.Element} A JSX element representing the animated text.
+ * @param {Props} props - The component props.
  */
 export const TextAnimate: FC<Props> = ({
   text,
   type = "whipInUp",
   ...props
-}: Props): JSX.Element => {
+}: Props) => {
   const ref = useRef(null);
   const isInView = useInView(ref);
 
@@ -322,6 +308,9 @@ export const TextAnimate: FC<Props> = ({
   );
 };
 
+/**
+ * Props for the text animation component.
+ */
 interface TextProps {
   label: string;
   fromFontVariationSettings: string;
@@ -336,8 +325,8 @@ interface TextProps {
 
 /**
  * A component that renders a hover animation on a given text using a variable font's font variation settings.
- * @param {string} label - The text to render.
- * @returns {JSX.Element} A JSX element representing the animated text.
+ *
+ * @param {TextProps} props - The component props.
  */
 export function VariableFontHoverByLetter({
   label,
@@ -353,7 +342,7 @@ export function VariableFontHoverByLetter({
   className,
   onClick,
   ...props
-}: TextProps): JSX.Element {
+}: TextProps) {
   const [scope, animate] = useAnimate();
   const [isHovered, setIsHovered] = useState(false);
 
@@ -439,12 +428,21 @@ export function VariableFontHoverByLetter({
   );
 }
 
+/**
+ * Props for the TextCircle component.
+ */
 interface TextCircleProps {
   text: string;
   duration?: number;
   className?: string;
 }
 
+/**
+ * TextCircle renders a rotating circle of text, useful for displaying
+ * rotating logos or branding.
+ *
+ * @param {TextCircleProps} props - The component props.
+ */
 export const TextCircle = ({
   text,
   duration = 20,
@@ -485,6 +483,9 @@ export const TextCircle = ({
   );
 };
 
+/**
+ * Props for the TextReveal component.
+ */
 interface TextRevealProps {
   children: string;
   className?: string;
@@ -495,6 +496,11 @@ interface TextRevealProps {
   split?: "word" | "letter";
 }
 
+/**
+ * A component that reveals a line of text, character by character.
+ *
+ * @param {TextRevealProps} props - The component properties.
+ */
 export const TextReveal = ({
   children,
   className,
@@ -537,6 +543,9 @@ export const TextReveal = ({
   );
 };
 
+/**
+ * Props for the TextRipple component.
+ */
 interface TextRippleProps {
   children: string;
   className?: string;
@@ -544,6 +553,13 @@ interface TextRippleProps {
   falloff?: number;
 }
 
+/**
+ * TextRipple renders a string with a ripple effect on hover.
+ *
+ * @param {TextRippleProps} props - The text to be rendered with the ripple effect.
+ * The falloff factor determines how quickly the ripple effect fades out as
+ * you move away from the hovered character.
+ */
 export const TextRipple = ({
   children,
   className,

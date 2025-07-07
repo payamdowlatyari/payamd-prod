@@ -5,6 +5,7 @@ import React from "react";
 import Footer from "~/components/layout/Footer";
 import Menu from "~/components/layout/Menu";
 import { CpuArchitecture } from "~/components/motion/CpuArchitecture";
+import { EvervaultCard } from "~/components/motion/EvervaultCard";
 import { GridBeam } from "~/components/motion/GridBeam";
 import ImageEffect from "~/components/motion/ImageEffect";
 import { MorphingText } from "~/components/motion/MorphingText";
@@ -15,7 +16,6 @@ import { TextRipple } from "~/components/motion/TextAnimate";
 import { TextHover } from "~/components/motion/TextHover";
 import { H2, H4, Paragraph } from "~/components/ui/Texts";
 import { about, portfolio, services } from "~/data";
-import { cn } from "~/utils/cn";
 
 /**
  * A component that displays a hero section with a title, subtitle, description, and image.
@@ -67,26 +67,16 @@ const Intro = () => (
  */
 const Service = React.memo(
   ({ service }: { service: (typeof services)[number] }) => {
-    const { id, name, text, icon: Icon } = service;
+    const { id, name, text, icon: ServiceIcon } = service;
 
     return (
       <div
         key={id}
-        className={cn(
-          "flex flex-col py-10 w-80 h-80 relative text-neutral-300 group/feature rounded-lg border border-neutral-800 hover:border-neutral-500 transition duration-200 ease-in-out"
-        )}
+        className="border border-black/[0.2] dark:border-white/[0.2] flex flex-col items-start mx-auto relative h-80 w-80 md:h-96 md:w-96 m-2 md:m-4 rounded-lg shadow-md/10"
       >
-        {Icon && (
-          <div className="mb-4 relative z-10 px-5 md:px-10">
-            <Icon size={25} color="white" />
-          </div>
-        )}
-        <div className="text-lg font-bold mb-2 relative z-10 px-5 md:px-10">
-          <span className="group-hover/feature:translate-x-2 transition duration-200 ease-in-out inline-block">
-            {name}
-          </span>
-        </div>
-        <p className="text-sm max-w-xs relative z-10 px-5 md:px-10">{text}</p>
+        <ServiceIcon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black z-20" />
+        <EvervaultCard text={name} className="w-full h-full" />
+        <p className="text-sm relative z-10 p-2 md:p-4">{text}</p>
       </div>
     );
   }
@@ -98,7 +88,7 @@ const Service = React.memo(
 const Services = React.memo(() => (
   <section
     id="services"
-    className="flex flex-wrap justify-evenly w-screen items-baseline m-5 md:m-10"
+    className="flex flex-wrap justify-center w-screen items-baseline m-5 md:m-10"
   >
     <div className="w-full p-1 md:p-2 m-2 md:m-4">
       <H2 label="Services" />
@@ -107,7 +97,7 @@ const Services = React.memo(() => (
         className="mt-4"
       />
     </div>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative my-5 z-10">
+    <div className="flex flex-wrap justify-center m-1 md:m-2 z-10 max-w-screen-xl">
       {services.map((service) => (
         <Service key={service.id} service={service} />
       ))}

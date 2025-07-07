@@ -11,14 +11,18 @@ import { useRef } from "react";
 
 import { wrap } from "~/utils/wrap";
 
+/**
+ * Props for the ParallaxText component.
+ */
 interface ParallaxProps {
-  children: any;
+  children: React.ReactNode;
   baseVelocity: number;
 }
 
 /**
  * A component that renders a parallax scrolling text effect.
- * @param {React.ReactNode} children - The text to be rendered.
+ *
+ * @param {ParallaxProps} props - The component props.
  */
 export default function ParallaxText({
   children,
@@ -60,7 +64,7 @@ export default function ParallaxText({
       {[1, 2, 3, 4].map((index) => (
         <span
           key={index}
-          className="block mr-5 text-5xl text-neutral-500 backdrop:blur-sm"
+          className="block mr-5 text-5xl text-neutral-600 backdrop:blur-sm"
         >
           {children}{" "}
         </span>

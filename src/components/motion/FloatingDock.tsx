@@ -15,7 +15,7 @@ export type IconProps = React.HTMLAttributes<SVGElement>;
  *
  * @param {IconProps} props - props for the SVG element.
  */
-const linkedin = (props: IconProps) => (
+const linkedin: React.FC<IconProps> = (props: IconProps) => (
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <title>LinkedIn</title>
     <path
@@ -30,7 +30,7 @@ const linkedin = (props: IconProps) => (
  *
  * @param {IconProps} props - props for the SVG element.
  */
-const xT = (props: IconProps) => (
+const xT: React.FC<IconProps> = (props: IconProps) => (
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <title>X</title>
     <path
@@ -45,7 +45,7 @@ const xT = (props: IconProps) => (
  *
  * @param {IconProps} props - props for the SVG element.
  */
-const github = (props: IconProps) => (
+const github: React.FC<IconProps> = (props: IconProps) => (
   <svg viewBox="0 0 438.549 438.549" {...props}>
     <path
       fill="currentColor"
@@ -59,7 +59,7 @@ const github = (props: IconProps) => (
  *
  * @param props - The props to pass to the SVG element.
  */
-const medium = (props: IconProps) => (
+const medium: React.FC<IconProps> = (props: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     x="0px"
@@ -105,6 +105,9 @@ const DATA = {
 
 const SPRING_CONFIG = { stiffness: 26.7, damping: 4.1, mass: 0.2 };
 
+/**
+ * Props for the Magnetic component.
+ */
 export type MagneticProps = {
   children: React.ReactNode;
   intensity?: number;

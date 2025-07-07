@@ -1,13 +1,13 @@
 "use client";
 
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
 import { useRef } from "react";
 
 import Footer from "~/components/layout/Footer";
 import Menu from "~/components/layout/Menu";
 import BlurFade from "~/components/motion/BlurFade";
 import { Card } from "~/components/motion/Card";
+import ImageEffect from "~/components/motion/ImageEffect";
 import LinkPreview from "~/components/motion/LinkPreview";
 import { Logos, Marquee } from "~/components/motion/Marquee";
 import { GradientTracing } from "~/components/motion/PulseBeams";
@@ -46,24 +46,20 @@ const Intro = ({ opacity }: { opacity: MotionValue<number> }) => (
           </div>
         </div>
       </BlurFade>
-
       <BlurFade
         delay={0}
         inView
         variant={{ hidden: { y: 100 }, visible: { y: 0 } }}
         blur="xl"
       >
-        <Image
-          src="/me-ai-red_processed.jpeg"
-          width={400}
-          height={400}
-          alt="Payam Dowlatyari"
-          className="scale-75 md:scale-100 opacity-75"
-          loading="lazy"
-        />
+        <div className="h-72 w-72 sm:h-80 sm:w-80 md:h-96 md:w-96 m-1">
+          <ImageEffect
+            item1="me-ai-red_processed.jpeg"
+            item2="me_enhanced_processed.jpeg"
+          />
+        </div>
       </BlurFade>
     </motion.div>
-
     <div className="z-10 flex min-h-screen justify-center pt-[200vh]">
       <TextRevealByWord text={intro.description.replace(/\s+/g, " ")} />
     </div>

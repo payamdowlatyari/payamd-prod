@@ -6,26 +6,26 @@ import { useEffect, useRef } from "react";
 import { cn } from "~/utils/cn";
 
 /**
+ * Props for the Preview component.
+ */
+interface PreviewProps {
+  value: number;
+  direction?: "up" | "down";
+  delay?: number;
+  className?: string;
+}
+
+/**
  * A component that displays a number with a spring animation.
  *
- * @param {Object} props
- * @prop {number} value - The number to display.
- * @prop {string} [direction="up"] - The direction of the animation. "up" means the number will animate from 0 to the given `value`, while "down" means it will animate from the given `value` to 0.
- * @prop {number} [delay=0] - The delay before the animation starts, in seconds.
- * @prop {string} [className] - Additional class name to add to the element.
- * @returns {JSX.Element}
+ * @param {PreviewProps} props - The props for the component.
  */
 export default function Preview({
   value,
   direction = "up",
   delay = 0,
   className,
-}: {
-  value: number;
-  direction?: "up" | "down";
-  className?: string;
-  delay?: number; // delay in s
-}): JSX.Element {
+}: PreviewProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const motionValue = useMotionValue(direction === "down" ? value : 0);
   const springValue = useSpring(motionValue, {
