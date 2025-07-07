@@ -160,7 +160,7 @@ export default function Menu() {
           ease: "easeOut",
           delay: 0.25,
         }}
-        className="flex flex-wrap w-screen h-screen bg-neutral-950 relative items-end justify-center"
+        className="flex flex-wrap w-screen h-screen bg-neutral-950/95 relative items-end justify-center"
         ref={menuAnimationScope}
       >
         <div className="flex flex-wrap w-full h-4/5 sm:h-3/5 justify-around items-center content-end">

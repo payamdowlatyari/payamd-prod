@@ -175,7 +175,7 @@ const About = (): JSX.Element => {
   );
   const opacityMarquee = useTransform(
     scrollYProgress,
-    [0, 0.1, 0.2, 0.8, 0.9, 1],
+    [0, 0.3, 0.4, 0.8, 0.9, 1],
     [0, 0, 1, 1, 0, 0],
     { clamp: false }
   );

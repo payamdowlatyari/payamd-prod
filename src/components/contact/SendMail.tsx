@@ -67,7 +67,7 @@ export default function SendMail() {
     <form
       ref={form}
       onSubmit={sendEmail}
-      className="m-auto-[10px] w-[500px] max-w-[95vw]"
+      className="m-auto-[10px] w-[500px] max-w-[95vw] mb-10"
     >
       {" "}
       <div className="relative my-2">

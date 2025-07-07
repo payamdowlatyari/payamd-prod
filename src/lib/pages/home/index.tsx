@@ -24,7 +24,7 @@ const Hero = () => (
   <section id="hero">
     <div className="flex flex-col self-end h-full w-screen items-end right-0">
       <div className="p-4 rounded-xl absolute top-48 md:top-32 left-0 md:left-1/2 w-full md:w-1/2">
-        <CpuArchitecture />
+        <CpuArchitecture className="opacity-75 hover:opacity-100 transition-all duration-300" />
       </div>
       <GridBeam className="flex flex-col items-start justify-end relative z-10">
         <div className="flex flex-col justify-start items-start w-full px-8 my-8 gap-2">
@@ -72,11 +72,11 @@ const Service = React.memo(
     return (
       <div
         key={id}
-        className="border border-black/[0.2] dark:border-white/[0.2] flex flex-col items-start mx-auto relative h-80 w-80 md:h-96 md:w-96 m-2 md:m-4 rounded-lg shadow-md/10"
+        className="border border-neutral-200/20 flex flex-col items-start mx-auto relative h-80 w-80 md:h-96 md:w-96 m-2 md:m-4 rounded-lg shadow-xl"
       >
-        <ServiceIcon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black z-20" />
+        <ServiceIcon className="absolute h-6 w-6 -top-3 -left-3 z-20" />
         <EvervaultCard text={name} className="w-full h-full" />
-        <p className="text-sm relative z-10 p-2 md:p-4">{text}</p>
+        <p className="text-xs md:text-sm relative z-10 p-2 md:p-4">{text}</p>
       </div>
     );
   }
