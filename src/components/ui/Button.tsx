@@ -106,6 +106,8 @@ export function LinkArrowOut({ title, url }: { title: string; url: string }) {
   return (
     <Link
       href={url}
+      target="_blank"
+      rel="noreferrer"
       className="group inline-flex text-sm md:text-base backdrop-blur-md text-white justify-center items-center py-1 w-fit rounded-xl duration-200 group bg-page-gradient font-geistSans hover:bg-transparent/10 hover:text-zinc-100"
     >
       {title}

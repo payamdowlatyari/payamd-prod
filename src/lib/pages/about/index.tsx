@@ -15,6 +15,7 @@ import ScrollProgressBar, {
   ProgressiveBlur,
 } from "~/components/motion/ScrollProgressBar";
 import TextRevealByWord from "~/components/motion/ScrollReveal";
+import { LinkArrowOut } from "~/components/ui/Button";
 import { H1, H2, Paragraph } from "~/components/ui/Texts";
 import { intro, resume } from "~/data";
 
@@ -75,6 +76,23 @@ const Resume = ({ x }: { x: MotionValue<string> }) => (
     className="block top-0 max-w-screen-lg overflow-hidden h-[1500vh] p-0 z-[1]"
     layoutScroll
   >
+    <div className="flex flex-col justify-center z-[2] h-screen max-w-xl mx-2 md:mx-4 my-4 md:my-8 space-y-3">
+      <H2 label="Resume" />
+      <Paragraph text="Click on the links below to view my resume." />
+      <LinkArrowOut title="View Resume" url="/pdf/resume.pdf" />
+      <GradientTracing
+        width={300}
+        height={50}
+        path="M0,50 L300,50"
+        className="left-1/2 transform -translate-x-1/2"
+        animationDuration={5}
+      />
+      <Paragraph
+        text="Or scroll down to see my experience, education, projects, and more."
+        className="mt-12"
+      />
+    </div>
+
     <div className="fixed flex top-0 overflow-hidden items-center h-screen z-[2]">
       <motion.ul
         className="fixed flex list-none h-screen"
