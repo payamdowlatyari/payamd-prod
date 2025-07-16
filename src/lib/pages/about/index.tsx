@@ -76,10 +76,10 @@ const Resume = ({ x }: { x: MotionValue<string> }) => (
     className="block top-0 max-w-screen-lg overflow-hidden h-[1500vh] p-0 z-[1]"
     layoutScroll
   >
-    <div className="flex flex-col justify-center z-[2] h-screen max-w-xl mx-2 md:mx-4 my-4 md:my-8 space-y-3">
+    <div className="flex flex-col justify-center items-end z-[2] h-screen max-w-xl mx-2 md:mx-4 my-4 md:my-8 space-y-3">
       <H2 label="Resume" />
       <Paragraph text="Click on the links below to view my resume." />
-      <LinkArrowOut title="View Resume" url="/pdf/resume.pdf" />
+      <LinkArrowOut title="View Resume PDF" url="/pdf/resume.pdf" />
       <GradientTracing
         width={300}
         height={50}
