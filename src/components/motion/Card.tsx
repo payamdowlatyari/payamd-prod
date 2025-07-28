@@ -99,6 +99,9 @@ export const CardDescription = ({
   );
 };
 
+/**
+ * An interface that defines the props for the Card component.
+ */
 interface CardProps {
   title: string;
   subtitle: string;

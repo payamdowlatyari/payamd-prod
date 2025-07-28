@@ -1,5 +1,12 @@
 import { LinkArrowOut } from "../ui/Button";
 
+/**
+ * ResumeLinks
+ *
+ * A component that renders links to view and download the resume.
+ * The "View Resume" link opens the resume PDF in a new tab,
+ * while the "Download Resume" link allows users to download the PDF.
+ */
 export function ResumeLinks() {
   return (
     <div className="flex gap-2">
@@ -11,6 +18,10 @@ export function ResumeLinks() {
   );
 }
 
+/**
+ * A component that renders a resume viewer with an iframe
+ * pointing to the `/pdf/resume.pdf` file.
+ */
 export function ResumeViewer() {
   return (
     <iframe

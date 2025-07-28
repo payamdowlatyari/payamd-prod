@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable no-plusplus */
-/* eslint-disable react/no-unused-prop-types */
 /* eslint-disable no-restricted-syntax */
+/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable react/no-unused-prop-types */
 /* eslint-disable react/no-unknown-property */
 
 "use client";

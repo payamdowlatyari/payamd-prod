@@ -80,6 +80,9 @@ dependencies:
   clsx:
     specifier: ^2.1.1
     version: 2.1.1
+  cobe:
+    specifier: ^0.6.4
+    version: 0.6.4
   dotted-map:
     specifier: ^2.2.3
     version: 2.2.3
@@ -8350,6 +8353,12 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
+  /cobe@0.6.4:
+    resolution: {integrity: sha512-huuGFnDoXLy/tsCZYYa/H35BBRs9cxsS0XKJ3BXjRp699cQKuoEVrvKlAQMx0DKXG7+VUv4jsHVrS7yPbkLSkQ==}
+    dependencies:
+      phenomenon: 1.6.0
+    dev: false
+
   /color-convert@1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
     dependencies:
@@ -13477,6 +13486,10 @@ packages:
       duplexify: 3.7.1
       through2: 2.0.5
     dev: true
+
+  /phenomenon@1.6.0:
+    resolution: {integrity: sha512-7h9/fjPD3qNlgggzm88cY58l9sudZ6Ey+UmZsizfhtawO6E3srZQXywaNm2lBwT72TbpHYRPy7ytIHeBUD/G0A==}
+    dev: false
 
   /picocolors@1.0.1:
     resolution: {integrity: sha512-anP1Z8qwhkbmu7MFP5iTt+wQKXgwzf7zTyGlcdzabySa9vd0Xt392U0rVmz9poOaBj0uHJKyyo9/upk0HrEQew==}

@@ -1,9 +1,13 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-param-reassign */
+
 "use client";
 
+import createGlobe from "cobe";
 import DottedMap from "dotted-map";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 /**
  * Props for the Map component.
@@ -195,3 +199,58 @@ export default function WorldMap({
     </div>
   );
 }
+
+/**
+ * Renders a 3D globe using the `createGlobe` function with customizable parameters.
+ * The globe is animated with a rotating effect and displays markers at specified locations.
+ *
+ * @param {Object} props - The component props.
+ * @param {string} [props.className] - Additional CSS class name(s) to apply to the canvas.
+ */
+export const Globe = ({ className }: { className?: string }) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    let phi = 0;
+
+    if (!canvasRef.current) return;
+
+    const globe = createGlobe(canvasRef.current, {
+      devicePixelRatio: 2,
+      width: 600 * 2,
+      height: 600 * 2,
+      phi: 0,
+      theta: 0,
+      dark: 1,
+      diffuse: 1.2,
+      mapSamples: 16000,
+      mapBrightness: 6,
+      baseColor: [0.3, 0.3, 0.3],
+      markerColor: [0.1, 0.8, 1],
+      glowColor: [1, 1, 1],
+      markers: [
+        { location: [37.7595, -122.4367], size: 0.05, color: [0.1, 0.8, 1] }, // San Francisco
+      ],
+
+      /**
+       * A callback function that is called every frame.
+       */
+      onRender: (state) => {
+        state.phi = phi;
+        phi += 0.01;
+      },
+    });
+
+    return () => {
+      globe.destroy();
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      style={{ width: 600, height: 600, maxWidth: "100%", aspectRatio: 1 }}
+      className={className}
+    />
+  );
+};
