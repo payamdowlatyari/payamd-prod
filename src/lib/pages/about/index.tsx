@@ -156,14 +156,7 @@ const MarqueeSection = ({ opacity }: { opacity: MotionValue<number> }) => (
  */
 const BottomSection = () => (
   <BackgroundLines className="relative">
-    <GradientTracing
-      width={300}
-      height={50}
-      animationDuration={3}
-      path="M0,50 L75,25 L150,75 L225,25 L300,50"
-      className="left-1/2 transform -translate-x-1/2"
-    />
-    <p className="text-neutral-400 text-center text-2xl sm:text-4xl md:text-5xl mx-auto max-w-xl px-4 my-10">
+    <p className="text-neutral-400 text-center text-2xl sm:text-4xl md:text-5xl mx-auto max-w-xl px-4 my-10 z-10">
       Check out my{" "}
       <LinkPreview url="https://blog.payamd.com/">Blog</LinkPreview> and{" "}
       <LinkPreview url="https://photos.payamd.com/">Photography</LinkPreview>{" "}

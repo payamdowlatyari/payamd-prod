@@ -482,7 +482,7 @@ export const BackgroundLines = ({
   return (
     <div
       className={cn(
-        // "h-[20rem] md:h-screen w-full bg-white dark:bg-black",
+        "h-[500px] w-full flex items-center justify-center",
         className
       )}
     >
