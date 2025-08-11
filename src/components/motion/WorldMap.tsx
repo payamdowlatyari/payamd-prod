@@ -1,6 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable no-param-reassign */
-
 "use client";
 
 import createGlobe from "cobe";

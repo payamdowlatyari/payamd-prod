@@ -61,7 +61,7 @@ export function TextHoverEnter({ text, url, className }: AnimatedTextProps) {
       <div className="absolute inset-0">
         {letters.map((letter, i) => (
           <motion.span
-            key={letter}
+            key={`${letter}-clone`}
             className="inline-block"
             variants={{
               initial: { y: "100%" },

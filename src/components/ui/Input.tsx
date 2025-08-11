@@ -94,7 +94,7 @@ const letterVariants = {
   },
   animate: {
     y: "-120%",
-    color: "var(--color-zinc-500)",
+    color: "var(--color-neutral-500)",
     transition: {
       type: "spring",
       stiffness: 300,
@@ -114,6 +114,7 @@ export const InputAnimated = ({
   label,
   className = "",
   value,
+  type = "text",
   ...props
 }: InputProps) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -122,7 +123,7 @@ export const InputAnimated = ({
   return (
     <div className={cn("relative", className)}>
       <motion.div
-        className="absolute top-1/2 -translate-y-1/2 pointer-events-none text-zinc-900 dark:text-zinc-50"
+        className="absolute top-1/2 -translate-y-1/2 pointer-events-none text-neutral-50"
         variants={containerVariants}
         initial="initial"
         animate={showLabel ? "animate" : "initial"}
@@ -139,13 +140,41 @@ export const InputAnimated = ({
         ))}
       </motion.div>
 
-      <input
-        type="text"
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
-        {...props}
-        className="outline-none border-b-2 border-zinc-900 dark:border-zinc-50 py-2 w-full text-base font-medium text-zinc-900 dark:text-zinc-50 bg-transparent placeholder-transparent"
-      />
+      {type === "textarea" ? (
+        <textarea
+          onFocus={(e: React.FocusEvent<HTMLTextAreaElement>) =>
+            setIsFocused(true)
+          }
+          onBlur={(e: React.FocusEvent<HTMLTextAreaElement>) =>
+            setIsFocused(false)
+          }
+          // Spread all props except onFocus and onBlur to avoid type conflicts
+          {...Object.fromEntries(
+            Object.entries(props).filter(
+              ([key]) => key !== "onFocus" && key !== "onBlur"
+            )
+          )}
+          rows={5}
+          className="outline-none border-b-2 border-neutral-50 py-2 w-full text-base font-medium text-neutral-50 bg-transparent placeholder-transparent"
+        />
+      ) : (
+        <input
+          type={type}
+          onFocus={(e: React.FocusEvent<HTMLInputElement>) =>
+            setIsFocused(true)
+          }
+          onBlur={(e: React.FocusEvent<HTMLInputElement>) =>
+            setIsFocused(false)
+          }
+          // Spread all props except onFocus and onBlur to avoid type conflicts
+          {...Object.fromEntries(
+            Object.entries(props).filter(
+              ([key]) => key !== "onFocus" && key !== "onBlur"
+            )
+          )}
+          className="outline-none border-b-2 border-neutral-50 py-2 w-full text-base font-medium text-neutral-50 bg-transparent placeholder-transparent"
+        />
+      )}
     </div>
   );
 };

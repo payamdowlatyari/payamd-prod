@@ -5,6 +5,7 @@ import { useRef } from "react";
 
 import Footer from "~/components/layout/Footer";
 import Menu from "~/components/layout/Menu";
+import { BackgroundLines } from "~/components/motion/BackgroundAnimation";
 import BlurFade from "~/components/motion/BlurFade";
 import { Card } from "~/components/motion/Card";
 import ImageEffect from "~/components/motion/ImageEffect";
@@ -76,7 +77,7 @@ const Resume = ({ x }: { x: MotionValue<string> }) => (
     className="block top-0 max-w-screen-lg overflow-hidden h-[1500vh] p-0 z-[1]"
     layoutScroll
   >
-    <div className="flex flex-col justify-center items-end z-[2] h-screen max-w-xl mx-2 md:mx-4 my-4 md:my-8 space-y-3">
+    <div className="flex flex-col justify-center items-end z-[2] h-screen max-w-xl mx-auto my-4 md:my-8 space-y-3">
       <H2 label="Resume" />
       <Paragraph text="Click on the links below to view my resume." />
       <LinkArrowOut title="View Resume PDF" url="/pdf/resume.pdf" />
@@ -154,7 +155,7 @@ const MarqueeSection = ({ opacity }: { opacity: MotionValue<number> }) => (
  * Renders a bottom section with a gradient tracing animation.
  */
 const BottomSection = () => (
-  <div className="relative">
+  <BackgroundLines className="relative">
     <GradientTracing
       width={300}
       height={50}
@@ -168,7 +169,7 @@ const BottomSection = () => (
       <LinkPreview url="https://photos.payamd.com/">Photography</LinkPreview>{" "}
       portfolio.
     </p>
-  </div>
+  </BackgroundLines>
 );
 
 /**

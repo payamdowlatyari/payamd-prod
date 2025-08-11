@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { type ReactNode } from "react";
 
 import { BackgroundAnimation } from "~/components/motion/BackgroundAnimation";
-import PageTransition from "~/components/motion/PageTransition";
+import { PageTransition } from "~/components/motion/PageTransition";
 import Logo from "~/components/ui/Logo";
 
 import "~/app/globals.css";

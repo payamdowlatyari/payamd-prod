@@ -14,7 +14,7 @@ import Preview from "~/components/motion/Preview";
 import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
 import { TextRipple } from "~/components/motion/TextAnimate";
 import { TextHover } from "~/components/motion/TextHover";
-import { H2, H4, Paragraph } from "~/components/ui/Texts";
+import { H2, H3, Paragraph } from "~/components/ui/Texts";
 import { about, portfolio, services } from "~/data";
 
 /**
@@ -39,7 +39,6 @@ const Hero = () => (
           <TextHover url="#services" text="What I do" />
         </div>
         <ParallaxText baseVelocity={-0.05}>{portfolio.titles}</ParallaxText>
-        <ParallaxText baseVelocity={0.05}>{portfolio.titles}</ParallaxText>
       </GridBeam>
     </div>
   </section>
@@ -51,7 +50,7 @@ const Hero = () => (
 const Intro = () => (
   <section id="intro" className="flex flex-wrap justify-evenly items-center">
     <div className="max-w-2xl p-1 md:p-2 my-2 md:my-4">
-      <H4 label={about.title} />
+      <H3 label={about.title} />
       <Paragraph text={about.text} className="mt-4" />
     </div>
     <div className="h-72 w-72 sm:h-80 sm:w-80 md:h-96 md:w-96 m-1">
@@ -72,10 +71,10 @@ const Service = React.memo(
     return (
       <div
         key={id}
-        className="border border-neutral-200/20 flex flex-col items-start mx-auto relative h-80 w-80 md:h-96 md:w-96 m-2 md:m-4 rounded-lg shadow-xl"
+        className="border border-neutral-200/20 flex flex-col items-start justify-between mx-auto relative h-72 w-72 sm:h-80 sm:w-80 m-2 md:m-4 rounded-lg shadow-xl"
       >
         <ServiceIcon className="absolute h-6 w-6 -top-3 -left-3 z-20" />
-        <EvervaultCard text={name} className="w-full h-full" />
+        <EvervaultCard text={name} className="w-full h-1/2" />
         <p className="text-xs md:text-sm relative z-10 p-2 md:p-4">{text}</p>
       </div>
     );
@@ -88,16 +87,16 @@ const Service = React.memo(
 const Services = React.memo(() => (
   <section
     id="services"
-    className="flex flex-wrap justify-center w-screen items-baseline m-5 md:m-10"
+    className="flex flex-wrap justify-around w-screen items-baseline m-5 md:m-10"
   >
-    <div className="w-full p-1 md:p-2 m-2 md:m-4">
+    <div className="w-80 p-1 md:p-2 m-2 md:m-4">
       <H2 label="Services" />
       <Paragraph
         text="These are the services I can provide for you as a software engineer, web developer, solutions architect, and UX designer including the technologies I have worked with in recent years."
         className="mt-4"
       />
     </div>
-    <div className="flex flex-wrap justify-center m-1 md:m-2 z-10 max-w-screen-xl">
+    <div className="flex flex-wrap justify-center items-center z-10 max-w-4xl">
       {services.map((service) => (
         <Service key={service.id} service={service} />
       ))}

@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -27,7 +25,7 @@ interface MenuVerticalProps {
  *
  * @param {MenuVerticalProps} props - The component props.
  */
-export const MenuVertical = ({
+const MenuVertical = ({
   menuItems = [],
   color = "#e6e6e6",
   skew = 0,
@@ -68,3 +66,6 @@ export const MenuVertical = ({
     </div>
   );
 };
+
+// eslint-disable-next-line import/prefer-default-export
+export { MenuVertical };

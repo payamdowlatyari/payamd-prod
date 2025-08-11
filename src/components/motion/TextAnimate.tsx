@@ -583,7 +583,9 @@ export const TextRipple = ({
   };
 
   return (
-    <div className={cn("relative font-bold", className)}>
+    <div
+      className={cn("relative font-bold hover:mt-16 transition-all", className)}
+    >
       {chars.map((s, index) => (
         <motion.span
           onMouseEnter={() => setHoveredIndex(index)}
