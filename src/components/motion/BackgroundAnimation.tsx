@@ -77,6 +77,11 @@ export const BackgroundAnimation = ({
   }, []);
 
   useEffect(() => {
+    /**
+     * Moves the interactive background gradient animation towards the target
+     * coordinates gradually. It updates the current X and Y coordinates and
+     * applies the new translation to the interactiveRef element.
+     */
     function move() {
       if (!interactiveRef.current) {
         return;
@@ -353,6 +358,9 @@ const pathVariants = {
   },
 };
 
+/**
+ * SVG component for rendering animated paths.
+ */
 const SVG = ({
   svgOptions,
 }: {

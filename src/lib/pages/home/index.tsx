@@ -73,7 +73,7 @@ const Service = React.memo(
         key={id}
         className="border border-neutral-200/20 flex flex-col items-start justify-between mx-auto relative h-72 w-72 sm:h-80 sm:w-80 m-2 md:m-4 rounded-lg shadow-xl"
       >
-        <ServiceIcon className="absolute h-6 w-6 -top-3 -left-3 z-20" />
+        <ServiceIcon className="absolute h-6 w-6 top-3 left-3 z-20" />
         <EvervaultCard text={name} className="w-full h-1/2" />
         <p className="text-xs md:text-sm relative z-10 p-2 md:p-4">{text}</p>
       </div>
@@ -87,9 +87,9 @@ const Service = React.memo(
 const Services = React.memo(() => (
   <section
     id="services"
-    className="flex flex-wrap justify-around w-screen items-baseline m-5 md:m-10"
+    className="flex flex-wrap justify-center w-screen items-baseline m-5 md:m-10"
   >
-    <div className="w-80 p-1 md:p-2 m-2 md:m-4">
+    <div className="flex flex-col w-96 p-1 md:p-2 m-2 md:m-4">
       <H2 label="Services" />
       <Paragraph
         text="These are the services I can provide for you as a software engineer, web developer, solutions architect, and UX designer including the technologies I have worked with in recent years."

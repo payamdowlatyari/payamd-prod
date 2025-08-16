@@ -11,6 +11,9 @@ import { useRef, useState, useMemo, useEffect } from "react";
 import { ExtrudeGeometry, Shape } from "three";
 import * as THREE from "three";
 
+/**
+ * Interface representing the props for the Box component.
+ */
 interface BoxProps {
   position: [number, number, number];
   width?: number;

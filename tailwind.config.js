@@ -187,6 +187,13 @@ module.exports = {
   	}
   },
 
+//   safelist: [
+//     'ease-in',
+//     'ease-out',
+//     'ease-in-out',
+//     'linear',
+//   ],
+
   plugins: [
     require("tailwindcss-animate"),
   ],

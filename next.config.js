@@ -35,7 +35,7 @@ module.exports = withPWA({
   /**
    * Adds a custom webpack rule to handle GLSL shader files.
    */
-  webpack: (config, { isServer }) => {
+  webpack: (config ) => {
     config.module.rules.push({
       test: /\.(glsl|vs|fs|vert|frag)$/,
       exclude: /node_modules/,

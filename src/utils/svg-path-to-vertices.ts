@@ -1,7 +1,16 @@
 import SVGPathCommander from "svg-path-commander";
 
-// Function to convert SVG path `d` to vertices
-export function parsePathToVertices(path: string, sampleLength = 15) {
+/**
+ * Parses an SVG path into an array of vertices.
+ *
+ * @param {string} path - The SVG path string.
+ * @param {number} [sampleLength=15] - The length of each sample point along the path.
+ * @return {Array<{ x: number; y: number }>} An array of vertices representing the path.
+ */
+export function parsePathToVertices(
+  path: string,
+  sampleLength: number = 15
+): Array<{ x: number; y: number }> {
   // Convert path to absolute commands
   const commander = new SVGPathCommander(path);
 

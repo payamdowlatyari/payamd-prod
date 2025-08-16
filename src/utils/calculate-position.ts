@@ -1,3 +1,11 @@
+/**
+ * Calculate the position of an element within a container.
+ *
+ * @param value - The position value. Can be a number representing pixels, a string representing a percentage, or undefined.
+ * @param containerSize - The size of the container.
+ * @param elementSize - The size of the element.
+ * @returns The calculated position of the element.
+ */
 export function calculatePosition(
   value: number | string | undefined,
   containerSize: number,

@@ -1,5 +1,5 @@
 import { AnimationScope, motion, useAnimate, useCycle } from "framer-motion";
-import { Pivot as Hamburger } from "hamburger-react";
+import { Squeeze as Hamburger } from "hamburger-react";
 import { useEffect } from "react";
 
 import { MagneticSocialLinks } from "~/components/motion/FloatingDock";
@@ -66,7 +66,7 @@ export function Contacts() {
 const NavToggle = ({ toggle }: { toggle: () => void }) => {
   return (
     <span className="outline-none border-none cursor-pointer absolute top-1 right-3 bg-transparent flex items-center z-[1001]">
-      <Hamburger onToggle={toggle} color="white" direction="right" />
+      <Hamburger onToggle={toggle} color="white" />
     </span>
   );
 };

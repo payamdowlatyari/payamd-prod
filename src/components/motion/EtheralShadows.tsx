@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unused-prop-types */
-/* eslint-disable consistent-return */
 
 "use client";
 
