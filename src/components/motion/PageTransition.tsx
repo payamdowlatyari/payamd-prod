@@ -29,7 +29,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
       animate="animate"
       exit="exit"
       variants={variants}
-      transition={{ duration: 1, ease: "easeInOut" }}
+      transition={{ duration: 3, ease: "easeInOut" }}
     >
       {children}
     </motion.div>

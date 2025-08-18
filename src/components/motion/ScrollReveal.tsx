@@ -22,11 +22,15 @@ interface WordProps {
  */
 const Word: FC<WordProps> = ({ children, progress, range }: WordProps) => {
   const opacity = useTransform(progress, range, [0, 1]);
+  const blur = useTransform(progress, range, ["0px", "6px"]);
 
   return (
     <span className="relative mx-[2px] lg:mx-1">
       <span className="absolute opacity-0">{children}</span>
-      <motion.span style={{ opacity }} className="text-neutral-100">
+      <motion.span
+        style={{ opacity, filter: `blur(${blur})` }}
+        className="text-neutral-300"
+      >
         {children}
       </motion.span>
     </span>

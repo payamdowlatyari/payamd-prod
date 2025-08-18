@@ -5,19 +5,18 @@ import { useRef } from "react";
 
 import Footer from "~/components/layout/Footer";
 import Menu from "~/components/layout/Menu";
-import { BackgroundLines } from "~/components/motion/BackgroundAnimation";
 import BlurFade from "~/components/motion/BlurFade";
 import { Card } from "~/components/motion/Card";
 import ImageEffect from "~/components/motion/ImageEffect";
 import LinkPreview from "~/components/motion/LinkPreview";
 import { Logos, Marquee } from "~/components/motion/Marquee";
-import { GradientTracing } from "~/components/motion/PulseBeams";
 import ScrollProgressBar, {
   ProgressiveBlur,
 } from "~/components/motion/ScrollProgressBar";
 import TextRevealByWord from "~/components/motion/ScrollReveal";
 import { LinkArrowOut } from "~/components/ui/Button";
-import { H1, H2, Paragraph } from "~/components/ui/Texts";
+import { H2, Paragraph } from "~/components/ui/Texts";
+import TypingText, { ParticleText } from "~/components/ui/typing-text";
 import { intro, resume } from "~/data";
 
 /**
@@ -29,38 +28,18 @@ const Intro = ({ opacity }: { opacity: MotionValue<number> }) => (
       style={{ opacity }}
       className="fixed mx-1 h-screen w-screen flex flex-wrap items-center justify-evenly"
     >
-      <BlurFade
-        inView
-        delay={0.5}
-        variant={{ hidden: { y: 100 }, visible: { y: 0 } }}
-        blur="xl"
-      >
-        <GradientTracing
-          width={250}
-          height={50}
-          path="M0,50 L75,25 L150,75 L225,25 L300,50"
-          animationDuration={5}
+      <div className="px-4 sm:px-8 pt-1 sm:pt-2 flex">
+        <div className="grid gap-2">
+          <ParticleText text={intro.title} />
+          <Paragraph text={intro.summary} />
+        </div>
+      </div>
+      <div className="h-72 w-72 sm:h-80 sm:w-80 md:h-96 md:w-96 m-1">
+        <ImageEffect
+          item1="me-ai-red_processed.jpeg"
+          item2="me_enhanced_processed.jpeg"
         />
-        <div className="px-4 sm:px-8 pt-1 sm:pt-2 flex">
-          <div className="grid gap-2">
-            <H1 label={intro.title} />
-            <Paragraph text={intro.summary} />
-          </div>
-        </div>
-      </BlurFade>
-      <BlurFade
-        delay={0}
-        inView
-        variant={{ hidden: { y: 100 }, visible: { y: 0 } }}
-        blur="xl"
-      >
-        <div className="h-72 w-72 sm:h-80 sm:w-80 md:h-96 md:w-96 m-1">
-          <ImageEffect
-            item1="me-ai-red_processed.jpeg"
-            item2="me_enhanced_processed.jpeg"
-          />
-        </div>
-      </BlurFade>
+      </div>
     </motion.div>
     <div className="z-10 flex min-h-screen justify-center pt-[200vh]">
       <TextRevealByWord text={intro.description.replace(/\s+/g, " ")} />
@@ -77,21 +56,16 @@ const Resume = ({ x }: { x: MotionValue<string> }) => (
     className="block top-0 max-w-screen-lg overflow-hidden h-[1500vh] p-0 z-[1]"
     layoutScroll
   >
-    <div className="flex flex-col justify-center items-end z-[2] h-screen max-w-xl mx-auto my-4 md:my-8 space-y-3">
-      <H2 label="Resume" />
-      <Paragraph text="Click on the links below to view my resume." />
+    <div className="flex flex-col justify-center items-start z-[2] h-screen max-w-lg mx-auto my-4 md:my-8 space-y-3">
+      <TypingText
+        text="Click on the links below to view my resume or keep scrolling."
+        speed={50}
+        delay={100}
+        loop
+        cursorClassName="text-transparent"
+        className="text-neutral-500 text-2xl font-bold my-4"
+      />
       <LinkArrowOut title="View Resume PDF" url="/pdf/resume.pdf" />
-      <GradientTracing
-        width={300}
-        height={50}
-        path="M0,50 L300,50"
-        className="left-1/2 transform -translate-x-1/2"
-        animationDuration={5}
-      />
-      <Paragraph
-        text="Or scroll down to see my experience, education, projects, and more."
-        className="mt-12"
-      />
     </div>
 
     <div className="fixed flex top-0 overflow-hidden items-center h-screen z-[2]">
@@ -155,14 +129,18 @@ const MarqueeSection = ({ opacity }: { opacity: MotionValue<number> }) => (
  * Renders a bottom section with a gradient tracing animation.
  */
 const BottomSection = () => (
-  <BackgroundLines className="relative">
-    <p className="text-neutral-400 text-center text-2xl sm:text-4xl md:text-5xl mx-auto max-w-xl px-4 my-10 z-10">
-      Check out my{" "}
-      <LinkPreview url="https://blog.payamd.com/">Blog</LinkPreview> and{" "}
-      <LinkPreview url="https://photos.payamd.com/">Photography</LinkPreview>{" "}
+  <div className="relative">
+    <p className="text-neutral-400 text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl mx-auto max-w-xl leading-10 px-4 my-10 z-10">
+      Check out <br /> my{" "}
+      <LinkPreview url="https://blog.payamd.com/">Blog</LinkPreview> <br /> &{" "}
+      <br />
+      <LinkPreview url="https://photos.payamd.com/">
+        Photography
+      </LinkPreview>{" "}
+      <br />
       portfolio.
     </p>
-  </BackgroundLines>
+  </div>
 );
 
 /**

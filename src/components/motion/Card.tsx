@@ -117,13 +117,7 @@ interface CardProps {
  */
 export function Card({ items }: { items: CardProps[] }) {
   return (
-    <div
-      className={cn(
-        "flex flex-col my-5 animate-shine rounded-xl border max-w-2xl",
-        "border-white/10 bg-[linear-gradient(110deg,#000000,45%,#303030,55%,#000000)] bg-[length:400%_100%]",
-        "p-2 transition-colors dark:bg-[linear-gradient(110deg,#000103,45%,#303030,55%,#000103)]"
-      )}
-    >
+    <div className={cn("flex flex-col my-5 max-w-2xl")}>
       {items.map((item: CardProps) => (
         <div
           key={item.title}

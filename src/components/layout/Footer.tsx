@@ -3,6 +3,7 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 import Link from "next/link";
 import { useRef, useEffect } from "react";
 
+import { FloatingPathsBackground } from "../motion/BackgroundAnimation";
 import { MagneticSocialLinks } from "~/components/motion/FloatingDock";
 import Logo from "~/components/ui/Logo";
 
@@ -55,35 +56,40 @@ const Footer = () => {
   ];
 
   return (
-    <motion.footer
-      ref={footerRef}
-      layout
-      className="flex justify-center items-end w-screen h-full min-h-96 z-0"
+    <FloatingPathsBackground
+      className="flex aspect-16/9 w-full h-full"
+      position={-1}
     >
-      <motion.div
-        style={{ opacity: footerOpacity, scale: footerScale }}
-        className="flex flex-col items-center justify-end z-10"
+      <motion.footer
+        ref={footerRef}
+        layout
+        className="flex justify-center items-end w-screen h-full min-h-96 z-0"
       >
-        <div className="w-screen h-full flex flex-col items-center justify-center">
-          <Logo type="footer" />
-          <div className="flex flex-row mt-4 w-full justify-center">
-            {navigationLinks.map(({ href, label }) => (
-              <Link
-                key={href}
-                href={href}
-                className="uppercase text-xs px-1 text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold"
-              >
-                {label}
-              </Link>
-            ))}
+        <motion.div
+          style={{ opacity: footerOpacity, scale: footerScale }}
+          className="flex flex-col items-center justify-end z-10"
+        >
+          <div className="w-screen h-full flex flex-col items-center justify-center">
+            <Logo type="footer" />
+            <div className="flex flex-row mt-4 w-full justify-center">
+              {navigationLinks.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="uppercase text-xs px-1 text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold"
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
+            <div className="flex flex-col items-center justify-center h-full w-full py-2">
+              <MagneticSocialLinks />
+            </div>
           </div>
-          <div className="flex flex-col items-center justify-center h-full w-full py-2">
-            <MagneticSocialLinks />
-          </div>
-        </div>
-        <CopyRight />
-      </motion.div>
-    </motion.footer>
+          <CopyRight />
+        </motion.div>
+      </motion.footer>
+    </FloatingPathsBackground>
   );
 };
 

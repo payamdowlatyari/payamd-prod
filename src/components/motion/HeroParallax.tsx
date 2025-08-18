@@ -12,9 +12,9 @@ import Link from "next/link";
 import React from "react";
 import { IconType } from "react-icons/lib/cjs/iconBase";
 
+import { ParticleText } from "../ui/typing-text";
 import BlurFade from "~/components/motion/BlurFade";
-import { GradientTracing } from "~/components/motion/PulseBeams";
-import { H1, Paragraph } from "~/components/ui/Texts";
+import { Paragraph } from "~/components/ui/Texts";
 
 /**
  * A component that renders a product card with a hover animation.
@@ -166,14 +166,8 @@ export const HeroParallax = ({
         >
           <div className="sm:pl-8 pt-16 pl-4 flex flex-col">
             <div className="grid gap-2 my-5">
-              <H1 label={details.title} />
+              <ParticleText text={details.title} />
               <Paragraph className="max-w-xl" text={details.description} />
-              <GradientTracing
-                width={300}
-                height={100}
-                path="M0,50 C25,0 50,100 75,50 S125,0 150,50 S200,100 225,50 S275,0 300,50 M0,50 C25,100 50,0 75,50 S125,100 150,50 S200,0 225,50 S275,100 300,50"
-                gradientColors={["#FF6B6B", "#FF6B6B", "#4ECDC4"]}
-              />
             </div>
             <div className="flex flex-wrap space-x-5 md:space-x-10 mt-2 md:mt-4">
               {details.icons.map((icon) => {

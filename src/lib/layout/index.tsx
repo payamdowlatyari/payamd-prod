@@ -5,6 +5,7 @@ import { AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { type ReactNode } from "react";
 
+import { LiquidCursor } from "~/components/gsap/liquid-cursor";
 import { BackgroundAnimation } from "~/components/motion/BackgroundAnimation";
 import { PageTransition } from "~/components/motion/PageTransition";
 import Logo from "~/components/ui/Logo";
@@ -35,6 +36,7 @@ const Layout = ({ children }: LayoutProps) => {
           {(scrollBind) => (
             <article {...scrollBind}>
               <BackgroundAnimation />
+              <LiquidCursor strong />
               {children}
             </article>
           )}
