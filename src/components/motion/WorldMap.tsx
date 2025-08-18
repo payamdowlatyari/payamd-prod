@@ -233,6 +233,7 @@ export const Globe = ({ className }: { className?: string }) => {
        * A callback function that is called every frame.
        */
       onRender: (state) => {
+        // eslint-disable-next-line no-param-reassign
         state.phi = phi;
         phi += 0.01;
       },
