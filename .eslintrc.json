@@ -16,6 +16,12 @@
         "varsIgnorePattern": "^_"
       }
     ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "import/no-extraneous-dependencies": "off",
     "eslint-plugin-vue/no-unused-properties": "off",
     "consistent-return": "off",

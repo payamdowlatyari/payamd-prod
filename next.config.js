@@ -29,19 +29,19 @@ module.exports = withPWA({
         port: "",
         pathname: "/**",
       },
-    ]
+    ],
   },
 
   /**
    * Adds a custom webpack rule to handle GLSL shader files.
    */
-  webpack: (config ) => {
+  webpack: (config) => {
     config.module.rules.push({
       test: /\.(glsl|vs|fs|vert|frag)$/,
       exclude: /node_modules/,
-      use: ['raw-loader', 'glslify-loader']
+      use: ["raw-loader", "glslify-loader"],
     });
 
     return config;
-  }
+  },
 });

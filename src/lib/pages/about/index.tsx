@@ -68,7 +68,7 @@ const Resume = ({ x }: { x: MotionValue<string> }) => (
       <LinkArrowOut title="View Resume PDF" url="/pdf/resume.pdf" />
     </div>
 
-    <div className="fixed flex top-0 overflow-hidden items-center h-screen z-[2]">
+    <div className="fixed flex top-0 overflow-hidden items-center h-screen">
       <motion.ul
         className="fixed flex list-none h-screen"
         style={{

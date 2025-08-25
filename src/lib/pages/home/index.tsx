@@ -5,7 +5,7 @@ import React from "react";
 import Footer from "~/components/layout/Footer";
 import Menu from "~/components/layout/Menu";
 import { CpuArchitecture } from "~/components/motion/CpuArchitecture";
-import { EvervaultCard } from "~/components/motion/EvervaultCard";
+import { GlowingGridCard } from "~/components/motion/EvervaultCard";
 import { GridBeam } from "~/components/motion/GridBeam";
 import ImageEffect from "~/components/motion/ImageEffect";
 import { MorphingText } from "~/components/motion/MorphingText";
@@ -24,7 +24,7 @@ const Hero = () => (
   <section id="hero">
     <div className="flex flex-col self-end h-full w-screen items-end right-0">
       <div className="p-4 rounded-xl absolute top-48 md:top-32 left-0 md:left-1/2 w-full md:w-1/2">
-        <CpuArchitecture className="opacity-75 hover:opacity-100 transition-all duration-300" />
+        <CpuArchitecture className="opacity-50" />
       </div>
       <GridBeam className="flex flex-col items-start justify-end relative z-10">
         <div className="flex flex-col justify-start items-start w-full px-8 my-8 gap-2">
@@ -60,28 +60,6 @@ const Intro = () => (
 );
 
 /**
- * A component that displays a single service.
- * @param {{ id: number, name: string, text: string, icon?: React.ElementType }} service
- * The service data.
- */
-const Service = React.memo(
-  ({ service }: { service: (typeof services)[number] }) => {
-    const { id, name, text, icon: ServiceIcon } = service;
-
-    return (
-      <div
-        key={id}
-        className="border border-neutral-200/20 flex flex-col items-start justify-between mx-auto relative h-72 w-72 sm:h-80 sm:w-80 m-2 md:m-4 rounded-lg shadow-xl"
-      >
-        <ServiceIcon className="absolute h-6 w-6 top-3 left-3 z-20" />
-        <EvervaultCard text={name} className="w-full h-1/2" />
-        <p className="text-xs md:text-sm relative z-10 p-2 md:p-4">{text}</p>
-      </div>
-    );
-  }
-);
-
-/**
  * A component that displays a section with a list of services.
  */
 const Services = React.memo(() => (
@@ -98,7 +76,13 @@ const Services = React.memo(() => (
     </div>
     <div className="flex flex-wrap justify-center items-center z-10 max-w-4xl">
       {services.map((service) => (
-        <Service key={service.id} service={service} />
+        <GlowingGridCard
+          key={service.id}
+          area="col-span-1"
+          icon={<service.icon className="h-6 w-6" />}
+          title={service.name}
+          description={service.text}
+        />
       ))}
     </div>
   </section>

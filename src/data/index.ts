@@ -437,11 +437,11 @@ export const portfolio = {
   ],
   contacts: [
     {
-      title: "Contact",
+      title: "Email",
       links: [{ name: "pdyari@gmail.com", url: "mailto:pdyari@gmail.com" }],
     },
     {
-      title: "Check Out",
+      title: "Links",
       links: [
         { name: "Blog", url: "https://blog.payamd.com" },
         { name: "Photography", url: "https://photos.payamd.com" },

@@ -78,6 +78,17 @@ const cursorVariants: Variants = {
   },
 };
 
+/**
+ * A component that types out a given text or array of texts with a blinking cursor.
+ *
+ * @param {TypingTextProps} props - The component props.
+ *
+ * @example
+ * <TypingText text="Hello world!" />
+ *
+ * @example
+ * <TypingText texts={["Hello world!", "This is a typing animation"]} loop />
+ */
 function TypingText({
   text,
   texts,
@@ -197,6 +208,9 @@ function TypingText({
   );
 }
 
+/**
+ * Props for the ParticleText component.
+ */
 interface ParticleTextProps {
   text?: string;
   className?: string;
@@ -204,12 +218,22 @@ interface ParticleTextProps {
   particleColor?: string;
 }
 
+/**
+ * A component that renders a particle text effect.
+ *
+ * It creates a container and fills it with a specified number of particles.
+ * Each particle is a small, rounded `div` element with a random position and
+ * opacity. The particles are then animated to move around the container in a
+ * way that creates a fluid, organic effect.
+ *
+ * @param {ParticleTextProps} props - The component props.
+ */
 export const ParticleText: React.FC<ParticleTextProps> = ({
   text = "PARTICLES",
   className = "",
   particleCount = 50,
   particleColor = "#3b82f6",
-}) => {
+}: ParticleTextProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   // Removed unused particlesRef
 
@@ -267,7 +291,7 @@ export const ParticleText: React.FC<ParticleTextProps> = ({
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="text-6xl sm:text-7xl md:text-8xl uppercase text-neutral-200 relative z-10"
+        className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl uppercase text-neutral-100 relative z-10"
         style={{
           textShadow: `0 0 20px ${particleColor}40`,
           filter: `drop-shadow(0 0 10px ${particleColor}60)`,

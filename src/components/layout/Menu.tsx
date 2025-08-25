@@ -3,7 +3,7 @@ import { Squeeze as Hamburger } from "hamburger-react";
 import { useEffect } from "react";
 
 import { MagneticSocialLinks } from "~/components/motion/FloatingDock";
-import { LinkArrowOut } from "~/components/ui/Button";
+import { FlipLink, LinkArrowOut } from "~/components/ui/Button";
 import { portfolio } from "~/data";
 
 const BLUR_EFFECT = "blur(10px)";
@@ -21,18 +21,17 @@ export function Nav() {
   ];
 
   return (
-    <ul className="inline-grid justify-start h-fit w-fit py-2 my-4 min-w-64 mx-auto">
+    <div className="flex flex-col justify-center h-1/2 md:h-screen w-screen md:w-1/2">
       {links.map(({ title, url }) => (
-        <li key={title} className="list-none my-1 ml-4">
-          <a
-            href={url}
-            className="text-4xl md:text-5xl uppercase text-neutral-400 hover:text-neutral-50 transition-colors duration-500"
-          >
-            {title}
-          </a>
-        </li>
+        <a
+          key={title}
+          href={url}
+          className="flex justify-center items-center h-1/4 border border-neutral-800 text-4xl md:text-5xl uppercase bg-neutral-950 text-neutral-100 hover:bg-neutral-200 hover:text-neutral-900 transition-colors"
+        >
+          <FlipLink href={url}>{title}</FlipLink>
+        </a>
       ))}
-    </ul>
+    </div>
   );
 }
 
@@ -42,19 +41,34 @@ export function Nav() {
  */
 export function Contacts() {
   return (
-    <div className="flex flex-col px-2 md:px-4 my-2 md:my-4 z-10 contacts min-w-64 mx-auto">
-      {portfolio.contacts.map((section) => (
-        <div key={`${section.title}`} className="flex flex-col w-60 my-2 pl-2">
-          <h5 className="font-semibold text-3xl md:text-4xl m-1 uppercase text-neutral-600">
-            {section.title}
-          </h5>
-          <div className="inline-grid p-1">
-            {section.links.map((link) => (
-              <LinkArrowOut key={link.name} title={link.name} url={link.url} />
-            ))}
+    <div className="flex flex-col justify-center items-center h-1/2 md:h-screen w-screen md:w-1/2">
+      <div className="flex flex-col justify-center items-center h-2/3 w-full border border-neutral-800">
+        {portfolio.contacts.map((section) => (
+          <div
+            key={`${section.title}`}
+            className="flex flex-col justify-center items-center w-full h-1/2 border border-neutral-800"
+          >
+            <h5 className="font-semibold text-3xl sm:text-4xl md:text-5xl m-1 uppercase text-neutral-600">
+              {section.title}
+            </h5>
+            <div className="flex flex-wrap gap-4 mt-4">
+              {section.links.map((link) => (
+                <LinkArrowOut
+                  key={link.name}
+                  title={link.name}
+                  url={link.url}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+      <div className="flex flex-col justify-center items-center h-1/3 w-full border border-neutral-800">
+        <h5 className="font-semibold text-3xl sm:text-4xl md:text-5xl m-1 uppercase text-neutral-600">
+          Social
+        </h5>
+        <MagneticSocialLinks />
+      </div>
     </div>
   );
 }
@@ -65,7 +79,7 @@ export function Contacts() {
  */
 const NavToggle = ({ toggle }: { toggle: () => void }) => {
   return (
-    <span className="outline-none border-none cursor-pointer absolute top-1 right-3 bg-transparent flex items-center z-[1001]">
+    <span className="outline-none border-none cursor-pointer absolute top-1 right-3 bg-transparent flex items-center z-[1003]">
       <Hamburger onToggle={toggle} color="white" />
     </span>
   );
@@ -134,7 +148,7 @@ export default function Menu() {
       layout
       initial={false}
       animate={isMenuOpen ? "open" : "closed"}
-      className="fixed top-0 right-0 bg-transparent z-50"
+      className="fixed top-0 right-0 bg-transparent z-[1002]"
     >
       <NavToggle toggle={toggleMenu} />
       <motion.div
@@ -160,15 +174,12 @@ export default function Menu() {
           ease: "easeOut",
           delay: 0.25,
         }}
-        className="flex flex-wrap w-screen h-screen bg-neutral-950/95 relative items-end justify-center"
+        className="flex flex-wrap w-screen h-screen bg-neutral-950 relative items-end justify-center"
         ref={menuAnimationScope}
       >
-        <div className="flex flex-wrap w-full h-4/5 sm:h-3/5 justify-around items-center content-end">
+        <div className="flex flex-wrap w-full h-full justify-around items-center content-center">
           <Nav />
           <Contacts />
-        </div>
-        <div className="flex flex-col items-center justify-end h-1/5 sm:h-2/5 w-screen py-2 social">
-          <MagneticSocialLinks />
         </div>
       </motion.div>
     </motion.nav>
