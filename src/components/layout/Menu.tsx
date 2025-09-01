@@ -2,7 +2,6 @@ import { AnimationScope, motion, useAnimate, useCycle } from "framer-motion";
 import { Squeeze as Hamburger } from "hamburger-react";
 import { useEffect } from "react";
 
-import { MagneticSocialLinks } from "~/components/motion/FloatingDock";
 import { FlipLink, LinkArrowOut } from "~/components/ui/Button";
 import { portfolio } from "~/data";
 
@@ -67,7 +66,15 @@ export function Contacts() {
         <h5 className="font-semibold text-3xl sm:text-4xl md:text-5xl m-1 uppercase text-neutral-600">
           Social
         </h5>
-        <MagneticSocialLinks />
+        <div className="flex flex-wrap gap-4 mt-4">
+          {portfolio.social.map((link) => (
+            <LinkArrowOut
+              key={link.platform}
+              title={link.platform}
+              url={link.url}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

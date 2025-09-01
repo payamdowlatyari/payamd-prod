@@ -46,7 +46,7 @@ export default function BlurFade({
   };
   const combinedVariants = variant || defaultVariants;
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait" initial={false}>
       <motion.div
         ref={ref}
         initial="hidden"

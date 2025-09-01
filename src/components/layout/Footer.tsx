@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
 import Link from "next/link";
 
-import { MagneticSocialLinks } from "~/components/motion/FloatingDock";
-import Logo from "~/components/ui/Logo";
+import BlurFade from "~/components/motion/BlurFade";
+import { LinkArrowOut } from "~/components/ui/Button";
+import { portfolio } from "~/data";
 
 /**
  * CopyRight component
@@ -33,37 +33,44 @@ function CopyRight() {
  */
 const Footer = () => {
   const navigationLinks = [
+    { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/projects", label: "Projects" },
     { href: "/contact", label: "Contact" },
   ];
 
   return (
-    <motion.footer
-      layout
-      className="flex justify-center items-end w-screen h-full min-h-96 z-0"
-    >
-      <motion.div className="flex flex-col items-center justify-end z-10">
-        <div className="w-screen h-full flex flex-col items-center justify-center">
-          <Logo type="footer" />
-          <div className="flex flex-row mt-4 w-full justify-center">
-            {navigationLinks.map(({ href, label }) => (
-              <Link
-                key={href}
-                href={href}
-                className="uppercase text-xs px-1 text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold"
-              >
-                {label}
-              </Link>
-            ))}
+    <footer className="flex justify-center items-end w-screen h-full min-h-96 z-0">
+      <div className="flex flex-col items-center justify-end z-10">
+        <BlurFade blur="6px" duration={0.7} delay={0.3} inView>
+          <div className="w-screen h-full flex flex-wrap md:flex-nowrap items-center justify-center my-10">
+            <div className="flex flex-row gap-2 md:gap-4 mt-4 w-full justify-center">
+              {navigationLinks.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="uppercase text-xs sm:text-sm md:text-base px-1 text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold"
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
+            <div className="flex flex-col items-center justify-center h-full w-full py-2">
+              <div className="flex flex-row gap-2 md:gap-4 mt-4">
+                {portfolio.social.map((link) => (
+                  <LinkArrowOut
+                    key={link.platform}
+                    title={link.platform}
+                    url={link.url}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="flex flex-col items-center justify-center h-full w-full py-2">
-            <MagneticSocialLinks />
-          </div>
-        </div>
+        </BlurFade>
         <CopyRight />
-      </motion.div>
-    </motion.footer>
+      </div>
+    </footer>
   );
 };
 

@@ -448,6 +448,24 @@ export const portfolio = {
       ],
     },
   ],
+  social: [
+    {
+      platform: "GitHub",
+      url: "https://github.com/payamdowlatyari",
+    },
+    {
+      platform: "LinkedIn",
+      url: "https://www.linkedin.com/in/payamdowlatyari",
+    },
+    {
+      platform: "X",
+      url: "https://x.com/payamyam",
+    },
+    {
+      platform: "Medium",
+      url: "https://medium.com/@pdowlatyari",
+    },
+  ],
 };
 
 export const intro = {

@@ -26,7 +26,6 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
-    "@14islands/r3f-scroll-rig": "^8.13.1",
     "@emailjs/browser": "^4.3.3",
     "@fontsource/poppins": "^5.0.14",
     "@fontsource/reggae-one": "^5.0.19",
@@ -44,10 +43,10 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cobe": "^0.6.4",
-    "dotted-map": "^2.2.3",
     "framer-motion": "^10.18.0",
     "gsap": "^3.13.0",
     "hamburger-react": "^2.5.2",
+    "locomotive-scroll": "5.0.0-beta.21",
     "lodash": "^4.17.21",
     "lucide-react": "^0.376.0",
     "matter-js": "^0.20.0",
