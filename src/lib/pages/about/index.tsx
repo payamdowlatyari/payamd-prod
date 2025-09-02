@@ -15,8 +15,9 @@ import ScrollProgressBar, {
 } from "~/components/motion/ScrollProgressBar";
 import TextRevealByWord from "~/components/motion/ScrollReveal";
 import { LinkArrowOut } from "~/components/ui/Button";
+import RotatingText from "~/components/ui/rotating-text";
 import { H2, Paragraph } from "~/components/ui/Texts";
-import TypingText, { ParticleText } from "~/components/ui/typing-text";
+import { ParticleText } from "~/components/ui/typing-text";
 import { intro, resume } from "~/data";
 
 /**
@@ -53,17 +54,25 @@ const Intro = ({ opacity }: { opacity: MotionValue<number> }) => (
 const Resume = ({ x }: { x: MotionValue<string> }) => (
   <motion.section
     id="resume"
-    className="block top-0 max-w-screen-lg overflow-hidden h-[1500vh] p-0 z-[1]"
+    className="block top-0 max-w-screen-lg overflow-hidden h-[1500vh] p-0"
     layoutScroll
   >
-    <div className="flex flex-col justify-center items-start z-[2] h-screen max-w-lg mx-auto my-4 md:my-8 space-y-3">
-      <TypingText
-        text="Click on the links below to view my resume or keep scrolling."
-        speed={50}
-        delay={100}
-        loop
-        cursorClassName="text-transparent"
-        className="text-neutral-500 text-2xl font-bold my-4"
+    <div className="flex flex-col justify-center items-center h-screen w-full max-w-screen-sm mx-auto px-4 my-4 md:my-8 space-y-2">
+      <RotatingText
+        text={[
+          {
+            data: "Click on the links below",
+            className: "text-neutral-300 text-2xl md:text-3xl font-bold",
+          },
+          {
+            data: "to view my resume",
+            className: "text-neutral-300 text-2xl md:text-4xl font-bold",
+          },
+          {
+            data: "or keep scrolling...",
+            className: "text-neutral-300 text-2xl md:text-4xl font-bold",
+          },
+        ]}
       />
       <LinkArrowOut title="View Resume PDF" url="/pdf/resume.pdf" />
     </div>
