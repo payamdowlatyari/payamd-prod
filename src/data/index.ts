@@ -416,11 +416,11 @@ const projectsItems = [
 ];
 
 export const about = {
-  title: "About Payam Dowlatyari.",
-  text: `I am a full-stack software engineer, AI application developer, software architect, and UX designer. 
-      I studied Software Engineering at UCI and completed a postgrad program at Caltech.
-      I have over 5 years of experience, specializing in building scalable web and data platforms in fast-growing startup environments.  
-      I am a hobbyist photographer and blogger who is interested in art, philosophy, and social sciences.`,
+  title: "About Me.",
+  text: `I'm Payam Dowlatyari, a senior software engineer, AI application developer, software architect, and UX designer based in California. 
+  I have over 5 years of experience, specializing in building scalable, high-performance web applications using modern frameworks and Cloud platforms. 
+  I've spent the last few years building healthcare technology platforms. I enjoy solving tough technical problems and turning them into simple, elegant experiences. 
+  I am a hobbyist photographer and blogger passionate about art, philosophy, and social sciences.`,
 };
 
 export const portfolio = {
@@ -430,6 +430,7 @@ export const portfolio = {
   words: [
     "Software Engineer",
     "Full Stack Developer",
+    "Software Architect",
     "UX Designer",
     "Photographer",
     "Blogger",
@@ -469,23 +470,23 @@ export const portfolio = {
 
 export const intro = {
   title: "About",
-  summary: `My name is Payam Dowlatyari a full-stack software engineer based in California. 
-  I have a passion for creating innovative and user-friendly applications. 
-  I specialize in building robust and scalable web applications using the latest technologies.
+  summary: `Hi, I’m Payam Dowlatyari, a full-stack software engineer based in California who loves 
+  building fast, reliable, and scalable web applications. I'm passionate about turning complex ideas 
+  into clean, efficient systems that people actually enjoy using.
   Scroll down to learn more about me.`,
-  description: `After obtaining my B.S. in Software Engineering from UC Irvine in 2020,
-  I entered the tech industry and worked at Amplify.ai for three years developing AI applications.
-  I joined Avalon AI in 2024 as a full-stack engineer.
-  I've spent the last few years building healthcare technology platforms.
-  Most recently, I led the architecture and development of PhysicianGPS, a cloud-based multi-tenant application
-  for healthcare providers that handles large data volumes with speed and reliability.
-  I also integrated AI-enhanced search and analytics features to make provider data more accessible and actionable.
-  I take pride in translating complex requirements into clear technical solutions, mentoring across the stack, 
-  and ensuring products not only scale but are fast, secure, and easy to use. 
-  I'm also exploring pragmatic AI features such as query rewriting, result summaries, and schema-constrained outputs 
-  that complement deterministic systems without sacrificing performance.  
-  I'm committed to staying up-to-date with the latest technologies in the field and constantly 
-  learning new things to improve my skills and deliver cutting-edge solutions.`,
+  description: `After earning my B.S. in Software Engineering from UC Irvine (2020), I joined Amplify.ai, 
+  where I spent three years developing AI-driven products and automation tools. In 2024, 
+  I joined Avalon AI as a full-stack engineer, focusing on healthcare technology.
+  Lately, I've been leading the architecture and development of PhysicianGPS, a multi-tenant cloud platform 
+  that powers sub-second provider search and analytics across large healthcare datasets. 
+  I've built data ingestion pipelines, optimized performance, and integrated AI-assisted 
+  search features to make provider data easier to explore and act on.
+  I care deeply about scalability, security, and great user experience, and I'm always exploring new technologies 
+  to push my work further. Recently, that's included pragmatic AI enhancements like query rewriting, intelligent summaries, 
+  and schema-guided responses that add intelligence to structured systems without sacrificing performance.
+  Outside of work, I'm a hobbyist photographer and blogger who is passionate about art, philosophy, and social sciences, 
+  and I'm always looking for new opportunities to learn and grow.
+  Scroll down to learn more about my work and experience!`,
 };
 
 export const experience = [

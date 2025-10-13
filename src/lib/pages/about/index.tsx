@@ -60,7 +60,7 @@ const Resume = ({ x }: { x: MotionValue<string> }) => (
     className="block top-0 max-w-screen-lg overflow-hidden h-[1500vh] p-0"
     layoutScroll
   >
-    <div className="flex flex-col justify-center items-center h-screen w-full max-w-screen-sm mx-auto px-4 my-4 md:my-8 space-y-2">
+    <div className="flex flex-col justify-center items-center h-screen w-full max-w-screen-md mx-auto px-4 my-4 md:my-8 space-y-2">
       <RotatingText
         text={[
           {
