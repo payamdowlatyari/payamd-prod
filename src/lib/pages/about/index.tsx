@@ -20,6 +20,9 @@ import { H2, Paragraph } from "~/components/ui/Texts";
 import { ParticleText } from "~/components/ui/typing-text";
 import { intro, resume } from "~/data";
 
+const ROTATING_TEXT_CLASSNAME =
+  "text-neutral-300 text-2xl md:text-3xl font-bold";
+
 /**
  * Renders an introduction section with a gradient tracing animation.
  */
@@ -62,15 +65,15 @@ const Resume = ({ x }: { x: MotionValue<string> }) => (
         text={[
           {
             data: "Click on the links below",
-            className: "text-neutral-300 text-2xl md:text-3xl font-bold",
+            className: ROTATING_TEXT_CLASSNAME,
           },
           {
             data: "to view my resume",
-            className: "text-neutral-300 text-2xl md:text-4xl font-bold",
+            className: ROTATING_TEXT_CLASSNAME,
           },
           {
             data: "or keep scrolling...",
-            className: "text-neutral-300 text-2xl md:text-4xl font-bold",
+            className: ROTATING_TEXT_CLASSNAME,
           },
         ]}
       />

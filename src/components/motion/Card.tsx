@@ -42,7 +42,7 @@ export const CardSubTitle = ({
   return (
     <p
       className={cn(
-        "my-1 md:my-2 text-neutral-400 uppercase tracking-wide leading-relaxed text-xs md:text-sm",
+        "my-1 text-neutral-400 uppercase tracking-wide leading-relaxed text-xs md:text-sm",
         className
       )}
     >
@@ -105,7 +105,7 @@ export const CardDescription = ({
 interface CardProps {
   title: string;
   subtitle: string;
-  description: string[];
+  description?: string[];
   date: string;
   link?: string;
 }
@@ -132,15 +132,16 @@ export function Card({ items }: { items: CardProps[] }) {
             <CardDate>{item.date}</CardDate>
           </div>
           <CardSubTitle>{item.subtitle}</CardSubTitle>
-          <CardDescription>
-            {item.description && item.description.length > 0 && (
+
+          {item.description && item.description.length > 0 && (
+            <CardDescription>
               <ul className="list-disc list-inside text-xs md:text-sm">
                 {item.description.map((d: string) => (
                   <li key={d}>{d}</li>
                 ))}
               </ul>
-            )}
-          </CardDescription>
+            </CardDescription>
+          )}
         </div>
       ))}
     </div>

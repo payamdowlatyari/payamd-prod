@@ -416,12 +416,11 @@ const projectsItems = [
 ];
 
 export const about = {
-  title: "My name is Payam Dowlatyari.",
-  text: `I am a software engineer, web application developer, solutions architect, and UX designer. 
-      I studied Software Engineering at UC Irvine and graduated in 2020. 
-      I have been working in the tech industry as a full-stack web application developer 
-      and web application AI developer since 2019. I am a hobbyist photographer and blogger 
-      interested in art, philosophy, and social sciences.`,
+  title: "About Payam Dowlatyari.",
+  text: `I am a full-stack software engineer, AI application developer, software architect, and UX designer. 
+      I studied Software Engineering at UCI and completed a postgrad program at Caltech.
+      I have over 5 years of experience, specializing in building scalable web and data platforms in fast-growing startup environments.  
+      I am a hobbyist photographer and blogger who is interested in art, philosophy, and social sciences.`,
 };
 
 export const portfolio = {
@@ -470,27 +469,23 @@ export const portfolio = {
 
 export const intro = {
   title: "About",
-  summary: `My name is Payam Dowlatyari a Software Engineer in California. 
-  I have a passion for building web applications and learning new technologies. 
+  summary: `My name is Payam Dowlatyari a full-stack software engineer based in California. 
+  I have a passion for creating innovative and user-friendly applications. 
+  I specialize in building robust and scalable web applications using the latest technologies.
   Scroll down to learn more about me.`,
-  description: `After obtaining my B.S. in Software Engineering from UC Irvine in
-        2020, I entered the tech industry and worked at Amplify.ai for three
-        years developing AI applications. I satrted working as a software
-        engineer and web application architect at Avalon AI to improve
-        healthcare services in the United States. Having the opportunity to
-        study at UCI and work in an innovative start-up environments, I have
-        improved my technical and soft skills, uncovered my passion for
-        design, and expanded my mastery in software development in recent
-        years. Meanwhile, I dedicated time to learning new skills and
-        completed a postgraduate program in full-stack web development.
-        Likewise, I gained hands-on experience with different tools, such as
-        JavaScript libraries and frameworks, including React.js and Next.js,
-        server-side technologies such as Node.js, automation and DevOps
-        tools, and database technologies such as SQL and NoSQL databases, as
-        well as cloud technologies such as AWS, Google Cloud, and Microsoft
-        Azure. I am a team player, and I am always willing to learn new
-        skills and improve my skills. I have a great interest in learning
-        new technologies and am always looking for new challenges.`,
+  description: `After obtaining my B.S. in Software Engineering from UC Irvine in 2020,
+  I entered the tech industry and worked at Amplify.ai for three years developing AI applications.
+  I joined Avalon AI in 2024 as a full-stack engineer.
+  I've spent the last few years building healthcare technology platforms.
+  Most recently, I led the architecture and development of PhysicianGPS, a cloud-based multi-tenant application
+  for healthcare providers that handles large data volumes with speed and reliability.
+  I also integrated AI-enhanced search and analytics features to make provider data more accessible and actionable.
+  I take pride in translating complex requirements into clear technical solutions, mentoring across the stack, 
+  and ensuring products not only scale but are fast, secure, and easy to use. 
+  I'm also exploring pragmatic AI features such as query rewriting, result summaries, and schema-constrained outputs 
+  that complement deterministic systems without sacrificing performance.  
+  I'm committed to staying up-to-date with the latest technologies in the field and constantly 
+  learning new things to improve my skills and deliver cutting-edge solutions.`,
 };
 
 export const experience = [
@@ -532,13 +527,21 @@ export const experience = [
 
 export const education = [
   {
-    title: "UC Irvine",
+    title: "California Institute of Technology",
+    subtitle: "Postgraduate Certificate, Full-Stack Web Development",
+    date: "Class 2023",
+    description: [
+      "Capstone: Full-Stack banking app with Java, Spring Boot, Angular, MySQL, AWS",
+    ],
+    index: 0,
+  },
+  {
+    title: "University of California, Irvine",
     subtitle: "Software Engineering B.S.",
     date: "Class 2020",
     description: [
       "Capstone: Grid-Level Energy Negotiation for Electric Vehicle Supply Equipment",
       "Research Area: Informatics, Human-Computer Interaction, and Self-Tracking",
-      "Activities and societies: IEEE, ACM, UCI HCI Lab",
       "Honor Society: National Society of Leadership and Success (ΣAπ)",
     ],
     index: 1,
@@ -556,29 +559,40 @@ export const education = [
 
 export const certificate = [
   {
-    title: "Postgraduate Certificate, Caltech",
-    subtitle: "Full-Stack Web Development",
-    date: "Mar 2023",
-    link: "https://success.simplilearn.com/a8ed0cbb-aa08-40b3-b6ce-a5eac2e55dd4#gs.1kwd89",
-    description: [
-      "Capstone: A bank portal with Angular2+, Java ,MySQL, REST API CRUD functionality",
-    ],
+    title: "IBM",
+    subtitle: "Generative AI for Software Developers Specialization",
+    date: "Oct 2025",
+    link: "https://www.coursera.org/account/accomplishments/specialization/UO0CJNQQU3IL",
+  },
+  {
+    title: "DeepLearning.AI",
+    subtitle: "Generative AI for Software Development Professional Certificate",
+    date: "Oct 2025",
+    link: "https://www.coursera.org/account/accomplishments/specialization/certificate/BRL9P96RR14B",
+  },
+  {
+    title: "Interaction Design Foundation (IDF)",
+    subtitle: "Design Thinking Certificate",
+    date: "Oct 2021",
+    link: "https://www.interaction-design.org/members/payam-dowlatyari/certificate/course/9fa0344a-1965-4994-9383-851e3109f9f2",
+  },
+  {
+    title: "Interaction Design Foundation (IDF)",
+    subtitle: "Service Design Certificate",
+    date: "Mar 2021",
+    link: "https://www.interaction-design.org/members/payam-dowlatyari/certificate/course/18df4755-1b06-40de-a535-f97151d8f884",
   },
   {
     title: "University of Colorado Boulder",
-    subtitle: "Secure Software Design",
+    subtitle: "Secure Software Design Specialization",
     date: "Sep 2020",
     link: "https://www.coursera.org/account/accomplishments/specialization/certificate/CMWVV4CZ59WM",
-    description: ["Software Development Lifecycle, Design and Implementation"],
   },
   {
-    title: "The Interaction Design Foundation",
-    subtitle: "User Experience Design Courses",
-    date: "Oct 2019",
-    link: "https://www.interaction-design.org/members/payam-dowlatyari",
-    description: [
-      "Certificates on topics such as Design Thinking, Service Design, etc.",
-    ],
+    title: "Stanford University",
+    subtitle: "Machine Learning Certificate",
+    date: "Feb 2020",
+    link: "https://www.coursera.org/account/accomplishments/certificate/8NJAABHZRNUM",
   },
 ];
 
