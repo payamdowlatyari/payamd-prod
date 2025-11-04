@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
@@ -7,7 +8,6 @@ import Footer from "~/components/layout/Footer";
 import Menu from "~/components/layout/Menu";
 import BlurFade from "~/components/motion/BlurFade";
 import { Card } from "~/components/motion/Card";
-import ImageEffect from "~/components/motion/ImageEffect";
 import LinkPreview from "~/components/motion/LinkPreview";
 import { Logos, Marquee } from "~/components/motion/Marquee";
 import ScrollProgressBar, {
@@ -19,6 +19,16 @@ import RotatingText from "~/components/ui/rotating-text";
 import { H2, Paragraph } from "~/components/ui/Texts";
 import { ParticleText } from "~/components/ui/typing-text";
 import { intro, resume } from "~/data";
+
+// Dynamically import ImageEffect to reduce initial bundle size (~500KB savings)
+const ImageEffect = dynamic(() => import("~/components/motion/ImageEffect"), {
+  loading: () => (
+    <div className="flex items-center justify-center h-full w-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 rounded-lg animate-pulse">
+      <div className="text-gray-400 dark:text-gray-600">Loading...</div>
+    </div>
+  ),
+  ssr: false, // Disable SSR for Three.js components
+});
 
 const ROTATING_TEXT_CLASSNAME =
   "text-neutral-300 text-2xl md:text-3xl font-bold";

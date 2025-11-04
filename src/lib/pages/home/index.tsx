@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import React from "react";
 
 import Footer from "~/components/layout/Footer";
@@ -7,7 +8,6 @@ import Menu from "~/components/layout/Menu";
 import { CpuArchitecture } from "~/components/motion/CpuArchitecture";
 import { GlowingGridCard } from "~/components/motion/EvervaultCard";
 import { GridBeam } from "~/components/motion/GridBeam";
-import ImageEffect from "~/components/motion/ImageEffect";
 import { MorphingText } from "~/components/motion/MorphingText";
 import ParallaxText from "~/components/motion/ParallaxText";
 import Preview from "~/components/motion/Preview";
@@ -16,6 +16,16 @@ import { TextRipple } from "~/components/motion/TextAnimate";
 import { TextHover } from "~/components/motion/TextHover";
 import { H2, H3, Paragraph } from "~/components/ui/Texts";
 import { about, portfolio, services } from "~/data";
+
+// Dynamically import ImageEffect to reduce initial bundle size (~500KB savings)
+const ImageEffect = dynamic(() => import("~/components/motion/ImageEffect"), {
+  loading: () => (
+    <div className="flex items-center justify-center h-full w-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 rounded-lg animate-pulse">
+      <div className="text-gray-400 dark:text-gray-600">Loading...</div>
+    </div>
+  ),
+  ssr: false, // Disable SSR for Three.js components
+});
 
 /**
  * A component that displays a hero section with a title, subtitle, description, and image.
