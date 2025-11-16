@@ -438,7 +438,9 @@ export const portfolio = {
   contacts: [
     {
       title: "Email",
-      links: [{ name: "pdyari@gmail.com", url: "mailto:pdyari@gmail.com" }],
+      links: [
+        { name: "pdowlatyari@gmail.com", url: "mailto:pdowlatyari@gmail.com" },
+      ],
     },
     {
       title: "Links",
@@ -472,8 +474,8 @@ export const intro = {
   title: "About",
   summary: `Hi, I’m Payam Dowlatyari, a full-stack software engineer based in California who loves 
   building fast, reliable, and scalable web applications. I'm passionate about turning complex ideas 
-  into clean, efficient systems that people actually enjoy using.
-  Scroll down to learn more about me.`,
+  into clean, efficient systems that people actually enjoy using.`,
+  tagline: `Scroll down to learn more about my work and experience!`,
   description: `After earning my B.S. in Software Engineering from UC Irvine (2020), I joined Amplify.ai, 
   where I spent three years developing AI-driven products and automation tools. In 2024, 
   I joined Avalon AI as a full-stack engineer, focusing on healthcare technology.

@@ -20,12 +20,12 @@ export function Nav() {
   ];
 
   return (
-    <div className="flex flex-col justify-center h-1/2 md:h-screen w-screen md:w-1/2">
+    <div className="flex flex-col justify-center h-auto w-screen">
       {links.map(({ title, url }) => (
         <a
           key={title}
           href={url}
-          className="flex justify-center items-center h-1/4 border border-neutral-800 text-4xl md:text-5xl uppercase bg-neutral-950 text-neutral-100 hover:bg-neutral-200 hover:text-neutral-900 transition-colors"
+          className="flex justify-center items-center h-1/4 text-4xl md:text-5xl uppercase bg-neutral-950 text-neutral-100"
         >
           <FlipLink href={url}>{title}</FlipLink>
         </a>
@@ -35,35 +35,29 @@ export function Nav() {
 }
 
 /**
- * Renders a list of contact links and a list of links to other websites in two
- * separate sections.
+ * Contacts component
  */
 export function Contacts() {
   return (
-    <div className="flex flex-col justify-center items-center h-1/2 md:h-screen w-screen md:w-1/2">
-      <div className="flex flex-col justify-center items-center h-2/3 w-full border border-neutral-800">
-        {portfolio.contacts.map((section) => (
-          <div
-            key={`${section.title}`}
-            className="flex flex-col justify-center items-center w-full h-1/2 border border-neutral-800"
-          >
-            <h5 className="font-semibold text-3xl sm:text-4xl md:text-5xl m-1 uppercase text-neutral-600">
-              {section.title}
-            </h5>
-            <div className="flex flex-wrap gap-4 mt-4">
-              {section.links.map((link) => (
-                <LinkArrowOut
-                  key={link.name}
-                  title={link.name}
-                  url={link.url}
-                />
-              ))}
-            </div>
+    <div className="flex flex-col md:flex-row justify-center items-end h-1/3 w-full">
+      {portfolio.contacts.map((section) => (
+        <div
+          key={`${section.title}`}
+          className="flex flex-col justify-end items-start w-full h-1/2"
+        >
+          <h5 className="font-semibold text-xl md:text-2xl uppercase text-neutral-600 mx-4">
+            {section.title}
+          </h5>
+          <div className="flex flex-wrap gap-4 mt-4">
+            {section.links.map((link) => (
+              <LinkArrowOut key={link.name} title={link.name} url={link.url} />
+            ))}
           </div>
-        ))}
-      </div>
-      <div className="flex flex-col justify-center items-center h-1/3 w-full border border-neutral-800">
-        <h5 className="font-semibold text-3xl sm:text-4xl md:text-5xl m-1 uppercase text-neutral-600">
+        </div>
+      ))}
+
+      <div className="flex flex-col justify-end items-start w-full h-1/2">
+        <h5 className="font-semibold text-xl md:text-2xl uppercase text-neutral-600 mx-4">
           Social
         </h5>
         <div className="flex flex-wrap gap-4 mt-4">
@@ -184,7 +178,7 @@ export default function Menu() {
         className="flex flex-wrap w-screen h-screen bg-neutral-950 relative items-end justify-center"
         ref={menuAnimationScope}
       >
-        <div className="flex flex-wrap w-full h-full justify-around items-center content-center">
+        <div className="flex flex-wrap w-full h-5/6 justify-around items-center content-center">
           <Nav />
           <Contacts />
         </div>

@@ -1,7 +1,7 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
+import dynamic from "next/dynamic";
 import { useRef } from "react";
 
 import Footer from "~/components/layout/Footer";
@@ -23,15 +23,12 @@ import { intro, resume } from "~/data";
 // Dynamically import ImageEffect to reduce initial bundle size (~500KB savings)
 const ImageEffect = dynamic(() => import("~/components/motion/ImageEffect"), {
   loading: () => (
-    <div className="flex items-center justify-center h-full w-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 rounded-lg animate-pulse">
-      <div className="text-gray-400 dark:text-gray-600">Loading...</div>
+    <div className="flex items-center justify-center h-full w-full bg-gradient-to-br from-gray-900 to-gray-950 rounded-lg animate-pulse">
+      <div className="text-gray-600">Loading...</div>
     </div>
   ),
   ssr: false, // Disable SSR for Three.js components
 });
-
-const ROTATING_TEXT_CLASSNAME =
-  "text-neutral-300 text-2xl md:text-3xl font-bold";
 
 /**
  * Renders an introduction section with a gradient tracing animation.
@@ -46,6 +43,8 @@ const Intro = ({ opacity }: { opacity: MotionValue<number> }) => (
         <div className="grid gap-2">
           <ParticleText text={intro.title} />
           <Paragraph text={intro.summary} />
+          <LinkArrowOut title="Download Resume PDF" url="/pdf/resume.pdf" />
+          <Paragraph text={intro.tagline} />
         </div>
       </div>
       <div className="h-72 w-72 sm:h-80 sm:w-80 md:h-96 md:w-96 m-1">
@@ -70,24 +69,19 @@ const Resume = ({ x }: { x: MotionValue<string> }) => (
     className="block top-0 max-w-screen-lg overflow-hidden h-[1500vh] p-0"
     layoutScroll
   >
-    <div className="flex flex-col justify-center items-center h-screen w-full max-w-screen-md mx-auto px-4 my-4 md:my-8 space-y-2">
+    <div className="flex flex-col justify-center items-center h-screen w-full mx-auto px-4 my-4 md:my-8 space-y-2">
       <RotatingText
         text={[
           {
-            data: "Click on the links below",
-            className: ROTATING_TEXT_CLASSNAME,
+            data: "Keep scrolling to",
+            className: "text-neutral-300 text-2xl md:text-3xl font-bold",
           },
           {
-            data: "to view my resume",
-            className: ROTATING_TEXT_CLASSNAME,
-          },
-          {
-            data: "or keep scrolling...",
-            className: ROTATING_TEXT_CLASSNAME,
+            data: "view my resume",
+            className: "text-neutral-300 text-2xl md:text-3xl font-bold",
           },
         ]}
       />
-      <LinkArrowOut title="View Resume PDF" url="/pdf/resume.pdf" />
     </div>
 
     <div className="fixed flex top-0 overflow-hidden items-center h-screen">

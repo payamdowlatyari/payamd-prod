@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { type ReactNode } from "react";
 
 import { PageTransition } from "~/components/motion/PageTransition";
-import { SmoothScrollProvider } from "~/components/providers/SmoothScrollProvider";
 import BeamsBackground from "~/components/ui/beams-background";
 import Logo from "~/components/ui/Logo";
 
@@ -36,19 +35,7 @@ const Layout = ({ children }: LayoutProps) => {
     <AnimatePresence mode="wait" initial={false}>
       <PageTransition key={currentPath}>
         <BeamsBackground />
-        <SmoothScrollProvider
-          options={{
-            smooth: true,
-            mobile: {
-              smooth: true,
-            },
-            tablet: {
-              smooth: true,
-            },
-          }}
-        >
-          {children}
-        </SmoothScrollProvider>
+        {children}
         <Logo />
       </PageTransition>
     </AnimatePresence>

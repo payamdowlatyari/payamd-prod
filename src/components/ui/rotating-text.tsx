@@ -19,6 +19,24 @@ interface RotatingTextProps {
   className?: string;
 }
 
+/**
+ * A component that renders a rotating text effect.
+ *
+ * The component takes in an array of text objects, where each text object contains a `data` property for the text to render and an optional `className` property for the text element.
+ * The component also takes in an optional `scrollerRef` property for the scroll container element.
+ * The component also takes in an optional `start` property for the scroll trigger start position, an optional `end` property for the scroll trigger end position, an optional `scrub` property for enabling/disabling scrubbing, and an optional `markers` property for enabling/disabling markers.
+ * The component also takes in an optional `className` property for the main container element.
+ *
+ * The component will render a rotating text effect where the text will rotate around the Y-axis when the user scrolls.
+ *
+ * @example
+ * <RotatingText
+ *   text={[
+ *     { data: "Hello world!" },
+ *     { data: "This is a rotating text effect" },
+ *   ]}
+ * />
+ */
 const RotatingText = ({
   text,
   scrollerRef,
@@ -101,9 +119,9 @@ const RotatingText = ({
     <div
       ref={mainRef}
       className={cn(
-        " h-screen text-9xl",
+        " h-screen w-full",
         className,
-        " flex justify-center items-center  "
+        " flex justify-center items-center overflow-hidden"
       )}
       style={{ perspective: "800px" }}
     >
