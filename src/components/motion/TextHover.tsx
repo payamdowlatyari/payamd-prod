@@ -94,6 +94,16 @@ export function TextHover({ text, url, className }: AnimatedTextProps) {
     .split("")
     .map((letter) => (letter === " " ? "\u00A0" : letter));
 
+  // Create stable keys per character occurrence without using array indices in the key
+  const letterItems = (() => {
+    const seen = new Map<string, number>();
+    return letters.map((char) => {
+      const count = seen.get(char) ?? 0;
+      seen.set(char, count + 1);
+      return { char, key: `${char}-${count}` };
+    });
+  })();
+
   return (
     <motion.a
       href={url}
@@ -104,9 +114,9 @@ export function TextHover({ text, url, className }: AnimatedTextProps) {
       whileHover="hover"
       initial="initial"
     >
-      {letters.map((char, index) => (
+      {letterItems.map((item, index) => (
         <motion.span
-          key={char}
+          key={item.key}
           className="inline-block"
           variants={{
             initial: {
@@ -125,7 +135,7 @@ export function TextHover({ text, url, className }: AnimatedTextProps) {
             },
           }}
         >
-          {char}
+          {item.char}
         </motion.span>
       ))}
     </motion.a>

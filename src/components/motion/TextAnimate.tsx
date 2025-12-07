@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { forwardRef, useState } from "react";
+import { forwardRef, useState, useMemo } from "react";
 
 import { cn } from "~/utils/cn";
 
@@ -31,6 +31,18 @@ export const TextRipple = ({
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const chars = children.split("");
 
+  // Generate stable unique IDs per character (recomputed only when `children` changes)
+  const charIds = useMemo(
+    () =>
+      chars.map(() =>
+        // Prefer crypto.randomUUID when available, fall back to a short random string.
+        typeof crypto !== "undefined" && (crypto as any).randomUUID
+          ? (crypto as any).randomUUID()
+          : Math.random().toString(36).slice(2)
+      ),
+    [chars]
+  );
+
   const getScaleY = (index: number) => {
     if (hoveredIndex === null) return 1;
     const distance = Math.abs(index - hoveredIndex);
@@ -50,7 +62,7 @@ export const TextRipple = ({
           onMouseLeave={() => setHoveredIndex(null)}
           className="inline-block origin-bottom leading-[0.7]"
           animate={{ scaleY: getScaleY(index), transition: { duration: 0.3 } }}
-          key={`${s}`}
+          key={charIds[index]}
         >
           {s === " " ? "\u00A0" : s}
         </motion.span>

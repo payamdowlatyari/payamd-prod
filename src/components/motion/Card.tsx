@@ -88,14 +88,14 @@ export const CardDescription = ({
   children: React.ReactNode;
 }) => {
   return (
-    <p
+    <div
       className={cn(
         "mt-1 md:mt-2 text-neutral-200 tracking-wide leading-relaxed text-xs md:text-sm md:leading-loose",
         className
       )}
     >
       {children}
-    </p>
+    </div>
   );
 };
 

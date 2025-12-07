@@ -146,7 +146,7 @@ const MarqueeSection = ({ opacity }: { opacity: MotionValue<number> }) => (
  */
 const BottomSection = () => (
   <div className="relative">
-    <p className="text-neutral-400 text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl mx-auto max-w-xl leading-10 px-4 my-10 z-10">
+    <div className="text-neutral-400 text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl mx-auto max-w-xl leading-10 px-4 my-10 z-10">
       Check out <br /> my{" "}
       <LinkPreview url="https://blog.payamd.com/">Blog</LinkPreview> <br /> &{" "}
       <br />
@@ -155,7 +155,7 @@ const BottomSection = () => (
       </LinkPreview>{" "}
       <br />
       portfolio.
-    </p>
+    </div>
   </div>
 );
 

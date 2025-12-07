@@ -22,13 +22,12 @@ export function Nav() {
   return (
     <div className="flex flex-col justify-center h-auto w-screen">
       {links.map(({ title, url }) => (
-        <a
+        <span
           key={title}
-          href={url}
           className="flex justify-center items-center h-1/4 text-4xl md:text-5xl uppercase bg-neutral-950 text-neutral-100"
         >
           <FlipLink href={url}>{title}</FlipLink>
-        </a>
+        </span>
       ))}
     </div>
   );
@@ -39,11 +38,11 @@ export function Nav() {
  */
 export function Contacts() {
   return (
-    <div className="flex flex-col md:flex-row justify-center items-end h-1/3 w-full">
+    <div className="flex flex-col md:flex-row justify-center items-end h-1/2 w-full">
       {portfolio.contacts.map((section) => (
         <div
           key={`${section.title}`}
-          className="flex flex-col justify-end items-start w-full h-1/2"
+          className="flex flex-col justify-end items-center w-full h-1/2"
         >
           <h5 className="font-semibold text-xl md:text-2xl uppercase text-neutral-600 mx-4">
             {section.title}
@@ -56,7 +55,7 @@ export function Contacts() {
         </div>
       ))}
 
-      <div className="flex flex-col justify-end items-start w-full h-1/2">
+      <div className="flex flex-col justify-end items-center w-full h-1/2">
         <h5 className="font-semibold text-xl md:text-2xl uppercase text-neutral-600 mx-4">
           Social
         </h5>

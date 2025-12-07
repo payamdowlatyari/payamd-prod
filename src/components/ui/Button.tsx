@@ -108,7 +108,7 @@ export function LinkArrowOut({ title, url }: { title: string; url: string }) {
       href={url}
       target="_blank"
       rel="noreferrer"
-      className="group inline-flex text-sm md:text-base backdrop-blur-md text-white justify-center items-center py-1 w-fit rounded-xl duration-200 group bg-page-gradient font-geistSans hover:bg-transparent/10 hover:text-zinc-100"
+      className="group inline-flex text-xs md:text-sm lg:text-base backdrop-blur-md text-white justify-center items-center py-1 w-fit rounded-xl duration-200 group bg-page-gradient font-geistSans hover:bg-transparent/10 hover:text-zinc-100"
     >
       {title}
       <div className="flex overflow-hidden relative justify-center items-center ml-1 w-5 h-5">
@@ -219,6 +219,14 @@ export const FlipLink = ({
   children: string;
   href: string;
 }) => {
+  const chars = children.split("");
+  const charKeys = chars.map((ch, idx) => {
+    const occurrence = chars
+      .slice(0, idx)
+      .reduce((acc, c) => (c === ch ? acc + 1 : acc), 0);
+    return `${ch}-${occurrence}`;
+  });
+
   return (
     <a
       href={href}
@@ -228,9 +236,9 @@ export const FlipLink = ({
       }}
     >
       <div className="flex">
-        {children.split("").map((letter, i) => (
+        {chars.map((letter, i) => (
           <span
-            key={letter}
+            key={charKeys[i]}
             className="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]"
             style={{
               transitionDelay: `${i * 25}ms`,
@@ -241,9 +249,9 @@ export const FlipLink = ({
         ))}
       </div>
       <div className="absolute inset-0 flex">
-        {children.split("").map((letter, i) => (
+        {chars.map((letter, i) => (
           <span
-            key={letter}
+            key={`top-${charKeys[i]}`}
             className="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0"
             style={{
               transitionDelay: `${i * 25}ms`,

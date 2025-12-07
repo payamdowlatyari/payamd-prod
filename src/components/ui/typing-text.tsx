@@ -291,7 +291,7 @@ export const ParticleText: React.FC<ParticleTextProps> = ({
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl uppercase text-neutral-100 relative z-10"
+        className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl uppercase text-neutral-300 relative z-10"
         style={{
           textShadow: `0 0 20px ${particleColor}40`,
           filter: `drop-shadow(0 0 10px ${particleColor}60)`,

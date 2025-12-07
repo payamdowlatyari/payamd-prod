@@ -580,12 +580,6 @@ export const certificate = [
     link: "https://www.interaction-design.org/members/payam-dowlatyari/certificate/course/9fa0344a-1965-4994-9383-851e3109f9f2",
   },
   {
-    title: "Interaction Design Foundation (IDF)",
-    subtitle: "Service Design Certificate",
-    date: "Mar 2021",
-    link: "https://www.interaction-design.org/members/payam-dowlatyari/certificate/course/18df4755-1b06-40de-a535-f97151d8f884",
-  },
-  {
     title: "University of Colorado Boulder",
     subtitle: "Secure Software Design Specialization",
     date: "Sep 2020",

@@ -60,6 +60,20 @@ const TextRevealByWord: FC<TextRevealByWordProps> = ({
   });
   const words = text.split(" ");
 
+  // Build a stable key for each word using its character offset in the original text.
+  const wordsWithOffsets = (() => {
+    const result: { word: string; start: number }[] = [];
+    let offset = 0;
+    // eslint-disable-next-line no-restricted-syntax
+    for (const w of words) {
+      const found = text.indexOf(w, offset);
+      const start = found === -1 ? offset : found;
+      result.push({ word: w, start });
+      offset = start + w.length;
+    }
+    return result;
+  })();
+
   return (
     <div ref={targetRef} className={cn("relative z-0 h-[400vh]", className)}>
       <div className="sticky top-40 mx-auto flex h-1/6 max-w-screen-xl items-center bg-transparent px-2 py-20">
@@ -67,11 +81,15 @@ const TextRevealByWord: FC<TextRevealByWordProps> = ({
           ref={targetRef}
           className="flex flex-wrap p-3 md:p-5 text-base sm:text-xl lg:text-2xl lg:p-10 xl:text-3xl"
         >
-          {words.map((word, i) => {
-            const start = i / words.length;
-            const end = start + 1 / words.length;
+          {wordsWithOffsets.map(({ word, start }, i) => {
+            const startProgress = i / wordsWithOffsets.length;
+            const end = startProgress + 1 / wordsWithOffsets.length;
             return (
-              <Word progress={scrollYProgress} range={[start, end]} key={word}>
+              <Word
+                progress={scrollYProgress}
+                range={[startProgress, end]}
+                key={`${word}-${start}`}
+              >
                 {word}
               </Word>
             );
