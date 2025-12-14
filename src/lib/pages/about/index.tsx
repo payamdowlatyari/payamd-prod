@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
-import dynamic from "next/dynamic";
+import Image from "next/image";
 import { useRef } from "react";
 
 import Footer from "~/components/layout/Footer";
@@ -19,16 +19,6 @@ import RotatingText from "~/components/ui/rotating-text";
 import { H2, Paragraph } from "~/components/ui/Texts";
 import { ParticleText } from "~/components/ui/typing-text";
 import { intro, resume } from "~/data";
-
-// Dynamically import ImageEffect to reduce initial bundle size (~500KB savings)
-const ImageEffect = dynamic(() => import("~/components/motion/ImageEffect"), {
-  loading: () => (
-    <div className="flex items-center justify-center h-full w-full bg-gradient-to-br from-gray-900 to-gray-950 rounded-lg animate-pulse">
-      <div className="text-gray-600">Loading...</div>
-    </div>
-  ),
-  ssr: false, // Disable SSR for Three.js components
-});
 
 /**
  * Renders an introduction section with a gradient tracing animation.
@@ -48,9 +38,12 @@ const Intro = ({ opacity }: { opacity: MotionValue<number> }) => (
         </div>
       </div>
       <div className="h-72 w-72 sm:h-80 sm:w-80 md:h-96 md:w-96 m-1">
-        <ImageEffect
-          item1="me-ai-red_processed.jpeg"
-          item2="me_enhanced_processed.jpeg"
+        <Image
+          src="/me-ai-red_processed.jpeg"
+          alt="me"
+          className="shadow-lg object-cover"
+          width={384}
+          height={512}
         />
       </div>
     </motion.div>
