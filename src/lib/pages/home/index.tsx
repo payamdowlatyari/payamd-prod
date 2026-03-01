@@ -95,7 +95,7 @@ const Services = React.memo(() => (
  */
 export default function Home(): JSX.Element {
   return (
-    <main>
+    <main className="overflow-hidden">
       <Menu />
       <Preview value={100} />
       <Hero />

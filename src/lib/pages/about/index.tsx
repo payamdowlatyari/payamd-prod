@@ -180,7 +180,7 @@ const About = (): JSX.Element => {
   );
 
   return (
-    <main ref={ref}>
+    <main ref={ref} className="overflow-hidden">
       <Menu />
       <Intro opacity={opacityIntro} />
       <Resume x={x} />

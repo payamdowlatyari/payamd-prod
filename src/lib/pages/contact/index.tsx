@@ -16,7 +16,7 @@ import { contactDetails } from "~/data";
 export default function Contact(): JSX.Element {
   const { title, description } = contactDetails;
   return (
-    <main>
+    <main className="overflow-hidden">
       <Menu />
       <section className="w-fit m-auto z-10">
         <div className="flex flex-col justify-center items-center m-auto mt-20 py-10">

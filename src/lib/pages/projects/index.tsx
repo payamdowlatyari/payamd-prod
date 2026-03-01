@@ -13,7 +13,7 @@ import { projects } from "~/data";
  */
 export default function Projects(): JSX.Element {
   return (
-    <main>
+    <main className="overflow-hidden">
       <Menu />
       <HeroParallax products={projects.projects} details={projects.details} />
       <Footer />
