@@ -22,6 +22,8 @@ import {
   SiJavascript,
   SiSass,
   SiVuedotjs,
+  SiPython,
+  SiFastapi,
 } from "react-icons/si";
 import { TbApi, TbBrandThreejs } from "react-icons/tb";
 import { VscCircuitBoard } from "react-icons/vsc";
@@ -107,8 +109,7 @@ const TAGS_TS_NEXT_TAILWIND_FRAMER = [
   "Typescript",
   "Next.js",
   "Tailwind",
-  // eslint-disable-next-line sonarjs/no-duplicate-string
-  "Framer Motion",
+  "Motion",
 ];
 
 const projectsItems = [
@@ -142,11 +143,11 @@ const projectsItems = [
   },
   {
     index: 1,
-    title: "Canvasfolio",
-    description: "A portfolio template for professionals",
-    img: "/projects/canvasfolio1750x1000.webp",
-    url: "https://physiciangps.co/",
-    tags: ["Typescript", "Next.js", "Three.js"],
+    title: "Job Intelligence Web",
+    description: "An AI-powered job intelligence platform",
+    img: "/projects/job-intelligence-web-1750x1000.webp",
+    url: "https://job-intelligence-web.vercel.app/",
+    tags: ["Typescript", "Next.js", "Python", "FastAPI"],
     icons: [
       {
         name: "Typescript",
@@ -157,12 +158,39 @@ const projectsItems = [
         icon: SiNextdotjs,
       },
       {
-        name: "Three.js",
-        icon: TbBrandThreejs,
+        name: "Python",
+        icon: SiPython,
+      },
+      {
+        name: "FastAPI",
+        icon: SiFastapi,
       },
     ],
-    date: "2024",
+    date: "2025",
   },
+  // {
+  //   index: 1,
+  //   title: "Canvasfolio",
+  //   description: "A portfolio template for professionals",
+  //   img: "/projects/canvasfolio1750x1000.webp",
+  //   url: "https://physiciangps.co/",
+  //   tags: ["Typescript", "Next.js", "Three.js"],
+  //   icons: [
+  //     {
+  //       name: "Typescript",
+  //       icon: SiTypescript,
+  //     },
+  //     {
+  //       name: "Next.js",
+  //       icon: SiNextdotjs,
+  //     },
+  //     {
+  //       name: "Three.js",
+  //       icon: TbBrandThreejs,
+  //     },
+  //   ],
+  //   date: "2024",
+  // },
   {
     index: 2,
     title: "My Dashbaord",
@@ -263,29 +291,29 @@ const projectsItems = [
     ],
     date: "2023",
   },
-  {
-    index: 6,
-    title: "Nextfolio",
-    description: "A portfolio website template for professionals",
-    img: "/projects/nextfolio_1925x1100.webp",
-    url: "https://nextfolio-theta.vercel.app/",
-    tags: TAGS_TS_NEXT_TAILWIND,
-    icons: [
-      {
-        name: "Typescript",
-        icon: SiTypescript,
-      },
-      {
-        name: "Next.js",
-        icon: SiNextdotjs,
-      },
-      {
-        name: "Tailwind",
-        icon: SiTailwindcss,
-      },
-    ],
-    date: "2023",
-  },
+  // {
+  //   index: 6,
+  //   title: "Nextfolio",
+  //   description: "A portfolio website template for professionals",
+  //   img: "/projects/nextfolio_1925x1100.webp",
+  //   url: "https://nextfolio-theta.vercel.app/",
+  //   tags: TAGS_TS_NEXT_TAILWIND,
+  //   icons: [
+  //     {
+  //       name: "Typescript",
+  //       icon: SiTypescript,
+  //     },
+  //     {
+  //       name: "Next.js",
+  //       icon: SiNextdotjs,
+  //     },
+  //     {
+  //       name: "Tailwind",
+  //       icon: SiTailwindcss,
+  //     },
+  //   ],
+  //   date: "2023",
+  // },
   {
     index: 7,
     title: "Paper Browser",
@@ -362,56 +390,6 @@ const projectsItems = [
       },
     ],
     date: "2019",
-  },
-  {
-    index: 10,
-    title: "A Vue Portfolio",
-    description: "A smooth scroll portfolio website template",
-    img: "/projects/vue-portfolio-1750x1000.webp",
-    url: "https://vue-project-orpin-seven.vercel.app/",
-    tags: ["Javascript", "Vue", "Sass"],
-    icons: [
-      {
-        name: "Javascript",
-        icon: SiJavascript,
-      },
-      {
-        name: "Vue",
-        icon: SiVuedotjs,
-      },
-      {
-        name: "Sass",
-        icon: SiSass,
-      },
-    ],
-    date: "2023",
-  },
-  {
-    index: 11,
-    title: "A Next.js Portfolio",
-    description: "A portfolio template for professionals",
-    img: "/projects/animation-ui-gallery-1750x1000.webp",
-    url: "https://nextjs-animation-ui.vercel.app/",
-    tags: TAGS_TS_NEXT_TAILWIND_FRAMER,
-    icons: [
-      {
-        name: "Typescript",
-        icon: SiTypescript,
-      },
-      {
-        name: "Next.js",
-        icon: SiNextdotjs,
-      },
-      {
-        name: "Tailwind",
-        icon: SiTailwindcss,
-      },
-      {
-        name: "Framer Motion",
-        icon: SiFramer,
-      },
-    ],
-    date: "2024",
   },
 ];
 

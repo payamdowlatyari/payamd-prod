@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, HTMLMotionProps, useSpring } from "framer-motion";
+import { motion, useScroll, HTMLMotionProps, useSpring } from "motion/react";
 import { ReactElement } from "react";
 
 import { cn } from "~/utils/cn";

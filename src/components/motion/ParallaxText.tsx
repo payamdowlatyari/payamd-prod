@@ -6,7 +6,7 @@ import {
   useMotionValue,
   useVelocity,
   useAnimationFrame,
-} from "framer-motion";
+} from "motion/react";
 import { useRef } from "react";
 
 import { wrap } from "~/utils/wrap";

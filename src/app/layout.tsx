@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
+import { Poppins } from "next/font/google";
 
 import Layout from "~/lib/layout";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
+});
 
 const APP_NAME = "Payam Dowlatyari";
 
@@ -64,7 +71,7 @@ export const metadata: Metadata = {
  */
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html lang="en">
+    <html lang="en" className={poppins.className}>
       <body className="bg-neutral-950 text-neutral-50">
         <Layout>{children}</Layout>
       </body>

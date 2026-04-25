@@ -1,5 +1,5 @@
-import { AnimationScope, motion, useAnimate, useCycle } from "framer-motion";
 import { Squeeze as Hamburger } from "hamburger-react";
+import { AnimationScope, motion, useAnimate, useCycle } from "motion/react";
 import { useEffect } from "react";
 
 import { FlipLink, LinkArrowOut } from "~/components/ui/Button";
@@ -38,7 +38,7 @@ export function Nav() {
  */
 export function Contacts() {
   return (
-    <div className="flex flex-col md:flex-row justify-center items-end h-1/2 w-full">
+    <div className="flex flex-col md:flex-row justify-center items-end h-1/2 w-full gap-4 md:gap-8">
       {portfolio.contacts.map((section) => (
         <div
           key={`${section.title}`}
@@ -47,7 +47,7 @@ export function Contacts() {
           <h5 className="font-semibold text-xl md:text-2xl uppercase text-neutral-600 mx-4">
             {section.title}
           </h5>
-          <div className="flex flex-wrap gap-4 mt-4">
+          <div className="flex flex-wrap gap-4 my-4">
             {section.links.map((link) => (
               <LinkArrowOut key={link.name} title={link.name} url={link.url} />
             ))}
@@ -59,7 +59,7 @@ export function Contacts() {
         <h5 className="font-semibold text-xl md:text-2xl uppercase text-neutral-600 mx-4">
           Social
         </h5>
-        <div className="flex flex-wrap gap-4 mt-4">
+        <div className="flex flex-wrap gap-4 my-4">
           {portfolio.social.map((link) => (
             <LinkArrowOut
               key={link.platform}

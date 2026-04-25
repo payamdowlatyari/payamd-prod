@@ -6,7 +6,7 @@ import {
   useTransform,
   useSpring,
   MotionValue,
-} from "framer-motion";
+} from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -46,7 +46,10 @@ export const ProductCard = ({
         x: translate,
       }}
       whileHover={{
-        y: -20,
+        y: -10,
+        scale: 1.05,
+        transition: { duration: 0.3, ease: "easeInOut" },
+        zIndex: 100,
       }}
       key={product.title}
       className="group/product h-32 sm:h-40 md:h-60 lg:h-72 w-40 sm:w-60 md:w-72 lg:w-96 max-w-screen-sm relative flex-shrink-0"
@@ -116,9 +119,9 @@ export const HeroParallax = ({
     icons: string[];
   };
 }) => {
-  const firstRow = products.slice(0, 4);
-  const secondRow = products.slice(4, 8);
-  const thirdRow = products.slice(8, 12);
+  const firstRow = products.slice(0, 3);
+  const secondRow = products.slice(3, 6);
+  const thirdRow = products.slice(6, 9);
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -128,27 +131,27 @@ export const HeroParallax = ({
   const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
 
   const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [-200, 600]),
+    useTransform(scrollYProgress, [0, 1], [-200, 200]),
     springConfig
   );
   const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 1], [-200, -600]),
+    useTransform(scrollYProgress, [0, 1], [200, -200]),
     springConfig
   );
   const rotateX = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [15, 0]),
+    useTransform(scrollYProgress, [0, 0.25], [15, 0]),
     springConfig
   );
   const opacity = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [0.2, 1]),
+    useTransform(scrollYProgress, [0, 0.25], [0.2, 1]),
     springConfig
   );
   const rotateZ = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [20, 0]),
+    useTransform(scrollYProgress, [0, 0.25], [20, 0]),
     springConfig
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-800, 300]),
+    useTransform(scrollYProgress, [0, 0.25], [-500, 0]),
     springConfig
   );
   return (
@@ -198,7 +201,7 @@ export const HeroParallax = ({
           opacity,
         }}
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-5 md:space-x-10 mb-5 md:mb-10">
+        <motion.div className="flex flex-row-reverse mb-5 md:mb-10 gap-2">
           {firstRow.map((product) => (
             <ProductCard
               product={product}
@@ -207,7 +210,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row space-x-5 md:space-x-10 mb-5 md:mb-10">
+        <motion.div className="flex flex-row mb-5 md:mb-10 gap-2">
           {secondRow.map((product) => (
             <ProductCard
               product={product}
@@ -216,7 +219,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-5 md:space-x-10">
+        <motion.div className="flex flex-row-reverse gap-2">
           {thirdRow.map((product) => (
             <ProductCard
               product={product}

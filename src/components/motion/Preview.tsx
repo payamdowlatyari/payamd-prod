@@ -8,14 +8,14 @@ import {
   useMotionValue,
   useSpring,
   useTransform,
-} from "framer-motion";
+} from "motion/react";
 import { useEffect, useId, useRef, useState } from "react";
 import useMeasure from "react-use-measure";
 
 import { cn } from "~/utils/cn";
 
 const TRANSITION = {
-  type: "spring",
+  type: "spring" as const,
   stiffness: 280,
   damping: 18,
   mass: 0.3,
@@ -199,6 +199,14 @@ export default function Preview({
   delay = 0,
   className,
 }: PreviewProps) {
+  const [skip] = useState(() => {
+    if (typeof window === "undefined") return false;
+    const seen = sessionStorage.getItem("preview-seen");
+    if (seen) return true;
+    sessionStorage.setItem("preview-seen", "1");
+    return false;
+  });
+
   const ref = useRef<HTMLSpanElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-shadow
   const motionValue = useMotionValue(direction === "down" ? value : 0);
@@ -220,11 +228,13 @@ export default function Preview({
     () =>
       springValue.on("change", (latest) => {
         if (ref.current) {
-          ref.current.textContent = `${Intl.NumberFormat("en-US").format(latest.toFixed(0))}%`;
+          ref.current.textContent = `${Intl.NumberFormat("en-US").format(Math.round(latest))}%`;
         }
       }),
     [springValue]
   );
+
+  if (skip) return null;
 
   return (
     <motion.div

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion, Variants } from "motion/react";
 import { forwardRef, useState, useMemo } from "react";
 
 import { cn } from "~/utils/cn";

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
+import { motion, MotionValue, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
 import { useRef } from "react";
 
@@ -180,7 +180,7 @@ const About = (): JSX.Element => {
   );
 
   return (
-    <main ref={ref} className="overflow-hidden">
+    <main ref={ref}>
       <Menu />
       <Intro opacity={opacityIntro} />
       <Resume x={x} />

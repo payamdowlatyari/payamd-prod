@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "motion/react";
 import { usePathname } from "next/navigation";
 import { type ReactNode } from "react";
 
@@ -11,9 +11,6 @@ import Logo from "~/components/ui/Logo";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import "~/app/globals.css";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore: module has no type declarations for side-effect import
-import "@fontsource/poppins";
 
 type LayoutProps = {
   children: ReactNode;

@@ -4,7 +4,7 @@
 
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -45,12 +45,12 @@ const rectangleVariants = {
    * @param {number} i - Index of the rectangle in the array, used for staggering the animation.
    * @returns {Object} Animation variant with staggered delay
    */
-  animate: (i: number): object => ({
+  animate: (i: number) => ({
     x: "100%",
     transition: {
       delay: 0.1 * i, // Staggered delay for each rectangle
       duration: 0.5,
-      ease: "easeIn",
+      ease: "easeIn" as const,
     },
   }),
 };
