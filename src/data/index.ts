@@ -403,6 +403,8 @@ export const about = {
 
 export const portfolio = {
   name: "Payam Dowlatyari",
+  firstName: "Payam",
+  lastName: "Dowlatyari",
   titles:
     "UX Design ✳︎ Frontend Development ✳︎ API Development ✳︎ Backend Development ✳︎ Database Design ✳︎ DevOps ✳︎ Cloud Computing ✳︎ Aplication Architecture ✳︎",
   words: [

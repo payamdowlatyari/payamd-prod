@@ -4,16 +4,14 @@ import React from "react";
 
 import Footer from "~/components/layout/Footer";
 import Menu from "~/components/layout/Menu";
-import { CpuArchitecture } from "~/components/motion/CpuArchitecture";
-import { GlowingGridCard } from "~/components/motion/EvervaultCard";
 import { GridBeam } from "~/components/motion/GridBeam";
 import ImageEffect from "~/components/motion/ImageEffect";
-import { MorphingText } from "~/components/motion/MorphingText";
 import ParallaxText from "~/components/motion/ParallaxText";
 import Preview from "~/components/motion/Preview";
 import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
-import { TextRipple } from "~/components/motion/TextAnimate";
 import { TextHover } from "~/components/motion/TextHover";
+import GeometricBlurMesh from "~/components/ui/geometric-blur-mesh";
+import InfiniteMovingCards from "~/components/ui/infinite-moving-cards";
 import { H2, H3, Paragraph } from "~/components/ui/Texts";
 import { about, portfolio, services } from "~/data";
 
@@ -23,22 +21,24 @@ import { about, portfolio, services } from "~/data";
 const Hero = () => (
   <section id="hero">
     <div className="flex flex-col self-end h-full w-screen items-end right-0">
-      <div className="p-4 rounded-xl absolute top-48 md:top-32 left-0 md:left-1/2 w-full md:w-1/2">
-        <CpuArchitecture className="opacity-50" />
+      <div className="absolute top-40 left-0 md:left-1/2 w-full md:w-1/2 p-2 md:p-4">
+        <GeometricBlurMesh duration={30} />
       </div>
       <GridBeam className="flex flex-col items-start justify-end relative z-10">
-        <div className="flex flex-col justify-start items-start w-full px-8 my-8 gap-2">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tighter leading-tight uppercase w-full">
-            <TextRipple>Payam </TextRipple>
-            <TextRipple>Dowlatyari</TextRipple>
+        <div className="flex flex-col justify-start items-start w-full px-4 md:px-8 pt-16 md:pt-32">
+          <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] uppercase tracking-tight">
+            {portfolio.firstName}
           </h1>
-          <MorphingText texts={portfolio.words} />
+          <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] uppercase tracking-tight">
+            {portfolio.lastName}
+          </h1>
         </div>
-        <div className="h-12 w-screen uppercase flex justify-end items-center gap-2 z-10">
+        <div className="h-12 w-screen uppercase flex justify-start items-center gap-2 md:gap-4 mx-2 md:mx-4 z-10">
           <TextHover url="#intro" text="Who I am" />
           <TextHover url="#services" text="What I do" />
         </div>
         <ParallaxText baseVelocity={-0.05}>{portfolio.titles}</ParallaxText>
+        <ParallaxText baseVelocity={0.05}>{portfolio.titles}</ParallaxText>
       </GridBeam>
     </div>
   </section>
@@ -65,25 +65,26 @@ const Intro = () => (
 const Services = React.memo(() => (
   <section
     id="services"
-    className="flex flex-wrap justify-center w-screen items-baseline m-5 md:m-10"
+    className="flex flex-col justify-evenly w-screen items-center gap-2 m-5 md:m-10"
   >
-    <div className="flex flex-col w-96 p-1 md:p-2 m-2 md:m-4">
+    <div className="flex flex-col justify-center self-start mx-2 md:mx-4 my-4 md:my-8 p-1 md:p-2">
       <H2 label="Services" />
       <Paragraph
         text="These are the services I can provide for you as a software engineer, web developer, solutions architect, and UX designer including the technologies I have worked with in recent years."
         className="mt-4"
       />
     </div>
-    <div className="flex flex-wrap justify-center items-center z-10 max-w-4xl">
-      {services.map((service) => (
-        <GlowingGridCard
-          key={service.id}
-          area="col-span-1"
-          icon={<service.icon className="h-6 w-6" />}
-          title={service.name}
-          description={service.text}
-        />
-      ))}
+    <div className="h-full flex flex-col antialiased bg-transparent items-center justify-center relative overflow-hidden">
+      <InfiniteMovingCards
+        items={services.map((service) => ({
+          name: service.name,
+          title: service.text,
+          quote: service.text,
+          icon: service.icon,
+        }))}
+        direction="right"
+        speed="slow"
+      />
     </div>
   </section>
 ));

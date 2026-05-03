@@ -108,7 +108,7 @@ export function LinkArrowOut({ title, url }: { title: string; url: string }) {
       href={url}
       target="_blank"
       rel="noreferrer"
-      className="group inline-flex text-xs md:text-sm lg:text-base backdrop-blur-md text-white justify-center items-center py-1 w-fit rounded-xl duration-200 group bg-page-gradient font-geistSans hover:bg-transparent/10 hover:text-zinc-100"
+      className="group inline-flex text-xs md:text-sm backdrop-blur-md text-white justify-center items-center py-1 w-fit rounded-xl duration-200 group bg-page-gradient font-geistSans hover:bg-transparent/10 hover:text-zinc-100"
     >
       {title}
       <div className="flex overflow-hidden relative justify-center items-center ml-1 w-5 h-5">

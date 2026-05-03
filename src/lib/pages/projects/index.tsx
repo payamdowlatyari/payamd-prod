@@ -2,7 +2,7 @@
 
 import Footer from "~/components/layout/Footer";
 import Menu from "~/components/layout/Menu";
-import { HeroParallax } from "~/components/motion/HeroParallax";
+import ResponsiveHeroParallax from "~/components/motion/HeroParallax";
 import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
 import { projects } from "~/data";
 
@@ -15,7 +15,10 @@ export default function Projects(): JSX.Element {
   return (
     <main className="overflow-hidden">
       <Menu />
-      <HeroParallax products={projects.projects} details={projects.details} />
+      <ResponsiveHeroParallax
+        products={projects.projects}
+        details={projects.details}
+      />
       <Footer />
       <ScrollProgressBar />
     </main>

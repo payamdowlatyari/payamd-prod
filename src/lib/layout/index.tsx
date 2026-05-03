@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { type ReactNode } from "react";
 
 import { PageTransition } from "~/components/motion/PageTransition";
-import BeamsBackground from "~/components/ui/beams-background";
 import Logo from "~/components/ui/Logo";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -25,13 +24,16 @@ const Layout = ({ children }: LayoutProps) => {
   const currentPath = usePathname();
 
   if (!currentPath) {
-    return null;
+    return (
+      <main className="flex flex-col items-center justify-center h-screen">
+        <Logo />
+      </main>
+    );
   }
 
   return (
     <AnimatePresence mode="wait" initial={false}>
       <PageTransition key={currentPath}>
-        <BeamsBackground />
         {children}
         <Logo />
       </PageTransition>

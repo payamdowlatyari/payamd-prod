@@ -26,12 +26,18 @@ dependencies:
   '@react-three/fiber':
     specifier: ^9.4.2
     version: 9.4.2(@types/react@18.3.27)(react-dom@19.2.1)(react@19.2.1)(three@0.160.1)
+  '@remotion/player':
+    specifier: ^4.0.451
+    version: 4.0.451(react-dom@19.2.1)(react@19.2.1)
   class-variance-authority:
     specifier: ^0.7.1
     version: 0.7.1
   clsx:
     specifier: ^2.1.1
     version: 2.1.1
+  framer-motion:
+    specifier: ^12.38.0
+    version: 12.38.0(react-dom@19.2.1)(react@19.2.1)
   gsap:
     specifier: ^3.13.0
     version: 3.13.0
@@ -42,8 +48,11 @@ dependencies:
     specifier: ^12.23.12
     version: 12.23.12(react-dom@19.2.1)(react@19.2.1)
   next:
-    specifier: ^15.0.3
+    specifier: ^15.5.7
     version: 15.5.7(@babel/core@7.27.1)(@playwright/test@1.44.1)(react-dom@19.2.1)(react@19.2.1)
+  next-themes:
+    specifier: ^0.4.6
+    version: 0.4.6(react-dom@19.2.1)(react@19.2.1)
   qss:
     specifier: ^3.0.0
     version: 3.0.0
@@ -59,6 +68,9 @@ dependencies:
   react-use-measure:
     specifier: ^2.1.7
     version: 2.1.7(react-dom@19.2.1)(react@19.2.1)
+  remotion:
+    specifier: ^4.0.451
+    version: 4.0.451(react-dom@19.2.1)(react@19.2.1)
   tailwind-merge:
     specifier: ^2.3.0
     version: 2.3.0
@@ -2773,6 +2785,17 @@ packages:
     transitivePeerDependencies:
       - '@types/react'
       - immer
+    dev: false
+
+  /@remotion/player@4.0.451(react-dom@19.2.1)(react@19.2.1):
+    resolution: {integrity: sha512-mJSaWHsMQuDXVVVh6UVBySBzzzqeSI+MHUuS+6hk/CrqZwBz1CQnsrtFZcjcnBpY40ao+ZqMA6uTEgs9n34YlQ==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      react: 19.2.1
+      react-dom: 19.2.1(react@19.2.1)
+      remotion: 4.0.451(react-dom@19.2.1)(react@19.2.1)
     dev: false
 
   /@rollup/plugin-babel@5.3.1(@babel/core@7.27.1)(rollup@2.79.1):
@@ -6293,8 +6316,8 @@ packages:
     resolution: {integrity: sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==}
     dev: true
 
-  /framer-motion@12.23.12(react-dom@19.2.1)(react@19.2.1):
-    resolution: {integrity: sha512-6e78rdVtnBvlEVgu6eFEAgG9v3wLnYEboM8I5O5EXvfKC8gxGQB8wXJdhkMy10iVcn05jl6CNw7/HTsTCfwcWg==}
+  /framer-motion@12.38.0(react-dom@19.2.1)(react@19.2.1):
+    resolution: {integrity: sha512-rFYkY/pigbcswl1XQSb7q424kSTQ8q6eAC+YUsSKooHQYuLdzdHjrt6uxUC+PRAO++q5IS7+TamgIw1AphxR+g==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -6307,8 +6330,8 @@ packages:
       react-dom:
         optional: true
     dependencies:
-      motion-dom: 12.23.12
-      motion-utils: 12.23.6
+      motion-dom: 12.38.0
+      motion-utils: 12.36.0
       react: 19.2.1
       react-dom: 19.2.1(react@19.2.1)
       tslib: 2.8.1
@@ -7888,14 +7911,14 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /motion-dom@12.23.12:
-    resolution: {integrity: sha512-RcR4fvMCTESQBD/uKQe49D5RUeDOokkGRmz4ceaJKDBgHYtZtntC/s2vLvY38gqGaytinij/yi3hMcWVcEF5Kw==}
+  /motion-dom@12.38.0:
+    resolution: {integrity: sha512-pdkHLD8QYRp8VfiNLb8xIBJis1byQ9gPT3Jnh2jqfFtAsWUA3dEepDlsWe/xMpO8McV+VdpKVcp+E+TGJEtOoA==}
     dependencies:
-      motion-utils: 12.23.6
+      motion-utils: 12.36.0
     dev: false
 
-  /motion-utils@12.23.6:
-    resolution: {integrity: sha512-eAWoPgr4eFEOFfg2WjIsMoqJTW6Z8MTUCgn/GZ3VRpClWBdnbjryiA3ZSNLyxCTmCQx4RmYX6jX1iWHbenUPNQ==}
+  /motion-utils@12.36.0:
+    resolution: {integrity: sha512-eHWisygbiwVvf6PZ1vhaHCLamvkSbPIeAYxWUuL3a2PD/TROgE7FvfHWTIH4vMl798QLfMw15nRqIaRDXTlYRg==}
     dev: false
 
   /motion@12.23.12(react-dom@19.2.1)(react@19.2.1):
@@ -7912,7 +7935,7 @@ packages:
       react-dom:
         optional: true
     dependencies:
-      framer-motion: 12.23.12(react-dom@19.2.1)(react@19.2.1)
+      framer-motion: 12.38.0(react-dom@19.2.1)(react@19.2.1)
       react: 19.2.1
       react-dom: 19.2.1(react@19.2.1)
       tslib: 2.8.1
@@ -7981,6 +8004,16 @@ packages:
       minimist: 1.2.8
       next: 15.5.7(@babel/core@7.27.1)(@playwright/test@1.44.1)(react-dom@19.2.1)(react@19.2.1)
     dev: true
+
+  /next-themes@0.4.6(react-dom@19.2.1)(react@19.2.1):
+    resolution: {integrity: sha512-pZvgD5L0IEvX5/9GWyHMf3m8BKiVQwsCMHfoFosXtXBMnaS0ZnIJ9ST4b4NqLVKDEm8QBxoNNGNaBv2JNF6XNA==}
+    peerDependencies:
+      react: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
+      react-dom: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
+    dependencies:
+      react: 19.2.1
+      react-dom: 19.2.1(react@19.2.1)
+    dev: false
 
   /next@15.5.7(@babel/core@7.27.1)(@playwright/test@1.44.1)(react-dom@19.2.1)(react@19.2.1):
     resolution: {integrity: sha512-+t2/0jIJ48kUpGKkdlhgkv+zPTEOoXyr60qXe68eB/pl3CMJaLeIGjzp5D6Oqt25hCBiBTt8wEeeAzfJvUKnPQ==}
@@ -8925,6 +8958,16 @@ packages:
     hasBin: true
     dependencies:
       jsesc: 0.5.0
+
+  /remotion@4.0.451(react-dom@19.2.1)(react@19.2.1):
+    resolution: {integrity: sha512-uTku1RmytCk50ZtPEoTdmB/4Erb+nH85vT3jkCLWQCaG9qWXxp2XAJ+eL7EfsCUyast2umZm4vdrdKXVxbeDMQ==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      react: 19.2.1
+      react-dom: 19.2.1(react@19.2.1)
+    dev: false
 
   /require-directory@2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}

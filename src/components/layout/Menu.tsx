@@ -1,9 +1,7 @@
 import { Squeeze as Hamburger } from "hamburger-react";
-import { AnimationScope, motion, useAnimate, useCycle } from "motion/react";
-import { useEffect } from "react";
+import { motion, useCycle } from "motion/react";
 
-import { FlipLink, LinkArrowOut } from "~/components/ui/Button";
-import { portfolio } from "~/data";
+import { FlipLink } from "~/components/ui/Button";
 
 const BLUR_EFFECT = "blur(10px)";
 const BLUR_EFFECT_EXIT = "blur(0px)";
@@ -24,51 +22,11 @@ export function Nav() {
       {links.map(({ title, url }) => (
         <span
           key={title}
-          className="flex justify-center items-center h-1/4 text-4xl md:text-5xl uppercase bg-neutral-950 text-neutral-100"
+          className="flex justify-center items-center h-1/4 text-5xl md:text-6xl uppercase bg-neutral-950 text-neutral-100"
         >
           <FlipLink href={url}>{title}</FlipLink>
         </span>
       ))}
-    </div>
-  );
-}
-
-/**
- * Contacts component
- */
-export function Contacts() {
-  return (
-    <div className="flex flex-col md:flex-row justify-center items-end h-1/2 w-full gap-4 md:gap-8">
-      {portfolio.contacts.map((section) => (
-        <div
-          key={`${section.title}`}
-          className="flex flex-col justify-end items-center w-full h-1/2"
-        >
-          <h5 className="font-semibold text-xl md:text-2xl uppercase text-neutral-600 mx-4">
-            {section.title}
-          </h5>
-          <div className="flex flex-wrap gap-4 my-4">
-            {section.links.map((link) => (
-              <LinkArrowOut key={link.name} title={link.name} url={link.url} />
-            ))}
-          </div>
-        </div>
-      ))}
-
-      <div className="flex flex-col justify-end items-center w-full h-1/2">
-        <h5 className="font-semibold text-xl md:text-2xl uppercase text-neutral-600 mx-4">
-          Social
-        </h5>
-        <div className="flex flex-wrap gap-4 my-4">
-          {portfolio.social.map((link) => (
-            <LinkArrowOut
-              key={link.platform}
-              title={link.platform}
-              url={link.url}
-            />
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
@@ -86,62 +44,10 @@ const NavToggle = ({ toggle }: { toggle: () => void }) => {
 };
 
 /**
- * useMenuAnimation hook
- * @param {boolean} isOpen - A boolean value indicating whether the menu is open or closed
- * @returns {AnimationScope} An array containing the animation scope and the animate function
- */
-function useMenuAnimation(isOpen: boolean): AnimationScope {
-  const [scope, animate] = useAnimate();
-
-  useEffect(() => {
-    const animations: any = isOpen
-      ? [
-          [
-            "li",
-            { x: 0, opacity: 1, filter: BLUR_EFFECT_EXIT },
-            { delay: 1, ease: "easeInOut", duration: 0.5 },
-          ],
-          [
-            ".contacts",
-            { x: 0, opacity: 1, filter: BLUR_EFFECT_EXIT },
-            { ease: "easeInOut", duration: 0.4 },
-          ],
-          [
-            ".social",
-            { y: 0, opacity: 1, filter: BLUR_EFFECT_EXIT },
-            { ease: "easeOut", duration: 0.6 },
-          ],
-        ]
-      : [
-          [
-            ".social",
-            { y: 200, opacity: 0, filter: BLUR_EFFECT },
-            { ease: "easeIn", duration: 0.5, at: "-0.1" },
-          ],
-          [
-            ".contacts",
-            { x: 100, opacity: 0, filter: BLUR_EFFECT },
-            { ease: "easeInOut", duration: 0.3, at: "-0.1" },
-          ],
-          [
-            "li",
-            { x: -100, opacity: 0, filter: BLUR_EFFECT },
-            { duration: 0.5 },
-          ],
-        ];
-
-    animate(animations);
-  }, [isOpen, animate]);
-
-  return scope;
-}
-
-/**
  * Menu component
  */
 export default function Menu() {
   const [isMenuOpen, toggleMenu] = useCycle(false, true);
-  const menuAnimationScope = useMenuAnimation(isMenuOpen);
 
   return (
     <motion.nav
@@ -174,13 +80,9 @@ export default function Menu() {
           ease: "easeOut",
           delay: 0.25,
         }}
-        className="flex flex-wrap w-screen h-screen bg-neutral-950 relative items-end justify-center"
-        ref={menuAnimationScope}
+        className="flex flex-wrap w-screen h-screen bg-neutral-950 relative items-center justify-center"
       >
-        <div className="flex flex-wrap w-full h-5/6 justify-around items-center content-center">
-          <Nav />
-          <Contacts />
-        </div>
+        <Nav />
       </motion.div>
     </motion.nav>
   );

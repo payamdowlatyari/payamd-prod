@@ -26,6 +26,8 @@
     "eslint-plugin-vue/no-unused-properties": "off",
     "consistent-return": "off",
     "no-console": "off",
+    "no-param-reassign": "off",
+    "no-plusplus": "off",
     "import/extensions": [
       "error",
       "ignorePackages",

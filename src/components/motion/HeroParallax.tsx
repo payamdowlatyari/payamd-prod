@@ -12,9 +12,83 @@ import Link from "next/link";
 import React from "react";
 import { IconType } from "react-icons/lib/cjs/iconBase";
 
-import { ParticleText } from "../ui/typing-text";
 import BlurFade from "~/components/motion/BlurFade";
-import { Paragraph } from "~/components/ui/Texts";
+import { H1, Paragraph } from "~/components/ui/Texts";
+
+type Product = {
+  title: string;
+  description: string;
+  url: string;
+  img: string;
+  tags: string[];
+  icons: {
+    name: string;
+    icon: IconType;
+  }[];
+};
+
+type Details = {
+  title: string;
+  description: string;
+  icons: string[];
+};
+
+/**
+ * A component that displays a hero section with a parallax effect.
+ *
+ * @param {Object} props - The component props.
+ * @param {string[]} props.icons - An array of icon URLs to display in the hero section.
+ */
+const PageIcons = ({ icons }: { icons: string[] }) => {
+  return (
+    <div className="flex flex-wrap space-x-5 md:space-x-10 mt-2 md:mt-4">
+      {icons.map((icon) => {
+        return (
+          <div
+            key={icon}
+            className="flex items-center justify-center w-10 h-10 my-2 rounded-full bg-neutral-800 hover:bg-neutral-700 transition-all ease-in-out"
+          >
+            <Image
+              src={icon}
+              alt={icon}
+              width={40}
+              height={40}
+              className="w-6 h-6 m-1 object-contain"
+            />
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+/**
+ * A component that displays page details with a parallax effect.
+ *
+ * @param {Object} props - The component props.
+ * @param {Object} props.details - The details data to display in the hero section.
+ */
+export const PageDetails = ({ details }: { details: Details }) => {
+  return (
+    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
+      <BlurFade
+        delay={0.5}
+        inView
+        duration={0.5}
+        blur="6px"
+        variant={{ hidden: { y: 100 }, visible: { y: 0 } }}
+      >
+        <div className="sm:pl-8 pt-16 pl-4 flex flex-col">
+          <div className="grid gap-2 md:gap-4">
+            <H1 label={details.title} />
+            <Paragraph className="max-w-xl" text={details.description} />
+          </div>
+          <PageIcons icons={details.icons} />
+        </div>
+      </BlurFade>
+    </div>
+  );
+};
 
 /**
  * A component that renders a product card with a hover animation.
@@ -27,17 +101,7 @@ export const ProductCard = ({
   product,
   translate,
 }: {
-  product: {
-    title: string;
-    description: string;
-    url: string;
-    img: string;
-    tags: string[];
-    icons: {
-      name: string;
-      icon: IconType;
-    }[];
-  };
+  product: Product;
   translate: MotionValue<number>;
 }) => {
   return (
@@ -52,7 +116,7 @@ export const ProductCard = ({
         zIndex: 100,
       }}
       key={product.title}
-      className="group/product h-32 sm:h-40 md:h-60 lg:h-72 w-40 sm:w-60 md:w-72 lg:w-96 max-w-screen-sm relative flex-shrink-0"
+      className="group/product h-40 md:h-60 lg:h-72 w-60 md:w-72 lg:w-96 max-w-screen-sm relative flex-shrink-0"
     >
       <Link
         href={product.url}
@@ -68,7 +132,7 @@ export const ProductCard = ({
           alt={product.title}
         />
 
-        <div className="absolute inset-0 h-full w-full opacity-30 group-hover/product:opacity-90 shadow-xl shadow-neutral-700 rounded-xl bg-gradient-to-b bg-neutral-950 pointer-events-none" />
+        <div className="absolute inset-0 h-full w-full opacity-30 group-hover/product:opacity-90 shadow-xl shadow-neutral-500 rounded-xl bg-gradient-to-b bg-neutral-950 pointer-events-none" />
         <div className="flex flex-col justify-center place-items-start h-full p-2 md:p-4 lg:p-6">
           <h3 className="z-10 text-base sm:text-lg md:text-xl opacity-0 group-hover/product:opacity-100 font-semibold text-neutral-50 tracking-tight mb-1">
             {product.title}
@@ -102,22 +166,8 @@ export const HeroParallax = ({
   products,
   details,
 }: {
-  products: {
-    title: string;
-    description: string;
-    url: string;
-    img: string;
-    tags: string[];
-    icons: {
-      name: string;
-      icon: IconType;
-    }[];
-  }[];
-  details: {
-    title: string;
-    description: string;
-    icons: string[];
-  };
+  products: Product[];
+  details: Details;
 }) => {
   const firstRow = products.slice(0, 3);
   const secondRow = products.slice(3, 6);
@@ -154,45 +204,13 @@ export const HeroParallax = ({
     useTransform(scrollYProgress, [0, 0.25], [-500, 0]),
     springConfig
   );
+
   return (
     <div
       ref={ref}
       className="h-[280vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
-      <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
-        <BlurFade
-          delay={0.5}
-          inView
-          duration={0.5}
-          blur="6px"
-          variant={{ hidden: { y: 100 }, visible: { y: 0 } }}
-        >
-          <div className="sm:pl-8 pt-16 pl-4 flex flex-col">
-            <div className="grid gap-2 my-5">
-              <ParticleText text={details.title} />
-              <Paragraph className="max-w-xl" text={details.description} />
-            </div>
-            <div className="flex flex-wrap space-x-5 md:space-x-10 mt-2 md:mt-4">
-              {details.icons.map((icon) => {
-                return (
-                  <div
-                    key={icon}
-                    className="flex items-center justify-center w-10 h-10 my-2 rounded-full bg-neutral-800 hover:bg-neutral-700 transition-all ease-in-out"
-                  >
-                    <Image
-                      src={icon}
-                      alt={icon}
-                      width={40}
-                      height={40}
-                      className="w-6 h-6 m-1 hover:animate-spin transition-all duration-500 ease-in-out"
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </BlurFade>
-      </div>
+      <PageDetails details={details} />
       <motion.div
         style={{
           rotateX,
@@ -201,7 +219,7 @@ export const HeroParallax = ({
           opacity,
         }}
       >
-        <motion.div className="flex flex-row-reverse mb-5 md:mb-10 gap-2">
+        <motion.div className="flex flex-row-reverse mb-5 md:mb-10 gap-2 md:gap-4">
           {firstRow.map((product) => (
             <ProductCard
               product={product}
@@ -210,7 +228,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row mb-5 md:mb-10 gap-2">
+        <motion.div className="flex flex-row mb-5 md:mb-10 gap-2 md:gap-4">
           {secondRow.map((product) => (
             <ProductCard
               product={product}
@@ -219,7 +237,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row-reverse gap-2">
+        <motion.div className="flex flex-row-reverse gap-2 md:gap-4">
           {thirdRow.map((product) => (
             <ProductCard
               product={product}
@@ -232,3 +250,79 @@ export const HeroParallax = ({
     </div>
   );
 };
+
+/**
+ * A hero section for a web development portfolio page.
+ *
+ * @param {Object} props - The component props.
+ * @param {Object[]} props.products - An array of product data to display in the hero section.
+ * @param {Object} props.details - The details data to display in the hero section.
+ */
+export const MobileHeroParallax = ({
+  products,
+  details,
+}: {
+  products: Product[];
+  details: Details;
+}) => {
+  const ref = React.useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const translateY = useSpring(
+    useTransform(scrollYProgress, [0, 0.25], [-500, 100]),
+    { stiffness: 300, damping: 30, bounce: 100 }
+  );
+  return (
+    <div
+      ref={ref}
+      className="h-auto py-20 overflow-hidden antialiased relative flex flex-col self-auto"
+    >
+      <PageDetails details={details} />
+      <div className="flex flex-col gap-10 mt-10">
+        {products.map((product) => (
+          <BlurFade
+            key={product.title}
+            inView
+            duration={0.5}
+            delay={0.5}
+            blur="6px"
+            variant={{ hidden: { y: 100 }, visible: { y: 0 } }}
+          >
+            <ProductCard product={product} translate={translateY} />
+          </BlurFade>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+/**
+ * A component that renders a hero section with a parallax effect.
+ *
+ * @param {Object} props - The component props.
+ * @param {Object[]} props.products - An array of product data to display in the hero section.
+ * @param {Object} props.details - The details data to display in the hero section.
+ */
+const ResponsiveHeroParallax = ({
+  products,
+  details,
+}: {
+  products: Product[];
+  details: Details;
+}) => {
+  return (
+    <>
+      <div className="hidden md:block">
+        <HeroParallax products={products} details={details} />
+      </div>
+      <div className="block md:hidden">
+        <MobileHeroParallax products={products} details={details} />
+      </div>
+    </>
+  );
+};
+
+export default ResponsiveHeroParallax;

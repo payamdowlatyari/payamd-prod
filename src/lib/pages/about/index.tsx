@@ -15,10 +15,20 @@ import ScrollProgressBar, {
 } from "~/components/motion/ScrollProgressBar";
 import TextRevealByWord from "~/components/motion/ScrollReveal";
 import { LinkArrowOut } from "~/components/ui/Button";
-import RotatingText from "~/components/ui/rotating-text";
-import { H2, Paragraph } from "~/components/ui/Texts";
-import { ParticleText } from "~/components/ui/typing-text";
+import { H1, H2, Paragraph } from "~/components/ui/Texts";
 import { intro, resume } from "~/data";
+
+const IntroImage = () => (
+  <div className="h-72 w-72 sm:h-80 sm:w-80 md:h-96 md:w-96 m-1">
+    <Image
+      src="/me-home-bw-removebg.png"
+      alt="me"
+      className="shadow-lg object-cover"
+      width={384}
+      height={512}
+    />
+  </div>
+);
 
 /**
  * Renders an introduction section with a gradient tracing animation.
@@ -31,24 +41,22 @@ const Intro = ({ opacity }: { opacity: MotionValue<number> }) => (
     >
       <div className="px-4 sm:px-8 pt-1 sm:pt-2 flex">
         <div className="grid gap-2">
-          <ParticleText text={intro.title} />
+          <H1 label={intro.title} />
           <Paragraph text={intro.summary} />
           <LinkArrowOut title="Download Resume PDF" url="/pdf/resume.pdf" />
-          <Paragraph text={intro.tagline} />
         </div>
       </div>
-      <div className="h-72 w-72 sm:h-80 sm:w-80 md:h-96 md:w-96 m-1">
-        <Image
-          src="/me-ai-red_processed.jpeg"
-          alt="me"
-          className="shadow-lg object-cover"
-          width={384}
-          height={512}
-        />
+      <IntroImage />
+      <div className="w-screen mx-auto fixed bottom-0 flex justify-center px-4 py-10">
+        <Paragraph text={intro.tagline} />
       </div>
     </motion.div>
     <div className="z-10 flex min-h-screen justify-center pt-[200vh]">
-      <TextRevealByWord text={intro.description.replace(/\s+/g, " ")} />
+      <TextRevealByWord
+        text={intro.description.replace(/\s+/g, " ")}
+        revealSpanWords={4}
+        revealCompleteAt={0.65}
+      />
     </div>
   </div>
 );
@@ -59,24 +67,9 @@ const Intro = ({ opacity }: { opacity: MotionValue<number> }) => (
 const Resume = ({ x }: { x: MotionValue<string> }) => (
   <motion.section
     id="resume"
-    className="block top-0 max-w-screen-lg overflow-hidden h-[1500vh] p-0"
+    className="block top-0 max-w-screen-lg overflow-hidden h-[1500vh] p-0 bg-neutral-950"
     layoutScroll
   >
-    <div className="flex flex-col justify-center items-center h-screen w-full mx-auto px-4 my-4 md:my-8 space-y-2">
-      <RotatingText
-        text={[
-          {
-            data: "Keep scrolling to",
-            className: "text-neutral-300 text-2xl md:text-3xl font-bold",
-          },
-          {
-            data: "view my resume",
-            className: "text-neutral-300 text-2xl md:text-3xl font-bold",
-          },
-        ]}
-      />
-    </div>
-
     <div className="fixed flex top-0 overflow-hidden items-center h-screen">
       <motion.ul
         className="fixed flex list-none h-screen"
@@ -169,9 +162,10 @@ const About = (): JSX.Element => {
   );
   const opacityIntro = useTransform(
     scrollYProgress,
-    [0, 0.05, 0.08],
-    [1, 1, 0]
+    [0, 0.05, 0.08, 1],
+    [1, 1, 0, 0]
   );
+
   const opacityMarquee = useTransform(
     scrollYProgress,
     [0, 0.3, 0.4, 0.8, 0.9, 1],

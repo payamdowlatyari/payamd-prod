@@ -20,6 +20,7 @@ module.exports = {
         shine: "shine 12s infinite linear",
         ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
         wave: "wave 15s linear infinite",
+        scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
       keyframes: {
         shimmer: {
@@ -134,6 +135,11 @@ module.exports = {
           },
           "100%": {
             transform: "translateX(-50%)",
+          },
+        },
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
           },
         },
       },

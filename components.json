@@ -19,6 +19,8 @@
     "hooks": "~/hooks"
   },
   "registries": {
-    "@heroicons-animated": "https://www.heroicons-animated.com/r/{name}.json"
+    "@heroicons-animated": "https://www.heroicons-animated.com/r/{name}.json",
+    "@loading-ui": "https://loading-ui.com/r/{name}.json",
+    "@aceternity": "https://ui.aceternity.com/registry/{name}.json"
   }
 }
