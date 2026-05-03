@@ -7,7 +7,6 @@ import Menu from "~/components/layout/Menu";
 import { GridBeam } from "~/components/motion/GridBeam";
 import ImageEffect from "~/components/motion/ImageEffect";
 import ParallaxText from "~/components/motion/ParallaxText";
-import Preview from "~/components/motion/Preview";
 import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
 import { TextHover } from "~/components/motion/TextHover";
 import GeometricBlurMesh from "~/components/ui/geometric-blur-mesh";
@@ -98,7 +97,6 @@ export default function Home(): JSX.Element {
   return (
     <main className="overflow-hidden">
       <Menu />
-      <Preview value={100} />
       <Hero />
       <Intro />
       <Services />

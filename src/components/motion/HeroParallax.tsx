@@ -133,14 +133,14 @@ export const ProductCard = ({
         />
 
         <div className="absolute inset-0 h-full w-full opacity-30 group-hover/product:opacity-90 shadow-xl shadow-neutral-500 rounded-xl bg-gradient-to-b bg-neutral-950 pointer-events-none" />
-        <div className="flex flex-col justify-center place-items-start h-full p-2 md:p-4 lg:p-6">
-          <h3 className="z-10 text-base sm:text-lg md:text-xl opacity-0 group-hover/product:opacity-100 font-semibold text-neutral-50 tracking-tight mb-1">
+        <div className="flex flex-col justify-between items-stretch h-full p-2 md:p-4 lg:p-6">
+          <h3 className="z-10 text-base sm:text-lg md:text-xl opacity-0 group-hover/product:opacity-100 font-semibold text-neutral-200 tracking-tight mb-1">
             {product.title}
           </h3>
-          <p className="z-10 opacity-0 group-hover/product:opacity-100 text-neutral-300 text-xs sm:text-sm md:text-base my-1">
+          <p className="z-10 opacity-0 group-hover/product:opacity-100 text-neutral-400 text-xs sm:text-sm md:text-base my-1">
             {product.description}
           </p>
-          <div className="z-10 opacity-0 group-hover/product:opacity-100 flex justify-center mt-2 md:mt-4">
+          <div className="z-10 opacity-0 group-hover/product:opacity-100 flex justify-start mt-2 md:mt-4">
             {Object.values(product.icons).map((icon) => {
               return icon.icon ? (
                 <span className="mr-2 md:mr-4" key={icon.name}>
@@ -219,7 +219,7 @@ export const HeroParallax = ({
           opacity,
         }}
       >
-        <motion.div className="flex flex-row-reverse mb-5 md:mb-10 gap-2 md:gap-4">
+        <motion.div className="flex flex-row-reverse mb-5 md:mb-10 gap-2 md:gap-4 lg:gap-6">
           {firstRow.map((product) => (
             <ProductCard
               product={product}
@@ -228,7 +228,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row mb-5 md:mb-10 gap-2 md:gap-4">
+        <motion.div className="flex flex-row mb-5 md:mb-10 gap-2 md:gap-4 lg:gap-6">
           {secondRow.map((product) => (
             <ProductCard
               product={product}
@@ -237,7 +237,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row-reverse gap-2 md:gap-4">
+        <motion.div className="flex flex-row-reverse gap-2 md:gap-4 lg:gap-6">
           {thirdRow.map((product) => (
             <ProductCard
               product={product}

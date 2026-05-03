@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { type ReactNode } from "react";
 
 import { PageTransition } from "~/components/motion/PageTransition";
+import Preview from "~/components/motion/Preview";
 import Logo from "~/components/ui/Logo";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -32,12 +33,15 @@ const Layout = ({ children }: LayoutProps) => {
   }
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
-      <PageTransition key={currentPath}>
-        {children}
-        <Logo />
-      </PageTransition>
-    </AnimatePresence>
+    <>
+      <Preview />
+      <AnimatePresence mode="wait" initial={false}>
+        <PageTransition key={currentPath}>
+          {children}
+          <Logo />
+        </PageTransition>
+      </AnimatePresence>
+    </>
   );
 };
 

@@ -1,6 +1,8 @@
 "use client";
 
 import {
+  AnimatePresence,
+  animate,
   motion,
   MotionValue,
   motionValue,
@@ -12,6 +14,7 @@ import {
 import { useEffect, useId, useRef, useState } from "react";
 import useMeasure from "react-use-measure";
 
+import Logo from "~/components/ui/Logo";
 import { cn } from "~/utils/cn";
 
 const TRANSITION = {
@@ -182,78 +185,116 @@ export function SlidingNumberBasic() {
  * Props for the Preview component.
  */
 interface PreviewProps {
-  value: number;
-  direction?: "up" | "down";
-  delay?: number;
+  value?: number;
   className?: string;
 }
+
+const PREVIEW_SESSION_KEY = "preview-seen";
 
 /**
  * A component that displays a number with a spring animation.
  *
  * @param {PreviewProps} props - The props for the component.
  */
-export default function Preview({
-  value,
-  direction = "up",
-  delay = 0,
-  className,
-}: PreviewProps) {
-  const [skip] = useState(() => {
-    if (typeof window === "undefined") return false;
-    const seen = sessionStorage.getItem("preview-seen");
-    if (seen) return true;
-    sessionStorage.setItem("preview-seen", "1");
-    return false;
-  });
+export default function Preview({ value = 100, className }: PreviewProps) {
+  const [isVisible, setIsVisible] = useState(() => {
+    if (typeof window === "undefined") {
+      return false;
+    }
 
-  const ref = useRef<HTMLSpanElement>(null);
-  // eslint-disable-next-line @typescript-eslint/no-shadow
-  const motionValue = useMotionValue(direction === "down" ? value : 0);
-  const springValue = useSpring(motionValue, {
-    damping: 60,
-    stiffness: 100,
+    return !window.sessionStorage.getItem(PREVIEW_SESSION_KEY);
   });
-  const isInView = useInView(ref, { margin: "0px" });
+  const [displayValue, setDisplayValue] = useState(0);
+  const progress = useMotionValue(0);
+  const spring = useSpring(progress, {
+    damping: 28,
+    stiffness: 140,
+  });
 
   useEffect(() => {
-    if (isInView) {
-      setTimeout(() => {
-        motionValue.set(direction === "down" ? 0 : value);
-      }, delay * 1000);
+    if (!isVisible) {
+      return undefined;
     }
-  }, [motionValue, isInView, delay, value, direction]);
 
-  useEffect(
-    () =>
-      springValue.on("change", (latest) => {
-        if (ref.current) {
-          ref.current.textContent = `${Intl.NumberFormat("en-US").format(Math.round(latest))}%`;
-        }
-      }),
-    [springValue]
-  );
+    window.sessionStorage.setItem(PREVIEW_SESSION_KEY, "1");
 
-  if (skip) return null;
+    let finishTimeout: number | undefined;
+
+    const unsubscribe = spring.on("change", (latest) => {
+      setDisplayValue(Math.round(latest));
+    });
+
+    const idleAnimation = animate(progress, value * 0.9, {
+      duration: 2.4,
+      ease: "easeOut",
+    });
+
+    const complete = () => {
+      idleAnimation.stop();
+      animate(progress, value, {
+        duration: 0.35,
+        ease: "easeOut",
+        onComplete: () => {
+          finishTimeout = window.setTimeout(() => {
+            setIsVisible(false);
+          }, 250);
+        },
+      });
+    };
+
+    if (document.readyState === "complete") {
+      complete();
+    } else {
+      window.addEventListener("load", complete, { once: true });
+    }
+
+    return () => {
+      idleAnimation.stop();
+      unsubscribe();
+      if (finishTimeout) {
+        window.clearTimeout(finishTimeout);
+      }
+      window.removeEventListener("load", complete);
+    };
+  }, [isVisible, progress, spring, value]);
 
   return (
-    <motion.div
-      initial={{ y: "0" }}
-      animate={{ y: "-100%" }}
-      transition={{
-        duration: 1,
-        delay: 4,
-        ease: "easeInOut",
-      }}
-      className="fixed flex justify-center top-0 left-0 w-full h-full bg-neutral-950 z-[1002]"
-    >
-      <span
-        className={cn(
-          "inline-block tracking-wider text-3xl font-thin leading-none self-center",
-          className
-        )}
-        ref={ref}
-      />
-    </motion.div>
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          initial={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: "-100%" }}
+          transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+          className="fixed inset-0 z-[1100] flex items-center justify-center overflow-hidden bg-neutral-950"
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.12),_transparent_45%),linear-gradient(180deg,_rgba(255,255,255,0.04),_transparent_55%)]" />
+          <div className="relative z-10 flex flex-col items-center gap-6 px-6 text-neutral-50">
+            <Logo size={88} type="preview" />
+            <div className="text-center uppercase tracking-[0.45em] text-xs text-neutral-400">
+              Loading experience
+            </div>
+            <div
+              className={cn(
+                "inline-flex items-end text-5xl font-light leading-none tabular-nums md:text-7xl",
+                className
+              )}
+            >
+              <SlidingNumber value={displayValue} />
+              <span className="ml-2 text-lg text-neutral-400 md:text-2xl">
+                %
+              </span>
+            </div>
+            <div className="h-px w-48 overflow-hidden bg-white/10 md:w-72">
+              <motion.div
+                className="h-full origin-left bg-neutral-100"
+                animate={{ scaleX: displayValue / value }}
+                transition={{ ease: "easeOut", duration: 0.2 }}
+              />
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
