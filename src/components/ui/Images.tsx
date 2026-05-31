@@ -1,5 +1,6 @@
 import Image from "next/image";
-import BlurFade from "../motion/BlurFade";
+
+import BlurFade from "~/components/motion/BlurFade";
 
 /**
  * Renders an image for the introduction section.

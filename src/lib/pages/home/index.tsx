@@ -10,7 +10,6 @@ import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
 import { TextHover } from "~/components/motion/TextHover";
 import UnfoldingText from "~/components/motion/UnfoldingText";
 import { AsciiArt } from "~/components/ui/ascii-art";
-import GeometricBlurMesh from "~/components/ui/geometric-blur-mesh";
 import { IntroImage } from "~/components/ui/Images";
 import InfiniteMovingCards from "~/components/ui/infinite-moving-cards";
 import { H2, H3, Paragraph } from "~/components/ui/Texts";
@@ -22,16 +21,12 @@ import { about, portfolio, services } from "~/data";
 const Hero = () => (
   <section id="hero">
     <div className="flex flex-col self-end h-full w-screen items-end right-0">
-      {/* <div className="absolute top-40 left-0 md:left-1/2 w-full md:w-1/2 p-2 md:p-4">
-        <GeometricBlurMesh duration={30} />
-      </div> */}
       <div className="absolute top-20 md:top-10 left-0 md:left-1/2 w-full md:w-1/2 p-2">
         <AsciiArt
           src="/me-home-bw.webp"
           className="w-full max-w-3xl aspect-square object-cover opacity-100"
           charset="dots"
           animated={false}
-          animationOnView={false}
           resolution={100}
           color="#C0C0C0"
         />

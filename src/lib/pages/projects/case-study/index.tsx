@@ -92,19 +92,6 @@ export default function CaseStudy(): JSX.Element {
                         <h3 className="text-xl sm:text-2xl font-medium text-neutral-200 mb-2 md:mb-4 text-balance">
                           {subsection.title}
                         </h3>
-                        <div className="prose prose-invert max-w-none">
-                          {subsection.description &&
-                            subsection.description
-                              .split("\n")
-                              .map((paragraph) => (
-                                <Paragraph
-                                  key={paragraph + Math.random()}
-                                  className="text-xs md:text-sm text-neutral-400 leading-relaxed whitespace-pre-wrap mt-4"
-                                >
-                                  {paragraph}
-                                </Paragraph>
-                              ))}
-                        </div>
                         {subsection.items && (
                           <ul className="list-disc list-inside space-y-1 mt-2 md:mt-4 ml-4">
                             {subsection.items.map((item) => (
@@ -121,9 +108,10 @@ export default function CaseStudy(): JSX.Element {
                     ))}
                 </ul>
                 {section.ending && (
-                  <Paragraph className="text-xs md:text-sm text-neutral-400 leading-relaxed whitespace-pre-wrap">
-                    {section.ending}
-                  </Paragraph>
+                  <Paragraph
+                    text={section.ending}
+                    className="text-xs md:text-sm text-neutral-400 leading-relaxed whitespace-pre-wrap"
+                  />
                 )}
               </motion.div>
             ))}

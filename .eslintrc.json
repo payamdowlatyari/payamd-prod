@@ -23,7 +23,6 @@
       }
     ],
     "import/no-extraneous-dependencies": "off",
-    "eslint-plugin-vue/no-unused-properties": "off",
     "consistent-return": "off",
     "no-console": "off",
     "no-param-reassign": "off",
