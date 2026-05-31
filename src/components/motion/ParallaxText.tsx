@@ -9,7 +9,16 @@ import {
 } from "motion/react";
 import { useRef } from "react";
 
-import { wrap } from "~/utils/wrap";
+/**
+ * @param {number} min The minimum value
+ * @param {number} max The maximum value
+ * @param {number} v The value to wrap
+ * @returns {number} The wrapped value
+ */
+export const wrap = (min: number, max: number, v: number): number => {
+  const rangeSize = max - min;
+  return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
+};
 
 /**
  * Props for the ParallaxText component.
@@ -64,7 +73,7 @@ export default function ParallaxText({
       {[1, 2, 3, 4].map((index) => (
         <span
           key={index}
-          className="block mr-5 text-5xl text-neutral-500 backdrop:blur-sm"
+          className="block mr-5 text-6xl sm:text-7xl md:text-8xl text-neutral-500"
         >
           {children}{" "}
         </span>

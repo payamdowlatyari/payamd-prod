@@ -17,10 +17,16 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="flex justify-center items-end w-screen h-full min-h-[50vh] z-0">
-      <div className="flex flex-col items-center justify-end z-10">
-        <BlurFade blur="6px" duration={0.7} delay={0.3} inView>
-          <div className="w-screen h-full flex flex-wrap md:flex-nowrap items-center justify-center my-10">
+    <footer className="flex justify-center items-end w-screen h-full min-h-screen z-0 bg-gradient-to-b from-neutral-950 to-neutral-800">
+      <div className="flex flex-col items-center justify-end h-[75vh] z-10">
+        <BlurFade
+          blur="6px"
+          duration={0.7}
+          delay={0.3}
+          inView
+          variant={{ hidden: { y: 50 }, visible: { y: 0 } }}
+        >
+          <div className="w-screen h-[70vh] flex flex-wrap md:flex-nowrap items-center justify-center my-10">
             <div className="flex flex-col mt-4 w-full items-center justify-center">
               {navigationLinks.map(({ href, label }) => (
                 <TextHover key={href} text={label} url={href} />

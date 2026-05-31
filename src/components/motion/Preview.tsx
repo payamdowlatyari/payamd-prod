@@ -268,7 +268,7 @@ export default function Preview({ value = 100, className }: PreviewProps) {
           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
           className="fixed inset-0 z-[1100] flex items-center justify-center overflow-hidden bg-neutral-950"
         >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.12),_transparent_45%),linear-gradient(180deg,_rgba(255,255,255,0.04),_transparent_55%)]" />
+          <div className="absolute inset-0 bg-gradient-radial from-neutral-900 to-neutral-950" />
           <div className="relative z-10 flex flex-col items-center gap-6 px-6 text-neutral-50">
             <Logo size={88} type="preview" />
             <div className="text-center uppercase tracking-[0.45em] text-xs text-neutral-400">

@@ -5,10 +5,13 @@ import BlurFade from "~/components/motion/BlurFade";
  *
  * @param {Object} props - The component props.
  * @param {string} props.label - The label to render as the h1 element's content.
+ * @param {string} [props.className] - Optional additional class names for styling.
  */
-const H1 = ({ label }: { label: string }) => (
+const H1 = ({ label, className }: { label: string; className?: string }) => (
   <BlurFade blur="6px" duration={0.4} delay={0.3} inView>
-    <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl uppercase tracking-tighter">
+    <h1
+      className={`text-6xl sm:text-7xl md:text-8xl lg:text-9xl uppercase tracking-tighter ${className}`}
+    >
       {label}
     </h1>
   </BlurFade>
@@ -19,10 +22,11 @@ const H1 = ({ label }: { label: string }) => (
  *
  * @param {Object} props - The component props.
  * @param {string} props.label - The label to render as the h2 element's content.
+ * @param {string} [props.className] - Optional additional class names for styling.
  */
-const H2 = ({ label }: { label: string }) => (
+const H2 = ({ label, className }: { label: string; className?: string }) => (
   <BlurFade blur="6px" duration={0.4} delay={0.3} inView>
-    <h2 className="text-4xl sm:text-5xl md:text-6xl">{label}</h2>
+    <h2 className={`text-4xl sm:text-5xl md:text-6xl ${className}`}>{label}</h2>
   </BlurFade>
 );
 
@@ -31,9 +35,12 @@ const H2 = ({ label }: { label: string }) => (
  *
  * @param {Object} props - The component props.
  * @param {string} props.label - The label to render as the h3 element's content.
+ * @param {string} [props.className] - Optional additional class names for styling.
  */
-const H3 = ({ label }: { label: string }) => (
-  <h3 className="text-3xl sm:text-4xl md:text-5xl max-w-md text-neutral-200">
+const H3 = ({ label, className }: { label: string; className?: string }) => (
+  <h3
+    className={`text-3xl sm:text-4xl md:text-5xl text-neutral-200 ${className}`}
+  >
     {label}
   </h3>
 );
@@ -43,9 +50,12 @@ const H3 = ({ label }: { label: string }) => (
  *
  * @param {Object} props - The component props.
  * @param {string} props.label - The label to render as the h4 element's content.
+ * @param {string} [props.className] - Optional additional class names for styling.
  */
-const H4 = ({ label }: { label: string }) => (
-  <h4 className="text-2xl sm:text-3xl md:text-4xl max-w-md text-neutral-200">
+const H4 = ({ label, className }: { label: string; className?: string }) => (
+  <h4
+    className={`text-2xl sm:text-3xl md:text-4xl text-neutral-200 ${className}`}
+  >
     {label}
   </h4>
 );

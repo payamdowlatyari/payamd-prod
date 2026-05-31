@@ -11,6 +11,10 @@
     content: "";
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   /* Hack to line-height for html2canvas */
   img {
     @apply inline-block;

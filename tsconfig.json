@@ -16,11 +16,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "~/*": ["./*"],
-      "@/*": ["./src/*"],
-      "@components/*": ["./src/components/*"]
+      "~/*": ["src/*"],
+      "@components/*": ["src/components/*"]
     },
     "incremental": true,
     "plugins": [

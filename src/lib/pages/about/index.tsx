@@ -15,20 +15,9 @@ import ScrollProgressBar, {
 } from "~/components/motion/ScrollProgressBar";
 import TextRevealByWord from "~/components/motion/ScrollReveal";
 import { LinkArrowOut } from "~/components/ui/Button";
+import { IntroImage, CameraImage } from "~/components/ui/Images";
 import { H1, H2, Paragraph } from "~/components/ui/Texts";
 import { intro, resume } from "~/data";
-
-const IntroImage = () => (
-  <div className="h-72 w-72 sm:h-80 sm:w-80 md:h-96 md:w-96 m-1">
-    <Image
-      src="/me-home-bw-removebg.png"
-      alt="me"
-      className="shadow-lg object-cover"
-      width={384}
-      height={512}
-    />
-  </div>
-);
 
 /**
  * Renders an introduction section with a gradient tracing animation.
@@ -37,7 +26,7 @@ const Intro = ({ opacity }: { opacity: MotionValue<number> }) => (
   <div className="relative">
     <motion.div
       style={{ opacity }}
-      className="fixed mx-1 h-screen w-screen flex flex-wrap items-center justify-evenly"
+      className="fixed mx-1 h-screen w-screen flex flex-wrap md:items-center justify-evenly"
     >
       <div className="px-4 sm:px-8 pt-1 sm:pt-2 flex">
         <div className="grid gap-2">
@@ -48,7 +37,10 @@ const Intro = ({ opacity }: { opacity: MotionValue<number> }) => (
       </div>
       <IntroImage />
       <div className="w-screen mx-auto fixed bottom-0 flex justify-center px-4 py-10">
-        <Paragraph text={intro.tagline} />
+        <div className="text-neutral-400 text-sm flex flex-col items-center gap-1">
+          <div className="mb-4">Scroll Down</div>
+          <div className="h-12 w-0.5 bg-gradient-to-t from-transparent via-neutral-400 to-transparent" />
+        </div>
       </div>
     </motion.div>
     <div className="z-10 flex min-h-screen justify-center pt-[200vh]">
@@ -65,14 +57,14 @@ const Intro = ({ opacity }: { opacity: MotionValue<number> }) => (
  * Renders a resume section with a gradient tracing animation.
  */
 const Resume = ({ x }: { x: MotionValue<string> }) => (
-  <motion.section
+  <section
     id="resume"
     className="block top-0 max-w-screen-lg overflow-hidden h-[1500vh] p-0 bg-neutral-950"
-    layoutScroll
   >
     <div className="fixed flex top-0 overflow-hidden items-center h-screen">
       <motion.ul
         className="fixed flex list-none h-screen"
+        layout
         style={{
           x,
         }}
@@ -80,7 +72,7 @@ const Resume = ({ x }: { x: MotionValue<string> }) => (
         {resume.map((section) => (
           <li className="w-screen max-w-screen-lg" key={section.section}>
             <div className="flex flex-row justify-center items-center h-screen m-1">
-              <div className="flex flex-col justify-center max-w-screen-lg overflow-hidden">
+              <div className="flex flex-col justify-center max-w-screen-lg overflow-hidden backdrop-blur-sm rounded-lg p-4">
                 <div className="flex flex-col-reverse px-4">
                   <H2 label={section.section} />
                 </div>
@@ -96,7 +88,7 @@ const Resume = ({ x }: { x: MotionValue<string> }) => (
         ))}
       </motion.ul>
     </div>
-  </motion.section>
+  </section>
 );
 
 /**
@@ -131,7 +123,7 @@ const MarqueeSection = ({ opacity }: { opacity: MotionValue<number> }) => (
  * Renders a bottom section with a gradient tracing animation.
  */
 const BottomSection = () => (
-  <div className="relative">
+  <div className="relative flex flex-col md:flex-row justify-evenly my-20 items-center gap-4">
     <div className="text-neutral-400 text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl mx-auto max-w-xl leading-10 px-4 my-10 z-10">
       Check out <br /> my{" "}
       <LinkPreview url="https://blog.payamd.com/">Blog</LinkPreview> <br /> &{" "}
@@ -141,6 +133,9 @@ const BottomSection = () => (
       </LinkPreview>{" "}
       <br />
       portfolio.
+    </div>
+    <div className="mx-auto relative w-full max-w-md h-auto">
+      <CameraImage />
     </div>
   </div>
 );

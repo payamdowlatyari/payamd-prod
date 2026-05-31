@@ -20,12 +20,12 @@ import {
   SiCss3,
   SiHtml5,
   SiJavascript,
-  SiSass,
-  SiVuedotjs,
   SiPython,
   SiFastapi,
+  SiAmazonaws,
+  SiDocker,
 } from "react-icons/si";
-import { TbApi, TbBrandThreejs } from "react-icons/tb";
+import { TbApi } from "react-icons/tb";
 import { VscCircuitBoard } from "react-icons/vsc";
 
 export const services = [
@@ -119,8 +119,8 @@ const projectsItems = [
     description:
       "A web application that uses AI to identify the best physicians",
     img: "/projects/physician-gps-home-1750x1000.webp",
-    url: "https://find-a-doc-app.vercel.app/",
-    tags: ["Typescript", "Next.js", "Tailwind", "Amplify"],
+    url: "/projects/case-study",
+    tags: ["Typescript", "Next.js", "Amplify", "AWS", "Docker"],
     icons: [
       {
         name: "Typescript",
@@ -131,12 +131,16 @@ const projectsItems = [
         icon: SiNextdotjs,
       },
       {
-        name: "Tailwind",
-        icon: SiTailwindcss,
-      },
-      {
         name: "Amplify",
         icon: SiAwsamplify,
+      },
+      {
+        name: "AWS",
+        icon: SiAmazonaws,
+      },
+      {
+        name: "Docker",
+        icon: SiDocker,
       },
     ],
     date: "2025",
@@ -168,29 +172,6 @@ const projectsItems = [
     ],
     date: "2025",
   },
-  // {
-  //   index: 1,
-  //   title: "Canvasfolio",
-  //   description: "A portfolio template for professionals",
-  //   img: "/projects/canvasfolio1750x1000.webp",
-  //   url: "https://physiciangps.co/",
-  //   tags: ["Typescript", "Next.js", "Three.js"],
-  //   icons: [
-  //     {
-  //       name: "Typescript",
-  //       icon: SiTypescript,
-  //     },
-  //     {
-  //       name: "Next.js",
-  //       icon: SiNextdotjs,
-  //     },
-  //     {
-  //       name: "Three.js",
-  //       icon: TbBrandThreejs,
-  //     },
-  //   ],
-  //   date: "2024",
-  // },
   {
     index: 2,
     title: "My Dashbaord",
@@ -291,29 +272,6 @@ const projectsItems = [
     ],
     date: "2023",
   },
-  // {
-  //   index: 6,
-  //   title: "Nextfolio",
-  //   description: "A portfolio website template for professionals",
-  //   img: "/projects/nextfolio_1925x1100.webp",
-  //   url: "https://nextfolio-theta.vercel.app/",
-  //   tags: TAGS_TS_NEXT_TAILWIND,
-  //   icons: [
-  //     {
-  //       name: "Typescript",
-  //       icon: SiTypescript,
-  //     },
-  //     {
-  //       name: "Next.js",
-  //       icon: SiNextdotjs,
-  //     },
-  //     {
-  //       name: "Tailwind",
-  //       icon: SiTailwindcss,
-  //     },
-  //   ],
-  //   date: "2023",
-  // },
   {
     index: 7,
     title: "Paper Browser",
@@ -417,9 +375,10 @@ export const portfolio = {
   ],
   contacts: [
     {
-      title: "Email",
+      title: "Contact",
       links: [
-        { name: "pdowlatyari@gmail.com", url: "mailto:pdowlatyari@gmail.com" },
+        { name: "Email", url: "mailto:pdowlatyari@gmail.com" },
+        { name: "Calendly", url: "https://calendly.com/pdowlatyari" },
       ],
     },
     {
@@ -429,30 +388,23 @@ export const portfolio = {
         { name: "Photography", url: "https://photos.payamd.com" },
       ],
     },
-  ],
-  social: [
     {
-      platform: "GitHub",
-      url: "https://github.com/payamdowlatyari",
-    },
-    {
-      platform: "LinkedIn",
-      url: "https://www.linkedin.com/in/payamdowlatyari",
-    },
-    {
-      platform: "X",
-      url: "https://x.com/payamyam",
-    },
-    {
-      platform: "Medium",
-      url: "https://medium.com/@pdowlatyari",
+      title: "Social",
+      links: [
+        { name: "GitHub", url: "https://github.com/payamdowlatyari" },
+        {
+          name: "LinkedIn",
+          url: "https://www.linkedin.com/in/payamdowlatyari",
+        },
+        { name: "X", url: "https://x.com/payamyam" },
+      ],
     },
   ],
 };
 
 export const intro = {
   title: "About",
-  summary: `Hi, I’m Payam Dowlatyari, a full-stack software engineer based in California who loves 
+  summary: `Hi, I'm Payam Dowlatyari, a full-stack software engineer based in California who loves 
   building fast, reliable, and scalable web applications. I'm passionate about turning complex ideas 
   into clean, efficient systems that people actually enjoy using.`,
   tagline: `Scroll down to learn more about my work and experience!`,
@@ -634,7 +586,278 @@ export const contactDetails = {
   ],
 };
 
+export const projectCaseStudy = {
+  title: "PhysicianGPS",
+  subtitle:
+    "Building a Scalable Provider Search Platform with AI-Powered Features",
+  summary: `This case study provides an in-depth look at the design and development of PhysicianGPS, a provider search and analytics platform built for employers and organizations to help their members find the best physicians. It covers the project overview, problem statement, research and understanding of the domain, system architecture solution, implementation highlights, reliability and performance considerations, and concludes with key takeaways and future directions.`,
+  images: [
+    {
+      url: "/projects/case/home.png",
+      alt: "Home Page",
+      desc: "The home page of PhysicianGPS, showcasing the search interface and featured physicians.",
+    },
+    {
+      url: "/projects/case/search.png",
+      alt: "Search Page",
+      desc: "The search results page of PhysicianGPS, displaying a list of physicians based on user queries.",
+    },
+    {
+      url: "/projects/case/PhysicianGPSLogoDark.png",
+      alt: "PhysicianGPS Logo",
+      desc: "The logo of PhysicianGPS, representing the brand identity of the platform.",
+    },
+  ],
+  sections: [
+    {
+      title: "Project Overview",
+      description: `PhysicianGPS is a provider search and analytics platform built for employers and organizations to help their members find the best physicians—not just the closest ones. 
+With healthcare quality varying widely, employees often struggle to identify top-performing doctors who accept their insurance, are nearby, and match their needs. 
+As the lead engineer on the project, I designed and implemented the end-to-end system architecture—from data ingestion and indexing to the backend APIs and frontend search experience.
+The result was a scalable platform that enables sub-second search across 200K+ healthcare records, supported by an automated ingestion pipeline, reliable filtering, and a user experience optimized for speed and clarity.`,
+    },
+    {
+      title: "The Problem",
+      description: `When companies provide healthcare benefits, employees are left to navigate provider networks on their own. They often pick doctors based on convenience, proximity, or a friend's recommendation—not on objective quality or outcomes. This leads to frustration for patients and higher long-term healthcare costs for employers. The reality is that finding the right physician is difficult, even with modern insurance portals. 
+A healthcare startup, Avalon AI, aimed to address this issue. Their data science team developed machine learning models to evaluate physicians using billions of data points—from prescribing patterns and readmission rates to infection rates and outcome metrics. 
+To bring this to life, they needed an engineering team to build a fast, accurate, multi-tenant provider search experience on top of a massive dataset with strict tenant isolation for employer-specific networks.
+PhysicianGPS became that solution: a platform that allows employees to quickly find high-quality, in-network physicians, while giving employers confidence that their employees are making data-driven healthcare decisions.`,
+    },
+    {
+      title: "Goals & Requirements",
+      description:
+        "To address these challenges, I defined a set of functional and non-functional requirements that shaped the architecture and implementation strategy.",
+      sections: [
+        {
+          title: "Functional Requirements",
+          items: [
+            "Automate ingestion, transformation, and enrichment of provider datasets",
+            "Provide a user-friendly interface for searching and filtering providers",
+            "Support real-time search with geospatial queries and ranked results",
+            "Support fast filtering by specialty, location, telehealth, and other attributes",
+            "Provide real-time search with geospatial queries and ranked results",
+            "Support multi-tenant access patterns for future growth",
+          ],
+        },
+        {
+          title: "Non-Functional Requirements",
+          items: [
+            "Performance: sub-second query responses and fast UI rendering",
+            "Scalability: support hundreds of thousands of records and future dataset expansion",
+            "Reliability: no silent failures, robust error handling and retries, auditable data pipeline",
+            "Observability: metrics, logs, and user behavior analytics to drive iteration",
+            "User Experience: intuitive, fast, low-friction search interactions",
+          ],
+        },
+      ],
+      ending:
+        "These requirements ensured that the final solution would not only work—but work at scale, with speed and trust at its core.",
+    },
+    {
+      title: "Research & Understanding the Domain",
+      description: `Building an effective provider search platform required more than just ingesting data and exposing it through a UI. The core challenge was understanding the complex and messy world of healthcare provider data.
+Provider information comes from fragmented sources such as NPI registries, claims datasets, licensing boards, and insurance networks. Each source has its own structure, refresh cadence, and data quality issues. On top of that, high-value fields—such as specialties, hospital affiliations, outcome metrics, or telehealth availability—are not standardized and often require inference, cleaning, and enrichment.
+`,
+      sections: [
+        {
+          title:
+            "There were also unique domain expectations that shaped the solution:",
+          items: [
+            "Accuracy matters more than convenience. A user must trust that a physician is in-network and correctly labeled.",
+            "Geolocation precision affects UX. Ranking by distance, coverage area, and service radius had to be correct, not “close enough.”",
+            "Healthcare quality is multi-dimensional. Predictive models and rankings required traceability and consistent provider identifiers.",
+            "Privacy and isolation are non-negotiable. Employers (tenants) should never see another tenant’s network or data.",
+          ],
+        },
+      ],
+      ending: `Understanding these realities upfront helped guide technical decisions around architecture, testing, data modeling, and performance.`,
+    },
+    {
+      title: "System Architecture Solution",
+      description: `At a high level, the platform follows a pipeline → index → API → UI model designed for speed, scalability, and tenant isolation.`,
+      sections: [
+        {
+          title: "Why this architecture works:",
+          items: [
+            "Serverless ingestion scales automatically with large datasets",
+            "OpenSearch enables sub-second text, geo, and filter queries",
+            "A clean API layer enforces tenant boundaries and caching",
+            "React UI delivers a fast, intuitive search experience",
+            "Amplitude + CloudWatch closes the loop with real usage insights and observability",
+          ],
+        },
+      ],
+    },
+    {
+      title: "Implementation Highlights",
+      description: `To deliver a fast, trustworthy, and scalable experience, I implemented an architecture that cleanly separated data concerns, leveraged modern Next.js patterns for performance, and used AWS tooling to accelerate iteration and reliability.`,
+      sections: [
+        {
+          title: "Next.js Server Components for Fast, Direct Search",
+          items: [
+            "Built the web app using Next.js (App Router)",
+            "Leveraging Server Components to query OpenSearch directly from the server layer for faster TTFB and stronger data security (no search logic exposed to the client).",
+            "Implemented responsive filters, map views, pagination, and caching strategies to make the search experience feel instant and intuitive.",
+          ],
+        },
+        {
+          title: "Amplify Gen 2 for Auth, Logging, and CI/CD",
+          items: [
+            "Used AWS Amplify Gen 2 to streamline environment configuration, deployments, authentication flows, and application logging.",
+            "Integrated Cognito with multi-tenant guardrails, ensuring users only access physicians within their employer's network.",
+            "Amplify's built-in CI/CD and environment management allowed rapid iteration across staging, dev, and production with minimal operational overhead.",
+          ],
+        },
+        {
+          title: "Search Indexing & Backend Query Layer",
+          items: [
+            "Designed OpenSearch index templates tuned for keyword, text relevancy, and geolocation fields.",
+            "Built a backend query layer (invoked by Next.js server components) to implement query optimization, caching, and complex filtering logic.",
+          ],
+        },
+        {
+          title: "ETL and Multi-Tenant Data Ingestion Pipeline",
+          items: [
+            "Developed a serverless ingestion pipeline using AWS Step Functions and Lambda (Python ETL) to process large healthcare datasets in parallel.",
+            "Performed validation, normalization, enrichment, and NDJSON generation for reliable bulk indexing.",
+          ],
+        },
+        {
+          title: "Separate APIs for Employee Data (AWS CDK)",
+          items: [
+            "Used AWS CDK to define and deploy APIs for handling employer-specific employee datasets (e.g., plan grouping, permissions, employee-provider matching).",
+            "CDK-managed infra included DynamoDB, API Gateway, IAM policies, and a repeatable pipeline for provisioning new tenants and environments via IaC.",
+          ],
+        },
+        {
+          title: "Testing and UX Instrumentation",
+          items: [
+            "Wrote Jest for unit tests and Playwright for e2e testing for core components.",
+            "Implemented frontend performance monitoring using Lighthouse.",
+            "Instrumented Amplitude for feature adoption, user funnel analysis, and product decision feedback.",
+          ],
+        },
+      ],
+      ending: `This combination of Next.js server-driven rendering, Amplify operational tooling, and AWS CDK-defined infrastructure created a strong foundation: fast at runtime, reliable in production, and easy to evolve as the business grew.`,
+    },
+    {
+      title: "Reliability & Performance",
+      description: `Because PhysicianGPS was designed to handle sensitive data and power live decision-making, I built reliability and performance into the system from end to end.`,
+      sections: [
+        {
+          title: "Observability & Monitoring",
+          items: [
+            "Used AWS CloudWatch for ingestion metrics, execution logs, and pipeline anomaly alerts.",
+            "Integrated Amplitude to understand how users interacted with search filters, map results, and ranking features—helping us prioritize UX improvements based on real behavior.",
+            "Implemented structured logging and trace IDs so search requests could be tracked across pipeline → index → API → UI.",
+          ],
+        },
+        {
+          title: "Testing Strategy",
+          items: [
+            "Frontend: Unit tests (Jest + RTL) for filter logic and component behavior, reducing regressions as UI evolved.",
+            "Backend & ETL: Integration tests for API + OpenSearch interactions, plus validation tests for data transformations.",
+            "Performance: Lighthouse audits, React Profiler, and API load tests to catch slow renders or query paths early.",
+          ],
+        },
+        {
+          title: "Performance Outcomes",
+          items: [
+            "Reduced ingestion time from hours to minutes using chunked parallel processing.",
+            "Achieved sub-500ms average search latency, even under complex multi-filter queries.",
+            "Delivered zero-downtime reindexing by using shadow indices and swap strategies during deployments.",
+          ],
+        },
+      ],
+      ending: `These investments ensured that PhysicianGPS remained fast, stable, and transparent in production—even as datasets, tenants, and usage grew.`,
+    },
+    {
+      title: "Results & Impact ",
+      description: `The platform delivered measurable improvements for users, engineering, and the business.`,
+      sections: [
+        {
+          title: "User Impact",
+          items: [
+            "Employees could quickly find high-quality, in-network doctors, increasing trust in their healthcare choices.",
+            "A fast, intuitive UI reduced search friction and increased adoption across pilot tenants.",
+          ],
+        },
+        {
+          title: "Business Impact",
+          items: [
+            "Enabled Avalon AI to productize their ML physician-quality models, turning raw data science into a compelling employer-facing product.",
+            "Reduced manual workloads and time-to-answer by replacing spreadsheets and disjointed provider directories.",
+            "Created a repeatable multi-tenant foundation for onboarding new enterprise customers.",
+          ],
+        },
+        {
+          title: "Engineering Impact",
+          items: [
+            "Established a modern, scalable stack combining Next.js + OpenSearch + AWS serverless + Amplify + CDK.",
+            "Significantly improved development velocity with trunk-based workflows, environment automation, and CI/CD.",
+          ],
+        },
+      ],
+      ending:
+        "The result was a platform that aligned engineering excellence with tangible user and business value.",
+    },
+    {
+      title: "Challenges",
+      description: "",
+      sections: [
+        {
+          title: "Scaling Ingestion and Search",
+          items: [
+            "Challenge: Single-threaded ingestion and synchronous search calls couldn't scale.",
+            "Solution: Introduced chunked ETL with Step Functions, async workflows, and fine-tuned OpenSearch indexing.",
+          ],
+        },
+        {
+          title: "Multi-Tenant Isolation at Scale",
+          items: [
+            "Challenge: Each employer needed strict data boundaries.",
+            "Solution: Used subdomain-derived tenant context, Cognito-based auth, and tenant-aware data policies in the backend.",
+          ],
+        },
+        {
+          title: "Maintaining Velocity While Ensuring Reliability",
+          items: [
+            "Challenge: Move fast without breaking trust (especially in healthcare).",
+            "Solution: CI/CD + automated tests + canary indexing + observability allowed rapid shipping with confidence.",
+          ],
+        },
+      ],
+      ending: `Each challenge reinforced the importance of designing systems that are not only functional but also scalable, secure, and maintainable—especially in a domain as critical as healthcare.`,
+    },
+    {
+      title: "What I Would Improve Next",
+
+      description: `PhysicianGPS reinforced an important lesson: the most impactful engineering happens when technical excellence and product clarity move in lockstep. Working across the full stack — from ingestion pipelines to search relevance to UI responsiveness — taught me the value of owning the problem, not just the code, and making decisions that balance speed, reliability, and usability.`,
+
+      sections: [
+        {
+          title: "If I were to evolve the platform further, I would invest in:",
+          items: [
+            "Deeper relevance tuning: measuring outcomes and iterating on ranking signals",
+            "Even stronger domain boundaries: refining service boundaries using DDD patterns",
+            "Automated contract testing: especially between the indexing and query layers",
+            "Data versioning and lineage visibility: for clearer analytics and auditability",
+          ],
+        },
+      ],
+      endind:
+        "These are natural next steps that would push the platform toward even greater scale, clarity, and long-term maintainability.",
+    },
+
+    {
+      title: "Conclusion/Takeaways",
+      description: `PhysicianGPS pushed me to think beyond features and focus on building systems that truly empower people. By transforming messy healthcare data into a fast, trustworthy search experience, I helped create a product that gives users confidence in one of the most important decisions they make: choosing a physician.
+This project strengthened my belief that great engineering is equal parts craftsmanship, curiosity, and accountability — that when we combine reliable architecture, observable systems, and thoughtful UX, we can deliver technology that feels effortless and makes a real difference. I'm proud of the platform I built, and I'm even more excited to take these lessons into the next challenge — solving complex problems, collaborating with sharp teams, and building products that matter.`,
+    },
+  ],
+};
+
 export const projects = {
-  projects: projectsItems,
+  products: projectsItems,
   details: projectsDetails,
 };

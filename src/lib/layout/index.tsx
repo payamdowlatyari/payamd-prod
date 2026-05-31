@@ -11,6 +11,7 @@ import Logo from "~/components/ui/Logo";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import "~/app/globals.css";
+import SpotlightBackground from "~/components/ui/spotlight-background";
 
 type LayoutProps = {
   children: ReactNode;
@@ -26,14 +27,14 @@ const Layout = ({ children }: LayoutProps) => {
 
   if (!currentPath) {
     return (
-      <main className="flex flex-col items-center justify-center h-screen">
-        <Logo />
-      </main>
+      <div className="flex items-center justify-center h-screen">
+        Loading...
+      </div>
     );
   }
 
   return (
-    <>
+    <SpotlightBackground>
       <Preview />
       <AnimatePresence mode="wait" initial={false}>
         <PageTransition key={currentPath}>
@@ -41,7 +42,7 @@ const Layout = ({ children }: LayoutProps) => {
           <Logo />
         </PageTransition>
       </AnimatePresence>
-    </>
+    </SpotlightBackground>
   );
 };
 

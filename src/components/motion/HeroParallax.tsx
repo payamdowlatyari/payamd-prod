@@ -14,6 +14,7 @@ import { IconType } from "react-icons/lib/cjs/iconBase";
 
 import BlurFade from "~/components/motion/BlurFade";
 import { H1, Paragraph } from "~/components/ui/Texts";
+import { projects } from "~/data";
 
 type Product = {
   title: string;
@@ -131,13 +132,12 @@ export const ProductCard = ({
           className="object-cover object-left-top absolute h-full w-full inset-0 rounded-xl"
           alt={product.title}
         />
-
-        <div className="absolute inset-0 h-full w-full opacity-30 group-hover/product:opacity-90 shadow-xl shadow-neutral-500 rounded-xl bg-gradient-to-b bg-neutral-950 pointer-events-none" />
+        <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-100 shadow-xl shadow-neutral-500 rounded-xl pointer-events-none bg-gradient-to-b from-neutral-800 via-neutral-800 to-transparent backdrop-blur-sm" />
         <div className="flex flex-col justify-between items-stretch h-full p-2 md:p-4 lg:p-6">
-          <h3 className="z-10 text-base sm:text-lg md:text-xl opacity-0 group-hover/product:opacity-100 font-semibold text-neutral-200 tracking-tight mb-1">
+          <h3 className="z-10 text-base sm:text-lg md:text-xl opacity-0 group-hover/product:opacity-100 font-semibold text-neutral-100 tracking-tight mb-1">
             {product.title}
           </h3>
-          <p className="z-10 opacity-0 group-hover/product:opacity-100 text-neutral-400 text-xs sm:text-sm md:text-base my-1">
+          <p className="z-10 opacity-0 group-hover/product:opacity-100 text-neutral-300 text-xs sm:text-sm md:text-base my-1">
             {product.description}
           </p>
           <div className="z-10 opacity-0 group-hover/product:opacity-100 flex justify-start mt-2 md:mt-4">
@@ -157,18 +157,9 @@ export const ProductCard = ({
 
 /**
  * A hero section for a web development portfolio page.
- *
- * @param {Object} props - The component props.
- * @param {Object[]} props.products - An array of product data to display in the hero section.
- * @param {Object} props.details - The details data to display in the hero section.
  */
-export const HeroParallax = ({
-  products,
-  details,
-}: {
-  products: Product[];
-  details: Details;
-}) => {
+export const HeroParallax = () => {
+  const { products, details } = projects;
   const firstRow = products.slice(0, 3);
   const secondRow = products.slice(3, 6);
   const thirdRow = products.slice(6, 9);
@@ -253,18 +244,9 @@ export const HeroParallax = ({
 
 /**
  * A hero section for a web development portfolio page.
- *
- * @param {Object} props - The component props.
- * @param {Object[]} props.products - An array of product data to display in the hero section.
- * @param {Object} props.details - The details data to display in the hero section.
  */
-export const MobileHeroParallax = ({
-  products,
-  details,
-}: {
-  products: Product[];
-  details: Details;
-}) => {
+export const MobileHeroParallax = () => {
+  const { products, details } = projects;
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -301,25 +283,15 @@ export const MobileHeroParallax = ({
 
 /**
  * A component that renders a hero section with a parallax effect.
- *
- * @param {Object} props - The component props.
- * @param {Object[]} props.products - An array of product data to display in the hero section.
- * @param {Object} props.details - The details data to display in the hero section.
  */
-const ResponsiveHeroParallax = ({
-  products,
-  details,
-}: {
-  products: Product[];
-  details: Details;
-}) => {
+const ResponsiveHeroParallax = () => {
   return (
     <>
       <div className="hidden md:block">
-        <HeroParallax products={products} details={details} />
+        <HeroParallax />
       </div>
       <div className="block md:hidden">
-        <MobileHeroParallax products={products} details={details} />
+        <MobileHeroParallax />
       </div>
     </>
   );
