@@ -4,6 +4,7 @@ import SendMail from "~/components/contact/SendMail";
 import Footer from "~/components/layout/Footer";
 import Menu from "~/components/layout/Menu";
 import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
+import CTA from "~/components/ui/CTA";
 import { H1, Paragraph } from "~/components/ui/Texts";
 import { contactDetails } from "~/data";
 
@@ -17,18 +18,24 @@ export default function Contact(): JSX.Element {
   return (
     <main className="overflow-hidden">
       <Menu />
-      <section className="w-fit m-auto z-10">
-        <div className="flex flex-col justify-center items-center m-auto mt-20 py-10">
-          <div className="grid gap-2 m-auto">
+      <section className="mx-auto max-w-7xl z-10">
+        <div className="flex flex-col justify-center items-center m-auto my-20 px-4">
+          <div className="grid gap-2 mb-6 text-center">
             <H1 label={title} />
             <Paragraph
               text={description}
-              className="mb-4 mx-auto text-center max-w-sm"
+              className="mb-4 mx-auto text-center text-neutral-400 max-w-sm md:max-w-lg"
             />
           </div>
           <SendMail />
         </div>
       </section>
+
+      {/* CTA */}
+      <div className="flex flex-col items-center justify-center w-full my-20 py-10 px-4">
+        <CTA />
+      </div>
+
       <Footer />
       <ScrollProgressBar />
     </main>

@@ -17,12 +17,12 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="flex justify-center items-end w-screen h-full min-h-screen z-0 bg-gradient-to-b from-neutral-950 to-neutral-800">
+    <footer className="flex justify-center items-end w-screen h-full min-h-screen z-0">
       <div className="flex flex-col items-center justify-end h-[75vh] z-10">
         <BlurFade
           blur="6px"
-          duration={0.7}
-          delay={0.3}
+          duration={0.8}
+          delay={0.5}
           inView
           variant={{ hidden: { y: 50 }, visible: { y: 0 } }}
         >

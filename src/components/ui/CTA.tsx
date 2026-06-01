@@ -1,5 +1,6 @@
 import { LinkArrowOut } from "./Button";
-import { H2, Paragraph } from "./Texts";
+import { H3, Paragraph } from "./Texts";
+import WavePath from "./wave-path";
 
 /**
  * CTA component that encourages users to connect.
@@ -7,11 +8,12 @@ import { H2, Paragraph } from "./Texts";
 export default function CTA() {
   return (
     <div className="flex flex-col items-center justify-center w-full">
-      <div className="flex flex-col items-center justify-center">
-        <H2 label="Let's Connect" />
+      <WavePath className="my-10" />
+      <div className="flex flex-col justify-center">
+        <H3 label="Let's Connect" />
         <Paragraph
           text="Feel free to reach out if you have any questions or just want to chat. I'm always open to new opportunities and collaborations."
-          className="text-center mt-4"
+          className="text-neutral-400 mt-4"
         />
         <div className="flex gap-4 mt-6">
           <LinkArrowOut title="Email Me" url="mailto:pdowlatyari@gmail.com" />

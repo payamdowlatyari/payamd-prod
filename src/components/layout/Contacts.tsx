@@ -12,9 +12,9 @@ export default function Contacts() {
           key={`${section.title}`}
           className="flex flex-col md:flex-row justify-start items-center w-full"
         >
-          <h5 className="font-semibold text-base md:text-lg text-center md:text-left uppercase text-neutral-600 w-24 mx-2">
+          <div className="font-semibold text-sm md:text-base xl:text-lg text-center md:text-left uppercase text-neutral-600 w-24 mx-2">
             {section.title}
-          </h5>
+          </div>
           <div className="flex flex-wrap gap-1 my-1 md:my-2 pl-2 justify-start items-center">
             {section.links.map((link) => (
               <LinkArrowOut key={link.name} title={link.name} url={link.url} />
