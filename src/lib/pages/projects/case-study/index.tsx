@@ -1,15 +1,13 @@
 "use client";
 
-import { Link, Sun } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
 
 import Footer from "~/components/layout/Footer";
 import Menu from "~/components/layout/Menu";
 import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
-import { LinkOverlay } from "~/components/ui/Button";
 import CTA from "~/components/ui/CTA";
-import { H1, H2, Paragraph } from "~/components/ui/Texts";
+import { H1, H2, H3, Paragraph } from "~/components/ui/Texts";
 import { projectCaseStudy } from "~/data";
 
 /**
@@ -55,7 +53,7 @@ export default function CaseStudy(): JSX.Element {
                 </div>
               ) : (
                 <div className="w-full h-64 bg-neutral-800 rounded-lg flex items-center justify-center">
-                  <Sun size={48} className="text-neutral-500" />
+                  <span className="text-neutral-500">No images available</span>
                 </div>
               )}
             </div>
@@ -74,26 +72,29 @@ export default function CaseStudy(): JSX.Element {
                 viewport={{ once: true }}
                 className="space-y-4"
               >
-                <H2 label={section.title} />
+                <H2
+                  label={section.title}
+                  className="text-2xl md:text-3xl uppercase tracking-tight text-neutral-200"
+                />
                 <div className="prose prose-invert max-w-none">
                   {section.description.split("\n").map((paragraph) => (
-                    <p
+                    <Paragraph
                       key={paragraph + Math.random()}
                       className="text-xs md:text-sm text-neutral-400 leading-relaxed whitespace-pre-wrap mt-4"
-                    >
-                      {paragraph}
-                    </p>
+                      text={paragraph}
+                    />
                   ))}
                 </div>
-                <ul className="list-inside space-y-2 mt-4">
+                <ul className="space-y-4">
                   {section.sections &&
                     section.sections.map((subsection) => (
                       <li key={subsection.title} className="space-y-2 mt-4">
-                        <h3 className="text-xl sm:text-2xl font-medium text-neutral-200 mb-2 md:mb-4 text-balance">
-                          {subsection.title}
-                        </h3>
+                        <H3
+                          label={subsection.title}
+                          className="text-lg md:text-xl text-neutral-300 mt-2 md:mt-4"
+                        />
                         {subsection.items && (
-                          <ul className="list-disc list-inside space-y-1 mt-2 md:mt-4 ml-4">
+                          <ul className="list-disc list-outside space-y-1 mt-2 md:mt-4 ml-4">
                             {subsection.items.map((item) => (
                               <li
                                 key={item + Math.random()}
@@ -119,7 +120,7 @@ export default function CaseStudy(): JSX.Element {
         </section>
 
         {/* CTA Section */}
-        <div className="px-4 my-24 mx-auto max-w-4xl">
+        <div className="px-4 my-24 mx-auto max-w-3xl">
           <CTA />
         </div>
       </div>

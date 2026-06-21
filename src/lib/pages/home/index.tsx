@@ -10,9 +10,8 @@ import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
 import { TextHover } from "~/components/motion/TextHover";
 import UnfoldingText from "~/components/motion/UnfoldingText";
 import { AsciiArt } from "~/components/ui/ascii-art";
-import { IntroImage } from "~/components/ui/Images";
 import InfiniteMovingCards from "~/components/ui/infinite-moving-cards";
-import { H2, H3, Paragraph } from "~/components/ui/Texts";
+import { H2, Paragraph } from "~/components/ui/Texts";
 import { about, portfolio, services } from "~/data";
 
 /**

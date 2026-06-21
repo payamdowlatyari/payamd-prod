@@ -49,6 +49,7 @@
     "react-icons": "^4.12.0",
     "react-use-measure": "^2.1.7",
     "remotion": "^4.0.451",
+    "resend": "^6.14.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.160.1",

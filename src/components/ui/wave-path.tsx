@@ -79,7 +79,7 @@ export default function WavePath({ className, ...props }: WWavePathProps) {
   };
 
   return (
-    <div className={cn("relative h-px w-1/2", className)} {...props}>
+    <div className={cn("relative h-px w-full", className)} {...props}>
       <div
         onMouseEnter={manageMouseEnter}
         onMouseMove={manageMouseMove}

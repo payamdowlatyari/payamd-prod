@@ -9,7 +9,7 @@ export default function CTA() {
   return (
     <div className="flex flex-col items-center justify-center w-full">
       <WavePath className="my-10" />
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center w-full">
         <H3 label="Let's Connect" />
         <Paragraph
           text="Feel free to reach out if you have any questions or just want to chat. I'm always open to new opportunities and collaborations."
@@ -19,7 +19,7 @@ export default function CTA() {
           <LinkArrowOut title="Email Me" url="mailto:pdowlatyari@gmail.com" />
           <LinkArrowOut
             title="Book a Meeting"
-            url="https://calendly.com/payamdowlatyari/30min"
+            url="https://calendly.com/pdowlatyari"
           />
         </div>
       </div>

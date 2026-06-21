@@ -1,6 +1,6 @@
 "use client";
 
-import SendMail from "~/components/contact/SendMail";
+import SendMessage from "~/components/contact/SendMessage";
 import Footer from "~/components/layout/Footer";
 import Menu from "~/components/layout/Menu";
 import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
@@ -27,12 +27,12 @@ export default function Contact(): JSX.Element {
               className="mb-4 mx-auto text-center text-neutral-400 max-w-sm md:max-w-lg"
             />
           </div>
-          <SendMail />
+          <SendMessage />
         </div>
       </section>
 
       {/* CTA */}
-      <div className="flex flex-col items-center justify-center w-full my-20 py-10 px-4">
+      <div className="flex flex-col items-center justify-center w-full max-w-3xl mx-auto my-20 py-10 px-4">
         <CTA />
       </div>
 

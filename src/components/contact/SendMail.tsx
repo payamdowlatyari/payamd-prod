@@ -1,5 +1,3 @@
-"use client";
-
 import { type FormEvent, useState } from "react";
 
 export default function SendMail() {
@@ -22,7 +20,6 @@ export default function SendMail() {
       name: String(formData.get("from_name") ?? ""),
       email: String(formData.get("user_email") ?? ""),
       message: String(formData.get("message") ?? ""),
-      company: String(formData.get("company") ?? ""),
     };
 
     try {
@@ -109,14 +106,6 @@ export default function SendMail() {
           maxLength={4000}
         />
       </div>
-      <input
-        type="text"
-        name="company"
-        tabIndex={-1}
-        autoComplete="off"
-        className="hidden"
-        aria-hidden="true"
-      />
       <button
         type="submit"
         disabled={status === "loading"}

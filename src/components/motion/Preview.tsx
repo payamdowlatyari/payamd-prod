@@ -6,12 +6,11 @@ import {
   motion,
   MotionValue,
   motionValue,
-  useInView,
   useMotionValue,
   useSpring,
   useTransform,
 } from "motion/react";
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import useMeasure from "react-use-measure";
 
 import Logo from "~/components/ui/Logo";
@@ -269,10 +268,11 @@ export default function Preview({ value = 100, className }: PreviewProps) {
           className="fixed inset-0 z-[1100] flex items-center justify-center overflow-hidden bg-neutral-950"
         >
           <div className="absolute inset-0 bg-gradient-radial from-neutral-900 to-neutral-950" />
-          <div className="relative z-10 flex flex-col items-center gap-6 px-6 text-neutral-50">
+          <div className="relative z-10 flex flex-col items-center gap-6 px-6 text-neutral-500">
             <Logo size={88} type="preview" />
-            <div className="text-center uppercase tracking-[0.45em] text-xs text-neutral-400">
-              Loading experience
+
+            <div className="text-3xl md:text-4xl">
+              {displayValue === 100 ? "Ready to go!" : "Loading..."}
             </div>
             <div
               className={cn(
@@ -281,13 +281,13 @@ export default function Preview({ value = 100, className }: PreviewProps) {
               )}
             >
               <SlidingNumber value={displayValue} />
-              <span className="ml-2 text-lg text-neutral-400 md:text-2xl">
+              <span className="ml-2 text-lg text-neutral-500 md:text-2xl">
                 %
               </span>
             </div>
             <div className="h-px w-48 overflow-hidden bg-white/10 md:w-72">
               <motion.div
-                className="h-full origin-left bg-neutral-100"
+                className="h-full origin-left bg-neutral-500"
                 animate={{ scaleX: displayValue / value }}
                 transition={{ ease: "easeOut", duration: 0.2 }}
               />
