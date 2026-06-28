@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, MotionValue, useScroll, useTransform } from "motion/react";
-import Image from "next/image";
 import { useRef } from "react";
 
 import Footer from "~/components/layout/Footer";
@@ -15,7 +14,7 @@ import ScrollProgressBar, {
 } from "~/components/motion/ScrollProgressBar";
 import TextRevealByWord from "~/components/motion/ScrollReveal";
 import { LinkArrowOut } from "~/components/ui/Button";
-import { IntroImage, CameraImage } from "~/components/ui/Images";
+import { IntroImage } from "~/components/ui/Images";
 import { H1, H2, Paragraph } from "~/components/ui/Texts";
 import { intro, resume } from "~/data";
 
@@ -59,7 +58,7 @@ const Intro = ({ opacity }: { opacity: MotionValue<number> }) => (
 const Resume = ({ x }: { x: MotionValue<string> }) => (
   <section
     id="resume"
-    className="block top-0 max-w-screen-lg overflow-hidden h-[1500vh] p-0 bg-neutral-950"
+    className="block top-0 max-w-screen-lg overflow-hidden h-[1500vh] p-0 bg-transparent"
   >
     <div className="fixed flex top-0 overflow-hidden items-center h-screen">
       <motion.ul
@@ -124,7 +123,7 @@ const MarqueeSection = ({ opacity }: { opacity: MotionValue<number> }) => (
  */
 const BottomSection = () => (
   <div className="relative flex flex-col md:flex-row justify-evenly my-20 items-center gap-4">
-    <div className="text-neutral-400 text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl mx-auto max-w-xl leading-10 px-4 my-10 z-10">
+    <div className="text-neutral-400 text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl mx-auto max-w-xl leading-tight px-4 my-10 z-10">
       Check out <br /> my{" "}
       <LinkPreview url="https://blog.payamd.com/">Blog</LinkPreview> <br /> &{" "}
       <br />
@@ -133,9 +132,6 @@ const BottomSection = () => (
       </LinkPreview>{" "}
       <br />
       portfolio.
-    </div>
-    <div className="mx-auto relative w-full max-w-md h-auto">
-      <CameraImage />
     </div>
   </div>
 );

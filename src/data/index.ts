@@ -378,7 +378,7 @@ export const portfolio = {
       title: "Contact",
       links: [
         { name: "Email", url: "mailto:pdowlatyari@gmail.com" },
-        { name: "Calendly", url: "https://calendly.com/pdowlatyari" },
+        { name: "Calendar", url: "https://calendly.com/pdowlatyari" },
       ],
     },
     {

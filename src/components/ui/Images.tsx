@@ -35,7 +35,7 @@ export const CameraImage = () => (
     delay={0.5}
   >
     <Image
-      src="/me-camera-removebg-3.webp"
+      src="/leaf.jpeg"
       alt="me with camera"
       width={500}
       height={300}
