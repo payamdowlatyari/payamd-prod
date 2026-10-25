@@ -25,7 +25,6 @@ const Hero = () => (
           src="/me-home-bw.webp"
           className="w-full max-w-3xl aspect-square object-cover opacity-100"
           charset="dots"
-          animated={false}
           resolution={100}
           color="#C0C0C0"
         />

@@ -64,14 +64,7 @@ export default function CaseStudy(): JSX.Element {
         <section className="px-4 sm:px-6 lg:px-8 py-16">
           <div className="max-w-3xl mx-auto space-y-16">
             {sections.map((section) => (
-              <motion.div
-                key={section.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-                className="space-y-4"
-              >
+              <motion.div key={section.title} className="space-y-4">
                 <H2
                   label={section.title}
                   className="text-2xl md:text-3xl uppercase tracking-tight text-neutral-200"
@@ -85,7 +78,14 @@ export default function CaseStudy(): JSX.Element {
                     />
                   ))}
                 </div>
-                <ul className="space-y-4">
+                <motion.ul
+                  layout
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1.5 }}
+                  className="space-y-4"
+                >
                   {section.sections &&
                     section.sections.map((subsection) => (
                       <li key={subsection.title} className="space-y-2 mt-4">
@@ -107,7 +107,7 @@ export default function CaseStudy(): JSX.Element {
                         )}
                       </li>
                     ))}
-                </ul>
+                </motion.ul>
                 {section.ending && (
                   <Paragraph
                     text={section.ending}
