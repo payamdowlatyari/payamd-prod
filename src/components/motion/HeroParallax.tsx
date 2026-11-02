@@ -117,7 +117,7 @@ export const ProductCard = ({
         zIndex: 100,
       }}
       key={product.title}
-      className="group/product h-40 md:h-60 lg:h-72 w-60 md:w-72 lg:w-96 max-w-screen-sm relative flex-shrink-0"
+      className="group/product h-40 md:h-60 lg:h-72 w-72 md:w-96 lg:w-[32rem] max-w-screen-sm relative flex-shrink-0"
     >
       <Link
         href={product.url}
@@ -129,10 +129,10 @@ export const ProductCard = ({
           src={product.img}
           height="600"
           width="600"
-          className="object-cover object-left-top absolute h-full w-full inset-0 rounded-xl"
+          className="object-cover object-left-top absolute h-full w-full inset-0 rounded-lg"
           alt={product.title}
         />
-        <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-100 shadow-xl shadow-neutral-500 rounded-xl pointer-events-none bg-gradient-to-b from-neutral-800 via-neutral-800 to-transparent backdrop-blur-sm" />
+        <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-100 shadow-xl shadow-neutral-500 rounded-lg pointer-events-none bg-gradient-to-b from-neutral-900 via-neutral-800 to-transparent backdrop-blur-sm" />
         <div className="flex flex-col justify-between items-stretch h-full p-2 md:p-4 lg:p-6">
           <h3 className="z-10 text-base sm:text-lg md:text-xl opacity-0 group-hover/product:opacity-100 font-semibold text-neutral-100 tracking-tight mb-1">
             {product.title}

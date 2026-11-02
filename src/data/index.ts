@@ -17,9 +17,6 @@ import {
   SiFramer,
   SiAngular,
   SiBootstrap,
-  SiCss3,
-  SiHtml5,
-  SiJavascript,
   SiPython,
   SiFastapi,
   SiAmazonaws,
@@ -115,6 +112,37 @@ const TAGS_TS_NEXT_TAILWIND_FRAMER = [
 const projectsItems = [
   {
     index: 0,
+    title: "Mikal Ventures",
+    description: "A portfolio website for Mikal Ventures",
+    img: "/projects/mikal-ventures-home.webp",
+    url: "https://mikalventures.com/",
+    tags: ["Typescript", "Next.js", "Tailwind", "Amplify", "AWS"],
+    icons: [
+      {
+        name: "Typescript",
+        icon: SiTypescript,
+      },
+      {
+        name: "Next.js",
+        icon: SiNextdotjs,
+      },
+      {
+        name: "Tailwind",
+        icon: SiTailwindcss,
+      },
+      {
+        name: "Amplify",
+        icon: SiAwsamplify,
+      },
+      {
+        name: "AWS",
+        icon: SiAmazonaws,
+      },
+    ],
+    date: "2026",
+  },
+  {
+    index: 1,
     title: "PhyscianGPS",
     description:
       "A web application that uses AI to identify the best physicians",
@@ -146,7 +174,7 @@ const projectsItems = [
     date: "2025",
   },
   {
-    index: 1,
+    index: 2,
     title: "Job Intelligence Web",
     description: "An AI-powered job intelligence platform",
     img: "/projects/job-intelligence-web-1750x1000.webp",
@@ -173,7 +201,7 @@ const projectsItems = [
     date: "2025",
   },
   {
-    index: 2,
+    index: 3,
     title: "My Dashbaord",
     description: "A full stack project management dashboard",
     img: "/projects/MyDash_Projects_1750x1000.webp",
@@ -200,10 +228,10 @@ const projectsItems = [
     date: "2023",
   },
   {
-    index: 3,
+    index: 4,
     title: "My Web Blog",
     description: "My personal blog about books, films, and more",
-    img: "/projects/blog_1750x1000.webp",
+    img: "/projects/my-web-blog-1750x1000.webp",
     url: "https://payamd-blog.vercel.app/",
     tags: TAGS_TS_NEXT_TAILWIND,
     icons: [
@@ -223,10 +251,10 @@ const projectsItems = [
     date: "2024",
   },
   {
-    index: 4,
+    index: 5,
     title: "Photography",
     description: "My photography blog website",
-    img: "/projects/Portfolio_anim_Photography1750x1000.webp",
+    img: "/projects/photography-2030x1160.webp",
     url: "https://payamd-photo.vercel.app/",
     tags: TAGS_TS_NEXT_TAILWIND_FRAMER,
     icons: [
@@ -250,7 +278,7 @@ const projectsItems = [
     date: "2024",
   },
   {
-    index: 5,
+    index: 6,
     title: "Algorithms for Life",
     description: "A GUI for learning Data Structure and Algorithms",
     img: "/projects/algorithms_2100x1200.webp",
@@ -294,60 +322,6 @@ const projectsItems = [
       },
     ],
     date: "2020",
-  },
-  {
-    index: 8,
-    title: "Admin Web Portal",
-    description: "A full-stack admin web portal application",
-    img: "/projects/CalPlug_2100x1200.webp",
-    url: "https://payamdowlatyari.github.io/admin-web-portal/",
-    tags: ["React", "Redux", "Express", "MongoDB"],
-    icons: [
-      {
-        name: "React",
-        icon: SiReact,
-      },
-      {
-        name: "Redux",
-        icon: SiRedux,
-      },
-      {
-        name: "Express",
-        icon: SiExpress,
-      },
-      {
-        name: "MongoDB",
-        icon: SiMongodb,
-      },
-    ],
-    date: "2020",
-  },
-  {
-    index: 9,
-    title: "M-Studios",
-    description: "A responsive business portfolio website",
-    img: "/projects/m-studios_1260x720.webp",
-    url: "https://m-studios.us/",
-    tags: ["HTML", "CSS", "Javascript", "Bootstrap"],
-    icons: [
-      {
-        name: "HTML",
-        icon: SiHtml5,
-      },
-      {
-        name: "CSS",
-        icon: SiCss3,
-      },
-      {
-        name: "Javascript",
-        icon: SiJavascript,
-      },
-      {
-        name: "Bootstrap",
-        icon: SiBootstrap,
-      },
-    ],
-    date: "2019",
   },
 ];
 
@@ -570,7 +544,7 @@ const projectsDetails = {
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-plain.svg",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
-    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain.svg",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-plain.svg",
   ],
 };
