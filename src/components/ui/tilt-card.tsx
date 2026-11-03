@@ -131,14 +131,16 @@ function TiltCardItem({
         effect="evade"
         scale={1.08}
         tiltLimit={20}
-        className="w-72 h-72 rounded-xl p-4 shadow-2xl"
+        className="w-80 min-h-80 rounded-xl border border-border bg-card p-6"
       >
         <div className="relative z-20">
-          <p className="text-base text-muted-foreground">{icon}</p>
+          <p className="text-base text-primary">{icon}</p>
           <h3 className="mt-2 text-2xl font-semibold tracking-tight">
             {title}
           </h3>
-          <p className="mt-4 text-sm text-muted-foreground">{description}</p>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            {description}
+          </p>
         </div>
       </TiltCard>
     </div>

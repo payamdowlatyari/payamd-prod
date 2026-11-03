@@ -18,7 +18,7 @@ export const CardTitle = ({
   return (
     <h4
       className={cn(
-        "text-neutral-100 font-semibold tracking-wide text-base md:text-lg",
+        "text-foreground font-semibold tracking-normal text-base md:text-lg",
         className
       )}
     >
@@ -42,7 +42,7 @@ export const CardSubTitle = ({
   return (
     <p
       className={cn(
-        "my-1 text-neutral-400 uppercase tracking-wide leading-relaxed text-xs md:text-sm",
+        "my-1 text-muted-foreground uppercase tracking-normal leading-relaxed text-sm",
         className
       )}
     >
@@ -66,7 +66,7 @@ export const CardDate = ({
   return (
     <p
       className={cn(
-        "mt-1 ml-2 text-neutral-400 tracking-wide leading-relaxed text-xs md:text-sm min-w-12",
+        "mt-1 ml-2 text-muted-foreground tracking-normal leading-relaxed text-sm min-w-12",
         className
       )}
     >
@@ -90,7 +90,7 @@ export const CardDescription = ({
   return (
     <div
       className={cn(
-        "mt-1 md:mt-2 text-neutral-200 tracking-wide leading-relaxed text-xs md:text-sm md:leading-loose",
+        "mt-1 md:mt-2 text-muted-foreground tracking-normal leading-relaxed text-base leading-relaxed",
         className
       )}
     >
@@ -135,7 +135,7 @@ export function Card({ items }: { items: CardProps[] }) {
 
           {item.description && item.description.length > 0 && (
             <CardDescription>
-              <ul className="list-disc list-inside text-xs md:text-sm">
+              <ul className="list-disc list-inside text-sm">
                 {item.description.map((d: string) => (
                   <li key={d}>{d}</li>
                 ))}

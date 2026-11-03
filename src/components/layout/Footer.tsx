@@ -39,14 +39,14 @@ const Footer = () => {
         </BlurFade>
         <div className="flex mx-auto text-xs self-end py-7">
           <Link
-            className="text-neutral-300 hover:text-neutral-50 transition-colors ease-in-out duration-500 font-bold px-1"
+            className="text-muted-foreground hover:text-primary transition-colors ease-in-out duration-500 font-bold px-1"
             href="https://www.payamd.com"
             target="_blank"
             rel="noreferrer"
           >
             payamd.com
           </Link>
-          <span className="text-neutral-500">
+          <span className="text-muted-foreground">
             {" © "}
             {new Date().getFullYear()}
             {" | "}

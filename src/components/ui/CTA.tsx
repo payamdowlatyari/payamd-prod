@@ -7,9 +7,9 @@ import WavePath from "./wave-path";
  */
 export default function CTA() {
   return (
-    <div className="flex flex-col items-center justify-center w-full">
+    <div className="relative isolate flex flex-col items-center justify-center w-full">
       <WavePath className="my-10" />
-      <div className="flex flex-col justify-center w-full">
+      <div className="relative z-20 flex flex-col justify-center w-full">
         <H3 label="Let's Connect" />
         <Paragraph
           text="Feel free to reach out if you have any questions or just want to chat. I'm always open to new opportunities and collaborations."

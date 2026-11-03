@@ -47,7 +47,7 @@ const PageIcons = ({ icons }: { icons: string[] }) => {
         return (
           <div
             key={icon}
-            className="flex items-center justify-center w-10 h-10 my-2 rounded-full bg-neutral-800 hover:bg-neutral-700 transition-all ease-in-out"
+            className="flex items-center justify-center w-10 h-10 my-2 rounded-full border border-border bg-card hover:bg-secondary transition-all ease-in-out"
           >
             <Image
               src={icon}
@@ -117,30 +117,32 @@ export const ProductCard = ({
         zIndex: 100,
       }}
       key={product.title}
-      className="group/product h-40 md:h-60 lg:h-72 w-72 md:w-96 lg:w-[32rem] max-w-screen-sm relative flex-shrink-0"
+      className="group/product w-full md:w-96 lg:w-[32rem] max-w-screen-sm relative flex-shrink-0"
     >
       <Link
         href={product.url}
-        className="block group-hover/product:shadow-2xl"
-        target="__blank"
+        className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card"
+        target="_blank"
         rel="noopener noreferrer"
       >
-        <Image
-          src={product.img}
-          height="600"
-          width="600"
-          className="object-cover object-left-top absolute h-full w-full inset-0 rounded-lg"
-          alt={product.title}
-        />
-        <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-100 shadow-xl shadow-neutral-500 rounded-lg pointer-events-none bg-gradient-to-b from-neutral-900 via-neutral-800 to-transparent backdrop-blur-sm" />
-        <div className="flex flex-col justify-between items-stretch h-full p-2 md:p-4 lg:p-6">
-          <h3 className="z-10 text-base sm:text-lg md:text-xl opacity-0 group-hover/product:opacity-100 font-semibold text-neutral-100 tracking-tight mb-1">
+        <div className="relative aspect-[7/4] w-full shrink-0 overflow-hidden">
+          <Image
+            src={product.img}
+            height={1000}
+            width={1750}
+            sizes="(min-width: 1024px) 512px, (min-width: 768px) 384px, 100vw"
+            className="h-full w-full object-contain"
+            alt={product.title}
+          />
+        </div>
+        <div className="flex shrink-0 flex-col items-start gap-2 border-t border-border p-4 lg:p-5">
+          <h3 className="z-10 text-xl font-semibold text-foreground tracking-tight leading-tight">
             {product.title}
           </h3>
-          <p className="z-10 opacity-0 group-hover/product:opacity-100 text-neutral-300 text-xs sm:text-sm md:text-base my-1">
+          <p className="z-10 text-sm leading-relaxed text-muted-foreground">
             {product.description}
           </p>
-          <div className="z-10 opacity-0 group-hover/product:opacity-100 flex justify-start mt-2 md:mt-4">
+          <div className="z-10 flex justify-start text-primary">
             {Object.values(product.icons).map((icon) => {
               return icon.icon ? (
                 <span className="mr-2 md:mr-4" key={icon.name}>
@@ -253,17 +255,18 @@ export const MobileHeroParallax = () => {
     offset: ["start start", "end start"],
   });
 
-  const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.25], [-500, 100]),
-    { stiffness: 300, damping: 30, bounce: 100 }
-  );
+  const translateY = useSpring(useTransform(scrollYProgress, [0, 1], [0, 0]), {
+    stiffness: 300,
+    damping: 30,
+    bounce: 100,
+  });
   return (
     <div
       ref={ref}
       className="h-auto py-20 overflow-hidden antialiased relative flex flex-col self-auto"
     >
       <PageDetails details={details} />
-      <div className="flex flex-col gap-10 mt-10">
+      <div className="flex flex-col gap-8 mt-10 px-5">
         {products.map((product) => (
           <BlurFade
             key={product.title}

@@ -80,35 +80,25 @@ export default function SendMessage() {
       className="m-auto-[10px] w-[500px] max-w-[95vw]"
     >
       {" "}
-      <div className="relative my-2">
-        <div className="absolute top-0 flex w-full justify-center">
-          <div className="h-[1px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-white to-[rgba(17,17,17,0)] transition-all duration-1000" />
-        </div>
+      <div className="relative my-4">
         <input
-          className="block h-12 w-full rounded-md border border-neutral-800 bg-neutral-950 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 focus:ring-offset-gray-50"
+          className="block h-12 w-full rounded-md border border-input bg-card px-4 py-3 text-base text-foreground placeholder:text-muted-foreground"
           placeholder="Your name"
           name="from_name"
           type="text"
         />
       </div>
-      <div className="relative my-2">
-        <div className="absolute top-0 flex w-full justify-center">
-          <div className="h-[1px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-white to-[rgba(17,17,17,0)] transition-all duration-1000" />
-        </div>
+      <div className="relative my-4">
         <input
-          className="block h-12 w-full rounded-md border border-neutral-800 bg-neutral-950 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 focus:ring-offset-gray-50"
+          className="block h-12 w-full rounded-md border border-input bg-card px-4 py-3 text-base text-foreground placeholder:text-muted-foreground"
           placeholder="Your email"
           name="user_email"
           type="email"
         />
       </div>
-      <div className="relative my-2">
-        <div className="absolute top-0 flex w-full justify-center">
-          <div className="h-[1px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-white to-[rgba(17,17,17,0)] transition-all duration-1000" />
-        </div>
-
+      <div className="relative my-4">
         <textarea
-          className="block h-32 w-full rounded-md border border-neutral-800 bg-neutral-950 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 focus:ring-offset-gray-50"
+          className="block h-32 w-full rounded-md border border-input bg-card px-4 py-3 text-base text-foreground placeholder:text-muted-foreground"
           placeholder="Type your message here..."
           rows={5}
           name="message"
@@ -117,16 +107,16 @@ export default function SendMessage() {
       <button
         disabled={loading}
         type="submit"
-        className="inline-flex h-12 w-full items-center justify-center rounded-md border border-neutral-800 hover:border-neutral-200 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-neutral-400 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-neutral-50 hover:text-neutral-50 hover:shadow-lg duration-500"
+        className="button-primary w-full"
       >
         Send Message
       </button>
       <div className="flex justify-center p-2">
         {message &&
           (success ? (
-            <span className="text-green-500">{message}</span>
+            <span className="text-primary">{message}</span>
           ) : (
-            <span className="text-red-500">{message}</span>
+            <span className="text-destructive">{message}</span>
           ))}
       </div>
     </form>

@@ -1,4 +1,5 @@
 import BlurFade from "~/components/motion/BlurFade";
+import { cn } from "~/utils/cn";
 
 /**
  * A h1 element with a blur fade animation.
@@ -10,7 +11,10 @@ import BlurFade from "~/components/motion/BlurFade";
 const H1 = ({ label, className }: { label: string; className?: string }) => (
   <BlurFade delay={0.3} inView>
     <h1
-      className={`text-6xl sm:text-7xl md:text-8xl lg:text-9xl uppercase tracking-tighter ${className}`}
+      className={cn(
+        "text-[clamp(2.75rem,7vw,5rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-foreground",
+        className
+      )}
     >
       {label}
     </h1>
@@ -26,7 +30,14 @@ const H1 = ({ label, className }: { label: string; className?: string }) => (
  */
 const H2 = ({ label, className }: { label: string; className?: string }) => (
   <BlurFade delay={0.4} inView>
-    <h2 className={`text-4xl sm:text-5xl md:text-6xl ${className}`}>{label}</h2>
+    <h2
+      className={cn(
+        "text-[clamp(1.875rem,4vw,3rem)] font-semibold leading-[1.15] tracking-[-0.03em] text-foreground",
+        className
+      )}
+    >
+      {label}
+    </h2>
   </BlurFade>
 );
 
@@ -40,7 +51,10 @@ const H2 = ({ label, className }: { label: string; className?: string }) => (
 const H3 = ({ label, className }: { label: string; className?: string }) => (
   <BlurFade delay={0.5} inView>
     <h3
-      className={`text-3xl sm:text-4xl md:text-5xl text-neutral-200 ${className}`}
+      className={cn(
+        "text-xl md:text-2xl font-semibold leading-tight tracking-tight text-foreground",
+        className
+      )}
     >
       {label}
     </h3>
@@ -63,7 +77,10 @@ const Paragraph = ({
 }) => (
   <BlurFade duration={0.7} delay={0.3} inView>
     <p
-      className={`text-neutral-300 max-w-screen-sm text-xs sm:text-sm md:text-base ${className}`}
+      className={cn(
+        "max-w-[60ch] text-base md:text-lg leading-relaxed text-muted-foreground",
+        className
+      )}
     >
       {text}
     </p>

@@ -477,67 +477,45 @@ export const AsciiArt: React.FC<AsciiArtProps> = ({
     return () => resizeObserver.disconnect();
   }, [isLoaded, asciiData, drawCanvas]);
 
-  if (error) {
-    return (
-      <div
-        className={cn(
-          "flex items-center justify-center text-red-500 text-sm font-mono",
-          className
-        )}
-      >
-        Error: {error}
-      </div>
-    );
-  }
-
-  if (!isLoaded) {
-    return (
-      <div
-        className={cn(
-          "flex items-center justify-center text-neutral-500 text-sm font-mono animate-pulse",
-          className
-        )}
-        style={{ backgroundColor }}
-      >
-        Loading...
-      </div>
-    );
-  }
-
-  const canvasElement = (
-    <canvas
-      key={uniqueId}
-      id={`ascii-canvas-${uniqueId}`}
-      ref={canvasRef}
-      className="block w-full h-full"
-      aria-label="ASCII art rendering of image"
-      role="img"
-    />
-  );
-
-  if (animationStyle === "fade" && animated && !hasAnimated) {
-    return (
-      <motion.div
-        ref={containerRef}
-        className={cn("overflow-hidden", className)}
-        style={{ backgroundColor }}
-        initial={{ opacity: 0 }}
-        animate={shouldStartAnimation ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: animationDuration * 0.3 }}
-      >
-        {canvasElement}
-      </motion.div>
-    );
-  }
-
   return (
-    <div
+    <motion.div
       ref={containerRef}
-      className={cn("overflow-hidden", className)}
+      className={cn(
+        "overflow-hidden",
+        !isLoaded &&
+          "flex items-center justify-center text-neutral-500 text-sm font-mono animate-pulse",
+        error &&
+          "flex items-center justify-center text-red-500 text-sm font-mono",
+        className
+      )}
       style={{ backgroundColor }}
+      initial={false}
+      animate={{
+        opacity:
+          !isLoaded ||
+          error ||
+          shouldShowStatic ||
+          hasAnimated ||
+          shouldStartAnimation
+            ? 1
+            : 0,
+      }}
+      transition={{ duration: animationDuration * 0.3 }}
     >
-      {canvasElement}
-    </div>
+      {error ? (
+        <>Error: {error}</>
+      ) : !isLoaded ? (
+        "Loading..."
+      ) : (
+        <canvas
+          id={`ascii-canvas-${uniqueId}`}
+          ref={canvasRef}
+          className="block w-full h-full"
+          aria-label="ASCII art rendering of image"
+          role="img"
+        />
+      )}
+    </motion.div>
   );
 };
 

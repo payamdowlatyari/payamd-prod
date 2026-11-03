@@ -22,7 +22,7 @@ export function Nav() {
       {links.map(({ title, url }) => (
         <span
           key={title}
-          className="flex justify-center items-center h-1/4 text-5xl md:text-6xl uppercase bg-neutral-950 text-neutral-100"
+          className="flex justify-center items-center h-1/4 text-5xl md:text-6xl uppercase bg-background text-foreground"
         >
           <FlipLink href={url}>{title}</FlipLink>
         </span>
@@ -80,7 +80,7 @@ export default function Menu() {
           ease: "easeOut",
           delay: 0.25,
         }}
-        className="flex flex-wrap w-screen h-screen bg-neutral-950 relative items-center justify-center"
+        className="flex flex-wrap w-screen h-screen bg-background relative items-center justify-center"
       >
         <Nav />
       </motion.div>

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Geist } from "next/font/google";
 
 import Layout from "~/lib/layout";
 
-const poppins = Poppins({
+const geist = Geist({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-sans",
   display: "swap",
 });
 
@@ -71,8 +71,8 @@ export const metadata: Metadata = {
  */
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html lang="en" className={poppins.className}>
-      <body className="bg-neutral-950 text-neutral-50">
+    <html lang="en" className={`dark ${geist.variable}`}>
+      <body className="bg-background text-foreground">
         <Layout>{children}</Layout>
       </body>
     </html>

@@ -4,6 +4,9 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)", "Arial", "sans-serif"],
+      },
       animation: {
         shimmer: "shimmer 2s linear infinite",
         "text-shimmer": "text-shimmer 2.5s ease-out infinite alternate",
@@ -20,7 +23,8 @@ module.exports = {
         shine: "shine 12s infinite linear",
         ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
         wave: "wave 15s linear infinite",
-        scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+        scroll:
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
       keyframes: {
         shimmer: {

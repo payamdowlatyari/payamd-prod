@@ -1,13 +1,12 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 
 import Footer from "~/components/layout/Footer";
 import Menu from "~/components/layout/Menu";
 import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
 import CTA from "~/components/ui/CTA";
-import { H1, H2, H3, Paragraph } from "~/components/ui/Texts";
 import { projectCaseStudy } from "~/data";
 
 /**
@@ -15,19 +14,32 @@ import { projectCaseStudy } from "~/data";
  */
 export default function CaseStudy(): JSX.Element {
   const { title, summary, images, sections } = projectCaseStudy;
+  const reduceMotion = useReducedMotion();
+  const reveal = {
+    initial: reduceMotion ? false : { opacity: 0, y: 12 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.1 },
+    transition: { duration: reduceMotion ? 0 : 0.45 },
+  };
 
   return (
     <main className="overflow-hidden">
       <Menu />
-      <div className="min-h-screen bg-neutral-950 text-neutral-100">
+      <div className="min-h-screen bg-background text-foreground">
         {/* Hero Section */}
 
         <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
-          <div className="flex flex-col gap-4 mb-6">
-            <H1 label="Case Study" className="mb-8 md:mb-12" />
+          <motion.div {...reveal} className="flex flex-col gap-4 mb-6">
+            <h1 className="mb-8 text-[clamp(2.75rem,7vw,5rem)] font-semibold leading-[1.05] tracking-[-0.04em] md:mb-12">
+              Case Study
+            </h1>
             <div className="flex flex-col gap-6">
-              <H2 label={title} />
-              <Paragraph text={summary} className="my-2 md:my-4 p-2" />
+              <h2 className="text-[clamp(1.875rem,4vw,3rem)] font-semibold leading-[1.15] tracking-tight">
+                {title}
+              </h2>
+              <p className="my-2 max-w-[60ch] text-base leading-relaxed text-muted-foreground md:my-4 md:text-lg">
+                {summary}
+              </p>
 
               {/* Featured Images */}
               {images && images.length > 0 ? (
@@ -57,48 +69,43 @@ export default function CaseStudy(): JSX.Element {
                 </div>
               )}
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* Content Sections */}
         <section className="px-4 sm:px-6 lg:px-8 py-16">
           <div className="max-w-3xl mx-auto space-y-16">
             {sections.map((section) => (
-              <motion.div key={section.title} className="space-y-4">
-                <H2
-                  label={section.title}
-                  className="text-2xl md:text-3xl uppercase tracking-tight text-neutral-200"
-                />
+              <motion.div {...reveal} key={section.title} className="space-y-4">
+                <h2 className="text-2xl font-semibold uppercase tracking-tight text-foreground md:text-3xl">
+                  {section.title}
+                </h2>
                 <div className="prose prose-invert max-w-none">
-                  {section.description.split("\n").map((paragraph) => (
-                    <Paragraph
-                      key={paragraph + Math.random()}
-                      className="text-xs md:text-sm text-neutral-400 leading-relaxed whitespace-pre-wrap mt-4"
-                      text={paragraph}
-                    />
-                  ))}
+                  {section.description
+                    .split("\n")
+                    .filter((paragraph) => paragraph.trim())
+                    .map((paragraph) => (
+                      <p
+                        key={`${section.title}-${paragraph}`}
+                        className="mt-4 text-base leading-relaxed text-muted-foreground whitespace-pre-wrap"
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
                 </div>
-                <motion.ul
-                  layout
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 1.5 }}
-                  className="space-y-4"
-                >
+                <ul className="space-y-4">
                   {section.sections &&
                     section.sections.map((subsection) => (
                       <li key={subsection.title} className="space-y-2 mt-4">
-                        <H3
-                          label={subsection.title}
-                          className="text-lg md:text-xl text-neutral-300 mt-2 md:mt-4"
-                        />
+                        <h3 className="mt-2 text-lg font-semibold leading-tight text-foreground md:mt-4 md:text-xl">
+                          {subsection.title}
+                        </h3>
                         {subsection.items && (
                           <ul className="list-disc list-outside space-y-1 mt-2 md:mt-4 ml-4">
                             {subsection.items.map((item) => (
                               <li
-                                key={item + Math.random()}
-                                className="text-xs md:text-sm text-neutral-400 leading-relaxed"
+                                key={`${subsection.title}-${item}`}
+                                className="text-base text-muted-foreground leading-relaxed"
                               >
                                 {item}
                               </li>
@@ -107,12 +114,11 @@ export default function CaseStudy(): JSX.Element {
                         )}
                       </li>
                     ))}
-                </motion.ul>
+                </ul>
                 {section.ending && (
-                  <Paragraph
-                    text={section.ending}
-                    className="text-xs md:text-sm text-neutral-400 leading-relaxed whitespace-pre-wrap"
-                  />
+                  <p className="text-base leading-relaxed text-muted-foreground whitespace-pre-wrap">
+                    {section.ending}
+                  </p>
                 )}
               </motion.div>
             ))}
