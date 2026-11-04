@@ -470,33 +470,21 @@ export const education = [
 export const certificate = [
   {
     title: "IBM",
-    subtitle: "Generative AI for Software Developers Specialization",
-    date: "Oct 2025",
-    link: "https://www.coursera.org/account/accomplishments/specialization/UO0CJNQQU3IL",
+    subtitle: "AI Developer Specialization",
+    date: "Jan 2026",
+    link: "https://www.coursera.org/account/accomplishments/specialization/VPD5S4UBXT0D",
   },
   {
-    title: "DeepLearning.AI",
-    subtitle: "Generative AI for Software Development Professional Certificate",
-    date: "Oct 2025",
-    link: "https://www.coursera.org/account/accomplishments/specialization/certificate/BRL9P96RR14B",
+    title: "IBM",
+    subtitle: "Applied DevOps Engineering Specialization",
+    date: "Dec 2025",
+    link: "https://www.coursera.org/account/accomplishments/specialization/0XW9M8XKLKSL",
   },
   {
-    title: "Interaction Design Foundation (IDF)",
-    subtitle: "Design Thinking Certificate",
-    date: "Oct 2021",
-    link: "https://www.interaction-design.org/members/payam-dowlatyari/certificate/course/9fa0344a-1965-4994-9383-851e3109f9f2",
-  },
-  {
-    title: "University of Colorado Boulder",
-    subtitle: "Secure Software Design Specialization",
-    date: "Sep 2020",
-    link: "https://www.coursera.org/account/accomplishments/specialization/certificate/CMWVV4CZ59WM",
-  },
-  {
-    title: "Stanford University",
-    subtitle: "Machine Learning Certificate",
-    date: "Feb 2020",
-    link: "https://www.coursera.org/account/accomplishments/certificate/8NJAABHZRNUM",
+    title: "AWS",
+    subtitle: "Cloud Solutions Architect",
+    date: "Dec 2025",
+    link: "https://www.coursera.org/account/accomplishments/specialization/LJ62BWR581LK",
   },
 ];
 

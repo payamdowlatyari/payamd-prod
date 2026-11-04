@@ -1,61 +1,105 @@
+"use client";
+
+import { useReducedMotion } from "motion/react";
+import Image from "next/image";
 import Link from "next/link";
 
-import { TextHover } from "../motion/TextHover";
 import BlurFade from "~/components/motion/BlurFade";
+import { LinkArrowOut } from "~/components/ui/Button";
+import { portfolio } from "~/data";
 
-import Contacts from "./Contacts";
+const navigationLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/projects", label: "Projects" },
+  { href: "/contact", label: "Contact" },
+];
 
-/**
- * Footer component
- */
-const Footer = () => {
-  const navigationLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/projects", label: "Projects" },
-    { href: "/contact", label: "Contact" },
-  ];
+/** Compact footer with the site logo and short link groups. */
+export default function Footer() {
+  const reduceMotion = useReducedMotion();
 
   return (
-    <footer className="flex justify-center items-end w-screen h-full min-h-screen z-0">
-      <div className="flex flex-col items-center justify-end h-[75vh] z-10">
-        <BlurFade
-          blur="6px"
-          duration={0.8}
-          delay={0.5}
-          inView
-          variant={{ hidden: { y: 50 }, visible: { y: 0 } }}
-        >
-          <div className="w-screen h-[70vh] flex flex-wrap md:flex-nowrap items-center justify-center my-10">
-            <div className="flex flex-col mt-4 w-full items-center justify-center">
-              {navigationLinks.map(({ href, label }) => (
-                <TextHover key={href} text={label} url={href} />
-              ))}
+    <footer className="relative isolate w-full overflow-hidden border-t border-border bg-background">
+      <div className="relative mx-auto max-w-7xl px-5 pt-12 md:px-10 md:pt-16 lg:px-16">
+        <div className="mb-12 grid gap-10 md:mb-16 md:grid-cols-[1fr_3fr] md:gap-12">
+          <BlurFade inView delay={0.1} duration={0.6}>
+            <div className="flex flex-col items-start gap-4">
+              <Link
+                href="/"
+                aria-label="Payam Dowlatyari home"
+                className="inline-block rounded-sm"
+              >
+                <Image
+                  src="/pd-logo1-removebg-preview.png"
+                  alt="Payam Dowlatyari logo"
+                  width={80}
+                  height={80}
+                  className="h-20 w-20 object-contain"
+                />
+              </Link>
+              <p className="text-sm font-medium text-muted-foreground">
+                {portfolio.name}
+              </p>
             </div>
-            <div className="flex flex-col items-center justify-center h-full w-full py-2">
-              <Contacts />
-            </div>
+          </BlurFade>
+          <div className="grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-4">
+            <BlurFade inView delay={0.1} duration={0.6}>
+              <nav aria-label="Footer navigation">
+                <h2 className="mb-4 text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                  Explore
+                </h2>
+                <ul className="space-y-2">
+                  {navigationLinks.map(({ href, label }) => (
+                    <li key={href}>
+                      <Link
+                        href={href}
+                        className="inline-block rounded-sm py-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        {label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </BlurFade>
+            {portfolio.contacts.map((section) => (
+              <BlurFade key={section.title} inView delay={0.1} duration={0.6}>
+                <div>
+                  <h2 className="mb-4 text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                    {section.title}
+                  </h2>
+                  <ul className="space-y-2">
+                    {section.links.map(({ name, url }) => (
+                      <li key={url}>
+                        <LinkArrowOut title={name} url={url} />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </BlurFade>
+            ))}
           </div>
-        </BlurFade>
-        <div className="flex mx-auto text-xs self-end py-7">
-          <Link
-            className="text-muted-foreground hover:text-primary transition-colors ease-in-out duration-500 font-bold px-1"
-            href="https://www.payamd.com"
-            target="_blank"
-            rel="noreferrer"
+        </div>
+
+        <div className="flex flex-col gap-4 border-t border-border py-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {new Date().getFullYear()} {portfolio.name}. All rights reserved.
+          </p>
+          <button
+            type="button"
+            onClick={() =>
+              window.scrollTo({
+                top: 0,
+                behavior: reduceMotion ? "instant" : "smooth",
+              })
+            }
+            className="w-fit rounded-sm py-2 text-sm font-medium transition-colors hover:text-foreground"
           >
-            payamd.com
-          </Link>
-          <span className="text-muted-foreground">
-            {" © "}
-            {new Date().getFullYear()}
-            {" | "}
-            All Rights Reserved.
-          </span>
+            Back to top
+          </button>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

@@ -1,6 +1,12 @@
 "use client";
 
-import { motion, MotionValue, useScroll, useTransform } from "motion/react";
+import {
+  motion,
+  MotionValue,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "motion/react";
 import { useRef } from "react";
 
 import Footer from "~/components/layout/Footer";
@@ -18,6 +24,38 @@ import { IntroImage } from "~/components/ui/Images";
 import { H1, H2, Paragraph } from "~/components/ui/Texts";
 import { intro, resume } from "~/data";
 
+/** A quiet scroll cue with the same entrance reveal as the introduction. */
+const ScrollCue = () => {
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <BlurFade delay={0.6} duration={0.7}>
+      <div className="flex flex-col items-center gap-3 text-sm text-muted-foreground">
+        <span>Scroll to explore</span>
+        <div
+          aria-hidden="true"
+          className="flex h-10 w-6 justify-center rounded-full border border-border pt-2"
+        >
+          <motion.span
+            className="h-1.5 w-1 rounded-full bg-foreground/80"
+            animate={reduceMotion ? { y: 0 } : { y: [0, 14, 0] }}
+            transition={
+              reduceMotion
+                ? { duration: 0 }
+                : {
+                    duration: 1.8,
+                    repeat: Infinity,
+                    repeatDelay: 0.4,
+                    ease: "easeInOut",
+                  }
+            }
+          />
+        </div>
+      </div>
+    </BlurFade>
+  );
+};
+
 /**
  * Renders an introduction section with a gradient tracing animation.
  */
@@ -31,15 +69,14 @@ const Intro = ({ opacity }: { opacity: MotionValue<number> }) => (
         <div className="grid gap-2">
           <H1 label={intro.title} />
           <Paragraph text={intro.summary} />
-          <LinkArrowOut title="Download Resume PDF" url="/pdf/resume.pdf" />
+          <BlurFade delay={0.5} duration={0.7} inView>
+            <LinkArrowOut title="Download Resume PDF" url="/pdf/resume.pdf" />
+          </BlurFade>
         </div>
       </div>
       <IntroImage />
-      <div className="w-screen mx-auto fixed bottom-0 flex justify-center px-4 py-10">
-        <div className="text-neutral-400 text-sm flex flex-col items-center gap-1">
-          <div className="mb-4">Scroll Down</div>
-          <div className="h-12 w-0.5 bg-gradient-to-t from-transparent via-neutral-400 to-transparent" />
-        </div>
+      <div className="pointer-events-none fixed bottom-0 flex w-full justify-center px-4 pb-10">
+        <ScrollCue />
       </div>
     </motion.div>
     <div className="z-10 flex min-h-screen justify-center pt-[200vh]">

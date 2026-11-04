@@ -1,8 +1,12 @@
 "use client";
 
+import { useReducedMotion } from "motion/react";
 import { useRef, useState, useCallback } from "react";
+import type { IconType } from "react-icons";
 
 import { cn } from "~/utils/cn";
+
+import ServiceIcon from "./service-icon";
 
 export interface TiltCardProps {
   /** Maximum tilt angle in degrees */
@@ -34,6 +38,7 @@ function TiltCard({
   children,
 }: TiltCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
+  const reduceMotion = useReducedMotion();
   const [transform, setTransform] = useState(
     `perspective(${perspective}px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`
   );
@@ -45,7 +50,7 @@ function TiltCard({
   const handlePointerMove = useCallback(
     (e: React.PointerEvent) => {
       const el = cardRef.current;
-      if (!el) return;
+      if (!el || reduceMotion || e.pointerType === "touch") return;
       const rect = el.getBoundingClientRect();
       const px = (e.clientX - rect.left) / rect.width;
       const py = (e.clientY - rect.top) / rect.height;
@@ -58,7 +63,7 @@ function TiltCard({
         setSpotlightPos({ x: px * 100, y: py * 100 });
       }
     },
-    [tiltLimit, scale, perspective, dir, spotlight]
+    [tiltLimit, scale, perspective, dir, spotlight, reduceMotion]
   );
 
   const handlePointerEnter = useCallback(() => {
@@ -90,7 +95,7 @@ function TiltCard({
       }}
     >
       {children}
-      {spotlight && (
+      {spotlight && !reduceMotion && (
         <div
           className="pointer-events-none absolute inset-0 z-10 overflow-hidden"
           style={{ opacity: isHovered ? 1 : 0, transition: "opacity 0.3s" }}
@@ -111,31 +116,44 @@ function TiltCard({
   );
 }
 
+/* Cards need keyboard focus so readers can pause the moving marquee. */
+/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 function TiltCardItem({
-  key,
   icon,
   title,
   description,
 }: {
-  key?: string | number;
-  icon?: React.ReactNode;
-  title?: string;
+  icon: IconType;
+  title: string;
   description?: string;
 }) {
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+
   return (
     <div
-      key={title}
-      className="flex items-center justify-center overflow-hidden p-4"
+      role="group"
+      aria-label={title}
+      tabIndex={0}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onFocus={() => setFocused(true)}
+      onBlur={() => setFocused(false)}
+      className="flex items-stretch justify-center rounded-xl p-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
     >
       <TiltCard
         effect="evade"
-        scale={1.08}
-        tiltLimit={20}
-        className="w-80 min-h-80 rounded-xl border border-border bg-card p-6"
+        scale={1.02}
+        tiltLimit={5}
+        className="w-80 min-h-[22rem] rounded-xl border border-border bg-card p-6"
       >
         <div className="relative z-20">
-          <p className="text-base text-primary">{icon}</p>
-          <h3 className="mt-2 text-2xl font-semibold tracking-tight">
+          <ServiceIcon
+            name={title}
+            fallback={icon}
+            active={hovered || focused}
+          />
+          <h3 className="mt-3 min-h-16 text-2xl font-semibold leading-tight tracking-tight">
             {title}
           </h3>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
@@ -146,5 +164,7 @@ function TiltCardItem({
     </div>
   );
 }
+
+/* eslint-enable jsx-a11y/no-noninteractive-tabindex */
 
 export { TiltCard, TiltCardItem };

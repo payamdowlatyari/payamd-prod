@@ -33,7 +33,7 @@ export default function Contact(): JSX.Element {
 
       {/* CTA */}
       <div className="flex flex-col items-center justify-center w-full max-w-3xl mx-auto my-20 py-10 px-4">
-        <CTA />
+        <CTA conversation />
       </div>
 
       <Footer />
