@@ -19,17 +19,17 @@ const CaseStudySection = () => {
     >
       <Link
         href="/projects/case-study"
-        className="group grid overflow-hidden rounded-2xl border border-border bg-card transition-colors duration-300 hover:border-primary/60 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background md:grid-cols-2"
+        className="group mx-auto grid w-full max-w-2xl overflow-hidden rounded-2xl border border-border bg-card transition-colors duration-300 hover:border-primary/60 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background"
       >
-        <div className="order-2 flex flex-col items-start gap-6 p-6 md:order-1 md:p-10 lg:p-12">
+        <div className="order-2 flex flex-col items-start gap-4 p-5 md:p-6">
           <span className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
             Featured case study
           </span>
-          <div className="space-y-4">
-            <h2 className="text-3xl font-semibold leading-tight tracking-tight text-foreground lg:text-5xl">
+          <div className="space-y-2">
+            <h2 className="text-2xl font-semibold leading-tight tracking-tight text-foreground md:text-3xl">
               PhysicianGPS
             </h2>
-            <p className="max-w-[45ch] text-base leading-relaxed text-muted-foreground md:text-lg">
+            <p className="max-w-[45ch] text-base leading-relaxed text-muted-foreground">
               Designing and building an AI-powered physician discovery platform.
             </p>
           </div>
@@ -49,18 +49,18 @@ const CaseStudySection = () => {
               </li>
             ))}
           </ul>
-          <span className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-semibold text-foreground">
+          <span className="mt-auto inline-flex items-center gap-2 pt-2 text-sm font-semibold text-foreground">
             Read case study
           </span>
         </div>
-        <div className="order-1 flex items-center border-b border-border bg-secondary/40 p-4 md:order-2 md:border-b-0 md:border-l md:p-6 lg:p-8">
+        <div className="order-1 border-b border-border bg-secondary/40 p-2">
           <Image
             src="/projects/case/search.png"
             alt="PhysicianGPS physician search interface with filters and provider results"
             className="h-auto w-full rounded-lg border border-border"
             width={3364}
             height={1758}
-            sizes="(min-width: 1280px) 560px, (min-width: 768px) 45vw, 100vw"
+            sizes="(min-width: 768px) 654px, calc(100vw - 58px)"
           />
         </div>
       </Link>

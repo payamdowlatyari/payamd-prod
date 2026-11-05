@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import Image from "next/image";
 
 import Footer from "~/components/layout/Footer";
 import Menu from "~/components/layout/Menu";
@@ -13,7 +12,7 @@ import { projectCaseStudy } from "~/data";
  * CaseStudy component displays a detailed case study of a project
  */
 export default function CaseStudy(): JSX.Element {
-  const { title, summary, images, sections } = projectCaseStudy;
+  const { title, summary, demo, sections } = projectCaseStudy;
   const reduceMotion = useReducedMotion();
   const reveal = {
     initial: reduceMotion ? false : { opacity: 0, y: 12 },
@@ -41,33 +40,30 @@ export default function CaseStudy(): JSX.Element {
                 {summary}
               </p>
 
-              {/* Featured Images */}
-              {images && images.length > 0 ? (
-                <div className="relative overflow-hidden rounded-lg w-full max-w-xl ">
-                  <Image
-                    src={images[0].url}
-                    alt={images[0].alt}
-                    width={500}
-                    height={300}
-                    className="w-full h-auto object-cover rounded-lg"
-                  />
-                  {images.length > 1 && (
-                    <div className="absolute inset-0 bg-black bg-opacity-75 opacity-0 hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                      <Image
-                        src={images[1].url}
-                        alt={images[1].alt}
-                        width={500}
-                        height={300}
-                        className="w-full h-auto object-cover rounded-lg"
-                      />
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <div className="w-full h-64 bg-neutral-800 rounded-lg flex items-center justify-center">
-                  <span className="text-neutral-500">No images available</span>
-                </div>
-              )}
+              <figure className="mt-4 w-full max-w-4xl">
+                <video
+                  controls
+                  muted
+                  playsInline
+                  preload="none"
+                  poster={demo.poster}
+                  width={demo.width}
+                  height={demo.height}
+                  aria-label="PhysicianGPS product demo"
+                  aria-describedby="physician-demo-caption"
+                  className="h-auto w-full rounded-xl border border-border bg-card"
+                >
+                  <source src={demo.url} type="video/mp4" />
+                  Your browser does not support embedded video.{" "}
+                  <a href={demo.url}>Download the demo</a>.
+                </video>
+                <figcaption
+                  id="physician-demo-caption"
+                  className="mt-3 text-sm leading-relaxed text-muted-foreground"
+                >
+                  {demo.caption}
+                </figcaption>
+              </figure>
             </div>
           </motion.div>
         </section>

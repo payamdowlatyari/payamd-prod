@@ -550,6 +550,14 @@ export const contactDetails = {
 };
 
 export const projectCaseStudy = {
+  demo: {
+    url: "/projects/case/physician-gps-demo.mp4",
+    poster: "/projects/case/physician-gps-demo-poster.png",
+    width: 800,
+    height: 444,
+    caption:
+      "PhysicianGPS in action — a walkthrough of the provider search experience.",
+  },
   title: "PhysicianGPS",
   subtitle:
     "Building a Scalable Provider Search Platform with AI-Powered Features",
