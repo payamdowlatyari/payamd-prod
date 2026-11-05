@@ -7,18 +7,20 @@ import BlurFade from "~/components/motion/BlurFade";
  */
 export const IntroImage = () => (
   <BlurFade
-    className="w-72 sm:w-80 md:w-96 h-auto"
+    className="w-52 justify-self-center sm:w-64 md:w-full md:max-w-80 md:justify-self-end"
     inView
     blur="xl"
     duration={0.8}
     delay={0.5}
   >
     <Image
-      src="/me-home-bw-removebg.png"
-      alt="me"
-      className="shadow-lg object-cover"
-      width={384}
-      height={512}
+      src="/me-home-bw.webp"
+      alt="Black-and-white portrait of Payam Dowlatyari"
+      className="aspect-square h-auto w-full rounded-xl border border-border object-cover"
+      width={500}
+      height={500}
+      sizes="(min-width: 768px) 320px, (min-width: 640px) 256px, 208px"
+      priority
     />
   </BlurFade>
 );

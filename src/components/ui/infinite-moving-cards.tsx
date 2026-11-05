@@ -56,7 +56,7 @@ const InfiniteMovingCards = ({
           } as React.CSSProperties
         }
         className={cn(
-          "flex w-max min-w-full shrink-0 items-stretch flex-nowrap gap-4 py-4 focus-within:[animation-play-state:paused]",
+          "flex w-max min-w-full shrink-0 items-stretch flex-nowrap gap-2 py-4 focus-within:[animation-play-state:paused]",
           !reduceMotion && "animate-scroll",
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}

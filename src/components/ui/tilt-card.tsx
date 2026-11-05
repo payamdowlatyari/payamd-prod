@@ -139,13 +139,13 @@ function TiltCardItem({
       onMouseLeave={() => setHovered(false)}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}
-      className="flex items-stretch justify-center rounded-xl p-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
+      className="flex items-stretch justify-center rounded-xl p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
     >
       <TiltCard
         effect="evade"
         scale={1.02}
         tiltLimit={5}
-        className="w-80 min-h-[22rem] rounded-xl border border-border bg-card p-6"
+        className="w-72 rounded-xl border border-border bg-card p-5"
       >
         <div className="relative z-20">
           <ServiceIcon
@@ -153,10 +153,10 @@ function TiltCardItem({
             fallback={icon}
             active={hovered || focused}
           />
-          <h3 className="mt-3 min-h-16 text-2xl font-semibold leading-tight tracking-tight">
+          <h3 className="mt-3 text-lg font-semibold leading-tight tracking-tight">
             {title}
           </h3>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
             {description}
           </p>
         </div>

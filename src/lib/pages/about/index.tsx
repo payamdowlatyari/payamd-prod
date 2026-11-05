@@ -63,19 +63,19 @@ const Intro = ({ opacity }: { opacity: MotionValue<number> }) => (
   <div className="relative">
     <motion.div
       style={{ opacity }}
-      className="fixed mx-1 h-screen w-screen flex flex-wrap md:items-center justify-evenly"
+      className="fixed inset-0 flex h-screen w-full items-center overflow-y-auto px-6 pb-32 pt-24 sm:px-10"
     >
-      <div className="px-4 sm:px-8 pt-1 sm:pt-2 flex">
-        <div className="grid gap-2">
+      <div className="m-auto grid w-full max-w-5xl items-center gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,320px)] md:gap-12 lg:gap-20">
+        <div className="grid gap-5">
           <H1 label={intro.title} />
           <Paragraph text={intro.summary} />
           <BlurFade delay={0.5} duration={0.7} inView>
             <LinkArrowOut title="Download Resume PDF" url="/pdf/resume.pdf" />
           </BlurFade>
         </div>
+        <IntroImage />
       </div>
-      <IntroImage />
-      <div className="pointer-events-none fixed bottom-0 flex w-full justify-center px-4 pb-10">
+      <div className="pointer-events-none fixed inset-x-0 bottom-0 flex w-full justify-center px-4 pb-10">
         <ScrollCue />
       </div>
     </motion.div>

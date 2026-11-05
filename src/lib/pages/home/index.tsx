@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -21,35 +22,27 @@ const Hero = () => (
   <section
     id="hero"
     aria-labelledby="hero-title"
-    className="relative isolate flex min-h-svh flex-col justify-between gap-12 px-0 pb-6 pt-28 md:pt-36"
+    className="relative isolate flex min-h-svh flex-col justify-between gap-12 px-6 pb-8 pt-28 sm:px-10 md:pt-36 lg:px-16"
   >
-    <div
-      aria-hidden="true"
-      className="pointer-events-none absolute right-0 top-16 z-0 w-3/4 max-w-xl opacity-20 [mask-image:linear-gradient(to_bottom,black_60%,transparent)] md:top-24 md:w-[45%] md:opacity-80"
-    >
-      <AsciiArt
-        src="/me-home-bw.webp"
-        className="aspect-square w-full"
-        charset="dots"
-        resolution={100}
-        color="#E5E5E5"
-      />
-    </div>
-    <div className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-1 flex-col justify-center gap-8 px-5 md:gap-10 md:px-10 lg:px-16">
-      <p className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground sm:text-sm">
-        Software engineer · California
-      </p>
-      <h1 id="hero-title" className="sr-only">
-        {portfolio.firstName} {portfolio.lastName}
-      </h1>
-      <div aria-hidden="true" className="max-w-full">
-        <UnfoldingText
-          text={`${portfolio.firstName} ${portfolio.lastName}`}
-          className="text-[clamp(3rem,8.5vw,8rem)] font-semibold leading-[1.05] uppercase tracking-[-0.04em]"
-        />
-      </div>
-      <div className="flex max-w-xl flex-col items-start gap-6 md:w-[55%]">
-        <p className="text-lg leading-relaxed text-muted-foreground sm:text-xl lg:text-2xl">
+    <div className="mx-auto grid w-full max-w-7xl flex-1 items-center gap-10 md:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] md:gap-12 lg:gap-20">
+      <div className="flex min-w-0 flex-col items-start gap-7">
+        <p className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground sm:text-sm">
+          Software engineer · California
+        </p>
+        <h1 id="hero-title" className="sr-only">
+          {portfolio.firstName} {portfolio.lastName}
+        </h1>
+        <div
+          aria-hidden="true"
+          className="space-y-1 text-[clamp(2.5rem,6vw,5.5rem)] font-semibold tracking-[-0.04em] text-foreground lg:text-[clamp(3.5rem,6.5vw,6rem)]"
+        >
+          <UnfoldingText
+            text={portfolio.firstName}
+            strokeColor="currentColor"
+          />
+          <UnfoldingText text={portfolio.lastName} strokeColor="currentColor" />
+        </div>
+        <p className="max-w-[36ch] text-lg leading-relaxed text-muted-foreground lg:text-xl">
           I build thoughtful software, from AI-powered applications to scalable
           cloud systems.
         </p>
@@ -62,10 +55,34 @@ const Hero = () => (
           </Link>
         </div>
       </div>
+      <div>
+        <div
+          aria-hidden="true"
+          className="hidden opacity-75 [mask-image:linear-gradient(to_bottom,black_80%,transparent)] md:block"
+        >
+          <AsciiArt
+            src="/me-home-bw.webp"
+            className="aspect-square w-full"
+            charset="dots"
+            resolution={100}
+            color="hsl(var(--foreground))"
+            animated={false}
+          />
+        </div>
+        <Image
+          src="/me-home-bw.webp"
+          alt="Black-and-white portrait of Payam Dowlatyari"
+          width={500}
+          height={500}
+          sizes="224px"
+          priority
+          className="mx-auto aspect-square h-auto w-56 rounded-xl border border-border object-cover md:hidden"
+        />
+      </div>
     </div>
     <div
-      className="relative z-10 w-full overflow-hidden border-t border-border pt-6"
       aria-hidden="true"
+      className="mx-auto w-full max-w-7xl overflow-hidden border-t border-border pt-6"
     >
       <ParallaxText baseVelocity={-0.05}>{portfolio.titles}</ParallaxText>
     </div>
@@ -93,14 +110,17 @@ const Intro = () => (
 const Services = React.memo(() => (
   <section
     id="services"
-    className="flex flex-col justify-evenly w-screen items-center gap-10"
+    aria-label="Services"
+    className="flex w-full flex-col items-center gap-10 py-16 md:gap-12 md:py-24"
   >
-    <div className="flex flex-col justify-center self-start mx-2 md:mx-4 my-4 md:my-8 p-1 md:p-2">
-      <H2 label="Services" />
-      <Paragraph
-        text="These are the services I can provide for you as a software engineer, web developer, solutions architect, and UX designer including the technologies I have worked with in recent years."
-        className="mt-4"
-      />
+    <div className="w-full px-6 sm:px-10 lg:px-16">
+      <div className="mx-auto w-full max-w-7xl">
+        <H2 label="Services" />
+        <Paragraph
+          text="From user experience to cloud infrastructure, I design, build, and maintain reliable software across the full stack."
+          className="mt-4 max-w-[60ch]"
+        />
+      </div>
     </div>
     <div className="h-full flex flex-col antialiased bg-transparent items-center justify-center relative overflow-hidden">
       <InfiniteMovingCards
