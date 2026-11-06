@@ -12,6 +12,7 @@ import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
 import UnfoldingText from "~/components/motion/UnfoldingText";
 import { AsciiArt } from "~/components/ui/ascii-art";
 import InfiniteMovingCards from "~/components/ui/infinite-moving-cards";
+import MagneticAction from "~/components/ui/magnetic-action";
 import { H2, Paragraph } from "~/components/ui/Texts";
 import { about, portfolio, services } from "~/data";
 
@@ -47,9 +48,7 @@ const Hero = () => (
           cloud systems.
         </p>
         <div className="flex flex-wrap items-center gap-3">
-          <Link href="/projects" className="button-primary gap-2">
-            Explore my work
-          </Link>
+          <MagneticAction href="/projects">Explore my work</MagneticAction>
           <Link href="/contact" className="button-secondary gap-2">
             Let’s connect
           </Link>
