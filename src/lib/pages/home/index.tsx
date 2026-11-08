@@ -9,7 +9,6 @@ import Menu from "~/components/layout/Menu";
 import ImageEffect from "~/components/motion/ImageEffect";
 import ParallaxText from "~/components/motion/ParallaxText";
 import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
-import UnfoldingText from "~/components/motion/UnfoldingText";
 import { AsciiArt } from "~/components/ui/ascii-art";
 import InfiniteMovingCards from "~/components/ui/infinite-moving-cards";
 import MagneticAction from "~/components/ui/magnetic-action";
@@ -25,25 +24,19 @@ const Hero = () => (
     aria-labelledby="hero-title"
     className="relative isolate flex min-h-svh flex-col justify-between gap-12 px-6 pb-8 pt-28 sm:px-10 md:pt-36 lg:px-16"
   >
-    <div className="mx-auto grid w-full max-w-7xl flex-1 items-center gap-10 md:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] md:gap-12 lg:gap-20">
+    <div className="mx-auto grid w-full max-w-7xl flex-1 items-center gap-10 md:grid-cols-[minmax(0,1.75fr)_minmax(0,1fr)] md:gap-12 lg:gap-20">
       <div className="flex min-w-0 flex-col items-start gap-7">
         <p className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground sm:text-sm">
           Software engineer · California
         </p>
-        <h1 id="hero-title" className="sr-only">
-          {portfolio.firstName} {portfolio.lastName}
-        </h1>
-        <div
-          aria-hidden="true"
-          className="space-y-1 text-[clamp(2.5rem,6vw,5.5rem)] font-semibold tracking-[-0.04em] text-foreground lg:text-[clamp(3.5rem,6.5vw,6rem)]"
+        <h1
+          id="hero-title"
+          className="font-display text-[clamp(2.5rem,8.5vw,5.5rem)] font-medium leading-[0.98] tracking-[-0.04em] text-foreground md:text-[clamp(3rem,6.5vw,7.5rem)]"
         >
-          <UnfoldingText
-            text={portfolio.firstName}
-            strokeColor="currentColor"
-          />
-          <UnfoldingText text={portfolio.lastName} strokeColor="currentColor" />
-        </div>
-        <p className="max-w-[36ch] text-lg leading-relaxed text-muted-foreground lg:text-xl">
+          <span className="block">{portfolio.firstName}</span>
+          <span className="block">{portfolio.lastName}</span>
+        </h1>
+        <p className="body-copy max-w-[46ch]">
           I build thoughtful software, from AI-powered applications to scalable
           cloud systems.
         </p>
@@ -92,12 +85,15 @@ const Hero = () => (
  * A component that displays a hero section with a short introduction.
  */
 const Intro = () => (
-  <section id="intro" className="flex flex-wrap justify-evenly items-center">
-    <div className="max-w-2xl p-1 md:p-2 my-2 md:my-4">
+  <section
+    id="intro"
+    className="section-shell grid items-center gap-10 py-16 md:grid-cols-[minmax(0,1fr)_384px] md:gap-16 md:py-24"
+  >
+    <div className="min-w-0">
       <H2 label={about.title} />
       <Paragraph text={about.text} className="mt-4" />
     </div>
-    <div className="h-72 w-72 sm:h-80 sm:w-80 md:h-96 md:w-96 m-1">
+    <div className="mx-auto h-64 w-64 sm:h-80 sm:w-80 md:h-96 md:w-96">
       <ImageEffect item1="/me-sea2.webp" item2="/me-sea3.webp" />
     </div>
   </section>
@@ -117,7 +113,7 @@ const Services = React.memo(() => (
         <H2 label="Services" />
         <Paragraph
           text="From user experience to cloud infrastructure, I design, build, and maintain reliable software across the full stack."
-          className="mt-4 max-w-[60ch]"
+          className="mt-5"
         />
       </div>
     </div>

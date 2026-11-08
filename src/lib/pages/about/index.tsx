@@ -63,9 +63,9 @@ const Intro = ({ opacity }: { opacity: MotionValue<number> }) => (
   <div className="relative">
     <motion.div
       style={{ opacity }}
-      className="fixed inset-0 flex h-screen w-full items-center overflow-y-auto px-6 pb-32 pt-24 sm:px-10"
+      className="fixed inset-0 flex h-screen w-full items-center overflow-y-auto px-6 pb-32 pt-28 sm:px-10 md:pt-36 lg:px-16"
     >
-      <div className="m-auto grid w-full max-w-5xl items-center gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,320px)] md:gap-12 lg:gap-20">
+      <div className="m-auto grid w-full max-w-7xl items-center gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,320px)] md:gap-12 lg:gap-20">
         <div className="grid gap-5">
           <H1 label={intro.title} />
           <Paragraph text={intro.summary} />
@@ -108,8 +108,8 @@ const Resume = ({ x }: { x: MotionValue<string> }) => (
         {resume.map((section) => (
           <li className="w-screen max-w-screen-lg" key={section.section}>
             <div className="flex flex-row justify-center items-center h-screen m-1">
-              <div className="flex flex-col justify-center max-w-screen-lg overflow-hidden backdrop-blur-sm rounded-lg p-4">
-                <div className="flex flex-col-reverse px-4">
+              <div className="flex flex-col justify-center w-full max-w-screen-lg overflow-hidden backdrop-blur-sm rounded-lg px-6 sm:px-10 lg:px-16">
+                <div className="flex flex-col-reverse">
                   <H2 label={section.section} />
                 </div>
 
@@ -159,17 +159,24 @@ const MarqueeSection = ({ opacity }: { opacity: MotionValue<number> }) => (
  * Renders a bottom section with a gradient tracing animation.
  */
 const BottomSection = () => (
-  <div className="relative flex flex-col md:flex-row justify-evenly my-20 items-center gap-4">
-    <div className="text-neutral-400 text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl mx-auto max-w-xl leading-tight px-4 my-10 z-10">
-      Check out <br /> my{" "}
-      <LinkPreview url="https://blog.payamd.com/">Blog</LinkPreview> <br /> &{" "}
-      <br />
-      <LinkPreview url="https://photos.payamd.com/">
+  <div className="relative z-10 mx-auto my-20 max-w-3xl px-6 py-12 text-center">
+    <p className="font-display text-3xl font-medium leading-relaxed tracking-tight text-muted-foreground md:text-[2.5rem]">
+      Check out my{" "}
+      <LinkPreview
+        url="https://blog.payamd.com/"
+        className="text-foreground underline decoration-foreground/30 decoration-1 underline-offset-8 transition-colors hover:decoration-foreground focus-visible:decoration-foreground"
+      >
+        Blog
+      </LinkPreview>{" "}
+      &amp;{" "}
+      <LinkPreview
+        url="https://photos.payamd.com/"
+        className="text-foreground underline decoration-foreground/30 decoration-1 underline-offset-8 transition-colors hover:decoration-foreground focus-visible:decoration-foreground"
+      >
         Photography
       </LinkPreview>{" "}
-      <br />
       portfolio.
-    </div>
+    </p>
   </div>
 );
 

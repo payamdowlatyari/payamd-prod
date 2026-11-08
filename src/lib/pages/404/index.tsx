@@ -8,8 +8,8 @@ import Link from "next/link";
  */
 const Page404 = (): JSX.Element => {
   return (
-    <main className="flex flex-col justify-center items-center h-screen">
-      <h1>404</h1>
+    <main className="flex flex-col justify-center items-center min-h-svh gap-6 px-6 text-center">
+      <h1 className="page-title">404</h1>
       <Link href="/">Go Home</Link>
     </main>
   );

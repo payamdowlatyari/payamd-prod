@@ -24,9 +24,9 @@ const Word: FC<WordProps> = ({ children, progress, range }: WordProps) => {
   const opacity = useTransform(progress, range, [0, 1]);
 
   return (
-    <span className="relative mx-[2px] lg:mx-1">
+    <span className="relative inline-block">
       <span className="absolute opacity-0">{children}</span>
-      <motion.span style={{ opacity }} className="text-neutral-200">
+      <motion.span style={{ opacity }} className="text-foreground">
         {children}
       </motion.span>
     </span>
@@ -81,8 +81,8 @@ const TextRevealByWord: FC<TextRevealByWordProps> = ({
 
   return (
     <div ref={targetRef} className={cn("relative z-0 h-[400vh]", className)}>
-      <div className="sticky top-40 mx-auto flex h-1/6 max-w-screen-xl items-center bg-transparent px-2 py-20">
-        <p className="flex flex-wrap p-3 md:p-5 text-base sm:text-xl lg:text-2xl lg:p-10 xl:text-3xl">
+      <div className="section-shell sticky top-0 flex min-h-svh items-center justify-center bg-transparent py-24">
+        <p className="flex w-full max-w-[64ch] flex-wrap justify-center gap-x-[0.25em] font-display text-[clamp(1.125rem,2.1vw,1.875rem)] font-medium leading-[1.45] tracking-[-0.025em] text-center text-foreground">
           {wordsWithOffsets.map(({ word, start }, i) => {
             const startProgress =
               wordsCount <= 1 ? 0 : (i / (wordsCount - 1)) * maxStart;

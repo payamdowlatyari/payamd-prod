@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { RiArrowRightUpLine } from "react-icons/ri";
 
+import { cn } from "~/utils/cn";
+
 /**
  * GlassButton component
  * @param {Object} props - The component properties.
@@ -69,13 +71,24 @@ export function LinkOverlay({
  * @param {string} props.title - The title of the link.
  * @param {string} props.url - The URL the link points to.
  */
-export function LinkArrowOut({ title, url }: { title: string; url: string }) {
+export function LinkArrowOut({
+  title,
+  url,
+  className,
+}: {
+  title: string;
+  url: string;
+  className?: string;
+}) {
   return (
     <Link
       href={url}
       target="_blank"
       rel="noreferrer"
-      className="group inline-flex items-center gap-1 py-1 w-fit rounded-sm text-sm font-medium text-primary transition-colors hover:text-foreground"
+      className={cn(
+        "group inline-flex items-center gap-1 py-1 w-fit rounded-sm text-sm font-medium text-primary transition-colors hover:text-foreground",
+        className
+      )}
     >
       {title}
       <div className="flex overflow-hidden relative justify-center items-center ml-1 w-5 h-5">

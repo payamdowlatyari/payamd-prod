@@ -21,7 +21,7 @@ export default function Footer() {
 
   return (
     <footer className="relative isolate w-full overflow-hidden border-t border-border bg-background">
-      <div className="relative mx-auto max-w-7xl px-5 pt-12 md:px-10 md:pt-16 lg:px-16">
+      <div className="section-shell relative pt-12 md:pt-16">
         <div className="mb-12 grid gap-10 md:mb-16 md:grid-cols-[1fr_3fr] md:gap-12">
           <BlurFade inView delay={0.1} duration={0.6}>
             <div className="flex flex-col items-start gap-4">

@@ -71,7 +71,7 @@ const PageIcons = ({ icons }: { icons: string[] }) => {
  */
 export const PageDetails = ({ details }: { details: Details }) => {
   return (
-    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
+    <div className="section-shell relative left-0 top-0 pb-20 pt-28 md:pb-40 md:pt-36">
       <BlurFade
         delay={0.5}
         inView
@@ -79,8 +79,8 @@ export const PageDetails = ({ details }: { details: Details }) => {
         blur="6px"
         variant={{ hidden: { y: 100 }, visible: { y: 0 } }}
       >
-        <div className="sm:pl-8 pt-16 pl-4 flex flex-col">
-          <div className="grid gap-2 md:gap-4">
+        <div className="flex flex-col">
+          <div className="grid gap-5">
             <H1 label={details.title} />
             <Paragraph className="max-w-xl" text={details.description} />
           </div>
@@ -136,9 +136,7 @@ export const ProductCard = ({
           />
         </div>
         <div className="flex shrink-0 flex-col items-start gap-2 border-t border-border p-4 lg:p-5">
-          <h3 className="z-10 text-xl font-semibold text-foreground tracking-tight leading-tight">
-            {product.title}
-          </h3>
+          <h3 className="card-title z-10">{product.title}</h3>
           <p className="z-10 text-sm leading-relaxed text-muted-foreground">
             {product.description}
           </p>

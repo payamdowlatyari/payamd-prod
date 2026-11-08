@@ -153,7 +153,7 @@ function TiltCardItem({
             fallback={icon}
             active={hovered || focused}
           />
-          <h3 className="mt-3 text-lg font-semibold leading-tight tracking-tight">
+          <h3 className="mt-3 font-display text-xl font-medium leading-tight tracking-tight">
             {title}
           </h3>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">

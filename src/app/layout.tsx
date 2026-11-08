@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import localFont from "next/font/local";
 
 import Layout from "~/lib/layout";
 
-const geist = Geist({
-  subsets: ["latin"],
+const satoshi = localFont({
+  src: [
+    {
+      path: "../assets/fonts/satoshi-variable.woff2",
+      weight: "300 900",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/satoshi-variable-italic.woff2",
+      weight: "300 900",
+      style: "italic",
+    },
+  ],
   variable: "--font-sans",
   display: "swap",
 });
@@ -71,8 +82,8 @@ export const metadata: Metadata = {
  */
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html lang="en" className={`dark ${geist.variable}`}>
-      <body className="bg-background text-foreground">
+    <html lang="en" className={`dark ${satoshi.variable}`}>
+      <body className="bg-background font-body text-base leading-7 text-foreground">
         <Layout>{children}</Layout>
       </body>
     </html>

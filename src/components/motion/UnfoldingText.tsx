@@ -4,6 +4,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
 
+import { cn } from "~/utils/cn";
+
 interface UnfoldingTextProps {
   text: string;
   initialRotateY?: number;
@@ -44,7 +46,7 @@ const UnfoldingText = ({
     <div style={{ perspective: 500 }}>
       <div
         ref={textRef}
-        className={`font-semibold ${className}`}
+        className={cn("font-semibold", className)}
         style={{
           WebkitTextStroke: 0.4,
           WebkitTextStrokeColor: strokeColor,

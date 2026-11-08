@@ -18,13 +18,13 @@ export default function Contact(): JSX.Element {
   return (
     <main className="overflow-hidden">
       <Menu />
-      <section className="mx-auto max-w-7xl z-10">
-        <div className="flex flex-col justify-center items-center m-auto my-20 px-4">
-          <div className="grid gap-2 mb-6 text-center">
+      <section className="section-shell relative z-10 pb-16 pt-28 md:pb-24 md:pt-36">
+        <div className="mx-auto flex w-full max-w-2xl flex-col items-center">
+          <div className="mb-8 grid gap-5 text-center">
             <H1 label={title} />
             <Paragraph
               text={description}
-              className="mb-4 mx-auto text-center text-neutral-400 max-w-sm md:max-w-lg"
+              className="mx-auto max-w-[50ch] text-center"
             />
           </div>
           <SendMessage />

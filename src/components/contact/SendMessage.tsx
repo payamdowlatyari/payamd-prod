@@ -74,11 +74,7 @@ export default function SendMessage() {
   };
 
   return (
-    <form
-      ref={form}
-      onSubmit={sendEmail}
-      className="m-auto-[10px] w-[500px] max-w-[95vw]"
-    >
+    <form ref={form} onSubmit={sendEmail} className="mx-auto w-full max-w-lg">
       {" "}
       <div className="relative my-4">
         <input

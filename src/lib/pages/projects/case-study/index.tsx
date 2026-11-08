@@ -27,18 +27,14 @@ export default function CaseStudy(): JSX.Element {
       <div className="min-h-screen bg-background text-foreground">
         {/* Hero Section */}
 
-        <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
+        <section className="section-shell pb-16 pt-28 md:pb-24 md:pt-36">
           <motion.div {...reveal} className="flex flex-col gap-4 mb-6">
-            <h1 className="mb-8 text-[clamp(2.75rem,7vw,5rem)] font-semibold leading-[1.05] tracking-[-0.04em] md:mb-12">
-              Case Study
-            </h1>
+            <h1 className="page-title mb-8 md:mb-12">Case Study</h1>
             <div className="flex flex-col gap-6">
-              <h2 className="text-[clamp(1.875rem,4vw,3rem)] font-semibold leading-[1.15] tracking-tight">
+              <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-tight tracking-[-0.03em] text-foreground">
                 {title}
               </h2>
-              <p className="my-2 max-w-[60ch] text-base leading-relaxed text-muted-foreground md:my-4 md:text-lg">
-                {summary}
-              </p>
+              <p className="body-copy my-2 max-w-[60ch] md:my-4">{summary}</p>
 
               <figure className="mt-4 w-full max-w-4xl">
                 <video
@@ -69,11 +65,11 @@ export default function CaseStudy(): JSX.Element {
         </section>
 
         {/* Content Sections */}
-        <section className="px-4 sm:px-6 lg:px-8 py-16">
+        <section className="section-shell py-16">
           <div className="max-w-3xl mx-auto space-y-16">
             {sections.map((section) => (
               <motion.div {...reveal} key={section.title} className="space-y-4">
-                <h2 className="text-2xl font-semibold uppercase tracking-tight text-foreground md:text-3xl">
+                <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-tight tracking-[-0.03em] text-foreground">
                   {section.title}
                 </h2>
                 <div className="prose prose-invert max-w-none">
@@ -83,7 +79,7 @@ export default function CaseStudy(): JSX.Element {
                     .map((paragraph) => (
                       <p
                         key={`${section.title}-${paragraph}`}
-                        className="mt-4 text-base leading-relaxed text-muted-foreground whitespace-pre-wrap"
+                        className="mt-4 body-copy whitespace-pre-wrap"
                       >
                         {paragraph}
                       </p>
@@ -93,7 +89,7 @@ export default function CaseStudy(): JSX.Element {
                   {section.sections &&
                     section.sections.map((subsection) => (
                       <li key={subsection.title} className="space-y-2 mt-4">
-                        <h3 className="mt-2 text-lg font-semibold leading-tight text-foreground md:mt-4 md:text-xl">
+                        <h3 className="card-title mt-2 md:mt-4">
                           {subsection.title}
                         </h3>
                         {subsection.items && (
@@ -101,7 +97,7 @@ export default function CaseStudy(): JSX.Element {
                             {subsection.items.map((item) => (
                               <li
                                 key={`${subsection.title}-${item}`}
-                                className="text-base text-muted-foreground leading-relaxed"
+                                className="body-copy"
                               >
                                 {item}
                               </li>
@@ -112,7 +108,7 @@ export default function CaseStudy(): JSX.Element {
                     ))}
                 </ul>
                 {section.ending && (
-                  <p className="text-base leading-relaxed text-muted-foreground whitespace-pre-wrap">
+                  <p className="body-copy whitespace-pre-wrap">
                     {section.ending}
                   </p>
                 )}
@@ -122,7 +118,7 @@ export default function CaseStudy(): JSX.Element {
         </section>
 
         {/* CTA Section */}
-        <div className="px-4 my-24 mx-auto max-w-3xl">
+        <div className="section-shell my-24">
           <CTA />
         </div>
       </div>

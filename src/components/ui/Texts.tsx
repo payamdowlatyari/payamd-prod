@@ -10,14 +10,7 @@ import { cn } from "~/utils/cn";
  */
 const H1 = ({ label, className }: { label: string; className?: string }) => (
   <BlurFade delay={0.3} inView>
-    <h1
-      className={cn(
-        "text-[clamp(2.75rem,7vw,5rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-foreground",
-        className
-      )}
-    >
-      {label}
-    </h1>
+    <h1 className={cn("page-title", className)}>{label}</h1>
   </BlurFade>
 );
 
@@ -30,14 +23,7 @@ const H1 = ({ label, className }: { label: string; className?: string }) => (
  */
 const H2 = ({ label, className }: { label: string; className?: string }) => (
   <BlurFade delay={0.4} inView>
-    <h2
-      className={cn(
-        "text-[clamp(1.875rem,4vw,3rem)] font-semibold leading-[1.15] tracking-[-0.03em] text-foreground",
-        className
-      )}
-    >
-      {label}
-    </h2>
+    <h2 className={cn("section-title", className)}>{label}</h2>
   </BlurFade>
 );
 
@@ -50,14 +36,7 @@ const H2 = ({ label, className }: { label: string; className?: string }) => (
  */
 const H3 = ({ label, className }: { label: string; className?: string }) => (
   <BlurFade delay={0.5} inView>
-    <h3
-      className={cn(
-        "text-xl md:text-2xl font-semibold leading-tight tracking-tight text-foreground",
-        className
-      )}
-    >
-      {label}
-    </h3>
+    <h3 className={cn("card-title", className)}>{label}</h3>
   </BlurFade>
 );
 
@@ -76,14 +55,7 @@ const Paragraph = ({
   className?: string;
 }) => (
   <BlurFade duration={0.7} delay={0.3} inView>
-    <p
-      className={cn(
-        "max-w-[60ch] text-base md:text-lg leading-relaxed text-muted-foreground",
-        className
-      )}
-    >
-      {text}
-    </p>
+    <p className={cn("body-copy max-w-[46ch]", className)}>{text}</p>
   </BlurFade>
 );
 

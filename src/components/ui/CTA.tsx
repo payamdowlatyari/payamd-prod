@@ -14,10 +14,10 @@ export default function CTA({
     <BlurFade inView duration={0.6} className="w-full">
       <div className="flex w-full flex-col gap-6 rounded-2xl border border-border bg-card p-6 sm:p-8 md:flex-row md:items-center md:justify-between">
         <div className="max-w-md space-y-3">
-          <h2 className="text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">
+          <h2 className="card-title">
             {conversation ? "Prefer a conversation?" : "Let’s build something."}
           </h2>
-          <p className="text-base leading-relaxed text-muted-foreground">
+          <p className="body-copy">
             {conversation
               ? "Book a meeting to talk through your project or opportunity."
               : "Have a project or opportunity to discuss? I’d love to hear about it."}

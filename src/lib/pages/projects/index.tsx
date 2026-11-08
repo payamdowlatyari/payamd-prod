@@ -15,7 +15,7 @@ const CaseStudySection = () => {
   return (
     <section
       aria-label="Featured case study"
-      className="relative mx-auto block w-full max-w-7xl px-5 py-20 md:px-10 md:py-32"
+      className="section-shell relative block py-16 md:py-24"
     >
       <Link
         href="/projects/case-study"
@@ -26,10 +26,8 @@ const CaseStudySection = () => {
             Featured case study
           </span>
           <div className="space-y-2">
-            <h2 className="text-2xl font-semibold leading-tight tracking-tight text-foreground md:text-3xl">
-              PhysicianGPS
-            </h2>
-            <p className="max-w-[45ch] text-base leading-relaxed text-muted-foreground">
+            <h2 className="card-title">PhysicianGPS</h2>
+            <p className="body-copy max-w-[45ch]">
               Designing and building an AI-powered physician discovery platform.
             </p>
           </div>

@@ -21,6 +21,8 @@
 
   :root {
     --s: 1;
+    --font-body: var(--font-sans);
+    --font-display: var(--font-sans);
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
@@ -221,6 +223,21 @@ section {
 }
 
 @layer components {
+  .page-title {
+    @apply font-display text-[clamp(3rem,8vw,7rem)] font-medium leading-[1] tracking-[-0.04em] text-foreground;
+  }
+  .section-title {
+    @apply font-display text-[clamp(3rem,6.5vw,6rem)] font-medium leading-[1] tracking-[-0.04em] text-foreground;
+  }
+  .card-title {
+    @apply font-display text-xl font-medium leading-tight tracking-tight text-foreground md:text-2xl;
+  }
+  .body-copy {
+    @apply font-body text-base leading-[1.625] text-muted-foreground md:text-[0.9375rem] md:leading-6;
+  }
+  .section-shell {
+    @apply mx-auto w-full max-w-[1408px] px-6 sm:px-10 lg:px-16;
+  }
   .button-primary {
     @apply inline-flex min-h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 disabled:cursor-wait disabled:opacity-60;
   }
@@ -230,10 +247,15 @@ section {
 }
 
 @layer base {
+  p {
+    @apply font-body;
+  }
+
   h1,
   h2,
   h3,
   h4 {
+    @apply font-display font-medium;
     text-wrap: balance;
   }
   a,

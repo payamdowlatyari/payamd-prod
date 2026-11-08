@@ -16,14 +16,14 @@ export const CardTitle = ({
   children: React.ReactNode;
 }) => {
   return (
-    <h4
+    <h3
       className={cn(
-        "text-foreground font-semibold tracking-normal text-base md:text-lg",
+        "font-display text-base font-medium leading-snug tracking-tight text-foreground md:text-lg",
         className
       )}
     >
       {children}
-    </h4>
+    </h3>
   );
 };
 
@@ -42,7 +42,7 @@ export const CardSubTitle = ({
   return (
     <p
       className={cn(
-        "my-1 text-muted-foreground uppercase tracking-normal leading-relaxed text-sm",
+        "mt-1 text-sm leading-relaxed text-muted-foreground",
         className
       )}
     >
@@ -66,7 +66,7 @@ export const CardDate = ({
   return (
     <p
       className={cn(
-        "mt-1 ml-2 text-muted-foreground tracking-normal leading-relaxed text-sm min-w-12",
+        "shrink-0 text-xs leading-relaxed tabular-nums text-muted-foreground",
         className
       )}
     >
@@ -87,16 +87,7 @@ export const CardDescription = ({
   className?: string;
   children: React.ReactNode;
 }) => {
-  return (
-    <div
-      className={cn(
-        "mt-1 md:mt-2 text-muted-foreground tracking-normal leading-relaxed text-base leading-relaxed",
-        className
-      )}
-    >
-      {children}
-    </div>
-  );
+  return <div className={cn("body-copy mt-2", className)}>{children}</div>;
 };
 
 /**
@@ -117,25 +108,35 @@ interface CardProps {
  */
 export function Card({ items }: { items: CardProps[] }) {
   return (
-    <div className={cn("flex flex-col my-5 max-w-2xl")}>
+    <div
+      className={cn(
+        "my-5 flex w-full max-w-2xl flex-col divide-y divide-border/60"
+      )}
+    >
       {items.map((item: CardProps) => (
         <div
           key={item.title}
-          className="flex flex-col justify-start p-1 md:p-2"
+          className="flex flex-col py-4 first:pt-0 last:pb-0"
         >
-          <div className="flex flex-row">
-            {item.link ? (
-              <LinkArrowOut title={item.title} url={item.link} />
-            ) : (
-              <CardTitle>{item.title}</CardTitle>
-            )}
+          <div className="flex flex-col items-start gap-1 sm:flex-row sm:flex-wrap sm:items-baseline sm:justify-between sm:gap-x-6">
+            <CardTitle>
+              {item.link ? (
+                <LinkArrowOut
+                  title={item.title}
+                  url={item.link}
+                  className="py-0 text-base leading-snug tracking-tight underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground focus-visible:decoration-foreground md:text-lg"
+                />
+              ) : (
+                item.title
+              )}
+            </CardTitle>
             <CardDate>{item.date}</CardDate>
           </div>
           <CardSubTitle>{item.subtitle}</CardSubTitle>
 
           {item.description && item.description.length > 0 && (
             <CardDescription>
-              <ul className="list-disc list-inside text-sm">
+              <ul className="ml-4 list-outside list-disc space-y-1 text-sm leading-5 marker:text-muted-foreground/50">
                 {item.description.map((d: string) => (
                   <li key={d}>{d}</li>
                 ))}

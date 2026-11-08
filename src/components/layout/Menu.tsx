@@ -22,7 +22,7 @@ export function Nav() {
       {links.map(({ title, url }) => (
         <span
           key={title}
-          className="flex justify-center items-center h-1/4 text-5xl md:text-6xl uppercase bg-background text-foreground"
+          className="flex justify-center items-center h-1/4 font-display font-medium text-5xl md:text-6xl uppercase bg-background text-foreground"
         >
           <FlipLink href={url}>{title}</FlipLink>
         </span>
