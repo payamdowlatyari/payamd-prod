@@ -400,16 +400,27 @@ export const intro = {
 
 export const experience = [
   {
+    title: "Software Specialist - AI Anotations",
+    subtitle: "Mercor",
+    date: "May 2026 - Present",
+    description: [
+      "Review model-generated code for correctness, quality, maintainability, and performance.",
+      "Apply professional engineering judgments to identify bugs, edge cases, and failure modes in model outputs.",
+      "Compare outputs from multiple frontier models and assess their strengths and weaknesses.",
+    ],
+    index: 0,
+  },
+  {
     title: "Full Stack Engineer",
     subtitle: "Avalon AI",
     date: "Apr 2024 - Present",
     description: [
-      "Define software requirements specifications and identify the best solutions",
-      "Design system architecture and configure resources and dev environments",
-      "Work with a team to develop a full-stack web app for the healthcare industry",
-      "Utilize AWS serverless technologies such as Lambda, API Gateway, DynamoDB",
+      "Collaborate with stakeholders to translate complex requirements into clear technical specs for a multi-tenant healthcare platform.",
+      "Architect and delivered the full stack with a strong focus on scalability, observability, and security.",
+      "Develop a high-performance provider search service on OpenSearch, enabling sub-second search across 200K+ providers.",
+      "Design and automate an ingestion pipeline for large CSV-to-NDJSON transformations, weekly reindexing, and operational monitoring via CloudWatch.",
     ],
-    index: 0,
+    index: 1,
   },
   {
     title: "Software Engineer",
@@ -419,17 +430,6 @@ export const experience = [
       "Designed, Developed, tested, deployed, and maintained AI-powered applications",
       "Built 100+ user engagement apps on various platforms i.e. Facebook, Twitter",
       "Created a developer-friendly toolkit to facilitate development with SvelteJS",
-      "Implemented user authentication and authorization tools such as 2FA, OAuth, etc.",
-    ],
-    index: 1,
-  },
-  {
-    title: "Web Developer",
-    subtitle: "Freelance",
-    date: "Sep 2019 - Dec 2020",
-    description: [
-      "Develop responsive web applications using HTML, CSS, and JavaScript",
-      "Optimize applications for maximum speed, security, and performance",
     ],
     index: 2,
   },
@@ -469,22 +469,34 @@ export const education = [
 
 export const certificate = [
   {
-    title: "IBM",
-    subtitle: "AI Developer Specialization",
+    title: "IBM AI Developer Specialization",
+    subtitle: "IBM",
     date: "Jan 2026",
     link: "https://www.coursera.org/account/accomplishments/specialization/VPD5S4UBXT0D",
   },
   {
-    title: "IBM",
-    subtitle: "Applied DevOps Engineering Specialization",
-    date: "Dec 2025",
-    link: "https://www.coursera.org/account/accomplishments/specialization/0XW9M8XKLKSL",
-  },
-  {
-    title: "AWS",
-    subtitle: "Cloud Solutions Architect",
+    title: "AWS Cloud Solutions Architect",
+    subtitle: "Amazon Web Services",
     date: "Dec 2025",
     link: "https://www.coursera.org/account/accomplishments/specialization/LJ62BWR581LK",
+  },
+  {
+    title: "Generative AI for Software Development",
+    subtitle: "DeepLearning.AI",
+    date: "Oct 2025",
+    link: "https://www.coursera.org/account/accomplishments/specialization/certificate/BRL9P96RR14B",
+  },
+  {
+    title: "AI for Designers",
+    subtitle: "Interaction Design Foundation",
+    date: "Sep 2025",
+    link: "https://ixdf.org/members/payam-dowlatyari/certificate/course/50cba155-a766-4232-bc7a-1634afb848a3",
+  },
+  {
+    title: "Machine Learning",
+    subtitle: "Stanford University",
+    date: "Feb 2020",
+    link: "https://www.coursera.org/account/accomplishments/certificate/8NJAABHZRNUM",
   },
 ];
 

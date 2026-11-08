@@ -9,7 +9,6 @@ import Menu from "~/components/layout/Menu";
 import ImageEffect from "~/components/motion/ImageEffect";
 import ParallaxText from "~/components/motion/ParallaxText";
 import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
-import { AsciiArt } from "~/components/ui/ascii-art";
 import InfiniteMovingCards from "~/components/ui/infinite-moving-cards";
 import MagneticAction from "~/components/ui/magnetic-action";
 import { H2, Paragraph } from "~/components/ui/Texts";
@@ -47,28 +46,15 @@ const Hero = () => (
           </Link>
         </div>
       </div>
-      <div>
-        <div
-          aria-hidden="true"
-          className="hidden opacity-75 [mask-image:linear-gradient(to_bottom,black_80%,transparent)] md:block"
-        >
-          <AsciiArt
-            src="/me-home-bw.webp"
-            className="aspect-square w-full"
-            charset="dots"
-            resolution={100}
-            color="hsl(var(--foreground))"
-            animated={false}
-          />
-        </div>
+      <div className="mx-auto w-64 sm:w-80 md:w-full">
         <Image
-          src="/me-home-bw.webp"
-          alt="Black-and-white portrait of Payam Dowlatyari"
+          src="/me-home-bw-removebg.png"
+          alt="Payam Dowlatyari"
           width={500}
           height={500}
-          sizes="224px"
+          sizes="(max-width: 639px) 256px, (max-width: 767px) 320px, (max-width: 1279px) 35vw, 420px"
           priority
-          className="mx-auto aspect-square h-auto w-56 rounded-xl border border-border object-cover md:hidden"
+          className="mx-auto h-auto w-full max-w-md [mask-image:linear-gradient(to_bottom,black_85%,transparent)]"
         />
       </div>
     </div>

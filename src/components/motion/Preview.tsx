@@ -7,13 +7,14 @@ import {
   MotionValue,
   motionValue,
   useMotionValue,
+  useReducedMotion,
   useSpring,
   useTransform,
 } from "motion/react";
+import Image from "next/image";
 import { useEffect, useId, useState } from "react";
 import useMeasure from "react-use-measure";
 
-import Logo from "~/components/ui/Logo";
 import { cn } from "~/utils/cn";
 
 const TRANSITION = {
@@ -196,102 +197,118 @@ const PREVIEW_SESSION_KEY = "preview-seen";
  * @param {PreviewProps} props - The props for the component.
  */
 export default function Preview({ value = 100, className }: PreviewProps) {
-  const [isVisible, setIsVisible] = useState(() => {
-    if (typeof window === "undefined") {
-      return false;
-    }
-
-    return !window.sessionStorage.getItem(PREVIEW_SESSION_KEY);
-  });
-  const [displayValue, setDisplayValue] = useState(0);
+  const reduceMotion = useReducedMotion();
+  const [isVisible, setIsVisible] = useState(false);
   const progress = useMotionValue(0);
-  const spring = useSpring(progress, {
-    damping: 28,
-    stiffness: 140,
-  });
+  const target = Math.max(value, 1);
+  const scaleX = useTransform(progress, [0, target], [0, 1]);
 
   useEffect(() => {
-    if (!isVisible) {
-      return undefined;
+    try {
+      setIsVisible(!window.sessionStorage.getItem(PREVIEW_SESSION_KEY));
+    } catch {
+      setIsVisible(true);
     }
+  }, []);
 
-    window.sessionStorage.setItem(PREVIEW_SESSION_KEY, "1");
+  useEffect(() => {
+    if (!isVisible || reduceMotion === null) return undefined;
 
+    progress.set(0);
+    let minimumElapsed = false;
+    let pageLoaded = document.readyState === "complete";
+    let completing = false;
     let finishTimeout: number | undefined;
-
-    const unsubscribe = spring.on("change", (latest) => {
-      setDisplayValue(Math.round(latest));
-    });
-
-    const idleAnimation = animate(progress, value * 0.9, {
-      duration: 2.4,
-      ease: "easeOut",
-    });
+    let stopCompletion: (() => void) | undefined;
 
     const complete = () => {
-      idleAnimation.stop();
-      animate(progress, value, {
-        duration: 0.35,
+      if (!minimumElapsed || !pageLoaded || completing) return;
+      completing = true;
+      const completion = animate(progress, target, {
+        duration: reduceMotion ? 0.1 : 0.25,
         ease: "easeOut",
         onComplete: () => {
-          finishTimeout = window.setTimeout(() => {
-            setIsVisible(false);
-          }, 250);
+          finishTimeout = window.setTimeout(
+            () => {
+              try {
+                window.sessionStorage.setItem(PREVIEW_SESSION_KEY, "1");
+              } catch {
+                // The introduction can still finish when storage is unavailable.
+              }
+              setIsVisible(false);
+            },
+            reduceMotion ? 100 : 450
+          );
         },
       });
+      stopCompletion = () => completion.stop();
     };
 
-    if (document.readyState === "complete") {
+    const introduction = animate(progress, target * 0.9, {
+      duration: reduceMotion ? 0.15 : 1.45,
+      ease: [0.22, 1, 0.36, 1],
+      onComplete: () => {
+        minimumElapsed = true;
+        complete();
+      },
+    });
+    const onLoad = () => {
+      pageLoaded = true;
       complete();
-    } else {
-      window.addEventListener("load", complete, { once: true });
-    }
+    };
+    window.addEventListener("load", onLoad, { once: true });
 
     return () => {
-      idleAnimation.stop();
-      unsubscribe();
-      if (finishTimeout) {
-        window.clearTimeout(finishTimeout);
-      }
-      window.removeEventListener("load", complete);
+      introduction.stop();
+      stopCompletion?.();
+      window.clearTimeout(finishTimeout);
+      window.removeEventListener("load", onLoad);
     };
-  }, [isVisible, progress, spring, value]);
+  }, [isVisible, progress, reduceMotion, target]);
 
   return (
     <AnimatePresence>
       {isVisible && (
         <motion.div
+          key="introduction"
           initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: "-100%" }}
-          transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 z-[1100] flex items-center justify-center overflow-hidden bg-neutral-950"
+          exit={reduceMotion ? { opacity: 0 } : { y: "-100%" }}
+          transition={{
+            duration: reduceMotion ? 0.15 : 0.9,
+            ease: [0.76, 0, 0.24, 1],
+          }}
+          className="fixed inset-0 z-[1100] flex items-center justify-center overflow-hidden bg-neutral-950 text-neutral-100"
         >
-          <div className="absolute inset-0 bg-gradient-radial from-neutral-900 to-neutral-950" />
-          <div className="relative z-10 flex flex-col items-center gap-6 px-6 text-neutral-500">
-            <Logo size={88} type="preview" />
-
-            <div className="text-3xl md:text-4xl">
-              {displayValue === 100 ? "Ready to go!" : "Loading..."}
-            </div>
-            <div
-              className={cn(
-                "inline-flex items-end text-5xl font-light leading-none tabular-nums md:text-7xl",
-                className
-              )}
+          <div className="relative flex w-full max-w-6xl flex-col items-center gap-8 px-6 text-center sm:px-10">
+            <motion.div
+              initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 1,
+                delay: 0.1,
+                ease: [0.22, 1, 0.36, 1],
+              }}
             >
-              <SlidingNumber value={displayValue} />
-              <span className="ml-2 text-lg text-neutral-500 md:text-2xl">
-                %
-              </span>
-            </div>
-            <div className="h-px w-48 overflow-hidden bg-white/10 md:w-72">
-              <motion.div
-                className="h-full origin-left bg-neutral-500"
-                animate={{ scaleX: displayValue / value }}
-                transition={{ ease: "easeOut", duration: 0.2 }}
+              <Image
+                src="/pd-logo1-removebg-preview.png"
+                alt="Payam Dowlatyari"
+                width={88}
+                height={88}
+                priority
               />
+            </motion.div>
+            <div className={cn("w-32 sm:w-48", className)} aria-hidden="true">
+              <div className="h-px overflow-hidden bg-white/10">
+                <motion.div
+                  className="h-full origin-left bg-neutral-400"
+                  style={{ scaleX }}
+                />
+              </div>
             </div>
+            <span role="status" className="sr-only">
+              Opening Payam Dowlatyari’s portfolio
+            </span>
           </div>
         </motion.div>
       )}
