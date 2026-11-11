@@ -21,8 +21,15 @@ export default function SendMessage() {
 
   if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
     return (
-      <p className="text-center">
-        EmailJS service is not configured, please configure the service first.
+      <p className="text-sm leading-6 text-muted-foreground">
+        Please email me directly at{" "}
+        <a
+          href="mailto:pdowlatyari@gmail.com"
+          className="text-foreground underline underline-offset-4"
+        >
+          pdowlatyari@gmail.com
+        </a>
+        .
       </p>
     );
   }
@@ -64,7 +71,10 @@ export default function SendMessage() {
     } catch (error) {
       if (error instanceof EmailJSResponseStatus) {
         setSuccess(false);
-        setMessage(`${error.text}, message failed! Email pdyari@gmail.com`);
+        setMessage(
+          "Your message could not be sent. Please email pdowlatyari@gmail.com."
+        );
+        setLoading(false);
         return;
       }
       setSuccess(false);
@@ -74,40 +84,52 @@ export default function SendMessage() {
   };
 
   return (
-    <form ref={form} onSubmit={sendEmail} className="mx-auto w-full max-w-lg">
-      {" "}
-      <div className="relative my-4">
+    <form ref={form} onSubmit={sendEmail} className="w-full">
+      <label htmlFor="contact-name" className="relative my-4 block">
+        <span className="mb-2 block text-xs text-muted-foreground">Name</span>
         <input
+          id="contact-name"
+          autoComplete="name"
+          required
           className="block h-12 w-full rounded-md border border-input bg-card px-4 py-3 text-base text-foreground placeholder:text-muted-foreground"
           placeholder="Your name"
           name="from_name"
           type="text"
         />
-      </div>
-      <div className="relative my-4">
+      </label>
+      <label htmlFor="contact-email" className="relative my-4 block">
+        <span className="mb-2 block text-xs text-muted-foreground">Email</span>
         <input
+          id="contact-email"
+          autoComplete="email"
+          required
           className="block h-12 w-full rounded-md border border-input bg-card px-4 py-3 text-base text-foreground placeholder:text-muted-foreground"
           placeholder="Your email"
           name="user_email"
           type="email"
         />
-      </div>
-      <div className="relative my-4">
+      </label>
+      <label htmlFor="contact-message" className="relative my-4 block">
+        <span className="mb-2 block text-xs text-muted-foreground">
+          Message
+        </span>
         <textarea
+          id="contact-message"
+          required
           className="block h-32 w-full rounded-md border border-input bg-card px-4 py-3 text-base text-foreground placeholder:text-muted-foreground"
           placeholder="Type your message here..."
           rows={5}
           name="message"
         />
-      </div>
+      </label>
       <button
         disabled={loading}
         type="submit"
         className="button-primary w-full"
       >
-        Send Message
+        {loading ? "Sending…" : "Send message"}
       </button>
-      <div className="flex justify-center p-2">
+      <div role="status" aria-live="polite" className="pt-3 text-sm">
         {message &&
           (success ? (
             <span className="text-primary">{message}</span>

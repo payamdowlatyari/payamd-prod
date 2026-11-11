@@ -6,14 +6,13 @@ import {
   useTransform,
   useSpring,
   MotionValue,
+  useReducedMotion,
 } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { IconType } from "react-icons/lib/cjs/iconBase";
 
-import BlurFade from "~/components/motion/BlurFade";
-import { H1, Paragraph } from "~/components/ui/Texts";
 import { projects } from "~/data";
 
 type Product = {
@@ -34,62 +33,83 @@ type Details = {
   icons: string[];
 };
 
-/**
- * A component that displays a hero section with a parallax effect.
- *
- * @param {Object} props - The component props.
- * @param {string[]} props.icons - An array of icon URLs to display in the hero section.
- */
-const PageIcons = ({ icons }: { icons: string[] }) => {
+/** Filters come from project metadata, so every technology has matching work. */
+const technologies = Array.from(
+  new Map(
+    projects.products.flatMap((product) =>
+      product.icons.map((technology) => [technology.name, technology] as const)
+    )
+  ).values()
+);
+
+function ProjectFilters({
+  selected,
+  onSelect,
+}: {
+  selected: string | null;
+  onSelect: (name: string | null) => void;
+}) {
+  const buttonClass = (active: boolean) =>
+    `inline-flex min-h-11 items-center gap-2 rounded-full border px-3 py-2 text-xs transition-colors ${active ? "border-foreground bg-foreground text-background" : "border-border bg-background text-muted-foreground hover:border-foreground/50 hover:text-foreground"}`;
   return (
-    <div className="flex flex-wrap space-x-5 md:space-x-10 mt-2 md:mt-4">
-      {icons.map((icon) => {
+    <div
+      role="group"
+      aria-label="Filter projects by technology"
+      className="mt-3 flex flex-wrap gap-2"
+    >
+      <button
+        type="button"
+        aria-pressed={selected === null}
+        aria-controls="project-gallery"
+        onClick={() => onSelect(null)}
+        className={buttonClass(selected === null)}
+      >
+        All projects{" "}
+        <span className="tabular-nums opacity-60">
+          {projects.products.length}
+        </span>
+      </button>
+      {technologies.map(({ name, icon: Icon }) => {
+        const count = projects.products.filter((product) =>
+          product.icons.some((technology) => technology.name === name)
+        ).length;
         return (
-          <div
-            key={icon}
-            className="flex items-center justify-center w-10 h-10 my-2 rounded-full border border-border bg-card hover:bg-secondary transition-all ease-in-out"
+          <button
+            key={name}
+            type="button"
+            aria-pressed={selected === name}
+            aria-controls="project-gallery"
+            onClick={() => onSelect(selected === name ? null : name)}
+            className={buttonClass(selected === name)}
           >
-            <Image
-              src={icon}
-              alt={icon}
-              width={40}
-              height={40}
-              className="w-6 h-6 m-1 object-contain"
-            />
-          </div>
+            <Icon size={16} aria-hidden="true" />
+            {name === "Typescript" ? "TypeScript" : name}
+            <span className="tabular-nums opacity-60">{count}</span>
+          </button>
         );
       })}
     </div>
   );
-};
+}
 
-/**
- * A component that displays page details with a parallax effect.
- *
- * @param {Object} props - The component props.
- * @param {Object} props.details - The details data to display in the hero section.
- */
-export const PageDetails = ({ details }: { details: Details }) => {
-  return (
-    <div className="section-shell relative left-0 top-0 pb-20 pt-28 md:pb-40 md:pt-36">
-      <BlurFade
-        delay={0.5}
-        inView
-        duration={0.5}
-        blur="6px"
-        variant={{ hidden: { y: 100 }, visible: { y: 0 } }}
-      >
-        <div className="flex flex-col">
-          <div className="grid gap-5">
-            <H1 label={details.title} />
-            <Paragraph className="max-w-xl" text={details.description} />
-          </div>
-          <PageIcons icons={details.icons} />
-        </div>
-      </BlurFade>
+export const PageDetails = ({
+  details,
+  children,
+}: {
+  details: Details;
+  children?: React.ReactNode;
+}) => (
+  <div className="section-shell pb-12 pt-32 md:pb-20 md:pt-40">
+    <div className="grid gap-7">
+      <div>
+        <p className="heading-label mb-7">{details.title}</p>
+        <h1 className="page-title max-w-5xl">Selected work.</h1>
+      </div>
+      <p className="body-copy max-w-xl">{details.description}</p>
+      {children}
     </div>
-  );
-};
+  </div>
+);
 
 /**
  * A component that renders a product card with a hover animation.
@@ -103,34 +123,32 @@ export const ProductCard = ({
   translate,
 }: {
   product: Product;
-  translate: MotionValue<number>;
+  translate?: MotionValue<number>;
 }) => {
+  const reduceMotion = useReducedMotion();
+  const external = /^https?:\/\//.test(product.url);
   return (
     <motion.div
       style={{
         x: translate,
       }}
-      whileHover={{
-        y: -10,
-        scale: 1.05,
-        transition: { duration: 0.3, ease: "easeInOut" },
-        zIndex: 100,
-      }}
+      whileHover={reduceMotion ? undefined : { y: -4 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
       key={product.title}
-      className="group/product w-full md:w-96 lg:w-[32rem] max-w-screen-sm relative flex-shrink-0"
+      className="group/product relative h-full min-w-0 w-full"
     >
       <Link
         href={product.url}
         className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card"
-        target="_blank"
-        rel="noopener noreferrer"
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
       >
         <div className="relative aspect-[7/4] w-full shrink-0 overflow-hidden">
           <Image
             src={product.img}
             height={1000}
             width={1750}
-            sizes="(min-width: 1024px) 512px, (min-width: 768px) 384px, 100vw"
+            sizes="(min-width: 1440px) 420px, (min-width: 768px) 30vw, 90vw"
             className="h-full w-full object-contain"
             alt={product.title}
           />
@@ -155,147 +173,95 @@ export const ProductCard = ({
   );
 };
 
-/**
- * A hero section for a web development portfolio page.
- */
-export const HeroParallax = () => {
-  const { products, details } = projects;
-  const firstRow = products.slice(0, 3);
-  const secondRow = products.slice(3, 6);
-  const thirdRow = products.slice(6, 9);
-  const ref = React.useRef(null);
+/** Local scroll progress gives each row a small, opposing horizontal drift. */
+function ProjectRow({
+  products,
+  reverse,
+}: {
+  products: Product[];
+  reverse: boolean;
+}) {
+  const ref = React.useRef<HTMLDivElement>(null);
+  const reduceMotion = useReducedMotion();
+  const [desktop, setDesktop] = React.useState(false);
+  React.useEffect(() => {
+    const query = window.matchMedia("(min-width: 768px)");
+    const update = () => setDesktop(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end start"],
+    offset: ["start end", "end start"],
   });
-
-  const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
-
-  const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [-200, 200]),
-    springConfig
-  );
-  const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 1], [200, -200]),
-    springConfig
-  );
-  const rotateX = useSpring(
-    useTransform(scrollYProgress, [0, 0.25], [15, 0]),
-    springConfig
-  );
-  const opacity = useSpring(
-    useTransform(scrollYProgress, [0, 0.25], [0.2, 1]),
-    springConfig
-  );
-  const rotateZ = useSpring(
-    useTransform(scrollYProgress, [0, 0.25], [20, 0]),
-    springConfig
-  );
-  const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.25], [-500, 0]),
-    springConfig
+  const distance = desktop && !reduceMotion ? 24 : 0;
+  const x = useSpring(
+    useTransform(
+      scrollYProgress,
+      [0, 1],
+      reverse ? [distance, -distance] : [-distance, distance]
+    ),
+    { stiffness: 120, damping: 30 }
   );
 
   return (
-    <div
-      ref={ref}
-      className="h-[280vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
-    >
-      <PageDetails details={details} />
+    <div ref={ref} className="md:px-6">
       <motion.div
-        style={{
-          rotateX,
-          rotateZ,
-          translateY,
-          opacity,
-        }}
+        style={{ x }}
+        className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-3"
       >
-        <motion.div className="flex flex-row-reverse mb-5 md:mb-10 gap-2 md:gap-4 lg:gap-6">
-          {firstRow.map((product) => (
-            <ProductCard
-              product={product}
-              translate={translateX}
-              key={product.title}
-            />
-          ))}
-        </motion.div>
-        <motion.div className="flex flex-row mb-5 md:mb-10 gap-2 md:gap-4 lg:gap-6">
-          {secondRow.map((product) => (
-            <ProductCard
-              product={product}
-              translate={translateXReverse}
-              key={product.title}
-            />
-          ))}
-        </motion.div>
-        <motion.div className="flex flex-row-reverse gap-2 md:gap-4 lg:gap-6">
-          {thirdRow.map((product) => (
-            <ProductCard
-              product={product}
-              translate={translateX}
-              key={product.title}
-            />
-          ))}
-        </motion.div>
+        {products.map((product) => (
+          <ProductCard key={product.title} product={product} />
+        ))}
       </motion.div>
     </div>
   );
-};
+}
 
-/**
- * A hero section for a web development portfolio page.
- */
-export const MobileHeroParallax = () => {
+export const HeroParallax = () => {
   const { products, details } = projects;
-  const ref = React.useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-
-  const translateY = useSpring(useTransform(scrollYProgress, [0, 1], [0, 0]), {
-    stiffness: 300,
-    damping: 30,
-    bounce: 100,
-  });
+  const [selected, setSelected] = React.useState<string | null>(null);
+  const filtered = selected
+    ? products.filter((product) =>
+        product.icons.some((technology) => technology.name === selected)
+      )
+    : products;
+  const rows = Array.from(
+    { length: Math.ceil(filtered.length / 3) },
+    (_, index) => filtered.slice(index * 3, index * 3 + 3)
+  );
   return (
-    <div
-      ref={ref}
-      className="h-auto py-20 overflow-hidden antialiased relative flex flex-col self-auto"
-    >
-      <PageDetails details={details} />
-      <div className="flex flex-col gap-8 mt-10 px-5">
-        {products.map((product) => (
-          <BlurFade
-            key={product.title}
-            inView
-            duration={0.5}
-            delay={0.5}
-            blur="6px"
-            variant={{ hidden: { y: 100 }, visible: { y: 0 } }}
-          >
-            <ProductCard product={product} translate={translateY} />
-          </BlurFade>
+    <div className="relative pb-16 md:pb-24">
+      <PageDetails details={details}>
+        <ProjectFilters selected={selected} onSelect={setSelected} />
+        <p
+          role="status"
+          aria-atomic="true"
+          className="text-xs text-muted-foreground"
+        >
+          {filtered.length} {filtered.length === 1 ? "project" : "projects"}
+          {selected
+            ? ` using ${selected === "Typescript" ? "TypeScript" : selected}`
+            : " in total"}
+        </p>
+      </PageDetails>
+      <div
+        id="project-gallery"
+        className="section-shell space-y-8 md:space-y-12"
+      >
+        {rows.map((row, index) => (
+          <ProjectRow
+            key={row[0].title}
+            products={row}
+            reverse={index % 2 === 1}
+          />
         ))}
       </div>
     </div>
   );
 };
 
-/**
- * A component that renders a hero section with a parallax effect.
- */
-const ResponsiveHeroParallax = () => {
-  return (
-    <>
-      <div className="hidden md:block">
-        <HeroParallax />
-      </div>
-      <div className="block md:hidden">
-        <MobileHeroParallax />
-      </div>
-    </>
-  );
-};
-
-export default ResponsiveHeroParallax;
+/** One responsive gallery keeps every project in the reading and tab order. */
+export const MobileHeroParallax = HeroParallax;
+export default HeroParallax;

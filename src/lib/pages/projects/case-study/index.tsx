@@ -1,12 +1,77 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useEffect, useState } from "react";
 
 import Footer from "~/components/layout/Footer";
 import Menu from "~/components/layout/Menu";
+import CaseStudyArchitecture from "~/components/motion/CaseStudyArchitecture";
 import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
 import CTA from "~/components/ui/CTA";
 import { projectCaseStudy } from "~/data";
+
+const chapters = projectCaseStudy.sections.map((section) => ({
+  title: section.title,
+  id: section.title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, ""),
+}));
+
+function ChapterNavigation() {
+  const [active, setActive] = useState(chapters[0].id);
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const current = chapters.reduce((previous, chapter) => {
+        const element = document.getElementById(chapter.id);
+        return element &&
+          element.getBoundingClientRect().top <= window.innerHeight * 0.3
+          ? chapter.id
+          : previous;
+      }, chapters[0].id);
+      setActive(current);
+    };
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+    };
+  }, []);
+  return (
+    <nav
+      aria-label="Case study chapters"
+      className="self-start lg:sticky lg:top-28"
+    >
+      <p className="mb-5 text-xs uppercase tracking-[0.12em] text-muted-foreground">
+        In this case study
+      </p>
+      <ol className="space-y-1 border-l border-border">
+        {chapters.map((chapter, index) => (
+          <li key={chapter.id}>
+            <a
+              href={`#${chapter.id}`}
+              aria-current={active === chapter.id ? "location" : undefined}
+              className={`-ml-px flex gap-3 border-l py-2 pl-4 text-xs leading-5 transition-colors ${active === chapter.id ? "border-foreground text-foreground" : "border-transparent text-muted-foreground hover:text-foreground"}`}
+            >
+              <span className="tabular-nums opacity-50">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              {chapter.title}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
+}
 
 /**
  * CaseStudy component displays a detailed case study of a project
@@ -22,7 +87,7 @@ export default function CaseStudy(): JSX.Element {
   };
 
   return (
-    <main className="overflow-hidden">
+    <main>
       <Menu />
       <div className="min-h-screen bg-background text-foreground">
         {/* Hero Section */}
@@ -31,9 +96,7 @@ export default function CaseStudy(): JSX.Element {
           <motion.div {...reveal} className="flex flex-col gap-4 mb-6">
             <h1 className="page-title mb-8 md:mb-12">Case Study</h1>
             <div className="flex flex-col gap-6">
-              <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-tight tracking-[-0.03em] text-foreground">
-                {title}
-              </h2>
+              <h2 className="section-title-compact">{title}</h2>
               <p className="body-copy my-2 max-w-[60ch] md:my-4">{summary}</p>
 
               <figure className="mt-4 w-full max-w-4xl">
@@ -65,13 +128,16 @@ export default function CaseStudy(): JSX.Element {
         </section>
 
         {/* Content Sections */}
-        <section className="section-shell py-16">
-          <div className="max-w-3xl mx-auto space-y-16">
-            {sections.map((section) => (
-              <motion.div {...reveal} key={section.title} className="space-y-4">
-                <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-tight tracking-[-0.03em] text-foreground">
-                  {section.title}
-                </h2>
+        <div className="section-shell grid gap-12 py-16 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-16">
+          <ChapterNavigation />
+          <div className="min-w-0 max-w-3xl space-y-16">
+            {sections.map((section, index) => (
+              <div
+                id={chapters[index].id}
+                key={section.title}
+                className="scroll-mt-28 space-y-4"
+              >
+                <h2 className="section-title-compact">{section.title}</h2>
                 <div className="prose prose-invert max-w-none">
                   {section.description
                     .split("\n")
@@ -85,6 +151,9 @@ export default function CaseStudy(): JSX.Element {
                       </p>
                     ))}
                 </div>
+                {section.title === "System Architecture Solution" && (
+                  <CaseStudyArchitecture />
+                )}
                 <ul className="space-y-4">
                   {section.sections &&
                     section.sections.map((subsection) => (
@@ -112,10 +181,10 @@ export default function CaseStudy(): JSX.Element {
                     {section.ending}
                   </p>
                 )}
-              </motion.div>
+              </div>
             ))}
           </div>
-        </section>
+        </div>
 
         {/* CTA Section */}
         <div className="section-shell my-24">

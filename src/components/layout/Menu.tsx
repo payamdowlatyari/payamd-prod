@@ -42,13 +42,13 @@ export function Nav({
                 href={url}
                 onClick={onNavigate}
                 aria-current={active ? "page" : undefined}
-                className="group inline-flex items-baseline gap-5 rounded-sm py-1 sm:gap-8"
+                className="group inline-flex items-baseline gap-5 min-h-11 rounded-sm py-1 sm:gap-8"
               >
                 <span className="text-xs tabular-nums text-muted-foreground">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <span
-                  className={`font-display text-[clamp(2.75rem,7vw,6rem)] font-medium leading-[1.1] tracking-[-0.045em] decoration-1 underline-offset-8 transition-colors group-hover:text-muted-foreground ${active ? "underline" : ""}`}
+                  className={`font-display text-[clamp(2.25rem,min(7vw,10svh),6rem)] font-medium leading-[1.1] tracking-[-0.045em] decoration-1 underline-offset-8 transition-colors group-hover:text-muted-foreground ${active ? "underline" : ""}`}
                 >
                   {title}
                 </span>
@@ -69,11 +69,13 @@ function MenuPanel({
   onNavigate: (event: MouseEvent<HTMLAnchorElement>) => void;
 }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const dialog = dialogRef.current;
     dialog?.showModal();
+    closeRef.current?.focus({ preventScroll: true });
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
@@ -89,16 +91,17 @@ function MenuPanel({
       exit={{ opacity: 0 }}
       transition={{ duration: reduceMotion ? 0 : 0.3, ease: "easeInOut" }}
       ref={dialogRef}
+      data-lenis-prevent
       id="explore-menu"
       aria-label="Explore the site"
       onCancel={(event) => {
         event.preventDefault();
         onClose();
       }}
-      className="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none overflow-y-auto border-0 bg-background p-0 text-foreground backdrop:bg-transparent"
+      className="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none overflow-y-auto overscroll-contain border-0 bg-background p-0 text-foreground backdrop:bg-transparent"
     >
       <div className="flex min-h-dvh flex-col px-6 sm:px-10 lg:px-16">
-        <div className="flex h-20 shrink-0 items-center justify-between border-b border-border/60">
+        <div className="sticky top-0 z-20 flex h-20 shrink-0 items-center justify-between border-b border-border/60 bg-background">
           <Link href="/" onClick={onNavigate} aria-label="Home">
             <Image
               src="/pd-logo1-removebg-preview.png"
@@ -108,6 +111,7 @@ function MenuPanel({
             />
           </Link>
           <button
+            ref={closeRef}
             type="button"
             onClick={onClose}
             className="flex min-h-11 items-center gap-4 rounded-sm px-2 text-sm"

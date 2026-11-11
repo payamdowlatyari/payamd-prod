@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import BlurFade from "~/components/motion/BlurFade";
+import { scrollToPosition } from "~/components/motion/SmoothScrolling";
 import { LinkArrowOut } from "~/components/ui/Button";
 import { portfolio } from "~/data";
 
@@ -46,9 +47,7 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-4">
             <BlurFade inView delay={0.1} duration={0.6}>
               <nav aria-label="Footer navigation">
-                <h2 className="mb-4 text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
-                  Explore
-                </h2>
+                <h2 className="heading-label mb-4">Explore</h2>
                 <ul className="space-y-2">
                   {navigationLinks.map(({ href, label }) => (
                     <li key={href}>
@@ -66,9 +65,7 @@ export default function Footer() {
             {portfolio.contacts.map((section) => (
               <BlurFade key={section.title} inView delay={0.1} duration={0.6}>
                 <div>
-                  <h2 className="mb-4 text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
-                    {section.title}
-                  </h2>
+                  <h2 className="heading-label mb-4">{section.title}</h2>
                   <ul className="space-y-2">
                     {section.links.map(({ name, url }) => (
                       <li key={url}>
@@ -88,12 +85,7 @@ export default function Footer() {
           </p>
           <button
             type="button"
-            onClick={() =>
-              window.scrollTo({
-                top: 0,
-                behavior: reduceMotion ? "instant" : "smooth",
-              })
-            }
+            onClick={() => scrollToPosition(0, Boolean(reduceMotion))}
             className="w-fit rounded-sm py-2 text-sm font-medium transition-colors hover:text-foreground"
           >
             Back to top

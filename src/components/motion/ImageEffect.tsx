@@ -3,6 +3,7 @@
 
 import { useTexture, shaderMaterial } from "@react-three/drei";
 import { Canvas, extend, useFrame } from "@react-three/fiber";
+import { useReducedMotion } from "motion/react";
 import { useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 
@@ -81,6 +82,7 @@ type FadingImageProps = {
  */
 export function FadingImage({ i1, i2 }: FadingImageProps) {
   const ref = useRef<any>();
+  const reduceMotion = useReducedMotion();
 
   const [tex1, tex2, disp] = useTexture([i1, i2, "/13.jpg"]);
 
@@ -93,11 +95,9 @@ export function FadingImage({ i1, i2 }: FadingImageProps) {
   const [hovered, setHover] = useState(false);
 
   useFrame(() => {
-    ref.current.dispFactor = THREE.MathUtils.lerp(
-      ref.current.dispFactor,
-      hovered ? 1 : 0,
-      0.075
-    );
+    ref.current.dispFactor = reduceMotion
+      ? 0
+      : THREE.MathUtils.lerp(ref.current.dispFactor, hovered ? 1 : 0, 0.075);
   });
 
   return (

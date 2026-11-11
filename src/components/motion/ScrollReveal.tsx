@@ -1,6 +1,12 @@
 "use client";
 
-import { motion, MotionValue, useScroll, useTransform } from "motion/react";
+import {
+  motion,
+  MotionValue,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "motion/react";
 import type { FC, ReactNode } from "react";
 import { useRef } from "react";
 
@@ -21,12 +27,15 @@ interface WordProps {
  * @param {WordProps} props - The component props.
  */
 const Word: FC<WordProps> = ({ children, progress, range }: WordProps) => {
-  const opacity = useTransform(progress, range, [0, 1]);
+  const opacity = useTransform(progress, range, [0.15, 1]);
+  const reduceMotion = useReducedMotion();
 
   return (
     <span className="relative inline-block">
-      <span className="absolute opacity-0">{children}</span>
-      <motion.span style={{ opacity }} className="text-foreground">
+      <motion.span
+        style={{ opacity: reduceMotion ? 1 : opacity }}
+        className="text-foreground max-lg:!opacity-100"
+      >
         {children}
       </motion.span>
     </span>
@@ -54,9 +63,11 @@ const TextRevealByWord: FC<TextRevealByWordProps> = ({
   revealCompleteAt = 0.8,
 }: TextRevealByWordProps) => {
   const targetRef = useRef<HTMLDivElement | null>(null);
+  const reduceMotion = useReducedMotion();
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
+    offset: ["start start", "end end"],
   });
   const completeAt = Math.min(Math.max(revealCompleteAt, 0.1), 1);
   const revealProgress = useTransform(scrollYProgress, [0, completeAt], [0, 1]);
@@ -80,23 +91,33 @@ const TextRevealByWord: FC<TextRevealByWordProps> = ({
   })();
 
   return (
-    <div ref={targetRef} className={cn("relative z-0 h-[400vh]", className)}>
-      <div className="section-shell sticky top-0 flex min-h-svh items-center justify-center bg-transparent py-24">
+    <div
+      ref={targetRef}
+      className={cn(
+        "relative z-0",
+        !reduceMotion && "lg:h-[220svh]",
+        className
+      )}
+    >
+      <div className="section-shell flex items-center justify-center bg-transparent py-16 md:py-24 lg:sticky lg:top-0 lg:min-h-svh">
         <p className="flex w-full max-w-[64ch] flex-wrap justify-center gap-x-[0.25em] font-display text-[clamp(1.125rem,2.1vw,1.875rem)] font-medium leading-[1.45] tracking-[-0.025em] text-center text-foreground">
-          {wordsWithOffsets.map(({ word, start }, i) => {
-            const startProgress =
-              wordsCount <= 1 ? 0 : (i / (wordsCount - 1)) * maxStart;
-            const end = startProgress + revealWindow;
-            return (
-              <Word
-                progress={revealProgress}
-                range={[startProgress, end]}
-                key={`${word}-${start}`}
-              >
-                {word}
-              </Word>
-            );
-          })}
+          <span className="sr-only">{text}</span>
+          <span aria-hidden="true" className="contents">
+            {wordsWithOffsets.map(({ word, start }, i) => {
+              const startProgress =
+                wordsCount <= 1 ? 0 : (i / (wordsCount - 1)) * maxStart;
+              const end = startProgress + revealWindow;
+              return (
+                <Word
+                  progress={revealProgress}
+                  range={[startProgress, end]}
+                  key={`${word}-${start}`}
+                >
+                  {word}
+                </Word>
+              );
+            })}
+          </span>
         </p>
       </div>
     </div>

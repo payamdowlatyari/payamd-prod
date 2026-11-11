@@ -1,7 +1,12 @@
 "use client";
 
 import type { UseInViewOptions, Variants } from "motion/react";
-import { AnimatePresence, motion, useInView } from "motion/react";
+import {
+  AnimatePresence,
+  motion,
+  useInView,
+  useReducedMotion,
+} from "motion/react";
 import { useRef } from "react";
 
 /**
@@ -38,24 +43,30 @@ export default function BlurFade({
   blur = "6px",
 }: BlurFadeProps) {
   const ref = useRef(null);
+  const reduceMotion = useReducedMotion();
   const inViewResult = useInView(ref, { once: true, margin: inViewMargin });
   const isInView = !inView || inViewResult;
   const defaultVariants: Variants = {
     hidden: { y: yOffset, opacity: 0, filter: `blur(${blur})` },
     visible: { y: -yOffset, opacity: 1, filter: `blur(0px)` },
   };
-  const combinedVariants = variant || defaultVariants;
+  const combinedVariants = reduceMotion
+    ? {
+        hidden: { opacity: 1, y: 0, filter: "none" },
+        visible: { opacity: 1, y: 0, filter: "none" },
+      }
+    : variant || defaultVariants;
   return (
     <AnimatePresence mode="wait" initial={false}>
       <motion.div
         ref={ref}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        initial={reduceMotion ? false : "hidden"}
+        animate={reduceMotion || isInView ? "visible" : "hidden"}
         exit="hidden"
         variants={combinedVariants}
         transition={{
-          delay: 0.04 + delay,
-          duration,
+          delay: reduceMotion ? 0 : 0.04 + delay,
+          duration: reduceMotion ? 0 : duration,
           ease: "easeOut",
         }}
         className={className}

@@ -1,6 +1,12 @@
 "use client";
 
-import { motion, useScroll, HTMLMotionProps, useSpring } from "motion/react";
+import {
+  motion,
+  useScroll,
+  HTMLMotionProps,
+  useSpring,
+  useReducedMotion,
+} from "motion/react";
 import { ReactElement } from "react";
 
 import { cn } from "~/utils/cn";
@@ -12,6 +18,7 @@ import { cn } from "~/utils/cn";
  */
 export default function ScrollProgressBar() {
   const { scrollYProgress } = useScroll();
+  const reduceMotion = useReducedMotion();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -20,8 +27,9 @@ export default function ScrollProgressBar() {
 
   return (
     <motion.div
-      style={{ scaleX }}
-      className="fixed left-0 bottom-0 right-0 origin-[0] z-20 h-2 bg-neutral-200"
+      aria-hidden="true"
+      style={{ scaleX: reduceMotion ? scrollYProgress : scaleX }}
+      className="pointer-events-none fixed inset-x-0 bottom-0 z-20 h-0.5 origin-left bg-foreground/40"
     />
   );
 }

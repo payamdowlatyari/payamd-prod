@@ -223,11 +223,23 @@ section {
 }
 
 @layer components {
+  .hero-title {
+    @apply font-display text-[clamp(3.25rem,11vw,10rem)] font-medium leading-[0.95] tracking-[-0.06em] text-foreground;
+  }
   .page-title {
     @apply font-display text-[clamp(3rem,8vw,7rem)] font-medium leading-[1] tracking-[-0.04em] text-foreground;
   }
   .section-title {
     @apply font-display text-[clamp(3rem,6.5vw,6rem)] font-medium leading-[1] tracking-[-0.04em] text-foreground;
+  }
+  .section-title-compact {
+    @apply font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-tight tracking-[-0.03em] text-foreground;
+  }
+  .item-title {
+    @apply font-display text-base font-medium leading-snug tracking-tight text-foreground md:text-lg;
+  }
+  .heading-label {
+    @apply font-display text-xs font-medium uppercase leading-relaxed tracking-[0.14em] text-muted-foreground;
   }
   .card-title {
     @apply font-display text-xl font-medium leading-tight tracking-tight text-foreground md:text-2xl;
@@ -267,4 +279,15 @@ section {
   ::selection {
     @apply bg-primary text-primary-foreground;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Let Lenis own interpolation while preserving native anchor smoothing elsewhere. */
+html.lenis {
+  scroll-behavior: auto;
 }

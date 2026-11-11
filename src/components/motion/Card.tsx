@@ -15,16 +15,7 @@ export const CardTitle = ({
   className?: string;
   children: React.ReactNode;
 }) => {
-  return (
-    <h3
-      className={cn(
-        "font-display text-base font-medium leading-snug tracking-tight text-foreground md:text-lg",
-        className
-      )}
-    >
-      {children}
-    </h3>
-  );
+  return <h3 className={cn("item-title", className)}>{children}</h3>;
 };
 
 /**
@@ -124,7 +115,7 @@ export function Card({ items }: { items: CardProps[] }) {
                 <LinkArrowOut
                   title={item.title}
                   url={item.link}
-                  className="py-0 text-base leading-snug tracking-tight underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground focus-visible:decoration-foreground md:text-lg"
+                  className="item-title py-0 text-base underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground focus-visible:decoration-foreground md:text-lg"
                 />
               ) : (
                 item.title

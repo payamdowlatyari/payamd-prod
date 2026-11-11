@@ -1,34 +1,24 @@
 "use client";
 
-import { motion } from "motion/react";
-import { usePathname } from "next/navigation";
+import { motion, useReducedMotion } from "motion/react";
 
-const variants = {
-  initial: { opacity: 0, y: 10 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -10 },
-};
-
-/**
- * A Framer Motion component to animate page transitions.
- *
- * @param {Object} props - The component accepts a `children` prop
- */
+/** A short page fade that keeps fixed and sticky descendants in place. */
 export default function PageTransition({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const pathname = usePathname(); // Forces animation on route change
+  const reduceMotion = useReducedMotion();
 
   return (
     <motion.div
-      key={pathname}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      variants={variants}
-      transition={{ duration: 3, ease: "easeInOut" }}
+      initial={reduceMotion ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{
+        opacity: 0,
+        transition: { duration: reduceMotion ? 0 : 0.2 },
+      }}
+      transition={{ duration: reduceMotion ? 0 : 0.4, ease: "easeOut" }}
     >
       {children}
     </motion.div>

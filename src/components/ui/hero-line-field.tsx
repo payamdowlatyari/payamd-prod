@@ -1,20 +1,26 @@
 "use client";
 
-import { useReducedMotion } from "motion/react";
+import { motion, type MotionValue, useReducedMotion } from "motion/react";
 import { useEffect, useId, useRef } from "react";
 
 const LINE_COUNT = 25;
 const HEIGHT = 640;
 
 /** Draw sparse threads; animate only while the pointer moves or the field settles. */
-export default function HeroLineField() {
+export default function HeroLineField({
+  y: scrollOffset,
+  x: sidewaysOffset,
+}: {
+  y?: MotionValue<number>;
+  x?: MotionValue<number>;
+}) {
   const svgRef = useRef<SVGSVGElement>(null);
   const maskId = useId();
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const svg = svgRef.current;
-    const hero = svg?.parentElement;
+    const hero = svg?.closest("section");
     if (!svg || !hero) return undefined;
     const paths = svg.querySelectorAll("path");
     let frame = 0;
@@ -41,13 +47,14 @@ export default function HeroLineField() {
         const baseX = 30 + index * 40;
         const points = Array.from({ length: 41 }, (_, step) => {
           const y = (step / 40) * HEIGHT;
-          const dx = baseX - pointerX;
+          const curve = Math.sin(y / 180 + index * 0.12) * 32;
+          const dx = baseX + curve - pointerX;
           const dy = y - pointerY;
           const influence = Math.exp(-((dx * dx) / 30000 + (dy * dy) / 22000));
           const bend = (dx < 0 ? -1 : 1) * influence * strength * 38;
           const entrance =
             Math.sin(y / 120 + index * 0.2 - elapsed * 1.5) * wave;
-          return `${step === 0 ? "M" : "L"}${(baseX + bend + entrance).toFixed(2)},${y}`;
+          return `${step === 0 ? "M" : "L"}${(baseX + curve + bend + entrance).toFixed(2)},${y}`;
         });
         path.setAttribute("d", points.join(" "));
       });
@@ -91,7 +98,8 @@ export default function HeroLineField() {
   }, [reduceMotion]);
 
   return (
-    <svg
+    <motion.svg
+      style={{ x: sidewaysOffset, y: scrollOffset }}
       ref={svgRef}
       aria-hidden="true"
       viewBox="0 0 1000 640"
@@ -106,17 +114,17 @@ export default function HeroLineField() {
           cy="288"
           r="750"
         >
-          <stop stopColor="currentColor" stopOpacity="0.2" />
-          <stop offset="0.55" stopColor="currentColor" stopOpacity="0.08" />
+          <stop stopColor="currentColor" stopOpacity="0.34" />
+          <stop offset="0.55" stopColor="currentColor" stopOpacity="0.14" />
           <stop offset="1" stopColor="currentColor" stopOpacity="0" />
         </radialGradient>
       </defs>
-      <g fill="none" stroke={`url(#${maskId})`} strokeWidth="0.7">
+      <g fill="none" stroke={`url(#${maskId})`} strokeWidth="1">
         {Array.from({ length: LINE_COUNT }, (_, index) => {
           const x = 30 + index * 40;
           return <path key={x} d={`M${x},0 L${x},640`} />;
         })}
       </g>
-    </svg>
+    </motion.svg>
   );
 }
