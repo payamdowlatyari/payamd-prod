@@ -98,7 +98,7 @@ function MenuPanel({
         event.preventDefault();
         onClose();
       }}
-      className="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none overflow-y-auto overscroll-contain border-0 bg-background p-0 text-foreground backdrop:bg-transparent"
+      className="fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none overflow-y-auto overscroll-contain border-0 bg-background p-0 text-foreground backdrop:bg-transparent"
     >
       <div className="flex min-h-dvh flex-col px-6 sm:px-10 lg:px-16">
         <div className="sticky top-0 z-20 flex h-20 shrink-0 items-center justify-between border-b border-border/60 bg-background">

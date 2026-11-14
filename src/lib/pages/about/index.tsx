@@ -6,7 +6,6 @@ import Footer from "~/components/layout/Footer";
 import Menu from "~/components/layout/Menu";
 import BlurFade from "~/components/motion/BlurFade";
 import { Card } from "~/components/motion/Card";
-import LinkPreview from "~/components/motion/LinkPreview";
 import ScrollProgressBar from "~/components/motion/ScrollProgressBar";
 import TextRevealByWord from "~/components/motion/ScrollReveal";
 import { LinkArrowOut } from "~/components/ui/Button";
@@ -165,31 +164,6 @@ const SelectedToolkit = () => {
 };
 
 /**
- * Renders a bottom section with a gradient tracing animation.
- */
-const BottomSection = () => (
-  <div className="relative z-10 mx-auto my-20 max-w-3xl px-6 py-12 text-center">
-    <p className="font-display text-3xl font-medium leading-relaxed tracking-tight text-muted-foreground md:text-[2.5rem]">
-      Check out my{" "}
-      <LinkPreview
-        url="https://blog.payamd.com/"
-        className="text-foreground underline decoration-foreground/30 decoration-1 underline-offset-8 transition-colors hover:decoration-foreground focus-visible:decoration-foreground"
-      >
-        Blog
-      </LinkPreview>{" "}
-      &amp;{" "}
-      <LinkPreview
-        url="https://photos.payamd.com/"
-        className="text-foreground underline decoration-foreground/30 decoration-1 underline-offset-8 transition-colors hover:decoration-foreground focus-visible:decoration-foreground"
-      >
-        Photography
-      </LinkPreview>{" "}
-      portfolio.
-    </p>
-  </div>
-);
-
-/**
  * A component that displays an about page.
  *
  * @returns {JSX.Element} The rendered about page.
@@ -201,7 +175,6 @@ const About = (): JSX.Element => {
       <Intro />
       <Resume />
       <SelectedToolkit />
-      <BottomSection />
       <Footer />
       <ScrollProgressBar />
     </main>

@@ -10,17 +10,21 @@ const HEIGHT = 640;
 export default function HeroLineField({
   y: scrollOffset,
   x: sidewaysOffset,
+  variant = "hero",
 }: {
   y?: MotionValue<number>;
   x?: MotionValue<number>;
+  variant?: "hero" | "footer";
 }) {
+  const footer = variant === "footer";
+  const lineCount = footer ? 5 : LINE_COUNT;
   const svgRef = useRef<SVGSVGElement>(null);
   const maskId = useId();
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const svg = svgRef.current;
-    const hero = svg?.closest("section");
+    const hero = svg?.closest<HTMLElement>("section, footer");
     if (!svg || !hero) return undefined;
     const paths = svg.querySelectorAll("path");
     let frame = 0;
@@ -30,7 +34,7 @@ export default function HeroLineField({
     let strength = 0;
     let targetStrength = 0;
     let introductoryWave = !reduceMotion;
-    let visible = true;
+    let visible = false;
 
     const draw = (time: number) => {
       frame = 0;
@@ -44,14 +48,17 @@ export default function HeroLineField({
       if (elapsed >= 2.4) introductoryWave = false;
       strength += (targetStrength - strength) * 0.09;
       paths.forEach((path, index) => {
-        const baseX = 30 + index * 40;
+        const baseX = footer ? 620 + index * 65 : 30 + index * 40;
         const points = Array.from({ length: 41 }, (_, step) => {
           const y = (step / 40) * HEIGHT;
-          const curve = Math.sin(y / 180 + index * 0.12) * 32;
+          const curve = footer
+            ? Math.sin(y / 150 + index * 0.09) * 90
+            : Math.sin(y / 180 + index * 0.12) * 32;
           const dx = baseX + curve - pointerX;
           const dy = y - pointerY;
           const influence = Math.exp(-((dx * dx) / 30000 + (dy * dy) / 22000));
-          const bend = (dx < 0 ? -1 : 1) * influence * strength * 38;
+          const bend =
+            (dx < 0 ? -1 : 1) * influence * strength * (footer ? 28 : 38);
           const entrance =
             Math.sin(y / 120 + index * 0.2 - elapsed * 1.5) * wave;
           return `${step === 0 ? "M" : "L"}${(baseX + curve + bend + entrance).toFixed(2)},${y}`;
@@ -95,7 +102,7 @@ export default function HeroLineField({
       hero.removeEventListener("pointermove", move);
       hero.removeEventListener("pointerleave", leave);
     };
-  }, [reduceMotion]);
+  }, [reduceMotion, footer]);
 
   return (
     <motion.svg
@@ -114,15 +121,26 @@ export default function HeroLineField({
           cy="288"
           r="750"
         >
-          <stop stopColor="currentColor" stopOpacity="0.34" />
-          <stop offset="0.55" stopColor="currentColor" stopOpacity="0.14" />
+          <stop stopColor="currentColor" stopOpacity={footer ? 0.14 : 0.34} />
+          <stop
+            offset="0.55"
+            stopColor="currentColor"
+            stopOpacity={footer ? 0.07 : 0.14}
+          />
           <stop offset="1" stopColor="currentColor" stopOpacity="0" />
         </radialGradient>
       </defs>
       <g fill="none" stroke={`url(#${maskId})`} strokeWidth="1">
-        {Array.from({ length: LINE_COUNT }, (_, index) => {
-          const x = 30 + index * 40;
-          return <path key={x} d={`M${x},0 L${x},640`} />;
+        {Array.from({ length: lineCount }, (_line, index) => {
+          const x = footer ? 620 + index * 65 : 30 + index * 40;
+          const path = Array.from({ length: 41 }, (_, step) => {
+            const row = (step / 40) * HEIGHT;
+            const curve = footer
+              ? Math.sin(row / 150 + index * 0.09) * 90
+              : Math.sin(row / 180 + index * 0.12) * 32;
+            return `${step === 0 ? "M" : "L"}${(x + curve).toFixed(2)},${row}`;
+          }).join(" ");
+          return <path key={x} d={path} />;
         })}
       </g>
     </motion.svg>

@@ -11,6 +11,7 @@
   }
 
   html {
+    scrollbar-gutter: stable;
     scroll-behavior: smooth;
   }
 
@@ -82,25 +83,25 @@
   }
   .dark {
     color-scheme: dark;
-    --background: 0 0% 7%;
-    --foreground: 0 0% 96%;
-    --card: 0 0% 11%;
-    --card-foreground: 0 0% 96%;
-    --popover: 0 0% 11%;
-    --popover-foreground: 0 0% 96%;
-    --primary: 0 0% 90%;
-    --primary-foreground: 0 0% 10%;
-    --secondary: 0 0% 16%;
-    --secondary-foreground: 0 0% 96%;
-    --muted: 0 0% 16%;
-    --muted-foreground: 0 0% 71%;
-    --accent: 0 0% 90%;
-    --accent-foreground: 0 0% 10%;
+    --background: 42 6% 7%;
+    --foreground: 42 14% 96%;
+    --card: 42 5% 11%;
+    --card-foreground: 42 14% 96%;
+    --popover: 42 5% 11%;
+    --popover-foreground: 42 14% 96%;
+    --primary: 42 12% 90%;
+    --primary-foreground: 42 5% 10%;
+    --secondary: 42 4% 16%;
+    --secondary-foreground: 42 14% 96%;
+    --muted: 42 4% 16%;
+    --muted-foreground: 42 7% 71%;
+    --accent: 42 12% 90%;
+    --accent-foreground: 42 5% 10%;
     --destructive: 0 85% 72%;
     --destructive-foreground: 0 0% 10%;
-    --border: 0 0% 23%;
-    --input: 0 0% 34%;
-    --ring: 0 0% 90%;
+    --border: 42 5% 23%;
+    --input: 42 4% 34%;
+    --ring: 42 12% 90%;
   }
 }
 
@@ -290,4 +291,10 @@ section {
 /* Let Lenis own interpolation while preserving native anchor smoothing elsewhere. */
 html.lenis {
   scroll-behavior: auto;
+}
+
+/* Preserve the reserved gutter when Lenis locks the page for the menu.
+   Its default overflow: clip releases the scrollbar space. */
+html.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: hidden;
 }

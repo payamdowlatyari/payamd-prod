@@ -22,14 +22,14 @@ export default function Logo({
       transition={{ duration: 0.5, ease: "backInOut" }}
       className={
         type === "header"
-          ? "fixed top-4 left-6 z-[1001] sm:left-10 lg:left-16"
+          ? "fixed top-4 left-6 z-[1001] mix-blend-difference sm:left-10 lg:left-16"
           : ""
       }
     >
       <Link href="/" aria-label="Home">
         <Image
           src="/pd-logo1-removebg-preview.png"
-          alt="logo"
+          alt="Payam Dowlatyari logo"
           width={size}
           height={size}
           priority
